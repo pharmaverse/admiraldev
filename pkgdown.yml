@@ -1,0 +1,10 @@
+pandoc: 2.7.3
+pkgdown: 1.5.0
+pkgdown_sha: ~
+articles:
+  adxx: adxx.html
+last_built: 2022-06-29T12:57Z
+urls:
+  reference: https://pharmaverse.github.io/admiraltemplate/reference
+  article: https://pharmaverse.github.io/admiraltemplate/articles
+
