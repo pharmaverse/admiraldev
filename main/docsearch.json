@@ -2,21 +2,21 @@
   "index_name": "pharmaverse",
   "start_urls": [
     {
-      "url": "https://pharmaverse.github.io/admiraltemplate/main/index.html",
+      "url": "https://pharmaverse.github.io/admiraldev/main/index.html",
       "selectors_key": "homepage",
       "tags": [
         "homepage"
       ]
     },
     {
-      "url": "https://pharmaverse.github.io/admiraltemplate/main/reference",
+      "url": "https://pharmaverse.github.io/admiraldev/main/reference",
       "selectors_key": "reference",
       "tags": [
         "reference"
       ]
     },
     {
-      "url": "https://pharmaverse.github.io/admiraltemplate/main/articles",
+      "url": "https://pharmaverse.github.io/admiraldev/main/articles",
       "selectors_key": "articles",
       "tags": [
         "articles"
@@ -30,7 +30,7 @@
     "/articles/index.html"
   ],
   "sitemap_urls": [
-    "https://pharmaverse.github.io/admiraltemplate/main/sitemap.xml"
+    "https://pharmaverse.github.io/admiraldev/main/sitemap.xml"
   ],
   "selectors": {
     "homepage": {
