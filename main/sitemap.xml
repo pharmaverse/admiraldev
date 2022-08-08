@@ -7,10 +7,31 @@
     <loc>https://pharmaverse.github.io/admiraldev/main/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/main/articles/adxx.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/admiraldev.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/contribution_model.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/development_process.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/git_usage.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/pr_review_guidance.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/programming_strategy.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/unit_test_guidance.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/writing_vignettes.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/authors.html</loc>
