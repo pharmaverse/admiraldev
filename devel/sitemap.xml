@@ -58,10 +58,16 @@
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_data_frame.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_expr.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_filter_cond.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_function.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_function_param.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_has_variables.html</loc>
@@ -77,6 +83,9 @@
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_logical_scalar.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_named_exprs.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_numeric_vector.html</loc>
