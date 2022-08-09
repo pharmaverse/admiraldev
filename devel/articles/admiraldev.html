@@ -88,13 +88,6 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -135,12 +128,12 @@
 <div class="section level2">
 <h2 id="dear-developers">Dear Developers<a class="anchor" aria-label="anchor" href="#dear-developers"></a>
 </h2>
-<p><a href="https://pharmaverse.github.io/admiraldev" class="external-link">admiraldev</a> is intended for you, the developer, to help make developing within the admiral family easier and consistently robust and maybe even fun!</p>
+<p><a href="https://pharmaverse.github.io/admiraldev" class="external-link">admiraldev</a> is a set of tools intended for you, the developer, to help make developing within the admiral family easier, consistently robust across all packages and maybe even fun!</p>
 <p>Tools are loosely defined as follows:</p>
 <ul>
-<li><p>Utility Functions used in <a href="https://pharmaverse.github.io/admiral" class="external-link">admiral</a> and <a href="https://pharmaverse.github.io/admiral" class="external-link">admiral</a> extension functions for doing custom checks and providing custom messages, warnings and errors. These cusotm messages, warnings and errors are succint, but helpful messaging around what a function expects as inputs. The inputs to admiral functions are many, but generally fit into three categories: datasets, variables and arguments. Most of the functions start with <code>assert_</code>, <code>is_</code> or <code>get_</code>.</p></li>
+<li><p>Utility Functions used in <a href="https://pharmaverse.github.io/admiral" class="external-link">admiral</a> and <a href="https://pharmaverse.github.io/admiral" class="external-link">admiral</a> extension functions for doing custom checks and providing custom messages, warnings and errors. These custom messages, warnings and errors are succinct, but helpful messaging around what a function expects as inputs. The inputs to admiral functions are many, but generally fit into three categories: datasets, variables and arguments. Most of the functions start with <code>assert_</code>, <code>is_</code> or <code>get_</code>.</p></li>
 <li><p>Addins and utility functions that help with documentation, testing and checking on health of the code base in all admiral packages.</p></li>
-<li><p>Vignettes on working on <a href="https://pharmaverse.github.io/admiral" class="external-link">admiral</a> functions, developing unit testing, releases process, vignette writing and other documenation. These vignettes are intended for use across admiral packages.</p></li>
+<li><p>Vignettes on working on <a href="https://pharmaverse.github.io/admiral" class="external-link">admiral</a> functions, developing unit testing, releases process, vignette writing and other documentation needs. These vignettes are intended for use across all admiral packages.</p></li>
 </ul>
 </div>
 <div class="section level2">
@@ -150,6 +143,11 @@
 <li><p>Just like in <a href="https://pharmaverse.github.io/admiral" class="external-link">admiral</a>, we follow the same procedures of adding issues, developing those issues in branches and doing a Pull Request.</p></li>
 <li><p>Experimental tools are highly encouraged to help reduce repetitive patterns and automating the boring stuff.</p></li>
 </ul>
+</div>
+<div class="section level2">
+<h2 id="why-have-a-separate-development-package">Why have a separate development package?<a class="anchor" aria-label="anchor" href="#why-have-a-separate-development-package"></a>
+</h2>
+<p>As the <a href="https://pharmaverse.github.io/admiral" class="external-link">admiral</a> package function base has grown it was decided to create extension packages for use within companies and specific TAs to help with specific problems. We intended these extension packages to follow the same processes as <a href="https://pharmaverse.github.io/admiral" class="external-link">admiral</a> core, e.g. Unit Testing, Roxygen Documentation, Function Design. A standalone development package allows us to keep an up to date development process for all developers across the family. We also feel that a lot of the developer functions are not user-specific and gives us more freedom to create and release utility tools specific to our family of packages.</p>
 </div>
   </div>
 
