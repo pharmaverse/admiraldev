@@ -66,14 +66,11 @@
   <ul class="dropdown-menu" role="menu">
 <li class="dropdown-header">Overview</li>
     <li>
-      <a href="articles/contribution_model.html">Contribution to {admiral}</a>
-    </li>
-    <li>
       <a href="articles/development_process.html">Development Process</a>
     </li>
     <li class="divider">
     </li>
-<li class="dropdown-header">All things development</li>
+<li class="dropdown-header">{admiral} development processes</li>
     <li>
       <a href="articles/programming_strategy.html">Programming Strategy</a>
     </li>
@@ -94,13 +91,6 @@
 <li>
   <a href="news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -128,186 +118,30 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="admiraldev---adam-in-r-asset-library-development-utilities">admiraldev - ADaM in R Asset Library Development Utilities<a class="anchor" aria-label="anchor" href="#admiraldev---adam-in-r-asset-library-development-utilities"></a>
+<div class="page-header"><h1 id="admiraldev-">admiraldev <img src="reference/figures/logo.png" align="right" alt="" width="120"><a class="anchor" aria-label="anchor" href="#admiraldev-"></a>
 </h1></div>
-<p><img src="reference/figures/admiraldev.png" align="right" width="200" style="margin-left:50px;"></p>
-<!-- badges: start --><div class="section level2">
-<h2 id="to-do-update-badges">To Do Update Badges<a class="anchor" aria-label="anchor" href="#to-do-update-badges"></a>
-</h2>
-<!-- badges: end -->
-</div>
-<div class="section level2">
+<p>ADaM in R Asset Library Development Utilities</p>
+<!-- badges: start --><!-- badges: end --><div class="section level2">
 <h2 id="purpose">Purpose<a class="anchor" aria-label="anchor" href="#purpose"></a>
 </h2>
-<p>Tools for developing functions and maintaining a healthy codebase within the family of admiral R packages.</p>
+<p>Tools for developing functions and maintaining a healthy code base within the family of admiral R packages. <a href="https://pharmaverse.github.io/admiraldev" class="external-link">admiraldev</a> is intended to be used when developing <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> or <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> extension packages.</p>
+<p><strong>NOTE:</strong> Use of this package as a standalone package is currently not recommended.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
+<p>The package is available from CRAN and can be installed by running install.packages(“admiraldev”).</p>
 <p>To install the latest development version of the package directly from GitHub use the following code:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">"remotes"</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)) {</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  <span class="kw">install.packages</span>(<span class="st">"remotes"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a>}</span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"pharmaverse/admiral.test"</span>, <span class="dt">ref =</span> <span class="st">"devel"</span>) <span class="co"># This is a required dependency of {admiral}</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"pharmaverse/admiral"</span>, <span class="dt">ref =</span> <span class="st">"devel"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"pharmaverse/admiraldev"</span>, <span class="dt">ref =</span> <span class="st">"devel"</span>)</span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="structure-of-package">Structure of package<a class="anchor" aria-label="anchor" href="#structure-of-package"></a>
-</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## R</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co">## ├── addin_format_testthat.R</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">## ├── admiraldev-package.R</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">## ├── assertions.R</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">## ├── compat_friendly_type.R</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">## ├── dataset_vignette.R</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">## ├── dev_utilities.R</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">## ├── expect_dfs_equal.R</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="co">## ├── get.R</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">## ├── global.R</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co">## ├── is.R</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="co">## ├── quo.R</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="co">## ├── quote.R</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="co">## ├── reexports.R</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="co">## ├── warnings.R</span></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="co">## └── what.R</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="keywordfamily">Keyword/Family<a class="anchor" aria-label="anchor" href="#keywordfamily"></a>
-</h2>
-<table class="table">
-<colgroup>
-<col style="width: 40%">
-<col style="width: 59%">
-</colgroup>
-<thead><tr class="header">
-<th>Keyword</th>
-<th>Description</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><code>assertion</code></td>
-<td>Asserts a certain type and gives warning, error to user</td>
-</tr>
-<tr class="even">
-<td><code>warning</code></td>
-<td>Provides custom warnings to user</td>
-</tr>
-<tr class="odd">
-<td><code>what</code></td>
-<td>A function that …</td>
-</tr>
-<tr class="even">
-<td><code>is</code></td>
-<td>A function that …</td>
-</tr>
-<tr class="odd">
-<td><code>get</code></td>
-<td>A function that …</td>
-</tr>
-</tbody>
-</table>
+<span id="cb1-5"><a href="#cb1-5"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"pharmaverse/admiraldev"</span>, <span class="dt">ref =</span> <span class="st">"devel"</span>)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="release-schedule">Release Schedule<a class="anchor" aria-label="anchor" href="#release-schedule"></a>
 </h2>
-<p>Releases are done at the end of every of quarter on the last Monday. Pull Requests will be frozen the week before a release. The <code>admiral</code> family has several downstream and upstream dependencies and so this release shall be done in three Phases.</p>
-<ul>
-<li>Phase 1 is for <code>admiraldev</code> and <code>admiral.test</code>, which feed into all <code>admiral</code> packages</li>
-<li>Phase 2 is only for core <code>admiral</code>
-</li>
-<li>Phase 3 is extension packages, e.g. <code>admiralonco</code>
-</li>
-</ul>
-<table class="table">
-<colgroup>
-<col style="width: 24%">
-<col style="width: 25%">
-<col style="width: 24%">
-<col style="width: 25%">
-</colgroup>
-<thead><tr class="header">
-<th>Release Schedule</th>
-<th>Phase 1- Date and Packages</th>
-<th>Phase 2- Date and Packages</th>
-<th>Phase 3- Date and Packages</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Q3-2022</td>
-<td>August 29th</td>
-<td>September 5th</td>
-<td>September 12th</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>admiraldev</code></td>
-<td><code>admiral</code></td>
-<td><code>admiralonco</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>admiral.test</code></td>
-<td></td>
-<td><code>admiralroche</code></td>
-</tr>
-<tr class="even">
-<td>Q4-2022</td>
-<td>November 28th</td>
-<td>December 5th</td>
-<td>December 12th</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>admiraldev</code></td>
-<td><code>admiral</code></td>
-<td><code>admiralonco</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>admiral.test</code></td>
-<td></td>
-<td><code>admiralroche</code></td>
-</tr>
-<tr class="odd">
-<td>Q1-2023</td>
-<td>February 27th</td>
-<td>March 6th</td>
-<td>March 13th</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>admiraldev</code></td>
-<td><code>admiral</code></td>
-<td><code>admiralonco</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>admiral.test</code></td>
-<td></td>
-<td><code>admiralroche</code></td>
-</tr>
-<tr class="even">
-<td>Q2-2023</td>
-<td>May 29th</td>
-<td>June 5th</td>
-<td>June 12th</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>admiraldev</code></td>
-<td><code>admiral</code></td>
-<td><code>admiralonco</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>admiral.test</code></td>
-<td></td>
-<td><code>admiralroche</code></td>
-</tr>
-</tbody>
-</table>
+<p><a href="https://pharmaverse.github.io/admiraldev" class="external-link">admiraldev</a> is to be official released to CRAN one week before the release of <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a>. You can find the release schedule for <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> packages <a href="https://github.com/pharmaverse/admiral/tree/devel#release-schedule" class="external-link">here</a>.</p>
 </div>
 </div>
   </div>
