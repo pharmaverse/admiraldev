@@ -46,6 +46,12 @@
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/admiraldev-package.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/arg_name.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/as_name.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_character_scalar.html</loc>
   </url>
   <url>
@@ -112,34 +118,13 @@
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_varval_list.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/backquote.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/convert_dtm_to_dtc.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dataset_vignette.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dev_util_arg_name.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dev_util_backquote.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dev_util_convert_dtm_to_dtc.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dev_util_enumerate.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dev_util_extract_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dev_util_notin.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dev_util_quo_c.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dev_util_replace_values_by_names.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dev_util_squote.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dev_util_what_is_it.html</loc>
@@ -148,7 +133,16 @@
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dquote.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/enumerate.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/expect_dfs_equal.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/extract_vars.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/filter_if.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/get_constant_vars.html</loc>
@@ -158,6 +152,9 @@
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/get_source_vars.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/grapes-notin-grapes.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/index.html</loc>
@@ -190,16 +187,40 @@
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/is_valid_hour.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/is_valid_month.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/is_valid_sec_min.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/is_valid_time_entry.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/negate_vars.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/quo_c.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/quo_not_missing.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/reexports.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/replace_values_by_names.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/squote.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/suppress_warning.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/valid_time_units.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/vars2chr.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/reference/warn_if_incomplete_dtc.html</loc>

@@ -34,38 +34,28 @@
      
     <span class="caret"></span>
   </a>
-  <ul class="dropdown-menu" role="menu"><li class="dropdown-header">Overview</li>
-    <li>
+  <ul class="dropdown-menu" role="menu"><li>
       <a href="../articles/development_process.html">Development Process</a>
     </li>
-    <li class="divider">
-    <li class="dropdown-header">{admiral} development processes</li>
     <li>
       <a href="../articles/programming_strategy.html">Programming Strategy</a>
-    </li>
-    <li>
-      <a href="../articles/git_usage.html">Guidance for git and GitHub Usage</a>
     </li>
     <li>
       <a href="../articles/writing_vignettes.html">Writing Vignettes</a>
     </li>
     <li>
-      <a href="../articles/pr_review_guidance.html">Pull Request Review Guidance</a>
+      <a href="../articles/unit_test_guidance.html">Unit Test Guidance</a>
     </li>
     <li>
-      <a href="../articles/unit_test_guidance.html">Unit Test Guidance</a>
+      <a href="../articles/git_usage.html">Guidance for git and GitHub Usage</a>
+    </li>
+    <li>
+      <a href="../articles/pr_review_guidance.html">Pull Request Review Guidance</a>
     </li>
   </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/pharmaverse/admiraldev" class="external-link">
     <span class="fab fa-github fa-lg"></span>
@@ -238,6 +228,10 @@
         </td>
         <td><p>Check Validity of the Hour Portion in the Time Input</p></td>
       </tr><tr><td>
+          <p><code><a href="is_valid_month.html">is_valid_month()</a></code> </p>
+        </td>
+        <td><p>Check Validity of the Month Portion in the Date Input</p></td>
+      </tr><tr><td>
           <p><code><a href="is_valid_sec_min.html">is_valid_sec_min()</a></code> </p>
         </td>
         <td><p>Check Validity of the Minute/Second Portion of the Time Input</p></td>
@@ -286,58 +280,90 @@
         </td>
         <td><p>Expectation: Are Two Datasets Equal?</p></td>
       </tr></tbody><tbody><tr><th colspan="2">
-          <h2 id="quosure-and-quoting-helper-functions">Quosure and Quoting Helper Functions <a href="#quosure-and-quoting-helper-functions" class="anchor" aria-hidden="true"></a></h2>
-          <p class="section-desc"></p><p>Helping your quoting and quosure needs</p>
+          <h2 id="quosure-helper-functions">Quosure Helper Functions <a href="#quosure-helper-functions" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p><p>Helping yourquosure needs</p>
         </th>
       </tr></tbody><tbody><tr><td>
-          <p><code><a href="dev_util_backquote.html">backquote()</a></code> </p>
-        </td>
-        <td><p>Wrap a String in Backquotes</p></td>
-      </tr><tr><td>
-          <p><code><a href="dev_util_enumerate.html">enumerate()</a></code> </p>
-        </td>
-        <td><p>Enumerate Multiple Strings</p></td>
-      </tr><tr><td>
-          <p><code><a href="dev_util_quo_c.html">quo_c()</a></code> </p>
+          <p><code><a href="quo_c.html">quo_c()</a></code> </p>
         </td>
         <td><p>Concatenate One or More Quosure(s)</p></td>
       </tr><tr><td>
-          <p><code><a href="dev_util_squote.html">squote()</a></code> </p>
+          <p><code><a href="quo_not_missing.html">quo_not_missing()</a></code> </p>
         </td>
-        <td><p>Wrap a String in Single Quotes</p></td>
+        <td><p>Check Whether an Argument Is Not a Quosure of a Missing Argument</p></td>
+      </tr></tbody><tbody><tr><th colspan="2">
+          <h2 id="quoting-helper-functions">Quoting Helper Functions <a href="#quoting-helper-functions" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p><p>Helping your quoting needs</p>
+        </th>
+      </tr></tbody><tbody><tr><td>
+          <p><code><a href="backquote.html">backquote()</a></code> </p>
+        </td>
+        <td><p>Wrap a String in Backquotes</p></td>
       </tr><tr><td>
           <p><code><a href="dquote.html">dquote()</a></code> </p>
         </td>
         <td><p>Wrap a String in Double Quotes</p></td>
+      </tr><tr><td>
+          <p><code><a href="enumerate.html">enumerate()</a></code> </p>
+        </td>
+        <td><p>Enumerate Multiple Strings</p></td>
+      </tr><tr><td>
+          <p><code><a href="squote.html">squote()</a></code> </p>
+        </td>
+        <td><p>Wrap a String in Single Quotes</p></td>
       </tr></tbody><tbody><tr><th colspan="2">
-          <h2 id="developer-utility-functions">Developer Utility Functions <a href="#developer-utility-functions" class="anchor" aria-hidden="true"></a></h2>
-          <p class="section-desc"></p><p>General Utilities</p>
+          <h2 id="miscellaneous">Miscellaneous <a href="#miscellaneous" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p><p>Utilities without a theme</p>
         </th>
       </tr></tbody><tbody><tr><td>
-          <p><code><a href="dataset_vignette.html">dataset_vignette()</a></code> </p>
-        </td>
-        <td><p>Output a Dataset in a Vignette in the admiral Format</p></td>
-      </tr><tr><td>
-          <p><code><a href="dev_util_arg_name.html">arg_name()</a></code> </p>
+          <p><code><a href="arg_name.html">arg_name()</a></code> </p>
         </td>
         <td><p>Extract Argument Name from an Expression</p></td>
       </tr><tr><td>
-          <p><code><a href="dev_util_convert_dtm_to_dtc.html">convert_dtm_to_dtc()</a></code> </p>
+          <p><code><a href="as_name.html">as_name()</a></code> </p>
+        </td>
+        <td><p>Turn a Quosure into a String</p></td>
+      </tr><tr><td>
+          <p><code><a href="convert_dtm_to_dtc.html">convert_dtm_to_dtc()</a></code> </p>
         </td>
         <td><p>Helper Function to Convert Date (or Date-time) Objects to Characters of dtc Format
 (-DTC type of variable)</p></td>
       </tr><tr><td>
-          <p><code><a href="dev_util_extract_vars.html">extract_vars()</a></code> </p>
+          <p><code><a href="dataset_vignette.html">dataset_vignette()</a></code> </p>
+        </td>
+        <td><p>Output a Dataset in a Vignette in the admiral Format</p></td>
+      </tr><tr><td>
+          <p><code><a href="extract_vars.html">extract_vars()</a></code> </p>
         </td>
         <td><p>Extract All Symbols from a List of Quosures</p></td>
       </tr><tr><td>
-          <p><code><a href="dev_util_notin.html">`%notin%`</a></code> </p>
+          <p><code><a href="grapes-notin-grapes.html">`%notin%`</a></code> </p>
         </td>
         <td><p>Negated Value Matching</p></td>
       </tr><tr><td>
-          <p><code><a href="dev_util_replace_values_by_names.html">replace_values_by_names()</a></code> </p>
+          <p><code><a href="replace_values_by_names.html">replace_values_by_names()</a></code> </p>
         </td>
         <td><p>Replace Quosure Value with Name</p></td>
+      </tr><tr><td>
+          <p><code><a href="valid_time_units.html">valid_time_units()</a></code> </p>
+        </td>
+        <td><p>Valid Time Units</p></td>
+      </tr></tbody><tbody><tr><th colspan="2">
+          <h2 id="unsure-where-these-functions-should-live-">Unsure where these functions should live? <a href="#unsure-where-these-functions-should-live-" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p><p>Used with dataset_vignette and a few assert, is and get functions…</p>
+        </th>
+      </tr></tbody><tbody><tr><td>
+          <p><code><a href="filter_if.html">filter_if()</a></code> </p>
+        </td>
+        <td><p>Optional Filter</p></td>
+      </tr><tr><td>
+          <p><code><a href="negate_vars.html">negate_vars()</a></code> </p>
+        </td>
+        <td><p>Negate List of Variables</p></td>
+      </tr><tr><td>
+          <p><code><a href="vars2chr.html">vars2chr()</a></code> </p>
+        </td>
+        <td><p>Turn a List of Quosures into a Character Vector</p></td>
       </tr></tbody></table></div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
