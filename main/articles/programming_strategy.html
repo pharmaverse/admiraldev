@@ -61,40 +61,29 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">Overview</li>
-    <li>
+<li>
       <a href="../articles/development_process.html">Development Process</a>
     </li>
-    <li class="divider">
-    </li>
-<li class="dropdown-header">{admiral} development processes</li>
     <li>
       <a href="../articles/programming_strategy.html">Programming Strategy</a>
-    </li>
-    <li>
-      <a href="../articles/git_usage.html">Guidance for git and GitHub Usage</a>
     </li>
     <li>
       <a href="../articles/writing_vignettes.html">Writing Vignettes</a>
     </li>
     <li>
-      <a href="../articles/pr_review_guidance.html">Pull Request Review Guidance</a>
+      <a href="../articles/unit_test_guidance.html">Unit Test Guidance</a>
     </li>
     <li>
-      <a href="../articles/unit_test_guidance.html">Unit Test Guidance</a>
+      <a href="../articles/git_usage.html">Guidance for git and GitHub Usage</a>
+    </li>
+    <li>
+      <a href="../articles/pr_review_guidance.html">Pull Request Review Guidance</a>
     </li>
   </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -199,7 +188,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <h3 id="function-names">Function Names<a class="anchor" aria-label="anchor" href="#function-names"></a>
 </h3>
 <ul>
-<li>Function names should start with a verb and use snake case, e.g. <code><a href="https://rdrr.io/pkg/admiral/man/derive_var_base.html" class="external-link">derive_var_base()</a></code>.</li>
+<li>Function names should start with a verb and use snake case, e.g. <code>derive_var_base()</code>.</li>
 </ul>
 <table class="table">
 <colgroup>
@@ -292,7 +281,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <li>whether it is an expression (or a list of expressions, depending on the function)</li>
 <li>whether it is a valid expression (i.e. whether it evaluates without error)</li>
 </ul>
-<p>The only exception to this is <code><a href="https://rdrr.io/pkg/admiral/man/derive_var_basetype.html" class="external-link">derive_var_basetype()</a></code> where we allowed the use of <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">rlang::exprs()</a></code>. The reason is that in this case the user needs to have the flexibility to provide not just symbols but usually more complicated filtering conditions (that may be based on multiple input parameters).</p>
+<p>The only exception to this is <code>derive_var_basetype()</code> where we allowed the use of <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">rlang::exprs()</a></code>. The reason is that in this case the user needs to have the flexibility to provide not just symbols but usually more complicated filtering conditions (that may be based on multiple input parameters).</p>
 </div>
 <div class="section level3">
 <h3 id="common-function-parameters-naming-convention">Common Function Parameters Naming Convention<a class="anchor" aria-label="anchor" href="#common-function-parameters-naming-convention"></a>
@@ -492,7 +481,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <h4 id="family">
 <code>@family</code><a class="anchor" aria-label="anchor" href="#family"></a>
 </h4>
-<p>The families allow for similar functions to be displayed in the <strong>See Also</strong> section of a function’s documentation. For example, a user looking at <code><a href="https://rdrr.io/pkg/admiral/man/derive_vars_dy.html" class="external-link">derive_vars_dy()</a></code> function documentation might be interested in other Date/Time functions. Using the <code>@family</code> tag <code>der_date_time</code> will display all the Date/Time functions available in admiral to the user in the <strong>See Also</strong> section of <code><a href="https://rdrr.io/pkg/admiral/man/derive_vars_dy.html" class="external-link">derive_vars_dy()</a></code> function documentation. Please take a look at the function documentation for <code><a href="https://rdrr.io/pkg/admiral/man/derive_vars_dy.html" class="external-link">derive_vars_dy()</a></code> to see the family tag in action.</p>
+<p>The families allow for similar functions to be displayed in the <strong>See Also</strong> section of a function’s documentation. For example, a user looking at <code>derive_vars_dy()</code> function documentation might be interested in other Date/Time functions. Using the <code>@family</code> tag <code>der_date_time</code> will display all the Date/Time functions available in admiral to the user in the <strong>See Also</strong> section of <code>derive_vars_dy()</code> function documentation. Please take a look at the function documentation for <code>derive_vars_dy()</code> to see the family tag in action.</p>
 <p>Below are the list of available keyword/family tags to be used in <code>admiral</code> functions. If you think an additional keyword/family tag should be added, then please add an issue in GitHub for discussion.</p>
 <table class="table">
 <colgroup>
@@ -646,7 +635,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <h2 id="r-package-dependencies">R Package Dependencies<a class="anchor" aria-label="anchor" href="#r-package-dependencies"></a>
 </h2>
 <p>Package dependencies have to be documented in the <code>DESCRIPTION</code> file. If a package is used only in examples and/or unit tests then it should be listed in <code>Suggests</code>, otherwise in <code>Imports</code>.</p>
-<p>Functions from other packages have to be explicitly imported by using the <code>@importFrom</code> tag in the <code>R/admiral-package.R</code> file. To import the <code><a href="https://dplyr.tidyverse.org/reference/if_else.html" class="external-link">if_else()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> function from <code>dplyr</code> the following line would have to be included in that file: <code>#' @importFrom dplyr if_else mutate</code>.</p>
+<p>Functions from other packages have to be explicitly imported by using the <code>@importFrom</code> tag in the <code>R/admiral-package.R</code> file. To import the <code>if_else()</code> and <code>mutate()</code> function from <code>dplyr</code> the following line would have to be included in that file: <code>#' @importFrom dplyr if_else mutate</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="metadata">Metadata<a class="anchor" aria-label="anchor" href="#metadata"></a>
@@ -738,7 +727,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
     <span class="co"># old_param is given using vars()</span>
     <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="va">old_param</span>
     <span class="co"># old_param is NOT given using vars()</span>
-    <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/tidyeval.html" class="external-link">enquo</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span>
+    <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="fu">enquo</span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span>
   <span class="op">}</span>
 <span class="co">### END DEPRECATION</span></code></pre>
 </div>
