@@ -56,13 +56,6 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/pharmaverse/admiraldev" class="external-link">
     <span class="fab fa-github fa-lg"></span>
@@ -118,29 +111,29 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘dplyr’</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:lubridate’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, union</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:admiraldev’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     anti_join, filter_if, inner_join, left_join</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:stats’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     filter, lag</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:base’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">admiral_adsl</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>data set ‘admiral_adsl’ not found</span>
-<span class="r-in"><span class="va">adsl</span> <span class="op">&lt;-</span> <span class="va">admiral_adsl</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'admiral_adsl' not found</span>
-<span class="r-in"><span class="va">tmp_var</span> <span class="op">&lt;-</span> <span class="fu">get_new_tmp_var</span><span class="op">(</span><span class="va">adsl</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in assert_data_frame(dataset, optional = TRUE):</span> object 'adsl' not found</span>
-<span class="r-in"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">adsl</span>, <span class="op">!</span><span class="op">!</span><span class="va">tmp_var</span> <span class="op">:=</span> <span class="cn">NA</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in mutate(adsl, `:=`(!!tmp_var, NA)):</span> object 'adsl' not found</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">admiral.test</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">admiral_dm</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">tmp_var</span> <span class="op">&lt;-</span> <span class="fu">get_new_tmp_var</span><span class="op">(</span><span class="va">admiral_dm</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">admiral_dm</span>, <span class="op">!</span><span class="op">!</span><span class="va">tmp_var</span> <span class="op">:=</span> <span class="cn">NA</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># A tibble: 306 x 26</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    STUDYID DOMAIN USUBJID SUBJID RFSTDTC RFENDTC RFXSTDTC RFXENDTC RFICDTC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>   </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>  </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>   </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>  </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>   </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>   </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>    </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>    </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>  </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 1</span><span> CDISCP… DM     01-701… 1015   </span><span style="color: #555555;">"</span><span>2014-… </span><span style="color: #555555;">"</span><span>2014-… </span><span style="color: #555555;">"</span><span>2014-0… </span><span style="color: #555555;">"</span><span>2014-0… </span><span style="color: #555555;">""</span><span>     </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 2</span><span> CDISCP… DM     01-701… 1023   </span><span style="color: #555555;">"</span><span>2012-… </span><span style="color: #555555;">"</span><span>2012-… </span><span style="color: #555555;">"</span><span>2012-0… </span><span style="color: #555555;">"</span><span>2012-0… </span><span style="color: #555555;">""</span><span>     </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 3</span><span> CDISCP… DM     01-701… 1028   </span><span style="color: #555555;">"</span><span>2013-… </span><span style="color: #555555;">"</span><span>2014-… </span><span style="color: #555555;">"</span><span>2013-0… </span><span style="color: #555555;">"</span><span>2014-0… </span><span style="color: #555555;">""</span><span>     </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 4</span><span> CDISCP… DM     01-701… 1033   </span><span style="color: #555555;">"</span><span>2014-… </span><span style="color: #555555;">"</span><span>2014-… </span><span style="color: #555555;">"</span><span>2014-0… </span><span style="color: #555555;">"</span><span>2014-0… </span><span style="color: #555555;">""</span><span>     </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 5</span><span> CDISCP… DM     01-701… 1034   </span><span style="color: #555555;">"</span><span>2014-… </span><span style="color: #555555;">"</span><span>2014-… </span><span style="color: #555555;">"</span><span>2014-0… </span><span style="color: #555555;">"</span><span>2014-1… </span><span style="color: #555555;">""</span><span>     </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 6</span><span> CDISCP… DM     01-701… 1047   </span><span style="color: #555555;">"</span><span>2013-… </span><span style="color: #555555;">"</span><span>2013-… </span><span style="color: #555555;">"</span><span>2013-0… </span><span style="color: #555555;">"</span><span>2013-0… </span><span style="color: #555555;">""</span><span>     </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 7</span><span> CDISCP… DM     01-701… 1057   </span><span style="color: #555555;">""</span><span>      </span><span style="color: #555555;">""</span><span>      </span><span style="color: #555555;">""</span><span>       </span><span style="color: #555555;">""</span><span>       </span><span style="color: #555555;">""</span><span>     </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 8</span><span> CDISCP… DM     01-701… 1097   </span><span style="color: #555555;">"</span><span>2014-… </span><span style="color: #555555;">"</span><span>2014-… </span><span style="color: #555555;">"</span><span>2014-0… </span><span style="color: #555555;">"</span><span>2014-0… </span><span style="color: #555555;">""</span><span>     </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 9</span><span> CDISCP… DM     01-701… 1111   </span><span style="color: #555555;">"</span><span>2012-… </span><span style="color: #555555;">"</span><span>2012-… </span><span style="color: #555555;">"</span><span>2012-0… </span><span style="color: #555555;">"</span><span>2012-0… </span><span style="color: #555555;">""</span><span>     </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">10</span><span> CDISCP… DM     01-701… 1115   </span><span style="color: #555555;">"</span><span>2012-… </span><span style="color: #555555;">"</span><span>2013-… </span><span style="color: #555555;">"</span><span>2012-1… </span><span style="color: #555555;">"</span><span>2013-0… </span><span style="color: #555555;">""</span><span>     </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># … with 296 more rows, and 17 more variables: RFPENDTC </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, DTHDTC </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#   DTHFL </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, SITEID </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, AGE </span><span style="color: #555555;font-style: italic;">&lt;dbl&gt;</span><span style="color: #555555;">, AGEU </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, SEX </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, RACE </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#   ETHNIC </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, ARMCD </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, ARM </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, ACTARMCD </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, ACTARM </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#   COUNTRY </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, DMDTC </span><span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span style="color: #555555;">, DMDY </span><span style="color: #555555;font-style: italic;">&lt;dbl&gt;</span><span style="color: #555555;">, tmp_var_1 </span><span style="color: #555555;font-style: italic;">&lt;lgl&gt;</span></span>
 </code></pre></div>
     </div>
   </div>

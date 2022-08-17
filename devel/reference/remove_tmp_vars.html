@@ -56,13 +56,6 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/pharmaverse/admiraldev" class="external-link">
     <span class="fab fa-github fa-lg"></span>
@@ -113,9 +106,7 @@
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">admiral_dm</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">dm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">admiral_dm</span>, <span class="va">USUBJID</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">tmp_var</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_new_tmp_var.html">get_new_tmp_var</a></span><span class="op">(</span><span class="va">dm</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in str_subset(colnames(dataset), regexp):</span> could not find function "str_subset"</span>
 <span class="r-in"><span class="va">dm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">dm</span>, <span class="op">!</span><span class="op">!</span><span class="va">tmp_var</span> <span class="op">:=</span> <span class="cn">NA</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in splice(dot_call(capture_dots, frame_env = frame_env, named = named,     ignore_empty = ignore_empty, unquote_names = unquote_names,     homonyms = homonyms, check_assign = check_assign)):</span> object 'tmp_var' not found</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## This function creates two new temporary variables which are removed when calling</span></span>
 <span class="r-in"><span class="co">## `remove_tmp_vars()`. Note that any temporary variable created outside this</span></span>
@@ -130,7 +121,34 @@
 <span class="r-in"><span class="op">}</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">do_something</span><span class="op">(</span><span class="va">dm</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in str_subset(colnames(dataset), regexp):</span> could not find function "str_subset"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># A tibble: 306 x 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    USUBJID     tmp_var_1 tmp_var_2 tmp_var_3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>       </span><span style="color: #555555;font-style: italic;">&lt;lgl&gt;</span><span>     </span><span style="color: #555555;font-style: italic;">&lt;lgl&gt;</span><span>     </span><span style="color: #555555;font-style: italic;">&lt;lgl&gt;</span><span>    </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 1</span><span> 01-701-1015 </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 2</span><span> 01-701-1023 </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 3</span><span> 01-701-1028 </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 4</span><span> 01-701-1033 </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 5</span><span> 01-701-1034 </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 6</span><span> 01-701-1047 </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 7</span><span> 01-701-1057 </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 8</span><span> 01-701-1097 </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 9</span><span> 01-701-1111 </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">10</span><span> 01-701-1115 </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>        </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># … with 296 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># A tibble: 306 x 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    USUBJID     tmp_var_1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #555555;font-style: italic;">&lt;chr&gt;</span><span>       </span><span style="color: #555555;font-style: italic;">&lt;lgl&gt;</span><span>    </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 1</span><span> 01-701-1015 </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 2</span><span> 01-701-1023 </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 3</span><span> 01-701-1028 </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 4</span><span> 01-701-1033 </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 5</span><span> 01-701-1034 </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 6</span><span> 01-701-1047 </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 7</span><span> 01-701-1057 </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 8</span><span> 01-701-1097 </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 9</span><span> 01-701-1111 </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">10</span><span> 01-701-1115 </span><span style="color: #BB0000;">NA</span><span>       </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># … with 296 more rows</span></span>
 </code></pre></div>
     </div>
   </div>
