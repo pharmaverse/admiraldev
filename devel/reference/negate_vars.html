@@ -56,13 +56,6 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/pharmaverse/admiraldev" class="external-link">
     <span class="fab fa-github fa-lg"></span>
@@ -84,7 +77,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Negate List of Variables</h1>
-    <small class="dont-index">Source: <a href="https://github.com/pharmaverse/admiraldev/blob/main/R/remove_these.R" class="external-link"><code>R/remove_these.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/pharmaverse/admiraldev/blob/main/R/dev_utilities.R" class="external-link"><code>R/dev_utilities.R</code></a></small>
     <div class="hidden name"><code>negate_vars.Rd</code></div>
     </div>
 
@@ -109,6 +102,20 @@
     <h2>Details</h2>
     <p>This is useful if a list of variables should be removed from a dataset,
 e.g., <code>select(!!!negate_vars(by_vars))</code> removes all by variables.</p>
+    </div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p>Developer Utility Functions: 
+<code><a href="grapes-notin-grapes.html">%notin%</a>()</code>,
+<code><a href="grapes-or-grapes.html">%or%</a>()</code>,
+<code><a href="arg_name.html">arg_name</a>()</code>,
+<code><a href="as_name.html">as_name</a>()</code>,
+<code><a href="convert_dtm_to_dtc.html">convert_dtm_to_dtc</a>()</code>,
+<code><a href="extract_vars.html">extract_vars</a>()</code>,
+<code><a href="filter_if.html">filter_if</a>()</code>,
+<code><a href="replace_values_by_names.html">replace_values_by_names</a>()</code>,
+<code><a href="valid_time_units.html">valid_time_units</a>()</code>,
+<code><a href="vars2chr.html">vars2chr</a>()</code></p></div>
     </div>
     <div id="author">
     <h2>Author</h2>
