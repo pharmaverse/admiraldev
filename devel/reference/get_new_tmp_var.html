@@ -56,13 +56,6 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/pharmaverse/admiraldev" class="external-link">
     <span class="fab fa-github fa-lg"></span>
@@ -103,11 +96,15 @@
 <dt>prefix</dt>
 <dd><p>The prefix of the new temporary variable name to create</p></dd>
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    <p>The name of a new temporary variable as a symbol</p>
+    </div>
     <div id="details">
     <h2>Details</h2>
     <p>The function returns a new unique temporary variable name to be used inside
 <code>dataset</code>. The temporary variable names have the structure <code>prefix_n</code> where
-<code>n</code> is an integer, e.g. <code>tmp_var_1</code>. If there is alredy a variable inside
+<code>n</code> is an integer, e.g. <code>tmp_var_1</code>. If there is already a variable inside
 <code>datset</code> with a given <code>prefix</code> then the suffix is increased by 1, e.g. if
 <code>tmp_var_1</code> already exists then <code>get_new_tmp_var()</code> will return <code>tmp_var_2</code>.</p>
     </div>
