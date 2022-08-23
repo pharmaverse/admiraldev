@@ -61,6 +61,9 @@
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/assert_data_frame.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/reference/assert_date_var.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/assert_expr.html</loc>
   </url>
   <url>
@@ -127,9 +130,6 @@
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/dataset_vignette.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/main/reference/dev_util_what_is_it.html</loc>
-  </url>
-  <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/dquote.html</loc>
   </url>
   <url>
@@ -148,7 +148,13 @@
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/get_constant_vars.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/reference/get_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/get_duplicates.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/reference/get_new_tmp_var.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/get_source_vars.html</loc>
@@ -199,6 +205,9 @@
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/is_valid_time_entry.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/reference/joins.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/negate_vars.html</loc>
   </url>
   <url>
@@ -211,7 +220,13 @@
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/reexports.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/reference/remove_tmp_vars.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/replace_values_by_names.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/reference/set_dataset.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/squote.html</loc>
@@ -236,5 +251,8 @@
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/warn_if_vars_exist.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/reference/what_is_it.html</loc>
   </url>
 </urlset>
