@@ -84,13 +84,6 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -131,7 +124,7 @@
 <div class="section level2">
 <h2 id="dear-developers">Dear Developers<a class="anchor" aria-label="anchor" href="#dear-developers"></a>
 </h2>
-<p><a href="https://pharmaverse.github.io/admiraldev" class="external-link">admiraldev</a> is a set of tools intended for you, the developer, to help make developing within the admiral family easier, consistently robust across all packages and maybe even fun!</p>
+<p><a href="https://pharmaverse.github.io/admiraldev/main/">admiraldev</a> is a set of tools intended for you, the developer, to help make developing within the admiral family easier, consistently robust across all packages and maybe even fun!</p>
 <p>Tools are loosely defined as follows:</p>
 <ul>
 <li><p>Utility Functions used in <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> and <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> extension functions for doing custom checks and providing custom messages, warnings and errors. These custom messages, warnings and errors are succinct, but helpful messaging around what a function expects as inputs. The inputs to admiral functions are many, but generally fit into three categories: datasets, variables and arguments. Most of the functions start with <code>assert_</code>, <code>is_</code> or <code>get_</code>.</p></li>
@@ -163,8 +156,8 @@
 <p>Loose guidelines:</p>
 <ol style="list-style-type: decimal">
 <li>The derivation function should always live in <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> core.</li>
-<li>The helper function should be looked at to see it should be made available within <a href="https://pharmaverse.github.io/admiraldev" class="external-link">admiraldev</a> for other extension packages needs and so reduce repetitive coding across the family of <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a>. If it cannot be generalized, then it should remain in <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a>.</li>
-<li>The <code>assert</code> custom checking functions should always live within <a href="https://pharmaverse.github.io/admiraldev" class="external-link">admiraldev</a> to stay with the family of <code>assertion</code> functions.</li>
+<li>The helper function should be looked at to see it should be made available within <a href="https://pharmaverse.github.io/admiraldev/main/">admiraldev</a> for other extension packages needs and so reduce repetitive coding across the family of <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a>. If it cannot be generalized, then it should remain in <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a>.</li>
+<li>The <code>assert</code> custom checking functions should always live within <a href="https://pharmaverse.github.io/admiraldev/main/">admiraldev</a> to stay with the family of <code>assertion</code> functions.</li>
 </ol>
 </div>
 <div class="section level3">
@@ -175,7 +168,7 @@
 <p>Loose guidelines:</p>
 <ol style="list-style-type: decimal">
 <li>The derivation function should be closely looked at to see if it can be generalized to other ADaM datsets. If that is the case, then it should be moved to <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> core. If the function is very specific to onoclogy needs, then it should remain in <code>{admiralonco}</code>.</li>
-<li>The <code>assert</code> custom checking functions should always live within <a href="https://pharmaverse.github.io/admiraldev" class="external-link">admiraldev</a> to stay with the family of <code>assertion</code> functions.</li>
+<li>The <code>assert</code> custom checking functions should always live within <a href="https://pharmaverse.github.io/admiraldev/main/">admiraldev</a> to stay with the family of <code>assertion</code> functions.</li>
 </ol>
 </div>
 </div>
