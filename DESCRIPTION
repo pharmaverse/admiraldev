@@ -14,7 +14,7 @@ Authors@R: c(
     person("GlaxoSmithKline LLC", role = c("cph", "fnd"))
     )
 Description: Utility functions to check data, variables and conditions for functions used in
- 'admiral' and 'admiral' extension packages.  Additional utility helper functions to to assist developers 
+ 'admiral' and 'admiral' extension packages.  Additional utility helper functions to assist developers 
  with maintaining documentation, testing and general upkeep of 'admiral' and 'admiral' extension packages.  
 License: Apache License (>= 2)
 URL: https://pharmaverse.github.io/admiraldev/main/, https://github.com/pharmaverse/admiraldev/
