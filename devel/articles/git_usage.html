@@ -52,7 +52,7 @@
   <a href="../articles/admiraldev.html">Get started</a>
 </li>
 <li>
-  <a href="../reference/index.html">Functions</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,13 +84,6 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -131,7 +124,7 @@
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>This article will give you an overview of how the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> project is utilizing the version-control software <code>git</code> and the website GitHub while working with RStudio. We will go over the primary branches that house the source code for the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> project as well as how we use <strong>Feature</strong> branches to address <strong>Issues</strong>. Issues can range from bugs to enhancement that have been identified or requested by developers, users or testers. We also provide the bare minimum of <code>git</code> commands needed to get up and running. Please refer to the <a href="#github_resources">Resource</a> section for more in-depth guidance on using <code>git</code> and GitHub. Finally, we discuss the release process and schedule for <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a>.</p>
+<p>This article will give you an overview of how the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> project is utilizing the version-control software <code>git</code> and the website GitHub while working with RStudio. We will go over the primary branches that house the source code for the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> project as well as how we use <strong>Feature</strong> branches to address <strong>Issues</strong>. Issues can range from bugs to enhancement that have been identified or requested by developers, users or testers. We also provide the bare minimum of <code>git</code> commands needed to get up and running. Please refer to the <a href="#github_resources">Resource</a> section for more in-depth guidance on using <code>git</code> and GitHub. Finally, we discuss the release process and schedule for <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="branches">Branches<a class="anchor" aria-label="anchor" href="#branches"></a>
@@ -289,7 +282,7 @@ git push</code></pre>
 <ol style="list-style-type: decimal">
 <li>Create a Pull Request from <code>devel</code> into the <code>pre-release</code> branch. Issues identified in this Pull Request should have work done in separate branches and merged into the <code>pre-release</code> branch and <strong>NOT</strong> <code>devel</code>.</li>
 <li>Verify that all CI/CD checks are passing for the <code>devel</code> into the <code>pre-release</code> Pull Request, merge and then bundle up and send off to CRAN.</li>
-<li>Once the package is available on CRAN, another Pull Request is created for merging the <code>pre-release</code> branch into the <code>main</code> branch. This will trigger the GitHub action to rebuild the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> website with all the updates for this release.</li>
+<li>Once the package is available on CRAN, another Pull Request is created for merging the <code>pre-release</code> branch into the <code>main</code> branch. This will trigger the GitHub action to rebuild the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> website with all the updates for this release.</li>
 <li>Use the release button on GitHub to “release” the package onto GitHub. This release onto Github archives the version of code within the <code>main</code> branch, attaches the News/Changelog file, bundles the code into a <code>tar.gz</code> file and makes a validation report via the GitHub action <code>validation</code> from <a href="https://github.com/insightsengineering/thevalidatoR" class="external-link">insightsengineering/validatoR</a>. Please see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral releases</a> for reference.</li>
 <li>Any issues fixed in the <code>pre-release/main</code> branches should be merged back into <code>devel</code>.</li>
 </ol>
@@ -303,7 +296,7 @@ git push</code></pre>
 <li>Identify all the bugs that need to be fixed for this hot fix release and label with hot fix label.</li>
 <li>Branches addressing the bugs should have Pull Requests merged into the <code>patch</code> branch <strong>NOT</strong> the <code>devel</code> branch.</li>
 <li>Create a Pull Request from <code>patch</code> into the <code>pre-release</code> branch. Verify that all CI/CD checks are passing, merge and bundle up and send off to CRAN.</li>
-<li>Once package is approved and available on CRAN, another Pull Request is created for merging the <code>pre-release</code> branch into the <code>main</code> branch. This will trigger the action to rebuild the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> website with all the updates for this hot fix release.</li>
+<li>Once package is approved and available on CRAN, another Pull Request is created for merging the <code>pre-release</code> branch into the <code>main</code> branch. This will trigger the action to rebuild the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> website with all the updates for this hot fix release.</li>
 <li>Use the release button on GitHub to “release” the package onto GitHub. This release onto Github archives the version of code within the <code>main</code> branch, attaches the News/Changelog file, bundles the code into a <code>tar.gz</code> file and makes a validation report via the GitHub action <code>validation</code> from <a href="https://github.com/insightsengineering/thevalidatoR" class="external-link">insightsengineering/validatoR</a>. Please see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral releases</a> for reference.</li>
 <li>These hot fixes should then be merged into the <code>devel</code> branch through an additional Pull Request.</li>
 </ol>
@@ -329,7 +322,7 @@ git push</code></pre>
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Ben Straub, Stefan Bundfuss, Thomas Neitmann, Samia Kabi, Pooja Kumari, Syed Mubasheer, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
+<p>Developed by Ben Straub, Stefan Bundfuss, Thomas Neitmann, Samia Kabi, Pooja Kumari, Syed Mubasheer, Ross Farrugia, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
 </div>
 
 <div class="pkgdown">

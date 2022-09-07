@@ -52,7 +52,7 @@
   <a href="../articles/admiraldev.html">Get started</a>
 </li>
 <li>
-  <a href="../reference/index.html">Functions</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,13 +84,6 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -128,11 +121,11 @@
 
     
     
-<p>Once you’ve familiarized yourself with the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> <a href="contribution_model.html">contribution model</a> and you’re ready to make your first code contribution, this development process step-by-step guide will help tie all the other detailed vignettes together to give you the simplest experience of helping to grow and enhance our codebase.</p>
+<p>Once you’ve familiarized yourself with the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> <a href="contribution_model.html">contribution model</a> and you’re ready to make your first code contribution, this development process step-by-step guide will help tie all the other detailed vignettes together to give you the simplest experience of helping to grow and enhance our codebase.</p>
 <ol style="list-style-type: decimal">
-<li>To start, you will have either created an issue or commented on an existing issue to notify that you’d like to contribute code. Then one of the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> core team will assign you to the issue.</li>
+<li>To start, you will have either created an issue or commented on an existing issue to notify that you’d like to contribute code. Then one of the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> core team will assign you to the issue.</li>
 <li>Create a new feature branch from the development branch <code>devel</code> following the naming convention and pull the latest changes - as detailed on the <a href="git_usage.html#working-with-feature-branches-1">github usage</a> guide.</li>
-<li>Familiarize yourself with the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> <a href="programming_strategy.html">programming strategy</a>, and then make the required code updates.</li>
+<li>Familiarize yourself with the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> <a href="programming_strategy.html">programming strategy</a>, and then make the required code updates.</li>
 <li>Before making a pull request, check the <a href="pr_review_guidance.html">Pull Request Review Guidance</a> &amp; the following checklist of common things developers miss:
 <ol style="list-style-type: lower-alpha">
 <li>Is all your code formatted according to the <a href="https://style.tidyverse.org/" class="external-link">tidyverse</a> style guide?</li>
@@ -143,16 +136,16 @@
 <li>Does your code update have any impact on the <a href="admiral.html#starting-a-script-1">ADaM template</a> R scripts stored in <code>inst/templates</code>?</li>
 <li>Does your code update have any impact on the vignettes stored in vignettes?</li>
 <li>Did you update the Changelog <code>NEWS.md</code>?</li>
-<li>Did you build <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> site <code><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">pkgdown::build_site()</a></code> and check that all affected examples are displayed correctly and that all new functions occur on the “<a href="../reference/index.html">Reference</a>” page?</li>
+<li>Did you build <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> site <code><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">pkgdown::build_site()</a></code> and check that all affected examples are displayed correctly and that all new functions occur on the “<a href="../reference/index.html">Reference</a>” page?</li>
 </ol>
 </li>
 <li>Once happy with all the updates, make a <a href="git_usage.html#pull-request">pull request</a> to merge to the development branch <code>devel</code> and link the issue so that it closes after successful merging.</li>
 <li>Check that there are no merge conflicts. If there are any, fix them before requesting review. See <a href="git_usage.html#solving-merge-conflicts-in-the-terminal-on-rstudio">solving merge conflicts</a> guidance.</li>
 <li>Check the results of the automated <code>R-CMD check</code> and <code>lintr</code> checks and if any issues consult this <a href="pr_review_guidance.html#common-r-cmd-check-issues-1">guide</a>.</li>
-<li>Assign a reviewer from the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> core development team – this could be anyone you discussed the issue with previously via Slack or GitHub. If unsure, add a comment that the pull request is ready for review and add the <code>@pharmaverse/admiral</code> tag to it.</li>
+<li>Assign a reviewer from the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> core development team – this could be anyone you discussed the issue with previously via Slack or GitHub. If unsure, add a comment that the pull request is ready for review and add the <code>@pharmaverse/admiral</code> tag to it.</li>
 <li>Once the review is completed, the reviewer will merge the PR and this will then automatically delete the feature branch.</li>
 </ol>
-<p><em>Finally, just a note to say from the core developers that we hugely appreciate you taking the time to contribute to <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a>. Don’t be offended if during review we send requests back to you, as the expectations are high so that we can ensure the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> codebase remains robust and consistent. The best way to learn here is always to jump in and get involved, so please don’t be afraid you’ll make mistakes along the way – we all have and continue to do so, and that’s what the reviews are for. Also if ever you get stuck don’t hesitate to reach out for support via the <a href="https://app.slack.com/client/T028PB489D3/C02M8KN8269" class="external-link">Slack channel</a>. <strong>Welcome to our <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> community!</strong></em></p>
+<p><em>Finally, just a note to say from the core developers that we hugely appreciate you taking the time to contribute to <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>. Don’t be offended if during review we send requests back to you, as the expectations are high so that we can ensure the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> codebase remains robust and consistent. The best way to learn here is always to jump in and get involved, so please don’t be afraid you’ll make mistakes along the way – we all have and continue to do so, and that’s what the reviews are for. Also if ever you get stuck don’t hesitate to reach out for support via the <a href="https://app.slack.com/client/T028PB489D3/C02M8KN8269" class="external-link">Slack channel</a>. <strong>Welcome to our <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> community!</strong></em></p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -165,7 +158,7 @@
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Ben Straub, Stefan Bundfuss, Thomas Neitmann, Samia Kabi, Pooja Kumari, Syed Mubasheer, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
+<p>Developed by Ben Straub, Stefan Bundfuss, Thomas Neitmann, Samia Kabi, Pooja Kumari, Syed Mubasheer, Ross Farrugia, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
 </div>
 
 <div class="pkgdown">

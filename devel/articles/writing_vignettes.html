@@ -52,7 +52,7 @@
   <a href="../articles/admiraldev.html">Get started</a>
 </li>
 <li>
-  <a href="../reference/index.html">Functions</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,13 +84,6 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -131,12 +124,12 @@
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>This guidance ensures consistency across the vignettes in the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> package in terms of content, structure and code execution. As a general rule, the vignette workflow defined in <a href="https://r-pkgs.org/vignettes.html" class="external-link">r-pkgs.org</a> is followed.</p>
+<p>This guidance ensures consistency across the vignettes in the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> package in terms of content, structure and code execution. As a general rule, the vignette workflow defined in <a href="https://r-pkgs.org/vignettes.html" class="external-link">r-pkgs.org</a> is followed.</p>
 </div>
 <div class="section level2">
 <h2 id="metadata">Metadata<a class="anchor" aria-label="anchor" href="#metadata"></a>
 </h2>
-<p>Each vignette in <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> should start with the following metadata.</p>
+<p>Each vignette in <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> should start with the following metadata.</p>
 <pre><code>---
 title: "&lt;Title&gt;"
 output:  rmarkdown::html_vignette:
@@ -176,7 +169,7 @@ This is the description of my first sub-section within my first section.
 ## Heading 1.2
 This is the description of my second sub-section within my first section.
 </code></pre>
-<p>The first section gives a brief introduction of the vignette. The last sub-section of the introduction should describe the packages required to run the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> functions. The <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> package should be described first.</p>
+<p>The first section gives a brief introduction of the vignette. The last sub-section of the introduction should describe the packages required to run the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> functions. The <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> package should be described first.</p>
 <pre><code># Introduction
 
 This is the introduction of my vignette.
@@ -243,7 +236,7 @@ library(admiral)
 </h5>
 <p>For vignettes describing an ADaM workflow,</p>
 <ul>
-<li><p>the second section will summarize the programming workflow. The first sub-section within this workflow will always describe the data read to demonstrate the use of the <a href="https://pharmaverse.github.io/admiral/index.html" class="external-link">admiral</a> functions,</p></li>
+<li><p>the second section will summarize the programming workflow. The first sub-section within this workflow will always describe the data read to demonstrate the use of the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> functions,</p></li>
 <li><p>Each sub-section within the programming workflow should be tagged (e.g. [Step1] (#step)), so that the user can go on the relevant section from the programming workflow (in addition to the Table of contents). Don’t use a tag with a number but use a meaningful name (e.g. do not use <code>(#link1)</code>, but use <code>(#this_action)</code>)</p></li>
 <li><p>the last section should link to a template script.</p></li>
 </ul>
@@ -291,7 +284,7 @@ ADxx | [ad_adxx.R](https://github.com/pharmaverse/admiral/blob/main/inst/templat
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Ben Straub, Stefan Bundfuss, Thomas Neitmann, Samia Kabi, Pooja Kumari, Syed Mubasheer, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
+<p>Developed by Ben Straub, Stefan Bundfuss, Thomas Neitmann, Samia Kabi, Pooja Kumari, Syed Mubasheer, Ross Farrugia, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
 </div>
 
 <div class="pkgdown">
