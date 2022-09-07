@@ -5,6 +5,4 @@ current_repo:
 upstream_repos:
   - repo: pharmaverse/admiral.test
     host: https://github.com
-  - repo: pharmaverse/admiral
-    host: https://github.com
 downstream_repos:
