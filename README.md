@@ -8,9 +8,9 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/admiraldev)](https://CRAN.R-project.org/package=admiraldev)
 [![Test
-Coverage](https://raw.githubusercontent.com/pharmaverse/admiral/badges/main/test-coverage.svg)](https://github.com/pharmaverse/admiral/actions/workflows/code-coverage.yml)
+Coverage](https://raw.githubusercontent.com/pharmaverse/admiraldev/badges/main/test-coverage.svg)](https://github.com/pharmaverse/admiraldev/actions/workflows/code-coverage.yml)
 [![Admiral
-Workflows](https://github.com/pharmaverse/admiral/actions/workflows/common.yml/badge.svg)](https://github.com/pharmaverse/admiral/actions/workflows/common.yml)
+Workflows](https://github.com/pharmaverse/admiraldev/actions/workflows/common.yml/badge.svg)](https://github.com/pharmaverse/admiraldev/actions/workflows/common.yml)
 
 ADaM in R Asset Library Development Utilities
 
