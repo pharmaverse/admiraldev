@@ -32,6 +32,12 @@ admiral_homepage <- "https://pharmaverse.github.io/admiral"
 
 # admiraldev <img src="man/figures/logo.png" align="right" alt="" width="120" />
 
+<!-- badges: start -->
+[<img src="http://pharmaverse.org/shields/admiraldev.svg">](https://pharmaverse.org)
+[![CRAN status](https://www.r-pkg.org/badges/version/admiraldev)](https://CRAN.R-project.org/package=admiraldev)
+[![Test Coverage](https://raw.githubusercontent.com/pharmaverse/admiral/badges/main/test-coverage.svg)](https://github.com/pharmaverse/admiral/actions/workflows/code-coverage.yml)
+[![Admiral Workflows](https://github.com/pharmaverse/admiral/actions/workflows/common.yml/badge.svg)](https://github.com/pharmaverse/admiral/actions/workflows/common.yml)
+
 ADaM in R Asset Library Development Utilities
 
 
