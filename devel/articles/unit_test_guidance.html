@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Unit Test Guidance">
 <meta property="og:description" content="admiraldev">
-<meta property="og:image" content="https://pharmaverse.github.io/admiraldev/devel/logo.png">
+<meta property="og:image" content="https://pharmaverse.github.io/admiraldev/devel/devel/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,13 +62,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -185,13 +178,13 @@
 <div class="section level3">
 <h3 id="set-up-the-test-script">Set up the Test Script<a class="anchor" aria-label="anchor" href="#set-up-the-test-script"></a>
 </h3>
-<p>Within {admiral} folder <a href="https://github.com/pharmaverse/admiral/tree/main/tests/testthat" class="external-link uri">https://github.com/pharmaverse/admiral/tree/main/tests/testthat</a>, add a script with the naming convention “test-&lt;script_containing_function&gt;.R”., the unit test script can be created from the console also, as follows:</p>
+<p>Within the <code>tests/testthat</code> folder of the project, add a script with the naming convention <code>test-&lt;script_containing_function&gt;.R</code>., the unit test script can be created from the console also, as follows:</p>
 <pre><code><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_r.html" class="external-link">use_test</a></span><span class="op">(</span><span class="st">"&lt;script_containing_function&gt;"</span><span class="op">)</span></code></pre>
 <p>the testing framework used is testthat and has the following format :</p>
-<pre><code>test_that("&lt;function_name&gt; Test 1: &lt;Explanation of the test&gt;", {
-  library(tibble)
+<pre><code>## Test 1: &lt;Explanation of the test&gt; ----
+test_that("&lt;function_name&gt; Test 1: &lt;Explanation of the test&gt;", {
   
-  input &lt;- tribble(
+  input &lt;- tibble::tribble(
     ~inputvar1, ~inputvar2, ...
     &lt;Add Test Data Scenarios&gt;
     ...
@@ -202,13 +195,14 @@
   expect_dfs_equal(&lt;function name&gt;(input), expected_output)
   
 })</code></pre>
-<p>For example, if you are testing a function called my_new_func that is contained in script all_funcs.R then from console use:</p>
+<p>For example, if you are testing a function called <code>my_new_func</code> that is contained in script <code>all_funcs.R</code> then from console use:</p>
 <pre><code><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_r.html" class="external-link">use_test</a></span><span class="op">(</span><span class="st">"all_funcs"</span><span class="op">)</span></code></pre>
-<p>Open the newly created file “test-all_funcs.R” and use the following format:</p>
-<pre><code>test_that("my_new_func Test 1: &lt;Explanation of the test&gt;", {
-  library(tibble)
+<p>Open the newly created file <code>test-all_funcs.R</code> and use the following format:</p>
+<pre><code># my_new_func ----
+## Test 1: &lt;Explanation of the test&gt; ----
+test_that("my_new_func Test 1: &lt;Explanation of the test&gt;", {
   
-  input &lt;- tribble(
+  input &lt;- tibble::tribble(
     ~inputvar1, ~inputvar2, ...
     &lt;Add Test Data Scenarios&gt;
     ...
@@ -218,17 +212,82 @@
 
   expect_dfs_equal(&lt;function name&gt;(input), expected_output)
 })</code></pre>
-<p><strong>Note</strong>: When comparing datasets in {admiral} we use function <code><a href="../reference/expect_dfs_equal.html">expect_dfs_equal()</a></code>.</p>
+<p><strong>Note</strong>: When comparing datasets in <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> we use function <code><a href="../reference/expect_dfs_equal.html">expect_dfs_equal()</a></code>.</p>
 <p>The input and expected output for the unit tests must follow the following rules:</p>
 <ul>
 <li>Input and output should be as simple as possible.</li>
 <li>Values should be hard-coded whenever possible.</li>
 <li>If values need to be derived, only unit tested functions can be used.</li>
 </ul>
-<p>If a dataset needs to be created for testing purpose, it should be done so using the function <code><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble()</a></code> (specify <code><a href="https://tibble.tidyverse.org/" class="external-link">library(tibble)</a></code> before calling this function). Make sure to align columns as well. This ensures quick code readability.</p>
+<p>If a dataset needs to be created for testing purpose, it should be done so using the function <code><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble()</a></code> from the <code>tibble</code> package with the following command <code>tibble::tribble(&lt;data here&gt;)</code>. Make sure to align columns as well. This ensures quick code readability.</p>
 <p>Ensure you give a meaningful explanation of the test in the testthat call, as these will be compiled in the package validation report. Having the name of the function and test ID included in title will also help with traceability.</p>
+<p>The comments ending with <code>----</code> create entries in the TOC in RStudio.</p>
+<p><img src="unit_test_toc.png" width="120%"></p>
+</div>
+<div class="section level3">
+<h3 id="addin-admiraldevformat_test_that_file">Addin <code>admiraldev::format_test_that_file()</code><a class="anchor" aria-label="anchor" href="#addin-admiraldevformat_test_that_file"></a>
+</h3>
+<p>To ease the burden on developers for writing and adding tests we have developed an Addin for formatting test_that test files according to admiral programming standards. The Addin will add and update comments as well as number or re-numbers the tests. Just use the Addin button and select the “Format test_that test file” as seen in the image. Be sure to have the test-file open and selected when calling the Addin.</p>
+<p><img src="unit_test_format_tests.png" width="120%"></p>
+<p>The Addin will perform the following:</p>
+<ul>
+<li>Updates or adds the number of the tests in the comments and in the <code>test_that()</code> call</li>
+<li>Updates the comments based on the description provided in the <code>test_that()</code> call</li>
+<li>Updates the function name in the <code>test_that()</code> call. The function name is extracted from the last <code># &lt;function name&gt; ----</code> comment before the <code>test_that()</code> call. If a test file tests more than one function, such comments should be added before the first test of each function. If a test files tests a single function only, the comments can be omitted. In this case the addin determines the function name from the file name by stripping of the “test-” prefix and the “.R” suffix.</li>
+</ul>
+<p>When writing new unit tests, just provide a description in the <code>test_that()</code> call and if necessary the function name in a <code># &lt;function name&gt; ----</code> comment:</p>
+<pre><code><span class="co"># arg_name ----</span>
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"arg_name works"</span>, <span class="op">{</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/tidyeval.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/call.html" class="external-link">call</a></span><span class="op">(</span><span class="st">"enquo"</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/tidyeval.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_error</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, <span class="st">"Could not extract argument name from"</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span>
+
+<span class="co"># convert_dtm_to_dtc ----</span>
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"works if dtm is in correct format"</span>, <span class="op">{</span>
+  <span class="fu">expect_equal</span><span class="op">(</span>
+    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2022-04-05 15:34:07 UTC"</span><span class="op">)</span><span class="op">)</span>,
+    <span class="st">"2022-04-05T15:34:07"</span>
+  <span class="op">)</span>
+<span class="op">}</span><span class="op">)</span>
+
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"Error is thrown if dtm is not in correct format"</span>, <span class="op">{</span>
+  <span class="fu">expect_error</span><span class="op">(</span>
+    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="st">"2022-04-05T15:26:14"</span><span class="op">)</span>,
+    <span class="st">"lubridate::is.instant(dtm) is not TRUE"</span>,
+    fixed <span class="op">=</span> <span class="cn">TRUE</span>
+  <span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre>
+<p>Call the addin and get:</p>
+<pre><code><span class="co"># arg_name ----</span>
+<span class="co">## Test 1: arg_name works ----</span>
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"arg_name Test 1: arg_name works"</span>, <span class="op">{</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/tidyeval.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/call.html" class="external-link">call</a></span><span class="op">(</span><span class="st">"enquo"</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/tidyeval.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_error</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, <span class="st">"Could not extract argument name from"</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span>
+
+<span class="co"># convert_dtm_to_dtc ----</span>
+<span class="co">## Test 2: works if dtm is in correct format ----</span>
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"convert_dtm_to_dtc Test 2: works if dtm is in correct format"</span>, <span class="op">{</span>
+  <span class="fu">expect_equal</span><span class="op">(</span>
+    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2022-04-05 15:34:07 UTC"</span><span class="op">)</span><span class="op">)</span>,
+    <span class="st">"2022-04-05T15:34:07"</span>
+  <span class="op">)</span>
+<span class="op">}</span><span class="op">)</span>
+
+<span class="co">## Test 3: Error is thrown if dtm is not in correct format ----</span>
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"convert_dtm_to_dtc Test 3: Error is thrown if dtm is not in correct format"</span>, <span class="op">{</span>
+  <span class="fu">expect_error</span><span class="op">(</span>
+    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="st">"2022-04-05T15:26:14"</span><span class="op">)</span>,
+    <span class="st">"lubridate::is.instant(dtm) is not TRUE"</span>,
+    fixed <span class="op">=</span> <span class="cn">TRUE</span>
+  <span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre>
 <p>Once you have tested your unit test program, you can run all unit tests from the console, as follows.</p>
 <pre><code><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html" class="external-link">test</a></span><span class="op">(</span><span class="op">)</span></code></pre>
+<p>For running just the tests of the current file call</p>
+<pre><code><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html" class="external-link">test_file</a></span><span class="op">(</span><span class="op">)</span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="automation-of-unit-tests">Automation of Unit Tests<a class="anchor" aria-label="anchor" href="#automation-of-unit-tests"></a>
