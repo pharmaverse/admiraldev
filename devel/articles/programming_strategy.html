@@ -62,13 +62,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -649,7 +642,7 @@ Make sure to align columns as this ensures quick code readability.</li>
 <li><p>the description level for a function,</p></li>
 <li><p>the keywords will be replaced with <code>deprecated</code></p></li>
 <li>
-<p>the <span class="citation">@family</span> roxygen tag will be removed</p>
+<p>the <span class="citation">@family</span> roxygen tag will become <code>deprecated</code></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Title of the function</span>
 <span class="co">#'</span>
@@ -658,6 +651,8 @@ Make sure to align columns as this ensures quick code readability.</li>
 <span class="co">#'</span>
 <span class="co">#' This function is *deprecated*, please use `new_fun()` instead.</span>
 <span class="co">#' .</span>
+<span class="co">#' @family deprecated</span>
+<span class="co">#'</span>
 <span class="co">#' @keywords deprecated</span>
 <span class="co">#' .</span></code></pre></div>
 </li>
