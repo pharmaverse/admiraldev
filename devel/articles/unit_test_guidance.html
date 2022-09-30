@@ -62,13 +62,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -245,8 +238,8 @@ test_that("my_new_func Test 1: &lt;Explanation of the test&gt;", {
 <p>When writing new unit tests, just provide a description in the <code>test_that()</code> call and if necessary the function name in a <code># &lt;function name&gt; ----</code> comment:</p>
 <pre><code><span class="co"># arg_name ----</span>
 <span class="fu">test_that</span><span class="op">(</span><span class="st">"arg_name works"</span>, <span class="op">{</span>
-  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/tidyeval.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
-  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/call.html" class="external-link">call</a></span><span class="op">(</span><span class="st">"enquo"</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/tidyeval.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/call.html" class="external-link">call</a></span><span class="op">(</span><span class="st">"enquo"</span>, <span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
   <span class="fu">expect_error</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, <span class="st">"Could not extract argument name from"</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 
@@ -269,8 +262,8 @@ test_that("my_new_func Test 1: &lt;Explanation of the test&gt;", {
 <pre><code><span class="co"># arg_name ----</span>
 <span class="co">## Test 1: arg_name works ----</span>
 <span class="fu">test_that</span><span class="op">(</span><span class="st">"arg_name Test 1: arg_name works"</span>, <span class="op">{</span>
-  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/tidyeval.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
-  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/call.html" class="external-link">call</a></span><span class="op">(</span><span class="st">"enquo"</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/tidyeval.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/call.html" class="external-link">call</a></span><span class="op">(</span><span class="st">"enquo"</span>, <span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
   <span class="fu">expect_error</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, <span class="st">"Could not extract argument name from"</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 

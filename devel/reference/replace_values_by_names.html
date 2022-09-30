@@ -38,13 +38,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -62,7 +55,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Replace Quosure Value with Name</h1>
-      <small class="dont-index">Source: <a href="https://github.com/pharmaverse/admiraldev/blob/main/R/dev_utilities.R" class="external-link"><code>R/dev_utilities.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/pharmaverse/admiraldev/blob/main/R/quo.R" class="external-link"><code>R/quo.R</code></a></small>
       <div class="d-none name"><code>replace_values_by_names.Rd</code></div>
     </div>
 
@@ -86,17 +79,11 @@
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Developer Utility Functions: 
-<code><a href="grapes-notin-grapes.html">%notin%</a>()</code>,
-<code><a href="grapes-or-grapes.html">%or%</a>()</code>,
-<code><a href="arg_name.html">arg_name</a>()</code>,
-<code><a href="as_name.html">as_name</a>()</code>,
-<code><a href="convert_dtm_to_dtc.html">convert_dtm_to_dtc</a>()</code>,
-<code><a href="extract_vars.html">extract_vars</a>()</code>,
-<code><a href="filter_if.html">filter_if</a>()</code>,
-<code><a href="negate_vars.html">negate_vars</a>()</code>,
-<code><a href="valid_time_units.html">valid_time_units</a>()</code>,
-<code><a href="vars2chr.html">vars2chr</a>()</code></p></div>
+    <div class="dont-index"><p>Helpers for working with Quosures: 
+<code><a href="add_suffix_to_vars.html">add_suffix_to_vars</a>()</code>,
+<code><a href="quo_c.html">quo_c</a>()</code>,
+<code><a href="quo_not_missing.html">quo_not_missing</a>()</code>,
+<code><a href="replace_symbol_in_quo.html">replace_symbol_in_quo</a>()</code></p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
