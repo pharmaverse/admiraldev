@@ -63,13 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -348,7 +341,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <h3 id="input-checking">Input Checking<a class="anchor" aria-label="anchor" href="#input-checking"></a>
 </h3>
 <p>In line with the <a href="https://en.wikipedia.org/wiki/Fail-fast" class="external-link">fail-fast</a> design principle, function inputs should be checked for validity and, if there’s an invalid input, the function should stop immediately with an error. An exception is the case where a variable to be added by a function already exists in the input dataset: here only a warning should be displayed and the function should continue executing.</p>
-<p>Inputs should be checked either using <code>asserthat::assert_that()</code> or custom assertion functions defined in <a href="https://github.com/pharmaverse/admiral/blob/main/R/assertions.R" class="external-link"><code>R/assertions.R</code></a>. These custom assertion functions should either return an error in case of an invalid input or return nothing.</p>
+<p>Inputs should be checked either using <code>asserthat::assert_that()</code> or custom assertion functions defined in <a href="https://github.com/pharmaverse/admiraldev/blob/main/R/assertions.R" class="external-link"><code>R/assertions.R</code></a>. These custom assertion functions should either return an error in case of an invalid input or return nothing.</p>
 <p>For the most common types of input parameters like a single variable, a list of variables, a dataset, … functions for checking are available (see <a href="../reference/index.html#section-assertions">assertions</a>).</p>
 <p>Parameters which expect keywords should handle them in a case-insensitive manner, e.g., both <code>date_imputation = "FIRST"</code> and <code>date_imputation = "first"</code> should be accepted. The <code><a href="../reference/assert_character_scalar.html">assert_character_scalar()</a></code> function helps with handling parameters in a case-insensitive manner.</p>
 <p>A parameter should not be checked in an outer function if the parameter name is the same as in the inner function. This rule is applicable only if both functions are part of <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>.</p>
