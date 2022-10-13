@@ -13,7 +13,7 @@ is_valid_date_entry(arg)
 \code{TRUE} if the argument is a valid date_imputation input, \code{FALSE} otherwise
 }
 \description{
-Date_imputation format should be specified as "dd-mm" (e.g. "01-01")
+Date_imputation format should be specified as "mm-dd" (e.g. "01-21")
 or as a keyword: "FIRST", "MID", "LAST"
 }
 \seealso{
