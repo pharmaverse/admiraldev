@@ -93,7 +93,7 @@ on_failure(is_timeunit) <- function(call, env) {
 
 #' Check Validity of the Date Imputation Input
 #'
-#' Date_imputation format should be specified as "dd-mm" (e.g. "01-01")
+#' Date_imputation format should be specified as "mm-dd" (e.g. "01-21")
 #' or as a keyword: "FIRST", "MID", "LAST"
 #'
 #' @param arg The argument to check
@@ -257,7 +257,7 @@ on_failure(is_valid_month) <- function(call, env) {
     eval(call$arg, envir = env),
     " is not a valid month.\n",
     "Values for month must be between 1-12. ",
-    "Please check the date_imputation input: it should be sepcified as 'dd-mm'"
+    "Please check the date_imputation input: it should be sepcified as 'mm-dd'"
   )
 }
 
