@@ -63,13 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -437,8 +430,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <li>
 <code>@return</code>: A description of the return value of the function. Any newly added variable(-s) should be mentioned here.</li>
 <li>
-<code>@examples</code>: A fully self-contained example of how to use the function. Self-contained means that, if this code is executed in a new R session, it will run without errors. That means any packages need to be loaded with <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code> and any datasets needed either to be created directly inside the example code or loaded using <code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code>. If a dataset is created in the example, it should be done so using the function <code><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble()</a></code> (specify <code><a href="https://tibble.tidyverse.org/" class="external-link">library(tibble)</a></code> before calling this function).<br>
-Make sure to align columns as this ensures quick code readability.</li>
+<code>@examples</code>: A fully self-contained example of how to use the function. Self-contained means that, if this code is executed in a new R session, it will run without errors. That means any packages need to be loaded with <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code> and any datasets needed either to be created directly inside the example code or loaded using <code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code>. If a dataset is created in the example, it should be done so using the function <code><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble()</a></code> (specify <code><a href="https://tibble.tidyverse.org/" class="external-link">library(tibble)</a></code> before calling this function). If other functions are called in the example, please specify <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(pkg_name)</a></code> then refer to the respective function <code>fun()</code> as opposed to the preferred <code>pkg_name::fun()</code> notation as specified in <a href="unit_test_guidance.html#set-up-the-test-script">Unit Test Guidance</a>. Make sure to align columns as this ensures quick code readability.</li>
 </ul>
 <p>Copying descriptions should be avoided as it makes the documentation hard to maintain. For example if the same parameter with the same description is used by more than one function, the parameter should be described for one function and the other functions should use <code>@inheritParams &lt;function name where the parameter is described&gt;</code>.</p>
 <p>Please note that if <code>@inheritParams func_first</code> is used in the header of the <code>func_second()</code> function, those parameter descriptions of <code>func_first()</code> are included in the documentation of <code>func_second()</code> for which</p>
