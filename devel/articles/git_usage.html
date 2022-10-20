@@ -63,13 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -114,8 +107,8 @@
 <li><p>The <code>main</code> branch contains the latest <strong>released</strong> version and should not be used for development. You can find the released versions <a href="https://GitHub.com/pharmaverse/admiral/releases" class="external-link">here</a></p></li>
 <li><p>The <code>devel</code> branch contains the latest development version of the package. You will always be branching off and pulling into the <code>devel</code> branch.</p></li>
 <li><p>The <code>gh-pages</code> branches contains the code used to render this website you are looking at right now!</p></li>
-<li><p>The <code>patch</code> branch is reserved for special hot fixes to address bugs. More info in <a href="#hot-fix-release">Hot Fix Release</a></p></li>
-<li><p>The <code>pre-release</code> branch is used to as an intermediate step to releasing the package from <code>main</code>. More info in <a href="#quarterly-release">Quarterly Release section</a></p></li>
+<li><p>The <code>patch</code> branch is reserved for special hot fixes to address bugs. More info in <a href="release_strategy.html#hot-fix-release">Hot Fix Release</a></p></li>
+<li><p>The <code>pre-release</code> branch is used to as an intermediate step to releasing the package from <code>main</code>. More info in <a href="release_strategy.html#quarterly-release">Quarterly Release section</a></p></li>
 <li><p>The <code>main</code>, <code>devel</code>, <code>gh-pages</code>, <code>patch</code> and <code>pre-release</code> branches are under protection. If you try and push changes to these branches you will get an error unless you are an administrator.</p></li>
 <li><p><strong>Feature</strong> branches are where actual development related to a specific issue happens. Feature branches are merged into <code>devel</code> once a pull request is merged. Check out the <a href="pr_review_guidance.html">Pull Request Review Guidance</a>.</p></li>
 </ul>
