@@ -63,13 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -141,6 +134,7 @@
 <ol style="list-style-type: decimal">
 <li>Identify all the bugs that need to be fixed for this hot fix release and label with hot fix label.</li>
 <li>Branches addressing the bugs should have Pull Requests merged into the <code>patch</code> branch <strong>NOT</strong> the <code>devel</code> branch.</li>
+<li>When naming the branch follow the <a href="git_usage.html#implementing-an-issue">naming conventions</a> guide but use the <code>@main</code> suffix</li>
 <li>Create a Pull Request from <code>patch</code> into the <code>pre-release</code> branch. Verify that all CI/CD checks are passing, merge and bundle up and send off to CRAN.</li>
 <li>Once package is approved and available on CRAN, another Pull Request is created for merging the <code>pre-release</code> branch into the <code>main</code> branch. This will trigger the action to rebuild the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> website with all the updates for this hot fix release.</li>
 <li>Use the release button on GitHub to “release” the package onto GitHub. This release onto Github archives the version of code within the <code>main</code> branch, attaches the News/Changelog file, bundles the code into a <code>tar.gz</code> file and makes a validation report via the GitHub action <code>validation</code> from <a href="https://github.com/insightsengineering/thevalidatoR" class="external-link">insightsengineering/validatoR</a>. Please see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral releases</a> for reference.</li>

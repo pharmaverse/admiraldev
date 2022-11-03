@@ -63,13 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -724,6 +717,27 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <h3 id="unit-testing-1">Unit Testing<a class="anchor" aria-label="anchor" href="#unit-testing-1"></a>
 </h3>
 <p>Unit tests for deprecated functions and parameters must be added to <code>tests/testthat/test-deprecation.R</code> to ensure that a warning or error is issued.</p>
+<p>When writing the unit test, check that the error or warning has the right class, i.e. “lifecycle_error_deprecated” or “lifecycle_warning_deprecated”, respectively. The unit-test should follow the corresponding format, per the <a href="unit_test_guidance.html#writing-unit-tests-in-admiral-">unit test guidance</a>:</p>
+<pre><code><span><span class="co"># For deprecated functions that issues error</span></span>
+<span></span>
+<span><span class="co">## Test #: An error is thrown if `derive_var_example()` is called ----</span></span>
+<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"deprecation Test #: derive_var_example() An error is thrown if</span></span>
+<span><span class="st">          `derive_var_example()` is called"</span>, <span class="op">{</span></span>
+<span>  <span class="fu">expect_error</span><span class="op">(</span></span>
+<span>    <span class="fu">derive_var_example</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    class <span class="op">=</span> <span class="st">"lifecycle_error_deprecated"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre>
+<pre><code><span><span class="co"># For deprecated functions that issues warning</span></span>
+<span></span>
+<span><span class="co">## Test #: A warning is thrown if `derive_var_example()` is called ----</span></span>
+<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"deprecation Test #: derive_var_example() A warning is thrown if</span></span>
+<span><span class="st">          `derive_var_example()` is called"</span>, <span class="op">{</span></span>
+<span>  <span class="fu">expect_warning</span><span class="op">(</span></span>
+<span>    <span class="fu">derive_var_example</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    class <span class="op">=</span> <span class="st">"lifecycle_warning_deprecated"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre>
 <p>Other unit tests of deprecated functions must be removed.</p>
 </div>
 </div>
@@ -803,13 +817,13 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <li># calculates the sum of scores divided by the non missing numbers of scores to calculate the average score</li>
 </ul>
 <p>Code within a function that creates a specific variable should have a starting comment and an ending comment, e.g.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># calculate X</span></span>
 <span><span class="co"># describe how the code works in meaningful plain english</span></span>
 <span><span class="st">"&lt;code&gt;"</span></span>
 <span><span class="co"># end of X</span></span></code></pre></div>
 <p>If meaningful, comments can cover multiple variables within a piece of code</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># creates X, Y, Z</span></span>
 <span><span class="co"># describe how the code works in meaningful plain english</span></span>
 <span><span class="st">"&lt;code&gt;"</span></span>
