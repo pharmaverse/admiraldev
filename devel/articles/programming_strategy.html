@@ -63,13 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -162,7 +155,15 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <li>The functions should not sort (arrange) the output dataset at the end.</li>
 <li>If the function needs to create temporary variables in an input dataset, these variables must start with <code>temp_</code> and must be removed from the output dataset.</li>
 <li>If the input dataset includes variables starting with <code>temp_</code>, an error must be issued.</li>
-<li>The function must not have any side-effects like creating or modifying global objects, printing, writing files, …</li>
+<li>In general, the function must not have any side-effects like creating or modifying global objects, printing, writing files, …</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="admiral-options">Admiral Options<a class="anchor" aria-label="anchor" href="#admiral-options"></a>
+</h3>
+<ul>
+<li>An exception is made for admiral options, see <code>get_admiral_option()</code> and <code>set_admiral_options()</code>, where we have certain pre-defined defaults with added flexibility to allow for user-defined defaults on <em>commonly used</em> function arguments e.g. <code>subject_keys</code> currently pre-defined as <code>vars(STUDYID, USUBJID)</code>, but can be modified using <code>set_admiral_options(subject_keys = vars(...))</code> at the top of a script. The reasoning behind this was to relieve the user of repeatedly changing aforementioned <em>commonly used</em> function arguments multiple times in a script, which may be called across many admiral functions.</li>
+<li>If this additional flexibility needs to be added for another <em>commonly used</em> function argument e.g. <code>future_input</code> to be set as <code>vars(...)</code> it can be added as an admiral option. In the function formals define <code>future_input = get_admiral_option("future_input")</code> then proceed to modify the body and roxygen documentation of <code>set_admiral_options()</code>.</li>
 </ul>
 </div>
 <div class="section level3">
@@ -335,6 +336,11 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <tr class="odd">
 <td><code>set_values_to</code></td>
 <td>List of variable name-value pairs.</td>
+</tr>
+<tr class="even">
+<td><code>subject_keys</code></td>
+<td>Variables to uniquely identify a subject, defaults to <code>vars(STUDYID, USUBJID)</code>. In function formals, use <code>subject_keys = get_admiral_option("subject_keys")</code>
+</td>
 </tr>
 </tbody>
 </table>
