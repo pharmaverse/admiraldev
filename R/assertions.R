@@ -86,7 +86,8 @@ assert_data_frame <- function(arg,
 #' one of the provided `values`.
 #'
 #' @param arg A function argument to be checked
-#' @param values A `character` vector of valid values for `arg`
+#' @param values A `character` vector of valid values for `arg`.
+#' Values should be a lower case vector if case_sensitive = FALSE is used.
 #' @param case_sensitive Should the argument be handled case-sensitive?
 #' If set to `FALSE`, the argument is converted to lower case for checking the
 #' permitted values and returning the argument.
@@ -159,6 +160,9 @@ assert_character_scalar <- function(arg,
 
   if (!case_sensitive) {
     arg <- tolower(arg)
+    if (!is.null(values)) {
+      values <- tolower(values)
+    }
   }
 
   if (!is.null(values) && arg %notin% values) {
@@ -437,8 +441,12 @@ assert_filter_cond <- function(arg, optional = FALSE) {
 #' Checks if an argument is a valid list of variables created using `vars()`
 #'
 #' @param arg A function argument to be checked
+#'
 #' @param optional Is the checked parameter optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
+#'
+#' @param expect_names If the argument is set to `TRUE`, it is checked if all
+#'   variables are named, e.g., `vars(APERSDT = APxxSDT, APEREDT = APxxEDT)`.
 #'
 #' @author Samia Kabi
 #'
@@ -462,7 +470,15 @@ assert_filter_cond <- function(arg, optional = FALSE) {
 #' try(example_fun(c("USUBJID", "PARAMCD", "VISIT")))
 #'
 #' try(example_fun(vars(USUBJID, toupper(PARAMCD), desc(AVAL))))
-assert_vars <- function(arg, optional = FALSE) {
+#'
+#' example_fun_name <- function(by_vars) {
+#'   assert_vars(by_vars, expect_names = TRUE)
+#' }
+#'
+#' example_fun_name(vars(APERSDT = APxxSDT, APEREDT = APxxEDT))
+#'
+#' try(example_fun_name(vars(APERSDT = APxxSDT, APxxEDT)))
+assert_vars <- function(arg, optional = FALSE, expect_names = FALSE) {
   assert_logical_scalar(optional)
 
   default_err_msg <- sprintf(
@@ -491,6 +507,18 @@ assert_vars <- function(arg, optional = FALSE) {
       enumerate(expr_list[!is_symbol])
     )
     abort(err_msg)
+  }
+
+  if (expect_names) {
+    if (any(names(arg) == "")) {
+      abort(sprintf(
+        paste(
+          "`%s` must be a named list of unquoted variable names,",
+          "e.g. `vars(APERSDT = APxxSDT, APEREDT = APxxEDT)`"
+        ),
+        arg_name(substitute(arg))
+      ))
+    }
   }
 
   invisible(arg)
@@ -656,6 +684,48 @@ assert_numeric_vector <- function(arg, optional = FALSE) {
   }
 }
 
+#' Is an Argument an Atomic Vector?
+#'
+#' Checks if an argument is an atomic vector
+#'
+#' @param arg A function argument to be checked
+#' @param optional Is the checked parameter optional? If set to `FALSE` and `arg`
+#' is `NULL` then an error is thrown
+#'
+#' @author Ania Golab
+#'
+#' @return
+#' The function throws an error if `arg` is not an atomic vector.
+#' Otherwise, the input is returned invisibly.
+#'
+#' @export
+#'
+#' @keywords assertion
+#' @family assertion
+#' @examples
+#' example_fun <- function(x) {
+#'   assert_atomic_vector(x)
+#' }
+#'
+#' example_fun(1:10)
+#'
+#' try(example_fun(list(1, 2)))
+assert_atomic_vector <- function(arg, optional = FALSE) {
+  assert_logical_scalar(optional)
+
+  if (optional && is.null(arg)) {
+    return(invisible(arg))
+  }
+
+  if (!is.atomic(arg)) {
+    err_msg <- sprintf(
+      "`%s` must be an atomic vector but is %s",
+      arg_name(substitute(arg)),
+      what_is_it(arg)
+    )
+    abort(err_msg)
+  }
+}
 
 #' Is an Argument an Object of a Specific S3 Class?
 #'
@@ -1421,6 +1491,52 @@ assert_date_var <- function(dataset, var, dataset_name = NULL, var_name = NULL) 
       dataset_name,
       "` is not a date or datetime variable but is ",
       friendly_type_of(column)
+    ))
+  }
+}
+
+#' Is an object a date or datetime vector?
+#'
+#' Check if an object/vector is a date or datetime variable without needing a dataset as input
+#'
+#' @param arg The function argument to be checked
+#'
+#' @param optional Is the checked parameter optional? If set to `FALSE`
+#' and `arg` is `NULL` then the function `assert_date_vector` exits early and throw and error.
+#'
+#' @return
+#' The function returns an error if `arg` is missing, or not a date or datetime variable
+#' but otherwise returns an invisible output.
+#'
+#' @export
+#'
+#' @author Sadchla Mascary
+#'
+#' @keywords assertion
+#'
+#' @family assertion
+#'
+#' @examples
+#' example_fun <- function(arg) {
+#'   assert_date_vector(arg)
+#' }
+#'
+#' example_fun(
+#'   as.Date("2022-01-30", tz = "UTC")
+#' )
+#' try(example_fun("1993-07-14"))
+assert_date_vector <- function(arg, optional = TRUE) {
+  assert_logical_scalar(optional)
+
+  if (optional && is.null(arg)) {
+    return(invisible(arg))
+  }
+
+  if (!is.instant(arg)) {
+    abort(paste0(
+      deparse(substitute(arg)),
+      " must be a date or datetime variable but it's ",
+      friendly_type_of(arg)
     ))
   }
 }

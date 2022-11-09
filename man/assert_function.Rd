@@ -40,9 +40,11 @@ try(example_fun(sum))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 
+\code{\link{assert_atomic_vector}()},
 \code{\link{assert_character_scalar}()},
 \code{\link{assert_character_vector}()},
 \code{\link{assert_data_frame}()},
+\code{\link{assert_date_vector}()},
 \code{\link{assert_expr}()},
 \code{\link{assert_filter_cond}()},
 \code{\link{assert_function_param}()},
