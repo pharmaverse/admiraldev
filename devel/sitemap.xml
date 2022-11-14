@@ -184,37 +184,13 @@
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_auto.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_date.html</loc>
-  </url>
-  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_named.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_order_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_timeunit.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_valid_date_entry.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_valid_day.html</loc>
-  </url>
-  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_valid_dtc.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_valid_hour.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_valid_month.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_valid_sec_min.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_valid_time_entry.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/joins.html</loc>
