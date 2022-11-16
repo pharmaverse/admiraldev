@@ -63,13 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -855,10 +848,9 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <h2 id="r-and-package-versions-for-development">R and package versions for development<a class="anchor" aria-label="anchor" href="#r-and-package-versions-for-development"></a>
 </h2>
 <ul>
-<li>The choice of R Version is not set in stone. However, a common development environment is important to establish when working across multiple companies and multiple developers. We only use the three latest R versions and the closest date of snapshots of R packages available when that R version came out. This need for a common development environment also carries over for our choice of package versions.<br>
+<li>The choice of R Version is not set in stone. However, a common development environment is important to establish when working across multiple companies and multiple developers. We currently work in the earliest of the three latest R Versions. This need for a common development environment also carries over for our choice of package versions.<br>
 </li>
-<li>GitHub allows us through the Actions/Workflows to test <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> under several versions of R as well as several versions of dependent R packages needed for <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>. Currently we test <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> against 4.0 with a CRAN package snapshot from 2021-03-31 and the latest R version with the latest snapshots of packages. You can view this workflow on our <a href="https://github.com/pharmaverse/admiralci/blob/main/.github/workflows/r-cmd-check.yml" class="external-link">GitHub Repository</a>
-</li>
+<li>GitHub allows us through the Actions/Workflows to test <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> under several versions of R as well as several versions of dependent R packages needed for <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>. Currently we test <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> against the three latest R Versions and the closest snapshots of packages to those R versions. You can view this workflow and others on our <a href="https://github.com/pharmaverse/admiralci" class="external-link">admiralci GitHub Repository</a>.</li>
 <li>This common development allows us to easily re-create bugs and provide solutions to each other issues that developers will encounter.<br>
 </li>
 <li>Reviewers of Pull Requests when running code will know that their environment is identical to the initiator of the Pull Request. This ensures faster review times and higher quality Pull Request reviews.</li>
@@ -873,7 +865,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Ben Straub, Stefan Bundfuss, Thomas Neitmann, Samia Kabi, Pooja Kumari, Syed Mubasheer, Ross Farrugia, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
+<p>Developed by Ben Straub, Stefan Bundfuss, Thomas Neitmann, Samia Kabi, Pooja Kumari, Syed Mubasheer, Ross Farrugia, Sadchla Mascary, Zelos Zhu, Jeffrey Dickinson, Ania Golab, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
 </div>
 
 <div class="pkgdown-footer-right">

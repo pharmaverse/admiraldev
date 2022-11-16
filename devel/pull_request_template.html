@@ -39,13 +39,6 @@
 <li class="nav-item">
   <a class="nav-link" href="news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -74,12 +67,12 @@
 <li>
 <input type="checkbox" disabled>Code is formatted according to the <a href="https://style.tidyverse.org/" class="external-link">tidyverse style guide</a>. Run <code><a href="https://styler.r-lib.org/reference/style_file.html" class="external-link">styler::style_file()</a></code> to style R and Rmd files</li>
 <li>
-<input type="checkbox" disabled>Updated relevant unit tests or have written new unit tests - See <a href="https://pharmaverse.github.io/admiraldev/devel/articles/unit_test_guidance.html" class="external-link">Unit Test Guide</a>
+<input type="checkbox" disabled>Updated relevant unit tests or have written new unit tests, which should consider realistic data scenarios and edge cases, e.g. empty datasets, errors, boundary cases etc. - See <a href="https://pharmaverse.github.io/admiraldev/devel/articles/unit_test_guidance.html#tests-should-be-robust-to-cover-realistic-data-scenarios" class="external-link">Unit Test Guide</a>
 </li>
 <li>
 <input type="checkbox" disabled>If you removed/replaced any function and/or function parameters, did you fully follow the <a href="https://pharmaverse.github.io/admiraldev/devel/articles/programming_strategy.html#deprecation" class="external-link">deprecation guidance</a>?</li>
 <li>
-<input type="checkbox" disabled>Update to all relevant roxygen headers and examples.</li>
+<input type="checkbox" disabled>Update to all relevant roxygen headers and examples, including keywords and families. Refer to the <a href="https://pharmaverse.github.io/admiraldev/devel/articles/programming_strategy.html#categorization-of-functions" class="external-link">categorization of functions</a> to tag appropriate keyword/family.</li>
 <li>
 <input type="checkbox" disabled>Run <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code> so all <code>.Rd</code> files in the <code>man</code> folder and the <code>NAMESPACE</code> file in the project root are updated appropriately</li>
 <li>
@@ -95,16 +88,16 @@
 <input type="checkbox" disabled>Run <code>R CMD check</code> locally and address all errors and warnings - <code><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">devtools::check()</a></code>
 </li>
 <li>
-<input type="checkbox" disabled>Link the issue so that it closes after successful merging.</li>
+<input type="checkbox" disabled>Link the issue in the Development Section on the right hand side.</li>
 <li>
-<input type="checkbox" disabled>Address all merge conflicts and resolve appropriately.</li>
+<input type="checkbox" disabled>Address all merge conflicts and resolve appropriately</li>
 <li>
 <input type="checkbox" disabled>Pat yourself on the back for a job well done! Much love to your accomplishment!</li>
 </ul></main></div>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Ben Straub, Stefan Bundfuss, Thomas Neitmann, Samia Kabi, Pooja Kumari, Syed Mubasheer, Ross Farrugia, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
+  <p></p><p>Developed by Ben Straub, Stefan Bundfuss, Thomas Neitmann, Samia Kabi, Pooja Kumari, Syed Mubasheer, Ross Farrugia, Sadchla Mascary, Zelos Zhu, Jeffrey Dickinson, Ania Golab, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
 </div>
 
 <div class="pkgdown-footer-right">
