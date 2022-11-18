@@ -63,13 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -219,7 +212,64 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <code>compute_</code> / <code>calculate_</code> / …</td>
 <td>Functions that take vectors as input and return a vector</td>
 </tr>
+<tr class="odd">
+<td>
+<code>create_</code> / <code>consolidate_</code>
+</td>
+<td>Functions that create datasets without keeping the original observations</td>
+</tr>
+<tr class="even">
+<td><code>get_</code></td>
+<td>Usually utility functions that return very specific objects that get passed through other functions</td>
+</tr>
+<tr class="odd">
+<td><code>filter_</code></td>
+<td>Functions that filter observations based on conditions associated with common clinical trial syntax</td>
+</tr>
 </tbody>
+</table>
+<table class="table">
+<colgroup>
+<col width="31%">
+<col width="68%">
+</colgroup>
+<thead><tr class="header">
+<th>Function Name Suffix</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<code>_derivation</code> (suffix)</td>
+<td>High order functions that call a user specified derivation</td>
+</tr>
+<tr class="even">
+<td>
+<code>_date</code> / <code>_time</code> / <code>_dt</code> / <code>_dtc</code> / <code>_dtm</code>
+</td>
+<td>Functions associated with dates, times, datetimes, and their character equivalents.</td>
+</tr>
+<tr class="odd">
+<td><code>_source</code></td>
+<td>Functions that create source datasets that usually will be passed through other <code>derive_</code> functions.</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<colgroup>
+<col width="31%">
+<col width="68%">
+</colgroup>
+<thead><tr class="header">
+<th>Other Common Function Name Terms</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td>
+<code>_merged_</code> / <code>_joined_</code> / <code>_extreme_</code>
+</td>
+<td>Functions that follow the generic function user-guide.</td>
+</tr></tbody>
 </table>
 <p>Please note that the appropriate <em>var</em>/<em>vars</em> prefix should be used for all cases in which the function creates any variable(s), regardless of the presence of a <code>new_var</code> parameter in the function call.</p>
 </div>
