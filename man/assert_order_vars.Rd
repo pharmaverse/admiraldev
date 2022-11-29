@@ -20,14 +20,14 @@ calls created using \code{vars()} and returns the input invisibly otherwise.
 Checks if an argument is a valid list of order variables created using \code{vars()}
 }
 \examples{
-
+library(rlang)
 example_fun <- function(by_vars) {
   assert_order_vars(by_vars)
 }
 
 example_fun(vars(USUBJID, PARAMCD, desc(AVISITN)))
 
-try(example_fun(rlang::exprs(USUBJID, PARAMCD)))
+try(example_fun(exprs(USUBJID, PARAMCD)))
 
 try(example_fun(c("USUBJID", "PARAMCD", "VISIT")))
 
