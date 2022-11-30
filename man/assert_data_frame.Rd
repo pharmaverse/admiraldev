@@ -32,7 +32,7 @@ a set of required variables
 }
 \examples{
 library(admiral.test)
-library(dplyr)
+library(dplyr, warn.conflicts = FALSE)
 data(admiral_dm)
 
 example_fun <- function(dataset) {

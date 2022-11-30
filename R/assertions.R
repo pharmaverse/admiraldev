@@ -23,7 +23,7 @@
 #'
 #' @examples
 #' library(admiral.test)
-#' library(dplyr)
+#' library(dplyr, warn.conflicts = FALSE)
 #' data(admiral_dm)
 #'
 #' example_fun <- function(dataset) {
@@ -324,7 +324,7 @@ assert_logical_scalar <- function(arg, optional = FALSE) {
 #' @family assertion
 #' @examples
 #' library(admiral.test)
-#' library(dplyr)
+#' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
 #' data(admiral_dm)
 #'
@@ -418,7 +418,7 @@ assert_expr <- function(arg, optional = FALSE) {
 #'
 #' @examples
 #' library(admiral.test)
-#' library(dplyr)
+#' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
 #' data(admiral_dm)
 #'
@@ -480,7 +480,9 @@ assert_filter_cond <- function(arg, optional = FALSE) {
 #' @keywords assertion
 #' @family assertion
 #' @examples
+#' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
+#'
 #' example_fun <- function(by_vars) {
 #'   assert_vars(by_vars)
 #' }
@@ -565,7 +567,9 @@ assert_vars <- function(arg, optional = FALSE, expect_names = FALSE) {
 #' @keywords assertion
 #' @family assertion
 #' @examples
+#' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
+#'
 #' example_fun <- function(by_vars) {
 #'   assert_order_vars(by_vars)
 #' }
@@ -1189,6 +1193,8 @@ assert_param_does_not_exist <- function(dataset, param) {
 #' @export
 #'
 #' @examples
+#' library(dplyr, warn.conflicts = FALSE)
+#'
 #' example_fun <- function(vars) {
 #'   assert_varval_list(vars)
 #' }
@@ -1402,7 +1408,7 @@ assert_one_to_one <- function(dataset, vars1, vars2) {
     filter(n() > 1) %>%
     arrange(!!!vars1)
   if (nrow(one_to_many) > 0) {
-    set_dataset(one_to_many, "one_to_many")
+    admiraldev_environment$one_to_many <- one_to_many
     abort(
       paste0(
         "For some values of ",
@@ -1418,7 +1424,7 @@ assert_one_to_one <- function(dataset, vars1, vars2) {
     filter(n() > 1) %>%
     arrange(!!!vars2)
   if (nrow(many_to_one) > 0) {
-    set_dataset(many_to_one, "many_to_one")
+    admiraldev_environment$many_to_one <- many_to_one
     abort(
       paste0(
         "There is more than one value of ",
