@@ -63,13 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -162,6 +155,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <li>The functions should not sort (arrange) the output dataset at the end.</li>
 <li>If the function needs to create temporary variables in an input dataset, these variables must start with <code>temp_</code> and must be removed from the output dataset.</li>
 <li>If the input dataset includes variables starting with <code>temp_</code>, an error must be issued.</li>
+<li>If developers find the need to use or create <em>environment</em> objects to achieve flexibility, use the <code>admiral_environment</code> environment object created in <code>admiral_environment.R</code>. All objects which are stored in this environment must be documented in <code>admiral_environment.R</code>. An equivalent environment object and <code>.R</code> file exist for admiraldev as well. For more details how environments work, see relevant sections on environments in <a href="https://r-pkgs.org" class="external-link">R Packages</a> and <a href="https://adv-r.hadley.nz" class="external-link">Advanced R</a> textbooks.</li>
 <li>In general, the function must not have any side-effects like creating or modifying global objects, printing, writing files, …</li>
 </ul>
 </div>
