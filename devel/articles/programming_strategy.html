@@ -63,13 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -474,7 +467,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <span><span class="co">#'</span></span>
 <span><span class="co">#' @examples</span></span>
 <span><span class="co">#' library(lubridate)</span></span>
-<span><span class="co">#' library(dplyr)</span></span>
+<span><span class="co">#' library(dplyr, warn.conflicts = FALSE)</span></span>
 <span><span class="co">#' library(tibble)</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' datain &lt;- tribble(</span></span>
@@ -692,6 +685,9 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 </h2>
 <p>Package dependencies have to be documented in the <code>DESCRIPTION</code> file. If a package is used only in examples and/or unit tests then it should be listed in <code>Suggests</code>, otherwise in <code>Imports</code>.</p>
 <p>Functions from other packages have to be explicitly imported by using the <code>@importFrom</code> tag in the <code>R/admiral-package.R</code> file. To import the <code><a href="https://dplyr.tidyverse.org/reference/if_else.html" class="external-link">if_else()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> function from <code>dplyr</code> the following line would have to be included in that file: <code>#' @importFrom dplyr if_else mutate</code>.</p>
+<p>Some of these functions become critically important while using admiral and should be included as an export. This applies to functions which are frequently called within <code>{admiral }</code>function calls like <code><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">dplyr::vars()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">dplyr::desc()</a></code> or the pipe operator <code>magrittr::%&gt;%</code>. To export these functions, the following R code should be included in the <code>R/reexports.R</code> file using the format:</p>
+<pre><code><span><span class="co">#' @export</span></span>
+<span><span class="fu">pkg_name</span><span class="fu">::</span><span class="va">fun</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="metadata">Metadata<a class="anchor" aria-label="anchor" href="#metadata"></a>
@@ -724,7 +720,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <li><p>the keywords will be replaced with <code>deprecated</code></p></li>
 <li>
 <p>the <span class="citation">@family</span> roxygen tag will become <code>deprecated</code></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#' Title of the function</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' @description</span></span>
@@ -753,7 +749,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <h4 id="function">Function<a class="anchor" aria-label="anchor" href="#function"></a>
 </h4>
 <p>In the initial release in which a function is deprecated the original function body must be replaced with a call to <code>deprecate_warn()</code> and subsequently all arguments should be passed on to the new function.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">deprecate_warn</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx()"</span>, <span class="st">"new_fun_xxx()"</span><span class="op">)</span></span>
 <span>  <span class="fu">new_fun_xxx</span><span class="op">(</span></span>
@@ -763,7 +759,7 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>In the following release the function body should be changed to just include a call to <code>deprecate_stop()</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">deprecate_stop</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx()"</span>, <span class="st">"new_fun_xxx()"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
@@ -894,13 +890,13 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <li># calculates the sum of scores divided by the non missing numbers of scores to calculate the average score</li>
 </ul>
 <p>Code within a function that creates a specific variable should have a starting comment and an ending comment, e.g.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># calculate X</span></span>
 <span><span class="co"># describe how the code works in meaningful plain english</span></span>
 <span><span class="st">"&lt;code&gt;"</span></span>
 <span><span class="co"># end of X</span></span></code></pre></div>
 <p>If meaningful, comments can cover multiple variables within a piece of code</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># creates X, Y, Z</span></span>
 <span><span class="co"># describe how the code works in meaningful plain english</span></span>
 <span><span class="st">"&lt;code&gt;"</span></span>

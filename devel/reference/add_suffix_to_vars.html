@@ -39,13 +39,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -118,23 +111,25 @@ added to every symbol specified for <code>vars</code></p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">add_suffix_to_vars</span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">ADT</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">AVAL</span><span class="op">)</span>, <span class="va">AVALC</span><span class="op">)</span>, vars <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">AVAL</span><span class="op">)</span>, suffix <span class="op">=</span> <span class="st">".join"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">add_suffix_to_vars</span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">ADT</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">AVAL</span><span class="op">)</span>, <span class="va">AVALC</span><span class="op">)</span>, vars <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">AVAL</span><span class="op">)</span>, suffix <span class="op">=</span> <span class="st">".join"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;list_of&lt;quosure&gt;&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">&lt;quosure&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> expr: <span style="color: #0000BB;">^ADT</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> env:  <span style="color: #0000BB;">0x558d404e4a88</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> env:  <span style="color: #0000BB;">0x5630e90e4410</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">&lt;quosure&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> expr: <span style="color: #0000BB;">^desc(AVAL.join)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> env:  <span style="color: #0000BB;">0x558d404e4a88</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> env:  <span style="color: #0000BB;">0x5630e90e4410</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">&lt;quosure&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> expr: <span style="color: #0000BB;">^AVALC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> env:  <span style="color: #0000BB;">0x558d404e4a88</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> env:  <span style="color: #0000BB;">0x5630e90e4410</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>

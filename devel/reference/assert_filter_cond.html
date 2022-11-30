@@ -39,13 +39,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -134,12 +127,14 @@ functions like <code>subset</code> or <code><a href="https://dplyr.tidyverse.org
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">admiral.test</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rlang.r-lib.org" class="external-link">rlang</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">admiral_dm</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># typical usage in a function as a parameter check</span></span></span>
 <span class="r-in"><span><span class="va">example_fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dat</span>, <span class="va">x</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">assert_filter_cond</span><span class="op">(</span><span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/enquo.html" class="external-link">enquo</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">dat</span>, <span class="op">!</span><span class="op">!</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">assert_filter_cond</span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/enquo.html" class="external-link">enquo</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">dat</span>, <span class="op">!</span><span class="op">!</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">example_fun</span><span class="op">(</span><span class="va">admiral_dm</span>, <span class="va">AGE</span> <span class="op">==</span> <span class="fl">64</span><span class="op">)</span></span></span>
@@ -157,7 +152,7 @@ functions like <code>subset</code> or <code><a href="https://dplyr.tidyverse.org
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   DMDTC &lt;chr&gt;, DMDY &lt;dbl&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="va">admiral_dm</span>, <span class="va">USUBJID</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in assert_filter_cond(rlang::enquo(x)) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in assert_filter_cond(enquo(x)) : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   `x` must be a filter condition but is a symbol</span>
 </code></pre></div>
     </div>
