@@ -39,13 +39,6 @@
 <li class="active nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -70,25 +63,36 @@
 <h2 class="pkg-version" data-toc-text="0.2.0" id="admiraldev-020">admiraldev 0.2.0<a class="anchor" aria-label="anchor" href="#admiraldev-020"></a></h2>
 <div class="section level3">
 <h3 id="new-features-0-2-0">New Features<a class="anchor" aria-label="anchor" href="#new-features-0-2-0"></a></h3>
-<ul><li><p>Developer addin for formatting tests to admiral programming standards (<a href="https://github.com/pharmaverse/admiraldev/issues/73" class="external-link">#73</a>)</p></li>
-<li><p>New functions <code><a href="../reference/replace_symbol_in_quo.html">replace_symbol_in_quo()</a></code> and <code><a href="../reference/add_suffix_to_vars.html">add_suffix_to_vars()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/106" class="external-link">#106</a>)</p></li>
-<li><p>New function <code><a href="../reference/assert_atomic_vector.html">assert_atomic_vector()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/98" class="external-link">#98</a>)</p></li>
-<li><p>New keyword/family <code>create_aux</code> for functions creating auxiliary datasets (<a href="https://github.com/pharmaverse/admiraldev/issues/126" class="external-link">#126</a>)</p></li>
-<li><p>New function <code><a href="../reference/assert_date_vector.html">assert_date_vector()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/129" class="external-link">#129</a>)</p></li>
-<li><p>New function <code><a href="../reference/assert_same_type.html">assert_same_type()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/176" class="external-link">#176</a>)</p></li>
-<li><p>Remove dependency on <code>{assertthat}</code> (<a href="https://github.com/pharmaverse/admiraldev/issues/149" class="external-link">#149</a>)</p></li>
-<li><p>Test coverage for <code>admiraldev</code> have increased from 45% to approximately 100% (<a href="https://github.com/pharmaverse/admiraldev/issues/94" class="external-link">#94</a>,#95, <a href="https://github.com/pharmaverse/admiraldev/issues/96" class="external-link">#96</a>,#98,#101,#103)</p></li>
+<ul><li>Developer addin for formatting tests to admiral programming standards (<a href="https://github.com/pharmaverse/admiraldev/issues/73" class="external-link">#73</a>)</li>
+<li>New functions <code><a href="../reference/replace_symbol_in_quo.html">replace_symbol_in_quo()</a></code> and <code><a href="../reference/add_suffix_to_vars.html">add_suffix_to_vars()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/106" class="external-link">#106</a>)</li>
+<li>New function <code><a href="../reference/assert_atomic_vector.html">assert_atomic_vector()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/98" class="external-link">#98</a>)</li>
+<li>New keyword/family <code>create_aux</code> for functions creating auxiliary datasets (<a href="https://github.com/pharmaverse/admiraldev/issues/126" class="external-link">#126</a>)</li>
+<li>New function <code><a href="../reference/assert_date_vector.html">assert_date_vector()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/129" class="external-link">#129</a>)</li>
+<li>New function <code><a href="../reference/assert_same_type.html">assert_same_type()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/176" class="external-link">#176</a>)</li>
+<li>Remove dependency on <code>{assertthat}</code> (<a href="https://github.com/pharmaverse/admiraldev/issues/149" class="external-link">#149</a>)</li>
+<li>Test coverage for <code>admiraldev</code> have increased from 45% to approximately 100% (<a href="https://github.com/pharmaverse/admiraldev/issues/94" class="external-link">#94</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/95" class="external-link">#95</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/96" class="external-link">#96</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/98" class="external-link">#98</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/101" class="external-link">#101</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/103" class="external-link">#103</a>)</li>
+<li>
+<em>Environment</em> objects were consolidated into a single <code>admiraldev_environment</code> object under <code>R/admiraldev_environment.R</code>. (<a href="https://github.com/pharmaverse/admiraldev/issues/179" class="external-link">#179</a>)</li>
 </ul></div>
 <div class="section level3">
 <h3 id="updates-of-existing-functions-0-2-0">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-0-2-0"></a></h3>
 <ul><li>
-<code>expect_names</code> argument added to <code><a href="../reference/assert_vars.html">assert_vars()</a></code> to check if all variables are named (<a href="https://github.com/pharmaverse/admiraldev/issues/117" class="external-link">#117</a>)</li></ul></div>
+<code>expect_names</code> argument added to <code><a href="../reference/assert_vars.html">assert_vars()</a></code> to check if all variables are named (<a href="https://github.com/pharmaverse/admiraldev/issues/117" class="external-link">#117</a>)</li>
+<li>Remove <code>dplyr</code> function exports and migration of user facing function <code>negate_vars()</code> to admiral (<a href="https://github.com/pharmaverse/admiraldev/issues/83" class="external-link">#83</a>)</li>
+</ul></div>
 <div class="section level3">
 <h3 id="breaking-changes-0-2-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-2-0"></a></h3>
-<ul><li>NA ## Documentation</li>
-<li>New vignette for our package release strategy (<a href="https://github.com/pharmaverse/admiraldev/issues/79" class="external-link">#79</a>)</li>
-<li>Updated multiple roxygen headers (<a href="https://github.com/pharmaverse/admiraldev/issues/116" class="external-link">#116</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/133" class="external-link">#133</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/134" class="external-link">#134</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/141" class="external-link">#141</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/145" class="external-link">#145</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/172" class="external-link">#172</a>) ## Various</li>
-<li>NA</li>
+<ul><li>No longer compatible with admiral (&lt;0.9)</li></ul></div>
+<div class="section level3">
+<h3 id="documentation-0-2-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-2-0"></a></h3>
+<ul><li>New vignette for our package release strategy (<a href="https://github.com/pharmaverse/admiraldev/issues/79" class="external-link">#79</a>)</li>
+<li>Updated multiple roxygen headers (<a href="https://github.com/pharmaverse/admiraldev/issues/116" class="external-link">#116</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/133" class="external-link">#133</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/134" class="external-link">#134</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/141" class="external-link">#141</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/145" class="external-link">#145</a>, <a href="https://github.com/pharmaverse/admiraldev/issues/172" class="external-link">#172</a>)</li>
+<li>Description on how admiral options work for certain function inputs, i.e <code>subject_keys</code> (<a href="https://github.com/pharmaverse/admiraldev/issues/133" class="external-link">#133</a>)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="various-0-2-0">Various<a class="anchor" aria-label="anchor" href="#various-0-2-0"></a></h3>
+<ul><li>PR Checklist Template updated (<a href="https://github.com/pharmaverse/admiraldev/issues/172" class="external-link">#172</a>)</li>
+<li>New authors/contributors (<a href="https://github.com/pharmaverse/admiraldev/issues/158" class="external-link">#158</a>)</li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -103,11 +107,16 @@
 </ul></div>
 <div class="section level3">
 <h3 id="updates-of-existing-functions-0-1-0">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-0-1-0"></a></h3>
-<ul><li>NA ## Breaking Changes</li>
-<li>NA ## Documentation</li>
-<li>NA ## Various</li>
-<li>NA</li>
-</ul></div>
+<ul><li>NA</li></ul></div>
+<div class="section level3">
+<h3 id="breaking-changes-0-1-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-1-0"></a></h3>
+<ul><li>NA</li></ul></div>
+<div class="section level3">
+<h3 id="documentation-0-1-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-1-0"></a></h3>
+<ul><li>NA</li></ul></div>
+<div class="section level3">
+<h3 id="various-0-1-0">Various<a class="anchor" aria-label="anchor" href="#various-0-1-0"></a></h3>
+<ul><li>NA</li></ul></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
