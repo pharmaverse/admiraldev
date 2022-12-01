@@ -67,14 +67,6 @@
 <li class="nav-item">
   <a class="nav-link" href="news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -104,23 +96,23 @@
 <h2 id="purpose">Purpose<a class="anchor" aria-label="anchor" href="#purpose"></a>
 </h2>
 <p>Tools for developing functions and maintaining a healthy code base within the family of admiral R packages. <a href="https://pharmaverse.github.io/admiraldev/main/" class="external-link">admiraldev</a> is intended to be used when developing <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> or <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> extension packages.</p>
-<p><strong>NOTE:</strong> Use of this package as a standalone package is currently not recommended.</p>
+<p><strong>NOTE:</strong> This package is not intended for standalone use but rather as a central dependency for all developer utilities of <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> and its extension packages</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>The package is available from CRAN and can be installed by running install.packages(“admiraldev”).</p>
+<p>The package is available from CRAN and can be installed by running <code>install.packages("admiraldev")</code>.</p>
 <p>To install the latest development version of the package directly from GitHub use the following code:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">"remotes"</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)) {</span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="kw">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3"></a>}</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"pharmaverse/admiraldev"</span>, <span class="dt">ref =</span> <span class="st">"devel"</span>)</span></code></pre></div>
+<pre><code><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"remotes"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"pharmaverse/admiraldev"</span>, ref <span class="op">=</span> <span class="st">"devel"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="release-schedule">Release Schedule<a class="anchor" aria-label="anchor" href="#release-schedule"></a>
 </h2>
-<p><a href="https://pharmaverse.github.io/admiraldev/main/" class="external-link">admiraldev</a> is to be official released to CRAN one week before the release of <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>. You can find the release schedule for <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> packages <a href="https://github.com/pharmaverse/admiral/tree/devel#release-schedule" class="external-link">here</a>.</p>
+<p><a href="https://pharmaverse.github.io/admiraldev/main/" class="external-link">admiraldev</a> is to be officially released to CRAN one week before an official release of <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>. You can find the release schedule for <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> packages <a href="https://pharmaverse.github.io/admiral/#release-schedule" class="external-link">here</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
