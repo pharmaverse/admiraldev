@@ -40,16 +40,8 @@ is_auto <- function(arg) {
 #' @keywords is
 #' @family is
 is_order_vars <- function(arg) {
-  quo_is_desc_call <- function(quo) {
-    expr <- quo_get_expr(quo)
-    is_call(expr) &&
-      length(expr) == 2L &&
-      deparse(expr[[1L]]) == "desc" &&
-      is_symbol(expr[[2L]])
-  }
-
   inherits(arg, "quosures") &&
-    all(map_lgl(arg, ~ quo_is_symbol(.x) || quo_is_desc_call(.x)))
+    all(map_lgl(arg, ~ quo_is_symbol(.x) || quo_is_call(.x)))
 }
 
 #' Is this string a valid DTC
