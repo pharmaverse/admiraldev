@@ -43,7 +43,7 @@ assert_data_frame <- function(arg,
   assert_logical_scalar(check_is_grouped)
   assert_logical_scalar(optional)
 
-  if (optional && is.null(arg)) {
+  if(optional && is.null(arg)) {
     return(invisible(arg))
   }
 
