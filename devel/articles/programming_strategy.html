@@ -63,14 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -467,8 +459,8 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <h3 id="function-header-documentation">Function Header (Documentation)<a class="anchor" aria-label="anchor" href="#function-header-documentation"></a>
 </h3>
 <p>Every function that is exported from the package must have an accompanying header that should be formatted according to the <a href="https://roxygen2.r-lib.org/" class="external-link">roxygen2</a> convention.</p>
-<p>In addition to the roxygen2 parameters, <code>@author</code> and <code>@keywords</code> are also used.</p>
-<p>Author is the owner of the function while the keywords are used to categorize the function. Please see section “Categorization of functions”.</p>
+<p>In addition to the roxygen2 parameters, <code>@keywords</code> is also used.</p>
+<p>The keywords are used to categorize the function. Please see section “Categorization of functions”.</p>
 <p>An example is given below:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#' Derive Relative Day Variables</span></span>
@@ -494,8 +486,6 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <span><span class="co">#'   variables e.g. `vars(TRTSDTM, ASTDTM, AENDT)` or `vars(TRTSDT, ASTDTM,</span></span>
 <span><span class="co">#'   AENDT, DEATHDY = DTHDT)`. If the source variable does not end in --DT(M), a</span></span>
 <span><span class="co">#'   name for the resulting `--DY` variable must be provided.</span></span>
-<span><span class="co">#'</span></span>
-<span><span class="co">#' @author Teckla Akinyi</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' @details The relative day is derived as number of days from the reference</span></span>
 <span><span class="co">#'   date to the end date. If it is nonnegative, one is added. I.e., the</span></span>
@@ -538,8 +528,6 @@ i.e. all input like datasets, variable names, options, … must be provided to 
 <code>@param</code>: One entry per function parameter. The following attributes should be described: expected data type (e.g. <code>data.frame</code>, <code>logical</code>, <code>numeric</code> etc.), default value (if any), permitted values (if applicable), optionality (i.e. is this a required parameter). If the expected input is a dataset then the required variables should be clearly stated.</li>
 <li>
 <code>@details</code>: A natural-language description of the derivation used inside the function.</li>
-<li>
-<code>@author</code>: The person who wrote the function. In case a function is later on updated by another person the name should be appended to the list of authors.</li>
 <li>
 <code>@keyword</code>: One applicable tag to the function - identical to family.</li>
 <li>
