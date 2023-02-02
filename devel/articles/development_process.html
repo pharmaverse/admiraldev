@@ -63,14 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -111,9 +103,9 @@
 <li>Before making a pull request, check the <a href="pr_review_guidance.html">Pull Request Review Guidance</a> &amp; the following checklist of common things developers miss:
 <ol style="list-style-type: lower-alpha">
 <li>Is all your code formatted according to the <a href="https://style.tidyverse.org/" class="external-link">tidyverse</a> style guide?</li>
-<li>Did you create/add appropriate <a href="unit_test_guidance.html#writing-unit-tests-in-admiral-">unit tests</a>?</li>
-<li>If you removed/replaced any function and/or function parameters, did you fully follow the <a href="programming_strategy.html#deprecation-1">deprecation guidance</a>?</li>
-<li>Did you update the <a href="programming_strategy.html#function-header-documentation-">documentation</a>? If so, remember to run <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code> and include the updated <code>NAMESPACE</code> and <code>.Rd</code> files in <code>man/</code>
+<li>Did you create/add appropriate <a href="unit_test_guidance.html#writing-unit-tests-in-admiral">unit tests</a>?</li>
+<li>If you removed/replaced any function and/or function parameters, did you fully follow the <a href="programming_strategy.html#deprecation">deprecation guidance</a>?</li>
+<li>Did you update the <a href="programming_strategy.html#function-header-documentation">documentation</a>? If so, remember to run <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code> and include the updated <code>NAMESPACE</code> and <code>.Rd</code> files in <code>man/</code>
 </li>
 <li>Does your code update have any impact on the <a href="admiral.html#starting-a-script-1">ADaM template</a> R scripts stored in <code>inst/templates</code>?</li>
 <li>Does your code update have any impact on the vignettes stored in vignettes?</li>
@@ -123,7 +115,7 @@
 </li>
 <li>Once happy with all the updates, make a <a href="git_usage.html#pull-request">pull request</a> to merge to the development branch <code>devel</code> and link the issue so that it closes after successful merging.</li>
 <li>Check that there are no merge conflicts. If there are any, fix them before requesting review. See <a href="git_usage.html#solving-merge-conflicts-in-the-terminal-on-rstudio">solving merge conflicts</a> guidance.</li>
-<li>Check the results of the automated <code>R-CMD check</code> and <code>lintr</code> checks and if any issues consult this <a href="pr_review_guidance.html#common-r-cmd-check-issues-1">guide</a>.</li>
+<li>Check the results of the automated <code>R-CMD check</code> and <code>lintr</code> checks and if any issues consult this <a href="pr_review_guidance.html#common-r-cmd-check-issues">guide</a>.</li>
 <li>Assign a reviewer from the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> core development team – this could be anyone you discussed the issue with previously via Slack or GitHub. If unsure, add a comment that the pull request is ready for review and add the <code>@pharmaverse/admiral</code> tag to it.</li>
 <li>Once the review is completed, the reviewer will merge the PR and this will then automatically delete the feature branch.</li>
 </ol>
