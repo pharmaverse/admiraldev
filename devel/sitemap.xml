@@ -55,9 +55,6 @@
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/arg_name.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/as_name.html</loc>
-  </url>
-  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_atomic_vector.html</loc>
   </url>
   <url>
@@ -157,6 +154,9 @@
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/expect_dfs_equal.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/expr_c.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/extract_vars.html</loc>
   </url>
   <url>
@@ -212,6 +212,9 @@
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/remove_tmp_vars.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/replace_symbol_in_expr.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/replace_symbol_in_quo.html</loc>

@@ -41,14 +41,6 @@ issues a warning otherwise."><meta property="og:image" content="https://pharmave
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -121,17 +113,18 @@ the name of the list</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rlang.r-lib.org" class="external-link">rlang</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># no warning</span></span></span>
 <span class="r-in"><span><span class="fu">warn_if_inconsistent_list</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  base <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span>DTHDOM <span class="op">=</span> <span class="st">"DM"</span>, DTHSEQ <span class="op">=</span> <span class="va">DMSEQ</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  compare <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span>DTHDOM <span class="op">=</span> <span class="st">"DM"</span>, DTHSEQ <span class="op">=</span> <span class="va">DMSEQ</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  base <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span>DTHDOM <span class="op">=</span> <span class="st">"DM"</span>, DTHSEQ <span class="op">=</span> <span class="va">DMSEQ</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  compare <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span>DTHDOM <span class="op">=</span> <span class="st">"DM"</span>, DTHSEQ <span class="op">=</span> <span class="va">DMSEQ</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  list_name <span class="op">=</span> <span class="st">"Test"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># warning</span></span></span>
 <span class="r-in"><span><span class="fu">warn_if_inconsistent_list</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  base <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span>DTHDOM <span class="op">=</span> <span class="st">"DM"</span>, DTHSEQ <span class="op">=</span> <span class="va">DMSEQ</span>, DTHVAR <span class="op">=</span> <span class="st">"text"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  compare <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span>DTHDOM <span class="op">=</span> <span class="st">"DM"</span>, DTHSEQ <span class="op">=</span> <span class="va">DMSEQ</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  base <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span>DTHDOM <span class="op">=</span> <span class="st">"DM"</span>, DTHSEQ <span class="op">=</span> <span class="va">DMSEQ</span>, DTHVAR <span class="op">=</span> <span class="st">"text"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  compare <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span>DTHDOM <span class="op">=</span> <span class="st">"DM"</span>, DTHSEQ <span class="op">=</span> <span class="va">DMSEQ</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  list_name <span class="op">=</span> <span class="st">"Test"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The variables used for traceability in `Test` are not consistent, please check:</span>
