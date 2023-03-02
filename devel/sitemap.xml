@@ -1,252 +1,252 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/404.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/404.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/LICENSE.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/articles/admiraldev.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/articles/admiraldev.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/articles/development_process.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/articles/development_process.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/articles/git_usage.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/articles/git_usage.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/articles/index.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/articles/pr_review_guidance.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/articles/pr_review_guidance.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/articles/programming_strategy.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/articles/programming_strategy.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/articles/release_strategy.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/articles/release_strategy.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/articles/unit_test_guidance.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/articles/unit_test_guidance.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/articles/writing_vignettes.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/articles/writing_vignettes.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/authors.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/authors.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/index.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/index.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/news/index.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/news/index.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/pull_request_template.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/pull_request_template.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/add_suffix_to_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/add_suffix_to_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/admiraldev-package.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/admiraldev-package.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/arg_name.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/arg_name.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_atomic_vector.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_atomic_vector.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_character_scalar.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_character_scalar.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_character_vector.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_character_vector.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_data_frame.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_data_frame.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_date_var.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_date_var.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_date_vector.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_date_vector.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_expr.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_expr.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_filter_cond.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_filter_cond.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_function.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_function.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_function_param.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_function_param.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_has_variables.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_has_variables.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_integer_scalar.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_integer_scalar.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_list_element.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_list_element.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_list_of.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_list_of.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_logical_scalar.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_logical_scalar.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_named_exprs.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_named_exprs.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_numeric_vector.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_numeric_vector.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_one_to_one.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_one_to_one.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_order_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_order_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_param_does_not_exist.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_param_does_not_exist.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_s3_class.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_s3_class.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_same_type.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_same_type.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_symbol.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_symbol.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_unit.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_unit.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/assert_varval_list.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/assert_varval_list.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/backquote.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/backquote.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/contains_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/contains_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/convert_dtm_to_dtc.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/convert_dtm_to_dtc.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/dataset_vignette.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dataset_vignette.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/dquote.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/dquote.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/enumerate.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/enumerate.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/expect_dfs_equal.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/expect_dfs_equal.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/expr_c.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/expr_c.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/extract_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/extract_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/filter_if.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/filter_if.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/get_constant_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/get_constant_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/get_dataset.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/get_dataset.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/get_duplicates.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/get_duplicates.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/get_new_tmp_var.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/get_new_tmp_var.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/get_source_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/get_source_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/grapes-notin-grapes.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/grapes-notin-grapes.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/grapes-or-grapes.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/grapes-or-grapes.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/index.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_auto.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/is_auto.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_named.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/is_named.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_order_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/is_order_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/is_valid_dtc.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/is_valid_dtc.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/joins.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/joins.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/process_set_values_to.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/process_set_values_to.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/quo_c.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/quo_c.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/quo_not_missing.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/quo_not_missing.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/remove_tmp_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/remove_tmp_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/replace_symbol_in_expr.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/replace_symbol_in_expr.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/replace_symbol_in_quo.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/replace_symbol_in_quo.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/replace_values_by_names.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/replace_values_by_names.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/squote.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/squote.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/suppress_warning.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/suppress_warning.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/valid_time_units.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/valid_time_units.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/vars2chr.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/vars2chr.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/warn_if_incomplete_dtc.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/warn_if_incomplete_dtc.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/warn_if_inconsistent_list.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/warn_if_inconsistent_list.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/warn_if_invalid_dtc.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/warn_if_invalid_dtc.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/warn_if_vars_exist.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/warn_if_vars_exist.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/devel/reference/what_is_it.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/devel/reference/what_is_it.html</loc>
   </url>
 </urlset>
