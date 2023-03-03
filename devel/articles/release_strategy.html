@@ -63,14 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -132,8 +124,16 @@
 <li>Once the package is available on CRAN, another Pull Request is created for merging the <code>pre-release</code> branch into the <code>main</code> branch. This will trigger the GitHub action to rebuild the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> website with all the updates for this release.</li>
 <li>Use the release button on GitHub to “release” the package onto GitHub. This release onto Github archives the version of code within the <code>main</code> branch, attaches the News/Changelog file, bundles the code into a <code>tar.gz</code> file and makes a validation report via the GitHub action <code>validation</code> from <a href="https://github.com/insightsengineering/thevalidatoR" class="external-link">insightsengineering/validatoR</a>. Please see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral releases</a> for reference.</li>
 <li>Any issues fixed in the <code>pre-release/main</code> branches should be merged back into <code>devel</code>.</li>
+<li>Once a release is completed the <code>main</code> branch should be merged into <code>patch</code> to be ready for hotfixes.</li>
 </ol>
-<p><strong>Quarterly Release:</strong> <code>devel &gt;&gt; pre-release &gt;&gt; main</code></p>
+<p><strong>Quarterly Release:</strong></p>
+<ul>
+<li><code>devel &gt;&gt; pre-release &gt;&gt; main</code></li>
+<li>
+<code>pre-release &gt;&gt; main &gt;&gt; devel</code> (Fixes done after a CRAN rejection)</li>
+<li>
+<code>main &gt;&gt; patch</code> (To be prepared in case of a needed hotfix)</li>
+</ul>
 </div>
 <div class="section level3">
 <h3 id="hot-fix-release">Hot Fix Release<a class="anchor" aria-label="anchor" href="#hot-fix-release"></a>
