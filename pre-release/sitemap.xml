@@ -1,246 +1,252 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/404.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/404.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/LICENSE.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/articles/admiraldev.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/articles/admiraldev.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/articles/development_process.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/articles/development_process.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/articles/git_usage.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/articles/git_usage.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/articles/index.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/articles/pr_review_guidance.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/articles/pr_review_guidance.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/articles/programming_strategy.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/articles/programming_strategy.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/articles/release_strategy.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/articles/release_strategy.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/articles/unit_test_guidance.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/articles/unit_test_guidance.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/articles/writing_vignettes.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/articles/writing_vignettes.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/authors.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/authors.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/index.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/index.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/news/index.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/news/index.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/pull_request_template.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/pull_request_template.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/add_suffix_to_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/add_suffix_to_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/admiraldev-package.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/admiraldev-package.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/arg_name.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/arg_name.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/as_name.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_atomic_vector.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_atomic_vector.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_character_scalar.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_character_scalar.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_character_vector.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_character_vector.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_data_frame.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_data_frame.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_date_var.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_date_var.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_date_vector.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_date_vector.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_expr.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_expr.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_filter_cond.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_filter_cond.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_function.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_function.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_function_param.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_function_param.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_has_variables.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_has_variables.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_integer_scalar.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_integer_scalar.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_list_element.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_list_element.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_list_of.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_list_of.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_logical_scalar.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_logical_scalar.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_named_exprs.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_named_exprs.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_numeric_vector.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_numeric_vector.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_one_to_one.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_one_to_one.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_order_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_order_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_param_does_not_exist.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_param_does_not_exist.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_s3_class.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_s3_class.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_same_type.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_same_type.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_symbol.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_symbol.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_unit.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_unit.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/assert_varval_list.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/assert_varval_list.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/backquote.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/backquote.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/contains_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/contains_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/convert_dtm_to_dtc.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/convert_dtm_to_dtc.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/dataset_vignette.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/dataset_vignette.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/dquote.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/dquote.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/enumerate.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/enumerate.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/expect_dfs_equal.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/expect_dfs_equal.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/expr_c.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/extract_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/extract_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/filter_if.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/filter_if.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/get_constant_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/get_constant_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/get_dataset.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/get_dataset.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/get_duplicates.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/get_duplicates.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/get_new_tmp_var.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/get_new_tmp_var.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/get_source_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/get_source_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/grapes-notin-grapes.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/grapes-notin-grapes.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/grapes-or-grapes.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/grapes-or-grapes.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/index.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/is_auto.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/is_auto.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/is_named.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/is_named.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/is_order_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/is_order_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/is_valid_dtc.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/is_valid_dtc.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/joins.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/joins.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/quo_c.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/process_set_values_to.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/quo_not_missing.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/quo_c.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/remove_tmp_vars.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/quo_not_missing.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/replace_symbol_in_quo.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/remove_tmp_vars.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/replace_values_by_names.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/replace_symbol_in_expr.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/squote.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/replace_symbol_in_quo.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/suppress_warning.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/replace_values_by_names.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/valid_time_units.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/squote.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/vars2chr.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/suppress_warning.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/warn_if_incomplete_dtc.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/valid_time_units.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/warn_if_inconsistent_list.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/vars2chr.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/warn_if_invalid_dtc.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/warn_if_incomplete_dtc.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/warn_if_vars_exist.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/warn_if_inconsistent_list.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/devel/pre-release/reference/what_is_it.html</loc>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/warn_if_invalid_dtc.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/warn_if_vars_exist.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/pre-release/reference/what_is_it.html</loc>
   </url>
 </urlset>
