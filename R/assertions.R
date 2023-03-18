@@ -1033,10 +1033,10 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
 #' assert_function_param("hello", "name")
 #'
 #' try(assert_function_param("hello", "surname"))
-assert_function_param <- function(arg, params, envir=parent.frame()) {
+assert_function_param <- function(arg, params, envir = parent.frame()) {
   assert_character_scalar(arg)
   assert_character_vector(params)
-  fun <- get(arg, envir=envir, mode="function")
+  fun <- get(arg, envir = envir, mode = "function")
 
   is_param <- params %in% names(formals(fun))
   if (!all(is_param)) {
