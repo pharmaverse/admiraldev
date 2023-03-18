@@ -4,12 +4,14 @@
 \alias{assert_function_param}
 \title{Assert Argument is a Parameter of a Function}
 \usage{
-assert_function_param(arg, params)
+assert_function_param(arg, params, envir = parent.frame())
 }
 \arguments{
 \item{arg}{The name of a function passed as a string}
 
 \item{params}{A character vector of function parameters}
+
+\item{envir}{The environment to search for the function in}
 }
 \value{
 The function throws an error if any elements of \code{params} is not a parameter of
