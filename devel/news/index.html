@@ -39,14 +39,6 @@
 <li class="active nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -71,13 +63,15 @@
 <h2 class="pkg-version" data-toc-text="0.4.0" id="admiraldev-040">admiraldev 0.4.0<a class="anchor" aria-label="anchor" href="#admiraldev-040"></a></h2>
 <div class="section level3">
 <h3 id="documentation-0-4-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-4-0"></a></h3>
-<ul><li>The deprecation strategy was updated regarding unit tests for deprecated functions/arguments in phase 1. (<a href="https://github.com/pharmaverse/admiraldev/issues/247" class="external-link">#247</a>)</li></ul></div>
+<ul><li>The deprecation strategy was updated regarding unit tests for deprecated functions/arguments in phase 1. (<a href="https://github.com/pharmaverse/admiraldev/issues/247" class="external-link">#247</a>)</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="admiraldev-030">admiraldev 0.3.0<a class="anchor" aria-label="anchor" href="#admiraldev-030"></a></h2>
 <div class="section level3">
 <h3 id="new-features-0-3-0">New Features<a class="anchor" aria-label="anchor" href="#new-features-0-3-0"></a></h3>
-<ul><li>New function <code><a href="../reference/process_set_values_to.html">process_set_values_to()</a></code> for creating the variables specified by the <code>set_value_to</code> argument and catching errors (<a href="https://github.com/pharmaverse/admiraldev/issues/70" class="external-link">#70</a>)</li></ul></div>
+<ul><li>New function <code><a href="../reference/process_set_values_to.html">process_set_values_to()</a></code> for creating the variables specified by the <code>set_value_to</code> argument and catching errors (<a href="https://github.com/pharmaverse/admiraldev/issues/70" class="external-link">#70</a>)</li>
+</ul></div>
 <div class="section level3">
 <h3 id="updates-of-existing-functions-0-3-0">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-0-3-0"></a></h3>
 <ul><li>Using testthat3e (testthat 3rd edition) for unit testing. This is stricter in that messages must be addressed and deprecated functions throw errors. (<a href="https://github.com/pharmaverse/admiraldev/issues/230" class="external-link">#230</a>)</li>
@@ -91,7 +85,8 @@
 <div class="section level3">
 <h3 id="breaking-changes-0-3-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-3-0"></a></h3>
 <ul><li>The default value of the <code>optional</code> argument in <code><a href="../reference/assert_date_vector.html">assert_date_vector()</a></code>, <code><a href="../reference/assert_list_of.html">assert_list_of()</a></code>, and <code><a href="../reference/assert_s3_class.html">assert_s3_class()</a></code> was changed from <code>TRUE</code> to <code>FALSE</code> to make the default behavior consistent. (<a href="https://github.com/pharmaverse/admiraldev/issues/87" class="external-link">#87</a>)</li>
-<li>admiral functions no longer expect list of quosures created by <code><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars()</a></code> but list of expressions created by <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code>. Thus the following functions and arguments were deprecated:<ul><li>
+<li>admiral functions no longer expect list of quosures created by <code><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars()</a></code> but list of expressions created by <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code>. Thus the following functions and arguments were deprecated:
+<ul><li>
 <code><a href="../reference/quo_c.html">quo_c()</a></code> and <code><a href="../reference/replace_symbol_in_quo.html">replace_symbol_in_quo()</a></code>
 </li>
 <li>the <code>quosures</code> argument in <code><a href="../reference/get_source_vars.html">get_source_vars()</a></code>, <code><a href="../reference/replace_values_by_names.html">replace_values_by_names()</a></code>, and <code><a href="../reference/vars2chr.html">vars2chr()</a></code>
@@ -129,7 +124,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="breaking-changes-0-2-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-2-0"></a></h3>
-<ul><li>No longer compatible with admiral (&lt;0.9)</li></ul></div>
+<ul><li>No longer compatible with admiral (&lt;0.9)</li>
+</ul></div>
 <div class="section level3">
 <h3 id="documentation-0-2-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-2-0"></a></h3>
 <ul><li>New vignette for our package release strategy (<a href="https://github.com/pharmaverse/admiraldev/issues/79" class="external-link">#79</a>)</li>
@@ -154,16 +150,20 @@
 </ul></div>
 <div class="section level3">
 <h3 id="updates-of-existing-functions-0-1-0">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-0-1-0"></a></h3>
-<ul><li>NA</li></ul></div>
+<ul><li>NA</li>
+</ul></div>
 <div class="section level3">
 <h3 id="breaking-changes-0-1-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-1-0"></a></h3>
-<ul><li>NA</li></ul></div>
+<ul><li>NA</li>
+</ul></div>
 <div class="section level3">
 <h3 id="documentation-0-1-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-1-0"></a></h3>
-<ul><li>NA</li></ul></div>
+<ul><li>NA</li>
+</ul></div>
 <div class="section level3">
 <h3 id="various-0-1-0">Various<a class="anchor" aria-label="anchor" href="#various-0-1-0"></a></h3>
-<ul><li>NA</li></ul></div>
+<ul><li>NA</li>
+</ul></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>

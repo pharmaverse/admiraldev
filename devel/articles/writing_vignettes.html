@@ -63,14 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -92,7 +84,8 @@
 
 
 
-<script src="writing_vignettes_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+<div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Writing Vignettes</h1>
             
@@ -106,12 +99,15 @@
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>This guidance ensures consistency across the vignettes in the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> package in terms of content, structure and code execution. As a general rule, the vignette workflow defined in <a href="https://r-pkgs.org/vignettes.html" class="external-link">r-pkgs.org</a> is followed.</p>
+<p>This guidance ensures consistency across the vignettes in the
+<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> package in terms of content, structure and code
+execution. As a general rule, the vignette workflow defined in <a href="https://r-pkgs.org/vignettes.html" class="external-link">r-pkgs.org</a> is followed.</p>
 </div>
 <div class="section level2">
 <h2 id="metadata">Metadata<a class="anchor" aria-label="anchor" href="#metadata"></a>
 </h2>
-<p>Each vignette in <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> should start with the following metadata.</p>
+<p>Each vignette in <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> should start with the
+following metadata.</p>
 <pre><code>---
 title: "&lt;Title&gt;"
 output:  rmarkdown::html_vignette:
@@ -119,7 +115,8 @@ vignette: &gt;
   %\VignetteIndexEntry{&lt;Title&gt;}
   %\VignetteEngine{knitr::rmarkdown}
 ---</code></pre>
-<p>The <code>&lt;Title&gt;</code> of the vignette should be meaningful.</p>
+<p>The <code>&lt;Title&gt;</code> of the vignette should be
+meaningful.</p>
 </div>
 <div class="section level2">
 <h2 id="markdown">Markdown<a class="anchor" aria-label="anchor" href="#markdown"></a>
@@ -127,7 +124,9 @@ vignette: &gt;
 <div class="section level3">
 <h3 id="default-options">Default Options<a class="anchor" aria-label="anchor" href="#default-options"></a>
 </h3>
-<p>If any chunks are used within the vignette, the following options should be set after the metadata to ensure that the chunks are rendered consistently across all vignettes.</p>
+<p>If any chunks are used within the vignette, the following options
+should be set after the metadata to ensure that the chunks are rendered
+consistently across all vignettes.</p>
 <pre><code>```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -151,7 +150,10 @@ This is the description of my first sub-section within my first section.
 ## Heading 1.2
 This is the description of my second sub-section within my first section.
 </code></pre>
-<p>The first section gives a brief introduction of the vignette. The last sub-section of the introduction should describe the packages required to run the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> functions. The <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> package should be described first.</p>
+<p>The first section gives a brief introduction of the vignette. The
+last sub-section of the introduction should describe the packages
+required to run the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> functions. The
+<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> package should be described first.</p>
 <pre><code># Introduction
 
 This is the introduction of my vignette.
@@ -161,8 +163,11 @@ This is the introduction of my vignette.
 library(admiral)
 # &lt;all packages used in the vignette&gt;
 ```</code></pre>
-<p>The <code>warning=FALSE</code> and <code>message=FALSE</code> options are there to prevent the usual messages:</p>
-<p><span style="color: red;font-family: textmate, monospace; font-size = 10pt;">Attaching package: ‘xxxx’The following objects are masked from ‘package:yyyyy’ fun1, fun2</span></p>
+<p>The <code>warning=FALSE</code> and <code>message=FALSE</code> options
+are there to prevent the usual messages:</p>
+<p><span style="color: red;font-family: textmate, monospace; font-size = 10pt;">Attaching
+package: ‘xxxx’The following objects are masked from
+‘package:yyyyy’ fun1, fun2</span></p>
 </div>
 <div class="section level4">
 <h4 id="conventions">Conventions<a class="anchor" aria-label="anchor" href="#conventions"></a>
@@ -171,23 +176,33 @@ library(admiral)
 <h5 id="general-conventions">General Conventions<a class="anchor" aria-label="anchor" href="#general-conventions"></a>
 </h5>
 <ul>
-<li><p>Any new vignette must be added to the <code>_pkgdown.yml</code> file in the relevant section.</p></li>
-<li><p>Any variable name, dataset name, function, argument name must be quoted with backticks: e.g.</p></li>
+<li><p>Any new vignette must be added to the <code>_pkgdown.yml</code>
+file in the relevant section.</p></li>
+<li><p>Any variable name, dataset name, function, argument name must be
+quoted with backticks: e.g.</p></li>
 </ul>
 <pre><code>  The `date` parameter of the `derive_my_var()` function expects a date variable, e.g., `ADT`.</code></pre>
 <ul>
 <li><p>Functions must also end with <code>()</code>.</p></li>
-<li><p>Variables and datasets name are expected to be uppercase.</p></li>
+<li><p>Variables and datasets name are expected to be
+uppercase.</p></li>
 <li>
-<p>All the codes must be described, executed and the output result displayed once the code is executed. Use:</p>
+<p>All the codes must be described, executed and the output result
+displayed once the code is executed. Use:</p>
 <pre><code>```{r}
 #&lt;code&gt;
 ```</code></pre>
 </li>
 <li>
-<p>Any output created must clearly show what the function has derived. It should at least show the variables/records used as input to the function and the derived variables/records. If a dataset must be displayed, it will be formatted using the <code><a href="../reference/dataset_vignette.html">dataset_vignette()</a></code> function so that it is displayed consistently across the vignettes.E.g.</p>
+<p>Any output created must clearly show what the function has
+derived. It should at least show the variables/records used as input to
+the function and the derived variables/records. If a dataset must be
+displayed, it will be formatted using the
+<code><a href="../reference/dataset_vignette.html">dataset_vignette()</a></code> function so that it is displayed
+consistently across the vignettes.E.g.</p>
 <ul>
-<li>Description and execution of the code used to derive the variable/record</li>
+<li>Description and execution of the code used to derive the
+variable/record</li>
 </ul>
 </li>
 </ul>
@@ -211,15 +226,27 @@ library(admiral)
   )
   ```
   </code></pre>
-<p>Displaying many big datasets on a vignette, may require a long time to load the page and may cause messages from the browser that the page is not responsive. In this case the number of displayed observations should be restricted either by restricting the source datasets at the beginning of the vignette or in the call of <code><a href="../reference/dataset_vignette.html">dataset_vignette()</a></code> if only some calls are affected.</p>
+<p>Displaying many big datasets on a vignette, may require a long time
+to load the page and may cause messages from the browser that the page
+is not responsive. In this case the number of displayed observations
+should be restricted either by restricting the source datasets at the
+beginning of the vignette or in the call of
+<code><a href="../reference/dataset_vignette.html">dataset_vignette()</a></code> if only some calls are affected.</p>
 </div>
 <div class="section level5">
 <h5 id="conventions-for-adam-workflow">Conventions for ADaM Workflow<a class="anchor" aria-label="anchor" href="#conventions-for-adam-workflow"></a>
 </h5>
 <p>For vignettes describing an ADaM workflow,</p>
 <ul>
-<li><p>the second section will summarize the programming workflow. The first sub-section within this workflow will always describe the data read to demonstrate the use of the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> functions,</p></li>
-<li><p>Each sub-section within the programming workflow should be tagged (e.g. [Step1] (#step)), so that the user can go on the relevant section from the programming workflow (in addition to the Table of contents). Don’t use a tag with a number but use a meaningful name (e.g. do not use <code>(#link1)</code>, but use <code>(#this_action)</code>)</p></li>
+<li><p>the second section will summarize the programming workflow. The
+first sub-section within this workflow will always describe the data
+read to demonstrate the use of the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>
+functions,</p></li>
+<li><p>Each sub-section within the programming workflow should be tagged
+(e.g. [Step1] (#step)), so that the user can go on the relevant section
+from the programming workflow (in addition to the Table of contents).
+Don’t use a tag with a number but use a meaningful name (e.g. do not use
+<code>(#link1)</code>, but use <code>(#this_action)</code>)</p></li>
 <li><p>the last section should link to a template script.</p></li>
 </ul>
 <pre><code># Programming Workflow
@@ -244,8 +271,17 @@ ADxx | [ad_adxx.R](https://github.com/pharmaverse/admiral/blob/main/inst/templat
 <ul>
 <li>
 <p><code>ADSL</code> variables</p>
-<p>All <code>ADSL</code> variables which are required for any derivation are merged to the SDTM dataset before the first derivation. These <code>ADSL</code> variables have to be added to the by-variables for derivations which add observations. This ensures that the <code>ADSL</code> variables are populated <code>for</code> the new observations. A <code>adsl_vars</code> variable should be created at the beginning of the script and added to the <code>by_vars</code> parameter for derivations which add observations.</p>
-<p><code>ADSL</code> variables which should be in the final dataset but are not required for any derivation are merged to the dataset after the last derivation.</p>
+<p>All <code>ADSL</code> variables which are required for any derivation
+are merged to the SDTM dataset before the first derivation. These
+<code>ADSL</code> variables have to be added to the by-variables for
+derivations which add observations. This ensures that the
+<code>ADSL</code> variables are populated <code>for</code> the new
+observations. A <code>adsl_vars</code> variable should be created at the
+beginning of the script and added to the <code>by_vars</code> parameter
+for derivations which add observations.</p>
+<p><code>ADSL</code> variables which should be in the final dataset but
+are not required for any derivation are merged to the dataset after the
+last derivation.</p>
 </li>
 </ul>
 </div>
