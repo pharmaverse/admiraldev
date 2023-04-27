@@ -63,14 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -683,14 +675,14 @@ used.</p>
 <span class="co">#' library(tibble)</span>
 <span class="co">#'</span>
 <span class="co">#' datain &lt;- tribble(</span>
-<span class="co">#'   ~TRTSDTM,             ~ASTDTM,               ~AENDT,</span>
-<span class="co">#'  "2014-01-17T23:59:59", "2014-01-18T13:09:O9", "2014-01-20"</span>
+<span class="co">#'   ~TRTSDTM, ~ASTDTM, ~AENDT,</span>
+<span class="co">#'   "2014-01-17T23:59:59", "2014-01-18T13:09:O9", "2014-01-20"</span>
 <span class="co">#' ) %&gt;%</span>
-<span class="co">#'  mutate(</span>
-<span class="co">#'    TRTSDTM = as_datetime(TRTSDTM),</span>
-<span class="co">#'    ASTDTM = as_datetime(ASTDTM),</span>
-<span class="co">#'    AENDT = ymd(AENDT)</span>
-<span class="co">#'  )</span>
+<span class="co">#'   mutate(</span>
+<span class="co">#'     TRTSDTM = as_datetime(TRTSDTM),</span>
+<span class="co">#'     ASTDTM = as_datetime(ASTDTM),</span>
+<span class="co">#'     AENDT = ymd(AENDT)</span>
+<span class="co">#'   )</span>
 <span class="co">#'</span>
 <span class="co">#' derive_vars_dy(</span>
 <span class="co">#'   datain,</span>
