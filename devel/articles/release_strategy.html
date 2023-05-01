@@ -63,14 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -138,40 +130,40 @@ anticipated breaking changes.</p>
 <p>A package release is done in five parts:</p>
 <ol style="list-style-type: decimal">
 <li>Create a Pull Request from <code>devel</code> into the
-<code>pre-release</code> branch. Issues identified in this Pull Request
-should have work done in separate branches and merged into the
-<code>pre-release</code> branch and <strong>NOT</strong>
+<code>main</code> branch. Issues identified in this Pull Request should
+have work done in separate branches and merged once again into
 <code>devel</code>.</li>
 <li>Verify that all CI/CD checks are passing for the <code>devel</code>
-into the <code>pre-release</code> Pull Request, merge and then bundle up
-and send off to CRAN.</li>
-<li>Once the package is available on CRAN, another Pull Request is
-created for merging the <code>pre-release</code> branch into the
-<code>main</code> branch. This will trigger the GitHub action to rebuild
-the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> website with all the updates for this
-release.</li>
+into the <code>main</code> Pull Request, merge and then bundle up and
+send off to CRAN. See the <a href="https://r-pkgs.org/release.html#decide-the-release-type" class="external-link">chapter</a>
+in R Packages for more details.</li>
+<li>If CRAN asks for modifications, repeat steps 1-2 as necessary.</li>
+<li>Once the package is accepted and available on CRAN, a <a href="https://github.com/pharmaverse/admiral/actions/workflows/pages/pages-build-deployment" class="external-link">GitHub
+action</a> is set up to rebuild the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> website with
+all the updates for this release.</li>
 <li>Use the release button on GitHub to “release” the package onto
 GitHub. This release onto Github archives the version of code within the
 <code>main</code> branch, attaches the News/Changelog file, bundles the
 code into a <code>tar.gz</code> file and makes a validation report via
 the GitHub action <code>validation</code> from <a href="https://github.com/insightsengineering/thevalidatoR" class="external-link">insightsengineering/validatoR</a>.
 Please see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral
-releases</a> for reference.</li>
-<li>Any issues fixed in the <code>pre-release/main</code> branches
-should be merged back into <code>devel</code>.</li>
+releases</a> for reference and the <a href="release_strategy.html#releasing-to-github">Releasing to Github</a>
+section for more details.</li>
+<li>Any issues fixed in the <code>main</code> branches should be merged
+back into <code>devel</code>.</li>
 <li>Once a release is completed the <code>main</code> branch should be
 merged into <code>patch</code> to be ready for hotfixes.</li>
 </ol>
 <p><strong>Quarterly Release:</strong></p>
 <ul>
-<li><code>devel &gt;&gt; pre-release &gt;&gt; main</code></li>
-<li>
-<code>pre-release &gt;&gt; main &gt;&gt; devel</code> (Fixes done
-after a CRAN rejection)</li>
+<li><code>devel &gt;&gt; main</code></li>
 <li>
 <code>main &gt;&gt; patch</code> (To be prepared in case of a needed
 hotfix)</li>
 </ul>
+<p>Be on the look out for an automated check PR whenever
+<code>devel</code> goes into <code>main</code> as a future upcoming
+feature.</p>
 </div>
 <div class="section level3">
 <h3 id="hot-fix-release">Hot Fix Release<a class="anchor" aria-label="anchor" href="#hot-fix-release"></a>
@@ -187,26 +179,44 @@ the <code>patch</code> branch <strong>NOT</strong> the
 <li>When naming the branch follow the <a href="git_usage.html#implementing-an-issue">naming conventions</a> guide
 but use the <code>@main</code> suffix</li>
 <li>Create a Pull Request from <code>patch</code> into the
-<code>pre-release</code> branch. Verify that all CI/CD checks are
-passing, merge and bundle up and send off to CRAN.</li>
-<li>Once package is approved and available on CRAN, another Pull Request
-is created for merging the <code>pre-release</code> branch into the
-<code>main</code> branch. This will trigger the action to rebuild the
-<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> website with all the updates for this hot fix
-release.</li>
+<code>main</code> branch. Verify that all CI/CD checks are passing,
+merge and them bundle up and send off to CRAN. See the <a href="https://r-pkgs.org/release.html#decide-the-release-type" class="external-link">chapter</a>
+in R Packages for more details.</li>
+<li>If CRAN asks for modifications, repeat steps 1-4 as necessary.</li>
+<li>Once the package is accepted and available on CRAN, a <a href="https://github.com/pharmaverse/admiral/actions/workflows/pages/pages-build-deployment" class="external-link">GitHub
+action</a> is set up to rebuild the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> website with
+all the updates for this release.</li>
 <li>Use the release button on GitHub to “release” the package onto
 GitHub. This release onto Github archives the version of code within the
 <code>main</code> branch, attaches the News/Changelog file, bundles the
 code into a <code>tar.gz</code> file and makes a validation report via
 the GitHub action <code>validation</code> from <a href="https://github.com/insightsengineering/thevalidatoR" class="external-link">insightsengineering/validatoR</a>.
 Please see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral
-releases</a> for reference.</li>
+releases</a> for reference and the <a href="release_strategy.html#releasing-to-github">Releasing to Github</a>
+section for more details.</li>
 <li>These hot fixes should then be merged into the <code>devel</code>
 branch through an additional Pull Request.</li>
 </ol>
 <p><strong>Hot Fix Release</strong>:
-<code>patch &gt;&gt; pre-release &gt;&gt; main  &gt;&gt; devel</code></p>
+<code>patch &gt;&gt;  main  &gt;&gt; devel</code></p>
 </div>
+</div>
+<div class="section level2">
+<h2 id="releasing-to-github">Releasing to Github<a class="anchor" aria-label="anchor" href="#releasing-to-github"></a>
+</h2>
+<p>Under the <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">Releases</a>
+section in the main repo, select <code>Draft a New Release</code>.
+Proceed by creating the appropriate release tag and header, denoted as
+<code>vX.X.X</code> and <code>admiral X.X.X</code> respectively, for the
+release:</p>
+<p><img src="https://user-images.githubusercontent.com/43018762/228875673-5b6daa64-1909-47c9-bd61-69b810c2f742.png"></p>
+<p>Copy the contents of the <code>NEWS.md</code> section for the
+release, paste it into the release notes section:</p>
+<p><img src="https://user-images.githubusercontent.com/43018762/228875743-d17729fe-9b38-432a-9bb0-5fdc157ec231.png"></p>
+<p>Then in the upload box where it says, “Attach binaries by dropping
+them here or selecting them” upload the appropriate
+<code>admiral_X.X.X.tar.gz</code> file available for download at the <a href="https://cran.r-project.org/web/packages/admiral/index.html" class="external-link">CRAN
+website</a>. Click <code>Publish Release</code> and you’re all done!</p>
 </div>
 <div class="section level2">
 <h2 id="communications">Communications<a class="anchor" aria-label="anchor" href="#communications"></a>
