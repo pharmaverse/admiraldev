@@ -63,14 +63,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -684,10 +676,16 @@ used.</p>
 <code>@param</code>: One entry per function argument. The following
 attributes should be described: expected data type
 (e.g. <code>data.frame</code>, <code>logical</code>,
-<code>numeric</code> etc.), default value (if any), permitted values (if
-applicable), optionality (i.e. is this a required argument). If the
-expected input is a dataset then the required variables should be
-clearly stated.</li>
+<code>numeric</code> etc.), permitted values (if applicable),
+optionality (i.e. is this a required argument). If the expected input is
+a dataset then the required variables should be clearly stated.
+Describing the default value becomes difficult to maintain and subject
+to manual error when it is already declared in the function arguments.
+The description for permitted values should be written as a separate
+line italicizing the phrase “Permitted Values”, example below:</li>
+</ul>
+<pre><code><span class="co">#'   *Permitted Values*: example description of permitted values here</span></code></pre>
+<ul>
 <li>
 <code>@details</code>: A natural-language description of the
 derivation used inside the function.</li>
@@ -976,8 +974,9 @@ otherwise in <code>Imports</code>.</p>
 the <code>@importFrom</code> tag in the <code>R/admiral-package.R</code>
 file. To import the <code><a href="https://dplyr.tidyverse.org/reference/if_else.html" class="external-link">if_else()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code>
 function from <code>dplyr</code> the following line would have to be
-included in that file:
-<code>#' @importFrom dplyr if_else mutate</code>.</p>
+included in that file: <code>#' @importFrom dplyr if_else mutate</code>.
+By using the <code>@importFrom</code> tag, it is easier to track all of
+our dependencies in one place and improves code readability.</p>
 <p>Some of these functions become critically important while using
 admiral and should be included as an export. This applies to functions
 which are frequently called within <code>{admiral }</code>function calls
@@ -1037,7 +1036,7 @@ which new function/argument should be used instead.</p>
 <li>
 <p>the <code>@family</code> roxygen tag will become
 <code>deprecated</code></p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Title of the function</span>
 <span class="co">#'</span>
 <span class="co">#' @description</span>
@@ -1073,7 +1072,7 @@ using the deprecated function or argument.</p>
 function body must be replaced with a call to
 <code>deprecate_warn()</code> and subsequently all arguments should be
 passed on to the new function.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu">deprecate_warn</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx()"</span>, <span class="st">"new_fun_xxx()"</span><span class="op">)</span>
   <span class="fu">new_fun_xxx</span><span class="op">(</span>
@@ -1084,7 +1083,7 @@ passed on to the new function.</p>
 <span class="op">}</span></code></pre></div>
 <p>In the following release the function body should be changed to just
 include a call to <code>deprecate_stop()</code>.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu">deprecate_stop</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx()"</span>, <span class="st">"new_fun_xxx()"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
