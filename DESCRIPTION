@@ -55,7 +55,6 @@ Suggests:
     roxygen2,
     rstudioapi,
     spelling,
-    styler,
     tibble,
     usethis,
     covr,
