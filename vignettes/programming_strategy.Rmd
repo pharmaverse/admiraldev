@@ -221,6 +221,9 @@ Arguments which expect a boolean or boolean vector must start with a verb, e.g.,
 | `date`           | Date of an event / interval. Expects a date object.                                                                |
 | `set_values_to`  | List of variable name-value pairs. Use `process_set_values_to()` for processing the value and providing user friendly error messages. |
 | `subject_keys`   | Variables to uniquely identify a subject, defaults to `exprs(STUDYID, USUBJID)`. In function formals, use `subject_keys = get_admiral_option("subject_keys")`                                     |
+| `keep_source_vars` | Specifies which variables from the selected observations should be kept                                          |
+
+The default of the parameter should be everything().
 
 
 ## Source Code Formatting
