@@ -320,9 +320,9 @@ This rule is applicable only if both functions are part of `{admiral}`.
 Every function that is exported from the package must have an accompanying header 
 that should be formatted according to the [roxygen2](https://roxygen2.r-lib.org/) convention. 
 
-In addition to the roxygen2 tags, `@keywords` is also used. 
+In addition to the roxygen2 tags, the `@family` and `@keywords` tags are also used. 
 
-The keywords are used to categorize the function. Please see section "Categorization of functions".
+The family/keywords are used to categorize the function. Please see section [Categorization of functions](programming_strategy.html#categorization-of-functions).
 
 An example is given below:
 
@@ -585,8 +585,7 @@ function/argument should be used instead.
 The documentation will be updated at:
 
 + the description level for a function, 
-+ the keywords will be replaced with `deprecated`
-+ the `@family` roxygen tag will become `deprecated`
++ the `@keywords` and`@family` roxygen tags will be replaced with `deprecated`
 
     ```{r, eval=FALSE}
 #' Title of the function
