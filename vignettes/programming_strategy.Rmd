@@ -152,6 +152,8 @@ documentation of `set_admiral_options()`.
 
 Please note that the appropriate *var*/*vars* prefix should be used for all cases in which the function creates any variable(s), regardless of the presence of a `new_var` argument in the function call. 
 
+Oftentimes when creating a new `derive_var` or `derive_param` function there may be some sort of non-trivial calculation involved that you may want to write a customized function for. This is when creating a `compute_` function becomes appropriate, such that the calculation portion is contained in one step as part of the overall `derive_` function, reducing clutter in the main function body and assisting in debugging. Can see `compute_age_years()` and `derive_var_age_years()` as an example. 
+
 ## Function Arguments
 
 The default value of optional arguments should be `NULL`.
