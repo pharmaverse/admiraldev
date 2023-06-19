@@ -545,9 +545,7 @@ assert_vars <- function(arg, expect_names = FALSE, optional = FALSE) {
 assert_order_vars <- function(arg, optional = FALSE) {
   assert_logical_scalar(optional)
 
-  deprecate_warn("0.4.0", "assert_order_vars()", "assert_expr_list()")
-
-  assert_expr_list(arg, optional = optional)
+  deprecate_stop("0.4.0", "assert_order_vars()", "assert_expr_list()")
 }
 
 #' Is an Argument an Integer Scalar?
