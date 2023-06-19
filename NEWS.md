@@ -8,6 +8,10 @@
 
 ## Documentation
 
+- Documentation of `get_dataset()` was improved. (#271)
+
+- Minor updates to programming strategy were added (#213, #240, #260)
+
 ## Various
 
 # admiraldev 0.4.0
