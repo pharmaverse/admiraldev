@@ -753,23 +753,25 @@ test_that("assert_named_exprs Test 54: no error if `arg` is a named list of expr
 
 # assert_function ----
 ## Test 55: error if `arg` is not a function ----
-test_that("assert_function Test 55: error if `arg` is not a function", {
-  example_fun <- function(arg) {
-    assert_function(arg)
+test_that("assert_function Test 55: return deprecation warning", {
+  example_fun <- function(x) {
+    return(x)
   }
 
-  expect_warning(example_fun(5), class = "lifecycle_warning_deprecated")
-  expect_warning(example_fun(), class = "lifecycle_warning_deprecated")
+  expect_warning(
+    assert_function(example_fun),
+    class = "lifecycle_warning_deprecated"
+  )
 })
 
 ## Test 56: no error if `arg` is NULL and optional is TRUE ----
 test_that("assert_function Test 56: no error if `arg` is NULL and optional is TRUE", {
-  example_fun <- function(arg) {
-    assert_function(arg, optional = TRUE)
+  example_fun <- function(x) {
+    return(x)
   }
 
   expect_warning(
-    example_fun(NULL),
+    example_fun(assert_function(NULL, optional = TRUE)),
     class = "lifecycle_warning_deprecated"
   )
 })
@@ -788,21 +790,17 @@ test_that("assert_function Test 57: no error if `arg` is a function with all par
 
 ## Test 58: error if  `params`  is missing with no default ----
 test_that("assert_function Test 58: error if  `params`  is missing with no default", {
-  example_fun <- function(arg) {
-    assert_function(arg, params = c("x"))
+  example_fun <- function(x, y){
+    return(list(x,y))
   }
 
   expect_warning(
-    example_fun(sum),
+    assert_function(example_fun),
     class = "lifecycle_warning_deprecated"
   )
 
-  example_fun <- function(arg) {
-    assert_function(arg, params = c("x", "y"))
-  }
-
   expect_warning(
-    example_fun(sum),
+    assert_function(example_fun, params = c("x", "y")),
     class = "lifecycle_warning_deprecated"
   )
 })

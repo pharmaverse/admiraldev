@@ -982,7 +982,7 @@ assert_has_variables <- function(dataset, required_vars) {
 #' try(example_fun(sum))
 assert_function <- function(arg, params = NULL, optional = FALSE) {
 
-  deprecate_warn("0.6.0", "assert_function()", "assert_function_param()")
+  deprecate_warn("0.6.0", "assert_function()", "assert_function_param()", always = TRUE)
 
   assert_character_vector(params, optional = TRUE)
   assert_logical_scalar(optional)
