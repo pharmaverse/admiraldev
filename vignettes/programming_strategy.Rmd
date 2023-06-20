@@ -324,7 +324,7 @@ that should be formatted according to the [roxygen2](https://roxygen2.r-lib.org/
 
 In addition to the roxygen2 tags, the `@family` and `@keywords` tags are also used. 
 
-The family/keywords are used to categorize the function. Please see section [Categorization of functions](programming_strategy.html#categorization-of-functions).
+The family/keywords are used to categorize the function, which is used both on our website and the internal package help pages. Please see section [Categorization of functions](programming_strategy.html#categorization-of-functions).
 
 An example is given below:
 
