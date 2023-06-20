@@ -25,5 +25,9 @@ This function is \emph{deprecated}, please use \code{assert_expr_list()} instead
 Checks if an argument is a valid list of order variables/expressions created
 using \code{exprs()}
 }
+\seealso{
+Other deprecated: 
+\code{\link{assert_function}()}
+}
 \concept{deprecated}
 \keyword{deprecated}

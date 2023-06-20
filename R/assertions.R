@@ -945,6 +945,11 @@ assert_has_variables <- function(dataset, required_vars) {
 #' Checks if the argument is a function and if all expected arguments are
 #' provided by the function.
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `assert_function_param()` instead.
+#'
 #' @param arg A function argument to be checked
 #'
 #' @param params A character vector of expected argument names
@@ -963,8 +968,8 @@ assert_has_variables <- function(dataset, required_vars) {
 #'
 #' @export
 #'
-#' @keywords assertion
-#' @family assertion
+#' @keywords deprecated
+#' @family deprecated
 #' @examples
 #' example_fun <- function(fun) {
 #'   assert_function(fun, params = c("x"))
@@ -976,6 +981,9 @@ assert_has_variables <- function(dataset, required_vars) {
 #'
 #' try(example_fun(sum))
 assert_function <- function(arg, params = NULL, optional = FALSE) {
+
+  deprecate_warn("0.6.0", "assert_function()", "assert_function_param()")
+
   assert_character_vector(params, optional = TRUE)
   assert_logical_scalar(optional)
 
