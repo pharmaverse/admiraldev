@@ -752,7 +752,7 @@ test_that("assert_named_exprs Test 54: no error if `arg` is a named list of expr
 })
 
 # assert_function ----
-## Test 55: error if `arg` is not a function ----
+## Test 55: return deprecation warning ----
 test_that("assert_function Test 55: return deprecation warning", {
   example_fun <- function(x) {
     return(x)
@@ -764,8 +764,8 @@ test_that("assert_function Test 55: return deprecation warning", {
   )
 })
 
-## Test 56: no error if `arg` is NULL and optional is TRUE ----
-test_that("assert_function Test 56: no error if `arg` is NULL and optional is TRUE", {
+## Test 56: deprecation warning if `arg` is NULL and optional is TRUE ----
+test_that("assert_function Test 56: deprecation warning if `arg` is NULL and optional is TRUE", {
   example_fun <- function(x) {
     return(x)
   }
@@ -776,8 +776,8 @@ test_that("assert_function Test 56: no error if `arg` is NULL and optional is TR
   )
 })
 
-## Test 57: no error if `arg` is a function with all parameters defined ----
-test_that("assert_function Test 57: no error if `arg` is a function with all parameters defined", {
+## Test 57: deprecation warning if `arg` is a function with all parameters defined ----
+test_that("assert_function Test 57: deprecation warning if `arg` is a function with all parameters defined", { # nolint
   example_fun <- function(arg) {
     assert_function(arg, params = c("x"))
   }
@@ -788,10 +788,10 @@ test_that("assert_function Test 57: no error if `arg` is a function with all par
   )
 })
 
-## Test 58: error if  `params`  is missing with no default ----
-test_that("assert_function Test 58: error if  `params`  is missing with no default", {
-  example_fun <- function(x, y){
-    return(list(x,y))
+## Test 58: deprecation warning if  `params`  is missing with no default ----
+test_that("assert_function Test 58: deprecation warning if  `params`  is missing with no default", {
+  example_fun <- function(x, y) {
+    return(list(x, y))
   }
 
   expect_warning(
