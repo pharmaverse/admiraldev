@@ -758,8 +758,8 @@ test_that("assert_function Test 55: error if `arg` is not a function", {
     assert_function(arg)
   }
 
-  expect_error(example_fun(5))
-  expect_error(example_fun())
+  expect_warning(example_fun(5), class = "lifecycle_warning_deprecated")
+  expect_warning(example_fun(), class = "lifecycle_warning_deprecated")
 })
 
 ## Test 56: no error if `arg` is NULL and optional is TRUE ----
@@ -768,8 +768,9 @@ test_that("assert_function Test 56: no error if `arg` is NULL and optional is TR
     assert_function(arg, optional = TRUE)
   }
 
-  expect_invisible(
-    example_fun(NULL)
+  expect_warning(
+    example_fun(NULL),
+    class = "lifecycle_warning_deprecated"
   )
 })
 
@@ -779,7 +780,10 @@ test_that("assert_function Test 57: no error if `arg` is a function with all par
     assert_function(arg, params = c("x"))
   }
 
-  expect_invisible(example_fun(mean))
+  expect_warning(
+    example_fun(mean),
+    class = "lifecycle_warning_deprecated"
+  )
 })
 
 ## Test 58: error if  `params`  is missing with no default ----
@@ -788,13 +792,19 @@ test_that("assert_function Test 58: error if  `params`  is missing with no defau
     assert_function(arg, params = c("x"))
   }
 
-  expect_error(example_fun(sum))
+  expect_warning(
+    example_fun(sum),
+    class = "lifecycle_warning_deprecated"
+  )
 
   example_fun <- function(arg) {
     assert_function(arg, params = c("x", "y"))
   }
 
-  expect_error(example_fun(sum))
+  expect_warning(
+    example_fun(sum),
+    class = "lifecycle_warning_deprecated"
+  )
 })
 
 
