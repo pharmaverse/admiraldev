@@ -16,22 +16,24 @@ A \code{data.frame}
 Retrieve a Dataset from the \code{admiraldev_environment} environment
 }
 \details{
-Once in a while, we may encounter "locked binding for 'xxx'." errors
-during the development process while building out functions. This may arise because
-we want to create dynamic data/objects based on user-inputs that need modification
-at points in time after the package has been loaded. To manage such data or objects,
-R has a data structure known as an 'environment'. These environment objects are created
-at build time, but can be populated with values after the package has been loaded and
-update those values over the course of an R session.
+Sometimes, developers may want to provide information to users which does not fit into a
+warning or error message. For example, if the input dataset of a function contains unexpected
+records, these can be stored in a separate dataset, which users can access to investigate
+the issue.
+
+To achieve this, R has a data structure known as an 'environment'. These environment objects
+are created at build time, but can be populated with values after the package has been loaded
+and update those values over the course of an R session.
+
+As so, the establishment of \code{admiraldev_environment} allows us to create dynamic data/objects
+based on user-inputs that need modification. The purpose of \code{get_dataset} is to
+retrieve the datasets contained inside \code{admiraldev_environment}.
 
 Currently we only support two datasets inside our \code{admiraldev_environment} object:
 \itemize{
 \item \code{one_to_many}
 \item \code{many_to_one}
 }
-
-The purpose of \code{get_dataset} is to retrieve the datasets contained
-inside \code{admiraldev_environment}.
 }
 \concept{datasets}
 \keyword{datasets}
