@@ -800,22 +800,31 @@ test_that("assert_function Test 58: error if  `params`  is missing with no defau
 
 # assert_function_param ----
 ## Test 59: no error if `arg` is a parameter of a function ----
-test_that("assert_function_param Test 59: no error if `arg` is a parameter of a function", {
+test_that("assert_function_param Test 59: no error if `arg` is a parameter of a function (deprecation warn)", { # nolint
   hello <- function(name) {
     print(sprintf("Hello %s", name))
   }
 
-  expect_invisible(assert_function_param("hello", "name"))
+  expect_warning(
+    assert_function_param("hello", "name"),
+    class = "lifecycle_warning_deprecated"
+  )
 })
 
 ## Test 60: error if expected function parameters are missing ----
-test_that("assert_function_param Test 60: error if expected function parameters are missing", {
+test_that("assert_function_param Test 60: error if expected function parameters are missing (deprecation warn)", { # nolint
   hello <- function(name) {
     print(sprintf("Hello %s", name))
   }
 
-  expect_error(assert_function_param("hello", "surname"))
-  expect_error(assert_function_param("hello", params = c("surname", "firstname")))
+  expect_warning(
+    try(assert_function_param("hello", "surname"), silent = TRUE),
+    class = "lifecycle_warning_deprecated"
+  )
+  expect_warning(
+    try(assert_function_param("hello", params = c("surname", "firstname")), silent = TRUE),
+    class = "lifecycle_warning_deprecated"
+  )
 })
 
 # assert_unit ----
