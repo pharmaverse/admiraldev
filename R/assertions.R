@@ -191,7 +191,7 @@ assert_character_scalar <- function(arg,
     abort(err_msg)
   }
 
-  invisible(case_adjusted_arg)
+  invisible(arg)
 }
 
 #' Is an Argument a Character Vector?
@@ -981,8 +981,6 @@ assert_has_variables <- function(dataset, required_vars) {
 #'
 #' try(example_fun(sum))
 assert_function <- function(arg, params = NULL, optional = FALSE) {
-  deprecate_warn("0.6.0", "assert_function()", "assert_function_param()", always = TRUE)
-
   assert_character_vector(params, optional = TRUE)
   assert_logical_scalar(optional)
 
@@ -1044,6 +1042,8 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
 #'
 #' try(assert_function_param("hello", "surname"))
 assert_function_param <- function(arg, params) {
+  deprecate_warn("0.6.0", "assert_function()", "assert_function_param()", always = TRUE)
+
   assert_character_scalar(arg)
   assert_character_vector(params)
   fun <- match.fun(arg)

@@ -125,7 +125,7 @@ test_that("assert_data_frame Test 7: error if dataframe is grouped", {
 test_that("assert_character_scalar Test 8: error if not a character scaler string", {
   example_fun2 <- function(msg_type) {
     msg_type <- assert_character_scalar(msg_type,
-      values = c("warning", "error"), case_sensitive = FALSE
+                                        values = c("warning", "error"), case_sensitive = FALSE
     )
 
     if (msg_type == "warning") {
@@ -139,7 +139,7 @@ test_that("assert_character_scalar Test 8: error if not a character scaler strin
 test_that("assert_character_scalar Test 9: error if input is a vector", {
   example_fun2 <- function(msg_type) {
     msg_type <- assert_character_scalar(msg_type,
-      values = c("warning", "error"), case_sensitive = FALSE
+                                        values = c("warning", "error"), case_sensitive = FALSE
     )
 
     if (msg_type == "warning") {
@@ -491,9 +491,9 @@ test_that("assert_vars Test 31: error if some elements of `arg` are not unquoted
 # assert_order_vars ----
 ## Test 32: warn if assert_order_vars() is called ----
 test_that("assert_order_vars Test 32: warn if assert_order_vars() is called", {
-  expect_error(
+  expect_warning(
     assert_order_vars(arg <- exprs(USUBJID)),
-    class = "lifecycle_error_deprecated"
+    class = "lifecycle_warning_deprecated"
   )
 })
 
@@ -752,57 +752,49 @@ test_that("assert_named_exprs Test 54: no error if `arg` is a named list of expr
 })
 
 # assert_function ----
-## Test 55: return deprecation warning ----
-test_that("assert_function Test 55: return deprecation warning", {
-  example_fun <- function(x) {
-    return(x)
+## Test 55: error if `arg` is not a function ----
+test_that("assert_function Test 55: error if `arg` is not a function", {
+  example_fun <- function(arg) {
+    assert_function(arg)
   }
 
-  expect_warning(
-    assert_function(example_fun),
-    class = "lifecycle_warning_deprecated"
+  expect_error(example_fun(5))
+  expect_error(example_fun())
+})
+
+## Test 56: no error if `arg` is NULL and optional is TRUE ----
+test_that("assert_function Test 56: no error if `arg` is NULL and optional is TRUE", {
+  example_fun <- function(arg) {
+    assert_function(arg, optional = TRUE)
+  }
+
+  expect_invisible(
+    example_fun(NULL)
   )
 })
 
-## Test 56: deprecation warning if `arg` is NULL and optional is TRUE ----
-test_that("assert_function Test 56: deprecation warning if `arg` is NULL and optional is TRUE", {
-  example_fun <- function(x) {
-    return(x)
-  }
-
-  expect_warning(
-    example_fun(assert_function(NULL, optional = TRUE)),
-    class = "lifecycle_warning_deprecated"
-  )
-})
-
-## Test 57: deprecation warning if `arg` is a function with all parameters defined ----
-test_that("assert_function Test 57: deprecation warning if `arg` is a function with all parameters defined", { # nolint
+## Test 57: no error if `arg` is a function with all parameters defined ----
+test_that("assert_function Test 57: no error if `arg` is a function with all parameters defined", {
   example_fun <- function(arg) {
     assert_function(arg, params = c("x"))
   }
 
-  expect_warning(
-    example_fun(mean),
-    class = "lifecycle_warning_deprecated"
-  )
+  expect_invisible(example_fun(mean))
 })
 
-## Test 58: deprecation warning if  `params`  is missing with no default ----
-test_that("assert_function Test 58: deprecation warning if  `params`  is missing with no default", {
-  example_fun <- function(x, y) {
-    return(list(x, y))
+## Test 58: error if  `params`  is missing with no default ----
+test_that("assert_function Test 58: error if  `params`  is missing with no default", {
+  example_fun <- function(arg) {
+    assert_function(arg, params = c("x"))
   }
 
-  expect_warning(
-    assert_function(example_fun),
-    class = "lifecycle_warning_deprecated"
-  )
+  expect_error(example_fun(sum))
 
-  expect_warning(
-    assert_function(example_fun, params = c("x", "y")),
-    class = "lifecycle_warning_deprecated"
-  )
+  example_fun <- function(arg) {
+    assert_function(arg, params = c("x", "y"))
+  }
+
+  expect_error(example_fun(sum))
 })
 
 
