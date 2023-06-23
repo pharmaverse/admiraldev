@@ -34,7 +34,6 @@ Checks for valid input and returns warning or errors messages:
 \code{\link{assert_list_element}()},
 \code{\link{assert_list_of}()},
 \code{\link{assert_logical_scalar}()},
-\code{\link{assert_named_exprs}()},
 \code{\link{assert_named}()},
 \code{\link{assert_numeric_vector}()},
 \code{\link{assert_one_to_one}()},

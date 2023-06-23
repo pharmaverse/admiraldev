@@ -713,7 +713,7 @@ test_that("assert_named Test 51: error if no elements are named", {
 
 # assert_named_exprs ----
 ## Test 52: error if `arg` is not a named list of expressions ----
-test_that("assert_named_exprs Test 52: error if `arg` is not a named list of expressions", {
+test_that("assert_named_exprs Test 52: error if `arg` is not a named list of expressions (deprecation warn)", { # nolint
   example_fun <- function(arg) {
     assert_named_exprs(arg)
   }
@@ -721,33 +721,50 @@ test_that("assert_named_exprs Test 52: error if `arg` is not a named list of exp
   arg <- list("test")
   names(arg) <- c("")
 
-  expect_error(example_fun(5))
-  expect_error(example_fun(admiral.test::admiral_dm))
-  expect_error(example_fun(list(1, 2, TRUE)))
-  expect_error(example_fun(arg))
+  expect_warning(
+    try(example_fun(5), silent = TRUE),
+    class = "lifecycle_warning_deprecated"
+  )
+  expect_warning(
+    try(example_fun(admiral.test::admiral_dm), silent = TRUE),
+    class = "lifecycle_warning_deprecated"
+  )
+  expect_warning(
+    try(example_fun(list(1, 2, TRUE)), silent = TRUE),
+    class = "lifecycle_warning_deprecated"
+  )
+  expect_warning(
+    try(example_fun(arg), silent = TRUE),
+    class = "lifecycle_warning_deprecated"
+  )
 })
 
 ## Test 53: no error if `arg` is NULL and optional is TRUE ----
-test_that("assert_named_exprs Test 53: no error if `arg` is NULL and optional is TRUE", {
+test_that("assert_named_exprs Test 53: no error if `arg` is NULL and optional is TRUE (deprecation warn)", { # nolint
   example_fun <- function(arg) {
     assert_named_exprs(arg, optional = TRUE)
   }
 
-  expect_invisible(
-    example_fun(NULL)
+  expect_warning(
+    try(example_fun(NULL), silent = TRUE),
+    class = "lifecycle_warning_deprecated"
   )
 })
 
 ## Test 54: no error if `arg` is a named list of expressions ----
-test_that("assert_named_exprs Test 54: no error if `arg` is a named list of expressions", {
+test_that("assert_named_exprs Test 54: no error if `arg` is a named list of expressions (deprecation warn)", { # nolint
   example_fun <- function(arg) {
     assert_named_exprs(arg)
   }
 
-  expect_invisible(
-    example_fun(
-      rlang::exprs()
-    )
+  expect_warning(
+    try(
+      example_fun(
+        rlang::exprs()
+      ),
+      silent = TRUE
+    ),
+    class = "lifecycle_warning_deprecated"
   )
 })
 
@@ -806,7 +823,7 @@ test_that("assert_function_param Test 59: no error if `arg` is a parameter of a 
   }
 
   expect_warning(
-    assert_function_param("hello", "name"),
+    try(assert_function_param("hello", params = "name"), silent = TRUE),
     class = "lifecycle_warning_deprecated"
   )
 })

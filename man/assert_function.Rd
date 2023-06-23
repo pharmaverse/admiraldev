@@ -45,6 +45,7 @@ try(example_fun(sum))
 }
 \seealso{
 Other deprecated: 
+\code{\link{assert_named_exprs}()},
 \code{\link{assert_order_vars}()}
 }
 \concept{deprecated}

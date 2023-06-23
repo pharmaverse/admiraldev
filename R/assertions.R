@@ -869,10 +869,15 @@ assert_named <- function(arg, optional = FALSE) {
 
 #' Assert Argument is a Named List of Expressions
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `assert_expr_list()` instead.
+#'
 #' @inheritParams assert_data_frame
 #'
-#' @keywords assertion
-#' @family assertion
+#' @keywords deprecated
+#' @family deprecated
 #'
 #' @return
 #' The function throws an error if `arg` is not a named `list` of expression or
@@ -880,24 +885,8 @@ assert_named <- function(arg, optional = FALSE) {
 #'
 #' @export
 assert_named_exprs <- function(arg, optional = FALSE) {
-  assert_logical_scalar(optional)
-
-  if (optional && is.null(arg)) {
-    return(invisible(arg))
-  }
-
-  if (!is.list(arg) ||
-    !all(map_lgl(arg, ~ is.language(.x) | is.logical(.x))) ||
-    any(names(arg) == "")) {
-    err_msg <- sprintf(
-      "`%s` must be a named list of expressions created using `rlang::exprs()` but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
-    )
-    abort(err_msg)
-  }
-
-  invisible(arg)
+  deprecate_warn("0.6.0", "assert_named_exprs()", "assert_expr_list()", always = TRUE)
+  assert_expr_list(arg = arg, named = TRUE)
 }
 
 #' Does a Dataset Contain All Required Variables?
@@ -1043,23 +1032,7 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
 #' try(assert_function_param("hello", "surname"))
 assert_function_param <- function(arg, params) {
   deprecate_warn("0.6.0", "assert_function_param()", "assert_function()", always = TRUE)
-
-  assert_character_scalar(arg)
-  assert_character_vector(params)
-  fun <- match.fun(arg)
-
-  is_param <- params %in% names(formals(fun))
-  if (!all(is_param)) {
-    txt <- if (sum(!is_param) == 1L) {
-      "%s is not an argument of `%s()`"
-    } else {
-      "%s are not arguments of `%s()`"
-    }
-    err_msg <- sprintf(txt, enumerate(params[!is_param]), arg)
-    abort(err_msg)
-  }
-
-  invisible(arg)
+  assert_function(arg = arg, params = params)
 }
 
 #' Asserts That a Parameter is Provided in the Expected Unit

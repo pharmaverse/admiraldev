@@ -27,7 +27,8 @@ using \code{exprs()}
 }
 \seealso{
 Other deprecated: 
-\code{\link{assert_function}()}
+\code{\link{assert_function}()},
+\code{\link{assert_named_exprs}()}
 }
 \concept{deprecated}
 \keyword{deprecated}
