@@ -491,9 +491,9 @@ test_that("assert_vars Test 31: error if some elements of `arg` are not unquoted
 # assert_order_vars ----
 ## Test 32: warn if assert_order_vars() is called ----
 test_that("assert_order_vars Test 32: warn if assert_order_vars() is called", {
-  expect_warning(
+  expect_error(
     assert_order_vars(arg <- exprs(USUBJID)),
-    class = "lifecycle_warning_deprecated"
+    class = "lifecycle_error_deprecated"
   )
 })
 
