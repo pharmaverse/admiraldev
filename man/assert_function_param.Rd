@@ -23,9 +23,9 @@ hello <- function(name) {
   print(sprintf("Hello \%s", name))
 }
 
-assert_function_param("hello", "name")
+assert_function_param(`hello`, "name")
 
-try(assert_function_param("hello", "surname"))
+try(assert_function_param(`hello`, "surname"))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 
@@ -37,7 +37,6 @@ Checks for valid input and returns warning or errors messages:
 \code{\link{assert_expr_list}()},
 \code{\link{assert_expr}()},
 \code{\link{assert_filter_cond}()},
-\code{\link{assert_has_variables}()},
 \code{\link{assert_integer_scalar}()},
 \code{\link{assert_list_element}()},
 \code{\link{assert_list_of}()},

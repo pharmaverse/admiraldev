@@ -57,7 +57,6 @@ Checks for valid input and returns warning or errors messages:
 \code{\link{assert_expr}()},
 \code{\link{assert_filter_cond}()},
 \code{\link{assert_function_param}()},
-\code{\link{assert_has_variables}()},
 \code{\link{assert_integer_scalar}()},
 \code{\link{assert_list_element}()},
 \code{\link{assert_list_of}()},

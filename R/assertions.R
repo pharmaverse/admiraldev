@@ -893,6 +893,11 @@ assert_named_exprs <- function(arg, optional = FALSE) {
 #'
 #' Checks if a dataset contains all required variables
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `assert_data_frame()` instead.
+#'
 #' @param dataset A `data.frame`
 #' @param required_vars A `character` vector of variable names
 #'
@@ -902,8 +907,8 @@ assert_named_exprs <- function(arg, optional = FALSE) {
 #'
 #' @export
 #'
-#' @keywords assertion
-#' @family assertion
+#' @keywords deprecated
+#' @family deprecated
 #' @examples
 #' library(admiral.test)
 #' data(admiral_dm)
@@ -912,21 +917,14 @@ assert_named_exprs <- function(arg, optional = FALSE) {
 #'
 #' try(assert_has_variables(admiral_dm, "AVAL"))
 assert_has_variables <- function(dataset, required_vars) {
-  is_missing <- !required_vars %in% colnames(dataset)
-  if (any(is_missing)) {
-    missing_vars <- required_vars[is_missing]
-    if (length(missing_vars) == 1L) {
-      err_msg <- paste0("Required variable `", missing_vars, "` is missing.")
-    } else {
-      err_msg <- paste0(
-        "Required variables ",
-        enumerate(missing_vars),
-        " are missing."
-      )
-    }
-    abort(err_msg)
-  }
-  invisible(dataset)
+  deprecate_warn("0.6.0", "assert_has_variables()", "assert_data_frame()")
+  assert_data_frame(
+    arg = dataset,
+    required_vars = set_names(
+      exprs(!!!syms(required_vars)),
+      names(required_vars)
+    )
+  )
 }
 
 #' Is Argument a Function?
@@ -1027,9 +1025,9 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
 #'   print(sprintf("Hello %s", name))
 #' }
 #'
-#' assert_function_param("hello", "name")
+#' assert_function_param(`hello`, "name")
 #'
-#' try(assert_function_param("hello", "surname"))
+#' try(assert_function_param(`hello`, "surname"))
 assert_function_param <- function(arg, params) {
   deprecate_warn("0.6.0", "assert_function_param()", "assert_function()", always = TRUE)
   assert_function(arg = arg, params = params)
