@@ -129,7 +129,7 @@ test_that("assert_data_frame Test 7: error if dataframe is grouped", {
 test_that("assert_character_scalar Test 8: error if not a character scaler string", {
   example_fun2 <- function(msg_type) {
     msg_type <- assert_character_scalar(msg_type,
-                                        values = c("warning", "error"), case_sensitive = FALSE
+      values = c("warning", "error"), case_sensitive = FALSE
     )
 
     if (msg_type == "warning") {
@@ -143,7 +143,7 @@ test_that("assert_character_scalar Test 8: error if not a character scaler strin
 test_that("assert_character_scalar Test 9: error if input is a vector", {
   example_fun2 <- function(msg_type) {
     msg_type <- assert_character_scalar(msg_type,
-                                        values = c("warning", "error"), case_sensitive = FALSE
+      values = c("warning", "error"), case_sensitive = FALSE
     )
 
     if (msg_type == "warning") {
