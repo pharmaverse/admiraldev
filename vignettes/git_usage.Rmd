@@ -83,7 +83,7 @@ knitr::include_graphics("github_committ.png", dpi = 144)
 
 ### Commit Message Etiquette 
 
-We require developers to **insert the issue number** into each commit message. Placing the issue number in your commit message allows reviewers to quickly find discussion surrounding your issue. When pushed to GitHub the issue number will be hyperlink to the issue tracker. A powerful tool for discussion and traceability, which we think is valuable in a highly regulated industry like Pharma.
+We require developers to **insert the issue number** into each commit message. Placing the issue number in your commit message allows reviewers to quickly find discussion surrounding your issue. When pushed to GitHub the issue number will be hyperlinked to the issue tracker, a powerful tool for discussion and traceability, which we think is valuable in a highly regulated industry like Pharma.
 
 Below are styles of commit messaging permitted:
 
