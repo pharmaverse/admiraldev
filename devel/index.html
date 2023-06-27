@@ -61,20 +61,13 @@
     <a class="dropdown-item" href="articles/unit_test_guidance.html">Unit Test Guidance</a>
     <a class="dropdown-item" href="articles/git_usage.html">Guidance for git and GitHub Usage</a>
     <a class="dropdown-item" href="articles/pr_review_guidance.html">Pull Request Review Guidance</a>
+    <a class="dropdown-item" href="articles/rcmd_issues.html">R CMD Issues</a>
     <a class="dropdown-item" href="articles/release_strategy.html">Release Strategy</a>
   </div>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -101,11 +94,12 @@
 </div>
 <p>Utility Functions and Development Tools for the Admiral Package Family</p>
 <!-- badges: start -->
+
 <!-- badges: end -->
 <div class="section level2">
 <h2 id="purpose">Purpose<a class="anchor" aria-label="anchor" href="#purpose"></a>
 </h2>
-<p>Functions and Tools for developing core <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> functions. Most functions in <a href="https://pharmaverse.github.io/admiraldev/main/" class="external-link">admiraldev</a> are around testing inputs going into <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> functions. There are also additional quality of life functions/Addins to assist developers of <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> or <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> extension packages as well as functions to help with rendering documentation.</p>
+<p>Functions, tools and documentation for developing core <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> and extension package functions. Most functions in <a href="https://pharmaverse.github.io/admiraldev/main/" class="external-link">admiraldev</a> are around testing inputs going into functions. There are also additional quality of life functions/Addins to assist developers of <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> or <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> extension packages, functions to help with rendering documentation, Developer Guides on developing function and using GitHub, GitHub Actions.</p>
 <p><strong>NOTE:</strong> This package is not intended for standalone use but rather as a central dependency for <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> and its extension packages</p>
 </div>
 <div class="section level2">
@@ -113,16 +107,16 @@
 </h2>
 <p>The package is available from CRAN and can be installed by running <code>install.packages("admiraldev")</code>.</p>
 <p>To install the latest development version of the package directly from GitHub use the following code:</p>
-<pre><code><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"remotes"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"pharmaverse/admiraldev"</span>, ref <span class="op">=</span> <span class="st">"devel"</span><span class="op">)</span></code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"remotes"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"pharmaverse/admiraldev"</span>)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="release-schedule">Release Schedule<a class="anchor" aria-label="anchor" href="#release-schedule"></a>
 </h2>
-<p><a href="https://pharmaverse.github.io/admiraldev/main/" class="external-link">admiraldev</a> is to be officially released to CRAN one week before an official release of <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>. You can find the release schedule for <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> packages <a href="https://pharmaverse.github.io/admiral/#release-schedule" class="external-link">here</a>.</p>
+<p><a href="https://pharmaverse.github.io/admiraldev/main/" class="external-link">admiraldev</a> is to be released to CRAN at the same time as an official release of <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>. You can find the release schedule for <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> packages <a href="https://pharmaverse.github.io/admiral/#release-schedule" class="external-link">here</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -170,7 +164,13 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=admiraldev" class="external-link"><img src="https://www.r-pkg.org/badges/version/admiraldev" alt="CRAN status"></a></li>
+<li><a href="https://github.com/pharmaverse/admiraldev/actions/workflows/common.yml" class="external-link"><img src="https://raw.githubusercontent.com/pharmaverse/admiraldev/badges/main/test-coverage.svg" alt="Test Coverage"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
