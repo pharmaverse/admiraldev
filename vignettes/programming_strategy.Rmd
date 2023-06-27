@@ -152,6 +152,9 @@ documentation of `set_admiral_options()`.
 
 Please note that the appropriate *var*/*vars* prefix should be used for all cases in which the function creates any variable(s), regardless of the presence of a `new_var` argument in the function call. 
 
+Oftentimes when creating a new `derive_var` or `derive_param` function there may be some sort of non-trivial calculation involved that you may want to write a customized function for. This is when creating a `compute_` function becomes appropriate, such that the calculation portion is contained in one step as part of the overall `derive_` function, reducing clutter in the main function body and assisting in debugging. In addition, a `compute_` function should be implemented if the calculation could be used for more than one derivation. For example `compute_bmi()` could be used to derive a baseline BMI variable in ADSL (based on baseline weight and baseline height variables) and could also be used to derive a BMI parameter in ADVS (based on weight and height parameters). Please see `compute_age_years()` and `derive_var_age_years()` as another example. 
+
+
 ## Function Arguments
 
 The default value of optional arguments should be `NULL`.
@@ -221,7 +224,7 @@ Arguments which expect a boolean or boolean vector must start with a verb, e.g.,
 | `date`           | Date of an event / interval. Expects a date object.                                                                |
 | `set_values_to`  | List of variable name-value pairs. Use `process_set_values_to()` for processing the value and providing user friendly error messages. |
 | `subject_keys`   | Variables to uniquely identify a subject, defaults to `exprs(STUDYID, USUBJID)`. In function formals, use `subject_keys = get_admiral_option("subject_keys")`                                     |
-
+| `keep_source_vars` | Specifies which variables from the selected observations should be kept. The default of the argument should be `everything()`.                                          |
 
 ## Source Code Formatting
 
@@ -317,9 +320,9 @@ This rule is applicable only if both functions are part of `{admiral}`.
 Every function that is exported from the package must have an accompanying header 
 that should be formatted according to the [roxygen2](https://roxygen2.r-lib.org/) convention. 
 
-In addition to the roxygen2 tags, `@keywords` is also used. 
+In addition to the standard roxygen2 tags, the `@family` and `@keywords` tags are also used. 
 
-The keywords are used to categorize the function. Please see section "Categorization of functions".
+The family/keywords are used to categorize the function, which is used both on our website and the internal package help pages. Please see section [Categorization of functions](programming_strategy.html#categorization-of-functions).
 
 An example is given below:
 
@@ -582,8 +585,7 @@ function/argument should be used instead.
 The documentation will be updated at:
 
 + the description level for a function, 
-+ the keywords will be replaced with `deprecated`
-+ the `@family` roxygen tag will become `deprecated`
++ the `@keywords` and`@family` roxygen tags will be replaced with `deprecated`
 
     ```{r, eval=FALSE}
 #' Title of the function
