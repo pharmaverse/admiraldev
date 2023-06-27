@@ -75,3 +75,17 @@ test_that("get_source_vars Test 7: no source vars returns NULL", {
     NULL
   )
 })
+
+# get_dataset ----
+## Test 8: get_dataset works ----
+test_that("get_dataset Test 8: get_dataset works", {
+  expect_equal(NULL, get_dataset("one_to_many"))
+})
+
+## Test 9: get_dataset works ----
+test_that("get_dataset Test 9: get_dataset works", {
+  expect_error(
+    get_dataset("test"),
+    "`name` must be one of 'one_to_many' or 'many_to_one' but is 'test'"
+  )
+})
