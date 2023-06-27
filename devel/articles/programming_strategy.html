@@ -64,14 +64,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -383,6 +375,21 @@ through other <code>derive_</code> functions.</td>
 should be used for all cases in which the function creates any
 variable(s), regardless of the presence of a <code>new_var</code>
 argument in the function call.</p>
+<p>Oftentimes when creating a new <code>derive_var</code> or
+<code>derive_param</code> function there may be some sort of non-trivial
+calculation involved that you may want to write a customized function
+for. This is when creating a <code>compute_</code> function becomes
+appropriate, such that the calculation portion is contained in one step
+as part of the overall <code>derive_</code> function, reducing clutter
+in the main function body and assisting in debugging. In addition, a
+<code>compute_</code> function should be implemented if the calculation
+could be used for more than one derivation. For example
+<code>compute_bmi()</code> could be used to derive a baseline BMI
+variable in ADSL (based on baseline weight and baseline height
+variables) and could also be used to derive a BMI parameter in ADVS
+(based on weight and height parameters). Please see
+<code>compute_age_years()</code> and <code>derive_var_age_years()</code>
+as another example.</p>
 </div>
 <div class="section level3">
 <h3 id="function-arguments">Function Arguments<a class="anchor" aria-label="anchor" href="#function-arguments"></a>
@@ -527,6 +534,12 @@ providing user friendly error messages.</td>
 <code>subject_keys = get_admiral_option("subject_keys")</code>
 </td>
 </tr>
+<tr class="odd">
+<td><code>keep_source_vars</code></td>
+<td>Specifies which variables from the selected observations should be
+kept. The default of the argument should be
+<code><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything()</a></code>.</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -614,10 +627,12 @@ if both functions are part of <a href="https://pharmaverse.github.io/admiral/" c
 </h3>
 <p>Every function that is exported from the package must have an
 accompanying header that should be formatted according to the <a href="https://roxygen2.r-lib.org/" class="external-link">roxygen2</a> convention.</p>
-<p>In addition to the roxygen2 tags, <code>@keywords</code> is also
-used.</p>
-<p>The keywords are used to categorize the function. Please see section
-“Categorization of functions”.</p>
+<p>In addition to the standard roxygen2 tags, the <code>@family</code>
+and <code>@keywords</code> tags are also used.</p>
+<p>The family/keywords are used to categorize the function, which is
+used both on our website and the internal package help pages. Please see
+section <a href="programming_strategy.html#categorization-of-functions">Categorization
+of functions</a>.</p>
 <p>An example is given below:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Derive Relative Day Variables</span>
@@ -1040,11 +1055,9 @@ which new function/argument should be used instead.</p>
 <p>The documentation will be updated at:</p>
 <ul>
 <li><p>the description level for a function,</p></li>
-<li><p>the keywords will be replaced with
-<code>deprecated</code></p></li>
 <li>
-<p>the <code>@family</code> roxygen tag will become
-<code>deprecated</code></p>
+<p>the <code>@keywords</code> and<code>@family</code> roxygen tags
+will be replaced with <code>deprecated</code></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Title of the function</span>
 <span class="co">#'</span>
