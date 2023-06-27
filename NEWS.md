@@ -15,6 +15,9 @@
 
 ## Documentation
 
+- Guidance around issues and merging updated (#286)
+- Common R CMD troubleshooting made into separate vignette (#286)
+
 ## Various
 
 # admiraldev 0.4.0
