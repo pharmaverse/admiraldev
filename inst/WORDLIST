@@ -41,6 +41,7 @@ adex
 adlb
 admiralci
 advs
+anonymized
 codebase
 cyclomatic
 datatable
@@ -56,10 +57,9 @@ flexibilities
 functions’
 funder
 github
-hotfixes
 hotfix
+hotfixes
 insightsengineering
-lifecycle
 linter
 lintr
 lockfile
