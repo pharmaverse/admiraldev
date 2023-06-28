@@ -18,15 +18,6 @@ the function given by \code{arg}
 \description{
 Assert Argument is a Parameter of a Function
 }
-\examples{
-hello <- function(name) {
-  print(sprintf("Hello \%s", name))
-}
-
-assert_function_param(`hello`, "name")
-
-try(assert_function_param(`hello`, "surname"))
-}
 \seealso{
 Checks for valid input and returns warning or errors messages: 
 \code{\link{assert_atomic_vector}()},

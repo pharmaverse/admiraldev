@@ -885,7 +885,7 @@ assert_named <- function(arg, optional = FALSE) {
 #'
 #' @export
 assert_named_exprs <- function(arg, optional = FALSE) {
-  deprecate_warn("0.6.0", "assert_named_exprs()", "assert_expr_list()", always = TRUE)
+  deprecate_warn("0.5.0", "assert_named_exprs()", "assert_expr_list()", always = TRUE)
   assert_expr_list(arg = arg, named = TRUE)
 }
 
@@ -909,15 +909,8 @@ assert_named_exprs <- function(arg, optional = FALSE) {
 #'
 #' @keywords deprecated
 #' @family deprecated
-#' @examples
-#' library(admiral.test)
-#' data(admiral_dm)
-#'
-#' assert_has_variables(admiral_dm, "STUDYID")
-#'
-#' try(assert_has_variables(admiral_dm, "AVAL"))
 assert_has_variables <- function(dataset, required_vars) {
-  deprecate_warn("0.6.0", "assert_has_variables()", "assert_data_frame()")
+  deprecate_warn("0.5.0", "assert_has_variables()", "assert_data_frame()")
   assert_data_frame(
     arg = dataset,
     required_vars = set_names(
@@ -1019,17 +1012,8 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
 #' the function given by `arg`
 #'
 #' @export
-#'
-#' @examples
-#' hello <- function(name) {
-#'   print(sprintf("Hello %s", name))
-#' }
-#'
-#' assert_function_param(`hello`, "name")
-#'
-#' try(assert_function_param(`hello`, "surname"))
 assert_function_param <- function(arg, params) {
-  deprecate_warn("0.6.0", "assert_function_param()", "assert_function()", always = TRUE)
+  deprecate_warn("0.5.0", "assert_function_param()", "assert_function()", always = TRUE)
   assert_function(arg = arg, params = params)
 }
 

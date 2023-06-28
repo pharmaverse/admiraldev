@@ -23,14 +23,6 @@ This function is \emph{deprecated}, please use \code{assert_data_frame()} instea
 \details{
 Checks if a dataset contains all required variables
 }
-\examples{
-library(admiral.test)
-data(admiral_dm)
-
-assert_has_variables(admiral_dm, "STUDYID")
-
-try(assert_has_variables(admiral_dm, "AVAL"))
-}
 \seealso{
 Other deprecated: 
 \code{\link{assert_function}()},
