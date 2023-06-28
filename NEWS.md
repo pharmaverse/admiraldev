@@ -20,6 +20,8 @@
 
 - Guidance around issues and merging updated (#286)
 - Common R CMD troubleshooting made into separate vignette (#286)
+- Documentation of `get_dataset()` was improved. (#271)
+- Minor updates to programming strategy were added (#213, #240, #260)
 
 ## Various
 
