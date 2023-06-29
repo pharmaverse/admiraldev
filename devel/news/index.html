@@ -40,14 +40,6 @@
 <li class="active nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -78,7 +70,20 @@
 </div>
 <div class="section level3">
 <h3 id="breaking-changes-0-5-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-5-0"></a></h3>
-</div>
+<ul><li>The following functions/arguments have been deprecated from previous admiral versions using the next phase of the deprecation process: (<a href="https://github.com/pharmaverse/admiraldev/issues/288" class="external-link">#288</a>)
+<ul><li><code><a href="../reference/assert_order_vars.html">assert_order_vars()</a></code></li>
+<li><code>quo_c()</code></li>
+<li><code>quo_not_missing()</code></li>
+<li><code>replace_symbol_in_quo()</code></li>
+<li>The <code>quosures</code> argument was replaced by the <code>expressions</code> argument in <code><a href="../reference/replace_values_by_names.html">replace_values_by_names()</a></code>, <code><a href="../reference/get_source_vars.html">get_source_vars()</a></code>, and <code><a href="../reference/vars2chr.html">vars2chr()</a></code>. (<a href="https://github.com/pharmaverse/admiraldev/issues/288" class="external-link">#288</a>)</li>
+</ul></li>
+<li>
+<code><a href="../reference/assert_function_param.html">assert_function_param()</a></code> was deprecated in favor of <code><a href="../reference/assert_function.html">assert_function()</a></code>. (<a href="https://github.com/pharmaverse/admiraldev/issues/264" class="external-link">#264</a>)</li>
+<li>
+<code>assert_named_expr()</code> was deprecated in favor of <code><a href="../reference/assert_expr_list.html">assert_expr_list()</a></code>. (<a href="https://github.com/pharmaverse/admiraldev/issues/264" class="external-link">#264</a>)</li>
+<li>
+<code><a href="../reference/assert_has_variables.html">assert_has_variables()</a></code> was deprecated in favor of <code><a href="../reference/assert_data_frame.html">assert_data_frame()</a></code>. (<a href="https://github.com/pharmaverse/admiraldev/issues/264" class="external-link">#264</a>)</li>
+</ul></div>
 <div class="section level3">
 <h3 id="documentation-0-5-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-5-0"></a></h3>
 <ul><li>Guidance around issues and merging updated (<a href="https://github.com/pharmaverse/admiraldev/issues/286" class="external-link">#286</a>)</li>
@@ -106,9 +111,9 @@
 <ul><li><p><code><a href="../reference/assert_order_vars.html">assert_order_vars()</a></code> was deprecated in favor of <code><a href="../reference/assert_expr_list.html">assert_expr_list()</a></code>. (<a href="https://github.com/pharmaverse/admiraldev/issues/241" class="external-link">#241</a>)</p></li>
 <li>
 <p>The following functions have been deprecated from previous admiral versions using the next phase of the deprecation process: (<a href="https://github.com/pharmaverse/admiraldev/issues/272" class="external-link">#272</a>)</p>
-<ul><li><code><a href="../reference/quo_c.html">quo_c()</a></code></li>
-<li><code><a href="../reference/quo_not_missing.html">quo_not_missing()</a></code></li>
-<li><code><a href="../reference/replace_symbol_in_quo.html">replace_symbol_in_quo()</a></code></li>
+<ul><li><code>quo_c()</code></li>
+<li><code>quo_not_missing()</code></li>
+<li><code>replace_symbol_in_quo()</code></li>
 </ul></li>
 <li><p>The <code>quosures</code> argument was replaced by the <code>expressions</code> argument in <code><a href="../reference/replace_values_by_names.html">replace_values_by_names()</a></code>.</p></li>
 </ul></div>
@@ -139,7 +144,7 @@
 <ul><li>The default value of the <code>optional</code> argument in <code><a href="../reference/assert_date_vector.html">assert_date_vector()</a></code>, <code><a href="../reference/assert_list_of.html">assert_list_of()</a></code>, and <code><a href="../reference/assert_s3_class.html">assert_s3_class()</a></code> was changed from <code>TRUE</code> to <code>FALSE</code> to make the default behavior consistent. (<a href="https://github.com/pharmaverse/admiraldev/issues/87" class="external-link">#87</a>)</li>
 <li>admiral functions no longer expect list of quosures created by <code><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars()</a></code> but list of expressions created by <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code>. Thus the following functions and arguments were deprecated:
 <ul><li>
-<code><a href="../reference/quo_c.html">quo_c()</a></code> and <code><a href="../reference/replace_symbol_in_quo.html">replace_symbol_in_quo()</a></code>
+<code>quo_c()</code> and <code>replace_symbol_in_quo()</code>
 </li>
 <li>the <code>quosures</code> argument in <code><a href="../reference/get_source_vars.html">get_source_vars()</a></code>, <code><a href="../reference/replace_values_by_names.html">replace_values_by_names()</a></code>, and <code><a href="../reference/vars2chr.html">vars2chr()</a></code>
 </li>
@@ -158,7 +163,7 @@
 <div class="section level3">
 <h3 id="new-features-0-2-0">New Features<a class="anchor" aria-label="anchor" href="#new-features-0-2-0"></a></h3>
 <ul><li>Developer addin for formatting tests to admiral programming standards (<a href="https://github.com/pharmaverse/admiraldev/issues/73" class="external-link">#73</a>)</li>
-<li>New functions <code><a href="../reference/replace_symbol_in_quo.html">replace_symbol_in_quo()</a></code> and <code><a href="../reference/add_suffix_to_vars.html">add_suffix_to_vars()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/106" class="external-link">#106</a>)</li>
+<li>New functions <code>replace_symbol_in_quo()</code> and <code><a href="../reference/add_suffix_to_vars.html">add_suffix_to_vars()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/106" class="external-link">#106</a>)</li>
 <li>New function <code><a href="../reference/assert_atomic_vector.html">assert_atomic_vector()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/98" class="external-link">#98</a>)</li>
 <li>New keyword/family <code>create_aux</code> for functions creating auxiliary datasets (<a href="https://github.com/pharmaverse/admiraldev/issues/126" class="external-link">#126</a>)</li>
 <li>New function <code><a href="../reference/assert_date_vector.html">assert_date_vector()</a></code> (<a href="https://github.com/pharmaverse/admiraldev/issues/129" class="external-link">#129</a>)</li>
