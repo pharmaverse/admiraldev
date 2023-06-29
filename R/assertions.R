@@ -545,9 +545,7 @@ assert_vars <- function(arg, expect_names = FALSE, optional = FALSE) {
 assert_order_vars <- function(arg, optional = FALSE) {
   assert_logical_scalar(optional)
 
-  deprecate_warn("0.4.0", "assert_order_vars()", "assert_expr_list()")
-
-  assert_expr_list(arg, optional = optional)
+  deprecate_stop("0.4.0", "assert_order_vars()", "assert_expr_list()")
 }
 
 #' Is an Argument an Integer Scalar?
@@ -871,10 +869,15 @@ assert_named <- function(arg, optional = FALSE) {
 
 #' Assert Argument is a Named List of Expressions
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `assert_expr_list()` instead.
+#'
 #' @inheritParams assert_data_frame
 #'
-#' @keywords assertion
-#' @family assertion
+#' @keywords deprecated
+#' @family deprecated
 #'
 #' @return
 #' The function throws an error if `arg` is not a named `list` of expression or
@@ -882,29 +885,18 @@ assert_named <- function(arg, optional = FALSE) {
 #'
 #' @export
 assert_named_exprs <- function(arg, optional = FALSE) {
-  assert_logical_scalar(optional)
-
-  if (optional && is.null(arg)) {
-    return(invisible(arg))
-  }
-
-  if (!is.list(arg) ||
-    !all(map_lgl(arg, ~ is.language(.x) | is.logical(.x))) ||
-    any(names(arg) == "")) {
-    err_msg <- sprintf(
-      "`%s` must be a named list of expressions created using `rlang::exprs()` but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
-    )
-    abort(err_msg)
-  }
-
-  invisible(arg)
+  deprecate_warn("0.5.0", "assert_named_exprs()", "assert_expr_list()", always = TRUE)
+  assert_expr_list(arg = arg, named = TRUE)
 }
 
 #' Does a Dataset Contain All Required Variables?
 #'
 #' Checks if a dataset contains all required variables
+#'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `assert_data_frame()` instead.
 #'
 #' @param dataset A `data.frame`
 #' @param required_vars A `character` vector of variable names
@@ -915,37 +907,28 @@ assert_named_exprs <- function(arg, optional = FALSE) {
 #'
 #' @export
 #'
-#' @keywords assertion
-#' @family assertion
-#' @examples
-#' library(admiral.test)
-#' data(admiral_dm)
-#'
-#' assert_has_variables(admiral_dm, "STUDYID")
-#'
-#' try(assert_has_variables(admiral_dm, "AVAL"))
+#' @keywords deprecated
+#' @family deprecated
 assert_has_variables <- function(dataset, required_vars) {
-  is_missing <- !required_vars %in% colnames(dataset)
-  if (any(is_missing)) {
-    missing_vars <- required_vars[is_missing]
-    if (length(missing_vars) == 1L) {
-      err_msg <- paste0("Required variable `", missing_vars, "` is missing.")
-    } else {
-      err_msg <- paste0(
-        "Required variables ",
-        enumerate(missing_vars),
-        " are missing."
-      )
-    }
-    abort(err_msg)
-  }
-  invisible(dataset)
+  deprecate_warn("0.5.0", "assert_has_variables()", "assert_data_frame()")
+  assert_data_frame(
+    arg = dataset,
+    required_vars = set_names(
+      exprs(!!!syms(required_vars)),
+      names(required_vars)
+    )
+  )
 }
 
 #' Is Argument a Function?
 #'
 #' Checks if the argument is a function and if all expected arguments are
 #' provided by the function.
+#'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `assert_function_param()` instead.
 #'
 #' @param arg A function argument to be checked
 #'
@@ -965,8 +948,8 @@ assert_has_variables <- function(dataset, required_vars) {
 #'
 #' @export
 #'
-#' @keywords assertion
-#' @family assertion
+#' @keywords deprecated
+#' @family deprecated
 #' @examples
 #' example_fun <- function(fun) {
 #'   assert_function(fun, params = c("x"))
@@ -1029,32 +1012,9 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
 #' the function given by `arg`
 #'
 #' @export
-#'
-#' @examples
-#' hello <- function(name) {
-#'   print(sprintf("Hello %s", name))
-#' }
-#'
-#' assert_function_param("hello", "name")
-#'
-#' try(assert_function_param("hello", "surname"))
 assert_function_param <- function(arg, params) {
-  assert_character_scalar(arg)
-  assert_character_vector(params)
-  fun <- match.fun(arg)
-
-  is_param <- params %in% names(formals(fun))
-  if (!all(is_param)) {
-    txt <- if (sum(!is_param) == 1L) {
-      "%s is not an argument of `%s()`"
-    } else {
-      "%s are not arguments of `%s()`"
-    }
-    err_msg <- sprintf(txt, enumerate(params[!is_param]), arg)
-    abort(err_msg)
-  }
-
-  invisible(arg)
+  deprecate_warn("0.5.0", "assert_function_param()", "assert_function()", always = TRUE)
+  assert_function(arg = arg, params = params)
 }
 
 #' Asserts That a Parameter is Provided in the Expected Unit

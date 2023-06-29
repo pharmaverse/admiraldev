@@ -6,6 +6,16 @@
 
 ## Breaking Changes
 
+- The following functions/arguments have been deprecated from previous admiral versions using the next phase of the deprecation process: (#288)
+  - `assert_order_vars()`
+  - `quo_c()`
+  - `quo_not_missing()`
+  - `replace_symbol_in_quo()`
+  - The `quosures` argument was replaced by the `expressions` argument in `replace_values_by_names()`, `get_source_vars()`, and `vars2chr()`. (#288)
+- `assert_function_param()` was deprecated in favor of `assert_function()`. (#264)
+- `assert_named_expr()` was deprecated in favor of `assert_expr_list()`. (#264)
+- `assert_has_variables()` was deprecated in favor of `assert_data_frame()`. (#264)
+
 ## Documentation
 
 - Guidance around issues and merging updated (#286)

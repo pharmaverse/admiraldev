@@ -63,9 +63,9 @@ test_that("get_source_vars Test 5: NULL returns NULL", {
 
 ## Test 6: warning if quosures argument is used ----
 test_that("get_source_vars Test 6: warning if quosures argument is used", {
-  expect_warning(
+  expect_error(
     get_source_vars(quosures = rlang::quos(DTHDOM = "AE", DTHSEQ = AESEQ)),
-    class = "lifecycle_warning_deprecated"
+    class = "lifecycle_error_deprecated"
   )
 })
 ## Test 7: no source vars returns NULL ----
