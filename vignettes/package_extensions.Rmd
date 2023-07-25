@@ -82,7 +82,7 @@ _Note: The ordering numbers below are suggested but don’t all need to strictly
 
 **Note**: the core `{admiral}` team will carry out periodic reviews of of the extension package contents to ensure nothing is duplicated and  ensure standards and best practices are followed. The frequency of these reviews is to be agreed upon by the technical leads of the core and extension packages. 
 
-## Past Learnings
+## Lessons Learned
 
 These are some of the lessons learned from previous package extensions:
 

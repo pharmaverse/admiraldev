@@ -5,6 +5,7 @@ ADaMs
 AEs
 Addin
 Addins
+Arancibia
 BDS
 BMI
 CDISC
@@ -12,10 +13,12 @@ CMD
 Changelog
 Codebase
 Cyclomatic
+DM
 DTC
 Datetime
 Github
 GlaxoSmithKline
+GSK
 Hoffmann
 IG
 LLC
@@ -27,6 +30,7 @@ Pandoc
 Pharma
 Quosure
 Quosures
+README
 ROxygen
 RStudio
 Roxygen
@@ -41,7 +45,10 @@ addin
 adex
 adlb
 admiralci
+admiraltemplate
+admiralxxx
 advs
+anonymized
 codebase
 cyclomatic
 datatable
@@ -65,7 +72,9 @@ linter
 lintr
 lockfile
 occds
+onboarding
 optionality
+pharmaverse
 pkgs
 pre
 proc
