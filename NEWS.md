@@ -22,7 +22,7 @@
 - Common R CMD troubleshooting made into separate vignette (#286)
 - Documentation of `get_dataset()` was improved. (#271)
 - Minor updates to programming strategy were added (#213, #240, #260)
-- Updated unit testing vignette with snapshot testing guidance. (#320)
+- Updated unit testing vignette with snapshot testing guidance. (#302)
 
 ## Various
 
