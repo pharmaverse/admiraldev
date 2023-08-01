@@ -64,14 +64,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -159,6 +151,23 @@ warrants a mention as a development milestone</p></li>
 <li><p>all files affected by the implemented changes, e.g. vignettes and
 templates, are updated</p></li>
 </ul>
+<div class="section level3">
+<h3 id="codeowners-and-pr-guidance">Codeowners and PR Guidance<a class="anchor" aria-label="anchor" href="#codeowners-and-pr-guidance"></a>
+</h3>
+<p>As the creator of a PR, the assignment of a reviewer can be unclear.
+For most PRs, feel free to select a few members of the core development
+team. These individuals scan each repository on a regular basis as well
+and may provide his/her review even if not originally included as a
+selected reviewer.</p>
+<p>Sometimes, the development of a function or a vignette falls under a
+specific-topic, e.g. labs or PK/PD. Please ensure you include an
+appropriate reviewer if you are modifying files that rely on
+domain-expertise. We try to maintain an active list for domain-specific
+topics that will automatically tag an appropriate reviewer using our
+<code>CODEOWNERS</code> file, located in the <code>.github</code>
+folder. If you are interested in being a codeowner, reach out to the
+development team.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="so-much-red-tape">So much Red Tape!<a class="anchor" aria-label="anchor" href="#so-much-red-tape"></a>
