@@ -64,14 +64,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -238,6 +230,28 @@ your function justifies it, e.g. see the test script: <a href="https://github.c
 <h3 id="exported-functions">Exported Functions<a class="anchor" aria-label="anchor" href="#exported-functions"></a>
 </h3>
 <p>Don’t forget to add a unit test for each exported function.</p>
+</div>
+<div class="section level3">
+<h3 id="snapshot-testing">Snapshot Testing<a class="anchor" aria-label="anchor" href="#snapshot-testing"></a>
+</h3>
+<p>Standard unit tests are not always convenient to record the expected
+behavior with code. Some challenges include:</p>
+<ul>
+<li>Output that is large, making it painful to define the reference
+output, and bloating the size of the test file and making it hard to
+navigate.</li>
+<li>Text output that includes many characters like quotes and newlines
+that require special handling in a string.<br>
+</li>
+<li>Binary formats like plots or images, which are very difficult to
+describe in code: i.e. the plot looks right, the error message is useful
+to a human, the print method uses color effectively.</li>
+</ul>
+<p>For these situations, testthat provides an alternative mechanism:
+snapshot tests. Snapshot tests record results in a separate human
+readable file and records the results, including output, messages,
+warnings, and errors. Review the <a href="https://testthat.r-lib.org/articles/snapshotting.html" class="external-link">{testthat}
+snapshot vignette</a> for details.</p>
 </div>
 <div class="section level3">
 <h3 id="set-up-the-test-script">Set up the Test Script<a class="anchor" aria-label="anchor" href="#set-up-the-test-script"></a>
