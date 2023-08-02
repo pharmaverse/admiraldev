@@ -23,6 +23,8 @@
 - Documentation of `get_dataset()` was improved. (#271)
 - Minor updates to programming strategy were added (#213, #240, #260)
 - Updated unit testing vignette with snapshot testing guidance. (#302)
+- Documentation of `friendly_type_of()` was provided (#22)
+- Minor updates to pull request review guidance were added (#201, #292)
 
 ## Various
 
