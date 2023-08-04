@@ -172,7 +172,7 @@ The following principles are key when designing a new function:
     `derive_var_base()`.
 
 | Function name prefix                      | Description                                                                                         |
-|----------------------|--------------------------------------------------|
+|-------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | `assert_` / `warn_` / `is_`               | Functions that check other functions' inputs                                                        |
 | `derive_`                                 | Functions that take a dataset as input and return a new dataset with additional rows and/or columns |
 | `derive_var_` (e.g. `derive_var_trtdurd`) | Functions which add a single variable                                                               |
@@ -183,14 +183,15 @@ The following principles are key when designing a new function:
 | `get_`                                    | Usually utility functions that return very specific objects that get passed through other functions |
 | `filter_`                                 | Functions that filter observations based on conditions associated with common clinical trial syntax |
 
-| Function Name Suffix                           | Description                                                                                                                        |
-|-----------------------|-------------------------------------------------|
-| `_derivation` (suffix)                         | High order functions that call a user specified derivation                                                                         |
-| `_date` / `_time` / `_dt` / `_dtc` / `_dtm`    | Functions associated with dates, times, datetimes, and their character equivalents.                                                |
-| `_source`                                      | Functions that create source datasets that usually will be passed through other `derive_` functions.                               |
-| Other Common Function Name Terms               | Description                                                                                                                        |
-| ---------------------------------------------- | -----------------------------------------------------------------------------------------------------                              |
-| `_merged_` / `_joined_` / `_extreme_`          | Functions that follow the [generic function user-guide](https://pharmaverse.github.io/admiral/cran-release/articles/generic.html). |
+| Function Name Suffix                        | Description                                                                                          |
+|---------------------------------------------|------------------------------------------------------------------------------------------------------|
+| `_derivation` (suffix)                      | High order functions that call a user specified derivation                                           |
+| `_date` / `_time` / `_dt` / `_dtc` / `_dtm` | Functions associated with dates, times, datetimes, and their character equivalents.                  |
+| `_source`                                   | Functions that create source datasets that usually will be passed through other `derive_` functions. |
+
+| Other Common Function Name Terms      | Description                                                                                                                        |
+|---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| `_merged_` / `_joined_` / `_extreme_` | Functions that follow the [generic function user-guide](https://pharmaverse.github.io/admiral/cran-release/articles/generic.html). |
 
 Please note that the appropriate *var*/*vars* prefix should be used for
 all cases in which the function creates any variable(s), regardless of
@@ -265,13 +266,16 @@ if a parameter is added, it should be `param.` For example: `new_var`,
 Arguments which expect a boolean or boolean vector must start with a
 verb, e.g., `is_imputed` or `impute_date`.
 
-Arguments which only expect one value or variable name must be a singular
-version of the word(s), e.g., `missing_value` or `new_var`. Arguments which expect several values or variable names (as a list, expressions, etc.) must be a plural version of the word(s), e.g., `missing_values` or `new_vars`.
+Arguments which only expect one value or variable name must be a
+singular version of the word(s), e.g., `missing_value` or `new_var`.
+Arguments which expect several values or variable names (as a list,
+expressions, etc.) must be a plural version of the word(s), e.g.,
+`missing_values` or `new_vars`.
 
 ## List of Common Arguments
 
 | Argument Name      | Description                                                                                                                                                   |
-|--------------|----------------------------------------------------------|
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `dataset`          | The input dataset. Expects a data.frame or a tibble.                                                                                                          |
 | `by_vars`          | Variables to group by.                                                                                                                                        |
 | `order`            | List of expressions for sorting a dataset, e.g., `exprs(PARAMCD, AVISITN, desc(AVAL))`.                                                                       |
@@ -568,7 +572,7 @@ Below are the list of available keyword/family tags to be used in
 should be added, then please add an issue in GitHub for discussion.
 
 | Keyword/Family          | Description                                                                                                  |
-|----------------|-------------------------------------------------------|
+|-------------------------|--------------------------------------------------------------------------------------------------------------|
 | `com_date_time`         | Date/Time Computation Functions that returns a vector                                                        |
 | `com_bds_findings`      | BDS-Findings Functions that returns a vector                                                                 |
 | `create_aux`            | Functions for Creating Auxiliary Datasets                                                                    |
@@ -715,17 +719,17 @@ The documentation will be updated at:
     `deprecated`
 
     ```{r, eval=FALSE}
-    #' Title of the function
-    #'
-    #' @description
-    #' `r lifecycle::badge("deprecated")`
-    #'
-    #' This function is *deprecated*, please use `new_fun()` instead.
-    #' .
-    #' @family deprecated
-    #'
-    #' @keywords deprecated
-    #' .
+#' Title of the function
+#'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `new_fun()` instead.
+#' .
+#' @family deprecated
+#'
+#' @keywords deprecated
+#' .
     ```
 
 -   the `@examples` section should be removed.
