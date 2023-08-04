@@ -13,6 +13,14 @@ repo:
 news:
   cran_dates: true
 
+authors:
+  before: "We define *authors* as those who are actively maintaining the code base, and *contributors* as those who made a significant contribution in the past."
+  footer:
+    roles: [aut, ctb, cre, fnd]
+    text: "Developed by"
+  sidebar:
+    roles: [aut]
+
 reference:
 - title: Assertion Functions
   desc: Checks the inputs for user-facing functions and provides error, warnings and other messaging around expectation of inputs.

@@ -1,5 +1,6 @@
 ADSL
 ADT
+ADVS
 ADaM
 ADaMs
 AEs
@@ -12,6 +13,7 @@ CDISC
 CMD
 Changelog
 Codebase
+Codeowners
 Cyclomatic
 DM
 DTC
@@ -49,7 +51,9 @@ admiraltemplate
 admiralxxx
 advs
 anonymized
+cmd
 codebase
+codeowner
 cyclomatic
 datatable
 datetime
@@ -64,10 +68,9 @@ flexibilities
 functions’
 funder
 github
-hotfixes
 hotfix
+hotfixes
 insightsengineering
-lifecycle
 linter
 lintr
 lockfile
@@ -78,7 +81,6 @@ pharmaverse
 pkgs
 pre
 proc
-quosure
 quosures
 repo
 reproducibility
@@ -94,4 +96,3 @@ useR
 validatoR
 xxxx
 yyyyy
-cmd
