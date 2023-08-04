@@ -1,15 +1,18 @@
 ADSL
 ADT
+ADVS
 ADaM
 ADaMs
 AEs
 Addin
 Addins
 BDS
+BMI
 CDISC
 CMD
 Changelog
 Codebase
+Codeowners
 Cyclomatic
 DTC
 Datetime
@@ -41,8 +44,9 @@ adex
 adlb
 admiralci
 advs
-anonymized
+cmd
 codebase
+codeowner
 cyclomatic
 datatable
 datetime
@@ -68,7 +72,6 @@ optionality
 pkgs
 pre
 proc
-quosure
 quosures
 repo
 reproducibility

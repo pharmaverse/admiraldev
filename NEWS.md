@@ -6,7 +6,25 @@
 
 ## Breaking Changes
 
+- The following functions/arguments have been deprecated from previous admiral versions using the next phase of the deprecation process: (#288)
+  - `assert_order_vars()`
+  - `quo_c()`
+  - `quo_not_missing()`
+  - `replace_symbol_in_quo()`
+  - The `quosures` argument was replaced by the `expressions` argument in `replace_values_by_names()`, `get_source_vars()`, and `vars2chr()`. (#288)
+- `assert_function_param()` was deprecated in favor of `assert_function()`. (#264)
+- `assert_named_expr()` was deprecated in favor of `assert_expr_list()`. (#264)
+- `assert_has_variables()` was deprecated in favor of `assert_data_frame()`. (#264)
+
 ## Documentation
+
+- Guidance around issues and merging updated (#286)
+- Common R CMD troubleshooting made into separate vignette (#286)
+- Documentation of `get_dataset()` was improved. (#271)
+- Minor updates to programming strategy were added (#213, #240, #260)
+- Updated unit testing vignette with snapshot testing guidance. (#302)
+- Documentation of `friendly_type_of()` was provided (#22)
+- Minor updates to pull request review guidance were added (#201, #292)
 
 ## Various
 
