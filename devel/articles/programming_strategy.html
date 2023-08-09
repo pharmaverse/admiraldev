@@ -65,14 +65,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -466,6 +458,11 @@ argument name should be var, if a parameter is added, it should be
 <code>new_var_unit</code>, <code>new_param</code>.</p>
 <p>Arguments which expect a boolean or boolean vector must start with a
 verb, e.g., <code>is_imputed</code> or <code>impute_date</code>.</p>
+<p>Arguments which only expect one value or variable name must be a
+singular version of the word(s), e.g., <code>missing_value</code> or
+<code>new_var</code>. Arguments which expect several values or variable
+names (as a list, expressions, etc.) must be a plural version of the
+word(s), e.g., <code>missing_values</code> or <code>new_vars</code>.</p>
 </div>
 <div class="section level3">
 <h3 id="list-of-common-arguments">List of Common Arguments<a class="anchor" aria-label="anchor" href="#list-of-common-arguments"></a>
@@ -549,6 +546,16 @@ providing user friendly error messages.</td>
 <td>Specifies which variables from the selected observations should be
 kept. The default of the argument should be
 <code><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything()</a></code>.</td>
+</tr>
+<tr class="even">
+<td><code>missing_value</code></td>
+<td>A singular value to be entered if the data is missing.</td>
+</tr>
+<tr class="odd">
+<td><code>missing_values</code></td>
+<td>A named list of expressions where the names are variables in the
+dataset and the values are a value to be entered if the data is missing,
+e.g., <code>exprs(BASEC = "MISSING", BASE = -1)</code>.</td>
 </tr>
 </tbody>
 </table>
