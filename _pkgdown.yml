@@ -126,3 +126,5 @@ navbar:
       href: articles/release_strategy.html
     - text: Test Data Guidance
       href: articles/test_data_guidance.html
+    - text: Package Extensions
+      href: articles/package_extensions.html
