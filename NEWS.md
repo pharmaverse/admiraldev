@@ -25,6 +25,7 @@
 - Updated unit testing vignette with snapshot testing guidance. (#302)
 - Documentation of `friendly_type_of()` was provided (#22)
 - Minor updates to pull request review guidance were added (#201, #292)
+- Documentation of singular versus plural function argument names was added into the programming strategy vignette. Also documentation on the common arguments `missing_value` and `missing_values` was added. (#296)
 
 ## Various
 

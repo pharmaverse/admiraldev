@@ -205,6 +205,7 @@ added, it should be `param.` For example: `new_var`, `new_var_unit`,
 Arguments which expect a boolean or boolean vector must start with a verb, e.g.,
 `is_imputed` or `impute_date`.
 
+Arguments which only expect one value or variable name must be a singular version of the word(s), e.g., `missing_value` or `new_var`. Arguments which expect several values or variable names (as a list, expressions, etc.) must be a plural version of the word(s), e.g., `missing_values` or `new_vars`.
 
 ## List of Common Arguments
 
@@ -225,6 +226,8 @@ Arguments which expect a boolean or boolean vector must start with a verb, e.g.,
 | `set_values_to`  | List of variable name-value pairs. Use `process_set_values_to()` for processing the value and providing user friendly error messages. |
 | `subject_keys`   | Variables to uniquely identify a subject, defaults to `exprs(STUDYID, USUBJID)`. In function formals, use `subject_keys = get_admiral_option("subject_keys")`                                     |
 | `keep_source_vars` | Specifies which variables from the selected observations should be kept. The default of the argument should be `everything()`.                                          |
+| `missing_value`    | A singular value to be entered if the data is missing.                                  |
+| `missing_values`   | A named list of expressions where the names are variables in the dataset and the values are a value to be entered if the data is missing, e.g., `exprs(BASEC = "MISSING", BASE = -1)`.      |
 
 ## Source Code Formatting
 
