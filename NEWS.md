@@ -21,10 +21,11 @@
 - Guidance around issues and merging updated (#286)
 - Common R CMD troubleshooting made into separate vignette (#286)
 - Documentation of `get_dataset()` was improved. (#271)
-- Minor updates to programming strategy were added (#213, #240, #260, #296)
+- Minor updates to programming strategy were added (#213, #240, #260)
 - Updated unit testing vignette with snapshot testing guidance. (#302)
 - Documentation of `friendly_type_of()` was provided (#22)
 - Minor updates to pull request review guidance were added (#201, #292)
+- Documentation of singular versus plural function argument names was added into the programming strategy vignette. Also documentation on the common arguments `missing_value` and `missing_values` was added. (#296)
 
 ## Various
 
