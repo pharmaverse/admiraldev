@@ -80,9 +80,7 @@ warn_if_invalid_dtc <- function(dtc, is_valid = is_valid_dtc(dtc)) {
       "2003---15\n\n",
       "The following ISO representations, and any other representation are NOT handled: \n",
       "2003-12-15T-:15:18\n",
-      "2003-12-15T13:-:19\n",
-      "--12-15\n",
-      "-----T07:15"
+      "2003-12-15T13:-:19\n"
     )
     warn(paste(main_msg, tbl, info, sep = "\n"))
   }
