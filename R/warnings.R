@@ -69,18 +69,10 @@ warn_if_invalid_dtc <- function(dtc, is_valid = is_valid_dtc(dtc)) {
     )
 
     info <- paste0(
-      "The following ISO representations are handled: \n",
-      "2003-12-15T13:15:17.123\n",
-      "2003-12-15T13:15:17\n",
-      "2003-12-15T13:15\n",
-      "2003-12-15T13\n",
-      "2003-12-15\n",
-      "2003-12\n",
-      "2003\n",
-      "2003---15\n\n",
-      "The following ISO representations, and any other representation are NOT handled: \n",
-      "2003-12-15T-:15:18\n",
-      "2003-12-15T13:-:19\n"
+      "ISO representations of the form YYYY-MM-DDThh:mm:ss.ddd are expected, ",
+      "e.g., 2003-12-15T13:15:17.123. Missing parts at the end can be omitted. ",
+      "Missing parts in the middle must be represented by a dash, e.g., 2003---15.",
+      sep = "\n"
     )
     warn(paste(main_msg, tbl, info, sep = "\n"))
   }
