@@ -77,7 +77,7 @@ _Note: The ordering numbers below are suggested but don't all need to strictly b
 1. Update the template license file in your repo by adding the co-development company names in place of Roche & GSK - for `{admiral}` package extensions we use Apache 2.0, which is our preferred permissive license. Agree with the co-development companies any required extra wording for the copyright/IP section.
 
 1. Set up a project board, such as [this](https://github.com/orgs/pharmaverse/projects/12), to help manage your backlog.
-![`{admiral}` core project board](project_board.png){width=100%}
+![admiral core project board](https://github.com/pharmaverse/admiraldev/raw/312_break_the_wall_package_extension%40devel/vignettes/project_board.png){width=100%}
 
 1. Assuming you work under agile/scrum, then create a product backlog, prioritize and make a sprint plan.
 
