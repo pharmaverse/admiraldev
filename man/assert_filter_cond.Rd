@@ -23,7 +23,7 @@ Check if \code{arg} is a suitable filtering condition to be used in
 functions like \code{subset} or \code{dplyr::filter}.
 }
 \examples{
-library(pharmaverse)
+library(pharmaversesdtm)
 library(dplyr, warn.conflicts = FALSE)
 library(rlang)
 data(dm)

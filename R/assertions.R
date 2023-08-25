@@ -21,7 +21,7 @@
 #' @family assertion
 #'
 #' @examples
-#' library(pharmaverse)
+#' library(pharmaversesdtm)
 #' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
 #' data(dm)
@@ -424,7 +424,7 @@ assert_expr <- function(arg, optional = FALSE) {
 #' @family assertion
 #'
 #' @examples
-#' library(pharmaverse)
+#' library(pharmaversesdtm)
 #' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
 #' data(dm)

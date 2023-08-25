@@ -31,7 +31,7 @@ Checks if an argument is a data frame and (optionally) whether is contains
 a set of required variables
 }
 \examples{
-library(pharmaverse)
+library(pharmaversesdtm)
 library(dplyr, warn.conflicts = FALSE)
 library(rlang)
 data(dm)
