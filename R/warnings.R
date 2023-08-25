@@ -14,14 +14,14 @@
 #' @export
 #'
 #' @examples
-#' library(admiral.test)
-#' data(admiral_dm)
+#' library(pharmaversesdtm)
+#' data(dm)
 #'
 #' ## No warning as `AAGE` doesn't exist in `dm`
-#' warn_if_vars_exist(admiral_dm, "AAGE")
+#' warn_if_vars_exist(dm, "AAGE")
 #'
 #' ## Issues a warning
-#' warn_if_vars_exist(admiral_dm, "ARM")
+#' warn_if_vars_exist(dm, "ARM")
 warn_if_vars_exist <- function(dataset, vars) {
   existing_vars <- vars[vars %in% colnames(dataset)]
   if (length(existing_vars) == 1L) {

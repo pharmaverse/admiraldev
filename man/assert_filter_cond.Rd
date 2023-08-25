@@ -23,10 +23,10 @@ Check if \code{arg} is a suitable filtering condition to be used in
 functions like \code{subset} or \code{dplyr::filter}.
 }
 \examples{
-library(admiral.test)
+library(pharmaverse)
 library(dplyr, warn.conflicts = FALSE)
 library(rlang)
-data(admiral_dm)
+data(dm)
 
 # typical usage in a function as an argument check
 example_fun <- function(dat, x) {
@@ -34,9 +34,9 @@ example_fun <- function(dat, x) {
   filter(dat, !!x)
 }
 
-example_fun(admiral_dm, AGE == 64)
+example_fun(dm, AGE == 64)
 
-try(example_fun(admiral_dm, USUBJID))
+try(example_fun(dm, USUBJID))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 

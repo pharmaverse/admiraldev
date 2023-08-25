@@ -21,18 +21,18 @@
 #' @family assertion
 #'
 #' @examples
-#' library(admiral.test)
+#' library(pharmaverse)
 #' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
-#' data(admiral_dm)
+#' data(dm)
 #'
 #' example_fun <- function(dataset) {
 #'   assert_data_frame(dataset, required_vars = exprs(STUDYID, USUBJID))
 #' }
 #'
-#' example_fun(admiral_dm)
+#' example_fun(dm)
 #'
-#' try(example_fun(select(admiral_dm, -STUDYID)))
+#' try(example_fun(select(dm, -STUDYID)))
 #'
 #' try(example_fun("Not a dataset"))
 assert_data_frame <- function(arg,
@@ -332,23 +332,23 @@ assert_logical_scalar <- function(arg, optional = FALSE) {
 #' @keywords assertion
 #' @family assertion
 #' @examples
-#' library(admiral.test)
+#' library(pharmaversesdtm)
 #' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
-#' data(admiral_dm)
+#' data(dm)
 #'
 #' example_fun <- function(dat, var) {
 #'   var <- assert_symbol(enexpr(var))
 #'   select(dat, !!var)
 #' }
 #'
-#' example_fun(admiral_dm, USUBJID)
+#' example_fun(dm, USUBJID)
 #'
-#' try(example_fun(admiral_dm))
+#' try(example_fun(dm))
 #'
-#' try(example_fun(admiral_dm, "USUBJID"))
+#' try(example_fun(dm, "USUBJID"))
 #'
-#' try(example_fun(admiral_dm, toupper(PARAMCD)))
+#' try(example_fun(dm, toupper(PARAMCD)))
 assert_symbol <- function(arg, optional = FALSE) {
   assert_logical_scalar(optional)
 
@@ -424,10 +424,10 @@ assert_expr <- function(arg, optional = FALSE) {
 #' @family assertion
 #'
 #' @examples
-#' library(admiral.test)
+#' library(pharmaverse)
 #' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
-#' data(admiral_dm)
+#' data(dm)
 #'
 #' # typical usage in a function as an argument check
 #' example_fun <- function(dat, x) {
@@ -435,9 +435,9 @@ assert_expr <- function(arg, optional = FALSE) {
 #'   filter(dat, !!x)
 #' }
 #'
-#' example_fun(admiral_dm, AGE == 64)
+#' example_fun(dm, AGE == 64)
 #'
-#' try(example_fun(admiral_dm, USUBJID))
+#' try(example_fun(dm, USUBJID))
 assert_filter_cond <- function(arg, optional = FALSE) {
   assert_logical_scalar(optional)
 
