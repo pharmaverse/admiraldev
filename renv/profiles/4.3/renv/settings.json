@@ -4,8 +4,9 @@
   "ignored.packages": [
     "admiral",
     "admiraldev",
-    "pharmaversesdtm",
-    "admiralci"
+    "admiral.test",
+    "admiralci",
+    "pharmaversesdtm"
   ],
   "package.dependency.fields": [
     "Imports",
