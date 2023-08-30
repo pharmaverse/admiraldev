@@ -4,6 +4,8 @@
 
 ## Updates of Existing Functions
 
+- The messaging for `warn_if_invalid_dtc()` was updated to align with what the date/datetime functions in `admiral` currently do. (#316)
+
 ## Breaking Changes
 
 - The following functions/arguments have been deprecated from previous admiral versions using the next phase of the deprecation process: (#288)
