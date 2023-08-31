@@ -2,7 +2,7 @@
 
 ## New Features
 
-- Calls for `admira.test` have been swapped with `pharmaversesdtm` (#321)
+- Calls for `admiral.test` have been swapped with `pharmaversesdtm` (#321)
 
 ## Updates of Existing Functions
 
