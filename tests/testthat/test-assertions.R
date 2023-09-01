@@ -12,7 +12,7 @@ test_that("assert_has_variables Test 1: error if a required variable is missing 
   )
 
   expect_warning(
-    try(assert_has_variables(admiral.test::admiral_dm, c("TRT01P", "AVAL")), silent = TRUE),
+    try(assert_has_variables(pharmaversesdtm::dm, c("TRT01P", "AVAL")), silent = TRUE),
     class = "lifecycle_warning_deprecated"
   )
 })
@@ -190,7 +190,7 @@ test_that("assert_data_frame Test 13: error if required variables are missing", 
     assert_data_frame(dataset, required_vars = exprs(STUDYID, USUBJID))
   }
 
-  admiral_dm <- admiral.test::admiral_dm %>% select(-c(STUDYID, USUBJID))
+  admiral_dm <- pharmaversesdtm::dm %>% select(-c(STUDYID, USUBJID))
 
   expect_error(
     example_fun(admiral_dm)
@@ -203,7 +203,7 @@ test_that("assert_data_frame Test 14: error if required variable is missing", {
     assert_data_frame(dataset, required_vars = exprs(STUDYID, USUBJID))
   }
 
-  admiral_dm <- admiral.test::admiral_dm %>% select(-c(USUBJID))
+  admiral_dm <- pharmaversesdtm::dm %>% select(-c(USUBJID))
 
   expect_error(
     example_fun(admiral_dm)
@@ -420,7 +420,7 @@ test_that("assert_symbol Test 25: `assert_symbol` does not throw an error if `ar
     v <- enexpr(var)
   }
 
-  admiral_dm <- admiral.test::admiral_dm
+  admiral_dm <- pharmaversesdtm::dm
 
   example_fun <- function(arg) {
     assert_symbol(arg)
@@ -437,7 +437,7 @@ test_that("assert_symbol Test 25: `assert_symbol` does not throw an error if `ar
 ## Test 26: `assert_expr` does not throw an error if `arg` is an expression ----
 test_that("assert_expr Test 26: `assert_expr` does not throw an error if `arg` is an expression", {
   expect_invisible(
-    assert_expr(var <- expr(admiral.test::admiral_dm))
+    assert_expr(var <- expr(pharmaversesdtm::dm))
   )
 })
 
@@ -730,7 +730,7 @@ test_that("assert_named_exprs Test 52: error if `arg` is not a named list of exp
     class = "lifecycle_warning_deprecated"
   )
   expect_warning(
-    try(example_fun(admiral.test::admiral_dm), silent = TRUE),
+    try(example_fun(pharmaversesdtm::dm), silent = TRUE),
     class = "lifecycle_warning_deprecated"
   )
   expect_warning(
@@ -1088,7 +1088,7 @@ test_that("assert_list_element Test 80: error if the elements do not fulfill the
 ## Test 81: error if there is a one to many mapping ----
 test_that("assert_one_to_one Test 81: error if there is a one to many mapping", {
   expect_error(
-    assert_one_to_one(admiral.test::admiral_dm, exprs(DOMAIN), exprs(USUBJID))
+    assert_one_to_one(pharmaversesdtm::dm, exprs(DOMAIN), exprs(USUBJID))
   )
   admiraldev_environment$one_to_many <- NULL
 })
@@ -1096,7 +1096,7 @@ test_that("assert_one_to_one Test 81: error if there is a one to many mapping", 
 ## Test 82: error if there is a many to one mapping ----
 test_that("assert_one_to_one Test 82: error if there is a many to one mapping", {
   expect_error(
-    assert_one_to_one(admiral.test::admiral_dm, exprs(USUBJID), exprs(DOMAIN))
+    assert_one_to_one(pharmaversesdtm::dm, exprs(USUBJID), exprs(DOMAIN))
   )
   admiraldev_environment$many_to_one <- NULL
 })

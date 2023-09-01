@@ -2,6 +2,8 @@
 
 ## New Features
 
+- Calls for `admiral.test` have been swapped with `pharmaversesdtm` (#321)
+
 ## Updates of Existing Functions
 
 - The messaging for `warn_if_invalid_dtc()` was updated to align with what the date/datetime functions in `admiral` currently do. (#316)
@@ -28,6 +30,7 @@
 - Documentation of `friendly_type_of()` was provided (#22)
 - Minor updates to pull request review guidance were added (#201, #292)
 - Documentation of singular versus plural function argument names was added into the programming strategy vignette. Also documentation on the common arguments `missing_value` and `missing_values` was added. (#296)
+- Documentation highlighting the difference between `set_values_to` and `keep_source_vars` (#318)
 
 ## Various
 
