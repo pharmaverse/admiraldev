@@ -42,14 +42,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -131,10 +123,10 @@ functions like <code>subset</code> or <code><a href="https://dplyr.tidyverse.org
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">admiral.test</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pharmaverse.github.io/pharmaversesdtm" class="external-link">pharmaversesdtm</a></span><span class="op">)</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rlang.r-lib.org" class="external-link">rlang</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">admiral_dm</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">dm</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># typical usage in a function as an argument check</span></span>
 <span class="r-in"><span class="va">example_fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dat</span>, <span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
@@ -142,21 +134,21 @@ functions like <code>subset</code> or <code><a href="https://dplyr.tidyverse.org
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">dat</span>, <span class="op">!</span><span class="op">!</span><span class="va">x</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu">example_fun</span><span class="op">(</span><span class="va">admiral_dm</span>, <span class="va">AGE</span> <span class="op">==</span> <span class="fl">64</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">example_fun</span><span class="op">(</span><span class="va">dm</span>, <span class="va">AGE</span> <span class="op">==</span> <span class="fl">64</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 25</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   STUDYID      DOMAIN USUBJID   SUBJID RFSTDTC RFENDTC RFXSTDTC RFXENDTC RFICDTC</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> CDISCPILOT01 DM     01-701-1… 1023   2012-0… 2012-0… 2012-08… 2012-09… <span style="color: #949494;">""</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> CDISCPILOT01 DM     01-703-1… 1042   2013-0… 2013-0… 2013-03… 2013-08… <span style="color: #949494;">""</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> CDISCPILOT01 DM     01-706-1… 1041   2013-1… 2014-0… 2013-12… 2014-07… <span style="color: #949494;">""</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> CDISCPILOT01 DM     01-713-1… 1179   2013-0… 2014-0… 2013-08… 2014-02… <span style="color: #949494;">""</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> CDISCPILOT01 DM     01-717-1… 1344   2014-0… 2014-0… 2014-01… 2014-03… <span style="color: #949494;">""</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> CDISCPILOT01 DM     01-701-1… 1023   2012-0… 2012-0… 2012-08… 2012-09… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> CDISCPILOT01 DM     01-703-1… 1042   2013-0… 2013-0… 2013-03… 2013-08… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> CDISCPILOT01 DM     01-706-1… 1041   2013-1… 2014-0… 2013-12… 2014-07… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> CDISCPILOT01 DM     01-713-1… 1179   2013-0… 2014-0… 2013-08… 2014-02… <span style="color: #BB0000;">NA</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> CDISCPILOT01 DM     01-717-1… 1344   2014-0… 2014-0… 2014-01… 2014-03… <span style="color: #BB0000;">NA</span>     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 16 more variables: RFPENDTC &lt;chr&gt;, DTHDTC &lt;chr&gt;, DTHFL &lt;chr&gt;, SITEID &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   AGE &lt;dbl&gt;, AGEU &lt;chr&gt;, SEX &lt;chr&gt;, RACE &lt;chr&gt;, ETHNIC &lt;chr&gt;, ARMCD &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ARM &lt;chr&gt;, ACTARMCD &lt;chr&gt;, ACTARM &lt;chr&gt;, COUNTRY &lt;chr&gt;, DMDTC &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   DMDY &lt;dbl&gt;</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="va">admiral_dm</span>, <span class="va">USUBJID</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="va">dm</span>, <span class="va">USUBJID</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in filter(dat, !!x) : <span style="color: #00BBBB;">ℹ</span> In argument: `USUBJID`.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error:</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> `..1` must be a logical vector, not a character vector.</span>

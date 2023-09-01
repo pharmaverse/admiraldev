@@ -66,14 +66,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -170,9 +162,9 @@ would be <code>94_derive_var_lstalvdt@devel</code>.</p>
 <p>The <code>@&lt;target_branch&gt;</code> suffix is used in our CI/CD
 pipelines, e.g. when running <code>R CMD check</code>. It ensures that
 <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>’s dependencies such as
-<code>{admiral.test}</code> and <a href="https://pharmaverse.github.io/admiraldev/main/" class="external-link">admiraldev</a> are installed
-from the specified target branch. So when the target branch is set to
-<code>@devel</code> the dependencies will be installed from those
+<a href="https://pharmaverse.github.io/pharmaversesdtm" class="external-link">pharmaversesdtm</a> and <a href="https://pharmaverse.github.io/admiraldev/main/" class="external-link">admiraldev</a> are
+installed from the specified target branch. So when the target branch is
+set to <code>@devel</code> the dependencies will be installed from those
 package’s respective <code>devel</code> branches rather than installing
 the latest released version. This ensures that we test the development
 version of <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> against the development versions of
