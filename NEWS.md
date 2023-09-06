@@ -3,6 +3,7 @@
 ## New Features
 
 - Calls for `admiral.test` have been swapped with `pharmaversesdtm` (#321)
+- New vignette for package writing extensions is now available (#295)
 
 ## Updates of Existing Functions
 
