@@ -66,14 +66,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -107,6 +99,29 @@
 
     
     
+<style type="text/css">
+.github-button {
+  display: inline-block;
+  padding: 2px 5px;
+  background-color: #e5e5e5;
+  color: #333;
+  border: 0px solid #ccc;
+  border-radius: 20px;
+  font-size: 1em;
+  margin: 0 0px;
+}
+
+.github-button.firstissue {
+  background-color: #7057FF;
+  color: #fff;
+}
+
+.github-button.helpwanted {
+  background-color: #008672;
+  color: #fff;
+}
+
+</style>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -169,7 +184,7 @@ resources. Then each developer is required to complete the
 <code>{admiral</code>} <a href="https://github.com/pharmaverse/admiral/issues/1839" class="external-link">dummy issue
 for onboarding</a>, as well as reading up on the <a href="https://pharmaverse.github.io/admiraldev/devel/index.html">admiraldev
 documentation</a>, - especially the developer guides, which all need to
-be followed for package extensions.</p></li>
+be followed for package extensions. <img src="https://github.com/pharmaverse/admiraldev/raw/312_break_the_wall_package_extension%40devel/vignettes/dummy_issue.png" style="width:100.0%" alt="Dummy issue for new developers"></p></li>
 <li><p>Optionally it can be useful to host a kick-off meeting to decide
 how the team will work, for which we recommend agile/scrum
 practices.</p></li>
@@ -210,7 +225,8 @@ could be granted by of the pharmaverse council reps, who are admins for
 this org. Also you are free to add additional package dependencies as
 needed assuming only reliable packages are used, but they must not
 depend on newer versions of other packages (always reply “no” if updates
-are suggested during installation).</em></p></li>
+are suggested during installation).</em>
+<iframe src="https://pharmaverse.github.io/admiraltemplate/cran-release/" width="100%" height="800" title="`admiral` package template"></iframe></p></li>
 <li><p>Once the repo is available the technical lead could be granted
 admin access to this repo and then could set up a GitHub team with the
 same name as the package extension to assign required access for all
@@ -224,7 +240,7 @@ our preferred permissive license. Agree with the co-development
 companies any required extra wording for the copyright/IP
 section.</p></li>
 <li><p>Set up a project board, such as <a href="https://github.com/orgs/pharmaverse/projects/12" class="external-link">this</a>, to help
-manage your backlog.</p></li>
+manage your backlog. <img src="https://github.com/pharmaverse/admiraldev/raw/312_break_the_wall_package_extension%40devel/vignettes/project_board.png" style="width:100.0%" alt="admiral core project board"></p></li>
 <li><p>Assuming you work under agile/scrum, then create a product
 backlog, prioritize and make a sprint plan.</p></li>
 <li><p>The intention is always to re-use as much as possible from
@@ -242,7 +258,7 @@ expectations around when you believe a stable version would be available
 for user testing. You can use the admiral Slack community to raise
 interest to get involved.</p></li>
 <li><p>Add a pharmaverse badge to your README: <a href="https://pharmaverse.org/contribute/badges/" class="external-link uri">https://pharmaverse.org/contribute/badges/</a> - needs
-support from a pharmaverse council rep.</p></li>
+support from a pharmaverse council rep.<br><a href="https://pharmaverse.org/contribute/badges/" class="external-link"><img src="http://pharmaverse.org/shields/admiral.svg"></a></p></li>
 <li><p>Raise an <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> repo issue to ensure your package
 extension site is linked from the core <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> site here
 <a href="https://pharmaverse.github.io/admiral/cran-release/" class="external-link">here</a>.`</p></li>
@@ -264,9 +280,9 @@ you should advertise this via Slack &amp; LinkedIn.</p></li>
 <li><p>Plan any future further enhancements and make issues. When your
 team feels ready you can open up to development contributions for these
 from the wider community - see <a href="https://pharmaverse.github.io/admiral/cran-release/" class="external-link">this
-page</a>. Please use the <em>“good first issue”</em> (ideal for new
-starters) &amp; <em>“help wanted”</em> (ideal for more experienced
-contributors) issue labels.</p></li>
+page</a>. Please use the <span class="github-button firstissue">good
+first issue</span> (ideal for new starters) &amp; <span class="github-button helpwanted">help wanted</span> (ideal for more
+experienced contributors) issue labels.</p></li>
 </ol>
 <p><strong>Note</strong>: the core <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> team will
 carry out periodic reviews of of the extension package contents to
