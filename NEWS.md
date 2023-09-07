@@ -4,7 +4,7 @@
 
 - Calls for `admiral.test` have been swapped with `pharmaversesdtm` (#321)
 - New vignette for package writing extensions is now available (#295, #312)
-- New vignette for creating for test data is now available (#282)
+- New vignette for creating test data is now available (#282)
 
 ## Updates of Existing Functions
 
