@@ -20,23 +20,23 @@ invisibly otherwise.
 Checks if an argument is a symbol
 }
 \examples{
-library(admiral.test)
+library(pharmaversesdtm)
 library(dplyr, warn.conflicts = FALSE)
 library(rlang)
-data(admiral_dm)
+data(dm)
 
 example_fun <- function(dat, var) {
   var <- assert_symbol(enexpr(var))
   select(dat, !!var)
 }
 
-example_fun(admiral_dm, USUBJID)
+example_fun(dm, USUBJID)
 
-try(example_fun(admiral_dm))
+try(example_fun(dm))
 
-try(example_fun(admiral_dm, "USUBJID"))
+try(example_fun(dm, "USUBJID"))
 
-try(example_fun(admiral_dm, toupper(PARAMCD)))
+try(example_fun(dm, toupper(PARAMCD)))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 

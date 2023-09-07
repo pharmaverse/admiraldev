@@ -57,7 +57,7 @@ if (!requireNamespace("remotes", quietly = TRUE)) {
   install.packages("remotes")
 }
 remotes::install_deps(dependencies = TRUE)
-remotes::install_github("pharmaverse/admiral.test", ref = "devel")
+remotes::install_github("pharmaverse/pharmaversesdtm", ref = "devel")
 remotes::install_github("pharmaverse/admiraldev", ref = "devel")
 rcmdcheck::rcmdcheck()
 ```

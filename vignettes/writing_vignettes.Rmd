@@ -127,10 +127,10 @@ function so that it is displayed consistently across the vignettes.E.g.
 ```{r, include=FALSE}
 library(lubridate)
 library(dplyr)
-library(admiral.test)
+library(pharmaversesdtm)
 library(DT)
 
-data(admiral_vs)
+data(vs)
 ```
 
 ```{r, eval=FALSE, echo=TRUE}
