@@ -3,6 +3,8 @@
 ## New Features
 
 - Calls for `admiral.test` have been swapped with `pharmaversesdtm` (#321)
+- New vignette for package writing extensions is now available (#295, #312)
+- New vignette for creating test data is now available (#282)
 
 ## Updates of Existing Functions
 
@@ -31,6 +33,7 @@
 - Minor updates to pull request review guidance were added (#201, #292)
 - Documentation of singular versus plural function argument names was added into the programming strategy vignette. Also documentation on the common arguments `missing_value` and `missing_values` was added. (#296)
 - Documentation highlighting the difference between `set_values_to` and `keep_source_vars` (#318)
+- List of common arguments was updated (#306)
 
 ## Various
 
