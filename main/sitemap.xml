@@ -19,13 +19,22 @@
     <loc>https://pharmaverse.github.io/admiraldev/main/articles/index.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/package_extensions.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/articles/pr_review_guidance.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/articles/programming_strategy.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/rcmd_issues.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/articles/release_strategy.html</loc>
+  </url>
+  <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/articles/test_data_guidance.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/articles/unit_test_guidance.html</loc>
@@ -169,6 +178,9 @@
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/filter_if.html</loc>
   </url>
   <url>
+    <loc>https://pharmaverse.github.io/admiraldev/main/reference/friendly_type_of.html</loc>
+  </url>
+  <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/get_constant_vars.html</loc>
   </url>
   <url>
@@ -211,19 +223,10 @@
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/process_set_values_to.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/main/reference/quo_c.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/main/reference/quo_not_missing.html</loc>
-  </url>
-  <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/remove_tmp_vars.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/replace_symbol_in_expr.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/main/reference/replace_symbol_in_quo.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/main/reference/replace_values_by_names.html</loc>
