@@ -1,3 +1,9 @@
+# admiraldev 0.5.0.9000
+
+## Updates of Existing Functions
+
+- `process_set_values_to()` allows grouped dataframes as input dataset now. (#331)
+
 # admiraldev 0.5.0
 
 ## New Features
