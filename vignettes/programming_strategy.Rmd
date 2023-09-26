@@ -749,7 +749,7 @@ Try to always set the `missing` argument whenever appropriate.
 
 In the following [PR](https://github.com/pharmaverse/admiral/pull/2065/files), you will find an example of how the function argument `dataset` was able to be standardized such that the Label and Description of said function argument was aligned across the codebase. Please see the changes to the file `derive_adeg_params.R` for further details. 
 
-The benefits of having a programmatic way to write documentation is that if any changes need to be made, making the modification on the corresponding function, in this case, `roxygen_param_dataset()`, scales across the codebase, can be tested, and is less prone to user-error such as typos or grammar mistakes.
+The benefits of having a programmatic way to write documentation is that if any changes need to be made, _making the modification on the corresponding function, in this case, `roxygen_param_dataset()`, scales across the codebase, can be tested, and is less prone to user-error such as typos or grammar mistakes_.
 
 These functions are implemented in `roxygen2.R` and the naming convention for each argument will be as follows `roxygen_param_xxx()`, where "xxx" is the be replaced with the argument name.
 
