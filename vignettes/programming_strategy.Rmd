@@ -740,6 +740,7 @@ Please take the following list as recommendation and try to adhere to its rules 
 Try to always set the `missing` argument whenever appropriate.
 
 ## How Quoting is used
+
 * Some admiral arguments require selecting one particular option like `mode`, e.g. `mode = "last"`. Use quotation marks to capture these. The expected assertion function corresponding to these arguments is `assert_character_scalar()/assert_character_vector()`.
 * Many admiral arguments require capturing an expression, typically encased in a `exprs()` statement, which are to be evaluated _later_ inside the function body, see arguments like `new_vars`, e.g. `new_vars = exprs(TRTSDTM = EXSTDTM)`. Oftentimes, the assertion function corresponding to these are `assert_expr()/assert_expr_list()`. These arguments are unquoted by using `!!!`.
 * Some admiral arguments like `new_var` or `filter` which expect a _single_ variable or expression are not quoted in the call. In the function body, it has to be quoted by using `enexpr().` Usually this is combined with the assertion, e.g., `new_var <- assert_symbol(enexpr(new_var))`. These arguments are unquoted by using `!!`.
