@@ -855,7 +855,7 @@ assert_named <- function(arg, optional = FALSE) {
 #'
 #' @export
 assert_named_exprs <- function(arg, optional = FALSE) {
-  deprecate_stop("0.5.0", "assert_named_exprs()", "assert_expr_list()", always = TRUE)
+  deprecate_stop("0.5.0", "assert_named_exprs()", "assert_expr_list()")
 }
 
 #' Does a Dataset Contain All Required Variables?
@@ -976,7 +976,7 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
 #'
 #' @export
 assert_function_param <- function(arg, params) {
-  deprecate_stop("0.5.0", "assert_function_param()", "assert_function()", always = TRUE)
+  deprecate_stop("0.5.0", "assert_function_param()", "assert_function()")
 }
 
 #' Asserts That a Parameter is Provided in the Expected Unit
