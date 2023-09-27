@@ -6,6 +6,11 @@
 
 ## Breaking Changes
 
+- The following functions have been deprecated from previous admiral versions using the next phase of the deprecation process
+  - `assert_function_param()`
+  - `assert_named_expr()`
+  - `assert_has_variables()`
+
 ## Documentation
 
 - New documentation in programming strategy around quoting/expressors and standardizing roxygen texts (#233, #332)
