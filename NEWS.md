@@ -1,3 +1,18 @@
+# admiraldev (development version)
+
+## New Features
+
+## Updates of Existing Functions
+
+## Breaking Changes
+
+## Documentation
+
+- New documentation in programming strategy around quoting/expressors and standardizing roxygen texts (#233, #332)
+- New documentation on how to use footnotes when writing vignettes (#324)
+
+## Various
+
 # admiraldev 0.5.0
 
 ## New Features
