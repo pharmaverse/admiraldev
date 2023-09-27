@@ -13,7 +13,7 @@
 
 ## Documentation
 
-- New documentation in programming strategy around quoting/expressors and standardizing roxygen texts (#233, #332)
+- New documentation in programming strategy around quoting/expressions and standardizing roxygen texts (#233, #332)
 - New documentation on how to use footnotes when writing vignettes (#324)
 
 ## Various
