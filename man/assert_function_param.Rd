@@ -16,7 +16,9 @@ The function throws an error if any elements of \code{params} is not an argument
 the function given by \code{arg}
 }
 \description{
-Assert Argument is a Parameter of a Function
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+This function is \emph{deprecated}, please use \code{assert_function()} instead.
 }
 \seealso{
 Other deprecated: 

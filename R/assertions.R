@@ -959,6 +959,11 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
 
 #' Assert Argument is a Parameter of a Function
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `assert_function()` instead.
+#'
 #' @param arg The name of a function passed as a string
 #' @param params A character vector of function parameters
 #'
