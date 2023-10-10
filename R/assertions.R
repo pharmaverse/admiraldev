@@ -986,7 +986,7 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
   }
   if (!is.null(params)) {
     if ("..." %in% names(formals(arg))) {
-      invisible(arg)
+      return(invisible(arg))
     }
     is_param <- params %in% names(formals(arg))
     if (!all(is_param)) {
