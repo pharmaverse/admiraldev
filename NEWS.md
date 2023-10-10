@@ -1,3 +1,7 @@
+# admiraldev (development version)
+
+- `assert_function()` now accepts all function arguments if ellipsis, `...` is in the function formals (#339)
+
 # admiraldev 0.5.0
 
 ## New Features
