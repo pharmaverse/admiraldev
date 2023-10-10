@@ -985,6 +985,9 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
     abort(err_msg)
   }
   if (!is.null(params)) {
+    if ("..." %in% names(formals(arg))) {
+      invisible(arg)
+    }
     is_param <- params %in% names(formals(arg))
     if (!all(is_param)) {
       txt <- if (sum(!is_param) == 1L) {
