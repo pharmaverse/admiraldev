@@ -937,7 +937,7 @@ assert_has_variables <- function(dataset, required_vars) {
 #' @param params A character vector
 #'
 #' A character vector of expected argument names for the aforementioned function in `arg`.
-#' If ellipsis, `"..."`, is included in the function formals of the function in `arg`,
+#' If ellipsis, `...`, is included in the function formals of the function in `arg`,
 #' this argument, `params` will be ignored, accepting all values of the character vector.
 #'
 #' @param optional Is the checked argument optional?

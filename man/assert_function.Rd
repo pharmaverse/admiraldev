@@ -14,7 +14,7 @@ The function to be checked}
 \item{params}{A character vector
 
 A character vector of expected argument names for the aforementioned function in \code{arg}.
-If ellipsis, \code{"..."}, is included in the function formals of the function in \code{arg},
+If ellipsis, \code{...}, is included in the function formals of the function in \code{arg},
 this argument, \code{params} will be ignored, accepting all values of the character vector.}
 
 \item{optional}{Is the checked argument optional?
