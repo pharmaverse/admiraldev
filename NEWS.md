@@ -1,6 +1,24 @@
 # admiraldev (development version)
 
+## New Features
+
+## Updates of Existing Functions
+
 - `assert_function()` now accepts all function arguments if ellipsis, `...` is in the function formals (#339)
+
+## Breaking Changes
+
+- The following functions have been deprecated from previous admiral versions using the next phase of the deprecation process
+  - `assert_function_param()`
+  - `assert_named_expr()`
+  - `assert_has_variables()`
+
+## Documentation
+
+- New documentation in programming strategy around quoting/expressions and standardizing roxygen texts (#233, #332)
+- New documentation on how to use footnotes when writing vignettes (#324)
+
+## Various
 
 # admiraldev 0.5.0
 
