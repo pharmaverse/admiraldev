@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,14 +66,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -1245,6 +1237,55 @@ parameter
 conditions. Try to always set the <code>missing</code> argument whenever
 appropriate.</li>
 </ul>
+<div class="section level3">
+<h3 id="how-quoting-is-used">How Quoting is used<a class="anchor" aria-label="anchor" href="#how-quoting-is-used"></a>
+</h3>
+<ul>
+<li>Some admiral arguments require selecting one particular option like
+<code>mode</code>, e.g. <code>mode = "last"</code>. Use quotation marks
+to capture these. The expected assertion function corresponding to these
+arguments is
+<code>assert_character_scalar()/assert_character_vector()</code>.</li>
+<li>Many admiral arguments require capturing an expression, typically
+encased in a <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code> statement, which are to be evaluated
+<em>later</em> inside the function body, see arguments like
+<code>new_vars</code>,
+e.g. <code>new_vars = exprs(TRTSDTM = EXSTDTM)</code>. Oftentimes, the
+assertion function corresponding to these are
+<code>assert_expr()/assert_expr_list()</code>. These arguments are
+unquoted by using <code>!!!</code>.</li>
+<li>Some admiral arguments like <code>new_var</code> or
+<code>filter</code> which expect a <em>single</em> variable or
+expression are not quoted in the call. In the function body, it has to
+be quoted by using <code>enexpr().</code> Usually this is combined with
+the assertion, e.g.,
+<code>new_var &lt;- assert_symbol(enexpr(new_var))</code>. These
+arguments are unquoted by using <code>!!</code>.</li>
+<li>Keep in mind <code>!!</code> is a one-to-one replacement and
+<code>!!!</code> is a one-to-many replacement. Please see <a href="https://adv-r.hadley.nz/quasiquotation.html" class="external-link">this chapter</a> in
+the Advanced R textbook for more details.</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="standardizing-text-used-to-label-and-describe-arguments">Standardizing Text Used to Label and Describe Arguments<a class="anchor" aria-label="anchor" href="#standardizing-text-used-to-label-and-describe-arguments"></a>
+</h3>
+<p>In the following <a href="https://github.com/pharmaverse/admiral/pull/2065/files" class="external-link">PR</a>,
+you will find an example of how the function argument
+<code>dataset</code> was able to be standardized such that the Label and
+Description of said function argument was aligned across the codebase.
+Please see the changes to the file <code>derive_adeg_params.R</code> for
+further details.</p>
+<p>The benefits of having a programmatic way to write documentation is
+that if any changes need to be made, <em>making the modification on the
+corresponding function, in this case,
+<code>roxygen_param_dataset()</code>, scales across the codebase, can be
+tested, and is less prone to user-error such as typos or grammar
+mistakes</em>.</p>
+<p>These functions are implemented in <code>roxygen2.R</code> and the
+naming convention for each argument will be as follows
+<code>roxygen_param_xxx()</code>, where “xxx” is the be replaced with
+the argument name.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="r-and-package-versions-for-development">R and Package Versions for Development<a class="anchor" aria-label="anchor" href="#r-and-package-versions-for-development"></a>

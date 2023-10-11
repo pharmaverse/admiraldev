@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,14 +66,6 @@
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
-<!-- start dropdown for versions --> <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown" role="button"
-          aria-expanded="false" aria-haspopup="true"
-          id="dropdown-versions">Versions</a> <div class="dropdown-menu" aria-labelledby="dropdown-versions"> <a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/main">main</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/devel">devel</a>
-<a class="dropdown-item" data-toggle="tooltip" title="" href="https://pharmaverse.github.io/admiraldev/pre-release">pre-release</a> </div></li>
-<!-- end dropdown for versions -->
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -218,7 +210,7 @@ variable/record</li>
 </li>
 </ul>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">vs1</span> <span class="op">&lt;-</span> <span class="va">admiral_vs</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+<code class="sourceCode R"><span class="va">vs1</span> <span class="op">&lt;-</span> <span class="va">vs</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">derive_vars_dt</span><span class="op">(</span>
     new_vars_prefix <span class="op">=</span> <span class="st">"A"</span>,
     dtc <span class="op">=</span> <span class="va">VSDTC</span>,
@@ -227,7 +219,6 @@ variable/record</li>
 <ul>
 <li>Output dataset formatted using <code><a href="../reference/dataset_vignette.html">dataset_vignette()</a></code>…</li>
 </ul>
-<p>#TODO - Fix this</p>
 <p>Note: The call to get the formatted dataset would be:</p>
 <pre><code>  ```r
   dataset_vignette(
@@ -243,6 +234,20 @@ is not responsive. In this case the number of displayed observations
 should be restricted either by restricting the source datasets at the
 beginning of the vignette or in the call of
 <code><a href="../reference/dataset_vignette.html">dataset_vignette()</a></code> if only some calls are affected.</p>
+</div>
+<div class="section level5">
+<h5 id="using-footnotes">Using Footnotes<a class="anchor" aria-label="anchor" href="#using-footnotes"></a>
+</h5>
+<p>Footnotes can be useful to add context without adding clutter to the
+primary subject matter of the vignette being written.</p>
+<p>To use footnotes, add a caret and an identifier inside brackets
+e.g. <code>([^1])</code>. The identifiers can be numbers or words, but
+they can’t contain spaces or tabs.</p>
+<p>The following markdown text will render as follows:</p>
+<pre><code>Here is an example [^1]
+
+[^1]: Cool note about the example.</code></pre>
+<p>Here is an example <a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Cool note about the example.&lt;/p&gt;"><sup>1</sup></a></p>
 </div>
 <div class="section level5">
 <h5 id="conventions-for-adam-workflow">Conventions for ADaM Workflow<a class="anchor" aria-label="anchor" href="#conventions-for-adam-workflow"></a>
@@ -299,6 +304,7 @@ last derivation.</p>
 </div>
 </div>
 </div>
+
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
 </div>
