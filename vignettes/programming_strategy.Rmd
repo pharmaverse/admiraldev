@@ -28,13 +28,13 @@ These contributions could include, for example, company specific derivations of 
 # Functional Workflow
 
 * Overall programming will follow a functional approach.
-* We mandate the use of tidyverse (e.g. dplyr) over similar functionality existing in base R
+* We encourage the use of tidyverse (e.g. dplyr) over similar functionality existing in base R
 * Each ADaM dataset is built with a set of functions and not with free flow code.
 * Each ADaM dataset has a specific programming workflow.
 * Each function has a specific purpose that supports the ADaM Dataset programming workflow. It could be an `{admiral}` function or a company specific function.
 * Admiral functions can be re-used for company specific functions.
 * Each function belongs to one category defined in keywords/family.
-* Each function that is used to derive one or multiple variable(s) is required to be unit tested.
+* Each function that is used to derive one or multiple variable(s) or parameter(s) is required to be unit tested.
 * Functions have a standard naming convention.
 * Double coding is not used as a QC method (only if absolutely necessary).
 * ADaMs are created with readable, submission-ready code.
@@ -205,7 +205,9 @@ added, it should be `param.` For example: `new_var`, `new_var_unit`,
 Arguments which expect a boolean or boolean vector must start with a verb, e.g.,
 `is_imputed` or `impute_date`.
 
-Arguments which only expect one value or variable name must be a singular version of the word(s), e.g., `missing_value` or `new_var`. Arguments which expect several values or variable names (as a list, expressions, etc.) must be a plural version of the word(s), e.g., `missing_values` or `new_vars`.
+Arguments which only expect one value or variable name must be a singular version of the word(s), e.g., `missing_value` or `new_var`.
+
+Arguments which expect several values or variable names (as a list, expressions, etc.) must be a plural version of the word(s), e.g., `missing_values` or `new_vars`.
 
 ## List of Common Arguments
 | Argument Name   | Description                                                                                                         |
@@ -239,6 +241,8 @@ All source code should be formatted according to the
 this.
 
 ## Comments
+
+We could be a lot better at doing this
 
 Comments should be added to help other readers than the author to understand the
 code. There are two main cases:
@@ -337,6 +341,8 @@ An example is given below:
 #' `AENDY`.
 #'
 #' @param dataset Input dataset
+#' 
+#'   Should we update this to show our standardization of roxygen text?
 #'
 #'   The columns specified by the `reference_date` and the `source_vars`
 #'   argument are expected.
@@ -420,6 +426,8 @@ more than one function, the argument should be described for one function and
 the other functions should use `@inheritParams <function name where the
 argument is described>`.
 
+Mention standardization of roxygen label/description here?
+
 Please note that if `@inheritParams func_first` is used in the header of the
 `func_second()` function, those argument descriptions of `func_first()` are
 included in the documentation of `func_second()` for which
@@ -438,7 +446,7 @@ which backticks. This will render it as code.
 
 For functions which derive a specific CDISC variable, the title must state the 
 label of the variable without the variable name. The variable should be stated 
-in the description.
+in the description. (Do we actually do this?)
 
 ## Categorization of Functions
 
@@ -450,7 +458,7 @@ To reiterate, each function must use the **same keyword and family**. Also, plea
 ### `@keywords`
 
 The keywords allows for the reference page to be easily organized when using certain 
-`pgkdown` functions. For example, using the function `has_keyword(der_bds_gen)` in the `_pkgdown.yml` file while building
+`pgkdown` functions. For example, using the function `has_keyword('der_bds_gen')` in the `_pkgdown.yml` file while building
 the website will collect all the BDS General Derivation functions and display them in alphabetical order on the Reference Page in a section called
 BDS-Specific.
 
@@ -499,6 +507,8 @@ add an issue in GitHub for discussion.
 | `is`                                                                              | A function that ...      |
 | `get`                                                                             | A function that ...      |
 
+Are those last few still even applicable? 
+
 **NOTE:** It is strongly encouraged that each `@keyword` and `@family` are to be identical.  This eases the burden of development and maintenance for admiral functions. If you need to use multiple keywords or families, please reach out to the core development team for discussion.  
 
 
@@ -509,6 +519,8 @@ Missing values (`NA`s) need to be explicitly shown.
 Regarding character vectors converted from SAS files: SAS treats missing character values as blank. 
 Those are imported into R as empty strings (`""`) although in nature they are missing values (`NA`). 
 All empty strings that originate like this need to be converted to proper R missing values `NA`.
+
+This is more of a R in general type of thing, less so admiral.
 
 # File Structuring
 
@@ -526,6 +538,7 @@ Apart from that the following recommendations should be taken into consideration
 
 It is the responsibility of both the author of a new function and reviewer to ensure that these recommendations are put into practice.
 
+Recommend we remove or write an update to what it actually is.
 
 # R Package Dependencies
 
@@ -715,6 +728,8 @@ In the existing unit tests the call of the deprecated function need to be enclos
 ```
 The `regexpr` argument must be specified to ensure that only the deprecation
 warning is suppressed.
+
+We don't quite do this.
 
 ### For Deprecated Functions that Issues an Error (Phase 2)
 
