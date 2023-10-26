@@ -26,7 +26,7 @@ Tools are loosely defined as follows:
 
 * Addins and utility functions that help with documentation, testing and checking on health of the code base in all admiral packages.
 
-* Vignettes on working on `{admiral}` functions, developing unit testing, releases process, vignette writing and other documentation needs.  These vignettes are intended for use across all admiral packages.
+* Vignettes on working on `{admiral}` functions, developing unit testing, releases process, vignette writing and other documentation needs.  These vignettes are intended for use across all admiral packages. Depending what we remove this will need to be properly updated.
 
 # Why have a separate development package?
 
@@ -49,6 +49,8 @@ Loose guidelines:
 1. The derivation function should always live in `{admiral}` core.
 1. The helper function should be looked at to see it should be made available within `{admiraldev}` for other extension packages needs and so reduce repetitive coding across the family of `{admiral}`. If it cannot be generalized, then it should remain in `{admiral}`.
 1. The `assert` custom checking functions should always live within `{admiraldev}` to stay with the family of `assertion` functions.
+
+Do we need to migrate a few assertion functiosn from core to dev then?
 
 ## **Scenario Two: {admiral} extension** 
 
