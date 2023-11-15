@@ -1,4 +1,4 @@
-url: https://pharmaverse.github.io/admiraldev
+url: https://pharmaverse.github.io/admiraldev/
 
 template:
   bootstrap: 5
@@ -13,8 +13,8 @@ repo:
 news:
   cran_dates: true
 
-development:
-  mode: auto
+# development:
+#   mode: auto
 
 authors:
   before: "We define *authors* as those who are actively maintaining the code base, and *contributors* as those who made a significant contribution in the past."
