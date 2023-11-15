@@ -66,7 +66,7 @@ A hot fix release is done in eight parts:
 1) If CRAN asks for modifications, repeat steps 1-4 as necessary.
 1) Once the package is accepted and available on CRAN, a [GitHub action](https://github.com/pharmaverse/admiral/actions/workflows/pages/pages-build-deployment) is set up to rebuild the `{admiral}` website with all the updates for this release.
 1) Create a GitHub release on the `patch` branch. Please see past [admiral releases](https://github.com/pharmaverse/admiral/releases) for reference and the [Releasing to Github](release_strategy.html#releasing-to-github) section for more details.
-1) These hot fixes should then be merged into the `main` branch through an additional Pull Request. After the merge into the main branch, ensure the package version number is approraitely bumped to a development version. 
+1) These hot fixes should then be merged into the `main` branch through an additional Pull Request. After the merge into the main branch, ensure the package version number is appropriately bumped to a development version. 
 
 # Releasing to Github
 Under the [Releases](https://github.com/pharmaverse/admiral/releases) section in the main repo, select `Draft a New Release`. Proceed by creating the appropriate release tag and header, denoted as `vX.X.X` and `admiral X.X.X` respectively, for the release:
