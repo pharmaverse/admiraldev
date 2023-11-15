@@ -7,9 +7,15 @@
 assert_function(arg, params = NULL, optional = FALSE)
 }
 \arguments{
-\item{arg}{A function argument to be checked}
+\item{arg}{A function
 
-\item{params}{A character vector of expected argument names}
+The function to be checked}
+
+\item{params}{A character vector
+
+A character vector of expected argument names for the aforementioned function in \code{arg}.
+If ellipsis, \code{...}, is included in the function formals of the function in \code{arg},
+this argument, \code{params} will be ignored, accepting all values of the character vector.}
 
 \item{optional}{Is the checked argument optional?
 
@@ -20,15 +26,10 @@ The function throws an error
 \itemize{
 \item if the argument is not a function or
 \item if the function does not provide all arguments as specified for the
-\code{params} argument.
+\code{params} argument (assuming ellipsis is not in function formals)
 }
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
-
-This function is \emph{deprecated}, please use \code{assert_function_param()} instead.
-}
-\details{
 Checks if the argument is a function and if all expected arguments are
 provided by the function.
 }
@@ -44,10 +45,29 @@ try(example_fun(1))
 try(example_fun(sum))
 }
 \seealso{
-Other deprecated: 
-\code{\link{assert_has_variables}()},
-\code{\link{assert_named_exprs}()},
-\code{\link{assert_order_vars}()}
+Checks for valid input and returns warning or errors messages: 
+\code{\link{assert_atomic_vector}()},
+\code{\link{assert_character_scalar}()},
+\code{\link{assert_character_vector}()},
+\code{\link{assert_data_frame}()},
+\code{\link{assert_date_vector}()},
+\code{\link{assert_expr_list}()},
+\code{\link{assert_expr}()},
+\code{\link{assert_filter_cond}()},
+\code{\link{assert_integer_scalar}()},
+\code{\link{assert_list_element}()},
+\code{\link{assert_list_of}()},
+\code{\link{assert_logical_scalar}()},
+\code{\link{assert_named}()},
+\code{\link{assert_numeric_vector}()},
+\code{\link{assert_one_to_one}()},
+\code{\link{assert_param_does_not_exist}()},
+\code{\link{assert_s3_class}()},
+\code{\link{assert_same_type}()},
+\code{\link{assert_symbol}()},
+\code{\link{assert_unit}()},
+\code{\link{assert_vars}()},
+\code{\link{assert_varval_list}()}
 }
-\concept{deprecated}
-\keyword{deprecated}
+\concept{assertion}
+\keyword{assertion}
