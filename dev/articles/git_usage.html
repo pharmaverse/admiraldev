@@ -118,26 +118,20 @@ more in-depth guidance on using <code>git</code> and GitHub.</p>
 <h2 id="branches">Branches<a class="anchor" aria-label="anchor" href="#branches"></a>
 </h2>
 <ul>
-<li><p>The <code>main</code> branch contains the latest
-<strong>released</strong> version and should not be used for
-development. You can find the released versions <a href="https://GitHub.com/pharmaverse/admiral/releases" class="external-link">here</a></p></li>
-<li><p>The <code>devel</code> branch contains the latest development
-version of the package. You will always be branching off and pulling
-into the <code>devel</code> branch. This is set as the default branch on
-GitHub.</p></li>
+<li><p>The <code>main</code> branch contains the latest development
+version of the package. You can find the released versions <a href="https://GitHub.com/pharmaverse/admiral/releases" class="external-link">here</a></p></li>
 <li><p>The <code>gh-pages</code> branches contains the code used to
-render this website you are looking at right now!</p></li>
+render R package websites - you are looking at right now!</p></li>
 <li><p>The <code>patch</code> branch is reserved for special hot fixes
-to address bugs. More info in <a href="release_strategy.html#hot-fix-release">Hot Fix
+to address bugs and should rarely be used. More info in <a href="release_strategy.html#hot-fix-release">Hot Fix
 Release</a></p></li>
-<li><p>The <code>main</code>, <code>devel</code>, <code>gh-pages</code>,
-<code>patch</code> branches are under protection. If you try and push
-changes to these branches you will get an error unless you are an
-administrator.</p></li>
+<li><p>The <code>main</code>, <code>gh-pages</code>, <code>patch</code>
+branches are under protection. If you try and push changes to these
+branches you will get an error unless you are an administrator.</p></li>
 <li><p><strong>Feature</strong> branches are where actual development
 related to a specific issue happens. Feature branches are merged into
-<code>devel</code> once a pull request is merged. Check out the <a href="pr_review_guidance.html">Pull Request Review Guidance</a> for more
-guidance on merging into <code>devel</code>.</p></li>
+<code>main</code> once a pull request is merged. Check out the <a href="pr_review_guidance.html">Pull Request Review Guidance</a> for more
+guidance on merging into <code>main</code>.</p></li>
 </ul>
 </div>
 <div class="section level2">
@@ -154,46 +148,34 @@ developers to only work on one issue at a time.</p>
 <h4 id="naming-branches">Naming Branches<a class="anchor" aria-label="anchor" href="#naming-branches"></a>
 </h4>
 <p>The name of the branch must be prefixed with the issue number,
-followed by a short but meaningful description and the
-<code>@&lt;target_branch&gt;</code> suffix. The latter would be
-<code>@devel</code> in most cases. As an example, given an issue #94
-“Program function to derive <code>LSTALVDT</code>”, the branch name
-would be <code>94_derive_var_lstalvdt@devel</code>.</p>
-<p>The <code>@&lt;target_branch&gt;</code> suffix is used in our CI/CD
-pipelines, e.g. when running <code>R CMD check</code>. It ensures that
-<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>’s dependencies such as
-<a href="https://pharmaverse.github.io/pharmaversesdtm/main/" class="external-link">pharmaversesdtm</a> and <a href="https://pharmaverse.github.io/admiraldev/">admiraldev</a> are
-installed from the specified target branch. So when the target branch is
-set to <code>@devel</code> the dependencies will be installed from those
-package’s respective <code>devel</code> branches rather than installing
-the latest released version. This ensures that we test the development
-version of <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> against the development versions of
-its dependencies. That way all packages are kept in sync.</p>
+followed by a short but meaningful description. As an example, given an
+issue #94 “Program function to derive <code>LSTALVDT</code>”, the branch
+name would be <code>94_derive_var_lstalvdt</code>.</p>
 </div>
 <div class="section level4">
-<h4 id="create-a-new-feature-branch-from-the-terminal-from-devel">Create a New Feature Branch from the Terminal (from
-<code>devel</code>)<a class="anchor" aria-label="anchor" href="#create-a-new-feature-branch-from-the-terminal-from-devel"></a>
+<h4 id="create-a-new-feature-branch-from-the-terminal-from-main">Create a New Feature Branch from the Terminal (from
+<code>main</code>)<a class="anchor" aria-label="anchor" href="#create-a-new-feature-branch-from-the-terminal-from-main"></a>
 </h4>
 <ul>
-<li>Checkout the devel branch: <code>git checkout devel</code><br>
+<li>Checkout the main branch: <code>git checkout main</code><br>
 </li>
 <li>Pull the latest changes from GitHub: <code>git pull</code><br>
 </li>
-<li>Create a new branch off the devel branch and switch to it:
+<li>Create a new branch off the main branch and switch to it:
 <code>git checkout -b &lt;new_branch_name&gt;</code>
 </li>
 </ul>
 </div>
 <div class="section level4">
-<h4 id="create-a-new-feature-branch-from-github-from-devel">Create a New Feature Branch from GitHub (from
-<code>devel</code>)<a class="anchor" aria-label="anchor" href="#create-a-new-feature-branch-from-github-from-devel"></a>
+<h4 id="create-a-new-feature-branch-from-github-from-main">Create a New Feature Branch from GitHub (from
+<code>main</code>)<a class="anchor" aria-label="anchor" href="#create-a-new-feature-branch-from-github-from-main"></a>
 </h4>
 <p>You can also create a feature branch in GitHub.</p>
 <ul>
-<li>Switch to the <code>devel</code> branch</li>
+<li>Switch to the <code>main</code> branch</li>
 <li>Type in your new feature branch name</li>
-<li>Click Create branch: <code>&lt;your_branch_name&gt;@devel</code>
-from <code>devel</code>
+<li>Click Create branch: <code>&lt;your_branch_name&gt;@main</code> from
+<code>main</code>
 </li>
 <li>Be Sure to Pull down newly created branch into RStudio</li>
 </ul>
@@ -280,10 +262,11 @@ GitHub:<br><code>git push -u origin &lt;branch_name&gt;</code></p>
 have a “Compare and pull request” button and/or a “Create Pull Request”.
 The first button will be created for you if GitHub detects recent
 changes you have made. The branch to merge with must be the
-<code>devel</code> branch (base = <code>devel</code>) and the compare
+<code>main</code> branch (base = <code>main</code>) and the compare
 branch is the new branch to merge - as shown in the below picture.
 Please <strong>pay close attention</strong> to the branch you are
 merging into!</p>
+<p><img src="github_create_pr.png"><!-- --></p>
 <p>The issue must be linked to the pull request in the “Development”
 field of the Pull Request. In most cases, this will linkage will
 automatically close the issue and move to the Done column on our project
@@ -296,7 +279,6 @@ summary to your reviewers so they can quickly come up to speed on your
 Pull Request. Images of your updates are nice too, which are easy to do
 in GitHub! Use any Screen Capture software and Copy and Paste into your
 summary.</p>
-<p><img src="github_create_pr.png"><!-- --></p>
 <div class="section level4">
 <h4 id="reviewingclosing-an-issue">Reviewing/Closing an Issue<a class="anchor" aria-label="anchor" href="#reviewingclosing-an-issue"></a>
 </h4>
@@ -324,10 +306,10 @@ which changes to apply since there were multiple updates in the same
 part of a file. This typically happens when multiple people update the
 same part of code. Those conflicts always need to be handled manually
 (as some further code updates may be required):</p>
-<pre><code>git checkout devel
+<pre><code>git checkout main
 git pull
 git checkout &lt;feature_branch&gt;  
-git merge devel</code></pre>
+git merge main</code></pre>
 <p>This provides a list of all files with conflicts In the file with
 conflicts the conflicting sections are marked with
 <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and

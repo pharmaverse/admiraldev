@@ -130,15 +130,10 @@ anticipated breaking changes.</p>
 <div class="section level3">
 <h3 id="quarterly-release">Quarterly Release<a class="anchor" aria-label="anchor" href="#quarterly-release"></a>
 </h3>
-<p>A package release is done in five parts:</p>
+<p>A package release is done in four parts:</p>
 <ol style="list-style-type: decimal">
-<li>Create a Pull Request from <code>devel</code> into the
-<code>main</code> branch. Issues identified in this Pull Request should
-have work done in separate branches and merged once again into
-<code>devel</code>.</li>
-<li>Verify that all CI/CD checks are passing for the <code>devel</code>
-into the <code>main</code> Pull Request, merge and then bundle up and
-send off to CRAN. See the <a href="https://r-pkgs.org/release.html#decide-the-release-type" class="external-link">chapter</a>
+<li>Verify that all CI/CD checks and then bundle up and send off to
+CRAN. See the <a href="https://r-pkgs.org/release.html#decide-the-release-type" class="external-link">chapter</a>
 in R Packages for more details.</li>
 <li>If CRAN asks for modifications, repeat steps 1-2 as necessary.</li>
 <li>Once the package is accepted and available on CRAN, a <a href="https://github.com/pharmaverse/admiral/actions/workflows/pages/pages-build-deployment" class="external-link">GitHub
@@ -152,35 +147,32 @@ the GitHub action <code>validation</code> from <a href="https://github.com/insig
 Please see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral
 releases</a> for reference and the <a href="release_strategy.html#releasing-to-github">Releasing to Github</a>
 section for more details.</li>
-<li>Any issues fixed in the <code>main</code> branches should be merged
-back into <code>devel</code>.</li>
-<li>Once a release is completed the <code>main</code> branch should be
-merged into <code>patch</code> to be ready for hotfixes.</li>
 </ol>
 <p><strong>Quarterly Release:</strong></p>
 <ul>
-<li><code>devel &gt;&gt; main</code></li>
 <li>
 <code>main &gt;&gt; patch</code> (To be prepared in case of a needed
 hotfix)</li>
 </ul>
-<p>Be on the look out for an automated check PR whenever
-<code>devel</code> goes into <code>main</code> as a future upcoming
-feature.</p>
 </div>
 <div class="section level3">
 <h3 id="hot-fix-release">Hot Fix Release<a class="anchor" aria-label="anchor" href="#hot-fix-release"></a>
 </h3>
-<p>Occasionally we will need to release a hot fix to address a package
-breaking bug. A hot fix release is done in 6 parts:</p>
+<p>Rarely, we may need to release a hot fix to immediately address a
+bug. In the majority of cases, an off-cycle release can be made directly
+from the main branch, where bug fixes and new features would be released
+earlier than planned, thus avoiding the <code>patch</code> branch
+release.</p>
+<p>A hot fix release is done in eight parts:</p>
 <ol style="list-style-type: decimal">
 <li>Identify all the bugs that need to be fixed for this hot fix release
 and label with hot fix label.</li>
-<li>Branches addressing the bugs should have Pull Requests merged into
-the <code>patch</code> branch <strong>NOT</strong> the
-<code>devel</code> branch.</li>
-<li>When naming the branch follow the <a href="git_usage.html#implementing-an-issue">naming conventions</a> guide
-but use the <code>@main</code> suffix</li>
+<li>Branches addressing the bugs should have Pull Requests merged into a
+single <code>patch</code> branch <strong>NOT</strong> the
+<code>main</code> branch, where the <code>patch</code> branch has been
+created from the most recent release of the package.</li>
+<li>When naming the branch follow the <a href="git_usage.html#implementing-an-issue">naming conventions</a>
+guide.</li>
 <li>Create a Pull Request from <code>patch</code> into the
 <code>main</code> branch. Verify that all CI/CD checks are passing,
 merge and them bundle up and send off to CRAN. See the <a href="https://r-pkgs.org/release.html#decide-the-release-type" class="external-link">chapter</a>
@@ -189,19 +181,15 @@ in R Packages for more details.</li>
 <li>Once the package is accepted and available on CRAN, a <a href="https://github.com/pharmaverse/admiral/actions/workflows/pages/pages-build-deployment" class="external-link">GitHub
 action</a> is set up to rebuild the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> website with
 all the updates for this release.</li>
-<li>Use the release button on GitHub to “release” the package onto
-GitHub. This release onto Github archives the version of code within the
-<code>main</code> branch, attaches the News/Changelog file, bundles the
-code into a <code>tar.gz</code> file and makes a validation report via
-the GitHub action <code>validation</code> from <a href="https://github.com/insightsengineering/thevalidatoR" class="external-link">insightsengineering/validatoR</a>.
-Please see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral
+<li>Create a GitHub release on the <code>patch</code> branch. Please see
+past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral
 releases</a> for reference and the <a href="release_strategy.html#releasing-to-github">Releasing to Github</a>
 section for more details.</li>
-<li>These hot fixes should then be merged into the <code>devel</code>
-branch through an additional Pull Request.</li>
+<li>These hot fixes should then be merged into the <code>main</code>
+branch through an additional Pull Request. After the merge into the main
+branch, ensure the package version number is appropriately bumped to a
+development version.</li>
 </ol>
-<p><strong>Hot Fix Release</strong>:
-<code>patch &gt;&gt;  main  &gt;&gt; devel</code></p>
 </div>
 </div>
 <div class="section level2">

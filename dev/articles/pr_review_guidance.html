@@ -106,17 +106,17 @@
 of pull requests (PRs) in the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> package family. PR
 authors will benefit from shorter review times by closely following the
 guidance provided here.</p>
-<p>A pull request into the <code>devel</code> branch signifies that an
+<p>A pull request into the <code>main</code> branch signifies that an
 issue has been “addressed”. This issue might be a bug, a feature request
 or a documentation update. Once a Pull Request is merged into
-<code>devel</code> branch, then the issue(s) can be closed.</p>
+<code>main</code> branch, then the issue(s) can be closed.</p>
 <p>Closely following the below guidance will ensure that our all our
-“addressed” issues auto-close once we merge <code>devel</code>.</p>
+“addressed” issues auto-close once we merge <code>main</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="review-criteria">Review Criteria<a class="anchor" aria-label="anchor" href="#review-criteria"></a>
 </h2>
-<p>For a pull request to be merged into <code>devel</code> it needs to
+<p>For a pull request to be merged into <code>main</code> it needs to
 pass the automated CI checks that will appear at the bottom of the Pull
 Request. In addition, the PR creator and reviewer should make sure
 that</p>
@@ -217,7 +217,7 @@ workflow. You need to check off each box in acknowledgment that you have
 done you due diligence in creating a compliant Pull Request. GitHub will
 refresh the Pull Request and trigger <code>task-list-completed</code>
 workflow that you have completed the task. The PR can not be merged into
-<code>devel</code> until the contributor has checked off each of the
+<code>main</code> until the contributor has checked off each of the
 check box items.</p>
 <p><img src="pr_review_actions.png" width="120%"></p>
 <p>Please don’t hesitate to reach out to the <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> team
@@ -227,8 +227,7 @@ tracker if you think this checklist needs to be amended or further
 clarity is needed on a check box item.</p>
 <p><strong>Note for Reviewers:</strong> We recommend the use of Squash
 and Merge when merging in a Pull Request. This will create a clean
-commit history when doing a final merge of <code>devel</code> into
-<code>main</code>.</p>
+commit history.</p>
 </div>
 </div>
 <div class="section level2">
@@ -243,133 +242,9 @@ without compromising performance, security, or reproducibility.</p>
 <div class="section level3">
 <h3 id="a-synopsis-of-admirals-workflows">A synopsis of admiral’s workflows<a class="anchor" aria-label="anchor" href="#a-synopsis-of-admirals-workflows"></a>
 </h3>
-<p>Most workflows have a <code>BEGIN boilerplate steps</code> and
-<code>END boilerplate steps</code> section within them which define some
-standard steps required for installing system dependencies, R version
-and R packages which serve as dependencies for the package.</p>
-<p>The underlying mechanisms for installing R and Pandoc are defined in
-<code>r-lib/actions</code>, while the installation of system
-dependencies and R package dependencies is managed via the Staged
-Dependencies GitHub Action]. The latter is used in conjunction with the
-<code>staged_dependencies.yaml</code> file in order to install
-dependencies that are in the <em>same stage of development</em> as the
-current package.</p>
-<p>Following the installation of system dependencies, R, and package
-dependencies, each workflow checks the integrity of a specific component
-of the admiral codebase.</p>
-<div class="section level4">
-<h4 id="check-templates-yml">
-<code>check-templates.yml</code><a class="anchor" aria-label="anchor" href="#check-templates-yml"></a>
-</h4>
-<p>This workflow checks for issues within template scripts. For example,
-in the admiral package there are several template scripts with
-admiral-based functions showing how to build certain ADaM datasets. As
-we update the admiral functions, we want to make sure these template
-scripts execute appropriately. Functions in the template scripts that
-are deprecated or used inappropriately will cause this workflow to fail.
-Click on the details button on a failing action provides information on
-the where the template is failing.</p>
-</div>
-<div class="section level4">
-<h4 id="code-coverage-yml">
-<code>code-coverage.yml</code><a class="anchor" aria-label="anchor" href="#code-coverage-yml"></a>
-</h4>
-<p>This workflow measures code coverage for unit tests and reports the
-code coverage as a percentage of the <em>total number of lines covered
-by unit tests</em> vs. the <em>total number of lines in the
-codebase</em>.</p>
-<p>The <a href="https://covr.r-lib.org" class="external-link">covr</a> R package is used to calculate the
-coverage.</p>
-<p>Report summaries and badges for coverage are generated using a series
-of other GitHub Actions.</p>
-</div>
-<div class="section level4">
-<h4 id="links-yml">
-<code>links.yml</code><a class="anchor" aria-label="anchor" href="#links-yml"></a>
-</h4>
-<p>This workflow checks whether URLs embedded in code and documentation
-are valid. Invalid URLs results in workflow failures. This workflow uses
-<code>lychee</code> to detect broken links. Occasionally this check will
-detect false positives of urls that look like urls. To remedy, please
-add this false positive to the <code>.lycheeignore</code> file.</p>
-</div>
-<div class="section level4">
-<h4 id="lintr-yml">
-<code>lintr.yml</code><a class="anchor" aria-label="anchor" href="#lintr-yml"></a>
-</h4>
-<p>Static code analysis is performed by this workflow, which in turn
-uses the <a href="https://github.com/r-lib/lintr" class="external-link">lintr</a> R package. The <code>.lintr</code>
-configurations in the repository will be by this workflow.</p>
-</div>
-<div class="section level4">
-<h4 id="man-pages-yml">
-<code>man-pages.yml</code><a class="anchor" aria-label="anchor" href="#man-pages-yml"></a>
-</h4>
-<p>This workflow checks if the manual pages in the <code>man/</code>
-directory of the package are up-to-date with ROxygen comments in the
-code.</p>
-<p>Workflow failures indicate that the manual pages are not up-to-date
-with ROxygen comments, and corrective actions are provided in the
-workflow log.</p>
-</div>
-<div class="section level4">
-<h4 id="pkgdown-yml">
-<code>pkgdown.yml</code><a class="anchor" aria-label="anchor" href="#pkgdown-yml"></a>
-</h4>
-<p>Documentation for the R package is generated via this workflow. This
-workflow uses the <a href="https://pkgdown.r-lib.org" class="external-link">pkgdown</a> framework to generate
-documentation in HTML, and the HTML pages are deployed to the
-<code>gh-pages</code> branch.</p>
-<p>Moreover, an additional <code>Versions</code> dropdown is generated
-via the <code>multi-version-docs</code> GitHub Action, so that an end
-user can view multiple versions of the documentation for the
-package.</p>
-</div>
-<div class="section level4">
-<h4 id="r-cmd-check-yml">
-<code>r-cmd-check.yml</code><a class="anchor" aria-label="anchor" href="#r-cmd-check-yml"></a>
-</h4>
-<p>This workflow performs <code>R CMD check</code> for the package.
-Failed workflows are typically indicative of problems encountered during
-the check, and therefore an indication that the package does not meet
-quality standards.</p>
-</div>
-<div class="section level4">
-<h4 id="r-pkg-validation-yml">
-<code>r-pkg-validation.yml</code><a class="anchor" aria-label="anchor" href="#r-pkg-validation-yml"></a>
-</h4>
-<p>When a new release of the package is made, this workflow executes to
-create a validation report via <code>validation</code> action. The PDF
-report is then attached to the release within GitHub.</p>
-</div>
-<div class="section level4">
-<h4 id="readme-render-yml">
-<code>readme-render.yml</code><a class="anchor" aria-label="anchor" href="#readme-render-yml"></a>
-</h4>
-<p>If your codebase uses a <a href="../../README.Rmd"><code>README.Rmd</code> file</a>, then this
-workflow will automatically render a <code>README.md</code> and commit
-it to your branch.</p>
-</div>
-<div class="section level4">
-<h4 id="spellcheck-yml">
-<code>spellcheck.yml</code><a class="anchor" aria-label="anchor" href="#spellcheck-yml"></a>
-</h4>
-<p>Spellchecks are performed by this workflow, and the
-<a href="https://docs.ropensci.org/spelling/" class="external-link">spelling</a> R package is used to detect spelling mistakes.
-Failed workflows typically indicate misspelled words. In the
-<code>inst/WORDLIST</code> file, you can add words and or acronyms that
-you want the spell check to ignore, for example occds is not an English
-word but a common acronym used within Pharma. The workflow will flag
-this until a user adds it to the <code>inst/WORDLIST</code>.</p>
-</div>
-<div class="section level4">
-<h4 id="style-yml">
-<code>style.yml</code><a class="anchor" aria-label="anchor" href="#style-yml"></a>
-</h4>
-<p>Code style is enforced via the <code>styler</code> R package. Custom
-style configurations, if any, will be honored by this workflow. Failed
-workflows are indicative of unstyled code.</p>
-</div>
+<p>We recommend checking out the <a href="https://github.com/pharmaverse/admiralci#cicd-workflows-for-admiral-r-packages" class="external-link">README</a>
+on the admiralci repository to gain an understanding of the
+workflows/actions used in <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
