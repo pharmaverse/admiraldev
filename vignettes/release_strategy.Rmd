@@ -43,10 +43,24 @@ updates via the community meetings, especially any anticipated breaking changes.
 
 A package release is done in four parts:
 
-1) Verify that all CI/CD checks and then bundle up and send off to CRAN. See the [chapter](https://r-pkgs.org/release.html#decide-the-release-type) in R Packages for more details.
+1) Create the release version:
+    1) Create a new feature branch from `main`.
+    1) Update the `Versions:` field in the `DESCRIPTION` file.
+    1) Update `NEWS.md` (replace "development version" with the version to be
+    released)
+    1) Create a PR into `main`. The title of the PR must contain "[skip vbump]".
+    Otherwise, the vbump workflow sets the version to a development version and
+    CRAN will reject the submission.
+1) Bundle up (from `main`) and send off to CRAN. See the [chapter](https://r-pkgs.org/release.html#decide-the-release-type) in R Packages for more details.
 1) If CRAN asks for modifications, repeat steps 1-2 as necessary.
 1) Once the package is accepted and available on CRAN, a [GitHub action](https://github.com/pharmaverse/admiral/actions/workflows/pages/pages-build-deployment) is set up to rebuild the `{admiral}` website with all the updates for this release.
 1) Use the release button on GitHub to "release" the package onto GitHub.  This release onto Github archives the version of code within the `main` branch, attaches the News/Changelog file, bundles the code into a `tar.gz` file and makes a validation report via the GitHub action `validation` from [insightsengineering/validatoR](https://github.com/insightsengineering/thevalidatoR).  Please see past [admiral releases](https://github.com/pharmaverse/admiral/releases) for reference and the [Releasing to Github](release_strategy.html#releasing-to-github) section for more details.
+1) Create the next development version:
+    1) Create a new feature branch from `main`.
+    1) Update the `Versions:` field in the `DESCRIPTION` file.
+    1) Update `NEWS.md` (add a new section "# admiral ("development version")")
+    1) Create a PR into `main`. Merging the PR will update the version in the
+    `DESCRIPTION` file to a development version.
 
 **Quarterly Release:**  
 
