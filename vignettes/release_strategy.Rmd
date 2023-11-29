@@ -39,6 +39,11 @@ updates via the community meetings, especially any anticipated breaking changes.
 
 # Package Release Process
 
+In the following the most important steps for a planned release and a hot fix
+release are described. Depending on the package it may be helpful to use
+`usethis::use_release_issue()` with a package-specific `release_bullets()`
+function.
+
 ## Planned Release
 
 A package release is done in the following steps:
