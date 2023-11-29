@@ -56,23 +56,20 @@ CRAN. See the [chapter](https://r-pkgs.org/release.html#decide-the-release-type)
 in R Packages for more details.
 1) If CRAN asks for modifications, repeat steps 1-2 as necessary.
 1) Once the package is accepted and available on CRAN, use the release button on
-GitHub to "release" the package onto GitHub.  This releases onto Github archives
-the version of code within the `main` branch, attaches the News/Changelog file,
-bundles the code into a `tar.gz` file and makes a validation report via the
-GitHub action `validation` from
-[insightsengineering/validatoR](https://github.com/insightsengineering/thevalidatoR).
-Please see past [admiral
-releases](https://github.com/pharmaverse/admiral/releases) for reference and the
+GitHub to "release" the package onto GitHub, select the `main` branch as target,
+and use a tag of the form "vX.Y.Z", e.g., "v1.1.2" (see past [admiral
+releases](https://github.com/pharmaverse/admiral/releases) for reference and
 [Releasing to Github](release_strategy.html#releasing-to-github) section for
-more details.
+more details).
+
+    This releases onto Github archives the version of code within the `main` branch,
+attaches the News/Changelog file, bundles the code into a `tar.gz` file and
+makes a validation report via the GitHub action `validation` from
+[insightsengineering/validatoR](https://github.com/insightsengineering/thevalidatoR).
 
     It also builds the website for the released version and stores it in a new
 `vx.y.z` folder on the `gh-pages` branch.
 
-    Please see past [admiral
-releases](https://github.com/pharmaverse/admiral/releases) for reference and the
-[Releasing to Github](release_strategy.html#releasing-to-github) section for
-more details.
 1) Merge `main` into `patch` to be prepared in case of a needed hotfix.
 1) Create the next development version:
     a) Create a new feature branch from `main`.
@@ -105,24 +102,20 @@ be added to `NEWS.md`.
 for more details.
 1) If CRAN asks for modifications, repeat steps 1-4 as necessary.
 1) Once the package is accepted and available on CRAN, , use the release button
-on GitHub to "release" the package onto GitHub and select the `patch` branch as
-target.  This releases onto Github archives the version of code within the
-`patch` branch, attaches the News/Changelog file, bundles the code into a
-`tar.gz` file and makes a validation report via the GitHub action `validation`
-from
-[insightsengineering/validatoR](https://github.com/insightsengineering/thevalidatoR).
-Please see past [admiral
-releases](https://github.com/pharmaverse/admiral/releases) for reference and the
+on GitHub to "release" the package onto GitHub, select the `patch` branch as
+target, and use a tag of the form "vX.Y.Z", e.g., "v1.1.2" (see past [admiral
+releases](https://github.com/pharmaverse/admiral/releases) for reference and
 [Releasing to Github](release_strategy.html#releasing-to-github) section for
-more details.
+more details).
+
+    This releases onto Github archives the version of code within the `patch`
+branch, attaches the News/Changelog file, bundles the code into a `tar.gz` file
+and makes a validation report via the GitHub action `validation` from
+[insightsengineering/validatoR](https://github.com/insightsengineering/thevalidatoR).
 
     It also builds the website for the released version and stores it in a new
 `vx.y.z` folder on the `gh-pages` branch.
 
-    Please see past [admiral
-releases](https://github.com/pharmaverse/admiral/releases) for reference and the
-[Releasing to Github](release_strategy.html#releasing-to-github) section for
-more details.
 1) These hot fixes should then be merged into the `main` branch through an
 additional Pull Request. Merging the PR will update the version in the
 `DESCRIPTION` file to a development version.
