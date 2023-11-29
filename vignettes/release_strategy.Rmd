@@ -62,7 +62,7 @@ in R Packages for more details.
 1) If CRAN asks for modifications, repeat steps 1-2 as necessary.
 1) Once the package is accepted and available on CRAN, use the release button on
 GitHub to "release" the package onto GitHub, select the `main` branch as target,
-and use a tag of the form "vX.Y.Z", e.g., "v1.1.2" (see past [admiral
+and use a tag of the form `vX.Y.Z`, e.g., `v1.1.2` (see past [admiral
 releases](https://github.com/pharmaverse/admiral/releases) for reference and
 [Releasing to Github](release_strategy.html#releasing-to-github) section for
 more details).
@@ -108,7 +108,7 @@ for more details.
 1) If CRAN asks for modifications, repeat steps 1-4 as necessary.
 1) Once the package is accepted and available on CRAN, , use the release button
 on GitHub to "release" the package onto GitHub, select the `patch` branch as
-target, and use a tag of the form "vX.Y.Z", e.g., "v1.1.2" (see past [admiral
+target, and use a tag of the form `vX.Y.Z`, e.g., `v1.1.2` (see past [admiral
 releases](https://github.com/pharmaverse/admiral/releases) for reference and
 [Releasing to Github](release_strategy.html#releasing-to-github) section for
 more details).
