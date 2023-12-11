@@ -98,7 +98,7 @@ _Note: The ordering numbers below are suggested but don't all need to strictly b
 1. Once you are happy your package extension has been well tested and is at a sufficient state then make a submission to CRAN. The technical lead should be named as maintainer. After the CRAN release, you should advertise this via Slack & LinkedIn.
 
 
-1. Plan any future further enhancements and make issues. When your team feels ready you can open up to development contributions for these from the wider community - see [this page](https://pharmaverse.github.io/admiral/cran-release/). Please use the <span class="github-button firstissue">good first issue</span> (ideal for new starters) & <span class="github-button helpwanted">help wanted</span> (ideal for more experienced contributors) issue labels.
+1. Plan any future further enhancements and make issues. When your team feels ready you can open up to development contributions for these from the wider community - see [this page](https://pharmaverse.github.io/admiral/). Please use the <span class="github-button firstissue">good first issue</span> (ideal for new starters) & <span class="github-button helpwanted">help wanted</span> (ideal for more experienced contributors) issue labels.
 
 **Note**: the core `{admiral}` team will carry out periodic reviews of of the extension package contents to ensure nothing is duplicated and  ensure standards and best practices are followed. The frequency of these reviews is to be agreed upon by the technical leads of the core and extension packages. 
 
