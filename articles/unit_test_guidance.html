@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Unit Test Guidance">
 <meta property="og:description" content="admiraldev">
@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,6 @@
 <li class="active nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-developer-guides">Developer Guides</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-developer-guides">
-    <a class="dropdown-item" href="../articles/development_process.html">Development Process</a>
     <a class="dropdown-item" href="../articles/programming_strategy.html">Programming Strategy</a>
     <a class="dropdown-item" href="../articles/writing_vignettes.html">Writing Vignettes</a>
     <a class="dropdown-item" href="../articles/unit_test_guidance.html">Unit Test Guidance</a>
@@ -262,7 +261,7 @@ snapshot vignette</a> for details.</p>
 script with the naming convention
 <code>test-&lt;script_containing_function&gt;.R</code>., the unit test
 script can be created from the console also, as follows:</p>
-<pre><code><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_r.html" class="external-link">use_test</a></span><span class="op">(</span><span class="st">"&lt;script_containing_function&gt;"</span><span class="op">)</span></span></code></pre>
+<pre><code><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_r.html" class="external-link">use_test</a></span><span class="op">(</span><span class="st">"&lt;script_containing_function&gt;"</span><span class="op">)</span></code></pre>
 <p>the testing framework used is testthat and has the following format
 :</p>
 <pre><code>## Test 1: &lt;Explanation of the test&gt; ----
@@ -282,7 +281,7 @@ test_that("&lt;function_name&gt; Test 1: &lt;Explanation of the test&gt;", {
 <p>For example, if you are testing a function called
 <code>my_new_func</code> that is contained in script
 <code>all_funcs.R</code> then from console use:</p>
-<pre><code><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_r.html" class="external-link">use_test</a></span><span class="op">(</span><span class="st">"all_funcs"</span><span class="op">)</span></span></code></pre>
+<pre><code><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_r.html" class="external-link">use_test</a></span><span class="op">(</span><span class="st">"all_funcs"</span><span class="op">)</span></code></pre>
 <p>Open the newly created file <code>test-all_funcs.R</code> and use the
 following format:</p>
 <pre><code># my_new_func ----
@@ -355,59 +354,59 @@ file name by stripping of the “test-” prefix and the “.R” suffix.</li>
 <p>When writing new unit tests, just provide a description in the
 <code>test_that()</code> call and if necessary the function name in a
 <code># &lt;function name&gt; ----</code> comment:</p>
-<pre><code><span><span class="co"># arg_name ----</span></span>
-<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"arg_name works"</span>, <span class="op">{</span></span>
-<span>  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span></span>
-<span>  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/call.html" class="external-link">call</a></span><span class="op">(</span><span class="st">"enquo"</span>, <span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span></span>
-<span>  <span class="fu">expect_error</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, <span class="st">"Could not extract argument name from"</span><span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># convert_dtm_to_dtc ----</span></span>
-<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"works if dtm is in correct format"</span>, <span class="op">{</span></span>
-<span>  <span class="fu">expect_equal</span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2022-04-05 15:34:07 UTC"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>    <span class="st">"2022-04-05T15:34:07"</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"Error is thrown if dtm is not in correct format"</span>, <span class="op">{</span></span>
-<span>  <span class="fu">expect_error</span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="st">"2022-04-05T15:26:14"</span><span class="op">)</span>,</span>
-<span>    <span class="st">"lubridate::is.instant(dtm) is not TRUE"</span>,</span>
-<span>    fixed <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span></span></code></pre>
+<pre><code><span class="co"># arg_name ----</span>
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"arg_name works"</span>, <span class="op">{</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/call.html" class="external-link">call</a></span><span class="op">(</span><span class="st">"enquo"</span>, <span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_error</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, <span class="st">"Could not extract argument name from"</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span>
+
+<span class="co"># convert_dtm_to_dtc ----</span>
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"works if dtm is in correct format"</span>, <span class="op">{</span>
+  <span class="fu">expect_equal</span><span class="op">(</span>
+    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2022-04-05 15:34:07 UTC"</span><span class="op">)</span><span class="op">)</span>,
+    <span class="st">"2022-04-05T15:34:07"</span>
+  <span class="op">)</span>
+<span class="op">}</span><span class="op">)</span>
+
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"Error is thrown if dtm is not in correct format"</span>, <span class="op">{</span>
+  <span class="fu">expect_error</span><span class="op">(</span>
+    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="st">"2022-04-05T15:26:14"</span><span class="op">)</span>,
+    <span class="st">"lubridate::is.instant(dtm) is not TRUE"</span>,
+    fixed <span class="op">=</span> <span class="cn">TRUE</span>
+  <span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre>
 <p>Call the addin and get:</p>
-<pre><code><span><span class="co"># arg_name ----</span></span>
-<span><span class="co">## Test 1: arg_name works ----</span></span>
-<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"arg_name Test 1: arg_name works"</span>, <span class="op">{</span></span>
-<span>  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span></span>
-<span>  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/call.html" class="external-link">call</a></span><span class="op">(</span><span class="st">"enquo"</span>, <span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span></span>
-<span>  <span class="fu">expect_error</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, <span class="st">"Could not extract argument name from"</span><span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># convert_dtm_to_dtc ----</span></span>
-<span><span class="co">## Test 2: works if dtm is in correct format ----</span></span>
-<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"convert_dtm_to_dtc Test 2: works if dtm is in correct format"</span>, <span class="op">{</span></span>
-<span>  <span class="fu">expect_equal</span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2022-04-05 15:34:07 UTC"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>    <span class="st">"2022-04-05T15:34:07"</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">## Test 3: Error is thrown if dtm is not in correct format ----</span></span>
-<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"convert_dtm_to_dtc Test 3: Error is thrown if dtm is not in correct format"</span>, <span class="op">{</span></span>
-<span>  <span class="fu">expect_error</span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="st">"2022-04-05T15:26:14"</span><span class="op">)</span>,</span>
-<span>    <span class="st">"lubridate::is.instant(dtm) is not TRUE"</span>,</span>
-<span>    fixed <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span></span></code></pre>
+<pre><code><span class="co"># arg_name ----</span>
+<span class="co">## Test 1: arg_name works ----</span>
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"arg_name Test 1: arg_name works"</span>, <span class="op">{</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/call.html" class="external-link">call</a></span><span class="op">(</span><span class="st">"enquo"</span>, <span class="fu"><a href="https://rlang.r-lib.org/reference/sym.html" class="external-link">sym</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="st">"a"</span><span class="op">)</span>
+  <span class="fu">expect_error</span><span class="op">(</span><span class="fu"><a href="../reference/arg_name.html">arg_name</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, <span class="st">"Could not extract argument name from"</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span>
+
+<span class="co"># convert_dtm_to_dtc ----</span>
+<span class="co">## Test 2: works if dtm is in correct format ----</span>
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"convert_dtm_to_dtc Test 2: works if dtm is in correct format"</span>, <span class="op">{</span>
+  <span class="fu">expect_equal</span><span class="op">(</span>
+    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2022-04-05 15:34:07 UTC"</span><span class="op">)</span><span class="op">)</span>,
+    <span class="st">"2022-04-05T15:34:07"</span>
+  <span class="op">)</span>
+<span class="op">}</span><span class="op">)</span>
+
+<span class="co">## Test 3: Error is thrown if dtm is not in correct format ----</span>
+<span class="fu">test_that</span><span class="op">(</span><span class="st">"convert_dtm_to_dtc Test 3: Error is thrown if dtm is not in correct format"</span>, <span class="op">{</span>
+  <span class="fu">expect_error</span><span class="op">(</span>
+    <span class="fu"><a href="../reference/convert_dtm_to_dtc.html">convert_dtm_to_dtc</a></span><span class="op">(</span><span class="st">"2022-04-05T15:26:14"</span><span class="op">)</span>,
+    <span class="st">"lubridate::is.instant(dtm) is not TRUE"</span>,
+    fixed <span class="op">=</span> <span class="cn">TRUE</span>
+  <span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre>
 <p>Once you have tested your unit test program, you can run all unit
 tests from the console, as follows.</p>
-<pre><code><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html" class="external-link">test</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<pre><code><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html" class="external-link">test</a></span><span class="op">(</span><span class="op">)</span></code></pre>
 <p>For running just the tests of the current file call</p>
-<pre><code><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/devtools-deprecated.html" class="external-link">test_file</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<pre><code><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/devtools-deprecated.html" class="external-link">test_file</a></span><span class="op">(</span><span class="op">)</span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="automation-of-unit-tests">Automation of Unit Tests<a class="anchor" aria-label="anchor" href="#automation-of-unit-tests"></a>
