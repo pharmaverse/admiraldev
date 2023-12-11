@@ -91,7 +91,7 @@ _Note: The ordering numbers below are suggested but don't all need to strictly b
 1. Add a pharmaverse badge to your README: https://pharmaverse.org/contribute/badges/ - needs support from a pharmaverse council rep.\
 [<img src="http://pharmaverse.org/shields/admiral.svg">](https://pharmaverse.org/contribute/badges/)
 
-1. Raise an `{admiral}` repo issue to ensure your package extension site is linked from the core `{admiral}` site here [here](https://pharmaverse.github.io/admiral/cran-release/).`
+1. Raise an `{admiral}` repo issue to ensure your package extension site is linked from the core `{admiral}` site here [here](https://pharmaverse.github.io/admiral/).`
 
 1. It is important that the `{admiral}` family of packages keep to a similar release schedule and cadence, in order to ease adoption by our users and to give clear expectations. The `{admiral}` core package cadence of releases is one every quarter on a fixed schedule (every first Monday of the last month of a quarter - March, June, September, December). The core package will set the release schedule for the package extensions to follow, i.e. once `{admiral}` releases we'd expect package extension releases targeted within a 2 week window. These releases are communicated via our Slack channel as well as at our quarterly user community meetings.
 

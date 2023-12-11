@@ -61,7 +61,7 @@ Sometimes, the development of a function or a vignette falls under a specific-to
 
 # So much Red Tape!
 
-The `{admiral}` development team is aware and sympathetic to the great many checks, processes and documents needed to work through in order to do a compliant Pull Request. The `task-list-completed` GitHub workflow was created to help reduce this burden on contributors by providing a standardized checklist that compiles information from the Pull Request Review Guidance, [Programming Strategy](programming_strategy.html) and [Development Process](https://pharmaverse.github.io/admiral/articles/contribution_model.html) vignettes.
+The `{admiral}` development team is aware and sympathetic to the great many checks, processes and documents needed to work through in order to do a compliant Pull Request. The `task-list-completed` GitHub workflow was created to help reduce this burden on contributors by providing a standardized checklist that compiles information from the Pull Request Review Guidance, [Programming Strategy](programming_strategy.html) and [Development Process](https://pharmaverse.github.io/admiral/dev/CONTRIBUTING.html) vignettes.
 
 The next three sections give a high-level overview of what a contributor faces in opening a PR, and how a contributor interacts with the `task-list-completed` workflow in their PR.
 
