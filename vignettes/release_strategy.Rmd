@@ -96,7 +96,12 @@ A hot fix release is done in the following steps:
 label them with the "hotfix" label.
 1) Branches addressing the bugs should have Pull Requests merged into a single
 `patch` branch **NOT** the `main` branch, where the `patch` branch has been
-created from the most recent release of the package. There is no need to use
+created from the most recent release of the package. To do this, run the following git commands:
+
+`git checkout -b patch vX.Y.Z`
+`git push -u origin patch`
+
+There is no need to use
 development versions. I.e., the first pull request should set the version in
 `DESCRIPTION` to the version to be released and a corresponding heading should
 be added to `NEWS.md`.
