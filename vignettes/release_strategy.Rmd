@@ -29,10 +29,11 @@ A release schedule is maintained on the [homepage](https://pharmaverse.github.io
 
 # Planning Releases
 
-Whenever we start looking towards a future release, we create a new release issue
-label on GitHub of the form `release Q4-2022` for example. This then can be added
-to all the issues we plan to cover in the release and these can be moved to the
-Priority column of our project board.
+In the past, whenever we started looking towards a future release, we would create 
+a new release issue label on GitHub of the form `release Q4-2022`. However, as our 
+backlog is minimal every issue should be considered a Priority Issue.  If an issue 
+is not a Priority, then it should be sent back to a Discussion Tab and formed into 
+a Priority issue.
 
 We should share in advance with our users a high level summary of expected package
 updates via the community meetings, especially any anticipated breaking changes.
