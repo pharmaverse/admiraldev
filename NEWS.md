@@ -4,6 +4,19 @@
 
 ## Updates of Existing Functions
 
+## Breaking Changes
+
+## Documentation
+
+- The "Release Strategy" vignette was updated with respect to the new branching
+strategy. (#353)
+
+# admiraldev 1.0.0
+
+## New Features
+
+## Updates of Existing Functions
+
 - `assert_function()` now accepts all function arguments if ellipsis, `...` is in the function formals (#339)
 
 ## Breaking Changes
@@ -18,8 +31,6 @@
 - New documentation in programming strategy around quoting/expressions and standardizing roxygen texts (#233, #332)
 - New documentation on how to use footnotes when writing vignettes (#324)
 - Updated language and images to adopt GitHub Flow Strategy (#349)
-- The "Release Strategy" vignette was updated with respect to the new branching
-strategy. (#353)
 
 ## Various
 
