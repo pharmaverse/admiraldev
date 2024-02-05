@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Programming Strategy">
 <meta property="og:description" content="admiraldev">
@@ -597,19 +597,19 @@ understand the code. There are two main cases:</p>
 should be added. The comment should not rephrase the code but provide
 additional information.</p>
 <p><em>Bad</em></p>
-<pre><code><span class="co"># If AVAL equals zero, set it to 0.0001. Otherwise, do not change it</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">dataset</span>, AVAL <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html" class="external-link">if_else</a></span><span class="op">(</span><span class="va">AVAL</span> <span class="op">==</span> <span class="fl">0</span>, <span class="fl">0.0001</span>, <span class="va">AVAL</span><span class="op">)</span><span class="op">)</span></code></pre>
+<pre><code><span>  <span class="co"># If AVAL equals zero, set it to 0.0001. Otherwise, do not change it</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">dataset</span>, AVAL <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html" class="external-link">if_else</a></span><span class="op">(</span><span class="va">AVAL</span> <span class="op">==</span> <span class="fl">0</span>, <span class="fl">0.0001</span>, <span class="va">AVAL</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 <p><em>Good</em></p>
-<pre><code><span class="co"># AVAL is to be displayed on a logarithmic scale.</span>
-  <span class="co"># Thus replace zeros by a small value to avoid gaps.</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">dataset</span>, AVAL <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html" class="external-link">if_else</a></span><span class="op">(</span><span class="va">AVAL</span> <span class="op">==</span> <span class="fl">0</span>, <span class="fl">0.0001</span>, <span class="va">AVAL</span><span class="op">)</span><span class="op">)</span></code></pre>
+<pre><code><span>  <span class="co"># AVAL is to be displayed on a logarithmic scale.</span></span>
+<span>  <span class="co"># Thus replace zeros by a small value to avoid gaps.</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">dataset</span>, AVAL <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html" class="external-link">if_else</a></span><span class="op">(</span><span class="va">AVAL</span> <span class="op">==</span> <span class="fl">0</span>, <span class="fl">0.0001</span>, <span class="va">AVAL</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </li>
 <li>
 <p>For long functions (&gt;100 lines) comments can be added to
 structure the code and simplify navigation. In this case the comment
 should end with <code>----</code> to add an entry to the document
 outline in RStudio. For example:</p>
-<pre><code><span class="co"># Check arguments ----</span></code></pre>
+<pre><code><span>  <span class="co"># Check arguments ----</span></span></code></pre>
 </li>
 </ul>
 <p>The formatting of the comments must follow the <a href="https://style.tidyverse.org/syntax.html#comments" class="external-link">tidyverse</a>
@@ -617,21 +617,21 @@ style guide. I.e., the comment should start with a single <code>#</code>
 and a space. No decoration (except for outline entries) must be
 added.</p>
 <p><em>Bad</em></p>
-<pre><code><span class="co"># This is a comment #</span>
-
-<span class="co">###########################</span>
-<span class="co"># This is another comment #</span>
-<span class="co">###########################</span>
-
-<span class="co">#+++++++++++++++++++++++++++++++</span>
-<span class="co"># This is a section comment ----</span>
-<span class="co">#+++++++++++++++++++++++++++++++</span></code></pre>
+<pre><code><span><span class="co"># This is a comment #</span></span>
+<span></span>
+<span><span class="co">###########################</span></span>
+<span><span class="co"># This is another comment #</span></span>
+<span><span class="co">###########################</span></span>
+<span></span>
+<span><span class="co">#+++++++++++++++++++++++++++++++</span></span>
+<span><span class="co"># This is a section comment ----</span></span>
+<span><span class="co">#+++++++++++++++++++++++++++++++</span></span></code></pre>
 <p><em>Good</em></p>
-<pre><code><span class="co"># This is a comment</span>
-
-<span class="co"># This is another comment</span>
-
-<span class="co"># This is a section comment ----</span></code></pre>
+<pre><code><span><span class="co"># This is a comment</span></span>
+<span></span>
+<span><span class="co"># This is another comment</span></span>
+<span></span>
+<span><span class="co"># This is a section comment ----</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="input-checking">Input Checking<a class="anchor" aria-label="anchor" href="#input-checking"></a>
@@ -672,65 +672,65 @@ section <a href="programming_strategy.html#categorization-of-functions">Categori
 of functions</a>.</p>
 <p>An example is given below:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' Derive Relative Day Variables</span>
-<span class="co">#'</span>
-<span class="co">#' Adds relative day variables (`--DY`) to the dataset, e.g., `ASTDY` and</span>
-<span class="co">#' `AENDY`.</span>
-<span class="co">#'</span>
-<span class="co">#' @param dataset Input dataset</span>
-<span class="co">#'</span>
-<span class="co">#'   The columns specified by the `reference_date` and the `source_vars`</span>
-<span class="co">#'   argument are expected.</span>
-<span class="co">#'</span>
-<span class="co">#' @param reference_date The start date column, e.g., date of first treatment</span>
-<span class="co">#'</span>
-<span class="co">#'   A date or date-time object column is expected.</span>
-<span class="co">#'</span>
-<span class="co">#'   Refer to `derive_var_dt()` to impute and derive a date from a date</span>
-<span class="co">#'   character vector to a date object.</span>
-<span class="co">#'</span>
-<span class="co">#' @param source_vars A list of datetime or date variables created using</span>
-<span class="co">#'   `exprs()` from which dates are to be extracted. This can either be a list of</span>
-<span class="co">#'   date(time) variables or named `--DY` variables and corresponding --DT(M)</span>
-<span class="co">#'   variables e.g. `exprs(TRTSDTM, ASTDTM, AENDT)` or `exprs(TRTSDT, ASTDTM,</span>
-<span class="co">#'   AENDT, DEATHDY = DTHDT)`. If the source variable does not end in --DT(M), a</span>
-<span class="co">#'   name for the resulting `--DY` variable must be provided.</span>
-<span class="co">#'</span>
-<span class="co">#' @details The relative day is derived as number of days from the reference</span>
-<span class="co">#'   date to the end date. If it is nonnegative, one is added. I.e., the</span>
-<span class="co">#'   relative day of the reference date is 1. Unless a name is explicitly</span>
-<span class="co">#'   specified, the name of the resulting relative day variable is generated</span>
-<span class="co">#'   from the source variable name by replacing DT (or DTM as appropriate) with</span>
-<span class="co">#'   DY.</span>
-<span class="co">#'</span>
-<span class="co">#' @return The input dataset with `--DY` corresponding to the `--DTM` or `--DT`</span>
-<span class="co">#'   source variable(s) added</span>
-<span class="co">#'</span>
-<span class="co">#' @keywords der_date_time</span>
-<span class="co">#' @family der_date_time</span>
-<span class="co">#'</span>
-<span class="co">#' @export</span>
-<span class="co">#'</span>
-<span class="co">#' @examples</span>
-<span class="co">#' library(lubridate)</span>
-<span class="co">#' library(dplyr, warn.conflicts = FALSE)</span>
-<span class="co">#' library(tibble)</span>
-<span class="co">#'</span>
-<span class="co">#' datain &lt;- tribble(</span>
-<span class="co">#'   ~TRTSDTM,              ~ASTDTM,               ~AENDT,</span>
-<span class="co">#'   "2014-01-17T23:59:59", "2014-01-18T13:09:O9", "2014-01-20"</span>
-<span class="co">#' ) %&gt;%</span>
-<span class="co">#'   mutate(</span>
-<span class="co">#'     TRTSDTM = as_datetime(TRTSDTM),</span>
-<span class="co">#'     ASTDTM = as_datetime(ASTDTM),</span>
-<span class="co">#'     AENDT = ymd(AENDT)</span>
-<span class="co">#'   )</span>
-<span class="co">#'</span>
-<span class="co">#' derive_vars_dy(</span>
-<span class="co">#'   datain,</span>
-<span class="co">#'   reference_date = TRTSDTM,</span>
-<span class="co">#'   source_vars = exprs(TRTSDTM, ASTDTM, AENDT)</span>
-<span class="co">#' )</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' Derive Relative Day Variables</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' Adds relative day variables (`--DY`) to the dataset, e.g., `ASTDY` and</span></span>
+<span><span class="co">#' `AENDY`.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @param dataset Input dataset</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#'   The columns specified by the `reference_date` and the `source_vars`</span></span>
+<span><span class="co">#'   argument are expected.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @param reference_date The start date column, e.g., date of first treatment</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#'   A date or date-time object column is expected.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#'   Refer to `derive_var_dt()` to impute and derive a date from a date</span></span>
+<span><span class="co">#'   character vector to a date object.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @param source_vars A list of datetime or date variables created using</span></span>
+<span><span class="co">#'   `exprs()` from which dates are to be extracted. This can either be a list of</span></span>
+<span><span class="co">#'   date(time) variables or named `--DY` variables and corresponding --DT(M)</span></span>
+<span><span class="co">#'   variables e.g. `exprs(TRTSDTM, ASTDTM, AENDT)` or `exprs(TRTSDT, ASTDTM,</span></span>
+<span><span class="co">#'   AENDT, DEATHDY = DTHDT)`. If the source variable does not end in --DT(M), a</span></span>
+<span><span class="co">#'   name for the resulting `--DY` variable must be provided.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @details The relative day is derived as number of days from the reference</span></span>
+<span><span class="co">#'   date to the end date. If it is nonnegative, one is added. I.e., the</span></span>
+<span><span class="co">#'   relative day of the reference date is 1. Unless a name is explicitly</span></span>
+<span><span class="co">#'   specified, the name of the resulting relative day variable is generated</span></span>
+<span><span class="co">#'   from the source variable name by replacing DT (or DTM as appropriate) with</span></span>
+<span><span class="co">#'   DY.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @return The input dataset with `--DY` corresponding to the `--DTM` or `--DT`</span></span>
+<span><span class="co">#'   source variable(s) added</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @keywords der_date_time</span></span>
+<span><span class="co">#' @family der_date_time</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @examples</span></span>
+<span><span class="co">#' library(lubridate)</span></span>
+<span><span class="co">#' library(dplyr, warn.conflicts = FALSE)</span></span>
+<span><span class="co">#' library(tibble)</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' datain &lt;- tribble(</span></span>
+<span><span class="co">#'   ~TRTSDTM,              ~ASTDTM,               ~AENDT,</span></span>
+<span><span class="co">#'   "2014-01-17T23:59:59", "2014-01-18T13:09:O9", "2014-01-20"</span></span>
+<span><span class="co">#' ) %&gt;%</span></span>
+<span><span class="co">#'   mutate(</span></span>
+<span><span class="co">#'     TRTSDTM = as_datetime(TRTSDTM),</span></span>
+<span><span class="co">#'     ASTDTM = as_datetime(ASTDTM),</span></span>
+<span><span class="co">#'     AENDT = ymd(AENDT)</span></span>
+<span><span class="co">#'   )</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' derive_vars_dy(</span></span>
+<span><span class="co">#'   datain,</span></span>
+<span><span class="co">#'   reference_date = TRTSDTM,</span></span>
+<span><span class="co">#'   source_vars = exprs(TRTSDTM, ASTDTM, AENDT)</span></span>
+<span><span class="co">#' )</span></span></code></pre></div>
 <p>The following fields are mandatory:</p>
 <ul>
 <li>
@@ -745,7 +745,7 @@ to manual error when it is already declared in the function arguments.
 The description for permitted values should be written as a separate
 line italicizing the phrase “Permitted Values”, example below:</li>
 </ul>
-<pre><code><span class="co">#'   *Permitted Values*: example description of permitted values here</span></code></pre>
+<pre><code><span><span class="co">#'   *Permitted Values*: example description of permitted values here</span></span></code></pre>
 <ul>
 <li>
 <code>@details</code>: A natural-language description of the
@@ -1045,8 +1045,8 @@ like <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" cl
 operator <code>magrittr::%&gt;%</code>. To export these functions, the
 following R code should be included in the <code>R/reexports.R</code>
 file using the format:</p>
-<pre><code><span class="co">#' @export</span>
-<span class="fu">pkg_name</span><span class="fu">::</span><span class="va">fun</span></code></pre>
+<pre><code><span><span class="co">#' @export</span></span>
+<span><span class="fu">pkg_name</span><span class="fu">::</span><span class="va">fun</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="metadata">Metadata<a class="anchor" aria-label="anchor" href="#metadata"></a>
@@ -1096,17 +1096,17 @@ which new function/argument should be used instead.</p>
 <p>the <code>@keywords</code> and<code>@family</code> roxygen tags
 will be replaced with <code>deprecated</code></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' Title of the function</span>
-<span class="co">#'</span>
-<span class="co">#' @description</span>
-<span class="co">#' `r lifecycle::badge("deprecated")`</span>
-<span class="co">#'</span>
-<span class="co">#' This function is *deprecated*, please use `new_fun()` instead.</span>
-<span class="co">#' .</span>
-<span class="co">#' @family deprecated</span>
-<span class="co">#'</span>
-<span class="co">#' @keywords deprecated</span>
-<span class="co">#' .</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' Title of the function</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @description</span></span>
+<span><span class="co">#' `r lifecycle::badge("deprecated")`</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' This function is *deprecated*, please use `new_fun()` instead.</span></span>
+<span><span class="co">#' .</span></span>
+<span><span class="co">#' @family deprecated</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @keywords deprecated</span></span>
+<span><span class="co">#' .</span></span></code></pre></div>
 </li>
 <li><p>the <code>@examples</code> section should be removed.</p></li>
 <li>
@@ -1132,20 +1132,20 @@ function body must be replaced with a call to
 <code>deprecate_warn()</code> and subsequently all arguments should be
 passed on to the new function.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu">deprecate_warn</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx()"</span>, <span class="st">"new_fun_xxx()"</span><span class="op">)</span>
-  <span class="fu">new_fun_xxx</span><span class="op">(</span>
-    dataset <span class="op">=</span> <span class="va">dataset</span>,
-    some_param <span class="op">=</span> <span class="va">some_param</span>,
-    other_param <span class="op">=</span> <span class="va">other_param</span>
-  <span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">deprecate_warn</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx()"</span>, <span class="st">"new_fun_xxx()"</span><span class="op">)</span></span>
+<span>  <span class="fu">new_fun_xxx</span><span class="op">(</span></span>
+<span>    dataset <span class="op">=</span> <span class="va">dataset</span>,</span>
+<span>    some_param <span class="op">=</span> <span class="va">some_param</span>,</span>
+<span>    other_param <span class="op">=</span> <span class="va">other_param</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>In the following release the function body should be changed to just
 include a call to <code>deprecate_stop()</code>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu">deprecate_stop</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx()"</span>, <span class="st">"new_fun_xxx()"</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">deprecate_stop</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx()"</span>, <span class="st">"new_fun_xxx()"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>Finally, in the next release the function should be removed from the
 package.</p>
 </div>
@@ -1154,25 +1154,25 @@ package.</p>
 </h4>
 <p>If an argument is removed and is not replaced, an
 <strong>error</strong> must be generated:</p>
-<pre><code><span class="co">### BEGIN DEPRECATION</span>
-  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rlang.r-lib.org/reference/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu">deprecate_stop</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx(old_param = )"</span>, <span class="st">"fun_xxx(new_param = )"</span><span class="op">)</span>
-  <span class="op">}</span>
-<span class="co">### END DEPRECATION</span></code></pre>
+<pre><code><span><span class="co">### BEGIN DEPRECATION</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">deprecate_stop</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx(old_param = )"</span>, <span class="st">"fun_xxx(new_param = )"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="co">### END DEPRECATION</span></span></code></pre>
 <p>If the argument is renamed or replaced, a <strong>warning</strong>
 must be issued and the new argument takes the value of the old argument
 until the next release. Note: arguments which are not passed as
 <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code> argument (e.g. <code>new_var = VAR1</code> or
 <code>filter = AVAL &gt;10</code>) will need to be quoted.</p>
-<pre><code><span class="co">### BEGIN DEPRECATION</span>
-  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rlang.r-lib.org/reference/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu">deprecate_warn</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx(old_param = )"</span>, <span class="st">"fun_xxx(new_param = )"</span><span class="op">)</span>
-    <span class="co"># old_param is given using exprs()</span>
-    <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="va">old_param</span>
-    <span class="co"># old_param is NOT given using exprs()</span>
-    <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">enexpr</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span>
-  <span class="op">}</span>
-<span class="co">### END DEPRECATION</span></code></pre>
+<pre><code><span><span class="co">### BEGIN DEPRECATION</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">deprecate_warn</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx(old_param = )"</span>, <span class="st">"fun_xxx(new_param = )"</span><span class="op">)</span></span>
+<span>    <span class="co"># old_param is given using exprs()</span></span>
+<span>    <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="va">old_param</span></span>
+<span>    <span class="co"># old_param is NOT given using exprs()</span></span>
+<span>    <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">enexpr</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="co">### END DEPRECATION</span></span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -1192,19 +1192,19 @@ guidance</a>.</p>
 <h4 id="for-deprecated-functions-that-issues-a-warning-phase-1">For Deprecated Functions that Issues a Warning (Phase 1)<a class="anchor" aria-label="anchor" href="#for-deprecated-functions-that-issues-a-warning-phase-1"></a>
 </h4>
 <p>A unit test like the following must be added.</p>
-<pre><code><span class="co">## Test #: deprecation warning if function is called ----</span>
-<span class="fu">test_that</span><span class="op">(</span><span class="st">"derive_var_example() Test #: deprecation warning if function is called"</span>, <span class="op">{</span>
-  <span class="fu">expect_warning</span><span class="op">(</span>
-    <span class="fu">derive_var_example</span><span class="op">(</span><span class="op">)</span>,
-    class <span class="op">=</span> <span class="st">"lifecycle_warning_deprecated"</span>
-  <span class="op">)</span>
-<span class="op">}</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="co">## Test #: deprecation warning if function is called ----</span></span>
+<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"derive_var_example() Test #: deprecation warning if function is called"</span>, <span class="op">{</span></span>
+<span>  <span class="fu">expect_warning</span><span class="op">(</span></span>
+<span>    <span class="fu">derive_var_example</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    class <span class="op">=</span> <span class="st">"lifecycle_warning_deprecated"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre>
 <p>In the existing unit tests the call of the deprecated function need
 to be enclosed by <code><a href="../reference/suppress_warning.html">suppress_warning()</a></code>. For example,</p>
-<pre><code><span class="va">actual</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/suppress_warning.html">suppress_warning</a></span><span class="op">(</span>
-    <span class="fu">derive_var_example</span><span class="op">(</span><span class="op">)</span>,
-    regexpr <span class="op">=</span> <span class="st">"was deprecated"</span>
-  <span class="op">)</span></code></pre>
+<pre><code><span>  <span class="va">actual</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/suppress_warning.html">suppress_warning</a></span><span class="op">(</span></span>
+<span>    <span class="fu">derive_var_example</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    regexpr <span class="op">=</span> <span class="st">"was deprecated"</span></span>
+<span>  <span class="op">)</span></span></code></pre>
 <p>The <code>regexpr</code> argument must be specified to ensure that
 only the deprecation warning is suppressed.</p>
 </div>
@@ -1212,13 +1212,13 @@ only the deprecation warning is suppressed.</p>
 <h4 id="for-deprecated-functions-that-issues-an-error-phase-2">For Deprecated Functions that Issues an Error (Phase 2)<a class="anchor" aria-label="anchor" href="#for-deprecated-functions-that-issues-an-error-phase-2"></a>
 </h4>
 <p>A unit test like the following must be added.</p>
-<pre><code><span class="co">## Test #: error if function is called ----</span>
-<span class="fu">test_that</span><span class="op">(</span><span class="st">"derive_var_example() Test #: deprecation error if function is called"</span>, <span class="op">{</span>
-  <span class="fu">expect_error</span><span class="op">(</span>
-    <span class="fu">derive_var_example</span><span class="op">(</span><span class="op">)</span>,
-    class <span class="op">=</span> <span class="st">"lifecycle_error_deprecated"</span>
-  <span class="op">)</span>
-<span class="op">}</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="co">## Test #: error if function is called ----</span></span>
+<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"derive_var_example() Test #: deprecation error if function is called"</span>, <span class="op">{</span></span>
+<span>  <span class="fu">expect_error</span><span class="op">(</span></span>
+<span>    <span class="fu">derive_var_example</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    class <span class="op">=</span> <span class="st">"lifecycle_error_deprecated"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre>
 <p>Other unit tests of the deprecated function must be removed.</p>
 </div>
 </div>
