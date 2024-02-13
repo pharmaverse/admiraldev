@@ -6,6 +6,8 @@
 
 ## Breaking Changes
 
+* `renv` and related files have been removed (#360)
+
 ## Documentation
 
 # admiraldev 1.0.0
