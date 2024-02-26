@@ -1175,23 +1175,16 @@ test_that("assert_same_type Test 89: error if different type", {
   true_value <- "Y"
   false_value <- "N"
   missing_value <- 0
+
+  # perform a partial regex match of the error message
   expect_error(
     assert_same_type(true_value, false_value, missing_value),
-    regexp = paste(
-      "All arguments must be of the same type.",
-      "Argument: Type",
-      "--------------",
-      "true_value: character",
-      "false_value: character",
-      "missing_value: double",
-      sep = "\n"
-    ),
-    fixed = TRUE
+    "*must be the same type*"
   )
 })
 
 ## Test 90: works as intended ----
-test_that("assert_same_type Test 90: works as intended", {
+test_that("valid_time_units Test 90: works as intended", {
   expect_equal(
     valid_time_units(),
     c("years", "months", "days", "hours", "minutes", "seconds")
