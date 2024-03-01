@@ -6,8 +6,8 @@
 \usage{
 assert_same_type(
   ...,
-  .message = c("Arguments {.field {arg_names}} must be the same type.", i =
-    paste("Argument types are", paste0("{.field ", arg_names, "} {.cls ", types, "}",
+  .message = c("Arguments {.arg {arg_names}} must be the same type.", i =
+    paste("Argument types are", paste0("{.arg ", arg_names, "} {.cls ", types, "}",
     collapse = ", "))),
   .class = "assert_same_type",
   .call = parent.frame()

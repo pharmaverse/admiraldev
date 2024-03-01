@@ -1636,10 +1636,10 @@ assert_date_vector <- function(arg, optional = FALSE) {
 #' ))
 assert_same_type <- function(...,
                              .message = c(
-                               "Arguments {.field {arg_names}} must be the same type.",
+                               "Arguments {.arg {arg_names}} must be the same type.",
                                i = paste(
                                  "Argument types are",
-                                 paste0("{.field ", arg_names, "} {.cls ", types, "}", collapse = ", ")
+                                 paste0("{.arg ", arg_names, "} {.cls ", types, "}", collapse = ", ")
                                )
                              ),
                              .class = "assert_same_type",

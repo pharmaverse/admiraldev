@@ -1179,7 +1179,11 @@ test_that("assert_same_type Test 89: error if different type", {
   # perform a partial regex match of the error message
   expect_error(
     assert_same_type(true_value, false_value, missing_value),
-    "*must be the same type*"
+    class = "assert_same_type"
+  )
+  expect_snapshot(
+    error = TRUE,
+    assert_same_type(true_value, false_value, missing_value)
   )
 })
 
