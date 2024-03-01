@@ -25,7 +25,8 @@ string indicating the label/symbol of the object being checked.
 Default is \code{rlang::caller_arg(x)}}
 
 \item{message}{(\code{character})\cr
-string passed to \code{cli::cli_abort(message)}}
+string passed to \code{cli::cli_abort(message)}. When \code{NULL}, default messaging
+is used.}
 
 \item{class}{Subclass of the condition.}
 

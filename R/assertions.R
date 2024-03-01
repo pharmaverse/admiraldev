@@ -277,7 +277,8 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE, optional 
 #'   string indicating the label/symbol of the object being checked.
 #'   Default is `rlang::caller_arg(x)`
 #' @param message (`character`)\cr
-#'   string passed to `cli::cli_abort(message)`
+#'   string passed to `cli::cli_abort(message)`. When `NULL`, default messaging
+#'   is used.
 #' @inheritParams cli::cli_abort
 #' @inheritParams rlang::abort
 #'
