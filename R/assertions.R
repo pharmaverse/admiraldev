@@ -270,12 +270,16 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE, optional 
 #' Checks if an argument is a logical scalar
 #'
 #' @param arg A function argument to be checked
-#'
-#' @param optional Is the checked argument optional?
-#'
+#' @param optional Is the checked argument optional?\cr
 #' If set to `FALSE` and `arg` is `NULL` then an error is thrown. Otherwise,
 #' `NULL` is considered as valid value.
-#'
+#' @param arg_name (`string`)\cr
+#'   string indicating the label/symbol of the object being checked.
+#'   Default is `rlang::caller_arg(x)`
+#' @param message (`character`)\cr
+#'   string passed to `cli::cli_abort(message)`
+#' @inheritParams cli::cli_abort
+#' @inheritParams rlang::abort
 #'
 #' @return
 #' The function throws an error if `arg` is neither `TRUE` or `FALSE`. Otherwise,
@@ -297,18 +301,25 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE, optional 
 #' try(example_fun(c(TRUE, FALSE, FALSE)))
 #'
 #' try(example_fun(1:10))
-assert_logical_scalar <- function(arg, optional = FALSE) {
+assert_logical_scalar <- function(arg, optional = FALSE,
+                                  arg_name = rlang::caller_arg(arg),
+                                  message = NULL,
+                                  class = "assert_logical_scalar",
+                                  call = parent.frame()) {
+  message <-
+    message %||%
+    "Argument {.arg {arg_name}} must be either {.val {TRUE}} of
+     {.val {FALSE}}, but is {.obj_type_friendly {arg}}."
   if (optional && is.null(arg)) {
     return(invisible(arg))
   }
 
   if (!is.logical(arg) || length(arg) != 1L || is.na(arg)) {
-    err_msg <- sprintf(
-      "`%s` must be either `TRUE` or `FALSE` but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
+    cli::cli_abort(
+      message = message,
+      call = call,
+      class = c(class, "assert-admiraldev")
     )
-    abort(err_msg)
   }
 
   invisible(arg)
