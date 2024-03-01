@@ -307,13 +307,15 @@ assert_logical_scalar <- function(arg, optional = FALSE,
                                   message = NULL,
                                   class = "assert_logical_scalar",
                                   call = parent.frame()) {
+  if (optional && is.null(arg)) {
+    return(invisible(arg))
+  }
+
+  # set default error message, if not specified
   message <-
     message %||%
     "Argument {.arg {arg_name}} must be either {.val {TRUE}} of
      {.val {FALSE}}, but is {.obj_type_friendly {arg}}."
-  if (optional && is.null(arg)) {
-    return(invisible(arg))
-  }
 
   if (!is.logical(arg) || length(arg) != 1L || is.na(arg)) {
     cli::cli_abort(
