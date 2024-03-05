@@ -314,7 +314,7 @@ assert_logical_scalar <- function(arg, optional = FALSE,
   # set default error message, if not specified
   message <-
     message %||%
-    "Argument {.arg {arg_name}} must be either {.val {TRUE}} of
+    "Argument {.arg {arg_name}} must be either {.val {TRUE}} or
      {.val {FALSE}}, but is {.obj_type_friendly {arg}}."
 
   if (!is.logical(arg) || length(arg) != 1L || is.na(arg)) {
