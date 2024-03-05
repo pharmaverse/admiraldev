@@ -4,5 +4,5 @@
       example_fun("test")
     Condition
       Error in `example_fun()`:
-      ! Argument `arg` must be either TRUE of FALSE, but is a string.
+      ! Argument `arg` must be either TRUE or FALSE, but is a string.
 

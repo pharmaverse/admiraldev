@@ -20,13 +20,10 @@ assert_logical_scalar(
 If set to \code{FALSE} and \code{arg} is \code{NULL} then an error is thrown. Otherwise,
 \code{NULL} is considered as valid value.}
 
-\item{arg_name}{(\code{string})\cr
-string indicating the label/symbol of the object being checked.
-Default is \code{rlang::caller_arg(x)}}
+\item{arg_name}{string indicating the label/symbol of the object being checked.}
 
-\item{message}{(\code{character})\cr
-string passed to \code{cli::cli_abort(message)}. When \code{NULL}, default messaging
-is used.}
+\item{message}{string passed to \code{cli::cli_abort(message)}.
+When \code{NULL}, default messaging is used.}
 
 \item{class}{Subclass of the condition.}
 
