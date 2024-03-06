@@ -845,12 +845,17 @@ assert_named <- function(arg, optional = FALSE,
   }
 
   # get the indices of the unnamed elements for using in the error message.
-  if (is.null(names(arg))) indices <- seq_along(arg) # all elements are unnamed
-  else indices <- which(names(arg) == "")
+  if (is.null(names(arg))) {
+    indices <- seq_along(arg)
+  } # all elements are unnamed
+  else {
+    indices <- which(names(arg) == "")
+  }
 
   message <- message %||%
     c("All elements of {.arg {arg_name}} argument must be named.",
-      i = "The indices of the unnamed elements are {.val {indices}}")
+      i = "The indices of the unnamed elements are {.val {indices}}"
+    )
 
   cli::cli_abort(
     message = message,

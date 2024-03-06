@@ -710,15 +710,19 @@ test_that("assert_named Test 49: no error if arg is NULL and optional = TRUE", {
 
 ## Test 50: error if no elements are named ----
 test_that("assert_named Test 50: error if no elements are named", {
-  expect_error({
-    arg <- c(1, 2)
-    assert_named(arg)},
+  expect_error(
+    {
+      arg <- c(1, 2)
+      assert_named(arg)
+    },
     class = "assert_named"
   )
 
-  expect_snapshot({
-    arg <- c(1, 2)
-    assert_named(arg)},
+  expect_snapshot(
+    {
+      arg <- c(1, 2)
+      assert_named(arg)
+    },
     error = TRUE
   )
 })
