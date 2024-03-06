@@ -1,4 +1,4 @@
-# assert_character_scalar Test 18: error if `arg` not a character vector
+# assert_character_vector Test 18: error if `arg` not a character vector
 
     Code
       assert_character_vector(arg)
@@ -6,7 +6,7 @@
       Error:
       ! Argument `arg` must be <character>, but is a double vector.
 
-# assert_character_scalar Test 19: error if `arg` is not in values
+# assert_character_vector Test 19: error if `arg` is not in values
 
     Code
       example_fun(character = c("oak", "mint"))

@@ -320,7 +320,7 @@ test_that("assert_character_scalar Test 17: error if `arg` not in values", {
 })
 
 ## Test 18: error if `arg` not a character vector ----
-test_that("assert_character_scalar Test 18: error if `arg` not a character vector", {
+test_that("assert_character_vector Test 18: error if `arg` not a character vector", {
   arg <- c(1, 2, 3)
 
   expect_error(
@@ -335,7 +335,7 @@ test_that("assert_character_scalar Test 18: error if `arg` not a character vecto
 })
 
 ## Test 19: error if `arg` is not in values ----
-test_that("assert_character_scalar Test 19: error if `arg` is not in values", {
+test_that("assert_character_vector Test 19: error if `arg` is not in values", {
   example_fun <- function(character) {
     assert_character_vector(character, values = c("test", "oak"))
   }
