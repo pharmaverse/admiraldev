@@ -324,6 +324,12 @@ test_that("assert_character_scalar Test 18: error if `arg` not a character vecto
   arg <- c(1, 2, 3)
 
   expect_error(
+    assert_character_vector(arg),
+    class = "assert_character_vector"
+  )
+
+  expect_snapshot(
+    error = TRUE,
     assert_character_vector(arg)
   )
 })
@@ -335,7 +341,12 @@ test_that("assert_character_scalar Test 19: error if `arg` is not in values", {
   }
 
   expect_error(
-    example_fun(character = c("oak", "mint"))
+    example_fun(character = c("oak", "mint")),
+    class = "assert_character_vector"
+  )
+  expect_snapshot(
+    example_fun(character = c("oak", "mint")),
+    error = TRUE
   )
 })
 
@@ -699,14 +710,16 @@ test_that("assert_named Test 49: no error if arg is NULL and optional = TRUE", {
 
 ## Test 50: error if no elements are named ----
 test_that("assert_named Test 50: error if no elements are named", {
-  expect_error(
-    assert_named(arg <- c(1, 2)),
-    regexp = paste(
-      "All elements of `arg` must be named.",
-      "No element is named.",
-      sep = "\n"
-    ),
-    fixed = TRUE
+  expect_error({
+    arg <- c(1, 2)
+    assert_named(arg)},
+    class = "assert_named"
+  )
+
+  expect_snapshot({
+    arg <- c(1, 2)
+    assert_named(arg)},
+    error = TRUE
   )
 })
 
@@ -1007,8 +1020,7 @@ test_that("assert_expr_list Test 72: error if `arg` is not a list of expressions
 test_that("assert_expr_list Test 73: error if `arg` is not a named list of expressions", {
   expect_error(
     assert_expr_list(arg <- exprs(USUBJID, PARAMCD, NULL), named = TRUE),
-    regexp = "All elements of `arg` must be named.",
-    fixed = TRUE
+    regexp = "argument must be named"
   )
 })
 
