@@ -848,8 +848,7 @@ assert_named <- function(arg, optional = FALSE,
   # get the indices of the unnamed elements for using in the error message.
   if (is.null(names(arg))) {
     indices <- seq_along(arg)
-  } # all elements are unnamed
-  else {
+  } else {
     indices <- which(names(arg) == "")
   }
 
