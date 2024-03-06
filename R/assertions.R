@@ -252,7 +252,7 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
     )
 
   if (!is.character(arg) ||
-      (!is.null(values) && length(unique(arg[!map_lgl(arg, `%in%`, values)])) > 0L)) {
+    (!is.null(values) && length(unique(arg[!map_lgl(arg, `%in%`, values)])) > 0L)) {
     cli::cli_abort(
       message = message,
       call = call,
