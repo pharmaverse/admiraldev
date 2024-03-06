@@ -251,7 +251,8 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
       "Argument {.arg {arg_name}} must be {.cls character} with values {.val {values}}."
     )
 
-  if (!is.character(arg) || (!is.null(values) && length(unique(arg[!map_lgl(arg, `%in%`, values)])) > 0L)) {
+  if (!is.character(arg) ||
+      (!is.null(values) && length(unique(arg[!map_lgl(arg, `%in%`, values)])) > 0L)) {
     cli::cli_abort(
       message = message,
       call = call,
