@@ -23,7 +23,7 @@
       ! All elements of `character` argument must be named.
       i The indices of the unnamed elements are 2
 
-# assert_logical_scalar Test 21: error if `arg` is not TRUE or FALSE
+# assert_logical_scalar Test 22: error if `arg` is not TRUE or FALSE
 
     Code
       example_fun("test")
@@ -31,7 +31,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be either TRUE or FALSE, but is a string.
 
-# assert_named Test 50: error if no elements are named
+# assert_named Test 51: error if no elements are named
 
     Code
       arg <- c(1, 2)
