@@ -14,6 +14,15 @@
       Error in `example_fun()`:
       ! Argument `character` must be <character> with values "test" and "oak".
 
+# assert_character_vector Test 20: arg_name correctly displayed in name check
+
+    Code
+      example_fun(character = c(tree = "oak", "test"))
+    Condition
+      Error in `example_fun()`:
+      ! All elements of `character` argument must be named.
+      i The indices of the unnamed elements are 2
+
 # assert_logical_scalar Test 21: error if `arg` is not TRUE or FALSE
 
     Code
