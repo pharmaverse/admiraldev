@@ -589,7 +589,7 @@ test_that("assert_s3_class Test 39: error if `arg` is not an object of a specifi
 ## Test 40: no error if `arg` is NULL and optional is TRUE ----
 test_that("assert_s3_class Test 40: no error if `arg` is NULL and optional is TRUE", {
   example_fun <- function(arg) {
-    assert_s3_class(arg, class = "factor", optional = TRUE)
+    assert_s3_class(arg, cls = "factor", optional = TRUE)
   }
 
   expect_invisible(
@@ -600,14 +600,14 @@ test_that("assert_s3_class Test 40: no error if `arg` is NULL and optional is TR
 ## Test 41: error if `arg` is NULL and optional is FALSE ----
 test_that("assert_s3_class Test 41: error if `arg` is NULL and optional is FALSE", {
   example_fun <- function(arg) {
-    assert_s3_class(arg, class = "factor", optional = FALSE)
+    assert_s3_class(arg, cls = "factor", optional = FALSE)
   }
 
   expect_error(
     example_fun(NULL),
-    "`arg` must be an object of class 'factor' but is `NULL`",
-    fixed = TRUE
+    class = "assert_s3_class"
   )
+  expect_snapshot(example_fun(NULL), error = TRUE)
 })
 
 ## Test 42: no error if `arg` is an object of a specific class S3 ----
@@ -648,9 +648,12 @@ test_that("assert_list_of Test 45: error if `arg` is NULL and optional is FALSE"
 
   expect_error(
     example_fun(NULL),
-    "`arg` must be an object of class 'list' but is `NULL`",
-    fixed = TRUE
+    # TODO: update this to "assert_list_of" after we update that function
+    class = "assert_s3_class"
   )
+  # TODO: this snapshot will update after we update `assert_list_of()`
+  #   Instead of `Error in `assert_list_of()`` it will be `Error in `example_fun()``
+  expect_snapshot(example_fun(NULL), error = TRUE)
 })
 
 ## Test 46: no error if `arg` is a list of specific class S3 objects ----

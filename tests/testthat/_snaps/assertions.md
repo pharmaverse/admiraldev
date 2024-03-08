@@ -47,6 +47,22 @@
       Error in `example_fun()`:
       ! Argument `arg` must be either TRUE or FALSE, but is a string.
 
+# assert_s3_class Test 41: error if `arg` is NULL and optional is FALSE
+
+    Code
+      example_fun(NULL)
+    Condition
+      Error in `example_fun()`:
+      ! Argument `arg` must be class <factor>, but is NULL.
+
+# assert_list_of Test 45: error if `arg` is NULL and optional is FALSE
+
+    Code
+      example_fun(NULL)
+    Condition
+      Error in `assert_list_of()`:
+      ! Argument `arg` must be class <list>, but is NULL.
+
 # assert_named Test 51: error if no elements are named
 
     Code
