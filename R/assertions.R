@@ -1666,7 +1666,9 @@ assert_same_type <- function(...,
                                "Arguments {.arg {arg_names}} must be the same type.",
                                i = paste(
                                  "Argument types are",
-                                 paste0("{.arg ", arg_names, "} {.cls ", types, "}", collapse = ", ")
+                                 paste0("{.arg ", arg_names, "} {.cls ", types, "}",
+                                   collapse = ", "
+                                 )
                                )
                              ),
                              .class = "assert_same_type",
