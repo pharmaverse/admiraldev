@@ -94,6 +94,7 @@ assert_data_frame <- function(arg,
 #' permitted values and returning the argument.
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
+#' @inheritParams assert_logical_scalar
 #'
 #'
 #' @return
@@ -132,7 +133,11 @@ assert_data_frame <- function(arg,
 assert_character_scalar <- function(arg,
                                     values = NULL,
                                     case_sensitive = TRUE,
-                                    optional = FALSE) {
+                                    optional = FALSE,
+                                    arg_name = rlang::caller_arg(arg),
+                                    message = NULL,
+                                    class = "assert_character_scalar",
+                                    call = parent.frame()) {
   assert_character_vector(values, optional = TRUE)
   assert_logical_scalar(optional)
 
@@ -140,22 +145,29 @@ assert_character_scalar <- function(arg,
     return(invisible(arg))
   }
 
-  if (!is.character(arg)) {
-    err_msg <- sprintf(
-      "`%s` must be a character scalar but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
+  message <-
+    message %||%
+    ifelse(
+      is.null(values),
+      "Argument {.arg {arg_name}} must be a scalar of class {.cls character},
+       but is {.obj_type_friendly {arg}}.",
+      "Argument {.arg {arg_name}} must be equal to one of {.val {values}}."
     )
-    abort(err_msg)
+
+  if (!is.character(arg)) {
+    cli::cli_abort(
+      message = message,
+      call = call,
+      class = c(class, "assert-admiraldev")
+    )
   }
 
   if (length(arg) != 1L) {
-    err_msg <- sprintf(
-      "`%s` must be a character scalar but is a character vector of length %d",
-      arg_name(substitute(arg)),
-      length(arg)
+    cli::cli_abort(
+      message = message,
+      call = call,
+      class = c(class, "assert-admiraldev")
     )
-    abort(err_msg)
   }
 
   # Create case_adjusted_arg and case_adjusted_values for the following purpose:
@@ -182,13 +194,11 @@ assert_character_scalar <- function(arg,
   }
 
   if (!is.null(values) && case_adjusted_arg %notin% case_adjusted_values) {
-    err_msg <- sprintf(
-      "`%s` must be one of %s but is '%s'",
-      arg_name(substitute(arg)),
-      enumerate(values, quote_fun = squote, conjunction = "or"),
-      arg
+    cli::cli_abort(
+      message = message,
+      call = call,
+      class = c(class, "assert-admiraldev")
     )
-    abort(err_msg)
   }
 
   invisible(case_adjusted_arg)

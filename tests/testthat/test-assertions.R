@@ -274,49 +274,27 @@ test_that("assert_character_scalar Test 17: error if `arg` not in values", {
     assert_character_scalar(
       duration_unit,
       values = c("years", "months", "weeks", "days", "hours", "minutes", "seconds"),
-      case_sensitive <- FALSE
+      case_sensitive = FALSE
     )
   }
 
   expect_error(
     check_unit("month"),
-    paste0(
-      "`duration_unit` must be one of 'years', 'months', 'weeks', 'days', ",
-      "'hours', 'minutes' or 'seconds' but is 'month'"
-    )
+    class = "assert_character_scalar"
   )
+  expect_snapshot(check_unit("month"), error = TRUE)
 
-  expect_error(
-    check_unit("MONTH"),
-    paste0(
-      "`duration_unit` must be one of 'years', 'months', 'weeks', 'days', ",
-      "'hours', 'minutes' or 'seconds' but is 'MONTH'"
-    )
-  )
 
   check_unit2 <- function(duration_unit) {
     assert_character_scalar(
       duration_unit,
       values = c("YEARS", "MONTHS", "WEEKS", "DAYS", "HOURS", "MINUTES", "SECONDS"),
-      case_sensitive <- FALSE
+      case_sensitive = FALSE
     )
   }
 
-  expect_error(
-    check_unit2("month"),
-    paste0(
-      "`duration_unit` must be one of 'YEARS', 'MONTHS', 'WEEKS', 'DAYS', ",
-      "'HOURS', 'MINUTES' or 'SECONDS' but is 'month'"
-    )
-  )
-
-  expect_error(
-    check_unit2("MONTH"),
-    paste0(
-      "`duration_unit` must be one of 'YEARS', 'MONTHS', 'WEEKS', 'DAYS', ",
-      "'HOURS', 'MINUTES' or 'SECONDS' but is 'MONTH'"
-    )
-  )
+  expect_error(check_unit2("months"), NA)
+  expect_snapshot(check_unit2("month"), error = TRUE)
 })
 
 # assert_character_vector ----

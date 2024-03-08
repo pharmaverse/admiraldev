@@ -1,3 +1,19 @@
+# assert_character_scalar Test 17: error if `arg` not in values
+
+    Code
+      check_unit("month")
+    Condition
+      Error in `check_unit()`:
+      ! Argument `duration_unit` must be equal to one of "years", "months", "weeks", "days", "hours", "minutes", and "seconds".
+
+---
+
+    Code
+      check_unit2("month")
+    Condition
+      Error in `check_unit2()`:
+      ! Argument `duration_unit` must be equal to one of "YEARS", "MONTHS", "WEEKS", "DAYS", "HOURS", "MINUTES", and "SECONDS".
+
 # assert_character_vector Test 18: error if `arg` not a character vector
 
     Code
