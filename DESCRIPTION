@@ -53,6 +53,7 @@ Suggests:
     knitr,
     methods,
     miniUI,
+    reactable
     rmarkdown,
     roxygen2,
     rstudioapi,
@@ -62,6 +63,8 @@ Suggests:
     usethis,
     covr,
     DT,
-    htmltools
+    htmltools,
+    reactable,
+    cransays
 VignetteBuilder: knitr
 Config/testthat/edition: 3

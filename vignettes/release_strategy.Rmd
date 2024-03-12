@@ -15,13 +15,17 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(dplyr)
+library(reactable)
 ```
 
 # Introduction
 
 This article explains how we do package releases for `{admiral}` and across all our
 package extensions. This includes details around planned/scheduled releases, as well
-as hotfixes.
+as hotfixes. At the bottom, you can explore the status of any admiral/pharmaverse-related
+uploads to CRAN.
 
 # Release Schedule
 
@@ -50,13 +54,13 @@ function.
 A package release is done in the following steps:
 
 1) Create the release version:
-    a) Create a new feature branch from `main`.
-    a) Call `usethis::use_version()` to update the `Versions:` field in the
-    `DESCRIPTION` file and update `NEWS.md` (replace "(development version)"
-    with the version to be released)
-    a) Create a PR into `main` and merge it. The title of the PR must contain "[skip vbump]".
-    Otherwise, the vbump workflow sets the version to a development version and
-    CRAN will reject the submission.
+a) Create a new feature branch from `main`.
+a) Call `usethis::use_version()` to update the `Versions:` field in the
+`DESCRIPTION` file and update `NEWS.md` (replace "(development version)"
+with the version to be released)
+a) Create a PR into `main` and merge it. The title of the PR must contain "[skip vbump]".
+Otherwise, the vbump workflow sets the version to a development version and
+CRAN will reject the submission.
 1) Bundle up from `main` (`devtools::build(manual = TRUE)`) and send off to
 CRAN. See the [chapter](https://r-pkgs.org/release.html#decide-the-release-type)
 in R Packages for more details.
@@ -68,22 +72,22 @@ releases](https://github.com/pharmaverse/admiral/releases) for reference and
 [Releasing to Github](release_strategy.html#releasing-to-github) section for
 more details).
 
-    This releases onto Github archives the version of code within the `main` branch,
+This releases onto Github archives the version of code within the `main` branch,
 attaches the News/Changelog file, bundles the code into a `tar.gz` file and
 makes a validation report via the GitHub action `validation` from
 [insightsengineering/validatoR](https://github.com/insightsengineering/thevalidatoR).
 
-    It also builds the website for the released version and stores it in a new
+It also builds the website for the released version and stores it in a new
 `vx.y.z` folder on the `gh-pages` branch.
 
 1) Merge `main` into `patch` to be prepared in case of a needed hotfix.
 1) Create the next development version:
-    a) Create a new feature branch from `main`.
-    a) Call `usethis::use_dev_version()` to update `NEWS.md` (adds a new
-    section `# admiral (development version)`) and update the version in the
-    `DESCRIPTION` file to a development version.
-    a) Create a PR into `main` and merge it.
-    
+a) Create a new feature branch from `main`.
+a) Call `usethis::use_dev_version()` to update `NEWS.md` (adds a new
+section `# admiral (development version)`) and update the version in the
+`DESCRIPTION` file to a development version.
+a) Create a PR into `main` and merge it.
+
 ## Hot Fix Release
 
 Rarely, we may need to release a hot fix to immediately address a bug. In the
@@ -125,21 +129,21 @@ releases](https://github.com/pharmaverse/admiral/releases) for reference and
 [Releasing to Github](release_strategy.html#releasing-to-github) section for
 more details).
 
-    This releases onto Github archives the version of code within the `patch`
+This releases onto Github archives the version of code within the `patch`
 branch, attaches the News/Changelog file, bundles the code into a `tar.gz` file
 and makes a validation report via the GitHub action `validation` from
 [insightsengineering/validatoR](https://github.com/insightsengineering/thevalidatoR).
 
-    It also builds the website for the released version and stores it in a new
+It also builds the website for the released version and stores it in a new
 `vx.y.z` folder on the `gh-pages` branch.
 
 1) These hot fixes should then be merged into the `main` branch through an
 additional Pull Request. Merging the PR will update the version in the
 `DESCRIPTION` file to a development version.
 1) Create the next development version:
-    a) Create a new feature branch from `main`.
-    a) Update `NEWS.md` (add a new section `# admiral (development version)`)
-    a) Create a PR into `main` and merge it.
+a) Create a new feature branch from `main`.
+a) Update `NEWS.md` (add a new section `# admiral (development version)`)
+a) Create a PR into `main` and merge it.
 
 # Releasing to Github
 Under the [Releases](https://github.com/pharmaverse/admiral/releases) section in the main repo, select `Draft a New Release`. Proceed by creating the appropriate release tag and header, denoted as `vX.X.X` and `admiral X.X.X` respectively, for the release:
@@ -159,3 +163,65 @@ Then in the upload box where it says, "Attach binaries by dropping them here or 
 # Communications
 
 After the release, we raise awareness via our Slack channel and LinkedIn.
+
+# Release Tracking
+
+The table below shows the CRAN approval status for any recently-submitted packages with "pharmaverse" or "admiral" within their name. It refreshes every hour.
+
+```{r get-data, echo = FALSE, warning = FALSE}
+standard_folders <- c(
+  "pretest", "inspect", "recheck", "pending", "publish", "newbies", "waiting"
+)
+
+cran_raw <- cransays::take_snapshot()
+
+cran_incoming <- cran_raw %>% 
+  arrange(subfolder, howlongago) %>% 
+  filter(subfolder != "archive") %>% 
+  mutate(
+    folder = ifelse(subfolder %in% standard_folders, subfolder, "human"),
+    subfolder = ifelse(subfolder %in% standard_folders, NA, subfolder)
+  )
+
+cran_incoming_admiral_pharmaverse <- cran_incoming %>% 
+  filter(grepl("pharmaverse|admiral", package))
+```
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+colours <- c(
+  "pretest" = "#F8F3BA",
+  "inspect" = "#F8F3BA",
+  "human"   = "#F1D9A1",
+  "recheck" = "#E5CADB",
+  "publish" = "#A5D6C8"
+)
+
+if (nrow(cran_incoming_admiral_pharmaverse > 0)) {
+  
+  cran_incoming_admiral_pharmaverse %>% 
+  dplyr::select(package, version, submission_time, folder, subfolder) %>% 
+  reactable(
+    columns = list(
+      folder = colDef(style = function(value) {
+        val <- as.character(value)
+        if (val %in% names(colours)) {
+          list(background = colours[[val]])
+        } else {
+          list()
+        }
+      }),
+      submission_time = colDef(cell = function(value, index) {
+        prettyunits::time_ago(value)
+      })
+    ),
+    defaultSorted = list("submission_time" = "desc"),
+    filterable = TRUE,
+    defaultPageSize = 50
+  )
+  
+}else{
+  c("No package submissions currently awaiting CRAN approval!")
+}
+
+```
+
