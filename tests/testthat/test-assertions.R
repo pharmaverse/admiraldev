@@ -1213,7 +1213,7 @@ test_that("assert_same_type Test 91: error if different type", {
   false_value <- "N"
   missing_value <- 0
 
-  # perform a partial regex match of the error message
+  # perform a class match of the error message
   expect_error(
     assert_same_type(true_value, false_value, missing_value),
     class = "assert_same_type"
