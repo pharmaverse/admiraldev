@@ -175,15 +175,15 @@ standard_folders <- c(
 
 cran_raw <- cransays::take_snapshot()
 
-cran_incoming <- cran_raw %>% 
-  arrange(subfolder, howlongago) %>% 
-  filter(subfolder != "archive") %>% 
+cran_incoming <- cran_raw %>%
+  arrange(subfolder, howlongago) %>%
+  filter(subfolder != "archive") %>%
   mutate(
     folder = ifelse(subfolder %in% standard_folders, subfolder, "human"),
     subfolder = ifelse(subfolder %in% standard_folders, NA, subfolder)
   )
 
-cran_incoming_admiral_pharmaverse <- cran_incoming %>% 
+cran_incoming_admiral_pharmaverse <- cran_incoming %>%
   filter(grepl("pharmaverse|admiral", package))
 ```
 
@@ -197,31 +197,28 @@ colours <- c(
 )
 
 if (nrow(cran_incoming_admiral_pharmaverse > 0)) {
-  
-  cran_incoming_admiral_pharmaverse %>% 
-  dplyr::select(package, version, submission_time, folder, subfolder) %>% 
-  reactable(
-    columns = list(
-      folder = colDef(style = function(value) {
-        val <- as.character(value)
-        if (val %in% names(colours)) {
-          list(background = colours[[val]])
-        } else {
-          list()
-        }
-      }),
-      submission_time = colDef(cell = function(value, index) {
-        prettyunits::time_ago(value)
-      })
-    ),
-    defaultSorted = list("submission_time" = "desc"),
-    filterable = TRUE,
-    defaultPageSize = 50
-  )
-  
-}else{
+  cran_incoming_admiral_pharmaverse %>%
+    dplyr::select(package, version, submission_time, folder, subfolder) %>%
+    reactable(
+      columns = list(
+        folder = colDef(style = function(value) {
+          val <- as.character(value)
+          if (val %in% names(colours)) {
+            list(background = colours[[val]])
+          } else {
+            list()
+          }
+        }),
+        submission_time = colDef(cell = function(value, index) {
+          prettyunits::time_ago(value)
+        })
+      ),
+      defaultSorted = list("submission_time" = "desc"),
+      filterable = TRUE,
+      defaultPageSize = 50
+    )
+} else {
   c("No package submissions currently awaiting CRAN approval!")
 }
-
 ```
 
