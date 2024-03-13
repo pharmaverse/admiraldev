@@ -60,8 +60,28 @@
     Code
       example_fun(NULL)
     Condition
-      Error in `assert_list_of()`:
+      Error in `example_fun()`:
       ! Argument `arg` must be class <list>, but is NULL.
+
+# assert_list_of Test 47: error if `arg` is not a named list (no elements named)
+
+    Code
+      mylist <- list(1, 2, 3)
+      assert_list_of(mylist, cls = "numeric", named = TRUE)
+    Condition
+      Error:
+      ! All elements of `mylist` argument must be named.
+      i The indices of the unnamed elements are 1, 2, and 3
+
+# assert_list_of Test 48: error if `arg` is not a named list (some elements named)
+
+    Code
+      mylist <- list(1, 2, 3, d = 4)
+      assert_list_of(mylist, cls = "numeric", named = TRUE)
+    Condition
+      Error:
+      ! All elements of `mylist` argument must be named.
+      i The indices of the unnamed elements are 1, 2, and 3
 
 # assert_named Test 51: error if no elements are named
 
