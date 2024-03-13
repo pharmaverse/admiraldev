@@ -417,9 +417,10 @@ assert_expr <- function(arg,
     return(invisible(arg))
   }
 
+  arg_name <- tryCatch(force(arg_name), error = function(e) "arg")
   if (is_missing(arg)) {
     cli_abort(
-      message = message %||% "Argument {.code assert_expr(arg)} cannot be missing.",
+      message = message %||% "Argument {.arg {arg_name}} cannot be missing.",
       call = call,
       class = c(class, "assert-admiraldev")
     )

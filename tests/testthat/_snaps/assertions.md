@@ -53,7 +53,15 @@
       assert_expr()
     Condition
       Error:
-      ! Argument `assert_expr(arg)` cannot be missing.
+      ! Argument `arg` cannot be missing.
+
+---
+
+    Code
+      example_fun()
+    Condition
+      Error in `example_fun()`:
+      ! Argument `data` cannot be missing.
 
 # assert_expr Test 30: `assert_expr` throws an error if `arg` is not an expression
 

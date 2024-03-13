@@ -469,6 +469,14 @@ test_that("assert_expr Test 29: `assert_expr` throws an error if `arg` is missin
     assert_expr(),
     error = TRUE
   )
+
+  example_fun <- function(data) {
+    assert_expr(data)
+  }
+  expect_snapshot(
+    example_fun(),
+    error = TRUE
+  )
 })
 
 ## Test 30: `assert_expr` throws an error if `arg` is not an expression ----
