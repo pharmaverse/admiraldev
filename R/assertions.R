@@ -145,24 +145,25 @@ assert_character_scalar <- function(arg,
     return(invisible(arg))
   }
 
-  # set default message, if not specified in function call
-  message <-
-    message %||%
-    ifelse(
-      is.null(values),
-      "Argument {.arg {arg_name}} must be a scalar of class {.cls character},
-       but is {.obj_type_friendly {arg}}.",
-      "Argument {.arg {arg_name}} must be a scalar of class {.cls character} and
-       equal to one of {.val {values}}."
-    )
   # change cli `.val` to end with OR instead of AND
   divid <- cli::cli_div(theme = list(.val = list("vec-last" = ", or ", "vec_sep2" = " or ")))
 
-
   # check class and length of `arg`
-  if (!is.character(arg) || length(arg) != 1L) {
+  if (!is.character(arg)) {
     cli::cli_abort(
-      message = message,
+      message = message %||%
+        "Argument {.arg {arg_name}} must be a scalar of class {.cls character},
+         but is {.obj_type_friendly {arg}}.",
+      call = call,
+      class = c(class, "assert-admiraldev")
+    )
+  }
+
+  if (length(arg) != 1L) {
+    cli::cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be a scalar of class {.cls character},
+         but is length {.val {length(arg)}}",
       call = call,
       class = c(class, "assert-admiraldev")
     )
@@ -193,7 +194,8 @@ assert_character_scalar <- function(arg,
 
   if (!is.null(values) && case_adjusted_arg %notin% case_adjusted_values) {
     cli::cli_abort(
-      message = message,
+      message = message %||%
+        "Argument {.arg {arg_name}} must be equal to one of {.val {values}}.",
       call = call,
       class = c(class, "assert-admiraldev")
     )
