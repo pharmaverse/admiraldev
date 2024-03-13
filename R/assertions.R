@@ -192,7 +192,7 @@ assert_character_scalar <- function(arg,
   }
 
   if (!is.null(values) && case_adjusted_arg %notin% case_adjusted_values) {
-   cli::cli_abort(
+    cli::cli_abort(
       message = message,
       call = call,
       class = c(class, "assert-admiraldev")
