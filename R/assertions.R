@@ -824,8 +824,8 @@ assert_list_of <- function(arg, cls,
   if (!all(is_class)) {
     # construct supplementary message listing elements that are not correct type
     if (!is.null(message)) {
-      info_msg <- glue::glue_collapse(
-        glue::glue(
+      info_msg <- glue_collapse(
+        glue(
           "element {{.val {{{which(!is_class)}}}}} is ",
           "{{.obj_type_friendly {{arg[!is_class][[{which(!is_class)}]]}}}}"
         ),
