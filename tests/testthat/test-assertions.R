@@ -405,7 +405,6 @@ test_that("assert_symbol Test 24: `assert_symbol` throws an error if `arg` is mi
     class = "assert_symbol"
   )
   expect_snapshot(example_fun(f()), error = TRUE)
-
 })
 
 ## Test 25: `assert_symbol` throws an error if `arg` is not a symbol ----
@@ -423,7 +422,6 @@ test_that("assert_symbol Test 25: `assert_symbol` throws an error if `arg` is no
     class = "assert_symbol"
   )
   expect_snapshot(example_fun(f(NULL)), error = TRUE)
-
 })
 
 ## Test 26: `assert_symbol` does not throw an error if `arg` is a symbol ----
