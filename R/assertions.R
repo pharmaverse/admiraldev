@@ -814,7 +814,10 @@ assert_list_of <- function(arg, cls,
     # construct supplementary message listing elements that are not correct type
     if (!is.null(message)) {
       info_msg <- glue::glue_collapse(
-        glue::glue("element {{.val {{{which(!is_class)}}}}} is {{.obj_type_friendly {{arg[!is_class][[{which(!is_class)}]]}}}}"),
+        glue::glue(
+          "element {{.val {{{which(!is_class)}}}}} is ",
+          "{{.obj_type_friendly {{arg[!is_class][[{which(!is_class)}]]}}}}"
+        ),
         sep = ", ", last = ", and "
       )
       message <- c(
