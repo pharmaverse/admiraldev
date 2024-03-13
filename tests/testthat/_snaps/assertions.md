@@ -1,3 +1,11 @@
+# assert_filter_cond Test 3: `assert_filter_cond` works as expected
+
+    Code
+      assert_filter_cond(arg = fc)
+    Condition
+      Error:
+      ! Argument `fc` must be a filter condition, but is string
+
 # assert_character_scalar Test 17: error if `arg` not in values
 
     Code
