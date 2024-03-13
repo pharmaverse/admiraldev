@@ -483,7 +483,7 @@ assert_filter_cond <- function(arg,
 
   provided <- !is_missing(arg)
   if (provided && !(is_call(arg) || is_logical(arg))) {
-    cli::cli_abort(
+    cli_abort(
       message = message %||%
         "Argument {.arg {arg_name}} must be a filter condition, but is {.ob_type_friendly {arg}}",
       class = c(class, "assert-admiraldev"),
