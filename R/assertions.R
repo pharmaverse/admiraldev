@@ -151,18 +151,11 @@ assert_character_scalar <- function(arg,
       is.null(values),
       "Argument {.arg {arg_name}} must be a scalar of class {.cls character},
        but is {.obj_type_friendly {arg}}.",
-      "Argument {.arg {arg_name}} must be equal to one of {.val {values}}."
+      "Argument {.arg {arg_name}} must be a scalar of class {.cls character} and
+       equal to one of {.val {values}}."
     )
 
-  if (!is.character(arg)) {
-    cli::cli_abort(
-      message = message,
-      call = call,
-      class = c(class, "assert-admiraldev")
-    )
-  }
-
-  if (length(arg) != 1L) {
+  if (!is.character(arg) || length(arg) != 1L) {
     cli::cli_abort(
       message = message,
       call = call,
