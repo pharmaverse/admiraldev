@@ -668,29 +668,36 @@ test_that("assert_list_of Test 46: no error if `arg` is a list of specific class
 
 ## Test 47: error if `arg` is not a named list (no elements named) ----
 test_that("assert_list_of Test 47: error if `arg` is not a named list (no elements named)", {
-  expect_error({
-    mylist <- list(1, 2, 3)
-    assert_list_of(mylist, cls = "numeric", named = TRUE)},
+  expect_error(
+    {
+      mylist <- list(1, 2, 3)
+      assert_list_of(mylist, cls = "numeric", named = TRUE)
+    },
     class = "assert_list_of"
   )
-  expect_snapshot({
-    mylist <- list(1, 2, 3)
-    assert_list_of(mylist, cls = "numeric", named = TRUE)},
+  expect_snapshot(
+    {
+      mylist <- list(1, 2, 3)
+      assert_list_of(mylist, cls = "numeric", named = TRUE)
+    },
     error = TRUE
   )
-
 })
 
 ## Test 48: error if `arg` is not a named list (some elements named) ----
 test_that("assert_list_of Test 48: error if `arg` is not a named list (some elements named)", {
-  expect_error({
-    mylist <- list(1, 2, 3, d = 4)
-    assert_list_of(mylist, cls = "numeric", named = TRUE)},
+  expect_error(
+    {
+      mylist <- list(1, 2, 3, d = 4)
+      assert_list_of(mylist, cls = "numeric", named = TRUE)
+    },
     class = "assert_list_of"
   )
-  expect_snapshot({
-    mylist <- list(1, 2, 3, d = 4)
-    assert_list_of(mylist, cls = "numeric", named = TRUE)},
+  expect_snapshot(
+    {
+      mylist <- list(1, 2, 3, d = 4)
+      assert_list_of(mylist, cls = "numeric", named = TRUE)
+    },
     error = TRUE
   )
 })
