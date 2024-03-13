@@ -47,7 +47,7 @@ test_that("assert_filter_cond Test 3: `assert_filter_cond` works as expected", {
   fc <- expr("string")
   expect_error(
     assert_filter_cond(arg = fc),
-    class  = "assert_filter_cond"
+    class = "assert_filter_cond"
   )
   expect_snapshot(
     assert_filter_cond(arg = fc),
