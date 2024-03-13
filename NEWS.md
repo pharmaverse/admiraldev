@@ -13,7 +13,7 @@
 - The "Release Strategy" vignette was updated with respect to the new branching
 strategy. (#353)
 
-- The "Release Strategy" vignette now contains a dashboard showcasing the status of admiral/pharmaverse packages that are awaiting CRAN approval. (#358)
+- The "Release Strategy" vignette now contains a short new "Release Tracking" section linking to an external dashboard for CRAN packages that are awaiting release. (#358)
 
 # admiraldev 1.0.0
 

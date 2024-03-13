@@ -24,8 +24,7 @@ library(reactable)
 
 This article explains how we do package releases for `{admiral}` and across all our
 package extensions. This includes details around planned/scheduled releases, as well
-as hotfixes. At the bottom, you can explore the status of any admiral/pharmaverse-related
-uploads to CRAN.
+as hotfixes.
 
 # Release Schedule
 
@@ -160,65 +159,11 @@ Then in the upload box where it says, "Attach binaries by dropping them here or 
 
 `git push --delete origin tagname`
 
+# Release Tracking
+
+When a new package release has been submitted to CRAN and is awaiting go-live, you can track its status by searching for it within [this dashboard](https://r-hub.github.io/cransays/articles/dashboard.html).
+
 # Communications
 
 After the release, we raise awareness via our Slack channel and LinkedIn.
-
-# Release Tracking
-
-The table below shows the CRAN approval status for any recently-submitted packages with "pharmaverse" or "admiral" within their name. It refreshes every hour.
-
-```{r get-data, echo = FALSE, warning = FALSE}
-standard_folders <- c(
-  "pretest", "inspect", "recheck", "pending", "publish", "newbies", "waiting"
-)
-
-cran_raw <- cransays::take_snapshot()
-
-cran_incoming <- cran_raw %>%
-  arrange(subfolder, howlongago) %>%
-  filter(subfolder != "archive") %>%
-  mutate(
-    folder = ifelse(subfolder %in% standard_folders, subfolder, "human"),
-    subfolder = ifelse(subfolder %in% standard_folders, NA, subfolder)
-  )
-
-cran_incoming_admiral_pharmaverse <- cran_incoming %>%
-  filter(grepl("pharmaverse|admiral", package))
-```
-
-```{r, echo = FALSE, warning = FALSE, message = FALSE}
-colours <- c(
-  "pretest" = "#F8F3BA",
-  "inspect" = "#F8F3BA",
-  "human"   = "#F1D9A1",
-  "recheck" = "#E5CADB",
-  "publish" = "#A5D6C8"
-)
-
-if (nrow(cran_incoming_admiral_pharmaverse > 0)) {
-  cran_incoming_admiral_pharmaverse %>%
-    dplyr::select(package, version, submission_time, folder, subfolder) %>%
-    reactable(
-      columns = list(
-        folder = colDef(style = function(value) {
-          val <- as.character(value)
-          if (val %in% names(colours)) {
-            list(background = colours[[val]])
-          } else {
-            list()
-          }
-        }),
-        submission_time = colDef(cell = function(value, index) {
-          prettyunits::time_ago(value)
-        })
-      ),
-      defaultSorted = list("submission_time" = "desc"),
-      filterable = TRUE,
-      defaultPageSize = 50
-    )
-} else {
-  c("No package submissions currently awaiting CRAN approval!")
-}
-```
 
