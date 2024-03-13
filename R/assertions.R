@@ -395,6 +395,7 @@ assert_symbol <- function(arg, optional = FALSE) {
 #' Assert Argument is an Expression
 #'
 #' @inheritParams assert_data_frame
+#' @inheritParams assert_character_scalar
 #'
 #' @keywords assertion
 #' @family assertion
@@ -404,7 +405,12 @@ assert_symbol <- function(arg, optional = FALSE) {
 #' a symbol or a call, or returns the input invisibly otherwise
 #'
 #' @export
-assert_expr <- function(arg, optional = FALSE) {
+assert_expr <- function(arg,
+                        optional = FALSE,
+                        arg_name = rlang::caller_arg(arg),
+                        message = NULL,
+                        class = "assert_expr",
+                        call = parent.frame()) {
   assert_logical_scalar(optional)
 
   if (optional && is.null(arg)) {
@@ -412,16 +418,20 @@ assert_expr <- function(arg, optional = FALSE) {
   }
 
   if (is_missing(arg)) {
-    abort("Argument `arg` missing, with no default")
+    cli::cli_abort(
+      message = message %||% "Argument {.code assert_expr(arg)} cannot be missing.",
+      call = call,
+      class = c(class, "assert-admiraldev")
+    )
   }
 
   if (!(is_call(arg) || is_expression(arg))) {
-    err_msg <- sprintf(
-      "`%s` must be an expression but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
+    cli::cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be an expression, but is {.obj_type_friendly {arg}}",
+      call = call,
+      class = c(class, "assert-admiraldev")
     )
-    abort(err_msg)
   }
 
   invisible(arg)
