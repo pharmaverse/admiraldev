@@ -75,7 +75,11 @@ one of the provided <code>values</code>.</p>
 <span>  <span class="va">arg</span>,</span>
 <span>  values <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  case_sensitive <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  optional <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  optional <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  arg_name <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/caller_arg.html" class="external-link">caller_arg</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span>,</span>
+<span>  message <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  class <span class="op">=</span> <span class="st">"assert_character_scalar"</span>,</span>
+<span>  call <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -99,6 +103,32 @@ permitted values and returning the argument.</p></dd>
 <dt>optional</dt>
 <dd><p>Is the checked argument optional? If set to <code>FALSE</code> and <code>arg</code>
 is <code>NULL</code> then an error is thrown</p></dd>
+
+
+<dt>arg_name</dt>
+<dd><p>string indicating the label/symbol of the object being checked.</p></dd>
+
+
+<dt>message</dt>
+<dd><p>string passed to <code>cli::cli_abort(message)</code>.
+When <code>NULL</code>, default messaging is used. <code>"{arg_name}"</code> can be used in messaging.</p></dd>
+
+
+<dt>class</dt>
+<dd><p>Subclass of the condition.</p></dd>
+
+
+<dt>call</dt>
+<dd><p>The execution environment of a currently running
+function, e.g. <code>call = caller_env()</code>. The corresponding function
+call is retrieved and mentioned in error messages as the source
+of the error.</p>
+<p>You only need to supply <code>call</code> when throwing a condition from a
+helper function which wouldn't be relevant to mention in the
+message.</p>
+<p>Can also be <code>NULL</code> or a <a href="https://rlang.r-lib.org/reference/topic-defuse.html" class="external-link">defused function call</a> to
+respectively not display any call or hard-code a code to display.</p>
+<p>For more information about error calls, see <a href="https://rlang.r-lib.org/reference/topic-error-call.html" class="external-link">Including function calls in error messages</a>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -149,12 +179,14 @@ is <code>NULL</code> then an error is thrown</p></dd>
 <span class="r-in"><span><span class="fu">example_fun</span><span class="op">(</span><span class="st">"warning"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="st">"message"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in assert_character_scalar(msg_type, values = c("warning", "error")) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `msg_type` must be one of 'warning' or 'error' but is 'message'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in example_fun("message") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Argument `msg_type` must be a scalar of class <span style="color: #0000BB;">&lt;character&gt;</span> and equal to</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> one of <span style="color: #0000BB;">"warning"</span> or <span style="color: #0000BB;">"error"</span>.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in assert_character_scalar(msg_type, values = c("warning", "error")) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `msg_type` must be a character scalar but is `TRUE`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in example_fun(TRUE) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Argument `msg_type` must be a scalar of class <span style="color: #0000BB;">&lt;character&gt;</span> and equal to</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> one of <span style="color: #0000BB;">"warning"</span> or <span style="color: #0000BB;">"error"</span>.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># handling arguments case-insensitive</span></span></span>
 <span class="r-in"><span><span class="va">example_fun2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">msg_type</span><span class="op">)</span> <span class="op">{</span></span></span>
