@@ -282,7 +282,7 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 #' If set to `FALSE` and `arg` is `NULL` then an error is thrown. Otherwise,
 #' `NULL` is considered as valid value.
 #' @param arg_name string indicating the label/symbol of the object being checked.
-#' @param message string passed to `cli_abort(message)`.
+#' @param message string passed to `cli::cli_abort(message)`.
 #' When `NULL`, default messaging is used. `"{arg_name}"` can be used in messaging.
 #' @inheritParams cli::cli_abort
 #' @inheritParams rlang::abort
@@ -853,9 +853,6 @@ assert_list_of <- function(arg, cls,
 #'
 #' Assert that all elements of the argument are named.
 #'
-#' @param message string passed to `cli_abort(message)`.
-#' When `NULL`, default messaging is used.
-#' `"{arg_name}"` and `"{indices}"` can be used in messaging.
 #' @inheritParams assert_data_frame
 #' @inheritParams assert_logical_scalar
 #'
