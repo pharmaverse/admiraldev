@@ -138,8 +138,8 @@ package-specific <code>release_bullets()</code> function.</p>
 </h3>
 <p>A package release is done in the following steps:</p>
 <ol style="list-style-type: decimal">
-<li>
-<p>Create the release version:</p>
+<li>Create the release version:</li>
+</ol>
 <ol style="list-style-type: lower-alpha">
 <li>Create a new feature branch from <code>main</code>.</li>
 <li>Call <code><a href="https://usethis.r-lib.org/reference/use_version.html" class="external-link">usethis::use_version()</a></code> to update the
@@ -151,20 +151,19 @@ must contain “[skip vbump]”. Otherwise, the vbump workflow sets the
 version to a development version and CRAN will reject the
 submission.</li>
 </ol>
-</li>
-<li><p>Bundle up from <code>main</code>
+<ol style="list-style-type: decimal">
+<li>Bundle up from <code>main</code>
 (<code>devtools::build(manual = TRUE)</code>) and send off to CRAN. See
 the <a href="https://r-pkgs.org/release.html#decide-the-release-type" class="external-link">chapter</a>
-in R Packages for more details.</p></li>
-<li><p>If CRAN asks for modifications, repeat steps 1-2 as
-necessary.</p></li>
-<li>
-<p>Once the package is accepted and available on CRAN, use the
-release button on GitHub to “release” the package onto GitHub, select
-the <code>main</code> branch as target, and use a tag of the form
+in R Packages for more details.</li>
+<li>If CRAN asks for modifications, repeat steps 1-2 as necessary.</li>
+<li>Once the package is accepted and available on CRAN, use the release
+button on GitHub to “release” the package onto GitHub, select the
+<code>main</code> branch as target, and use a tag of the form
 <code>vX.Y.Z</code>, e.g., <code>v1.1.2</code> (see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral
 releases</a> for reference and <a href="release_strategy.html#releasing-to-github">Releasing to Github</a>
-section for more details).</p>
+section for more details).</li>
+</ol>
 <p>This releases onto Github archives the version of code within the
 <code>main</code> branch, attaches the News/Changelog file, bundles the
 code into a <code>tar.gz</code> file and makes a validation report via
@@ -172,11 +171,11 @@ the GitHub action <code>validation</code> from <a href="https://github.com/insig
 <p>It also builds the website for the released version and stores it in
 a new <code>vx.y.z</code> folder on the <code>gh-pages</code>
 branch.</p>
-</li>
-<li><p>Merge <code>main</code> into <code>patch</code> to be prepared in
-case of a needed hotfix.</p></li>
-<li>
-<p>Create the next development version:</p>
+<ol style="list-style-type: decimal">
+<li>Merge <code>main</code> into <code>patch</code> to be prepared in
+case of a needed hotfix.</li>
+<li>Create the next development version:</li>
+</ol>
 <ol style="list-style-type: lower-alpha">
 <li>Create a new feature branch from <code>main</code>.</li>
 <li>Call <code><a href="https://usethis.r-lib.org/reference/use_version.html" class="external-link">usethis::use_dev_version()</a></code> to update
@@ -184,8 +183,6 @@ case of a needed hotfix.</p></li>
 <code># admiral (development version)</code>) and update the version in
 the <code>DESCRIPTION</code> file to a development version.</li>
 <li>Create a PR into <code>main</code> and merge it.</li>
-</ol>
-</li>
 </ol>
 </div>
 <div class="section level3">
@@ -230,25 +227,25 @@ release button</p></li>
 <code>vX.Y.Z</code>, e.g., <code>v1.1.2</code> (see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral
 releases</a> for reference and <a href="release_strategy.html#releasing-to-github">Releasing to Github</a>
 section for more details).</p>
-<pre><code>This releases onto Github archives the version of code within the `patch`</code></pre>
-<p>branch, attaches the News/Changelog file, bundles the code into a
-<code>tar.gz</code> file and makes a validation report via the GitHub
-action <code>validation</code> from <a href="https://github.com/insightsengineering/thevalidatoR" class="external-link">insightsengineering/validatoR</a>.</p>
-<pre><code>It also builds the website for the released version and stores it in a new</code></pre>
-<p><code>vx.y.z</code> folder on the <code>gh-pages</code> branch.</p>
+<p>This releases onto Github archives the version of code within the
+<code>patch</code> branch, attaches the News/Changelog file, bundles the
+code into a <code>tar.gz</code> file and makes a validation report via
+the GitHub action <code>validation</code> from <a href="https://github.com/insightsengineering/thevalidatoR" class="external-link">insightsengineering/validatoR</a>.</p>
+<p>It also builds the website for the released version and stores it in
+a new <code>vx.y.z</code> folder on the <code>gh-pages</code>
+branch.</p>
 <ol style="list-style-type: decimal">
 <li>These hot fixes should then be merged into the <code>main</code>
 branch through an additional Pull Request. Merging the PR will update
 the version in the <code>DESCRIPTION</code> file to a development
 version.</li>
-<li>Create the next development version:
+<li>Create the next development version:</li>
+</ol>
 <ol style="list-style-type: lower-alpha">
 <li>Create a new feature branch from <code>main</code>.</li>
 <li>Update <code>NEWS.md</code> (add a new section
 <code># admiral (development version)</code>)</li>
 <li>Create a PR into <code>main</code> and merge it.</li>
-</ol>
-</li>
 </ol>
 </div>
 </div>
@@ -273,6 +270,13 @@ when something is done in error. Deleting a tag can not be done on
 GitHub and must be done in the terminal. However, it is very easy!! Just
 use:</p>
 <p><code>git push --delete origin tagname</code></p>
+</div>
+<div class="section level2">
+<h2 id="release-tracking">Release Tracking<a class="anchor" aria-label="anchor" href="#release-tracking"></a>
+</h2>
+<p>When a new package release has been submitted to CRAN and is awaiting
+go-live, you can track its status by searching for it within <a href="https://r-hub.github.io/cransays/articles/dashboard.html" class="external-link">this
+dashboard</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="communications">Communications<a class="anchor" aria-label="anchor" href="#communications"></a>
