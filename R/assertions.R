@@ -1681,7 +1681,12 @@ assert_date_var <- function(dataset, var, dataset_name = NULL, var_name = NULL) 
 #'   as.Date("2022-01-30", tz = "UTC")
 #' )
 #' try(example_fun("1993-07-14"))
-assert_date_vector <- function(arg, optional = FALSE) {
+assert_date_vector <- function(arg,
+                               optional = FALSE,
+                               arg_name = rlang::caller_arg(arg),
+                               message = NULL,
+                               class = "assert_date_vector",
+                               call = parent.frame()) {
   assert_logical_scalar(optional)
 
   if (optional && is.null(arg)) {
@@ -1689,14 +1694,15 @@ assert_date_vector <- function(arg, optional = FALSE) {
   }
 
   if (!is.instant(arg)) {
-    abort(paste0(
-      "`",
-      deparse(substitute(arg)),
-      "` must be a date or datetime variable but it's `",
-      friendly_type_of(arg),
-      "`"
-    ))
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be a date or datetime, but is {.obj_type_friendly {arg}}.",
+      class = c(class, "assert-admiraldev"),
+      call = call
+    )
   }
+
+  invisible(arg)
 }
 
 #' Are All Argument of the Same Type?

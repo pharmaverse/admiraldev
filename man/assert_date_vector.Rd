@@ -4,7 +4,14 @@
 \alias{assert_date_vector}
 \title{Is an object a date or datetime vector?}
 \usage{
-assert_date_vector(arg, optional = FALSE)
+assert_date_vector(
+  arg,
+  optional = FALSE,
+  arg_name = rlang::caller_arg(arg),
+  message = NULL,
+  class = "assert_date_vector",
+  call = parent.frame()
+)
 }
 \arguments{
 \item{arg}{The function argument to be checked}
