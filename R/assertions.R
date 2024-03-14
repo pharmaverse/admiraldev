@@ -1065,8 +1065,10 @@ assert_function <- function(arg,
       message = message %||%
         ifelse(
           !all(is_param),
-          "{enumerate(params[!is_param])} is not an argument of the function specified for {.arg {arg_name}}.",
-          "{enumerate(params[!is_param])} are not arguments of the function specified for {.arg {arg_name}}."
+          "{enumerate(params[!is_param])} is not an argument
+           of the function specified for {.arg {arg_name}}.",
+          "{enumerate(params[!is_param])} are not arguments
+           of the function specified for {.arg {arg_name}}."
         ),
       call = call,
       class = c(class, "assert-admiraldev")
