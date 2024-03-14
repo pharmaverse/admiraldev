@@ -1319,9 +1319,14 @@ assert_varval_list <- function(arg, # nolint
   if (length(invalids) > 0) {
     cli_abort(
       message = message %||%
-        c(paste0("The elements of the list in argument {.arg {arg_name}} must be ", valid_vals, "."),
+        c(
+          paste0(
+            "The elements of the list in argument {.arg {arg_name}} must be ",
+            valid_vals, "."
+          ),
           i = glue_collapse(
-            glue("{{.val {names(invalids)}}} = {{.code {invalids}}} is type {{.cls {map_chr(invalids, typeof)}}}"),
+            glue("{{.val {names(invalids)}}} = {{.code {invalids}}} is type
+                  {{.cls {map_chr(invalids, typeof)}}}"),
             sep = ", ",
             last = ", and "
           )
