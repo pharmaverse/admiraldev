@@ -391,7 +391,7 @@ assert_symbol <- function(arg,
     )
 
   if (is_missing(arg) || !is.symbol(arg)) {
-    cli::cli_abort(
+    cli_abort(
       message = message,
       call = call,
       class = c(class, "assert-admiraldev")
