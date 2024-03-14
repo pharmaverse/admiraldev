@@ -47,6 +47,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be either TRUE or FALSE, but is a string.
 
+
 # assert_symbol Test 24: `assert_symbol` throws an error if `arg` is missing
 
     Code
@@ -62,6 +63,31 @@
     Condition
       Error in `example_fun()`:
       ! Argument `arg` must be a <symbol>, but is NULL.
+
+# assert_expr Test 29: `assert_expr` throws an error if `arg` is missing
+
+    Code
+      assert_expr()
+    Condition
+      Error:
+      ! Argument `arg` cannot be missing.
+
+---
+
+    Code
+      example_fun()
+    Condition
+      Error in `example_fun()`:
+      ! Argument `data` cannot be missing.
+
+# assert_expr Test 30: `assert_expr` throws an error if `arg` is not an expression
+
+    Code
+      var <- c(1, 2)
+      assert_expr(var)
+    Condition
+      Error:
+      ! Argument `var` must be an expression, but is a double vector
 
 # assert_s3_class Test 41: error if `arg` is NULL and optional is FALSE
 
@@ -97,4 +123,3 @@
       Error:
       ! Arguments `true_value`, `false_value`, and `missing_value` must be the same type.
       i Argument types are `true_value` <character>, `false_value` <character>, `missing_value` <double>
-

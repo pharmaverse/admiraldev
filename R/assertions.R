@@ -161,7 +161,7 @@ assert_character_scalar <- function(arg,
 
   # check class and length of `arg`
   if (!is.character(arg) || length(arg) != 1L) {
-    cli::cli_abort(
+    cli_abort(
       message = message,
       call = call,
       class = c(class, "assert-admiraldev")
@@ -192,7 +192,7 @@ assert_character_scalar <- function(arg,
   }
 
   if (!is.null(values) && case_adjusted_arg %notin% case_adjusted_values) {
-    cli::cli_abort(
+    cli_abort(
       message = message,
       call = call,
       class = c(class, "assert-admiraldev")
@@ -261,7 +261,7 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 
   if (!is.character(arg) ||
     (!is.null(values) && length(unique(arg[!map_lgl(arg, `%in%`, values)])) > 0L)) {
-    cli::cli_abort(
+    cli_abort(
       message = message,
       call = call,
       class = c(class, "assert-admiraldev")
@@ -282,7 +282,7 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 #' If set to `FALSE` and `arg` is `NULL` then an error is thrown. Otherwise,
 #' `NULL` is considered as valid value.
 #' @param arg_name string indicating the label/symbol of the object being checked.
-#' @param message string passed to `cli::cli_abort(message)`.
+#' @param message string passed to `cli_abort(message)`.
 #' When `NULL`, default messaging is used. `"{arg_name}"` can be used in messaging.
 #' @inheritParams cli::cli_abort
 #' @inheritParams rlang::abort
@@ -323,7 +323,7 @@ assert_logical_scalar <- function(arg, optional = FALSE,
      {.val {FALSE}}, but is {.obj_type_friendly {arg}}."
 
   if (!is.logical(arg) || length(arg) != 1L || is.na(arg)) {
-    cli::cli_abort(
+    cli_abort(
       message = message,
       call = call,
       class = c(class, "assert-admiraldev")
@@ -404,6 +404,7 @@ assert_symbol <- function(arg,
 #' Assert Argument is an Expression
 #'
 #' @inheritParams assert_data_frame
+#' @inheritParams assert_character_scalar
 #'
 #' @keywords assertion
 #' @family assertion
@@ -413,24 +414,34 @@ assert_symbol <- function(arg,
 #' a symbol or a call, or returns the input invisibly otherwise
 #'
 #' @export
-assert_expr <- function(arg, optional = FALSE) {
+assert_expr <- function(arg,
+                        optional = FALSE,
+                        arg_name = rlang::caller_arg(arg),
+                        message = NULL,
+                        class = "assert_expr",
+                        call = parent.frame()) {
   assert_logical_scalar(optional)
 
   if (optional && is.null(arg)) {
     return(invisible(arg))
   }
 
+  arg_name <- tryCatch(force(arg_name), error = function(e) "arg")
   if (is_missing(arg)) {
-    abort("Argument `arg` missing, with no default")
+    cli_abort(
+      message = message %||% "Argument {.arg {arg_name}} cannot be missing.",
+      call = call,
+      class = c(class, "assert-admiraldev")
+    )
   }
 
   if (!(is_call(arg) || is_expression(arg))) {
-    err_msg <- sprintf(
-      "`%s` must be an expression but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be an expression, but is {.obj_type_friendly {arg}}",
+      call = call,
+      class = c(class, "assert-admiraldev")
     )
-    abort(err_msg)
   }
 
   invisible(arg)
@@ -735,7 +746,7 @@ assert_s3_class <- function(arg, cls,
     "Argument {.arg {arg_name}} must be class {.cls {cls}}, but is {.obj_type_friendly {arg}}."
 
   if (!inherits(arg, cls)) {
-    cli::cli_abort(
+    cli_abort(
       message = messagge,
       class = c(class, "assert-admiraldev"),
       call = call
@@ -830,7 +841,7 @@ assert_list_of <- function(arg, class, named = FALSE, optional = TRUE) {
 #'
 #' Assert that all elements of the argument are named.
 #'
-#' @param message string passed to `cli::cli_abort(message)`.
+#' @param message string passed to `cli_abort(message)`.
 #' When `NULL`, default messaging is used.
 #' `"{arg_name}"` and `"{indices}"` can be used in messaging.
 #' @inheritParams assert_data_frame
@@ -882,7 +893,7 @@ assert_named <- function(arg, optional = FALSE,
       i = "The indices of the unnamed elements are {.val {indices}}"
     )
 
-  cli::cli_abort(
+  cli_abort(
     message = message,
     call = call,
     class = c(class, "assert-admiraldev")
@@ -1658,9 +1669,9 @@ assert_date_vector <- function(arg, optional = FALSE) {
 #' Checks if all arguments are of the same type.
 #'
 #' @param ... Arguments to be checked
-#' @param .message character vector passed to `cli::cli_abort(message)` when assertion fails.
-#' @param .class character vector passed to `cli::cli_abort(class)` when assertion fails.
-#' @param .call environment passed to `cli::cli_abort(call)` when assertion fails.
+#' @param .message character vector passed to `cli_abort(message)` when assertion fails.
+#' @param .class character vector passed to `cli_abort(class)` when assertion fails.
+#' @param .call environment passed to `cli_abort(call)` when assertion fails.
 #'
 #'
 #' @return The function throws an error if not all arguments are of the same type.
@@ -1704,7 +1715,7 @@ assert_same_type <- function(...,
 
   # if more than one type resent, return error
   if (length(unique(types)) > 1) {
-    cli::cli_abort(
+    cli_abort(
       message = .message,
       class = c(.class, "assert-admiraldev"),
       call = .call
