@@ -1660,6 +1660,7 @@ assert_date_var <- function(dataset, var, dataset_name = NULL, var_name = NULL) 
 #'
 #' @param optional Is the checked argument optional? If set to `FALSE`
 #' and `arg` is `NULL` then the function `assert_date_vector` exits early and throw and error.
+#' @inheritParams assert_logical_scalar
 #'
 #' @return
 #' The function returns an error if `arg` is missing, or not a date or datetime variable
