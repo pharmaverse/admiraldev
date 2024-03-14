@@ -193,7 +193,7 @@ assert_character_scalar <- function(arg,
   }
 
   if (!is.null(values) && case_adjusted_arg %notin% case_adjusted_values) {
-    cli::cli_abort(
+    cli_abort(
       message = message %||%
         "Argument {.arg {arg_name}} must be equal to one of {.val {values}}.",
       call = call,
@@ -568,6 +568,7 @@ assert_vars <- function(arg, expect_names = FALSE, optional = FALSE) {
 #'   of `"none"` (the default), `"positive"`, `"non-negative"` or `"negative"`.
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #'   is `NULL` then an error is thrown
+#' @inheritParams assert_logical_scalar
 #'
 #'
 #' @return
@@ -591,7 +592,13 @@ assert_vars <- function(arg, expect_names = FALSE, optional = FALSE) {
 #' try(example_fun(2, 0))
 #'
 #' try(example_fun("2", 0))
-assert_integer_scalar <- function(arg, subset = "none", optional = FALSE) {
+assert_integer_scalar <- function(arg,
+                                  subset = "none",
+                                  optional = FALSE,
+                                  arg_name = rlang::caller_arg(arg),
+                                  message = NULL,
+                                  class = "assert_integer_scalar",
+                                  call = parent.frame()) {
   subsets <- list(
     "positive" = quote(arg > 0L),
     "non-negative" = quote(arg >= 0L),
@@ -606,13 +613,14 @@ assert_integer_scalar <- function(arg, subset = "none", optional = FALSE) {
   }
 
   if (!is_integerish(arg) || length(arg) != 1L || !is.finite(arg) || !eval(subsets[[subset]])) {
-    err_msg <- sprintf(
-      "`%s` must be %s integer scalar but is %s",
-      arg_name(substitute(arg)),
-      ifelse(subset == "none", "an", paste("a", subset)),
-      what_is_it(arg)
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be
+         {ifelse(subset == 'none', 'an', paste('a', subset))}
+         integer scalar.",
+      class = c(class, "assert-admiraldev"),
+      call = call
     )
-    abort(err_msg)
   }
 
   invisible(as.integer(arg))
@@ -675,6 +683,7 @@ assert_numeric_vector <- function(arg,
 #' @param arg A function argument to be checked
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
+#' @inheritParams assert_logical_scalar
 #'
 #'
 #' @return
@@ -693,7 +702,12 @@ assert_numeric_vector <- function(arg,
 #' example_fun(1:10)
 #'
 #' try(example_fun(list(1, 2)))
-assert_atomic_vector <- function(arg, optional = FALSE) {
+assert_atomic_vector <- function(arg,
+                                 optional = FALSE,
+                                 arg_name = rlang::caller_arg(arg),
+                                 message = NULL,
+                                 class = "assert_atomic_vector",
+                                 call = parent.frame()) {
   assert_logical_scalar(optional)
 
   if (optional && is.null(arg)) {
@@ -701,13 +715,15 @@ assert_atomic_vector <- function(arg, optional = FALSE) {
   }
 
   if (!is.atomic(arg)) {
-    err_msg <- sprintf(
-      "`%s` must be an atomic vector but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be an atomic vector, but is {.obj_type_friendly {arg}}.",
+      call = call,
+      class = c(class, "assert-admiraldev")
     )
-    abort(err_msg)
   }
+
+  invisible(arg)
 }
 
 #' Is an Argument an Object of a Specific S3 Class?
@@ -771,11 +787,12 @@ assert_s3_class <- function(arg, cls,
 #' Checks if an argument is a `list` of objects inheriting from the S3 class or type specified.
 #'
 #' @param arg A function argument to be checked
-#' @param class The S3 class or type to check for
+#' @param cls The S3 class or type to check for
 #' @param named If set to `TRUE`, an error is issued if not all elements of the
 #'   list are named.
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #'   is `NULL` then an error is thrown
+#' @inheritParams assert_logical_scalar
 #'
 #'
 #' @return
@@ -802,8 +819,14 @@ assert_s3_class <- function(arg, cls,
 #'   assert_list_of(list, "numeric", named = TRUE)
 #' }
 #' try(example_fun2(list(1, 2, 3, d = 4)))
-assert_list_of <- function(arg, class, named = FALSE, optional = TRUE) {
-  assert_character_scalar(class)
+assert_list_of <- function(arg, cls,
+                           named = FALSE,
+                           optional = TRUE,
+                           arg_name = rlang::caller_arg(arg),
+                           message = NULL,
+                           class = "assert_list_of",
+                           call = parent.frame()) {
+  assert_character_scalar(cls)
   assert_logical_scalar(named)
   assert_logical_scalar(optional)
 
@@ -811,37 +834,51 @@ assert_list_of <- function(arg, class, named = FALSE, optional = TRUE) {
     return(invisible(arg))
   }
 
-  assert_s3_class(arg, "list")
-
-  is_class <- map_lgl(arg, inherits, class) | map_chr(arg, typeof) == class
-  if (!all(is_class)) {
-    info_msg <- paste(
-      sprintf("\u2716 Element %s is %s", which(!is_class), map_chr(arg[!is_class], what_is_it)),
-      collapse = "\n"
+  # check the passed argument is a list
+  assert_s3_class(
+    arg,
+    cls = "list",
+    arg_name = arg_name,
+    message = message,
+    class = class,
+    call = call
+  )
+  # if list must be named, check this
+  if (named) {
+    assert_named(
+      arg,
+      arg_name = arg_name,
+      message = message,
+      class = class,
+      call = call
     )
-    err_msg <- sprintf(
-      "Each element of `%s` must be an object of class/type '%s' but the following are not:\n%s",
-      arg_name(substitute(arg)),
-      class,
-      info_msg
-    )
-    abort(err_msg)
   }
 
-  if (named && length(arg) > 0) {
-    if (is.null(names(arg))) {
-      abort(paste0(
-        "All elements of ", arg_name(substitute(arg)), " must be named.\n",
-        "No element is named."
-      ))
+  # check each list element is the expected class/type
+  is_class <- map_lgl(arg, inherits, cls) | map_chr(arg, typeof) == cls
+  if (!all(is_class)) {
+    # construct supplementary message listing elements that are not correct type
+    if (is.null(message)) {
+      info_msg <- glue_collapse(
+        glue(
+          "element {{.val {{{which(!is_class)}}}}} is ",
+          "{{.obj_type_friendly {{arg[!is_class][[{which(!is_class)}]]}}}}"
+        ),
+        sep = ", ", last = ", and "
+      )
+      message <- c(
+        "Each element of the list in argument {{.arg {{arg_name}}}}
+         must be class/type {{.cls {cls}}}.",
+        i = paste("But,", info_msg)
+      )
     }
-    unnamed <- which(names(arg) == "")
-    if (length(unnamed) > 0) {
-      abort(paste0(
-        "All elements of ", arg_name(substitute(arg)), " must be named.\n",
-        "The following elements are not named: ", enumerate(unnamed, quote_fun = NULL)
-      ))
-    }
+
+
+    cli_abort(
+      message = message,
+      class = c(class, "assert-admiraldev"),
+      call = call
+    )
   }
 
   invisible(arg)
@@ -851,9 +888,6 @@ assert_list_of <- function(arg, class, named = FALSE, optional = TRUE) {
 #'
 #' Assert that all elements of the argument are named.
 #'
-#' @param message string passed to `cli::cli_abort(message)`.
-#' When `NULL`, default messaging is used.
-#' `"{arg_name}"` and `"{indices}"` can be used in messaging.
 #' @inheritParams assert_data_frame
 #' @inheritParams assert_logical_scalar
 #'
