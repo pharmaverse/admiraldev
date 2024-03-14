@@ -55,7 +55,6 @@
       Error in `example_fun()`:
       ! Argument `arg` must be either TRUE or FALSE, but is a string.
 
-
 # assert_symbol Test 24: `assert_symbol` throws an error if `arg` is missing
 
     Code
@@ -110,8 +109,28 @@
     Code
       example_fun(NULL)
     Condition
-      Error in `assert_list_of()`:
+      Error in `example_fun()`:
       ! Argument `arg` must be class <list>, but is NULL.
+
+# assert_list_of Test 47: error if `arg` is not a named list (no elements named)
+
+    Code
+      mylist <- list(1, 2, 3)
+      assert_list_of(mylist, cls = "numeric", named = TRUE)
+    Condition
+      Error:
+      ! All elements of `mylist` argument must be named.
+      i The indices of the unnamed elements are 1, 2, and 3
+
+# assert_list_of Test 48: error if `arg` is not a named list (some elements named)
+
+    Code
+      mylist <- list(1, 2, 3, d = 4)
+      assert_list_of(mylist, cls = "numeric", named = TRUE)
+    Condition
+      Error:
+      ! All elements of `mylist` argument must be named.
+      i The indices of the unnamed elements are 1, 2, and 3
 
 # assert_named Test 51: error if no elements are named
 
@@ -123,6 +142,14 @@
       ! All elements of `arg` argument must be named.
       i The indices of the unnamed elements are 1 and 2
 
+# assert_atomic_vector Test 89: error if input is not atomic vector
+
+    Code
+      assert_atomic_vector(x)
+    Condition
+      Error:
+      ! Argument `x` must be an atomic vector, but is a list.
+
 # assert_same_type Test 91: error if different type
 
     Code
@@ -131,3 +158,4 @@
       Error:
       ! Arguments `true_value`, `false_value`, and `missing_value` must be the same type.
       i Argument types are `true_value` <character>, `false_value` <character>, `missing_value` <double>
+
