@@ -4,7 +4,7 @@
       check_unit("month")
     Condition
       Error in `check_unit()`:
-      ! Argument `duration_unit` must be a scalar of class <character> and equal to one of "years", "months", "weeks", "days", "hours", "minutes", or "seconds".
+      ! Argument `duration_unit` must be equal to one of "years", "months", "weeks", "days", "hours", "minutes", or "seconds".
 
 ---
 
@@ -12,7 +12,7 @@
       check_unit2("month")
     Condition
       Error in `check_unit2()`:
-      ! Argument `duration_unit` must be a scalar of class <character> and equal to one of "YEARS", "MONTHS", "WEEKS", "DAYS", "HOURS", "MINUTES", or "SECONDS".
+      ! Argument `duration_unit` must be equal to one of "YEARS", "MONTHS", "WEEKS", "DAYS", "HOURS", "MINUTES", or "SECONDS".
 
 # assert_character_vector Test 18: error if `arg` not a character vector
 
@@ -46,6 +46,23 @@
     Condition
       Error in `example_fun()`:
       ! Argument `arg` must be either TRUE or FALSE, but is a string.
+
+
+# assert_symbol Test 24: `assert_symbol` throws an error if `arg` is missing
+
+    Code
+      example_fun(f())
+    Condition
+      Error in `example_fun()`:
+      ! Argument `arg` must be a <symbol>, but is missing.
+
+# assert_symbol Test 25: `assert_symbol` throws an error if `arg` is not a symbol
+
+    Code
+      example_fun(f(NULL))
+    Condition
+      Error in `example_fun()`:
+      ! Argument `arg` must be a <symbol>, but is NULL.
 
 # assert_expr Test 29: `assert_expr` throws an error if `arg` is missing
 
@@ -126,4 +143,3 @@
       Error:
       ! Arguments `true_value`, `false_value`, and `missing_value` must be the same type.
       i Argument types are `true_value` <character>, `false_value` <character>, `missing_value` <double>
-

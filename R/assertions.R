@@ -145,24 +145,25 @@ assert_character_scalar <- function(arg,
     return(invisible(arg))
   }
 
-  # set default message, if not specified in function call
-  message <-
-    message %||%
-    ifelse(
-      is.null(values),
-      "Argument {.arg {arg_name}} must be a scalar of class {.cls character},
-       but is {.obj_type_friendly {arg}}.",
-      "Argument {.arg {arg_name}} must be a scalar of class {.cls character} and
-       equal to one of {.val {values}}."
-    )
   # change cli `.val` to end with OR instead of AND
-  divid <- cli::cli_div(theme = list(.val = list("vec-last" = ", or ", "vec_sep2" = " or ")))
-
+  divid <- cli_div(theme = list(.val = list("vec-last" = ", or ", "vec_sep2" = " or ")))
 
   # check class and length of `arg`
-  if (!is.character(arg) || length(arg) != 1L) {
+  if (!is.character(arg)) {
     cli_abort(
-      message = message,
+      message = message %||%
+        "Argument {.arg {arg_name}} must be a scalar of class {.cls character},
+         but is {.obj_type_friendly {arg}}.",
+      call = call,
+      class = c(class, "assert-admiraldev")
+    )
+  }
+
+  if (length(arg) != 1L) {
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be a scalar of class {.cls character},
+         but is length {.val {length(arg)}}",
       call = call,
       class = c(class, "assert-admiraldev")
     )
@@ -192,8 +193,9 @@ assert_character_scalar <- function(arg,
   }
 
   if (!is.null(values) && case_adjusted_arg %notin% case_adjusted_values) {
-    cli_abort(
-      message = message,
+    cli::cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be equal to one of {.val {values}}.",
       call = call,
       class = c(class, "assert-admiraldev")
     )
@@ -340,6 +342,7 @@ assert_logical_scalar <- function(arg, optional = FALSE,
 #' @param arg A function argument to be checked. Must be a `symbol`. See examples.
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
+#' @inheritParams assert_logical_scalar
 #'
 #'
 #' @return
@@ -368,25 +371,33 @@ assert_logical_scalar <- function(arg, optional = FALSE,
 #' try(example_fun(dm, "USUBJID"))
 #'
 #' try(example_fun(dm, toupper(PARAMCD)))
-assert_symbol <- function(arg, optional = FALSE) {
+assert_symbol <- function(arg,
+                          optional = FALSE,
+                          arg_name = rlang::caller_arg(arg),
+                          message = NULL,
+                          class = "assert_symbol",
+                          call = parent.frame()) {
   assert_logical_scalar(optional)
 
   if (optional && is.null(arg)) {
     return(invisible(arg))
   }
 
-  if (is_missing(arg)) {
-    err_msg <- sprintf("Argument `%s` missing, with no default", arg_name(substitute(arg)))
-    abort(err_msg)
-  }
-
-  if (!is.symbol(arg)) {
-    err_msg <- sprintf(
-      "`%s` must be a symbol but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
+  # set default error message, if not specified
+  message <-
+    message %||%
+    ifelse(
+      is_missing(arg),
+      "Argument {.arg {arg_name}} must be a {.cls symbol}, but is missing.",
+      "Argument {.arg {arg_name}} must be a {.cls symbol}, but is {.obj_type_friendly {arg}}."
     )
-    abort(err_msg)
+
+  if (is_missing(arg) || !is.symbol(arg)) {
+    cli_abort(
+      message = message,
+      call = call,
+      class = c(class, "assert-admiraldev")
+    )
   }
 
   invisible(arg)
