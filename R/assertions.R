@@ -193,7 +193,7 @@ assert_character_scalar <- function(arg,
   }
 
   if (!is.null(values) && case_adjusted_arg %notin% case_adjusted_values) {
-    cli::cli_abort(
+    cli_abort(
       message = message %||%
         "Argument {.arg {arg_name}} must be equal to one of {.val {values}}.",
       call = call,
@@ -834,7 +834,7 @@ assert_list_of <- function(arg, cls,
   is_class <- map_lgl(arg, inherits, cls) | map_chr(arg, typeof) == cls
   if (!all(is_class)) {
     # construct supplementary message listing elements that are not correct type
-    if (!is.null(message)) {
+    if (is.null(message)) {
       info_msg <- glue_collapse(
         glue(
           "element {{.val {{{which(!is_class)}}}}} is ",
@@ -845,12 +845,12 @@ assert_list_of <- function(arg, cls,
       message <- c(
         "Each element of the list in argument {{.arg {{arg_name}}}}
          must be class/type {{.cls {cls}}}.",
-        i = paste("For example,", info_msg)
+        i = paste("But,", info_msg)
       )
     }
 
 
-    cli::cli_abort(
+    cli_abort(
       message = message,
       class = c(class, "assert-admiraldev"),
       call = call
