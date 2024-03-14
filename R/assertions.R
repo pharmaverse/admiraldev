@@ -606,7 +606,7 @@ assert_integer_scalar <- function(arg,
       message = message %||%
         "Argument {.arg {arg_name}} must be
          {ifelse(subset == 'none', 'an', paste('a', subset))}
-         integer scalar, but is {.obj_type_friendly {arg}}.",
+         integer scalar.",
       class = c(class, "assert-admiraldev"),
       call = call
     )
