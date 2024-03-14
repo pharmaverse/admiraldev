@@ -110,7 +110,7 @@ is <code>NULL</code> then an error is thrown</p></dd>
 
 
 <dt>message</dt>
-<dd><p>string passed to <code>cli_abort(message)</code>.
+<dd><p>string passed to <code>cli::cli_abort(message)</code>.
 When <code>NULL</code>, default messaging is used. <code>"{arg_name}"</code> can be used in messaging.</p></dd>
 
 
@@ -180,13 +180,12 @@ respectively not display any call or hard-code a code to display.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="st">"message"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in example_fun("message") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Argument `msg_type` must be a scalar of class <span style="color: #0000BB;">&lt;character&gt;</span> and equal to</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> one of <span style="color: #0000BB;">"warning"</span> or <span style="color: #0000BB;">"error"</span>.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Argument `msg_type` must be equal to one of <span style="color: #0000BB;">"warning"</span> or <span style="color: #0000BB;">"error"</span>.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in example_fun(TRUE) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Argument `msg_type` must be a scalar of class <span style="color: #0000BB;">&lt;character&gt;</span> and equal to</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> one of <span style="color: #0000BB;">"warning"</span> or <span style="color: #0000BB;">"error"</span>.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Argument `msg_type` must be a scalar of class <span style="color: #0000BB;">&lt;character&gt;</span>, but is</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> `TRUE`.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># handling arguments case-insensitive</span></span></span>
 <span class="r-in"><span><span class="va">example_fun2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">msg_type</span><span class="op">)</span> <span class="op">{</span></span></span>
