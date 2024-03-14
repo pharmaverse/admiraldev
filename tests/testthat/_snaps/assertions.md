@@ -142,6 +142,14 @@
       Error in `example_fun()`:
       ! Argument `arg` must be a function, but is a number.
 
+# assert_atomic_vector Test 89: error if input is not atomic vector
+
+    Code
+      assert_atomic_vector(x)
+    Condition
+      Error:
+      ! Argument `x` must be an atomic vector, but is a list.
+
 # assert_same_type Test 91: error if different type
 
     Code
