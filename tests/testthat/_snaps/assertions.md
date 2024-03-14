@@ -134,6 +134,14 @@
       ! All elements of `arg` argument must be named.
       i The indices of the unnamed elements are 1 and 2
 
+# assert_function Test 55: error if `arg` is not a function
+
+    Code
+      example_fun(5)
+    Condition
+      Error in `example_fun()`:
+      ! Argument `arg` must be a function, but is a number.
+
 # assert_same_type Test 91: error if different type
 
     Code
