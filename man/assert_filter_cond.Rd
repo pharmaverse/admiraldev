@@ -64,7 +64,7 @@ example_fun <- function(dat, x) {
 
 example_fun(dm, AGE == 64)
 
-try(example_fun(dm, USUBJID))
+try(assert_filter_cond(mtcars))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 
