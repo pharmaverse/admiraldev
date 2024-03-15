@@ -142,6 +142,14 @@
       Error in `example_fun()`:
       ! Argument `arg` must be a function, but is a number.
 
+# assert_date_vector Test 88: error if `arg` is NULL and optional is FALSE
+
+    Code
+      example_fun(NULL)
+    Condition
+      Error in `example_fun()`:
+      ! Argument `arg` must be a date or datetime, but is NULL.
+
 # assert_atomic_vector Test 89: error if input is not atomic vector
 
     Code
