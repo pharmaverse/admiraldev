@@ -1333,7 +1333,7 @@ assert_varval_list <- function(arg, # nolint
             valid_vals, "."
           ),
           i = glue_collapse(
-            glue("{{.val {names(invalids)}}} = {{.code {invalids}}} is type
+            glue("{{.val {names(invalids)}}} = {{.code {invalids}}} is of type
                   {{.cls {map_chr(invalids, typeof)}}}"),
             sep = ", ",
             last = ", and "
