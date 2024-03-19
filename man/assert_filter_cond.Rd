@@ -58,7 +58,7 @@ data(dm)
 
 # typical usage in a function as an argument check
 example_fun <- function(dat, x) {
-  x <- assert_filter_cond(enquo(x))
+  x <- assert_filter_cond(enexpr(x), arg_name = "x")
   filter(dat, !!x)
 }
 
