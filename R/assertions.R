@@ -511,6 +511,7 @@ assert_filter_cond <- function(arg, optional = FALSE) {
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
 #'
+#' @inheritParams assert_logical_scalar
 #'
 #' @return
 #' The function throws an error if `arg` is not a list of symbols (e.g., created
@@ -543,20 +544,36 @@ assert_filter_cond <- function(arg, optional = FALSE) {
 #' example_fun_name(exprs(APERSDT = APxxSDT, APEREDT = APxxEDT))
 #'
 #' try(example_fun_name(exprs(APERSDT = APxxSDT, APxxEDT)))
-assert_vars <- function(arg, expect_names = FALSE, optional = FALSE) {
+assert_vars <- function(arg,
+                        expect_names = FALSE,
+                        optional = FALSE,
+                        arg_name = rlang::caller_arg(arg),
+                        message = NULL,
+                        class = "assert_integer_scalar",
+                        call = parent.frame()) {
   assert_logical_scalar(expect_names)
   assert_logical_scalar(optional)
 
-  default_err_msg <- sprintf(
-    "`%s` must be a list of symbols, e.g. `exprs(USUBJID, VISIT)`",
-    arg_name(substitute(arg))
-  )
-
   if (isTRUE(tryCatch(force(arg), error = function(e) TRUE))) {
-    abort(default_err_msg)
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be a list of {.cls symbol},
+         e.g., {.code exprs(USUBJID, VISIT)}.",
+      class = c(class, "assert-admiraldev"),
+      call = call
+    )
   }
 
-  assert_list_of(arg, "symbol", named = expect_names, optional = optional)
+  assert_list_of(
+    arg,
+    "symbol",
+    named = expect_names,
+    optional = optional,
+    arg_name = arg_name,
+    message = message,
+    class = class,
+    call = call
+  )
 }
 
 #' Is an Argument an Integer Scalar?
@@ -569,7 +586,6 @@ assert_vars <- function(arg, expect_names = FALSE, optional = FALSE) {
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #'   is `NULL` then an error is thrown
 #' @inheritParams assert_logical_scalar
-#'
 #'
 #' @return
 #' The function throws an error if `arg` is not an integer belonging to the
@@ -862,7 +878,7 @@ assert_list_of <- function(arg, cls,
       info_msg <- glue_collapse(
         glue(
           "element {{.val {{{which(!is_class)}}}}} is ",
-          "{{.obj_type_friendly {{arg[!is_class][[{which(!is_class)}]]}}}}"
+          "{{.obj_type_friendly {{arg[[{which(!is_class)}]]}}}}"
         ),
         sep = ", ", last = ", and "
       )
@@ -872,7 +888,6 @@ assert_list_of <- function(arg, cls,
         i = paste("But,", info_msg)
       )
     }
-
 
     cli_abort(
       message = message,
