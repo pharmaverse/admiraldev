@@ -549,7 +549,7 @@ assert_vars <- function(arg,
                         optional = FALSE,
                         arg_name = rlang::caller_arg(arg),
                         message = NULL,
-                        class = "assert_integer_scalar",
+                        class = "assert_vars",
                         call = parent.frame()) {
   assert_logical_scalar(expect_names)
   assert_logical_scalar(optional)
