@@ -285,7 +285,8 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 #' `NULL` is considered as valid value.
 #' @param arg_name string indicating the label/symbol of the object being checked.
 #' @param message string passed to `cli::cli_abort(message)`.
-#' When `NULL`, default messaging is used. `"{arg_name}"` can be used in messaging.
+#' When `NULL`, default messaging is used (see examples for default messages).
+#' `"{arg_name}"` can be used in messaging.
 #' @inheritParams cli::cli_abort
 #' @inheritParams rlang::abort
 #'
