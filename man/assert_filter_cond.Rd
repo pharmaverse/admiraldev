@@ -21,7 +21,8 @@ assert_filter_cond(
 \item{arg_name}{string indicating the label/symbol of the object being checked.}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
-When \code{NULL}, default messaging is used. \code{"{arg_name}"} can be used in messaging.}
+When \code{NULL}, default messaging is used (see examples for default messages).
+\code{"{arg_name}"} can be used in messaging.}
 
 \item{class}{Subclass of the condition.}
 
