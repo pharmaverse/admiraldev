@@ -1392,7 +1392,7 @@ assert_expr_list <- function(arg, # nolint
   if (!inherits(arg, "list")) {
     cli_abort(
       message = message %||%
-        c("Argument {.arg {arg_name}} must be a named list of expressions
+        c("Argument {.arg {arg_name}} must be a list of expressions
           but is {.obj_type_friendly {arg}}.",
           i = "To create a list of expressions use {.fun exprs}."
         ),
