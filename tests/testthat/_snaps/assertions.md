@@ -1,3 +1,11 @@
+# assert_filter_cond Test 3: `assert_filter_cond` works as expected
+
+    Code
+      assert_filter_cond(arg = fc)
+    Condition
+      Error:
+      ! Argument `fc` must be a filter condition, but is a string
+
 # assert_data_frame Test 4: error if not a dataframe
 
     Code
