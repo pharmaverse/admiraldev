@@ -1355,7 +1355,7 @@ assert_varval_list <- function(arg, # nolint
 #'   list are named.
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown.
-#'
+#' @inheritParams assert_logical_scalar
 #' @return
 #' The function throws an error if `arg` is not a list of expressions.
 #' Otherwise, the input it returned invisibly.
@@ -1376,7 +1376,11 @@ assert_varval_list <- function(arg, # nolint
 assert_expr_list <- function(arg, # nolint
                              required_elements = NULL,
                              named = FALSE,
-                             optional = FALSE) {
+                             optional = FALSE,
+                             arg_name = rlang::caller_arg(arg),
+                             message = NULL,
+                             class = "assert_expr_list",
+                             call = parent.frame()) {
   assert_logical_scalar(named)
   assert_logical_scalar(optional)
   assert_character_vector(required_elements, optional = TRUE)
@@ -1386,15 +1390,15 @@ assert_expr_list <- function(arg, # nolint
   }
 
   if (!inherits(arg, "list")) {
-    err_msg <- sprintf(
-      paste0(
-        "`%s` must be a named list of expressions but it is %s\n",
-        "\u2139 To create a list of expressions use `exprs()`"
-      ),
-      arg_name(substitute(arg)),
-      what_is_it(arg)
+    cli_abort(
+      message = message %||%
+        c("Argument {.arg {arg_name}} must be a named list of expressions
+          but is {.obj_type_friendly {arg}}.",
+          i = "To create a list of expressions use {.fun exprs}."
+        ),
+      class = c(class, "assert-admiraldev"),
+      call = call
     )
-    abort(err_msg)
   }
 
   if (named) {
@@ -1404,12 +1408,13 @@ assert_expr_list <- function(arg, # nolint
   if (!is.null(required_elements)) {
     missing_elements <- setdiff(required_elements, names(arg))
     if (length(missing_elements) >= 1L) {
-      err_msg <- sprintf(
-        "The following required elements are missing in `%s`: %s",
-        arg_name(substitute(arg)),
-        enumerate(missing_elements, quote_fun = squote)
+      cli_abort(
+        message = message %||%
+          "The following required elements are missing from
+           argument {.arg {arg_name}}: {.val {missing_elements}}.",
+        class = c(class, "assert-admiraldev"),
+        call = call
       )
-      abort(err_msg)
     }
   }
 
@@ -1418,25 +1423,23 @@ assert_expr_list <- function(arg, # nolint
     ~ is_call(.x) || is_expression(.x)
   )
   invalidargs <- arg[invalids]
+  index <- if_else(names(invalidargs) == "", as.character(which(invalids)),
+    paste0('"', names(invalidargs), '"')
+  )
 
   if (any(invalids)) {
-    argname <- arg_name(substitute(arg))
-    abort(
-      paste0(
-        "All elements of `",
-        argname,
-        "` must be an expression.\n",
-        paste0(
-          argname,
-          "[[",
-          if_else(names(invalidargs) == "", as.character(which(invalids)), names(invalidargs)),
-          "]] = ",
-          map_chr(invalidargs, expr_label),
-          " is of type ",
-          map_chr(invalidargs, typeof),
-          collapse = "\n"
-        )
-      )
+    cli_abort(
+      message = message %||%
+        c("All elements of {.arg {arg_name}} must be an expression.",
+          i = glue_collapse(
+            glue("{{.arg {arg_name}[[{index}]]}} =
+            {{.code {invalidargs}}} is of type
+                 {{.cls {map_chr(invalidargs, typeof)}}}"),
+            sep = "\n\n"
+          )
+        ),
+      class = c(class, "assert-admiraldev"),
+      call = call
     )
   }
 
