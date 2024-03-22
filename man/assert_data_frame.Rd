@@ -11,7 +11,7 @@ assert_data_frame(
   optional = FALSE,
   arg_name = rlang::caller_arg(arg),
   message = NULL,
-  class = "assert_vars",
+  class = "assert_data_frame",
   call = parent.frame()
 )
 }

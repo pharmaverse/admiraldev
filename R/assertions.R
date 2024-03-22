@@ -71,7 +71,7 @@ assert_data_frame <- function(arg,
   if (check_is_grouped && dplyr::is_grouped_df(arg)) {
     cli_abort(
       message = message %||%
-        "Argument {.arg {arg_name}} must not be grouped, please `ungroup()` it first",
+        "Argument {.arg {arg_name}} must not be a grouped dataset, please `ungroup()` it.",
       class = c(class, "assert-admiraldev"),
       call = call
     )

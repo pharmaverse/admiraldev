@@ -20,7 +20,7 @@
       example_fun(data)
     Condition
       Error in `example_fun()`:
-      ! Argument `dataset` must not be grouped, please `ungroup()` it first
+      ! Argument `dataset` must not be a grouped dataset, please `ungroup()` it.
 
 # assert_data_frame Test 8: error if an expected variable is missing
 
