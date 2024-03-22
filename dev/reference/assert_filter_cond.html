@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9004</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9005</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,14 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">assert_filter_cond</span><span class="op">(</span><span class="va">arg</span>, optional <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">assert_filter_cond</span><span class="op">(</span></span>
+<span>  <span class="va">arg</span>,</span>
+<span>  optional <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  arg_name <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/caller_arg.html" class="external-link">caller_arg</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span>,</span>
+<span>  message <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  class <span class="op">=</span> <span class="st">"assert_filter_cond"</span>,</span>
+<span>  call <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -79,6 +86,33 @@
 
 <dt>optional</dt>
 <dd><p>Logical - is the argument optional? Defaults to <code>FALSE</code>.</p></dd>
+
+
+<dt>arg_name</dt>
+<dd><p>string indicating the label/symbol of the object being checked.</p></dd>
+
+
+<dt>message</dt>
+<dd><p>string passed to <code>cli::cli_abort(message)</code>.
+When <code>NULL</code>, default messaging is used (see examples for default messages).
+<code>"{arg_name}"</code> can be used in messaging.</p></dd>
+
+
+<dt>class</dt>
+<dd><p>Subclass of the condition.</p></dd>
+
+
+<dt>call</dt>
+<dd><p>The execution environment of a currently running
+function, e.g. <code>call = caller_env()</code>. The corresponding function
+call is retrieved and mentioned in error messages as the source
+of the error.</p>
+<p>You only need to supply <code>call</code> when throwing a condition from a
+helper function which wouldn't be relevant to mention in the
+message.</p>
+<p>Can also be <code>NULL</code> or a <a href="https://rlang.r-lib.org/reference/topic-defuse.html" class="external-link">defused function call</a> to
+respectively not display any call or hard-code a code to display.</p>
+<p>For more information about error calls, see <a href="https://rlang.r-lib.org/reference/topic-error-call.html" class="external-link">Including function calls in error messages</a>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -129,7 +163,7 @@ functions like <code>subset</code> or <code><a href="https://dplyr.tidyverse.org
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># typical usage in a function as an argument check</span></span></span>
 <span class="r-in"><span><span class="va">example_fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dat</span>, <span class="va">x</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">assert_filter_cond</span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/enquo.html" class="external-link">enquo</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">assert_filter_cond</span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">enexpr</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, arg_name <span class="op">=</span> <span class="st">"x"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">dat</span>, <span class="op">!</span><span class="op">!</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
@@ -147,10 +181,9 @@ functions like <code>subset</code> or <code><a href="https://dplyr.tidyverse.org
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ARM &lt;chr&gt;, ACTARMCD &lt;chr&gt;, ACTARM &lt;chr&gt;, COUNTRY &lt;chr&gt;, DMDTC &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   DMDY &lt;dbl&gt;</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="va">dm</span>, <span class="va">USUBJID</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in filter(dat, !!x) : <span style="color: #00BBBB;">ℹ</span> In argument: `USUBJID`.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error:</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> `..1` must be a logical vector, not a character vector.</span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">assert_filter_cond</span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Argument `mtcars` must be a filter condition, but is a data frame</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
