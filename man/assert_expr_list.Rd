@@ -62,7 +62,7 @@ example_fun <- function(vars) {
 }
 example_fun(exprs(DTHDOM = "AE", DTHSEQ = AESEQ))
 
-try(example_fun(exprs("AE", DTSEQ = AESEQ, !!list("a"))))
+try(example_fun(exprs("AE", DTSEQ = AESEQ, !!list("a"), !!list("a"))))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 
