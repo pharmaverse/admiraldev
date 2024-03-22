@@ -1435,7 +1435,8 @@ assert_expr_list <- function(arg, # nolint
             glue("{{.arg {arg_name}[[{index}]]}} =
             {{.code {invalidargs}}} is of type
                  {{.cls {map_chr(invalidargs, typeof)}}}"),
-            sep = "\n\n"
+            sep = ", ",
+            last = ", and "
           )
         ),
       class = c(class, "assert-admiraldev"),
