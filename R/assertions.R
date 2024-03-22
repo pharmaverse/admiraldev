@@ -1372,7 +1372,7 @@ assert_varval_list <- function(arg, # nolint
 #' }
 #' example_fun(exprs(DTHDOM = "AE", DTHSEQ = AESEQ))
 #'
-#' try(example_fun(exprs("AE", DTSEQ = AESEQ, !!list("a"))))
+#' try(example_fun(exprs("AE", DTSEQ = AESEQ, !!list("a"), !!list("a"))))
 assert_expr_list <- function(arg, # nolint
                              required_elements = NULL,
                              named = FALSE,
