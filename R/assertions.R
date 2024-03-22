@@ -73,7 +73,8 @@ assert_data_frame <- function(arg,
       message = message %||%
         "Argument {.arg {arg_name}} must not be grouped, please `ungroup()` it first",
       class = c(class, "assert-admiraldev"),
-      call = call)
+      call = call
+    )
   }
 
   if (!is.null(required_vars)) {
