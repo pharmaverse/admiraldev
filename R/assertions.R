@@ -48,7 +48,7 @@ assert_data_frame <- function(arg,
                               optional = FALSE,
                               arg_name = rlang::caller_arg(arg),
                               message = NULL,
-                              class = "assert_vars",
+                              class = "assert_data_frame",
                               call = parent.frame()) {
   assert_vars(required_vars, optional = TRUE)
   assert_logical_scalar(check_is_grouped)
@@ -64,7 +64,7 @@ assert_data_frame <- function(arg,
     optional = optional,
     arg_name = arg_name,
     message = message,
-    class = "assert_data_frame",
+    class = class,
     call = call
   )
 
