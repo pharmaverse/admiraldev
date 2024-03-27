@@ -1091,18 +1091,15 @@ assert_function <- function(arg,
     }
     is_param <- params %in% names(formals(arg))
 
-    cli_abort(
-      message = message %||%
-        ifelse(
-          !all(is_param),
-          "{enumerate(params[!is_param])} is not an argument
-           of the function specified for {.arg {arg_name}}.",
-          "{enumerate(params[!is_param])} are not arguments
-           of the function specified for {.arg {arg_name}}."
-        ),
-      call = call,
-      class = c(class, "assert-admiraldev")
-    )
+    if (!all(is_param)) {
+      cli_abort(
+        message = message %||%
+          "{.val {params[!is_param]}} {?is/are} not {?an argument/arguments} 
+        of the function specified for {.arg {arg_name}}.",
+        call = call,
+        class = c(class, "assert-admiraldev")
+      )
+    }
   }
 
   invisible(arg)
