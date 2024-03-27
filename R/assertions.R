@@ -1094,7 +1094,7 @@ assert_function <- function(arg,
     if (!all(is_param)) {
       cli_abort(
         message = message %||%
-          "{.val {params[!is_param]}} {?is/are} not {?an argument/arguments} 
+          "{.val {params[!is_param]}} {?is/are} not {?an argument/arguments}
         of the function specified for {.arg {arg_name}}.",
         call = call,
         class = c(class, "assert-admiraldev")
