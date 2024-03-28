@@ -1031,7 +1031,6 @@ test_that("assert_unit Test 65: error if there are multiple units in the input d
     assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSSTRESU),
     error = TRUE
   )
-
 })
 
 ## Test 66: error if unexpected unit in the input dataset ----
@@ -1050,7 +1049,6 @@ test_that("assert_unit Test 66: error if unexpected unit in the input dataset", 
     assert_unit(advs, param = "WEIGHT", required_unit = "lb", get_unit_expr = VSSTRESU),
     error = TRUE
   )
-
 })
 
 # assert_param_does_not_exist ----

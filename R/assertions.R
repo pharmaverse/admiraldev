@@ -1184,8 +1184,7 @@ assert_unit <- function(dataset,
                         arg_name = rlang::caller_arg(required_unit),
                         message = NULL,
                         class = "assert_unit",
-                        call = parent.frame()
-                        ) {
+                        call = parent.frame()) {
   assert_data_frame(dataset, required_vars = exprs(PARAMCD))
   assert_character_scalar(param)
   assert_character_scalar(required_unit)
