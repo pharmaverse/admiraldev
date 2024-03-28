@@ -918,8 +918,12 @@ test_that("assert_function Test 57: error if `arg` is not a function", {
     assert_function(arg)
   }
 
-  expect_error(example_fun(5))
-  expect_error(example_fun())
+  expect_error(example_fun(5), class = "assert_function")
+  expect_snapshot(
+    example_fun(5),
+    error = TRUE
+  )
+  expect_error(example_fun(), class = "assert_function")
 })
 
 ## Test 58: no error if `arg` is NULL and optional is TRUE ----
