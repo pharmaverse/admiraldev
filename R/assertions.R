@@ -1254,7 +1254,7 @@ assert_param_does_not_exist <- function(dataset,
   if (param %in% unique(dataset$PARAMCD)) {
     message <-
       message %||%
-      "The parameter code {.val {param}} already exists in dataset {.val {arg_name}}."
+      "The parameter code {.val {param}} already exists in dataset {.arg {arg_name}}."
 
     cli_abort(
       message = message,
