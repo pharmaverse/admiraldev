@@ -225,6 +225,14 @@
       Error in `example_fun()`:
       ! Argument `arg` must be a function, but is a number.
 
+# assert_param_does_not_exist Test 67: error if parameter exists in the input dataset
+
+    Code
+      assert_param_does_not_exist(advs, param = "WEIGHT")
+    Condition
+      Error:
+      ! The parameter code "WEIGHT" already exists in dataset "advs".
+
 # assert_date_vector Test 90: error if `arg` is NULL and optional is FALSE
 
     Code
