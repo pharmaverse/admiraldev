@@ -1252,7 +1252,6 @@ assert_param_does_not_exist <- function(dataset,
                                         call = parent.frame()) {
   assert_data_frame(dataset, required_vars = exprs(PARAMCD))
   if (param %in% unique(dataset$PARAMCD)) {
-
     message <-
       message %||%
       "The parameter code {.val {param}} already exists in dataset {.val {arg_name}}."
