@@ -9,10 +9,11 @@
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
 #'
+#' @inheritParams assert_logical_scalar
 #'
 #' @return
-#' The function throws an error if `arg` is not a data frame or if `arg`
-#' is a data frame but misses any variable specified in `required_vars`. Otherwise,
+#' The function throws an error if `arg` is not a data frame or if `arg` is a
+#' data frame but misses any variable specified in `required_vars`. Otherwise,
 #' the input is returned invisibly.
 #'
 #' @export
@@ -21,10 +22,14 @@
 #' @family assertion
 #'
 #' @examples
-#' library(pharmaversesdtm)
-#' library(dplyr, warn.conflicts = FALSE)
+#' library(tibble)
+#' library(dplyr)
 #' library(rlang)
-#' data(dm)
+#' dm <- tribble(
+#'   ~STUDYID, ~USUBJID,
+#'   "XYZ",    "1",
+#'   "XYZ",    "2"
+#' )
 #'
 #' example_fun <- function(dataset) {
 #'   assert_data_frame(dataset, required_vars = exprs(STUDYID, USUBJID))
@@ -35,10 +40,16 @@
 #' try(example_fun(select(dm, -STUDYID)))
 #'
 #' try(example_fun("Not a dataset"))
+#'
+#' try(example_fun(group_by(dm, USUBJID)))
 assert_data_frame <- function(arg,
                               required_vars = NULL,
                               check_is_grouped = TRUE,
-                              optional = FALSE) {
+                              optional = FALSE,
+                              arg_name = rlang::caller_arg(arg),
+                              message = NULL,
+                              class = "assert_data_frame",
+                              call = parent.frame()) {
   assert_vars(required_vars, optional = TRUE)
   assert_logical_scalar(check_is_grouped)
   assert_logical_scalar(optional)
@@ -47,21 +58,23 @@ assert_data_frame <- function(arg,
     return(invisible(arg))
   }
 
-  if (!is.data.frame(arg)) {
-    err_msg <- sprintf(
-      "`%s` must be a data frame but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
-    )
-    abort(err_msg)
-  }
+  assert_s3_class(
+    arg,
+    cls = "data.frame",
+    optional = optional,
+    arg_name = arg_name,
+    message = message,
+    class = class,
+    call = call
+  )
 
   if (check_is_grouped && dplyr::is_grouped_df(arg)) {
-    err_msg <- sprintf(
-      "`%s` is a grouped data frame, please `ungroup()` it first",
-      arg_name(substitute(arg))
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must not be a grouped dataset, please `ungroup()` it.",
+      class = c(class, "assert-admiraldev"),
+      call = call
     )
-    abort(err_msg)
   }
 
   if (!is.null(required_vars)) {
@@ -70,11 +83,16 @@ assert_data_frame <- function(arg,
     if (any(is_missing)) {
       missing_vars <- required_vars[is_missing]
       if (length(missing_vars) == 1L) {
-        err_msg <- sprintf("Required variable `%s` is missing", missing_vars)
+        err_msg <- "Required variable {.var {missing_vars}} is missing in {.arg {arg_name}}"
       } else {
-        err_msg <- sprintf("Required variables %s are missing", enumerate(missing_vars))
+        err_msg <- "Required variables {.var {missing_vars}} are missing in {.arg {arg_name}}"
       }
-      abort(err_msg)
+      cli_abort(
+        message = message %||%
+          err_msg,
+        class = c(class, "assert-admiraldev"),
+        call = call
+      )
     }
   }
 
@@ -285,7 +303,8 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 #' `NULL` is considered as valid value.
 #' @param arg_name string indicating the label/symbol of the object being checked.
 #' @param message string passed to `cli::cli_abort(message)`.
-#' When `NULL`, default messaging is used. `"{arg_name}"` can be used in messaging.
+#' When `NULL`, default messaging is used (see examples for default messages).
+#' `"{arg_name}"` can be used in messaging.
 #' @inheritParams cli::cli_abort
 #' @inheritParams rlang::abort
 #'
@@ -453,6 +472,7 @@ assert_expr <- function(arg,
 #'
 #' @param arg Quosure - filtering condition.
 #' @param optional Logical - is the argument optional? Defaults to `FALSE`.
+#' @inheritParams assert_logical_scalar
 #'
 #' @details Check if `arg` is a suitable filtering condition to be used in
 #' functions like `subset` or `dplyr::filter`.
@@ -472,14 +492,19 @@ assert_expr <- function(arg,
 #'
 #' # typical usage in a function as an argument check
 #' example_fun <- function(dat, x) {
-#'   x <- assert_filter_cond(enquo(x))
+#'   x <- assert_filter_cond(enexpr(x), arg_name = "x")
 #'   filter(dat, !!x)
 #' }
 #'
 #' example_fun(dm, AGE == 64)
 #'
-#' try(example_fun(dm, USUBJID))
-assert_filter_cond <- function(arg, optional = FALSE) {
+#' try(assert_filter_cond(mtcars))
+assert_filter_cond <- function(arg,
+                               optional = FALSE,
+                               arg_name = rlang::caller_arg(arg),
+                               message = NULL,
+                               class = "assert_filter_cond",
+                               call = parent.frame()) {
   assert_logical_scalar(optional)
 
   if (optional && is.null(arg)) {
@@ -488,12 +513,12 @@ assert_filter_cond <- function(arg, optional = FALSE) {
 
   provided <- !is_missing(arg)
   if (provided && !(is_call(arg) || is_logical(arg))) {
-    err_msg <- sprintf(
-      "`%s` must be a filter condition but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be a filter condition, but is {.obj_type_friendly {arg}}",
+      class = c(class, "assert-admiraldev"),
+      call = call
     )
-    abort(err_msg)
   }
 
   invisible(arg)
@@ -511,6 +536,7 @@ assert_filter_cond <- function(arg, optional = FALSE) {
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
 #'
+#' @inheritParams assert_logical_scalar
 #'
 #' @return
 #' The function throws an error if `arg` is not a list of symbols (e.g., created
@@ -543,20 +569,36 @@ assert_filter_cond <- function(arg, optional = FALSE) {
 #' example_fun_name(exprs(APERSDT = APxxSDT, APEREDT = APxxEDT))
 #'
 #' try(example_fun_name(exprs(APERSDT = APxxSDT, APxxEDT)))
-assert_vars <- function(arg, expect_names = FALSE, optional = FALSE) {
+assert_vars <- function(arg,
+                        expect_names = FALSE,
+                        optional = FALSE,
+                        arg_name = rlang::caller_arg(arg),
+                        message = NULL,
+                        class = "assert_vars",
+                        call = parent.frame()) {
   assert_logical_scalar(expect_names)
   assert_logical_scalar(optional)
 
-  default_err_msg <- sprintf(
-    "`%s` must be a list of symbols, e.g. `exprs(USUBJID, VISIT)`",
-    arg_name(substitute(arg))
-  )
-
   if (isTRUE(tryCatch(force(arg), error = function(e) TRUE))) {
-    abort(default_err_msg)
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be a list of {.cls symbol},
+         e.g., {.code exprs(USUBJID, VISIT)}.",
+      class = c(class, "assert-admiraldev"),
+      call = call
+    )
   }
 
-  assert_list_of(arg, "symbol", named = expect_names, optional = optional)
+  assert_list_of(
+    arg,
+    "symbol",
+    named = expect_names,
+    optional = optional,
+    arg_name = arg_name,
+    message = message,
+    class = class,
+    call = call
+  )
 }
 
 #' Is an Argument an Integer Scalar?
@@ -569,7 +611,6 @@ assert_vars <- function(arg, expect_names = FALSE, optional = FALSE) {
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #'   is `NULL` then an error is thrown
 #' @inheritParams assert_logical_scalar
-#'
 #'
 #' @return
 #' The function throws an error if `arg` is not an integer belonging to the
@@ -862,7 +903,7 @@ assert_list_of <- function(arg, cls,
       info_msg <- glue_collapse(
         glue(
           "element {{.val {{{which(!is_class)}}}}} is ",
-          "{{.obj_type_friendly {{arg[!is_class][[{which(!is_class)}]]}}}}"
+          "{{.obj_type_friendly {{arg[[{which(!is_class)}]]}}}}"
         ),
         sep = ", ", last = ", and "
       )
@@ -872,7 +913,6 @@ assert_list_of <- function(arg, cls,
         i = paste("But,", info_msg)
       )
     }
-
 
     cli_abort(
       message = message,
@@ -1007,7 +1047,7 @@ assert_has_variables <- function(dataset, required_vars) {
 #' @param optional Is the checked argument optional?
 #'
 #' If set to `FALSE` and `arg` is `NULL` then an error is thrown.
-#'
+#' @inheritParams assert_logical_scalar
 #'
 #' @return The function throws an error
 #'
@@ -1031,7 +1071,13 @@ assert_has_variables <- function(dataset, required_vars) {
 #' try(example_fun(1))
 #'
 #' try(example_fun(sum))
-assert_function <- function(arg, params = NULL, optional = FALSE) {
+assert_function <- function(arg,
+                            params = NULL,
+                            optional = FALSE,
+                            arg_name = rlang::caller_arg(arg),
+                            message = NULL,
+                            class = "assert_function",
+                            call = parent.frame()) {
   assert_character_vector(params, optional = TRUE)
   assert_logical_scalar(optional)
 
@@ -1039,37 +1085,41 @@ assert_function <- function(arg, params = NULL, optional = FALSE) {
     return(invisible(arg))
   }
 
+  arg_name <- tryCatch(force(arg_name), error = function(e) "arg")
   if (missing(arg)) {
-    err_msg <- sprintf(
-      "Argument `%s` missing, with no default",
-      arg_name(substitute(arg))
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} cannot be missing.",
+      class = c(class, "assert-admiraldev"),
+      call = call
     )
-    abort(err_msg)
   }
 
   if (!is.function(arg)) {
-    err_msg <- sprintf(
-      "`%s` must be a function but is %s",
-      arg_name(substitute(arg)),
-      what_is_it(arg)
+    cli_abort(
+      message = message %||%
+        "Argument {.arg {arg_name}} must be a function, but is {.obj_type_friendly {arg}}.",
+      class = c(class, "assert-admiraldev"),
+      call = call
     )
-    abort(err_msg)
   }
   if (!is.null(params)) {
     if ("..." %in% names(formals(arg))) {
       return(invisible(arg))
     }
     is_param <- params %in% names(formals(arg))
+
     if (!all(is_param)) {
-      txt <- if (sum(!is_param) == 1L) {
-        "%s is not an argument of the function specified for `%s`"
-      } else {
-        "%s are not arguments of the function specified for `%s`"
-      }
-      err_msg <- sprintf(txt, enumerate(params[!is_param]), arg_name(substitute(arg)))
-      abort(err_msg)
+      cli_abort(
+        message = message %||%
+          "{.val {params[!is_param]}} {?is/are} not {?an argument/arguments}
+        of the function specified for {.arg {arg_name}}.",
+        call = call,
+        class = c(class, "assert-admiraldev")
+      )
     }
   }
+
   invisible(arg)
 }
 
