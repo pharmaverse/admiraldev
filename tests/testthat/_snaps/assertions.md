@@ -253,12 +253,13 @@
 
     Code
       assert_list_element(list(list(var = expr(DTHDT), val = 1), list(var = expr(
-        EOSDT), val = -1)), element = "val", condition = val >= 0, message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}:",
+        EOSDT), val = -1), list(var = expr(EOSDT), val = -2)), element = "val",
+      condition = val >= 0, message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}:",
       arg_name = "input")
     Condition
       Error:
       ! List element "val" must be `>=0` in argument `input`:
-      i But, `input[[2]]$val = -1`
+      i But, `input[[2]]$val = -1`, and `input[[3]]$val = -2`
 
 # assert_date_vector Test 90: error if `arg` is NULL and optional is FALSE
 

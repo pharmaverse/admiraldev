@@ -1256,7 +1256,8 @@ test_that("assert_list_element Test 83: error if the elements do not fulfill the
     assert_list_element(
       list(
         list(var = expr(DTHDT), val = 1),
-        list(var = expr(EOSDT), val = -1)
+        list(var = expr(EOSDT), val = -1),
+        list(var = expr(EOSDT), val = -2)
       ),
       element = "val",
       condition = val >= 0,
