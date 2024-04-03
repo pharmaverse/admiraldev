@@ -280,7 +280,7 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
     )
 
   if (!is.character(arg) ||
-      (!is.null(values) && length(unique(arg[!map_lgl(arg, `%in%`, values)])) > 0L)) {
+    (!is.null(values) && length(unique(arg[!map_lgl(arg, `%in%`, values)])) > 0L)) {
     cli_abort(
       message = message,
       call = call,
@@ -1827,7 +1827,7 @@ assert_same_type <- function(...,
                                i = paste(
                                  "Argument types are",
                                  paste0("{.arg ", arg_names, "} {.cls ", types, "}",
-                                        collapse = ", "
+                                   collapse = ", "
                                  )
                                )
                              ),
