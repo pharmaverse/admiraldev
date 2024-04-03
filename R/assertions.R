@@ -1524,7 +1524,7 @@ assert_expr_list <- function(arg, # nolint
 #' @param message_text Text to be displayed in the error message above
 #'   the examples of elements that do not meet the condition.
 #'   The text should describe the condition to be fulfilled,
-#'   e.g., "Error in {arg_name}: the censor values must be zero.".
+#'   e.g., `"Error in {arg_name}: the censor values must be zero."`.
 #'   If `message` argument is specified, that text will be displayed and `message_text`
 #'   is ignored.
 #' @param ... Objects required to evaluate the condition
@@ -1565,7 +1565,8 @@ assert_list_element <- function(list,
     if (is.null(message)) {
       info_msg <- glue_collapse(
         glue(
-          "{{.code {arg_name}[[{invalids_idx}]]${element} = {lapply(list[invalids_idx], `[[`, element)}}}"
+          "{{.code {arg_name}[[{invalids_idx}]]${element} =
+           {lapply(list[invalids_idx], `[[`, element)}}}"
         ),
         sep = ", ", last = ", and "
       )
