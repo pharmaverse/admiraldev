@@ -62,7 +62,7 @@ If the condition contains objects apart from the element, they have to be
 passed to the function. See the second example below.}
 }
 \value{
-An error if the condition is not meet. The input otherwise.
+An error if the condition is not met. The input otherwise.
 }
 \description{
 Checks if the elements of a list of named lists/classes fulfill a certain
