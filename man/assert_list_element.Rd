@@ -29,7 +29,7 @@ lists/classes can be referred to by its name, e.g., \code{censor == 0} to check
 the \code{censor} field of a class.}
 
 \item{message_text}{Text to be displayed in the error message above
-the examples of elements that do not meet the condition.
+the listing of values that do not meet the condition.
 The text should describe the condition to be fulfilled,
 e.g., \code{"Error in {arg_name}: the censor values must be zero."}.
 If \code{message} argument is specified, that text will be displayed and \code{message_text}

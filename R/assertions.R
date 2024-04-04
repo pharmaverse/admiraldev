@@ -1522,7 +1522,7 @@ assert_expr_list <- function(arg, # nolint
 #'   lists/classes can be referred to by its name, e.g., `censor == 0` to check
 #'   the `censor` field of a class.
 #' @param message_text Text to be displayed in the error message above
-#'   the examples of elements that do not meet the condition.
+#'   the listing of values that do not meet the condition.
 #'   The text should describe the condition to be fulfilled,
 #'   e.g., `"Error in {arg_name}: the censor values must be zero."`.
 #'   If `message` argument is specified, that text will be displayed and `message_text`
