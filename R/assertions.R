@@ -1572,7 +1572,7 @@ assert_list_element <- function(list,
       )
       message <- c(
         message_text,
-        i = paste("But,", info_msg)
+        i = paste(" But,", info_msg)
       )
     }
 
