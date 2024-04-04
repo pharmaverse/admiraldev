@@ -1533,7 +1533,7 @@ assert_expr_list <- function(arg, # nolint
 #' @inheritParams assert_logical_scalar
 #'
 #' @return
-#' An error if the condition is not meet. The input otherwise.
+#' An error if the condition is not met. The input otherwise.
 #'
 #' @keywords assertion
 #' @family assertion
