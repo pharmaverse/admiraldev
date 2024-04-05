@@ -1168,8 +1168,7 @@ test_that("assert_varval_list Test 75: no error if an argument is a variable-val
 test_that("assert_expr_list Test 76: error if `arg` is not a list of expressions", {
   expect_error(
     assert_expr_list(arg <- c("USUBJID", "PARAMCD", "VISIT")),
-    regexp = "`arg` must be a named list of expressions but it is a",
-    fixed = TRUE
+    class = "assert_expr_list"
   )
 })
 
@@ -1188,8 +1187,7 @@ test_that("assert_expr_list Test 78: error if `required_elements` are missing fr
       arg <- exprs(DTHSEQ = AESEQ),
       required_elements = "DTHDOM"
     ),
-    regexp = "The following required elements are missing in `arg`: 'DTHDOM'",
-    fixed = TRUE
+    class = "assert_expr_list"
   )
 })
 
@@ -1204,8 +1202,7 @@ test_that("assert_expr_list Test 79: no error if `arg` is NULL and optional is T
 test_that("assert_expr_list Test 80: error if element is invalid", {
   expect_error(
     assert_expr_list(arg <- exprs(DTHSEQ = !!mean)),
-    regexp = "All elements of `arg` must be an expression.",
-    fixed = TRUE
+    class = "assert_expr_list"
   )
 })
 
@@ -1240,16 +1237,30 @@ test_that("assert_list_element Test 82: no error if the elements fulfill a certa
 test_that("assert_list_element Test 83: error if the elements do not fulfill the condition", {
   expect_error(
     assert_list_element(
-      input <- list(
+      list(
         list(var = expr(DTHDT), val = 1),
         list(var = expr(EOSDT), val = -1)
       ),
       element = "val",
       condition = val >= 0,
-      message_text = "Invalid value for `val`:"
-    ),
-    "Invalid value for `val`:\ninput[[2]]$val = -1",
-    fixed = TRUE
+      message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}:",
+      arg_name = "input"
+    )
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    assert_list_element(
+      list(
+        list(var = expr(DTHDT), val = 1),
+        list(var = expr(EOSDT), val = -1),
+        list(var = expr(EOSDT), val = -2)
+      ),
+      element = "val",
+      condition = val >= 0,
+      message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}:",
+      arg_name = "input"
+    )
   )
 })
 
