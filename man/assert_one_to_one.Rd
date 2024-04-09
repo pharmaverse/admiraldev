@@ -4,7 +4,15 @@
 \alias{assert_one_to_one}
 \title{Is There a One to One Mapping between Variables?}
 \usage{
-assert_one_to_one(dataset, vars1, vars2)
+assert_one_to_one(
+  dataset,
+  vars1,
+  vars2,
+  dataset_name = rlang::caller_arg(dataset),
+  message = NULL,
+  class = "assert_one_to_one",
+  call = parent.frame()
+)
 }
 \arguments{
 \item{dataset}{Dataset to be checked
@@ -14,6 +22,26 @@ The variables specified for \code{vars1} and \code{vars2} are expected.}
 \item{vars1}{First list of variables}
 
 \item{vars2}{Second list of variables}
+
+\item{message}{(\code{string})\cr
+string passed to \code{cli::cli_abort(message)}. When \code{NULL}, default messaging
+is used (see examples for default messages). \code{"dataset_name"} can be used in messaging.}
+
+\item{class}{Subclass of the condition.}
+
+\item{call}{The execution environment of a currently running
+function, e.g. \code{call = caller_env()}. The corresponding function
+call is retrieved and mentioned in error messages as the source
+of the error.
+
+You only need to supply \code{call} when throwing a condition from a
+helper function which wouldn't be relevant to mention in the
+message.
+
+Can also be \code{NULL} or a \link[rlang:topic-defuse]{defused function call} to
+respectively not display any call or hard-code a code to display.
+
+For more information about error calls, see \ifelse{html}{\link[rlang:topic-error-call]{Including function calls in error messages}}{\link[rlang:topic-error-call]{Including function calls in error messages}}.}
 }
 \value{
 An error if the condition is not meet. The input otherwise.
