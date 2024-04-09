@@ -27,7 +27,7 @@ specified name is displayed in the error message.}
 
 \item{message}{(\code{string})\cr
 string passed to \code{cli::cli_abort(message)}. When \code{NULL}, default messaging
-is used (see ecamples for default messages). \code{"var_name"} and \code{"dataset_name"},
+is used (see examples for default messages). \code{"var_name"} and \code{"dataset_name"},
 can be used in messaging.}
 
 \item{class}{Subclass of the condition.}
