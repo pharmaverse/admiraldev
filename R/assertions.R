@@ -1664,7 +1664,10 @@ assert_one_to_one <- function(dataset, vars1, vars2) {
 #'
 #' @param var_name The name of the variable. If the argument is specified, the
 #'   specified name is displayed in the error message.
-#'
+#' @param message (`string`)\cr
+#'   string passed to `cli::cli_abort(message)`. When `NULL`, default messaging
+#'   is used (see ecamples for default messages). `"var_name"` and `"dataset_name"`,
+#'   can be used in messaging.
 #' @inheritParams assert_logical_scalar
 #'
 #' @return
