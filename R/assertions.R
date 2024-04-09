@@ -1603,9 +1603,11 @@ assert_list_element <- function(list,
 #'
 #' @param vars2 Second list of variables
 #'
-#' @param message (`string`)\cr
-#'   string passed to `cli::cli_abort(message)`. When `NULL`, default messaging
+#' @param message string passed to `cli::cli_abort(message)`. When `NULL`, default messaging
 #'   is used (see examples for default messages). `"dataset_name"` can be used in messaging.
+#'
+#' @param dataset_name string indicating the label/symbol of the object being checked.
+#'   Default is `rlang::caller_arg(dataset)`.
 #' @inheritParams assert_logical_scalar
 #'
 #' @return
