@@ -1731,7 +1731,7 @@ assert_date_var <- function(dataset,
 
   if (!is.instant(column)) {
     message <- message %||%
-      "Column {.val {var_name}} in data frame {.code {dataset_name}} must be
+      "Column {.val {var_name}} in dataset {.code {dataset_name}} must be
        a date or datetime, but is {.obj_type_friendly {column}}."
 
     cli::cli_abort(
