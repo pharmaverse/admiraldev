@@ -1743,6 +1743,8 @@ assert_date_var <- function(dataset,
       class = c(class, "assert-admiraldev")
     )
   }
+
+  invisible(dataset)
 }
 
 #' Is an object a date or datetime vector?
