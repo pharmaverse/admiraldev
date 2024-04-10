@@ -1672,6 +1672,8 @@ assert_one_to_one <- function(dataset,
       class = c(class, "assert-admiraldev")
     )
   }
+
+  invisible(dataset)
 }
 
 #' Is a Variable in a Dataset a Date or Datetime Variable?
