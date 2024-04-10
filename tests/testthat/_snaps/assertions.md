@@ -267,7 +267,7 @@
       example_fun(dataset = my_data, var = USUBJID)
     Condition
       Error in `example_fun()`:
-      ! Column "USUBJID" in data frame `dataset` must be a date or datetime, but is a character vector.
+      ! Column "USUBJID" in dataset `dataset` must be a date or datetime, but is a character vector.
 
 # assert_date_vector Test 90: error if `arg` is NULL and optional is FALSE
 
