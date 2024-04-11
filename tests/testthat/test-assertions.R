@@ -1268,6 +1268,13 @@ test_that("assert_list_element Test 83: error if the elements do not fulfill the
 ## Test 84: error if there is a one to many mapping ----
 test_that("assert_one_to_one Test 84: error if there is a one to many mapping", {
   expect_error(
+    assert_one_to_one(pharmaversesdtm::dm, exprs(DOMAIN), exprs(USUBJID)),
+    class = "assert_one_to_one"
+  )
+  admiraldev_environment$one_to_many <- NULL
+
+  expect_snapshot(
+    error = TRUE,
     assert_one_to_one(pharmaversesdtm::dm, exprs(DOMAIN), exprs(USUBJID))
   )
   admiraldev_environment$one_to_many <- NULL
@@ -1276,7 +1283,8 @@ test_that("assert_one_to_one Test 84: error if there is a one to many mapping", 
 ## Test 85: error if there is a many to one mapping ----
 test_that("assert_one_to_one Test 85: error if there is a many to one mapping", {
   expect_error(
-    assert_one_to_one(pharmaversesdtm::dm, exprs(USUBJID), exprs(DOMAIN))
+    assert_one_to_one(pharmaversesdtm::dm, exprs(USUBJID), exprs(DOMAIN)),
+    class = "assert_one_to_one"
   )
   admiraldev_environment$many_to_one <- NULL
 })

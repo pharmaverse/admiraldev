@@ -261,6 +261,15 @@
       ! List element "val" must be `>=0` in argument `input`:
       i  But, `input[[2]]$val = -1`, and `input[[3]]$val = -2`
 
+# assert_one_to_one Test 84: error if there is a one to many mapping
+
+    Code
+      assert_one_to_one(pharmaversesdtm::dm, exprs(DOMAIN), exprs(USUBJID))
+    Condition
+      Error:
+      ! For some values of "DOMAIN" there is more than one value of "USUBJID"
+      i Call `get_one_to_many_dataset()` to get all one-to-many values.
+
 # assert_date_var Test 86: error if variable is not a date or datetime variable
 
     Code
