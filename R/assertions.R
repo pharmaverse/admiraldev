@@ -1621,6 +1621,7 @@ assert_list_element <- function(list,
 #'
 #' @examples
 #' library(dplyr)
+#' library(rlang)
 #'
 #' df <- tribble(
 #'  ~SPECIES, ~SPECIESN,

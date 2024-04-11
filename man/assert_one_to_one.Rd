@@ -53,6 +53,7 @@ Checks if there is a one to one mapping between two lists of variables.
 }
 \examples{
 library(dplyr)
+library(rlang)
 
 df <- tribble(
  ~SPECIES, ~SPECIESN,
