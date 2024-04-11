@@ -1619,6 +1619,17 @@ assert_list_element <- function(list,
 #' @family assertion
 #' @export
 #'
+#' @examples
+#' library(dplyr)
+#'
+#' df <- tribble(
+#'  ~SPECIES, ~SPECIESN,
+#'  "DOG", 1L,
+#'  "CAT", 2L,
+#'  "DOG", 1L
+#' )
+#'
+#' assert_one_to_one(df, vars1 = exprs(SPECIES), vars2 = exprs(SPECIESN))
 assert_one_to_one <- function(dataset,
                               vars1,
                               vars2,

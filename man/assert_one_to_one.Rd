@@ -51,6 +51,18 @@ An error if the condition is not meet. The input otherwise.
 \description{
 Checks if there is a one to one mapping between two lists of variables.
 }
+\examples{
+library(dplyr)
+
+df <- tribble(
+ ~SPECIES, ~SPECIESN,
+ "DOG", 1L,
+ "CAT", 2L,
+ "DOG", 1L
+)
+
+assert_one_to_one(df, vars1 = exprs(SPECIES), vars2 = exprs(SPECIESN))
+}
 \seealso{
 Checks for valid input and returns warning or errors messages: 
 \code{\link{assert_atomic_vector}()},
