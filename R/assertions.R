@@ -1625,12 +1625,27 @@ assert_list_element <- function(list,
 #'
 #' df <- tribble(
 #'   ~SPECIES, ~SPECIESN,
-#'   "DOG", 1L,
-#'   "CAT", 2L,
-#'   "DOG", 1L
+#'   "DOG",           1L,
+#'   "CAT",           2L,
+#'   "DOG",           1L
 #' )
 #'
 #' assert_one_to_one(df, vars1 = exprs(SPECIES), vars2 = exprs(SPECIESN))
+#'
+#' df_many <- tribble(
+#'   ~SPECIES, ~SPECIESN,
+#'   "DOG",           1L,
+#'   "CAT",           2L,
+#'   "DOG",           3L
+#' )
+#'
+#' try(
+#'   assert_one_to_one(df_many, vars1 = exprs(SPECIES), vars2 = exprs(SPECIESN))
+#' )
+#'
+#' try(
+#'   assert_one_to_one(df_many, vars1 = exprs(SPECIESN), vars2 = exprs(SPECIES))
+#' )
 assert_one_to_one <- function(dataset,
                               vars1,
                               vars2,
@@ -1647,8 +1662,6 @@ assert_one_to_one <- function(dataset,
     group_by(!!!vars1) %>%
     filter(n() > 1) %>%
     arrange(!!!vars1)
-
-
 
   if (nrow(one_to_many) > 0) {
     admiraldev_environment$one_to_many <- one_to_many

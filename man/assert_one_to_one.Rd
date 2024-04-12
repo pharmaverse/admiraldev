@@ -57,12 +57,27 @@ library(rlang)
 
 df <- tribble(
   ~SPECIES, ~SPECIESN,
-  "DOG", 1L,
-  "CAT", 2L,
-  "DOG", 1L
+  "DOG",           1L,
+  "CAT",           2L,
+  "DOG",           1L
 )
 
 assert_one_to_one(df, vars1 = exprs(SPECIES), vars2 = exprs(SPECIESN))
+
+df_many <- tribble(
+  ~SPECIES, ~SPECIESN,
+  "DOG",           1L,
+  "CAT",           2L,
+  "DOG",           3L
+)
+
+try(
+  assert_one_to_one(df_many, vars1 = exprs(SPECIES), vars2 = exprs(SPECIESN))
+)
+
+try(
+  assert_one_to_one(df_many, vars1 = exprs(SPECIESN), vars2 = exprs(SPECIES))
+)
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 

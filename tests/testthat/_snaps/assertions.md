@@ -270,7 +270,7 @@
       ! For some values of "DOMAIN" there is more than one value of "USUBJID"
       i Call `get_one_to_many_dataset()` to get all one-to-many values.
 
-# assert_date_var Test 86: error if variable is not a date or datetime variable
+# assert_date_var Test 87: error if variable is not a date or datetime variable
 
     Code
       example_fun(dataset = my_data, var = USUBJID)
@@ -278,7 +278,7 @@
       Error in `example_fun()`:
       ! Column "USUBJID" in dataset `dataset` must be a date or datetime, but is a character vector.
 
-# assert_date_vector Test 90: error if `arg` is NULL and optional is FALSE
+# assert_date_vector Test 91: error if `arg` is NULL and optional is FALSE
 
     Code
       example_fun(NULL)
@@ -286,7 +286,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be a date or datetime, but is NULL.
 
-# assert_atomic_vector Test 91: error if input is not atomic vector
+# assert_atomic_vector Test 92: error if input is not atomic vector
 
     Code
       assert_atomic_vector(x)
@@ -294,7 +294,7 @@
       Error:
       ! Argument `x` must be an atomic vector, but is a list.
 
-# assert_same_type Test 93: error if different type
+# assert_same_type Test 94: error if different type
 
     Code
       assert_same_type(true_value, false_value, missing_value)
