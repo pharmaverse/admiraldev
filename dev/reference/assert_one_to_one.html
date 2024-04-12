@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9016</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9017</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,15 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">assert_one_to_one</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">vars1</span>, <span class="va">vars2</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">assert_one_to_one</span><span class="op">(</span></span>
+<span>  <span class="va">dataset</span>,</span>
+<span>  <span class="va">vars1</span>,</span>
+<span>  <span class="va">vars2</span>,</span>
+<span>  dataset_name <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/caller_arg.html" class="external-link">caller_arg</a></span><span class="op">(</span><span class="va">dataset</span><span class="op">)</span>,</span>
+<span>  message <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  class <span class="op">=</span> <span class="st">"assert_one_to_one"</span>,</span>
+<span>  call <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -84,6 +92,33 @@
 
 <dt>vars2</dt>
 <dd><p>Second list of variables</p></dd>
+
+
+<dt>dataset_name</dt>
+<dd><p>string indicating the label/symbol of the object being checked.
+Default is <code>rlang::caller_arg(dataset)</code>.</p></dd>
+
+
+<dt>message</dt>
+<dd><p>string passed to <code>cli::cli_abort(message)</code>. When <code>NULL</code>, default messaging
+is used (see examples for default messages). <code>"dataset_name"</code> can be used in messaging.</p></dd>
+
+
+<dt>class</dt>
+<dd><p>Subclass of the condition.</p></dd>
+
+
+<dt>call</dt>
+<dd><p>The execution environment of a currently running
+function, e.g. <code>call = caller_env()</code>. The corresponding function
+call is retrieved and mentioned in error messages as the source
+of the error.</p>
+<p>You only need to supply <code>call</code> when throwing a condition from a
+helper function which wouldn't be relevant to mention in the
+message.</p>
+<p>Can also be <code>NULL</code> or a <a href="https://rlang.r-lib.org/reference/topic-defuse.html" class="external-link">defused function call</a> to
+respectively not display any call or hard-code a code to display.</p>
+<p>For more information about error calls, see <a href="https://rlang.r-lib.org/reference/topic-error-call.html" class="external-link">Including function calls in error messages</a>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -119,6 +154,42 @@
 <code><a href="assert_varval_list.html">assert_varval_list</a>()</code></p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rlang.r-lib.org" class="external-link">rlang</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="op">~</span><span class="va">SPECIES</span>, <span class="op">~</span><span class="va">SPECIESN</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"DOG"</span>,           <span class="fl">1L</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"CAT"</span>,           <span class="fl">2L</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"DOG"</span>,           <span class="fl">1L</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">assert_one_to_one</span><span class="op">(</span><span class="va">df</span>, vars1 <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span><span class="va">SPECIES</span><span class="op">)</span>, vars2 <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span><span class="va">SPECIESN</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">df_many</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="op">~</span><span class="va">SPECIES</span>, <span class="op">~</span><span class="va">SPECIESN</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"DOG"</span>,           <span class="fl">1L</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"CAT"</span>,           <span class="fl">2L</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"DOG"</span>,           <span class="fl">3L</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">assert_one_to_one</span><span class="op">(</span><span class="va">df_many</span>, vars1 <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span><span class="va">SPECIES</span><span class="op">)</span>, vars2 <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span><span class="va">SPECIESN</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   For some values of <span style="color: #0000BB;">"SPECIES"</span> there is more than one value of <span style="color: #0000BB;">"SPECIESN"</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Call `get_one_to_many_dataset()` to get all one-to-many values.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">assert_one_to_one</span><span class="op">(</span><span class="va">df_many</span>, vars1 <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span><span class="va">SPECIESN</span><span class="op">)</span>, vars2 <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span><span class="va">SPECIES</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   There is more than one value of <span style="color: #0000BB;">"SPECIESN"</span> for some values of <span style="color: #0000BB;">"SPECIES"</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Call `get_many_to_one_dataset()` to get all many-to-one values.</span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
