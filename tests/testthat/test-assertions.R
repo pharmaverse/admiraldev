@@ -1291,7 +1291,7 @@ test_that("assert_one_to_one Test 85: error if there is a many to one mapping", 
 
 ## Test 86: dataset is returned invisible if one-to-one ----
 test_that("assert_one_to_one Test 86: dataset is returned invisible if one-to-one", {
-  df <- tibble::tribble(
+  df <- dplyr::tribble(
     ~SPECIES, ~SPECIESN,
     "DOG",           1L,
     "CAT",           2L,
