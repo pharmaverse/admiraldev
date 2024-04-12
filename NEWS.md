@@ -6,6 +6,8 @@
 
 * Error messaging throughout the package have been updated from `rlang::abort()` to `cli::cli_abort()`. As a part of the update, each of the `assert_*()` functions have new arguments `assert_*(message, arg_name, call, class).` (#367)
 
+* Warning messaging has also been updated to use {cli} messaging.
+
 ## Breaking Changes
 
 * `renv` and related files have been removed. (#360)
@@ -16,7 +18,7 @@
 
     - The `assert_s3_class(class)` argument has been renamed to `assert_s3_class(cls)`. (#367)
 
-    - Functions `arg_name()`, `what_is_it()`, and `friendly_type_of()` have been deprecated and a warning is returned to any developer using these functions. As these are developer functions (as opposed to functions for typical admiral users), we will use a short deprecation cycle.
+    - Functions `arg_name()`, `enumerate()`, `what_is_it()`, and `friendly_type_of()` have been deprecated and a warning is returned to any developer using these functions. As these are developer functions (as opposed to functions for typical admiral users), we will use a short deprecation cycle.
 
 ## Documentation
 
