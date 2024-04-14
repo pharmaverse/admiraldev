@@ -6,7 +6,7 @@
 
 * Error messaging throughout the package have been updated from `rlang::abort()` to `cli::cli_abort()`. As a part of the update, each of the `assert_*()` functions have new arguments `assert_*(message, arg_name, call, class).` (#367)
 
-* Warning messaging has also been updated to use {cli} messaging.
+* Warning messaging has also been updated to use `{cli}` messaging.
 
 ## Breaking Changes
 
