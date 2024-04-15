@@ -131,12 +131,12 @@ library(DT)
 
 data(vs)
 vs <- tibble::tribble(
-  ~USUBJID,      ~VSTESTCD, ~VISIT,      ~VSDTC,
-  "01-701-1015", "WEIGHT",  "BASELINE", "2013-12-26",
-  "01-701-1015", "WEIGHT",  "WEEK 2",   "2014-01-14",
-  "01-701-1016", "WEIGHT",  "BASELINE", "2014-01-06",
-  "01-701-1016", "WEIGHT",  "WEEK 2",   "2014-01-22",
-  )
+  ~USUBJID, ~VSTESTCD, ~VISIT, ~VSDTC,
+  "01-701-1015", "WEIGHT", "BASELINE", "2013-12-26",
+  "01-701-1015", "WEIGHT", "WEEK 2", "2014-01-14",
+  "01-701-1016", "WEIGHT", "BASELINE", "2014-01-06",
+  "01-701-1016", "WEIGHT", "WEEK 2", "2014-01-22",
+)
 ```
 
 ```{r, eval=FALSE, echo=TRUE}

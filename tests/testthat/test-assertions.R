@@ -1298,7 +1298,6 @@ test_that("assert_list_element Test 83: error if the elements do not fulfill the
 # assert_one_to_one ----
 ## Test 84: error if there is a one to many mapping ----
 test_that("assert_one_to_one Test 84: error if there is a one to many mapping", {
-
   dm <- tibble::tribble(
     ~DOMAIN,      ~USUBJID,
     "DM",    "01-701-1015",
@@ -1307,7 +1306,7 @@ test_that("assert_one_to_one Test 84: error if there is a one to many mapping", 
     "DM",    "01-701-1024",
   )
 
-    expect_error(
+  expect_error(
     assert_one_to_one(dm, exprs(DOMAIN), exprs(USUBJID)),
     class = "assert_one_to_one"
   )
@@ -1322,7 +1321,6 @@ test_that("assert_one_to_one Test 84: error if there is a one to many mapping", 
 
 ## Test 85: error if there is a many to one mapping ----
 test_that("assert_one_to_one Test 85: error if there is a many to one mapping", {
-
   dm <- tibble::tribble(
     ~DOMAIN,      ~USUBJID,
     "DM",    "01-701-1015",

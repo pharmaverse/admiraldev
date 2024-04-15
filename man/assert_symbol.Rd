@@ -52,9 +52,9 @@ Checks if an argument is a symbol
 library(dplyr, warn.conflicts = FALSE)
 library(rlang)
 dm <- tibble::tribble(
-~DOMAIN,      ~USUBJID,
-"DM",    "01-701-1015",
-"DM",    "01-701-1016",
+  ~DOMAIN,      ~USUBJID,
+  "DM",    "01-701-1015",
+  "DM",    "01-701-1016",
 )
 example_fun <- function(dat, var) {
   var <- assert_symbol(enexpr(var))

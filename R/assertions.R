@@ -378,9 +378,9 @@ assert_logical_scalar <- function(arg, optional = FALSE,
 #' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
 #' dm <- tibble::tribble(
-#' ~DOMAIN,      ~USUBJID,
-#' "DM",    "01-701-1015",
-#' "DM",    "01-701-1016",
+#'   ~DOMAIN,      ~USUBJID,
+#'   "DM",    "01-701-1015",
+#'   "DM",    "01-701-1016",
 #' )
 #' example_fun <- function(dat, var) {
 #'   var <- assert_symbol(enexpr(var))
