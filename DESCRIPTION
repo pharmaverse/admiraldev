@@ -54,7 +54,6 @@ Suggests:
     lintr,
     methods,
     miniUI,
-    pharmaversesdtm,
     pkgdown,
     rmarkdown,
     roxygen2,
