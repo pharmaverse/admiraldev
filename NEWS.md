@@ -10,6 +10,8 @@
 
 * No longer exporting `is_named()` function. (#401)
 
+* `pharmaversesdtm` removed as a dependency. (#434)
+
 ## Documentation
 
 - The "Release Strategy" vignette was updated with respect to the new branching
