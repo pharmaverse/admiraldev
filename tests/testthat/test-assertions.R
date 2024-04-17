@@ -688,7 +688,7 @@ test_that("assert_numeric_vector Test 39: no error if `arg` is NULL and optional
 })
 
 ## Test 40: error if `arg` is not an integer scalar ----
-test_that("assert_integer_scalar Test 40: error if `arg` is not an integer scalar", {
+test_that("assert_numeric_vector Test 40: error if `arg` is not a numeric vector", {
   example_fun <- function(arg) {
     assert_numeric_vector(arg)
   }
