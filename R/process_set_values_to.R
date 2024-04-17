@@ -73,9 +73,11 @@ process_set_values_to <- function(dataset,
       cli_abort(
         message =
           c("Assigning variables failed!",
-            "*" = "{.code set_values_to = exprs({paste(names(set_values_to), '=', set_values_to, collapse = ', ')})}",
+            "*" = "{.code set_values_to = exprs({paste(names(set_values_to), '=',
+                    set_values_to, collapse = ', ')})}",
             "See error message below:",
-            conditionMessage(cnd))
+            conditionMessage(cnd)
+          )
       )
     }
   )
@@ -91,16 +93,17 @@ process_set_values_to <- function(dataset,
         cli_abort(
           message =
             "The following variables have an unexpected type:" |>
-            c(stats::setNames(paste0(
-              names(actual[unexpected]),
-              ": expected is {.cls ",
-              expected[unexpected],
-              "}, but it is {.cls ",
-              actual[unexpected],
-              "}."
-            ),
-            nm = rlang::rep_along(actual[unexpected], "*"))
-            )
+              c(stats::setNames(
+                paste0(
+                  names(actual[unexpected]),
+                  ": expected is {.cls ",
+                  expected[unexpected],
+                  "}, but it is {.cls ",
+                  actual[unexpected],
+                  "}."
+                ),
+                nm = rlang::rep_along(actual[unexpected], "*")
+              ))
         )
       }
     }
