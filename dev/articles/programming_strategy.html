@@ -34,7 +34,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9018</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9019</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -714,7 +714,6 @@ of functions</a>.</p>
 <span><span class="co">#' @examples</span></span>
 <span><span class="co">#' library(lubridate)</span></span>
 <span><span class="co">#' library(dplyr, warn.conflicts = FALSE)</span></span>
-<span><span class="co">#' library(tibble)</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' datain &lt;- tribble(</span></span>
 <span><span class="co">#'   ~TRTSDTM,              ~ASTDTM,               ~AENDT,</span></span>
@@ -767,7 +766,7 @@ to be loaded with <code><a href="https://rdrr.io/r/base/library.html" class="ext
 to be created directly inside the example code or loaded using
 <code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code>. If a dataset is created in the example, it should
 be done so using the function <code><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble()</a></code> (specify
-<code><a href="https://tibble.tidyverse.org/" class="external-link">library(tibble)</a></code> before calling this function). If other
+<code><a href="https://dplyr.tidyverse.org" class="external-link">library(dplyr)</a></code> before calling this function). If other
 functions are called in the example, please specify
 <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(pkg_name)</a></code> then refer to the respective function
 <code>fun()</code> as opposed to the preferred
@@ -1042,7 +1041,7 @@ our dependencies in one place and improves code readability.</p>
 admiral and should be included as an export. This applies to functions
 which are frequently called within <code>{admiral }</code>function calls
 like <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">rlang::exprs()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">dplyr::desc()</a></code> or the pipe
-operator <code>magrittr::%&gt;%</code>. To export these functions, the
+operator <code>dplyr::%&gt;%</code>. To export these functions, the
 following R code should be included in the <code>R/reexports.R</code>
 file using the format:</p>
 <pre><code><span><span class="co">#' @export</span></span>

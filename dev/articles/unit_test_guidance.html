@@ -34,7 +34,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9018</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9019</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -268,7 +268,7 @@ script can be created from the console also, as follows:</p>
 <pre><code>## Test 1: &lt;Explanation of the test&gt; ----
 test_that("&lt;function_name&gt; Test 1: &lt;Explanation of the test&gt;", {
   
-  input &lt;- tibble::tribble(
+  input &lt;- dplyr::tribble(
     ~inputvar1, ~inputvar2, ...
     &lt;Add Test Data Scenarios&gt;
     ...
@@ -289,7 +289,7 @@ following format:</p>
 ## Test 1: &lt;Explanation of the test&gt; ----
 test_that("my_new_func Test 1: &lt;Explanation of the test&gt;", {
   
-  input &lt;- tibble::tribble(
+  input &lt;- dplyr::tribble(
     ~inputvar1, ~inputvar2, ...
     &lt;Add Test Data Scenarios&gt;
     ...
@@ -315,7 +315,7 @@ Strategy</a> documentation for function examples, test files should not
 include <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(pkg_name)</a></code> calls. If a dataset needs to be
 created for testing purposes, it should be done so using the function
 <code><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble()</a></code> from the <code>tibble</code> package with the
-following command <code>tibble::tribble(&lt;data here&gt;)</code>.
+following command <code>dplyr::tribble(&lt;data here&gt;)</code>.
 Furthermore, if other functions need to be called, it should also be
 done using <code>pkg_name::fun()</code>notation. Make sure to align
 columns as well. This ensures quick code readability.</p>
