@@ -1000,7 +1000,8 @@ test_that("assert_function Test 57: error if  `params`  is missing with no defau
 
   expect_error(
     example_fun(sum),
-    class = "assert_function")
+    class = "assert_function"
+  )
   expect_snapshot(
     example_fun(sum),
     error = TRUE
