@@ -1670,7 +1670,7 @@ assert_one_to_one <- function(dataset,
     message <- message %||%
       c("For some values of {.val {vars2chr(vars1)}} there is more than one
            value of {.val {vars2chr(vars2)}}",
-        "i" = "Call {.fun get_one_to_many_dataset} to get all one-to-many values."
+        "i" = "Call {.run admiral::get_one_to_many_dataset()} to get all one-to-many values."
       )
 
     cli_abort(
