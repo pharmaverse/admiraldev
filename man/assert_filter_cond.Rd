@@ -54,7 +54,7 @@ functions like \code{subset} or \code{dplyr::filter}.
 \examples{
 library(dplyr, warn.conflicts = FALSE)
 library(rlang)
-dm <- tibble::tribble(
+dm <- dplyr::tribble(
   ~DOMAIN,  ~STUDYID,      ~USUBJID, ~AGE,
   "DM",    "STUDY X", "01-701-1015",   64,
   "DM",    "STUDY X", "01-701-1016",   65,

@@ -51,7 +51,7 @@ Checks if an argument is a symbol
 \examples{
 library(dplyr, warn.conflicts = FALSE)
 library(rlang)
-dm <- tibble::tribble(
+dm <- dplyr::tribble(
   ~DOMAIN,      ~USUBJID,
   "DM",    "01-701-1015",
   "DM",    "01-701-1016",

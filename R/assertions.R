@@ -376,7 +376,7 @@ assert_logical_scalar <- function(arg, optional = FALSE,
 #' @examples
 #' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
-#' dm <- tibble::tribble(
+#' dm <- dplyr::tribble(
 #'   ~DOMAIN,      ~USUBJID,
 #'   "DM",    "01-701-1015",
 #'   "DM",    "01-701-1016",
@@ -490,7 +490,7 @@ assert_expr <- function(arg,
 #' @examples
 #' library(dplyr, warn.conflicts = FALSE)
 #' library(rlang)
-#' dm <- tibble::tribble(
+#' dm <- dplyr::tribble(
 #'   ~DOMAIN,  ~STUDYID,      ~USUBJID, ~AGE,
 #'   "DM",    "STUDY X", "01-701-1015",   64,
 #'   "DM",    "STUDY X", "01-701-1016",   65,

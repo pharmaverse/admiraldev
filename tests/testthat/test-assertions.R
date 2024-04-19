@@ -6,7 +6,7 @@ test_that("assert_has_variables Test 1: error if a required variable is missing 
     "1"
   )
 
-  dm <- tibble::tribble(
+  dm <- dplyr::tribble(
     ~DOMAIN,      ~USUBJID,
     "DM",    "01-701-1015",
     "DM",    "01-701-1016",
@@ -301,7 +301,7 @@ test_that("assert_data_frame Test 15: error if required variables are missing", 
     assert_data_frame(dataset, required_vars = exprs(STUDYID, USUBJID))
   }
 
-  admiral_dm <- tibble::tribble(
+  admiral_dm <- dplyr::tribble(
     ~USUBJID2,
     "01-701-1015",
     "01-701-1016",
@@ -318,7 +318,7 @@ test_that("assert_data_frame Test 16: error if required variable is missing", {
     assert_data_frame(dataset, required_vars = exprs(STUDYID, USUBJID))
   }
 
-  admiral_dm <- tibble::tribble(
+  admiral_dm <- dplyr::tribble(
     ~USUBJID,
     "01-701-1015",
     "01-701-1016",
@@ -549,7 +549,7 @@ test_that("assert_symbol Test 28: `assert_symbol` does not throw an error if `ar
     v <- enexpr(var)
   }
 
-  admiral_dm <- tibble::tribble(
+  admiral_dm <- dplyr::tribble(
     ~DOMAIN,      ~USUBJID,
     "DM",    "01-701-1015",
     "DM",    "01-701-1016",
@@ -569,7 +569,7 @@ test_that("assert_symbol Test 28: `assert_symbol` does not throw an error if `ar
 # assert_expr ----
 ## Test 29: `assert_expr` does not throw an error if `arg` is an expression ----
 test_that("assert_expr Test 29: `assert_expr` does not throw an error if `arg` is an expression", {
-  dm <- tibble::tribble(
+  dm <- dplyr::tribble(
     ~DOMAIN,      ~USUBJID,
     "DM",    "01-701-1015",
     "DM",    "01-701-1016",
@@ -899,7 +899,7 @@ test_that("assert_named_exprs Test 54: error if `arg` is not a named list of exp
     example_fun(5),
     class = "lifecycle_error_deprecated"
   )
-  dm <- tibble::tribble(
+  dm <- dplyr::tribble(
     ~DOMAIN,      ~USUBJID,
     "DM",    "01-701-1015",
     "DM",    "01-701-1016",
@@ -1298,7 +1298,7 @@ test_that("assert_list_element Test 83: error if the elements do not fulfill the
 # assert_one_to_one ----
 ## Test 84: error if there is a one to many mapping ----
 test_that("assert_one_to_one Test 84: error if there is a one to many mapping", {
-  dm <- tibble::tribble(
+  dm <- dplyr::tribble(
     ~DOMAIN,      ~USUBJID,
     "DM",    "01-701-1015",
     "DM",    "01-701-1016",
@@ -1321,7 +1321,7 @@ test_that("assert_one_to_one Test 84: error if there is a one to many mapping", 
 
 ## Test 85: error if there is a many to one mapping ----
 test_that("assert_one_to_one Test 85: error if there is a many to one mapping", {
-  dm <- tibble::tribble(
+  dm <- dplyr::tribble(
     ~DOMAIN,      ~USUBJID,
     "DM",    "01-701-1015",
     "DM",    "01-701-1016",
