@@ -1,4 +1,4 @@
-dm <- tibble::tribble(
+dm <- dplyr::tribble(
   ~USUBJID,
   "01-701-1015",
   "01-701-1016",

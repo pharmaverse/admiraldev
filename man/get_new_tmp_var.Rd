@@ -26,7 +26,7 @@ The function returns a new unique temporary variable name to be used inside
 }
 \examples{
 library(dplyr, warn.conflicts = FALSE)
-dm <- tibble::tribble(
+dm <- tribble(
   ~DOMAIN,  ~STUDYID,      ~USUBJID,
   "DM",    "STUDY X", "01-701-1015",
   "DM",    "STUDY X", "01-701-1016",

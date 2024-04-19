@@ -19,7 +19,7 @@
 #'
 #' @examples
 #' library(dplyr, warn.conflicts = FALSE)
-#' dm <- tibble::tribble(
+#' dm <- tribble(
 #'   ~DOMAIN,  ~STUDYID,      ~USUBJID,
 #'   "DM",    "STUDY X", "01-701-1015",
 #'   "DM",    "STUDY X", "01-701-1016",
@@ -72,7 +72,7 @@ get_new_tmp_var <- function(dataset, prefix = "tmp_var") {
 #'
 #' @examples
 #' library(dplyr, warn.conflicts = FALSE)
-#' dm <- tibble::tribble(
+#' dm <- tribble(
 #'   ~DOMAIN,  ~STUDYID,      ~USUBJID,
 #'   "DM",    "STUDY X", "01-701-1015",
 #'   "DM",    "STUDY X", "01-701-1016",

@@ -14,7 +14,8 @@
 #' @export
 #'
 #' @examples
-#' dm <- tibble::tribble(
+#' library(dplyr, warn.conflicts = FALSE)
+#' dm <- tribble(
 #'   ~USUBJID,           ~ARM,
 #'   "01-701-1015", "Placebo",
 #'   "01-701-1016", "Placebo",

@@ -18,7 +18,8 @@ No return value, called for side effects
 Warn if a variable already exists inside a dataset
 }
 \examples{
-dm <- tibble::tribble(
+library(dplyr, warn.conflicts = FALSE)
+dm <- tribble(
   ~USUBJID,           ~ARM,
   "01-701-1015", "Placebo",
   "01-701-1016", "Placebo",
