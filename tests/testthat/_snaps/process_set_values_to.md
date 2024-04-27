@@ -4,7 +4,7 @@
       process_set_values_to(bds, set_values_to = exprs(PARAMCD = BMI, PARAM = "Body-Mass-Index",
         PARAMN = 1))
     Condition
-      Error in `value[[3L]]()`:
+      Error in `process_set_values_to()`:
       ! Assigning variables failed!
       * `set_values_to = exprs(PARAMCD = BMI, PARAM = Body-Mass-Index, PARAMN = 1)`
       See error message below:
