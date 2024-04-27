@@ -218,7 +218,7 @@
       example_fun(TRUE)
     Condition
       Error in `example_fun()`:
-      ! Argument `arg` must be a numeric vector, but is `TRUE`.
+      ! Argument `arg` must be a numeric vector, but it is `TRUE`.
 
 ---
 
@@ -226,7 +226,7 @@
       example_fun(arg)
     Condition
       Error in `example_fun()`:
-      ! Argument `arg` must be a numeric vector, but is NULL.
+      ! Argument `arg` must be a numeric vector, but it is NULL.
 
 ---
 
@@ -234,7 +234,7 @@
       example_fun("1.5")
     Condition
       Error in `example_fun()`:
-      ! Argument `arg` must be a numeric vector, but is a string.
+      ! Argument `arg` must be a numeric vector, but it is a string.
 
 # assert_s3_class Test 38: error if `arg` is not an object of a specific class S3
 
