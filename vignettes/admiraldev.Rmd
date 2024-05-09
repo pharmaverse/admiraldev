@@ -24,7 +24,7 @@ Tools are loosely defined as follows:
 
 * Utility Functions used in `{admiral}` and `{admiral}` extension functions for doing custom checks and providing custom messages, warnings and errors.  These custom messages, warnings and errors are succinct, but helpful messaging around what a function expects as inputs. The inputs to admiral functions are many, but generally fit into three categories: datasets, variables and arguments. Most of the functions start with `assert_`, `is_` or `get_`.
 
-* Addins and utility functions that help with documentation, testing and checking on health of the code base in all admiral packages.
+* Utility functions that help with documentation, testing and checking on health of the code base in all admiral packages.
 
 * Vignettes on working on `{admiral}` functions, developing unit testing, releases process, vignette writing and other documentation needs.  These vignettes are intended for use across all admiral packages.
 

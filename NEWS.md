@@ -34,6 +34,8 @@ strategy. (#353)
 
 - Increased minimum R version required to 4.0 to match {admiral}. (#382)
 
+- `addin_format_testthat` addin has been moved to `{pharmaverse4devs}` package. (#419)
+
 
 # admiraldev 1.0.0
 
