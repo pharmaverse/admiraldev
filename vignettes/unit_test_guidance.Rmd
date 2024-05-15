@@ -249,12 +249,12 @@ prefix and the ".R" suffix.
 When writing new unit tests, just provide a description in the `test_that()`
 call and if necessary the function name in a `# <function name> ----` comment:
 ```
-# arg_name ----
-test_that("arg_name works", {
-  expect_equal(arg_name(sym("a")), "a")
-  expect_equal(arg_name(call("enquo", sym("a"))), "a")
-  expect_error(arg_name("a"), "Could not extract argument name from")
-})
+# derive_vars_merged ----
+test_that( "works if it merges all variables", {
+  actual <- derive_vars_merged(advs,
+    dataset_add = adsl,
+    by_vars = exprs(STUDYID, USUBJID)
+  )
 
 # convert_dtm_to_dtc ----
 test_that("works if dtm is in correct format", {
@@ -275,13 +275,13 @@ test_that("Error is thrown if dtm is not in correct format", {
 
 Call the addin and get:
 ```
-# arg_name ----
-## Test 1: arg_name works ----
-test_that("arg_name Test 1: arg_name works", {
-  expect_equal(arg_name(sym("a")), "a")
-  expect_equal(arg_name(call("enquo", sym("a"))), "a")
-  expect_error(arg_name("a"), "Could not extract argument name from")
-})
+# derive_vars_merged ----
+## Test 1: derive_vars_merged ----
+test_that( "derive_vars_merged Test 1: it merges all variables", {
+  actual <- derive_vars_merged(advs,
+    dataset_add = adsl,
+    by_vars = exprs(STUDYID, USUBJID)
+  )
 
 # convert_dtm_to_dtc ----
 ## Test 2: works if dtm is in correct format ----
