@@ -517,6 +517,8 @@ assert_filter_cond <- function(arg,
     return(invisible(arg))
   }
 
+  arg_name <- gsub("^.*\\((.*)\\)$", "\\1", arg_name)
+
   provided <- !is_missing(arg)
   if (provided && !(is_call(arg) || is_logical(arg))) {
     cli_abort(
