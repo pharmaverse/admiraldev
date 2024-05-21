@@ -48,7 +48,7 @@ knitr::opts_chunk$set(
 ## Step-by-step Guidance to Create a Package Extension
 _Note: The ordering numbers below are suggested but don't all need to strictly be followed in this sequence._
 
-1. Raise the need for a new `{admiral}` package extension on the `{admiral}` [Slack channel](https://app.slack.com/client/T028PB489D3/C02M8KN8269), or directly with the `{admiral}` package maintainer. The naming convention needs to be `{admiralxxx}` and we request that the scope is not targeted overly narrow, for example instead of a package extension for HIV we'd prefer one across virology. Otherwise the number of packages may become unmanageable.
+1. Raise the need for a new `{admiral}` package extension on the `pharmaverse` [Slack channel](https://pharmaverse.slack.com/), or directly with the `{admiral}` package maintainer. The naming convention needs to be `{admiralxxx}` and we request that the scope is not targeted overly narrow, for example instead of a package extension for HIV we'd prefer one across virology. Otherwise the number of packages may become unmanageable.
 
 1. Once agreed, reach out to other company contacts working in similar areas to see if a collaborative development can be achieved. _Our recommendation here is always to target at least 2 companies to start so that any implementation remains robust and we protect from going down a company-specific route. However, consider that if more than 4 or 5 companies get involved too early it may slow down decision-making._
 
