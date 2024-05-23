@@ -302,10 +302,10 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 #' @param optional Is the checked argument optional?\cr
 #' If set to `FALSE` and `arg` is `NULL` then an error is thrown. Otherwise,
 #' `NULL` is considered as valid value.
-#' @param arg_name string indicating the label/symbol of the object being checked
-#' When the input is quoted using enexpr(), the argument name is specified
-#' without the enexpr() wrapping using
-#' arg_name = gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))
+#' @param arg_name string indicating the label/symbol of the object being checked.
+#' When the input for arg_name is quoted using `enexpr()`, the argument name is
+#' specified without `enexpr()` in messages using
+#' `gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))`
 #' @param message string passed to `cli::cli_abort(message)`.
 #' When `NULL`, default messaging is used (see examples for default messages).
 #' `"{arg_name}"` can be used in messaging.
