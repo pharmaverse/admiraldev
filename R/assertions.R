@@ -302,7 +302,10 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 #' @param optional Is the checked argument optional?\cr
 #' If set to `FALSE` and `arg` is `NULL` then an error is thrown. Otherwise,
 #' `NULL` is considered as valid value.
-#' @param arg_name string indicating the label/symbol of the object being checked.
+#' @param arg_name string indicating the label/symbol of the object being checked
+#' When the input is quoted using enexpr(), the argument name is specified
+#' without the enexpr() wrapping using
+#' arg_name = gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))
 #' @param message string passed to `cli::cli_abort(message)`.
 #' When `NULL`, default messaging is used (see examples for default messages).
 #' `"{arg_name}"` can be used in messaging.
@@ -361,7 +364,7 @@ assert_logical_scalar <- function(arg, optional = FALSE,
 #'
 #' @param arg A function argument to be checked. Must be a `symbol`. See examples.
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
-#' is `NULL` then an error is thrown
+#' is `NULL` then an error is thrown.
 #' @inheritParams assert_logical_scalar
 #'
 #'
@@ -395,7 +398,7 @@ assert_logical_scalar <- function(arg, optional = FALSE,
 #' try(example_fun(dm, toupper(PARAMCD)))
 assert_symbol <- function(arg,
                           optional = FALSE,
-                          arg_name = rlang::caller_arg(arg),
+                          arg_name = gsub("^enexpr\\((.*)\\)$", "\\1", rlang::caller_arg(arg)),
                           message = NULL,
                           class = "assert_symbol",
                           call = parent.frame()) {
@@ -440,7 +443,7 @@ assert_symbol <- function(arg,
 #' @export
 assert_expr <- function(arg,
                         optional = FALSE,
-                        arg_name = rlang::caller_arg(arg),
+                        arg_name = gsub("^enexpr\\((.*)\\)$", "\\1", rlang::caller_arg(arg)),
                         message = NULL,
                         class = "assert_expr",
                         call = parent.frame()) {
@@ -507,7 +510,7 @@ assert_expr <- function(arg,
 #' try(assert_filter_cond(mtcars))
 assert_filter_cond <- function(arg,
                                optional = FALSE,
-                               arg_name = rlang::caller_arg(arg),
+                               arg_name = gsub("^enexpr\\((.*)\\)$", "\\1", rlang::caller_arg(arg)),
                                message = NULL,
                                class = "assert_filter_cond",
                                call = parent.frame()) {
@@ -516,8 +519,6 @@ assert_filter_cond <- function(arg,
   if (optional && is.null(arg)) {
     return(invisible(arg))
   }
-
-  arg_name <- gsub("^.*\\((.*)\\)$", "\\1", arg_name)
 
   provided <- !is_missing(arg)
   if (provided && !(is_call(arg) || is_logical(arg))) {

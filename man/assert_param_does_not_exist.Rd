@@ -18,7 +18,10 @@ assert_param_does_not_exist(
 
 \item{param}{Parameter code to check}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.}
+\item{arg_name}{string indicating the label/symbol of the object being checked
+When the input is quoted using enexpr(), the argument name is specified
+without the enexpr() wrapping using
+arg_name = gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
 When \code{NULL}, default messaging is used (see examples for default messages).

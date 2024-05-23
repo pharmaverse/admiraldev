@@ -7,7 +7,7 @@
 assert_filter_cond(
   arg,
   optional = FALSE,
-  arg_name = rlang::caller_arg(arg),
+  arg_name = gsub("^enexpr\\\\((.*)\\\\)$", "\\\\1", rlang::caller_arg(arg)),
   message = NULL,
   class = "assert_filter_cond",
   call = parent.frame()
@@ -18,7 +18,10 @@ assert_filter_cond(
 
 \item{optional}{Logical - is the argument optional? Defaults to \code{FALSE}.}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.}
+\item{arg_name}{string indicating the label/symbol of the object being checked
+When the input is quoted using enexpr(), the argument name is specified
+without the enexpr() wrapping using
+arg_name = gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
 When \code{NULL}, default messaging is used (see examples for default messages).

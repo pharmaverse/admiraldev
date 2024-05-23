@@ -35,7 +35,10 @@ e.g., \code{"Error in {arg_name}: the censor values must be zero."}.
 If \code{message} argument is specified, that text will be displayed and \code{message_text}
 is ignored.}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.}
+\item{arg_name}{string indicating the label/symbol of the object being checked
+When the input is quoted using enexpr(), the argument name is specified
+without the enexpr() wrapping using
+arg_name = gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
 When \code{NULL}, default messaging is used (see examples for default messages).
