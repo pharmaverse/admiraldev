@@ -303,12 +303,14 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 #' If set to `FALSE` and `arg` is `NULL` then an error is thrown. Otherwise,
 #' `NULL` is considered as valid value.
 #' @param arg_name string indicating the label/symbol of the object being checked.
-#' When the input for arg_name is quoted using `enexpr()`, the argument name is
-#' specified without `enexpr()` in messages using
-#' `gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))`
+#'
+#' When the argument for `arg_name` can be input as a quote using
+#' `enexpr()`, i.e. `assert_filter_cond`, `assert_symbol`, and `assert_expr`, then
+#' it is specified without `enexpr()` using `gsub()`.
 #' @param message string passed to `cli::cli_abort(message)`.
 #' When `NULL`, default messaging is used (see examples for default messages).
 #' `"{arg_name}"` can be used in messaging.
+#'
 #' @inheritParams cli::cli_abort
 #' @inheritParams rlang::abort
 #'
@@ -478,6 +480,7 @@ assert_expr <- function(arg,
 #'
 #' @param arg Quosure - filtering condition.
 #' @param optional Logical - is the argument optional? Defaults to `FALSE`.
+#'
 #' @inheritParams assert_logical_scalar
 #'
 #' @details Check if `arg` is a suitable filtering condition to be used in

@@ -19,10 +19,11 @@ assert_named(
 \item{optional}{Is the checked argument optional? If set to \code{FALSE} and \code{arg}
 is \code{NULL} then an error is thrown}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked
-When the input is quoted using enexpr(), the argument name is specified
-without the enexpr() wrapping using
-arg_name = gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))}
+\item{arg_name}{string indicating the label/symbol of the object being checked.
+
+When the argument for \code{arg_name} can be input as a quote using
+\code{enexpr()}, i.e. \code{assert_filter_cond}, \code{assert_symbol}, and \code{assert_expr}, then
+it is specified without \code{enexpr()} using \code{gsub()}.}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
 When \code{NULL}, default messaging is used (see examples for default messages).
