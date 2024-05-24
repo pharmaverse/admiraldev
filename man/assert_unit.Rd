@@ -24,11 +24,7 @@ assert_unit(
 
 \item{get_unit_expr}{Expression used to provide the unit of \code{param}}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.
-
-When the argument for \code{arg_name} can be input as a quote using
-\code{enexpr()}, i.e. \code{assert_filter_cond}, \code{assert_symbol}, and \code{assert_expr}, then
-it is specified without \code{enexpr()} using \code{gsub()}.}
+\item{arg_name}{string indicating the label/symbol of the object being checked.}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
 When \code{NULL}, default messaging is used (see examples for default messages).
