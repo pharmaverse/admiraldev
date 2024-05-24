@@ -19,11 +19,9 @@ assert_expr(
 \item{optional}{Is the checked argument optional? If set to \code{FALSE} and \code{arg}
 is \code{NULL} then an error is thrown}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.
-
-When the argument for \code{arg_name} can be input as a quote using
-\code{enexpr()}, i.e. \code{assert_filter_cond}, \code{assert_symbol}, and \code{assert_expr}, then
-it is specified without \code{enexpr()} using \code{gsub()}.}
+\item{arg_name}{By default the expression specified for \code{arg} is used. If it is
+of the form \verb{enexpr(<argument name>)}, the \code{enexpr()} part is removed. For example
+if \code{arg = enexpr(filter_add)} is specified, \code{arg_name} defaults to \code{"filter_add"}}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
 When \code{NULL}, default messaging is used (see examples for default messages).

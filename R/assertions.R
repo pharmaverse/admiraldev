@@ -303,10 +303,6 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 #' If set to `FALSE` and `arg` is `NULL` then an error is thrown. Otherwise,
 #' `NULL` is considered as valid value.
 #' @param arg_name string indicating the label/symbol of the object being checked.
-#'
-#' When the argument for `arg_name` can be input as a quote using
-#' `enexpr()`, i.e. `assert_filter_cond`, `assert_symbol`, and `assert_expr`, then
-#' it is specified without `enexpr()` using `gsub()`.
 #' @param message string passed to `cli::cli_abort(message)`.
 #' When `NULL`, default messaging is used (see examples for default messages).
 #' `"{arg_name}"` can be used in messaging.
@@ -367,6 +363,9 @@ assert_logical_scalar <- function(arg, optional = FALSE,
 #' @param arg A function argument to be checked. Must be a `symbol`. See examples.
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown.
+#' @param arg_name By default the expression specified for `arg` is used. If it is
+#' of the form `enexpr(<argument name>)`, the `enexpr()` part is removed. For example
+#' if `arg = enexpr(filter_add)` is specified, `arg_name` defaults to `"filter_add"`
 #' @inheritParams assert_logical_scalar
 #'
 #'
@@ -431,7 +430,9 @@ assert_symbol <- function(arg,
 }
 
 #' Assert Argument is an Expression
-#'
+#' @param arg_name By default the expression specified for `arg` is used. If it is
+#' of the form `enexpr(<argument name>)`, the `enexpr()` part is removed. For example
+#' if `arg = enexpr(filter_add)` is specified, `arg_name` defaults to `"filter_add"`
 #' @inheritParams assert_data_frame
 #' @inheritParams assert_character_scalar
 #'
@@ -480,7 +481,9 @@ assert_expr <- function(arg,
 #'
 #' @param arg Quosure - filtering condition.
 #' @param optional Logical - is the argument optional? Defaults to `FALSE`.
-#'
+#' @param arg_name By default the expression specified for `arg` is used. If it is
+#' of the form `enexpr(<argument name>)`, the `enexpr()` part is removed. For example
+#' if `arg = enexpr(filter_add)` is specified, `arg_name` defaults to `"filter_add"`
 #' @inheritParams assert_logical_scalar
 #'
 #' @details Check if `arg` is a suitable filtering condition to be used in
