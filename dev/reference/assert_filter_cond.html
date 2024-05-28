@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9026</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9027</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">assert_filter_cond</span><span class="op">(</span></span>
 <span>  <span class="va">arg</span>,</span>
 <span>  optional <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  arg_name <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/caller_arg.html" class="external-link">caller_arg</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span>,</span>
+<span>  arg_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"^enexpr\\((.*)\\)$"</span>, <span class="st">"\\1"</span>, <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/caller_arg.html" class="external-link">caller_arg</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  message <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  class <span class="op">=</span> <span class="st">"assert_filter_cond"</span>,</span>
 <span>  call <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -89,7 +89,9 @@
 
 
 <dt>arg_name</dt>
-<dd><p>string indicating the label/symbol of the object being checked.</p></dd>
+<dd><p>By default the expression specified for <code>arg</code> is used. If it is
+of the form <code>enexpr(&lt;argument name&gt;)</code>, the <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">enexpr()</a></code> part is removed. For example
+if <code>arg = enexpr(filter_add)</code> is specified, <code>arg_name</code> defaults to <code>"filter_add"</code></p></dd>
 
 
 <dt>message</dt>
