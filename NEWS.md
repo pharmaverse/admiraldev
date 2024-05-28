@@ -4,6 +4,8 @@
 
 ## Updates of Existing Functions
 
+* Updated `arg_name` parameter in `assert_filter_cond`, `assert_symbol`, and `assert_expr` with  `gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))` argument so that  error messages return a quoted argument without `enexpr()`, e.g. `filter_add` instead of `enexpr(filter_add)`.
+
 * Error messaging throughout the package have been updated from `rlang::abort()` to `cli::cli_abort()`. As a part of the update, each of the `assert_*()` functions have new arguments `assert_*(message, arg_name, call, class).` (#367)
 
 * Warning messaging has also been updated to use `{cli}` messaging.

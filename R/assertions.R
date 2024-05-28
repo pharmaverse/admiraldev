@@ -306,6 +306,7 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 #' @param message string passed to `cli::cli_abort(message)`.
 #' When `NULL`, default messaging is used (see examples for default messages).
 #' `"{arg_name}"` can be used in messaging.
+#'
 #' @inheritParams cli::cli_abort
 #' @inheritParams rlang::abort
 #'
@@ -361,7 +362,10 @@ assert_logical_scalar <- function(arg, optional = FALSE,
 #'
 #' @param arg A function argument to be checked. Must be a `symbol`. See examples.
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
-#' is `NULL` then an error is thrown
+#' is `NULL` then an error is thrown.
+#' @param arg_name By default the expression specified for `arg` is used. If it is
+#' of the form `enexpr(<argument name>)`, the `enexpr()` part is removed. For example
+#' if `arg = enexpr(filter_add)` is specified, `arg_name` defaults to `"filter_add"`
 #' @inheritParams assert_logical_scalar
 #'
 #'
@@ -395,7 +399,7 @@ assert_logical_scalar <- function(arg, optional = FALSE,
 #' try(example_fun(dm, toupper(PARAMCD)))
 assert_symbol <- function(arg,
                           optional = FALSE,
-                          arg_name = rlang::caller_arg(arg),
+                          arg_name = gsub("^enexpr\\((.*)\\)$", "\\1", rlang::caller_arg(arg)),
                           message = NULL,
                           class = "assert_symbol",
                           call = parent.frame()) {
@@ -426,7 +430,9 @@ assert_symbol <- function(arg,
 }
 
 #' Assert Argument is an Expression
-#'
+#' @param arg_name By default the expression specified for `arg` is used. If it is
+#' of the form `enexpr(<argument name>)`, the `enexpr()` part is removed. For example
+#' if `arg = enexpr(filter_add)` is specified, `arg_name` defaults to `"filter_add"`
 #' @inheritParams assert_data_frame
 #' @inheritParams assert_character_scalar
 #'
@@ -440,7 +446,7 @@ assert_symbol <- function(arg,
 #' @export
 assert_expr <- function(arg,
                         optional = FALSE,
-                        arg_name = rlang::caller_arg(arg),
+                        arg_name = gsub("^enexpr\\((.*)\\)$", "\\1", rlang::caller_arg(arg)),
                         message = NULL,
                         class = "assert_expr",
                         call = parent.frame()) {
@@ -475,6 +481,9 @@ assert_expr <- function(arg,
 #'
 #' @param arg Quosure - filtering condition.
 #' @param optional Logical - is the argument optional? Defaults to `FALSE`.
+#' @param arg_name By default the expression specified for `arg` is used. If it is
+#' of the form `enexpr(<argument name>)`, the `enexpr()` part is removed. For example
+#' if `arg = enexpr(filter_add)` is specified, `arg_name` defaults to `"filter_add"`
 #' @inheritParams assert_logical_scalar
 #'
 #' @details Check if `arg` is a suitable filtering condition to be used in
@@ -507,7 +516,7 @@ assert_expr <- function(arg,
 #' try(assert_filter_cond(mtcars))
 assert_filter_cond <- function(arg,
                                optional = FALSE,
-                               arg_name = rlang::caller_arg(arg),
+                               arg_name = gsub("^enexpr\\((.*)\\)$", "\\1", rlang::caller_arg(arg)),
                                message = NULL,
                                class = "assert_filter_cond",
                                call = parent.frame()) {
