@@ -52,7 +52,7 @@ admiraltemplate
 admiralxxx
 advs
 anonymized
-cli
+arg
 cmd
 codebase
 codeowner
@@ -62,6 +62,7 @@ datetime
 datetimes
 dev
 developers’
+devs
 dplyr
 dtc
 exprs
