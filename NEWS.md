@@ -1,10 +1,8 @@
 # admiraldev 1.1.0
 
-## New Features
-
 ## Updates of Existing Functions
 
-* Updated `arg_name` parameter in `assert_filter_cond`, `assert_symbol`, and `assert_expr` with  `gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))` argument so that  error messages return a quoted argument without `enexpr()`, e.g. `filter_add` instead of `enexpr(filter_add)`.
+* Updated `arg_name` parameter in `assert_filter_cond`, `assert_symbol`, and `assert_expr` with  `gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))` argument so that  error messages return a quoted argument without `enexpr()`, e.g. `filter_add` instead of `enexpr(filter_add)`. (#2404)
 
 * Error messaging throughout the package have been updated from `rlang::abort()` to `cli::cli_abort()`. As a part of the update, each of the `assert_*()` functions have new arguments `assert_*(message, arg_name, call, class).` (#367)
 
@@ -17,6 +15,7 @@
 * No longer exporting `is_named()` function. (#401)
 
 * `pharmaversesdtm` removed as a dependency. (#434)
+
 * As a part of the error messaging update, the following changes were made.
 
     - The `assert_s3_class(class)` argument has been renamed to `assert_s3_class(cls)`. (#367)
