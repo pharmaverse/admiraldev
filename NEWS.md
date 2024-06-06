@@ -1,4 +1,4 @@
-# admiraldev (development version)
+# admiraldev 1.1.0
 
 ## New Features
 
