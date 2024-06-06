@@ -48,10 +48,8 @@ Suggests:
     htmltools,
     knitr,
     methods,
-    miniUI,
     pkgdown,
     rmarkdown,
-    rstudioapi,
     spelling,
     testthat (>= 3.2.0),
     withr
