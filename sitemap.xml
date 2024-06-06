@@ -49,9 +49,6 @@
     <loc>https://pharmaverse.github.io/admiraldev/news/index.html</loc>
   </url>
   <url>
-    <loc>https://pharmaverse.github.io/admiraldev/pull_request_template.html</loc>
-  </url>
-  <url>
     <loc>https://pharmaverse.github.io/admiraldev/reference/add_suffix_to_vars.html</loc>
   </url>
   <url>
@@ -200,9 +197,6 @@
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/reference/is_auto.html</loc>
-  </url>
-  <url>
-    <loc>https://pharmaverse.github.io/admiraldev/reference/is_named.html</loc>
   </url>
   <url>
     <loc>https://pharmaverse.github.io/admiraldev/reference/is_order_vars.html</loc>
