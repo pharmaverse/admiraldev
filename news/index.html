@@ -62,7 +62,7 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.1.0" id="admiraldev-110">admiraldev 1.1.0<a class="anchor" aria-label="anchor" href="#admiraldev-110"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.1.0" id="admiraldev-110">admiraldev 1.1.0<a class="anchor" aria-label="anchor" href="#admiraldev-110"></a></h2><p class="text-muted">CRAN release: 2024-06-06</p>
 <div class="section level3">
 <h3 id="updates-of-existing-functions-1-1-0">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-1-1-0"></a></h3>
 <ul><li><p>Updated <code>arg_name</code> parameter in <code>assert_filter_cond</code>, <code>assert_symbol</code>, and <code>assert_expr</code> with <code>gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))</code> argument so that error messages return a quoted argument without <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">enexpr()</a></code>, e.g. <code>filter_add</code> instead of <code>enexpr(filter_add)</code>. (<a href="https://github.com/pharmaverse/admiraldev/issues/2404" class="external-link">#2404</a>)</p></li>
