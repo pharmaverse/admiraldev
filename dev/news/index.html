@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9028</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,16 +64,28 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="admiraldev-development-version">admiraldev (development version)<a class="anchor" aria-label="anchor" href="#admiraldev-development-version"></a></h2>
 <div class="section level3">
-<h3 id="new-features-development-version">New Features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<h3 id="updates-of-existing-functions-development-version">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-development-version"></a></h3>
 </div>
 <div class="section level3">
-<h3 id="updates-of-existing-functions-development-version">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-development-version"></a></h3>
-<ul><li><p>Updated <code>arg_name</code> parameter in <code>assert_filter_cond</code>, <code>assert_symbol</code>, and <code>assert_expr</code> with <code>gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))</code> argument so that error messages return a quoted argument without <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">enexpr()</a></code>, e.g. <code>filter_add</code> instead of <code>enexpr(filter_add)</code>.</p></li>
+<h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+</div>
+<div class="section level3">
+<h3 id="documentation-development-version">Documentation<a class="anchor" aria-label="anchor" href="#documentation-development-version"></a></h3>
+</div>
+<div class="section level3">
+<h3 id="other-development-version">Other<a class="anchor" aria-label="anchor" href="#other-development-version"></a></h3>
+</div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.1.0" id="admiraldev-110">admiraldev 1.1.0<a class="anchor" aria-label="anchor" href="#admiraldev-110"></a></h2><p class="text-muted">CRAN release: 2024-06-06</p>
+<div class="section level3">
+<h3 id="updates-of-existing-functions-1-1-0">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-1-1-0"></a></h3>
+<ul><li><p>Updated <code>arg_name</code> parameter in <code>assert_filter_cond</code>, <code>assert_symbol</code>, and <code>assert_expr</code> with <code>gsub("^enexpr\\((\\w+)\\)$", "\\1", rlang::caller_arg(arg))</code> argument so that error messages return a quoted argument without <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">enexpr()</a></code>, e.g. <code>filter_add</code> instead of <code>enexpr(filter_add)</code>. (<a href="https://github.com/pharmaverse/admiraldev/issues/2404" class="external-link">#2404</a>)</p></li>
 <li><p>Error messaging throughout the package have been updated from <code><a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang::abort()</a></code> to <code><a href="https://cli.r-lib.org/reference/cli_abort.html" class="external-link">cli::cli_abort()</a></code>. As a part of the update, each of the <code>assert_*()</code> functions have new arguments <code>assert_*(message, arg_name, call, class).</code> (<a href="https://github.com/pharmaverse/admiraldev/issues/367" class="external-link">#367</a>)</p></li>
 <li><p>Warning messaging has also been updated to use <a href="https://cli.r-lib.org" class="external-link">cli</a> messaging.</p></li>
 </ul></div>
 <div class="section level3">
-<h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<h3 id="breaking-changes-1-1-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-1-1-0"></a></h3>
 <ul><li><p><code>renv</code> and related files have been removed. (<a href="https://github.com/pharmaverse/admiraldev/issues/360" class="external-link">#360</a>)</p></li>
 <li><p>No longer exporting <code><a href="https://rlang.r-lib.org/reference/is_named.html" class="external-link">is_named()</a></code> function. (<a href="https://github.com/pharmaverse/admiraldev/issues/401" class="external-link">#401</a>)</p></li>
 <li><p><code>pharmaversesdtm</code> removed as a dependency. (<a href="https://github.com/pharmaverse/admiraldev/issues/434" class="external-link">#434</a>)</p></li>
@@ -84,12 +96,12 @@
 </ul></li>
 </ul></div>
 <div class="section level3">
-<h3 id="documentation-development-version">Documentation<a class="anchor" aria-label="anchor" href="#documentation-development-version"></a></h3>
+<h3 id="documentation-1-1-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-1-1-0"></a></h3>
 <ul><li><p>The “Release Strategy” vignette was updated with respect to the new branching strategy. (<a href="https://github.com/pharmaverse/admiraldev/issues/353" class="external-link">#353</a>)</p></li>
 <li><p>The “Release Strategy” vignette now contains a short new “Release Tracking” section linking to an external dashboard for CRAN packages that are awaiting release. (<a href="https://github.com/pharmaverse/admiraldev/issues/358" class="external-link">#358</a>)</p></li>
 </ul></div>
 <div class="section level3">
-<h3 id="other-development-version">Other<a class="anchor" aria-label="anchor" href="#other-development-version"></a></h3>
+<h3 id="other-1-1-0">Other<a class="anchor" aria-label="anchor" href="#other-1-1-0"></a></h3>
 <ul><li><p>Removed dependencies not needed to build package or package documentation. (<a href="https://github.com/pharmaverse/admiraldev/issues/426" class="external-link">#426</a>)</p></li>
 <li><p>Increased minimum R version required to 4.0 to match {admiral}. (<a href="https://github.com/pharmaverse/admiraldev/issues/382" class="external-link">#382</a>)</p></li>
 <li><p><code>addin_format_testthat</code> addin has been moved to <code>{pharmaverse4devs}</code> package. (<a href="https://github.com/pharmaverse/admiraldev/issues/419" class="external-link">#419</a>)</p></li>
