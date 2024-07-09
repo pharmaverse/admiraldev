@@ -24,7 +24,7 @@ jobs:
       - name: Run Dependency Test
         uses: insightsengineering/r-verdepcheck-action@v0.1.0 
         with:
-          github-token: ${{ secrets.REPO_GITHUB_TOKEN }}
+          github-token: ${{ secrets.PHARMAVERSE_BOT }}
           strategy: release
 
       - name: Upload lock file
