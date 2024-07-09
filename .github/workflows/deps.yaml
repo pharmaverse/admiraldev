@@ -1,0 +1,35 @@
+name: Dependency Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    name: Dependency Test
+    container:
+      image: rocker/tidyverse:4.1.2
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          path: repository
+
+      - name: Run Dependency Test
+        uses: insightsengineering/r-verdepcheck-action@v1
+        with:
+          github-token: ${{ secrets.REPO_GITHUB_TOKEN }}
+          strategy: release
+
+      - name: Upload lock file
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: lock-file
+          path: pkg.lock
