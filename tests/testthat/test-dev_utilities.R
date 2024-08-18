@@ -103,3 +103,4 @@ test_that("extract_vars Test 11: works with calls", {
     expected = unname(exprs(BASE, AVAL, LLQ))
   )
 })
+

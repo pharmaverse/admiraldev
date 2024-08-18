@@ -167,7 +167,7 @@ contains_vars <- function(arg) {
 #' library(rlang)
 #'
 #' vars2chr(exprs(USUBJID, AVAL))
-vars2chr <- function(expressions, quosures) {
+vars2chr <- function(expressions) {
   if (!missing(quosures)) {
     deprecate_stop(
       "0.10.0",

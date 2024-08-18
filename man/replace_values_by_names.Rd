@@ -4,7 +4,7 @@
 \alias{replace_values_by_names}
 \title{Replace Expression Value with Name}
 \usage{
-replace_values_by_names(expressions, quosures)
+replace_values_by_names(expressions)
 }
 \arguments{
 \item{expressions}{A list of expressions}

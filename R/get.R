@@ -84,7 +84,7 @@ get_duplicates <- function(x) {
 #'
 #' @return A list of expressions
 #' @export
-get_source_vars <- function(expressions, quosures) {
+get_source_vars <- function(expressions) {
   if (!missing(quosures)) {
     deprecate_stop(
       "0.10.0",

@@ -53,7 +53,7 @@ strategy. (#353)
 ## New Features
 
 ## Updates of Existing Functions
-
+- removed `quosures` argument from the `vars2chr()`, `get_source_vars()`, and `replace_values_by_names()` functions since its use has been deprecated (#458)
 - `assert_function()` now accepts all function arguments if ellipsis, `...` is in the function formals (#339)
 
 ## Breaking Changes
