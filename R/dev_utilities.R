@@ -152,10 +152,7 @@ contains_vars <- function(arg) {
 #'
 #' @param expressions A `list` of expressions created using [`exprs()`]
 #'
-#' @param quosures *Deprecated*, please use `expressions` instead.
-#'
 #' @return A character vector
-#'
 #'
 #' @export
 #'
@@ -167,14 +164,8 @@ contains_vars <- function(arg) {
 #' library(rlang)
 #'
 #' vars2chr(exprs(USUBJID, AVAL))
-vars2chr <- function(expressions, quosures) {
-  if (!missing(quosures)) {
-    deprecate_stop(
-      "0.10.0",
-      "vars2chr(quosures = )",
-      "vars2chr(expressions = )"
-    )
-  }
+vars2chr <- function(expressions) {
+
   rlang::set_names(
     map_chr(expressions, as_string),
     names(expressions)
