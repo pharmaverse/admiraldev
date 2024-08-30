@@ -82,7 +82,6 @@ get_duplicates <- function(x) {
 #' @return A list of expressions
 #' @export
 get_source_vars <- function(expressions) {
-
   assert_varval_list(expressions, optional = TRUE)
 
   source_vars <- expr_c(expressions)[lapply(expr_c(expressions), is.symbol) == TRUE]

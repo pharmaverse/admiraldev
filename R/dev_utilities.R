@@ -165,7 +165,6 @@ contains_vars <- function(arg) {
 #'
 #' vars2chr(exprs(USUBJID, AVAL))
 vars2chr <- function(expressions) {
-
   rlang::set_names(
     map_chr(expressions, as_string),
     names(expressions)

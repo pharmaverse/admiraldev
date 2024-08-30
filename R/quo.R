@@ -41,7 +41,6 @@ expr_c <- function(...) {
 #' library(rlang)
 #' replace_values_by_names(exprs(AVAL, ADT = convert_dtc_to_dt(EXSTDTC)))
 replace_values_by_names <- function(expressions) {
-
   if (is.null(names(expressions))) {
     return(expressions)
   }
