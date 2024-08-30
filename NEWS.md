@@ -4,6 +4,18 @@
 
 ## Breaking Changes
 
+- The following functions are entering the next phase of the deprecation process: (#459)
+
+### Phase 1 (warning)
+
+### Phase 2 (error)
+
+### Phase 3 (removed)
+  - The argument `quosures` was removed in the functions `vars2chr(quosures)`, `replace_values_by_names(quosures)`, and `get_source_vars(quosures)`
+  - Removed at v1.0.0 `assert_named_expr()`
+  - Removed at v1.0.0 `assert_has_variables()`
+  - Removed at v1.0.0 `assert_function_param()`
+
 ## Documentation
 
 ## Other

@@ -30,9 +30,6 @@ expr_c <- function(...) {
 #'
 #' @param expressions A list of expressions
 #'
-#' @param quosures *Deprecated*, please use `expressions` instead.
-#'
-#'
 #' @keywords quo
 #' @family quo
 #'
@@ -43,14 +40,7 @@ expr_c <- function(...) {
 #' @examples
 #' library(rlang)
 #' replace_values_by_names(exprs(AVAL, ADT = convert_dtc_to_dt(EXSTDTC)))
-replace_values_by_names <- function(expressions, quosures) {
-  if (!missing(quosures)) {
-    deprecate_stop(
-      "0.3.0",
-      "replace_values_by_names(quosures = )",
-      "replace_values_by_names(expressions = )"
-    )
-  }
+replace_values_by_names <- function(expressions) {
   if (is.null(names(expressions))) {
     return(expressions)
   }
