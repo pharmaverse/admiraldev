@@ -4,12 +4,10 @@
 \alias{vars2chr}
 \title{Turn a List of Expressions into a Character Vector}
 \usage{
-vars2chr(expressions, quosures)
+vars2chr(expressions)
 }
 \arguments{
 \item{expressions}{A \code{list} of expressions created using \code{\link[=exprs]{exprs()}}}
-
-\item{quosures}{\emph{Deprecated}, please use \code{expressions} instead.}
 }
 \value{
 A character vector

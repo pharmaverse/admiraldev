@@ -4,12 +4,10 @@
 \alias{get_source_vars}
 \title{Get Source Variables from a List of Expressions}
 \usage{
-get_source_vars(expressions, quosures)
+get_source_vars(expressions)
 }
 \arguments{
 \item{expressions}{A list of expressions}
-
-\item{quosures}{\emph{Deprecated}, please use \code{expressions} instead.}
 }
 \value{
 A list of expressions

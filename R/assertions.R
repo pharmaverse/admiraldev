@@ -1000,51 +1000,6 @@ assert_named <- function(arg, optional = FALSE,
   )
 }
 
-#' Assert Argument is a Named List of Expressions
-#'
-#' @description
-#' `r lifecycle::badge("deprecated")`
-#'
-#' This function is *deprecated*, please use `assert_expr_list()` instead.
-#'
-#' @inheritParams assert_data_frame
-#'
-#' @keywords deprecated
-#' @family deprecated
-#'
-#' @return
-#' The function throws an error if `arg` is not a named `list` of expression or
-#' returns the input invisibly otherwise
-#'
-#' @export
-assert_named_exprs <- function(arg, optional = FALSE) {
-  deprecate_stop("0.5.0", "assert_named_exprs()", "assert_expr_list()")
-}
-
-#' Does a Dataset Contain All Required Variables?
-#'
-#' Checks if a dataset contains all required variables
-#'
-#' @description
-#' `r lifecycle::badge("deprecated")`
-#'
-#' This function is *deprecated*, please use `assert_data_frame()` instead.
-#'
-#' @param dataset A `data.frame`
-#' @param required_vars A `character` vector of variable names
-#'
-#'
-#' @return The function throws an error if any of the required variables are
-#' missing in the input dataset. Otherwise, the dataset is returned invisibly.
-#'
-#' @export
-#'
-#' @keywords deprecated
-#' @family deprecated
-assert_has_variables <- function(dataset, required_vars) {
-  deprecate_stop("0.5.0", "assert_has_variables()", "assert_data_frame()")
-}
-
 #' Is Argument a Function?
 #'
 #' Checks if the argument is a function and if all expected arguments are
@@ -1137,28 +1092,6 @@ assert_function <- function(arg,
   }
 
   invisible(arg)
-}
-
-#' Assert Argument is a Parameter of a Function
-#'
-#' @description
-#' `r lifecycle::badge("deprecated")`
-#'
-#' This function is *deprecated*, please use `assert_function()` instead.
-#'
-#' @param arg The name of a function passed as a string
-#' @param params A character vector of function parameters
-#'
-#' @keywords deprecated
-#' @family deprecated
-#'
-#' @return
-#' The function throws an error if any elements of `params` is not an argument of
-#' the function given by `arg`
-#'
-#' @export
-assert_function_param <- function(arg, params) {
-  deprecate_stop("0.5.0", "assert_function_param()", "assert_function()")
 }
 
 #' Asserts That a Parameter is Provided in the Expected Unit

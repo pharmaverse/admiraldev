@@ -76,22 +76,12 @@ get_duplicates <- function(x) {
 #'
 #' @param expressions A list of expressions
 #'
-#' @param quosures *Deprecated*, please use `expressions` instead.
-#'
-#'
 #' @keywords get
 #' @family get
 #'
 #' @return A list of expressions
 #' @export
-get_source_vars <- function(expressions, quosures) {
-  if (!missing(quosures)) {
-    deprecate_stop(
-      "0.10.0",
-      "get_source_vars(quosures = )",
-      "get_source_vars(expressions = )"
-    )
-  }
+get_source_vars <- function(expressions) {
   assert_varval_list(expressions, optional = TRUE)
 
   source_vars <- expr_c(expressions)[lapply(expr_c(expressions), is.symbol) == TRUE]
