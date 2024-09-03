@@ -87,6 +87,8 @@ jobs:
       skip-multiversion-docs: true
       # Ref to use for the multiversion docs landing page
       multiversion-docs-landing-page: devel
+      # Do not insert the "tweak-page" hook
+      insert-tweak-page-hook: false
   linter:
     name: Lint
     uses: pharmaverse/admiralci/.github/workflows/lintr.yml@main
