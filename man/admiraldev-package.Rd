@@ -24,22 +24,21 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Stefan Bundfuss
+  \item Stefan Bundfuss (\href{https://orcid.org/0009-0005-0027-1198}{ORCID})
   \item Jeffrey Dickinson
   \item Ross Farrugia
-  \item Pooja Kumari
-  \item Edoardo Mancini
+  \item Fanny Gautier
+  \item Edoardo Mancini (\href{https://orcid.org/0009-0006-4899-8641}{ORCID})
   \item Sadchla Mascary
+  \item Gordon Miller
+  \item Daniel Sjoberg (\href{https://orcid.org/0000-0003-0862-2018}{ORCID})
+  \item Stefan Thoma (\href{https://orcid.org/0000-0002-5553-9252}{ORCID})
+  \item Kangjie Zhang
   \item Zelos Zhu
 }
 
 Other contributors:
 \itemize{
-  \item Ania Golab [contributor]
-  \item Samia Kabi [contributor]
-  \item Syed Mubasheer [contributor]
-  \item Thomas Neitmann [contributor]
-  \item Ondrej Slama [contributor]
   \item F. Hoffmann-La Roche AG [copyright holder, funder]
   \item GlaxoSmithKline LLC [copyright holder, funder]
 }
