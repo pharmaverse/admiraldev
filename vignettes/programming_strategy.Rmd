@@ -559,25 +559,32 @@ See [Writing Unit Tests in {admiral}](unit_test_guidance.html#writing-unit-tests
 
 # Deprecation
 
-As `{admiral}` is still evolving, functions or arguments may need to be removed
-or replaced with more efficient options from one release to another. In such
-cases, the relevant function or argument must be marked as deprecated. This
-deprecation is done in three phases over our release cycles.
+`{admiral}` has reached a level of maturity with the release of `1.0.0` in December 2023.
+The below deprecation strategy provides stability to users while allowing admiral developers
+the ability to remove and update the code base in the coming days.
 
--  **Phase 1:** In the release where the identified function or argument is to
-be deprecated there will be a warning issued when using the function or argument
-using `deprecate_warn()`.
+- **Phase 1:** In the release where the identified function or argument is to
+be deprecated, there will be a message issued when using the function or argument
+using `deprecate_nicely()`. This message will appear to the user for _two years_.  The
+message will include the date this message will run for and a recommendation on which 
+function or argument to change to in their code.
 
--  **Phase 2:** In the next release an error will be thrown using
-`deprecate_stop()`.
+- **Phase 2:** After _two years_ and in the closet next release, a warning will be 
+issued when using the function or argument using `deprecate_warn()`. This warning 
+message will appear to the user for _one year_.  The message will include the date this 
+warning message will run for and a recommendation on which function or argument 
+to change to in their code.
 
--  **Phase 3:** Finally in the 3rd release thereafter the function will be
-removed from the package altogether.
+- **Phase 3:** After _one year_ and in the closest next release, an error will be thrown
+using the function or argument using `deprecate_stop()` and follow similar process
+for Phase 1 and Phase 2.
 
-Information about deprecation timelines must be added to the warning/error message.
+- **Phase 4:** Finally four years from the time of being identified for deprecation, the
+function or argument will be completely removed from `{admiral}`.
 
-Note that the deprecation cycle time for a function or argument based on our
-current release schedule is 6 months.
+**Note:** Major/Minor release make the most sense for deprecation updates. However, if
+a release cycle becomes multiple years, then patch releases should be considered to
+help keep `{admiral}` neat and tidy!
 
 ## Documentation
 
