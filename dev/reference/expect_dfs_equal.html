@@ -9,7 +9,7 @@ thought of as an R-equivalent of SAS proc compare and a useful tool for unit tes
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@ thought of as an R-equivalent of SAS proc compare and a useful tool for unit tes
     </div>
 
     <div class="ref-description section level2">
-    <p>Uses <code><a href="https://rdrr.io/pkg/diffdf/man/diffdf.html" class="external-link">diffdf::diffdf()</a></code> to compares 2 datasets for any differences. This function can be
+    <p>Uses <code><a href="https://gowerc.github.io/diffdf/latest-tag/reference/diffdf.html" class="external-link">diffdf::diffdf()</a></code> to compares 2 datasets for any differences. This function can be
 thought of as an R-equivalent of SAS proc compare and a useful tool for unit testing as well.</p>
     </div>
 
@@ -75,7 +75,7 @@ thought of as an R-equivalent of SAS proc compare and a useful tool for unit tes
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Additional arguments passed onto <code><a href="https://rdrr.io/pkg/diffdf/man/diffdf.html" class="external-link">diffdf::diffdf()</a></code></p></dd>
+<dd><p>Additional arguments passed onto <code><a href="https://gowerc.github.io/diffdf/latest-tag/reference/diffdf.html" class="external-link">diffdf::diffdf()</a></code></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -105,20 +105,26 @@ thought of as an R-equivalent of SAS proc compare and a useful tool for unit tes
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">expect_dfs_equal</span><span class="op">(</span><span class="va">tbl1</span>, <span class="va">tbl2</span>, keys <span class="op">=</span> <span class="st">"USUBJID"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error : Differences found between the objects!</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> A summary is given below.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Summary of BASE and COMPARE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ==================================================================</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     PROPERTY             BASE                       COMP            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Name               base                      compare          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Class     "tbl_df, tbl, data.frame"  "tbl_df, tbl, data.frame" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     Rows(#)                4                          3             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Columns(#)              3                          3             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> There are rows in BASE that are not in COMPARE !!</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> All rows are shown in table below</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   =========</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    USUBJID </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     1004   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Not all Values Compared Equal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> All rows are shown in table below</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Not all Values Compared Equal</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   =============================</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Variable  No of Differences </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   -----------------------------</span>
@@ -127,8 +133,6 @@ thought of as an R-equivalent of SAS proc compare and a useful tool for unit tes
 <span class="r-out co"><span class="r-pr">#&gt;</span>   -----------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> All rows are shown in table below</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ==================================</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    VARIABLE  USUBJID  BASE  COMPARE </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ----------------------------------</span>
@@ -136,13 +140,12 @@ thought of as an R-equivalent of SAS proc compare and a useful tool for unit tes
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ----------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> All rows are shown in table below</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ==================================</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    VARIABLE  USUBJID  BASE  COMPARE </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ----------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      SEX      1003     M     &lt;NA&gt;   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ----------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">tlb3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span></span>
@@ -163,11 +166,11 @@ thought of as an R-equivalent of SAS proc compare and a useful tool for unit tes
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Ben Straub, Stefan Bundfuss, Jeffrey Dickinson, Ross Farrugia, Pooja Kumari, Edoardo Mancini, Sadchla Mascary, Zelos Zhu, Ania Golab, Samia Kabi, Syed Mubasheer, Thomas Neitmann, Ondrej Slama, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
+  <p>Developed by Ben Straub, Stefan Bundfuss, Jeffrey Dickinson, Ross Farrugia, Fanny Gautier, Edoardo Mancini, Sadchla Mascary, Gordon Miller, Daniel Sjoberg, Stefan Thoma, Kangjie Zhang, Zelos Zhu, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer></div>

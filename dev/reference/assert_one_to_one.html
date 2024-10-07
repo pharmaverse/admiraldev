@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -161,14 +161,14 @@ respectively not display any call or hard-code a code to display.</p>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="fu">assert_one_to_one</span><span class="op">(</span><span class="va">df_many</span>, vars1 <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span><span class="va">SPECIES</span><span class="op">)</span>, vars2 <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span><span class="va">SPECIESN</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir) : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   For some values of <span style="color: #0000BB;">"SPECIES"</span> there is more than one value of <span style="color: #0000BB;">"SPECIESN"</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Call `admiral::get_one_to_many_dataset()` to get all one-to-many values.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="fu">assert_one_to_one</span><span class="op">(</span><span class="va">df_many</span>, vars1 <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span><span class="va">SPECIESN</span><span class="op">)</span>, vars2 <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs</a></span><span class="op">(</span><span class="va">SPECIES</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir, enclos) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir) : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   There is more than one value of <span style="color: #0000BB;">"SPECIESN"</span> for some values of <span style="color: #0000BB;">"SPECIES"</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Call `admiral::get_many_to_one_dataset()` to get all many-to-one values.</span>
 </code></pre></div>
@@ -178,11 +178,11 @@ respectively not display any call or hard-code a code to display.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Ben Straub, Stefan Bundfuss, Jeffrey Dickinson, Ross Farrugia, Pooja Kumari, Edoardo Mancini, Sadchla Mascary, Zelos Zhu, Ania Golab, Samia Kabi, Syed Mubasheer, Thomas Neitmann, Ondrej Slama, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
+  <p>Developed by Ben Straub, Stefan Bundfuss, Jeffrey Dickinson, Ross Farrugia, Fanny Gautier, Edoardo Mancini, Sadchla Mascary, Gordon Miller, Daniel Sjoberg, Stefan Thoma, Kangjie Zhang, Zelos Zhu, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer></div>
