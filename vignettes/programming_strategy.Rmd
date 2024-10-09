@@ -576,7 +576,7 @@ warning message will run for and a recommendation on which function or argument
 to change to in their code.
 
 - **Phase 3:** After _one year_ and in the closest next release, an error will be thrown
-using the function or argument using `deprecate_stop()` and follow similar process
+when using the function or argument using `deprecate_stop()` and follow similar process
 for Phase 1 and Phase 2.
 
 - **Phase 4:** Finally after three years from the time of being identified for deprecation, the
