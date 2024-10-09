@@ -619,7 +619,7 @@ The documentation will be updated at:
 + the `@param` level for a argument.
 
     ```
-    @param old_param *Deprecated*, please use `new_param` instead.
+    @param old_param `r lifecycle::badge("deprecated")` Please use `new_param` instead.
     ```
 
 ## Handling of Messages, Warnings and Errors
