@@ -17,6 +17,7 @@
   - Removed at v1.0.0 `assert_function_param()`
 
 ## Documentation
+  - Deprecation Strategy updated for the long haul! (#466)
 
 ## Other
 
