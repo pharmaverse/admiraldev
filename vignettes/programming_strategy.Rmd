@@ -649,8 +649,7 @@ fun_xxx <- function(dataset, some_param, other_param) {
 }
 ```
 **Phase 2:** In the next year/closest release in which a function is deprecated 
-the original function body must be replaced with a call to `deprecate_warn()` and 
-subsequently all arguments should be passed on to the new function.
+the call to `deprecate_inform()` must be replaced with a call to `deprecate_warn()`.
 
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
