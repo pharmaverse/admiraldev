@@ -586,7 +586,7 @@ function or argument will be completely removed from `{admiral}`.
 a release cycle becomes multiple years, then patch releases should be considered to
 help keep `{admiral}` neat and tidy!
 
-**NB:** Take care with `News.md` entries for deprecation as the person continuing this
+**NB:** Take care with `NEWS.md` entries for deprecation as the person continuing this
 process might not be you!
 
 ## Documentation
