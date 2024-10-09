@@ -46,3 +46,7 @@ GitHub use the following code:
 release of `{admiral}`. You can find the release schedule for
 `{admiral}` packages
 [here](https://pharmaverse.github.io/admiral/#release-schedule).
+
+## Acknowledgments
+
+Along with the authors and contributors, thanks to the following people for their work on the package: Ania Golab, Samia Kabi, Pooja Kumari, Syed Mubasheer, Thomas Neitmann and Ondrej Slama. 
