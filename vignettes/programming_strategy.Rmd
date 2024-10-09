@@ -724,7 +724,7 @@ arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 ## Unit Testing
 
 Unit tests for deprecated functions and arguments must be added to the test 
-file [^1] of the function to ensure that a warning or error is issued.
+file [^1] of the function to ensure that a message, warning, or error is issued.
 
 [^1]: For example, if `derive_var_example()` is going to be deprecated and
 it is defined in `examples.R`, the unit tests are in
