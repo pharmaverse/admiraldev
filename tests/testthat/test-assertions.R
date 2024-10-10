@@ -1259,7 +1259,10 @@ test_that("assert_list_element Test 75: error if the elements do not fulfill the
       element = "val",
       condition = val %in% valid_vals,
       valid_vals = c(0, 1),
-      message_text = "List element {.val val} must one of {.val {valid_vals}} in argument {.arg {arg_name}}.",
+      message_text = paste(
+        "List element {.val val} must one of {.val {valid_vals}} in argument",
+        "{.arg {arg_name}}."
+      ),
       arg_name = "input"
     )
   )
