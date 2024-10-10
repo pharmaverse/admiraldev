@@ -407,8 +407,9 @@
     Code
       assert_list_element(list(list(var = expr(DTHDT), val = 1), list(var = expr(
         EOSDT), val = -1), list(var = expr(EOSDT), val = -2)), element = "val",
-      condition = val %in% valid_vals, valid_vals = c(0, 1), message_text = "List element {.val val} must one of {.val {valid_vals}} in argument {.arg {arg_name}}.",
-      arg_name = "input")
+      condition = val %in% valid_vals, valid_vals = c(0, 1), message_text = paste(
+        "List element {.val val} must one of {.val {valid_vals}} in argument",
+        "{.arg {arg_name}}."), arg_name = "input")
     Condition
       Error:
       ! List element "val" must one of 0 and 1 in argument `input`.
