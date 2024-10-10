@@ -395,13 +395,24 @@
 
     Code
       assert_list_element(list(list(var = expr(DTHDT), val = 1), list(var = expr(
-        EOSDT), val = -1), list(var = expr(EOSDT), val = -2)), element = "val",
-      condition = val >= 0, message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}:",
+        EOSDT), val = -1)), element = "val", condition = val >= 0, message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}.",
       arg_name = "input")
     Condition
       Error:
-      ! List element "val" must be `>=0` in argument `input`:
-      i  But, `input[[2]]$val = -1`, and `input[[3]]$val = -2`
+      ! List element "val" must be `>=0` in argument `input`.
+      i But, `input[[2]]$val = -1`
+
+---
+
+    Code
+      assert_list_element(list(list(var = expr(DTHDT), val = 1), list(var = expr(
+        EOSDT), val = -1), list(var = expr(EOSDT), val = -2)), element = "val",
+      condition = val %in% valid_vals, valid_vals = c(0, 1), message_text = "List element {.val val} must one of {.val {valid_vals}} in argument {.arg {arg_name}}.",
+      arg_name = "input")
+    Condition
+      Error:
+      ! List element "val" must one of 0 and 1 in argument `input`.
+      i But, `input[[2]]$val = -1`, and `input[[3]]$val = -2`
 
 # assert_one_to_one Test 76: error if there is a one to many mapping
 

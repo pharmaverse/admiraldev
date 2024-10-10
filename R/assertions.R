@@ -1482,9 +1482,11 @@ assert_expr_list <- function(arg, # nolint
 #'   e.g., `"Error in {arg_name}: the censor values must be zero."`.
 #'   If `message` argument is specified, that text will be displayed and `message_text`
 #'   is ignored.
-#' @param ... Objects required to evaluate the condition
-#'   If the condition contains objects apart from the element, they have to be
-#'   passed to the function. See the second example below.
+#' @param ... Objects required to evaluate the condition or the message text
+#'
+#'   If the condition or the message text contains objects apart from the
+#'   element, they have to be passed to the function. See the second example
+#'   below.
 #' @inheritParams assert_logical_scalar
 #'
 #' @return
@@ -1494,6 +1496,38 @@ assert_expr_list <- function(arg, # nolint
 #' @family assertion
 #' @export
 #'
+#' @examples
+#' death <- list(
+#'   dataset_name = "adsl",
+#'   filter = expr(DTHFL == "Y"),
+#'   date = expr(DTHDT),
+#'   censor = 0
+#' )
+#'
+#' lstalv <- list(
+#'   dataset_name = "adsl",
+#'   date = expr(LSTALVDT),
+#'   censor = 1
+#' )
+#'
+#' events <- list(death, lstalv)
+#'
+#' try(assert_list_element(
+#'   list = events,
+#'   element = "censor",
+#'   condition = censor == 0,
+#'   message_text = "For events the censor values must be zero."
+#' ))
+#'
+#' try(assert_list_element(
+#'   list = events,
+#'   element = "dataset_name",
+#'   condition = dataset_name %in% c("adrs", "adae"),
+#'   valid_datasets = c("adrs", "adae"),
+#'   message_text = paste(
+#'     "The dataset name must be one of the following: {.val {valid_datasets}}"
+#'   )
+#' ))
 assert_list_element <- function(list,
                                 element,
                                 condition,
@@ -1501,7 +1535,8 @@ assert_list_element <- function(list,
                                 arg_name = rlang::caller_arg(list),
                                 message = NULL,
                                 class = "assert_list_element",
-                                call = parent.frame(), ...) {
+                                call = parent.frame(),
+                                ...) {
   assert_s3_class(list, "list")
   assert_character_scalar(element)
   condition <- assert_filter_cond(enexpr(condition))
@@ -1527,13 +1562,14 @@ assert_list_element <- function(list,
       )
       message <- c(
         message_text,
-        i = paste(" But,", info_msg)
+        i = paste("But,", info_msg)
       )
     }
 
     cli_abort(
       message = message,
       class = c(class, "assert-admiraldev"),
+      .envir = env(...),
       call = call
     )
   }
