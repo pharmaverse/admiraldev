@@ -1497,16 +1497,16 @@ assert_expr_list <- function(arg, # nolint
 #' @export
 #'
 #' @examples
+#'
 #' death <- list(
 #'   dataset_name = "adsl",
-#'   filter = expr(DTHFL == "Y"),
-#'   date = expr(DTHDT),
+#'   date = "DTHDT",
 #'   censor = 0
 #' )
 #'
 #' lstalv <- list(
 #'   dataset_name = "adsl",
-#'   date = expr(LSTALVDT),
+#'   date = "LSTALVDT",
 #'   censor = 1
 #' )
 #'

@@ -72,16 +72,16 @@ condition. If not, an error is issued and all elements of the list not
 fulfilling the condition are listed.
 }
 \examples{
+
 death <- list(
   dataset_name = "adsl",
-  filter = expr(DTHFL == "Y"),
-  date = expr(DTHDT),
+  date = "DTHDT",
   censor = 0
 )
 
 lstalv <- list(
   dataset_name = "adsl",
-  date = expr(LSTALVDT),
+  date = "LSTALVDT",
   censor = 1
 )
 
