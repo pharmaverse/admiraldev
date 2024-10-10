@@ -4,7 +4,7 @@
 #'   starts_with transmute ungroup n_distinct union distinct summarise coalesce
 #'   bind_cols na_if tibble %>%
 #' @importFrom rlang := abort arg_match as_function as_label as_name as_string
-#'   call2 caller_env call_name current_env .data enexpr enquo eval_bare
+#'   call2 caller_env call_name current_env .data enexpr enquo env eval_bare
 #'   eval_tidy expr expr_interp expr_label exprs f_lhs f_rhs is_named inform missing_arg
 #'   is_bare_formula is_call is_character is_expression is_formula is_integerish
 #'   is_logical is_missing is_quosure is_symbol is_symbolic new_formula

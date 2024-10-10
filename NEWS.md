@@ -2,6 +2,9 @@
 
 ## Updates of Existing Functions
 
+- Objects passed to `assert_list_element()` via the `...` argument can now be
+used in the glue expression specified for the `message_text` argument. (#469)
+
 ## Breaking Changes
 
 - The following functions are entering the next phase of the deprecation process: (#459)
