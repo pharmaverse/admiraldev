@@ -1181,7 +1181,7 @@ assert_unit <- function(dataset,
             paste(
               "Extracting units using expression {.code {get_unit_expr}} specified",
               "for {.arg get_unit_expr} failed!"
-              ),
+            ),
             "See error message below:",
             conditionMessage(cnd)
           ),
