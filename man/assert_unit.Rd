@@ -79,14 +79,19 @@ advs <- tribble(
 assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSSTRESU)
 
 try(
-  assert_unit(advs, param = "WEIGHT", required_unit = c("g", "mg"), get_unit_expr = VSSTRESU)
+  assert_unit(
+    advs,
+    param = "WEIGHT",
+    required_unit = c("g", "mg"),
+    get_unit_expr = VSSTRESU
+  )
 )
 
 # Checking uniqueness of unit only
 advs <- tribble(
   ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
   "P01",    "WEIGHT",      80.1, "kg",      "WEIGHT",  80.1,
-  "P02",    "WEIGHT",      85.7, "g",       "WEIGHT",  85.7
+  "P02",    "WEIGHT",     85700, "g",       "WEIGHT",  85700
 )
 
 try(

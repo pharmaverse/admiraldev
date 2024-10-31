@@ -323,15 +323,15 @@
       Error in `example_fun()`:
       ! "x" and "y" are not arguments of the function specified for `arg`.
 
-# assert_unit Test 57: error if there are multiple units in the input dataset
+# assert_unit Test 58: error if multiple units in the input dataset
 
     Code
-      assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSSTRESU)
+      assert_unit(advs, param = "WEIGHT", get_unit_expr = VSSTRESU)
     Condition
       Error:
       ! Multiple units "kg" and "lb" found for "WEIGHT". Please review and update the units.
 
-# assert_unit Test 58: error if unexpected unit in the input dataset
+# assert_unit Test 59: error if unexpected unit in the input dataset
 
     Code
       assert_unit(advs, param = "WEIGHT", required_unit = "lb", get_unit_expr = VSSTRESU)
@@ -339,7 +339,17 @@
       Error:
       ! It is expected that "WEIGHT" has unit of "lb". In the input dataset the unit is "kg".
 
-# assert_param_does_not_exist Test 59: error if parameter exists in the input dataset
+# assert_unit Test 60: error if get_unit_expr invalid
+
+    Code
+      assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSTRESU)
+    Condition
+      Error in `assert_unit()`:
+      ! Extracting units using expression `VSTRESU` specified for `get_unit_expr` failed!
+      See error message below:
+      i In argument: `_unit = VSTRESU`. Caused by error: ! object 'VSTRESU' not found
+
+# assert_param_does_not_exist Test 61: error if parameter exists in the input dataset
 
     Code
       assert_param_does_not_exist(advs, param = "WEIGHT")
@@ -347,7 +357,7 @@
       Error:
       ! The parameter code "WEIGHT" already exists in dataset `advs`.
 
-# assert_varval_list Test 61: error if `arg` is not a list of var-value expressions
+# assert_varval_list Test 63: error if `arg` is not a list of var-value expressions
 
     Code
       example_fun(c("USUBJID", "PARAMCD", "VISIT"))
@@ -356,7 +366,7 @@
       ! Argument `arg` must be a named list of expressions where each element is a symbol, character scalar, numeric scalar, an expression, or NA, but is a character vector.
       i To create a list of expressions use `exprs()`.
 
-# assert_varval_list Test 62: error if `arg` is not a list of var-value expressions
+# assert_varval_list Test 64: error if `arg` is not a list of var-value expressions
 
     Code
       example_fun(exprs(USUBJID, PARAMCD, NULL))
@@ -365,7 +375,7 @@
       ! Argument `arg` must be a list of expressions where each element is a symbol, character scalar, numeric scalar, an expression, or NA, but is a list.
       i To create a list of expressions use `exprs()`.
 
-# assert_varval_list Test 63: error if `required_elements` are missing from `arg`
+# assert_varval_list Test 65: error if `required_elements` are missing from `arg`
 
     Code
       example_fun(exprs(DTHSEQ = AESEQ))
@@ -373,7 +383,7 @@
       Error in `example_fun()`:
       ! The following required elements are missing from argument `arg`: "DTHDOM".
 
-# assert_varval_list Test 65: error if `accept_expr` is TRUE and value is invalid
+# assert_varval_list Test 67: error if `accept_expr` is TRUE and value is invalid
 
     Code
       example_fun(exprs(DTHSEQ = TRUE))
@@ -382,7 +392,7 @@
       ! The elements of the list in argument `arg` must be a symbol, character scalar, numeric scalar, an expression, or NA.
       i "DTHSEQ" = `TRUE` is of type <logical>
 
-# assert_varval_list Test 66: error if `accept_expr` is FALSE and value is invalid
+# assert_varval_list Test 68: error if `accept_expr` is FALSE and value is invalid
 
     Code
       example_fun(exprs(DTHSEQ = exprs()))
@@ -391,7 +401,7 @@
       ! The elements of the list in argument `arg` must be a symbol, character scalar, numeric scalar, or NA.
       i "DTHSEQ" = `exprs()` is of type <language>
 
-# assert_list_element Test 75: error if the elements do not fulfill the condition
+# assert_list_element Test 77: error if the elements do not fulfill the condition
 
     Code
       assert_list_element(list(list(var = expr(DTHDT), val = 1), list(var = expr(
@@ -403,7 +413,7 @@
       ! List element "val" must be `>=0` in argument `input`:
       i  But, `input[[2]]$val = -1`, and `input[[3]]$val = -2`
 
-# assert_one_to_one Test 76: error if there is a one to many mapping
+# assert_one_to_one Test 78: error if there is a one to many mapping
 
     Code
       assert_one_to_one(dm, exprs(DOMAIN), exprs(USUBJID))
@@ -412,7 +422,7 @@
       ! For some values of "DOMAIN" there is more than one value of "USUBJID"
       i Call `admiral::get_one_to_many_dataset()` to get all one-to-many values.
 
-# assert_date_var Test 79: error if variable is not a date or datetime variable
+# assert_date_var Test 81: error if variable is not a date or datetime variable
 
     Code
       example_fun(dataset = my_data, var = USUBJID)
@@ -420,7 +430,7 @@
       Error in `example_fun()`:
       ! Column "USUBJID" in dataset `dataset` must be a date or datetime, but is a character vector.
 
-# assert_date_vector Test 83: error if `arg` is NULL and optional is FALSE
+# assert_date_vector Test 85: error if `arg` is NULL and optional is FALSE
 
     Code
       example_fun(NULL)
@@ -428,7 +438,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be a date or datetime, but is NULL.
 
-# assert_atomic_vector Test 84: error if input is not atomic vector
+# assert_atomic_vector Test 86: error if input is not atomic vector
 
     Code
       assert_atomic_vector(x)
@@ -436,7 +446,7 @@
       Error:
       ! Argument `x` must be an atomic vector, but is a list.
 
-# assert_same_type Test 86: error if different type
+# assert_same_type Test 88: error if different type
 
     Code
       assert_same_type(true_value, false_value, missing_value)

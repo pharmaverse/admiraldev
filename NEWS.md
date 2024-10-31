@@ -2,6 +2,10 @@
 
 ## Updates of Existing Functions
 
+- The `required_unit` argument of `assert_unit()` has been enhanced. It is now
+possible to specify more than one unit or not specifying it. In the latter case
+only the uniqueness of the unit is checked. (#468)
+
 ## Breaking Changes
 
 - The following functions are entering the next phase of the deprecation process: (#459)

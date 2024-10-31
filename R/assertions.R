@@ -1141,14 +1141,19 @@ assert_function <- function(arg,
 #' assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSSTRESU)
 #'
 #' try(
-#'   assert_unit(advs, param = "WEIGHT", required_unit = c("g", "mg"), get_unit_expr = VSSTRESU)
+#'   assert_unit(
+#'     advs,
+#'     param = "WEIGHT",
+#'     required_unit = c("g", "mg"),
+#'     get_unit_expr = VSSTRESU
+#'   )
 #' )
 #'
 #' # Checking uniqueness of unit only
 #' advs <- tribble(
 #'   ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
 #'   "P01",    "WEIGHT",      80.1, "kg",      "WEIGHT",  80.1,
-#'   "P02",    "WEIGHT",      85.7, "g",       "WEIGHT",  85.7
+#'   "P02",    "WEIGHT",     85700, "g",       "WEIGHT", 85700
 #' )
 #'
 #' try(
@@ -1167,8 +1172,21 @@ assert_unit <- function(dataset,
   assert_character_vector(required_unit, optional = TRUE)
   get_unit_expr <- enexpr(get_unit_expr)
 
-  units <- dataset %>%
-    mutate(`_unit` = !!get_unit_expr) %>%
+  tryCatch(
+    data_unit <- mutate(dataset, `_unit` = !!get_unit_expr),
+    error = function(cnd) {
+      cli_abort(
+        message =
+          c("Extracting units using expression {.code {get_unit_expr}} specified for {.arg get_unit_expr} failed!",
+            "See error message below:",
+            conditionMessage(cnd)
+          ),
+        call = parent.frame(n = 4),
+        class = c(class,  "assert-admiraldev", class(cnd))
+      )
+    }
+  )
+  units <- data_unit %>%
     filter(PARAMCD == param & !is.na(`_unit`)) %>%
     pull(`_unit`) %>%
     unique()
