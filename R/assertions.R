@@ -1130,7 +1130,7 @@ assert_function <- function(arg,
 #' @export
 #'
 #' @examples
-#' library(tibble)
+#' library(dplyr)
 #'
 #' advs <- tribble(
 #'   ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
@@ -1178,7 +1178,10 @@ assert_unit <- function(dataset,
       cli_abort(
         message =
           c(
-            "Extracting units using expression {.code {get_unit_expr}} specified for {.arg get_unit_expr} failed!",
+            paste(
+              "Extracting units using expression {.code {get_unit_expr}} specified",
+              "for {.arg get_unit_expr} failed!"
+              ),
             "See error message below:",
             conditionMessage(cnd)
           ),

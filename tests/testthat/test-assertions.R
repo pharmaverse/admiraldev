@@ -1028,7 +1028,7 @@ test_that("assert_unit Test 58: error if multiple units in the input dataset", {
 
 ## Test 59: error if unexpected unit in the input dataset ----
 test_that("assert_unit Test 59: error if unexpected unit in the input dataset", {
-  advs <- tibble::tribble(
+  advs <- dplyr::tribble(
     ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
     "P01",    "WEIGHT",      80.1, "kg",      "WEIGHT",  80.1,
     "P02",    "WEIGHT",      85.7, "kg",      "WEIGHT",  85.7
@@ -1046,7 +1046,7 @@ test_that("assert_unit Test 59: error if unexpected unit in the input dataset", 
 
 ## Test 60: error if get_unit_expr invalid ----
 test_that("assert_unit Test 60: error if get_unit_expr invalid", {
-  advs <- tibble::tribble(
+  advs <- dplyr::tribble(
     ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
     "P01",    "WEIGHT",      80.1, "kg",      "WEIGHT",  80.1,
     "P02",    "WEIGHT",      85.7, "kg",      "WEIGHT",  85.7
