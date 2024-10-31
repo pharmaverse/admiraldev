@@ -1207,7 +1207,8 @@ assert_unit <- function(dataset,
     )
   }
 
-  if (!is.null(required_unit) && tolower(units) %notin% tolower(required_unit)) {
+  if (!is.null(required_unit) && length(units) > 0 &&
+    tolower(units) %notin% tolower(required_unit)) {
     # change cli `.val` to end with OR instead of AND
     divid <- cli_div(theme = list(.val = list("vec-last" = ", or ", "vec_sep2" = " or ")))
 
