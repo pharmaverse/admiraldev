@@ -1177,12 +1177,13 @@ assert_unit <- function(dataset,
     error = function(cnd) {
       cli_abort(
         message =
-          c("Extracting units using expression {.code {get_unit_expr}} specified for {.arg get_unit_expr} failed!",
+          c(
+            "Extracting units using expression {.code {get_unit_expr}} specified for {.arg get_unit_expr} failed!",
             "See error message below:",
             conditionMessage(cnd)
           ),
         call = parent.frame(n = 4),
-        class = c(class,  "assert-admiraldev", class(cnd))
+        class = c(class, "assert-admiraldev", class(cnd))
       )
     }
   )
