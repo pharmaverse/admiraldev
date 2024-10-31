@@ -68,7 +68,7 @@ Checks if a parameter (\code{PARAMCD}) in a dataset is provided in the expected
 unit.
 }
 \examples{
-library(dplyr)
+library(tibble)
 
 advs <- tribble(
   ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
@@ -91,7 +91,7 @@ try(
 advs <- tribble(
   ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
   "P01",    "WEIGHT",      80.1, "kg",      "WEIGHT",  80.1,
-  "P02",    "WEIGHT",     85700, "g",       "WEIGHT",  85700
+  "P02",    "WEIGHT",     85700, "g",       "WEIGHT", 85700
 )
 
 try(

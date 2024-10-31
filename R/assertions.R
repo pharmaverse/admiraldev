@@ -1130,7 +1130,7 @@ assert_function <- function(arg,
 #' @export
 #'
 #' @examples
-#' library(dplyr)
+#' library(tibble)
 #'
 #' advs <- tribble(
 #'   ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
