@@ -1107,7 +1107,7 @@ assert_function <- function(arg,
 #' @param required_unit Expected unit(s)
 #'
 #'  If the argument is set to `NULL`, it is checked only whether the unit is
-#'  unique.
+#'  unique within the parameter.
 #'
 #'  *Permitted Values*: A character vector or `NULL`
 #'
@@ -1195,7 +1195,7 @@ assert_unit <- function(dataset,
     pull(`_unit`) %>%
     unique()
 
-  if (length(units) != 1L) {
+  if (length(units) > 1L) {
     message <-
       message %||%
       "Multiple units {.val {units}} found for {.val {param}}. Please review and update the units."
@@ -1207,7 +1207,7 @@ assert_unit <- function(dataset,
     )
   }
 
-  if (!is.null(required_unit) && !(tolower(units) %in% tolower(required_unit))) {
+  if (!is.null(required_unit) && tolower(units) %notin% tolower(required_unit)) {
     # change cli `.val` to end with OR instead of AND
     divid <- cli_div(theme = list(.val = list("vec-last" = ", or ", "vec_sep2" = " or ")))
 

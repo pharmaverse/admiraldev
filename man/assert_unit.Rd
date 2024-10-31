@@ -25,7 +25,7 @@ The variable \code{PARAMCD} and those used in \code{get_unit_expr} are expected.
 \item{required_unit}{Expected unit(s)
 
 If the argument is set to \code{NULL}, it is checked only whether the unit is
-unique.
+unique within the parameter.
 
 \emph{Permitted Values}: A character vector or \code{NULL}}
 
