@@ -9,7 +9,7 @@ unit."><meta property="og:image" content="https://pharmaverse.github.io/admirald
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9003</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9004</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,7 @@ unit.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">assert_unit</span><span class="op">(</span></span>
 <span>  <span class="va">dataset</span>,</span>
 <span>  <span class="va">param</span>,</span>
-<span>  <span class="va">required_unit</span>,</span>
+<span>  required_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">get_unit_expr</span>,</span>
 <span>  arg_name <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/caller_arg.html" class="external-link">caller_arg</a></span><span class="op">(</span><span class="va">required_unit</span><span class="op">)</span>,</span>
 <span>  message <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -71,7 +71,8 @@ unit.</p>
 
 
 <dl><dt id="arg-dataset">dataset<a class="anchor" aria-label="anchor" href="#arg-dataset"></a></dt>
-<dd><p>A <code>data.frame</code></p></dd>
+<dd><p>Dataset to be checked</p>
+<p>The variable <code>PARAMCD</code> and those used in <code>get_unit_expr</code> are expected.</p></dd>
 
 
 <dt id="arg-param">param<a class="anchor" aria-label="anchor" href="#arg-param"></a></dt>
@@ -79,7 +80,10 @@ unit.</p>
 
 
 <dt id="arg-required-unit">required_unit<a class="anchor" aria-label="anchor" href="#arg-required-unit"></a></dt>
-<dd><p>Expected unit</p></dd>
+<dd><p>Expected unit(s)</p>
+<p>If the argument is set to <code>NULL</code>, it is checked only whether the unit is
+unique within the parameter.</p>
+<p><em>Permitted Values</em>: A character vector or <code>NULL</code></p></dd>
 
 
 <dt id="arg-get-unit-expr">get_unit_expr<a class="anchor" aria-label="anchor" href="#arg-get-unit-expr"></a></dt>
@@ -115,9 +119,10 @@ respectively not display any call or hard-code a code to display.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>The function throws an error if the unit variable differs from the
-unit for any observation of the parameter in the input dataset. Otherwise, the
-dataset is returned invisibly.</p>
+    <p>The function throws an error</p><ul><li><p>if there is more than one non-missing unit in the dataset or</p></li>
+<li><p>if the unit variable differs from the expected unit for any observation of
+the parameter in the input dataset.</p></li>
+</ul><p>Otherwise, the dataset is returned invisibly.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -157,6 +162,32 @@ dataset is returned invisibly.</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">assert_unit</span><span class="op">(</span><span class="va">advs</span>, param <span class="op">=</span> <span class="st">"WEIGHT"</span>, required_unit <span class="op">=</span> <span class="st">"kg"</span>, get_unit_expr <span class="op">=</span> <span class="va">VSSTRESU</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">assert_unit</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="va">advs</span>,</span></span>
+<span class="r-in"><span>    param <span class="op">=</span> <span class="st">"WEIGHT"</span>,</span></span>
+<span class="r-in"><span>    required_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"g"</span>, <span class="st">"mg"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    get_unit_expr <span class="op">=</span> <span class="va">VSSTRESU</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   It is expected that <span style="color: #0000BB;">"WEIGHT"</span> has unit of <span style="color: #0000BB;">"g"</span> or <span style="color: #0000BB;">"mg"</span>. In the input</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dataset the unit is <span style="color: #0000BB;">"kg"</span>.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Checking uniqueness of unit only</span></span></span>
+<span class="r-in"><span><span class="va">advs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="op">~</span><span class="va">USUBJID</span>, <span class="op">~</span><span class="va">VSTESTCD</span>, <span class="op">~</span><span class="va">VSTRESN</span>, <span class="op">~</span><span class="va">VSSTRESU</span>, <span class="op">~</span><span class="va">PARAMCD</span>, <span class="op">~</span><span class="va">AVAL</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"P01"</span>,    <span class="st">"WEIGHT"</span>,      <span class="fl">80.1</span>, <span class="st">"kg"</span>,      <span class="st">"WEIGHT"</span>,  <span class="fl">80.1</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"P02"</span>,    <span class="st">"WEIGHT"</span>,     <span class="fl">85700</span>, <span class="st">"g"</span>,       <span class="st">"WEIGHT"</span>, <span class="fl">85700</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu">assert_unit</span><span class="op">(</span><span class="va">advs</span>, param <span class="op">=</span> <span class="st">"WEIGHT"</span>, get_unit_expr <span class="op">=</span> <span class="va">VSSTRESU</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Multiple units <span style="color: #0000BB;">"kg"</span> and <span style="color: #0000BB;">"g"</span> found for <span style="color: #0000BB;">"WEIGHT"</span>. Please review and update</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> the units.</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
