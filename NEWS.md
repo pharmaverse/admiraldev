@@ -2,6 +2,9 @@
 
 ## Updates of Existing Functions
 
+- Objects passed to `assert_list_element()` via the `...` argument can now be
+used in the glue expression specified for the `message_text` argument. (#469)
+
 - The `required_unit` argument of `assert_unit()` has been enhanced. It is now
 possible to specify more than one unit or not specify it at all. In the latter
 case only the uniqueness of the unit is checked. (#468)

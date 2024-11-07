@@ -1288,7 +1288,7 @@ test_that("assert_list_element Test 77: no error if the elements fulfill a certa
 
 ## Test 78: error if the elements do not fulfill the condition ----
 test_that("assert_list_element Test 78: error if the elements do not fulfill the condition", {
-  expect_error(
+  expect_snapshot(
     assert_list_element(
       list(
         list(var = expr(DTHDT), val = 1),
@@ -1296,9 +1296,10 @@ test_that("assert_list_element Test 78: error if the elements do not fulfill the
       ),
       element = "val",
       condition = val >= 0,
-      message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}:",
+      message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}.",
       arg_name = "input"
-    )
+    ),
+    error = TRUE
   )
 
   expect_snapshot(
@@ -1310,8 +1311,12 @@ test_that("assert_list_element Test 78: error if the elements do not fulfill the
         list(var = expr(EOSDT), val = -2)
       ),
       element = "val",
-      condition = val >= 0,
-      message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}:",
+      condition = val %in% valid_vals,
+      valid_vals = c(0, 1),
+      message_text = paste(
+        "List element {.val val} must one of {.val {valid_vals}} in argument",
+        "{.arg {arg_name}}."
+      ),
       arg_name = "input"
     )
   )
