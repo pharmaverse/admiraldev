@@ -644,8 +644,13 @@ fun_xxx <- function(dataset, some_param, other_param) {
   new_fun_xxx(
     dataset = dataset,
     some_param = some_param,
-    other_param = other_param
-  )
+    other_param = other_param,
+    details = c(
+              x = "This message will turn into a warning with release of x.y.z",
+              i = "See admiral's deprecation guidance:
+              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"
+              )  
+            ) 
 }
 ```
 **Phase 2:** In the next year/closest release in which a function is deprecated 
