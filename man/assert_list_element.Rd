@@ -57,9 +57,11 @@ respectively not display any call or hard-code a code to display.
 
 For more information about error calls, see \ifelse{html}{\link[rlang:topic-error-call]{Including function calls in error messages}}{\link[rlang:topic-error-call]{Including function calls in error messages}}.}
 
-\item{...}{Objects required to evaluate the condition
-If the condition contains objects apart from the element, they have to be
-passed to the function. See the second example below.}
+\item{...}{Objects required to evaluate the condition or the message text
+
+If the condition or the message text contains objects apart from the
+element, they have to be passed to the function. See the second example
+below.}
 }
 \value{
 An error if the condition is not met. The input otherwise.
@@ -68,6 +70,39 @@ An error if the condition is not met. The input otherwise.
 Checks if the elements of a list of named lists/classes fulfill a certain
 condition. If not, an error is issued and all elements of the list not
 fulfilling the condition are listed.
+}
+\examples{
+
+death <- list(
+  dataset_name = "adsl",
+  date = "DTHDT",
+  censor = 0
+)
+
+lstalv <- list(
+  dataset_name = "adsl",
+  date = "LSTALVDT",
+  censor = 1
+)
+
+events <- list(death, lstalv)
+
+try(assert_list_element(
+  list = events,
+  element = "censor",
+  condition = censor == 0,
+  message_text = "For events the censor values must be zero."
+))
+
+try(assert_list_element(
+  list = events,
+  element = "dataset_name",
+  condition = dataset_name \%in\% c("adrs", "adae"),
+  valid_datasets = c("adrs", "adae"),
+  message_text = paste(
+    "The dataset name must be one of the following: {.val {valid_datasets}}"
+  )
+))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 

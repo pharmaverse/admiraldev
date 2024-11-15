@@ -1099,9 +1099,18 @@ assert_function <- function(arg,
 #' Checks if a parameter (`PARAMCD`) in a dataset is provided in the expected
 #' unit.
 #'
-#' @param dataset A `data.frame`
+#' @param dataset Dataset to be checked
+#'
+#'   The variable `PARAMCD` and those used in `get_unit_expr` are expected.
+#'
 #' @param param Parameter code of the parameter to check
-#' @param required_unit Expected unit
+#' @param required_unit Expected unit(s)
+#'
+#'  If the argument is set to `NULL`, it is checked only whether the unit is
+#'  unique within the parameter.
+#'
+#'  *Permitted Values*: A character vector or `NULL`
+#'
 #' @param get_unit_expr Expression used to provide the unit of `param`
 #'
 #' @inheritParams assert_logical_scalar
@@ -1111,9 +1120,12 @@ assert_function <- function(arg,
 #' @family assertion
 #'
 #' @return
-#' The function throws an error if the unit variable differs from the
-#' unit for any observation of the parameter in the input dataset. Otherwise, the
-#' dataset is returned invisibly.
+#' The function throws an error
+#' - if there is more than one non-missing unit in the dataset or
+#' - if the unit variable differs from the expected unit for any observation of
+#'  the parameter in the input dataset.
+#'
+#' Otherwise, the dataset is returned invisibly.
 #'
 #' @export
 #'
@@ -1127,9 +1139,29 @@ assert_function <- function(arg,
 #' )
 #'
 #' assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSSTRESU)
+#'
+#' try(
+#'   assert_unit(
+#'     advs,
+#'     param = "WEIGHT",
+#'     required_unit = c("g", "mg"),
+#'     get_unit_expr = VSSTRESU
+#'   )
+#' )
+#'
+#' # Checking uniqueness of unit only
+#' advs <- tribble(
+#'   ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
+#'   "P01",    "WEIGHT",      80.1, "kg",      "WEIGHT",  80.1,
+#'   "P02",    "WEIGHT",     85700, "g",       "WEIGHT", 85700
+#' )
+#'
+#' try(
+#'   assert_unit(advs, param = "WEIGHT", get_unit_expr = VSSTRESU)
+#' )
 assert_unit <- function(dataset,
                         param,
-                        required_unit,
+                        required_unit = NULL,
                         get_unit_expr,
                         arg_name = rlang::caller_arg(required_unit),
                         message = NULL,
@@ -1137,16 +1169,33 @@ assert_unit <- function(dataset,
                         call = parent.frame()) {
   assert_data_frame(dataset, required_vars = exprs(PARAMCD))
   assert_character_scalar(param)
-  assert_character_scalar(required_unit)
+  assert_character_vector(required_unit, optional = TRUE)
   get_unit_expr <- enexpr(get_unit_expr)
 
-  units <- dataset %>%
-    mutate(`_unit` = !!get_unit_expr) %>%
+  tryCatch(
+    data_unit <- mutate(dataset, `_unit` = !!get_unit_expr),
+    error = function(cnd) {
+      cli_abort(
+        message =
+          c(
+            paste(
+              "Extracting units using expression {.code {get_unit_expr}} specified",
+              "for {.arg get_unit_expr} failed!"
+            ),
+            "See error message below:",
+            conditionMessage(cnd)
+          ),
+        call = parent.frame(n = 4),
+        class = c(class, "assert-admiraldev", class(cnd))
+      )
+    }
+  )
+  units <- data_unit %>%
     filter(PARAMCD == param & !is.na(`_unit`)) %>%
     pull(`_unit`) %>%
     unique()
 
-  if (length(units) != 1L) {
+  if (length(units) > 1L) {
     message <-
       message %||%
       "Multiple units {.val {units}} found for {.val {param}}. Please review and update the units."
@@ -1157,7 +1206,12 @@ assert_unit <- function(dataset,
       class = c(class, "assert-admiraldev")
     )
   }
-  if (tolower(units) != tolower(required_unit)) {
+
+  if (!is.null(required_unit) && length(units) > 0 &&
+    tolower(units) %notin% tolower(required_unit)) {
+    # change cli `.val` to end with OR instead of AND
+    divid <- cli_div(theme = list(.val = list("vec-last" = ", or ", "vec_sep2" = " or ")))
+
     message <-
       message %||%
       "It is expected that {.val {param}} has unit of {.val {required_unit}}.
@@ -1482,9 +1536,11 @@ assert_expr_list <- function(arg, # nolint
 #'   e.g., `"Error in {arg_name}: the censor values must be zero."`.
 #'   If `message` argument is specified, that text will be displayed and `message_text`
 #'   is ignored.
-#' @param ... Objects required to evaluate the condition
-#'   If the condition contains objects apart from the element, they have to be
-#'   passed to the function. See the second example below.
+#' @param ... Objects required to evaluate the condition or the message text
+#'
+#'   If the condition or the message text contains objects apart from the
+#'   element, they have to be passed to the function. See the second example
+#'   below.
 #' @inheritParams assert_logical_scalar
 #'
 #' @return
@@ -1494,6 +1550,38 @@ assert_expr_list <- function(arg, # nolint
 #' @family assertion
 #' @export
 #'
+#' @examples
+#'
+#' death <- list(
+#'   dataset_name = "adsl",
+#'   date = "DTHDT",
+#'   censor = 0
+#' )
+#'
+#' lstalv <- list(
+#'   dataset_name = "adsl",
+#'   date = "LSTALVDT",
+#'   censor = 1
+#' )
+#'
+#' events <- list(death, lstalv)
+#'
+#' try(assert_list_element(
+#'   list = events,
+#'   element = "censor",
+#'   condition = censor == 0,
+#'   message_text = "For events the censor values must be zero."
+#' ))
+#'
+#' try(assert_list_element(
+#'   list = events,
+#'   element = "dataset_name",
+#'   condition = dataset_name %in% c("adrs", "adae"),
+#'   valid_datasets = c("adrs", "adae"),
+#'   message_text = paste(
+#'     "The dataset name must be one of the following: {.val {valid_datasets}}"
+#'   )
+#' ))
 assert_list_element <- function(list,
                                 element,
                                 condition,
@@ -1501,7 +1589,8 @@ assert_list_element <- function(list,
                                 arg_name = rlang::caller_arg(list),
                                 message = NULL,
                                 class = "assert_list_element",
-                                call = parent.frame(), ...) {
+                                call = parent.frame(),
+                                ...) {
   assert_s3_class(list, "list")
   assert_character_scalar(element)
   condition <- assert_filter_cond(enexpr(condition))
@@ -1527,13 +1616,14 @@ assert_list_element <- function(list,
       )
       message <- c(
         message_text,
-        i = paste(" But,", info_msg)
+        i = paste("But,", info_msg)
       )
     }
 
     cli_abort(
       message = message,
       class = c(class, "assert-admiraldev"),
+      .envir = env(...),
       call = call
     )
   }

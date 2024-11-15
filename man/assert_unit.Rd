@@ -7,7 +7,7 @@
 assert_unit(
   dataset,
   param,
-  required_unit,
+  required_unit = NULL,
   get_unit_expr,
   arg_name = rlang::caller_arg(required_unit),
   message = NULL,
@@ -16,11 +16,18 @@ assert_unit(
 )
 }
 \arguments{
-\item{dataset}{A \code{data.frame}}
+\item{dataset}{Dataset to be checked
+
+The variable \code{PARAMCD} and those used in \code{get_unit_expr} are expected.}
 
 \item{param}{Parameter code of the parameter to check}
 
-\item{required_unit}{Expected unit}
+\item{required_unit}{Expected unit(s)
+
+If the argument is set to \code{NULL}, it is checked only whether the unit is
+unique within the parameter.
+
+\emph{Permitted Values}: A character vector or \code{NULL}}
 
 \item{get_unit_expr}{Expression used to provide the unit of \code{param}}
 
@@ -47,9 +54,14 @@ respectively not display any call or hard-code a code to display.
 For more information about error calls, see \ifelse{html}{\link[rlang:topic-error-call]{Including function calls in error messages}}{\link[rlang:topic-error-call]{Including function calls in error messages}}.}
 }
 \value{
-The function throws an error if the unit variable differs from the
-unit for any observation of the parameter in the input dataset. Otherwise, the
-dataset is returned invisibly.
+The function throws an error
+\itemize{
+\item if there is more than one non-missing unit in the dataset or
+\item if the unit variable differs from the expected unit for any observation of
+the parameter in the input dataset.
+}
+
+Otherwise, the dataset is returned invisibly.
 }
 \description{
 Checks if a parameter (\code{PARAMCD}) in a dataset is provided in the expected
@@ -65,6 +77,26 @@ advs <- tribble(
 )
 
 assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSSTRESU)
+
+try(
+  assert_unit(
+    advs,
+    param = "WEIGHT",
+    required_unit = c("g", "mg"),
+    get_unit_expr = VSSTRESU
+  )
+)
+
+# Checking uniqueness of unit only
+advs <- tribble(
+  ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
+  "P01",    "WEIGHT",      80.1, "kg",      "WEIGHT",  80.1,
+  "P02",    "WEIGHT",     85700, "g",       "WEIGHT", 85700
+)
+
+try(
+  assert_unit(advs, param = "WEIGHT", get_unit_expr = VSSTRESU)
+)
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 
