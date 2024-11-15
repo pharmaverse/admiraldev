@@ -91,9 +91,9 @@ reference:
 
 - title: Deprecated
   desc: |
-    As `{admiral}` is still evolving, functions/arguments may need to be removed or replaced over time.
-    In such cases, the function/argument will enter a 3 year deprecation cycle. The cycle
-    will be tied as close as sensibly possible to a release.
+    Functions and arguments may need to be removed or replaced over time.
+    In such cases, the function or argument will enter a 3 year deprecation cycle.
+    The cycle will be tied as close as sensibly possible to a release.
 
     Once a function is deprecated:
 
