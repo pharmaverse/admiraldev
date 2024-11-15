@@ -11,7 +11,7 @@ test_that("lifecycle_admiral Test 1:  Message is sent to user", {
     "xyz",    456
   )
 
-  withr::local_options(lifecycle_verbosity = "quiet")
+  #withr::local_options(lifecycle_verbosity = "quiet")
   expect_snapshot(
     example_fun(data),
   )
@@ -23,7 +23,7 @@ test_that("lifecycle_admiral Test 2:  Nicer message is sent to user", {
   example_fun <- function(dataset) {
     deprecate_inform("1.0.0", "example_fun()", "example_fun2()",
                      details = c(
-                       x = "Highly recommended to move to the suggested function",
+                       x = "This message will turn into a warning with release of 1.1.0",
                        i = "See admiral's deprecation guidance:
                        https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation") #nolint
                      )
@@ -36,7 +36,7 @@ test_that("lifecycle_admiral Test 2:  Nicer message is sent to user", {
     "xyz",    456
   )
 
-  withr::local_options(lifecycle_verbosity = "quiet")
+  #withr::local_options(lifecycle_verbosity = "quiet")
   expect_snapshot(
     example_fun(data),
   )
