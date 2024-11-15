@@ -576,7 +576,7 @@ warning message will run for and a recommendation on which function or argument
 to change to in their code.
 
 - **Phase 3:** After _one year_ and in the closest next release, an error will be thrown
-using the function or argument using `deprecate_stop()` and follow similar process
+when using the function or argument using `deprecate_stop()` and follow similar process
 for Phase 1 and Phase 2.
 
 - **Phase 4:** Finally after three years from the time of being identified for deprecation, the
@@ -586,7 +586,7 @@ function or argument will be completely removed from `{admiral}`.
 a release cycle becomes multiple years, then patch releases should be considered to
 help keep `{admiral}` neat and tidy!
 
-**NB:** Take care with `News.md` entries for deprecation as the person continuing this
+**NB:** Take care with `NEWS.md` entries for deprecation as the person continuing this
 process might not be you!
 
 ## Documentation
@@ -619,7 +619,7 @@ The documentation will be updated at:
 + the `@param` level for a argument.
 
     ```
-    @param old_param *Deprecated*, please use `new_param` instead.
+    @param old_param `r lifecycle::badge("deprecated")` Please use `new_param` instead.
     ```
 
 ## Handling of Messages, Warnings and Errors
@@ -649,8 +649,7 @@ fun_xxx <- function(dataset, some_param, other_param) {
 }
 ```
 **Phase 2:** In the next year/closest release in which a function is deprecated 
-the original function body must be replaced with a call to `deprecate_warn()` and 
-subsequently all arguments should be passed on to the new function.
+the call to `deprecate_inform()` must be replaced with a call to `deprecate_warn()`.
 
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
@@ -725,7 +724,7 @@ arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 ## Unit Testing
 
 Unit tests for deprecated functions and arguments must be added to the test 
-file [^1] of the function to ensure that a warning or error is issued.
+file [^1] of the function to ensure that a message, warning, or error is issued.
 
 [^1]: For example, if `derive_var_example()` is going to be deprecated and
 it is defined in `examples.R`, the unit tests are in
