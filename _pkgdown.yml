@@ -91,12 +91,16 @@ reference:
 
 - title: Deprecated
   desc: |
-    As `{admiral}` is still evolving, functions/arguments may need to be removed or replaced over time. In such cases, the function/argument will enter a 3 year deprecation cycle:
+    As `{admiral}` is still evolving, functions/arguments may need to be removed or replaced over time.
+    In such cases, the function/argument will enter a 3 year deprecation cycle. The cycle
+    will be tied as close as sensibly possible to a release.
 
-    * In the first release (1 year), there will be a message issued if you use the function/argument, but it will still be available to use.
-    * In the following release (1 year), an warning will be produced if you use the function/argument.
-    * In the following release (1 year), an error will be produced if you use the function/argument.
-    * Finally, after 3 years onwards, the function/argument will be removed from `{admiral}` and its documentation completely.
+    Once a function is deprecated:
+
+    * In Year 1 there will be a message issued if you use the function/argument, but it will still be available to use.
+    * In Year 2 a warning will be produced if you use the function/argument.
+    * In Year 3, an error will be produced if you use the function/argument.
+    * Finally, after 3 years, the function/argument and related documentation and tests will be removed from `{admiral}`.
 
     *Note: Guidance on replacement functionality can be found in the warning/error message produced or in the function's documentation.*
 

@@ -1,5 +1,10 @@
 # admiraldev (development version)
 
+## New Features
+
+- New Function `deprecate_inform()` is a wrapper around 
+  `lifecycle::deprecate_soft()` to allow for more control over messaging. (#466)
+
 ## Updates of Existing Functions
 
 - Objects passed to `assert_list_element()` via the `...` argument can now be
