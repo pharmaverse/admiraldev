@@ -559,7 +559,6 @@ See [Writing Unit Tests in {admiral}](unit_test_guidance.html#writing-unit-tests
 
 # Deprecation
 
-`{admiral}` has reached a level of maturity with the release of `1.0.0` in December 2023.
 The below deprecation strategy provides stability to users while allowing admiral developers
 the ability to remove and update the codebase in the coming days.
 
