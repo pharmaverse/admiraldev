@@ -66,7 +66,7 @@ example_fun <- function(num) {
   assert_numeric_vector(num, length = 2)
 }
 
-example_fun(1:10)
+try(example_fun(1:10))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 

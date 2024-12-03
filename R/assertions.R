@@ -717,7 +717,7 @@ assert_integer_scalar <- function(arg,
 #'   assert_numeric_vector(num, length = 2)
 #' }
 #'
-#' example_fun(1:10)
+#' try(example_fun(1:10))
 assert_numeric_vector <- function(arg,
                                   length = NULL,
                                   optional = FALSE,
