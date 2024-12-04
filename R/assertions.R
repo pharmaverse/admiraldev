@@ -53,6 +53,10 @@ assert_data_frame <- function(arg,
   assert_logical_scalar(check_is_grouped)
   assert_logical_scalar(optional)
 
+  if (inherits(arg, "dtplyr_step_group")) {
+    return(invisible(arg))
+  }
+
   if (optional && is.null(arg)) {
     return(invisible(arg))
   }
