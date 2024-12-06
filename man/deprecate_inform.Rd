@@ -18,7 +18,7 @@ See documentation for \code{lifecycle::deprecate_soft()} for argument use.
 }
 \examples{
 # A Phase 1 deprecated function with custom bulleted list:
-deprecate_warn(
+deprecate_inform(
   when = "1.0.0",
   what = "foo()",
   details = c(
