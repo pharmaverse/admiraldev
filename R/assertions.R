@@ -687,6 +687,10 @@ assert_integer_scalar <- function(arg,
 #' Checks if an argument is a numeric vector
 #'
 #' @param arg A function argument to be checked
+#' @param length Expected length
+#'
+#'   If the argument is not specified or set to `NULL`, any length is accepted.
+#'
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
 #' @inheritParams assert_logical_scalar
@@ -708,12 +712,20 @@ assert_integer_scalar <- function(arg,
 #' example_fun(1:10)
 #'
 #' try(example_fun(letters))
+#'
+#' example_fun <- function(num) {
+#'   assert_numeric_vector(num, length = 2)
+#' }
+#'
+#' try(example_fun(1:10))
 assert_numeric_vector <- function(arg,
+                                  length = NULL,
                                   optional = FALSE,
                                   arg_name = rlang::caller_arg(arg),
                                   message = NULL,
                                   class = "assert_numeric_vector",
                                   call = parent.frame()) {
+  assert_integer_scalar(length, subset = "positive", optional = TRUE)
   assert_logical_scalar(optional)
 
   if (optional && is.null(arg)) {
@@ -728,6 +740,20 @@ assert_numeric_vector <- function(arg,
       class = c(class, "assert-admiraldev"),
       call = call
     )
+  }
+
+  if (!is.null(length)) {
+    if (length(arg) != length) {
+      cli_abort(
+        message = message %||%
+          paste(
+            "Argument {.arg {arg_name}} must be a vector of length {.val {length}},",
+            "but has length {.val {length(arg)}}."
+          ),
+        class = c(class, "assert-admiraldev"),
+        call = call
+      )
+    }
   }
 
   invisible(arg)

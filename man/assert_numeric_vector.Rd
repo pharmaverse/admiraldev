@@ -6,6 +6,7 @@
 \usage{
 assert_numeric_vector(
   arg,
+  length = NULL,
   optional = FALSE,
   arg_name = rlang::caller_arg(arg),
   message = NULL,
@@ -15,6 +16,10 @@ assert_numeric_vector(
 }
 \arguments{
 \item{arg}{A function argument to be checked}
+
+\item{length}{Expected length
+
+If the argument is not specified or set to \code{NULL}, any length is accepted.}
 
 \item{optional}{Is the checked argument optional? If set to \code{FALSE} and \code{arg}
 is \code{NULL} then an error is thrown}
@@ -56,6 +61,12 @@ example_fun <- function(num) {
 example_fun(1:10)
 
 try(example_fun(letters))
+
+example_fun <- function(num) {
+  assert_numeric_vector(num, length = 2)
+}
+
+try(example_fun(1:10))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 

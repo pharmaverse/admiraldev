@@ -14,6 +14,9 @@ used in the glue expression specified for the `message_text` argument. (#469)
 possible to specify more than one unit or not specify it at all. In the latter
 case only the uniqueness of the unit is checked. (#468)
 
+- The `assert_numeric_vector()` function gained an optional `length` argument to
+check whether the vector has a specific length. (#473)
+
 ## Breaking Changes
 
 - The following functions are entering the next phase of the deprecation process: (#459)
