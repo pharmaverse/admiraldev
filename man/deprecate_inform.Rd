@@ -7,7 +7,7 @@
 deprecate_inform(...)
 }
 \arguments{
-\item{...}{}
+\item{...}{See documentation for \code{lifecycle::deprecate_soft()} for argument use.}
 }
 \value{
 \code{NULL}, invisibly.

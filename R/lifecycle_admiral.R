@@ -3,7 +3,7 @@
 #' Wrapper around `lifecycle::deprecate_soft()`.
 #' See documentation for `lifecycle::deprecate_soft()` for argument use.
 #'
-#' @param ...
+#' @param ... See documentation for `lifecycle::deprecate_soft()` for argument use.
 #'
 #' @return `NULL`, invisibly.
 #'
