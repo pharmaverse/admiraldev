@@ -11,7 +11,6 @@ test_that("lifecycle_admiral Test 1:  Message is sent to user", {
     "xyz",    456
   )
 
-  #withr::local_options(lifecycle_verbosity = "quiet")
   expect_snapshot(
     example_fun(data),
   )
@@ -36,7 +35,6 @@ test_that("lifecycle_admiral Test 2:  Nicer message is sent to user", {
     "xyz",    456
   )
 
-  #withr::local_options(lifecycle_verbosity = "quiet")
   expect_snapshot(
     example_fun(data),
   )
