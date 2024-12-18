@@ -12,11 +12,9 @@ test_that("lifecycle_admiral Test 1:  Message is sent to user", {
   )
 
   expect_snapshot({
-   example_fun(data)
-   example_fun(data)
+    example_fun(data)
+    example_fun(data)
   })
-
-
 })
 
 # Test 2:  Nicer message is sent to user ----
@@ -42,5 +40,4 @@ test_that("lifecycle_admiral Test 2:  Nicer message is sent to user", {
     example_fun(data)
     example_fun(data)
   })
-
 })
