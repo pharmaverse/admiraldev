@@ -565,14 +565,13 @@ the ability to remove and update the codebase in the coming days.
 - **Phase 1:** In the release where the identified function or argument is to
 be deprecated, there will be a message issued when using the function or argument
 using `deprecate_inform()`. This message will appear to the user for _one year_.  The
-message will include the date this message will run for and a recommendation on which 
-function or argument to change to in their code.
+message will include the a recommendation on which function or argument to change 
+to in their code.
 
 - **Phase 2:** After _one year_ and in the closet next release, a warning will be 
 issued when using the function or argument using `deprecate_warn()`. This warning 
-message will appear to the user for _one year_.  The message will include the date this 
-warning message will run for and a recommendation on which function or argument 
-to change to in their code.
+message will appear to the user for _one year_.  The message a recommendation on which 
+function or argument to change to in their code.
 
 - **Phase 3:** After _one year_ and in the closest next release, an error will be thrown
 when using the function or argument using `deprecate_stop()` and follow similar process
@@ -585,7 +584,7 @@ function or argument will be completely removed from `{admiral}`.
 a release cycle becomes multiple years, then patch releases should be considered to
 help keep `{admiral}` neat and tidy!
 
-**NB:** Take care with `NEWS.md` entries for deprecation as the person continuing this
+**NB:** Take care with the `NEWS.md` entries around deprecation as the person continuing this
 process might not be you!
 
 ## Documentation
@@ -594,7 +593,7 @@ If a function or argument is removed, the documentation must be updated to
 indicate the function or the argument is now deprecated and which new
 function/argument should be used instead.
 
-The documentation will be updated at:
+The documentation will be updated at Phase 2:
 
 + the description level for a function, 
 + the `@keywords` and `@family` roxygen tags will be replaced with `deprecated`
@@ -608,18 +607,20 @@ The documentation will be updated at:
 #' This function is *deprecated*, please use `new_fun()` instead.
 #' .
 #' @family deprecated
-#'
 #' @keywords deprecated
-#' .
     ``` 
 
-+ the `@examples` section should be removed.
+Example for documentation at the argument level
 
 + the `@param` level for a argument.
 
-    ```
-    @param old_param `r lifecycle::badge("deprecated")` Please use `new_param` instead.
-    ```
+  ```
+  @param old_param `r lifecycle::badge("deprecated")` Please use `new_param` instead.
+  ```
+
+The documentation will be further updated at Phase 3:
+
++ the `@examples` section should be removed.
 
 ## Handling of Messages, Warnings and Errors
 
@@ -744,6 +745,11 @@ respectively. The unit-test should follow the corresponding format, per the
 
 ### For Deprecated Functions that Issues a Warning (Phase 1)
 
+TBD
+
+
+### For Deprecated Functions that Issues a Warning (Phase 2)
+
 A unit test like the following must be added.
 ```
 ## Test #: deprecation warning if function is called ----
@@ -765,7 +771,7 @@ In the existing unit tests the call of the deprecated function need to be enclos
 The `regexpr` argument must be specified to ensure that only the deprecation
 warning is suppressed.
 
-### For Deprecated Functions that Issues an Error (Phase 2)
+### For Deprecated Functions that Issues an Error (Phase 3)
 
 A unit test like the following must be added.
 ```

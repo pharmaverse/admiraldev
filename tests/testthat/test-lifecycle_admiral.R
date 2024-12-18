@@ -11,12 +11,15 @@ test_that("lifecycle_admiral Test 1:  Message is sent to user", {
     "xyz",    456
   )
 
-  expect_snapshot(
-    example_fun(data),
-  )
+  expect_snapshot({
+   example_fun(data)
+   example_fun(data)
+  })
+
+
 })
 
-## Test 2:  Nicer message is sent to user ----
+# Test 2:  Nicer message is sent to user ----
 test_that("lifecycle_admiral Test 2:  Nicer message is sent to user", {
   example_fun <- function(dataset) {
     deprecate_inform("1.0.0", "example_fun()", "example_fun2()",
@@ -35,7 +38,9 @@ test_that("lifecycle_admiral Test 2:  Nicer message is sent to user", {
     "xyz",    456
   )
 
-  expect_snapshot(
-    example_fun(data),
-  )
+  expect_snapshot({
+    example_fun(data)
+    example_fun(data)
+  })
+
 })
