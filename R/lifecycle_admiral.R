@@ -1,7 +1,6 @@
 #' Deprecation with Soft Message
 #'
 #' Wrapper around `lifecycle::deprecate_soft()`.
-#' See documentation for `lifecycle::deprecate_soft()` for argument use.
 #'
 #' @param ... See documentation for `lifecycle::deprecate_soft()` for argument use.
 #'
