@@ -4,14 +4,14 @@
 \alias{deprecate_inform}
 \title{Deprecation with Soft Message}
 \usage{
-deprecate_inform(...)
+deprecate_inform(env = caller_env(), user_env = caller_env(2), ...)
 }
 \arguments{
-\item{...}{See documentation for \code{lifecycle::deprecate_soft()} for additional argument use.}
-
 \item{env}{See documentation for \code{lifecycle::deprecate_soft()}.}
 
 \item{user_env}{See documentation for \code{lifecycle::deprecate_soft()}.}
+
+\item{...}{See documentation for \code{lifecycle::deprecate_soft()} for additional argument use.}
 }
 \value{
 \code{NULL}, invisibly.

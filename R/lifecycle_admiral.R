@@ -8,6 +8,8 @@
 #'
 #' @param ... See documentation for `lifecycle::deprecate_soft()` for additional argument use.
 #'
+#'
+#'
 #' @return `NULL`, invisibly.
 #'
 #' @examples
@@ -27,11 +29,14 @@
 #'
 #'
 #' @export
-deprecate_inform <- function(...) {
+deprecate_inform <- function(
+    env = caller_env(),
+    user_env = caller_env(2),
+    ...) {
   tryCatch(
     lifecycle::deprecate_soft(
       env = caller_env(),
-      user_env = caller_env(),
+      user_env = caller_env(2),
       ...),
     warning = \(w) {
       message(conditionMessage(w))
