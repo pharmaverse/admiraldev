@@ -2,7 +2,11 @@
 #'
 #' Wrapper around `lifecycle::deprecate_soft()`.
 #'
-#' @param ... See documentation for `lifecycle::deprecate_soft()` for argument use.
+#' @param env See documentation for `lifecycle::deprecate_soft()`.
+#'
+#' @param user_env See documentation for `lifecycle::deprecate_soft()`.
+#'
+#' @param ... See documentation for `lifecycle::deprecate_soft()` for additional argument use.
 #'
 #' @return `NULL`, invisibly.
 #'
@@ -25,7 +29,10 @@
 #' @export
 deprecate_inform <- function(...) {
   tryCatch(
-    lifecycle::deprecate_soft(...),
+    lifecycle::deprecate_soft(
+      env = caller_env(),
+      user_env = caller_env(),
+      ...),
     warning = \(w) {
       message(conditionMessage(w))
       tryInvokeRestart("muffleWarning")

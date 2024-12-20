@@ -7,7 +7,11 @@
 deprecate_inform(...)
 }
 \arguments{
-\item{...}{See documentation for \code{lifecycle::deprecate_soft()} for argument use.}
+\item{...}{See documentation for \code{lifecycle::deprecate_soft()} for additional argument use.}
+
+\item{env}{See documentation for \code{lifecycle::deprecate_soft()}.}
+
+\item{user_env}{See documentation for \code{lifecycle::deprecate_soft()}.}
 }
 \value{
 \code{NULL}, invisibly.
