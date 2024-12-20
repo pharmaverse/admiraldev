@@ -4,14 +4,30 @@
 \alias{deprecate_inform}
 \title{Deprecation with Soft Message}
 \usage{
-deprecate_inform(env = caller_env(), user_env = caller_env(2), ...)
+deprecate_inform(
+  when,
+  what,
+  with = NULL,
+  details = NULL,
+  id = NULL,
+  env = caller_env(),
+  user_env = caller_env(2)
+)
 }
 \arguments{
+\item{when}{See documentation for \code{lifecycle::deprecate_soft()}.}
+
+\item{what}{See documentation for \code{lifecycle::deprecate_soft()}.}
+
+\item{with}{See documentation for \code{lifecycle::deprecate_soft()}.}
+
+\item{details}{See documentation for \code{lifecycle::deprecate_soft()}.}
+
+\item{id}{See documentation for \code{lifecycle::deprecate_soft()}.}
+
 \item{env}{See documentation for \code{lifecycle::deprecate_soft()}.}
 
 \item{user_env}{See documentation for \code{lifecycle::deprecate_soft()}.}
-
-\item{...}{See documentation for \code{lifecycle::deprecate_soft()} for additional argument use.}
 }
 \value{
 \code{NULL}, invisibly.
@@ -25,7 +41,7 @@ deprecate_inform(
   when = "1.0.0",
   what = "foo()",
   details = c(
-    #     'x = "This message will turn into a warning with release of x.y.z",
+    x = "This message will turn into a warning with release of x.y.z",
     i = "See admiral's deprecation guidance:
 https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"
   )
