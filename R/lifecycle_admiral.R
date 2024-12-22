@@ -34,8 +34,8 @@ deprecate_inform <- function(
     with = NULL,
     details = NULL,
     id = NULL,
-    env = caller_env(),
-    user_env = caller_env(2)) {
+    env = rlang::caller_env(),
+    user_env = rlang::caller_env(2)) {
   tryCatch(
     lifecycle::deprecate_soft(
       when = when,
@@ -44,7 +44,8 @@ deprecate_inform <- function(
       details = details,
       id = id,
       env = env,
-      user_env = user_env),
+      user_env = user_env
+    ),
     warning = \(w) {
       message(conditionMessage(w))
       tryInvokeRestart("muffleWarning")

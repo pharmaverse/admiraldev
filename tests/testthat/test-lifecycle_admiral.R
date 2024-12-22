@@ -5,7 +5,7 @@ test_that("lifecycle_admiral Test 1:  Simple message is sent to user", {
       when = "1.0.0",
       what = "example_fun()",
       with = "example_fun2()"
-      )
+    )
     assert_data_frame(dataset, required_vars = exprs(STUDYID, USUBJID))
   }
 

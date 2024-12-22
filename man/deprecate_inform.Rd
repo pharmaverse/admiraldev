@@ -10,8 +10,8 @@ deprecate_inform(
   with = NULL,
   details = NULL,
   id = NULL,
-  env = caller_env(),
-  user_env = caller_env(2)
+  env = rlang::caller_env(),
+  user_env = rlang::caller_env(2)
 )
 }
 \arguments{
