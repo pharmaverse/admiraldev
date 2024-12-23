@@ -15,19 +15,46 @@ deprecate_inform(
 )
 }
 \arguments{
-\item{when}{See documentation for \code{lifecycle::deprecate_soft()}.}
+\item{when}{A string giving the version when the behaviour was deprecated.}
 
-\item{what}{See documentation for \code{lifecycle::deprecate_soft()}.}
+\item{what}{A string describing what is deprecated:
+\itemize{
+\item Deprecate a whole function with \code{"foo()"}.
+\item Deprecate an argument with \code{"foo(arg)"}.
+\item Partially deprecate an argument with
+\code{"foo(arg = 'must be a scalar integer')"}.
+\item Deprecate anything else with a custom message by wrapping it in \code{I()}.
+}
 
-\item{with}{See documentation for \code{lifecycle::deprecate_soft()}.}
+You can optionally supply the namespace: \code{"ns::foo()"}, but this is
+usually not needed as it will be inferred from the caller environment.}
 
-\item{details}{See documentation for \code{lifecycle::deprecate_soft()}.}
+\item{with}{An optional string giving a recommended replacement for the
+deprecated behaviour. This takes the same form as \code{what}.}
 
-\item{id}{See documentation for \code{lifecycle::deprecate_soft()}.}
+\item{details}{In most cases the deprecation message can be
+automatically generated from \code{with}. When it can't, use \code{details}
+to provide a hand-written message.
 
-\item{env}{See documentation for \code{lifecycle::deprecate_soft()}.}
+\code{details} can either be a single string or a character vector,
+which will be converted to a \link[cli:cli_bullets]{bulleted list}.
+By default, info bullets are used. Provide a named vectors to
+override.}
 
-\item{user_env}{See documentation for \code{lifecycle::deprecate_soft()}.}
+\item{id}{The id of the deprecation. A warning is issued only once
+for each \code{id}. Defaults to the generated message, but you should
+give a unique ID when the message in \code{details} is built
+programmatically and depends on inputs, or when you'd like to
+deprecate multiple functions but warn only once for all of them.}
+
+\item{env, user_env}{Pair of environments that define where \verb{deprecate_*()}
+was called (used to determine the package name) and where the function
+called the deprecating function was called (used to determine if
+\code{deprecate_soft()} should message).
+
+These are only needed if you're calling \verb{deprecate_*()} from an internal
+helper, in which case you should forward \code{env = caller_env()} and
+\code{user_env = caller_env(2)}.}
 }
 \value{
 \code{NULL}, invisibly.

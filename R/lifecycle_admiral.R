@@ -2,13 +2,8 @@
 #'
 #' Wrapper around `lifecycle::deprecate_soft()`.
 #'
-#' @param when See documentation for `lifecycle::deprecate_soft()`.
-#' @param what See documentation for `lifecycle::deprecate_soft()`.
-#' @param with See documentation for `lifecycle::deprecate_soft()`.
-#' @param details See documentation for `lifecycle::deprecate_soft()`.
-#' @param id See documentation for `lifecycle::deprecate_soft()`.
-#' @param env See documentation for `lifecycle::deprecate_soft()`.
-#' @param user_env See documentation for `lifecycle::deprecate_soft()`.
+#' @inheritParams lifecycle::deprecate_soft
+#'
 #' @return `NULL`, invisibly.
 #'
 #' @examples
