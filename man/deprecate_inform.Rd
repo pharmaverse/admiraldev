@@ -61,7 +61,7 @@ helper, in which case you should forward \code{env = caller_env()} and
 }
 \description{
 Wrapper around \code{lifecycle::deprecate_soft()} that messages users about
-deprecationed features and functions instead of warning.
+deprecated features and functions instead of warning.
 }
 \examples{
 # A Phase 1 deprecated function with custom bulleted list:

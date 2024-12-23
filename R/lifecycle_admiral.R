@@ -1,7 +1,7 @@
 #' Deprecation with Soft Message
 #'
 #' Wrapper around `lifecycle::deprecate_soft()` that messages users about
-#' deprecationed features and functions instead of warning.
+#' deprecated features and functions instead of warning.
 #'
 #' @inheritParams lifecycle::deprecate_soft
 #'
