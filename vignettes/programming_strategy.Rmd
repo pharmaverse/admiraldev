@@ -559,25 +559,33 @@ See [Writing Unit Tests in {admiral}](unit_test_guidance.html#writing-unit-tests
 
 # Deprecation
 
-As `{admiral}` is still evolving, functions or arguments may need to be removed
-or replaced with more efficient options from one release to another. In such
-cases, the relevant function or argument must be marked as deprecated. This
-deprecation is done in three phases over our release cycles.
+The below deprecation strategy provides stability to users while allowing admiral developers
+the ability to remove and update the codebase in the coming days.
 
--  **Phase 1:** In the release where the identified function or argument is to
-be deprecated there will be a warning issued when using the function or argument
-using `deprecate_warn()`.
+- **Phase 1:** In the release where the identified function or argument is to
+be deprecated, there will be a message issued when using the function or argument
+using `deprecate_inform()`. This message will appear to the user for _one year_.  The
+message will include the a recommendation on which function or argument to change 
+to in their code.
 
--  **Phase 2:** In the next release an error will be thrown using
-`deprecate_stop()`.
+- **Phase 2:** After _one year_ and in the closet next release, a warning will be 
+issued when using the function or argument using `deprecate_warn()`. This warning 
+message will appear to the user for _one year_.  The message a recommendation on which 
+function or argument to change to in their code.
 
--  **Phase 3:** Finally in the 3rd release thereafter the function will be
-removed from the package altogether.
+- **Phase 3:** After _one year_ and in the closest next release, an error will be thrown
+when using the function or argument using `deprecate_stop()` and follow similar process
+for Phase 1 and Phase 2.
 
-Information about deprecation timelines must be added to the warning/error message.
+- **Phase 4:** Finally after three years from the time of being identified for deprecation, the
+function or argument will be completely removed from `{admiral}`.
 
-Note that the deprecation cycle time for a function or argument based on our
-current release schedule is 6 months.
+**NB:** Major/Minor release make the most sense for deprecation updates. However, if
+a release cycle becomes multiple years, then patch releases should be considered to
+help keep `{admiral}` neat and tidy!
+
+**NB:** Take care with the `NEWS.md` entries around deprecation as the person continuing this
+process might not be you!
 
 ## Documentation
 
@@ -585,10 +593,10 @@ If a function or argument is removed, the documentation must be updated to
 indicate the function or the argument is now deprecated and which new
 function/argument should be used instead.
 
-The documentation will be updated at:
+The documentation will be updated at Phase 2:
 
 + the description level for a function, 
-+ the `@keywords` and`@family` roxygen tags will be replaced with `deprecated`
++ the `@keywords` and `@family` roxygen tags will be replaced with `deprecated`
 
     ```{r, eval=FALSE}
 #' Title of the function
@@ -599,39 +607,61 @@ The documentation will be updated at:
 #' This function is *deprecated*, please use `new_fun()` instead.
 #' .
 #' @family deprecated
-#'
 #' @keywords deprecated
-#' .
     ``` 
 
-+ the `@examples` section should be removed.
+Example for documentation at the argument level
 
 + the `@param` level for a argument.
 
-    ```
-    @param old_param *Deprecated*, please use `new_param` instead.
-    ```
+  ```
+  @param old_param `r lifecycle::badge("deprecated")` Please use `new_param` instead.
+  ```
 
-## Handling of Warning and Error
+The documentation will be further updated at Phase 3:
+
++ the `@examples` section should be removed.
+
+## Handling of Messages, Warnings and Errors
 
 When a function or argument is deprecated, the function must be updated to issue
-a warning or error using `deprecate_warn()` and `deprecate_stop()`,
-respectively, as described above.
+a message, warning or error using `deprecate_inform()`, `deprecate_warn()` or 
+`deprecate_stop()`, respectively, as described above.
 
 There should be a test case added in the test file of the function that checks
-whether this warning/error is issued as appropriate when using the deprecated
+whether this message/warning/error is issued as appropriate when using the deprecated
 function or argument.
 
 ### Function
 
-In the initial release in which a function is deprecated the original function
-body must be replaced with a call to `deprecate_warn()` and subsequently all
+**Phase 1:** In the initial release in which a function is deprecated the original function
+body must be replaced with a call to `deprecate_inform()` and subsequently all
 arguments should be passed on to the new function.
 
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
+  deprecate_inform(
+    when = "x.y.z", 
+    what = "fun_xxx()", 
+    with = "new_fun_xxx()",
+    details = c(
+              x = "This message will turn into a warning with release of x.y.z",
+              i = "See admiral's deprecation guidance:
+              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"
+              )  
+            ) 
+    dataset = dataset,
+    some_param = some_param,
+    other_param = other_param
+}
+```
+**Phase 2:** In the next year/closest release in which a function is deprecated 
+the call to `deprecate_inform()` must be replaced with a call to `deprecate_warn()`.
+
+```r
+fun_xxx <- function(dataset, some_param, other_param) {
   deprecate_warn("x.y.z", "fun_xxx()", "new_fun_xxx()")
-  new_fun_xxx(
+  fun_xxx(
     dataset = dataset,
     some_param = some_param,
     other_param = other_param
@@ -639,7 +669,7 @@ fun_xxx <- function(dataset, some_param, other_param) {
 }
 ```
 
-In the following release the function body should be changed to just include a call
+**Phase 3:** In the following release the function body should be changed to just include a call
 to `deprecate_stop()`.
 
 ```r
@@ -648,21 +678,28 @@ fun_xxx <- function(dataset, some_param, other_param) {
 }
 ```
 
-Finally, in the next release the function should be removed from the package.
+**Phase 4:** Finally, in the next release the function should be removed from the package.
 
 ### Argument
 
-If an argument is removed and is not replaced, an **error** must be generated:
+**Phase 1:** If the argument is renamed or replaced, a **message** must be issued and the
+new argument takes the value of the old argument until the next release. Note:
+arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
+`filter = AVAL >10`) will need to be quoted.
 
-```
+``` 
 ### BEGIN DEPRECATION
   if (!missing(old_param)) {
-    deprecate_stop("x.y.z", "fun_xxx(old_param = )", "fun_xxx(new_param = )")
+    deprecate_inform("x.y.z", "fun_xxx(old_param = )", "fun_xxx(new_param = )")
+    # old_param is given using exprs()
+    new_param <- old_param
+    # old_param is NOT given using exprs()
+    new_param <- enexpr(old_param)
   }
 ### END DEPRECATION
 ```
 
-If the argument is renamed or replaced, a **warning** must be issued and the
+**Phase 2:** If the argument is renamed or replaced, a **warning** must be issued and the
 new argument takes the value of the old argument until the next release. Note:
 arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 `filter = AVAL >10`) will need to be quoted.
@@ -679,9 +716,22 @@ arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 ### END DEPRECATION
 ```
 
+**Phase 3:**  If an argument is removed and is not replaced, an **error** must be generated:
+
+```
+### BEGIN DEPRECATION
+  if (!missing(old_param)) {
+    deprecate_stop("x.y.z", "fun_xxx(old_param = )", "fun_xxx(new_param = )")
+  }
+### END DEPRECATION
+```
+
+
+
 ## Unit Testing
 
-Unit tests for deprecated functions and arguments must be added to the test file [^1] of the function to ensure that a warning or error is issued.
+Unit tests for deprecated functions and arguments must be added to the test 
+file [^1] of the function to ensure that a message, warning, or error is issued.
 
 [^1]: For example, if `derive_var_example()` is going to be deprecated and
 it is defined in `examples.R`, the unit tests are in
@@ -693,6 +743,11 @@ respectively. The unit-test should follow the corresponding format, per the
 [unit test guidance](unit_test_guidance.html#writing-unit-tests-in-admiral).
 
 ### For Deprecated Functions that Issues a Warning (Phase 1)
+
+TBD
+
+
+### For Deprecated Functions that Issues a Warning (Phase 2)
 
 A unit test like the following must be added.
 ```
@@ -715,7 +770,7 @@ In the existing unit tests the call of the deprecated function need to be enclos
 The `regexpr` argument must be specified to ensure that only the deprecation
 warning is suppressed.
 
-### For Deprecated Functions that Issues an Error (Phase 2)
+### For Deprecated Functions that Issues an Error (Phase 3)
 
 A unit test like the following must be added.
 ```
