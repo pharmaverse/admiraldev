@@ -562,6 +562,7 @@ See [Writing Unit Tests in {admiral}](unit_test_guidance.html#writing-unit-tests
 The below deprecation strategy provides stability to users while allowing admiral developers
 the ability to remove and update the code base in the coming days.
 
+
 - **Phase 1:** In the release where the identified function or argument is to
 be deprecated, there will be a message issued when using the function or argument
 using `deprecate_inform()`. This message will appear to the user for _one year_.  The
@@ -610,6 +611,7 @@ The documentation will be updated at Phase 2:
 #' @keywords deprecated
 ``` 
 
+
 Example for documentation at the argument level
 
 + the `@param` level for a argument.
@@ -619,7 +621,6 @@ Example for documentation at the argument level
   ```
 
 The documentation will be further updated at Phase 3:
-
 + the `@examples` section should be removed.
 
 ## Handling of Messages, Warnings and Errors
@@ -743,6 +744,11 @@ respectively. The unit-test should follow the corresponding format, per the
 [unit test guidance](unit_test_guidance.html#writing-unit-tests-in-admiral).
 
 ### For Deprecated Functions that Issues a Message (Phase 1)
+
+TBD
+
+
+### For Deprecated Functions that Issues a Warning (Phase 2)
 
 TBD
 
