@@ -560,7 +560,7 @@ See [Writing Unit Tests in {admiral}](unit_test_guidance.html#writing-unit-tests
 # Deprecation
 
 The below deprecation strategy provides stability to users while allowing admiral developers
-the ability to remove and update the codebase in the coming days.
+the ability to remove and update the code base in the coming days.
 
 - **Phase 1:** In the release where the identified function or argument is to
 be deprecated, there will be a message issued when using the function or argument
@@ -598,7 +598,7 @@ The documentation will be updated at Phase 2:
 + the description level for a function, 
 + the `@keywords` and `@family` roxygen tags will be replaced with `deprecated`
 
-    ```{r, eval=FALSE}
+```{r, eval=FALSE}
 #' Title of the function
 #'
 #' @description
@@ -608,7 +608,7 @@ The documentation will be updated at Phase 2:
 #' .
 #' @family deprecated
 #' @keywords deprecated
-    ``` 
+``` 
 
 Example for documentation at the argument level
 
@@ -645,7 +645,7 @@ fun_xxx <- function(dataset, some_param, other_param) {
     what = "fun_xxx()", 
     with = "new_fun_xxx()",
     details = c(
-              x = "This message will turn into a warning with release of x.y.z",
+              x = "This message will turn into a warning in the next release.",
               i = "See admiral's deprecation guidance:
               https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"
               )  
@@ -742,7 +742,7 @@ i.e., `"lifecycle_error_deprecated"` or `"lifecycle_warning_deprecated"`,
 respectively. The unit-test should follow the corresponding format, per the
 [unit test guidance](unit_test_guidance.html#writing-unit-tests-in-admiral).
 
-### For Deprecated Functions that Issues a Warning (Phase 1)
+### For Deprecated Functions that Issues a Message (Phase 1)
 
 TBD
 
