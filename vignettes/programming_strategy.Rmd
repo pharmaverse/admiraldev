@@ -599,24 +599,24 @@ The documentation will be updated at Phase 2:
 + the description level for a function, 
 + the `@keywords` and `@family` roxygen tags will be replaced with `deprecated`
 
-```{r, eval=FALSE}
-#' Title of the function
-#'
-#' @description
-#' `r lifecycle::badge("deprecated")`
-#'
-#' This function is *deprecated*, please use `new_fun()` instead.
-#' .
-#' @family deprecated
-#' @keywords deprecated
-``` 
+  ```{r, eval=FALSE}
+  #' Title of the function
+  #'
+  #' @description
+  #' `r lifecycle::badge("deprecated")`
+  #'
+  #' This function is *deprecated*, please use `new_fun()` instead.
+  #' .
+  #' @family deprecated
+  #' @keywords deprecated
+  ``` 
 
 
 Example for documentation at the argument level
 
 + the `@param` level for a argument.
 
-  ```
+  ```{r, eval = FALSE}
   @param old_param `r lifecycle::badge("deprecated")` Please use `new_param` instead.
   ```
 
