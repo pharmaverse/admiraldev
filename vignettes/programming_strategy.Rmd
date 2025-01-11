@@ -562,19 +562,16 @@ See [Writing Unit Tests in {admiral}](unit_test_guidance.html#writing-unit-tests
 The below deprecation strategy provides stability to users while allowing admiral developers
 the ability to remove and update the code base in the coming days.
 
-
 - **Phase 1:** In the release where the identified function or argument is to
 be deprecated, there will be a message issued when using the function or argument
-using `deprecate_inform()`. This message will appear to the user for _one year_.  The
-message will include the a recommendation on which function or argument to change 
-to in their code.
+using `deprecate_inform()`. This message will appear to the user for at least
+_one year_.   
 
-- **Phase 2:** After _one year_ and in the closet next release, a warning will be 
+- **Phase 2:** After at least _one year_ and in the closet next release, a warning will be 
 issued when using the function or argument using `deprecate_warn()`. This warning 
-message will appear to the user for _one year_.  The message a recommendation on which 
-function or argument to change to in their code.
+message will appear for at least _one year_.   
 
-- **Phase 3:** After _one year_ and in the closest next release, an error will be thrown
+- **Phase 3:** After at least _one year_ and in the closest next release, an error will be thrown
 when using the function or argument using `deprecate_stop()` and follow similar process
 for Phase 1 and Phase 2.
 
@@ -594,9 +591,9 @@ If a function or argument is removed, the documentation must be updated to
 indicate the function or the argument is now deprecated and which new
 function/argument should be used instead.
 
-The documentation will be updated at Phase 2:
+The documentation will be updated at Phase 1:
 
-+ the description level for a function, 
++ the description level for a function will have a lifecycle badge added, 
 + the `@keywords` and `@family` roxygen tags will be replaced with `deprecated`
 
   ```{r, eval=FALSE}
@@ -621,6 +618,7 @@ Example for documentation at the argument level
   ```
 
 The documentation will be further updated at Phase 3:
+
 + the `@examples` section should be removed.
 
 ## Handling of Messages, Warnings and Errors
@@ -635,9 +633,8 @@ function or argument.
 
 ### Function
 
-**Phase 1:** In the initial release in which a function is deprecated the original function
-body must be replaced with a call to `deprecate_inform()` and subsequently all
-arguments should be passed on to the new function.
+**Phase 1:** At the start of this phase the call to `deprecate_inform()` will 
+appear as:
 
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
@@ -646,7 +643,7 @@ fun_xxx <- function(dataset, some_param, other_param) {
     what = "fun_xxx()", 
     with = "new_fun_xxx()",
     details = c(
-              x = "This message will turn into a warning in the next release.",
+              x = "This message will turn into a warning in at least one year.",
               i = "See admiral's deprecation guidance:
               https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"
               )  
@@ -656,8 +653,8 @@ fun_xxx <- function(dataset, some_param, other_param) {
     other_param = other_param
 }
 ```
-**Phase 2:** In the next year/closest release in which a function is deprecated 
-the call to `deprecate_inform()` must be replaced with a call to `deprecate_warn()`.
+**Phase 2:** At the start of this phase the call to `deprecate_warn()` will 
+appear as:
 
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
@@ -670,8 +667,8 @@ fun_xxx <- function(dataset, some_param, other_param) {
 }
 ```
 
-**Phase 3:** In the following release the function body should be changed to just include a call
-to `deprecate_stop()`.
+**Phase 3:** At the start of this phase the call to `deprecate_stop()` will 
+appear as:
 
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
@@ -679,12 +676,12 @@ fun_xxx <- function(dataset, some_param, other_param) {
 }
 ```
 
-**Phase 4:** Finally, in the next release the function should be removed from the package.
+**Phase 4:** Function should be removed from the package.
 
 ### Argument
 
 **Phase 1:** If the argument is renamed or replaced, a **message** must be issued and the
-new argument takes the value of the old argument until the next release. Note:
+new argument takes the value of the old argument until the next phase. Note:
 arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 `filter = AVAL >10`) will need to be quoted.
 
@@ -701,7 +698,7 @@ arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 ```
 
 **Phase 2:** If the argument is renamed or replaced, a **warning** must be issued and the
-new argument takes the value of the old argument until the next release. Note:
+new argument takes the value of the old argument until the next phase Note:
 arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 `filter = AVAL >10`) will need to be quoted.
 
@@ -727,7 +724,7 @@ arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 ### END DEPRECATION
 ```
 
-
+**Phase 4:**  All mentions of argument are completely removed from admiral.  
 
 ## Unit Testing
 
@@ -745,13 +742,28 @@ respectively. The unit-test should follow the corresponding format, per the
 
 ### For Deprecated Functions that Issues a Message (Phase 1)
 
-TBD
+* Please put tests for deprecation at the top of test file to make finding the specific test
+easier for next phase of deprecation.
+* Tests that call multiple functions with deprecation messages can be wrapped using 
+parentheses and curly brackets, e.g. `expect_snapshot({})`.
+* You can use `withr::local_options(list(lifecycle_verbosity = "quiet"))` to suppress
+the deprecation messages in already created tests.  
 
+    ```
+    ## Test 1: deprecation message if function is called ----
+    test_that("derive_var_example() Test #: deprecation message if function is called", {
+      expect_snapshot({
+        ae <- date_source(...)
+        ...
+      derive_var_example(...)
+    })
 
-### For Deprecated Functions that Issues a Warning (Phase 2)
-
-TBD
-
+    ## Test 2: Test of function argument 1 ----
+    test_that("derive_var_example() Test 2: Test of function argument 1", {
+      withr::local_options(list(lifecycle_verbosity = "quiet"))
+      ...
+    })
+```
 
 ### For Deprecated Functions that Issues a Warning (Phase 2)
 
@@ -816,8 +828,5 @@ These functions are implemented in `roxygen2.R` and the naming convention for ea
 
 # R and Package Versions for Development
 
-* The choice of R Version is not set in stone.  However, a common development environment is important to establish when working across multiple companies and multiple developers. We currently work in the earliest of the three latest R Versions. This need for a common development environment also carries over for our choice of package versions.  
-* GitHub allows us through the Actions/Workflows to test `{admiral}` under several versions of R as well as several versions of dependent R packages needed for `{admiral}`.  Currently we test `{admiral}` against the three latest R Versions and the closest snapshots of packages to those R versions.  You can view this workflow and others on our [admiralci GitHub Repository](https://github.com/pharmaverse/admiralci).
-* This common development allows us to easily re-create bugs and provide solutions to each other issues that developers will encounter.  
-* Reviewers of Pull Requests when running code will know that their environment is identical to the initiator of the Pull Request.  This ensures faster review times and higher quality Pull Request reviews.
-* We achieve this common development environment by using a **lockfile** created from the [`renv`](https://rstudio.github.io/renv/) package. New developers will encounter a suggested `renv::restore()` in the console to revert or move forward your R version and package versions.
+* The choice of R Version and Package versions are not set in stone.  However, a common development environment is important to establish when working across multiple companies and multiple developers. We currently recommend developers work with the latest R version and latest available packages. However, this will deviate over time as developers come and go from `{admiral}`. We actually see this as a positive, i.e. the deviations between developers, as this introduces a bit of random stress testing to our code base. 
+* GitHub allows us through the Actions/Workflows to test `{admiral}` under several versions of R as well as several versions of dependent R packages needed for `{admiral}`. Currently we test `{admiral}` against the three latest R Versions and the closest snapshots of packages to those R versions.  You can view this workflow and others on our [admiralci GitHub Repository](https://github.com/pharmaverse/admiralci).
