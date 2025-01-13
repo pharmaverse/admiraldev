@@ -565,7 +565,7 @@ the ability to remove and update the code base in the coming days.
 - **Phase 1:** In the release where the identified function or argument is to
 be deprecated, there will be a message issued when using the function or argument
 using `deprecate_inform()`. This message will appear to the user for at least
-_one year_.   
+_one year_. Templates, vignettes and any internal calls should be updated to use the new recommended function.   
 
 - **Phase 2:** After at least _one year_ and in the closet next release, a warning will be 
 issued when using the function or argument using `deprecate_warn()`. This warning 
@@ -660,7 +660,15 @@ appear as:
 
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
-  deprecate_warn("x.y.z", "fun_xxx()", "new_fun_xxx()")
+  deprecate_warn(
+    when = "x.y.z", 
+    what = "fun_xxx()", 
+    with = "new_fun_xxx()",
+    details = c(
+              x = "This message will turn into a error {at the beginning of 20XX}.",
+              i = "See admiral's deprecation guidance:
+              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"
+              )
   fun_xxx(
     dataset = dataset,
     some_param = some_param,
@@ -668,13 +676,17 @@ fun_xxx <- function(dataset, some_param, other_param) {
   )
 }
 ```
+__NB:__ Please adjust phrase `{at the beginning of 20XX}` to relevant timeline.
 
 **Phase 3:** At the start of this phase the call to `deprecate_stop()` will 
 appear as:
 
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
-  deprecate_stop("x.y.z", "fun_xxx()", "new_fun_xxx()")
+  deprecate_stop(
+    when = "x.y.z", 
+    what = "fun_xxx()", 
+    with = "new_fun_xxx()",)
 }
 ```
 
@@ -831,4 +843,4 @@ These functions are implemented in `roxygen2.R` and the naming convention for ea
 # R and Package Versions for Development
 
 * The choice of R Version and Package versions are not set in stone.  However, a common development environment is important to establish when working across multiple companies and multiple developers. We currently recommend developers work with the latest R version and latest available packages. However, this will deviate over time as developers come and go from `{admiral}`. We actually see this as a positive, i.e. the deviations between developers, as this introduces a bit of random stress testing to our code base. 
-* GitHub allows us through the Actions/Workflows to test `{admiral}` under several versions of R as well as several versions of dependent R packages needed for `{admiral}`. Currently we test `{admiral}` against the three latest R Versions and the closest snapshots of packages to those R versions.  You can view this workflow and others on our [admiralci GitHub Repository](https://github.com/pharmaverse/admiralci).
+* GitHub allows us through the Actions/Workflows to test `{admiral}` under several versions of R as well as several versions of dependent R packages needed for `{admiral}`. Currently we test `{admiral}` against the two latest R Versions and the closest snapshots of packages to those R versions.  You can view this workflow and others on our [admiralci GitHub Repository](https://github.com/pharmaverse/admiralci).
