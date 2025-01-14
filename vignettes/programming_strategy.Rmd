@@ -687,6 +687,9 @@ fun_xxx <- function(dataset, some_param, other_param) {
     what = "fun_xxx()",
     with = "new_fun_xxx()"
   )
+  dataset = dataset,
+  some_param = some_param,
+  other_param = other_param
 }
 ```
 
@@ -700,7 +703,6 @@ arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 `filter = AVAL >10`) will need to be quoted.
 
 ``` 
-### BEGIN DEPRECATION
   if (!missing(old_param)) {
     deprecate_inform("x.y.z", "fun_xxx(old_param = )", "fun_xxx(new_param = )")
     # old_param is given using exprs()
@@ -708,7 +710,6 @@ arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
     # old_param is NOT given using exprs()
     new_param <- enexpr(old_param)
   }
-### END DEPRECATION
 ```
 
 **Phase 2:** If the argument is renamed or replaced, a **warning** must be issued and the
@@ -717,7 +718,6 @@ arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 `filter = AVAL >10`) will need to be quoted.
 
 ``` 
-### BEGIN DEPRECATION
   if (!missing(old_param)) {
     deprecate_warn("x.y.z", "fun_xxx(old_param = )", "fun_xxx(new_param = )")
     # old_param is given using exprs()
@@ -725,17 +725,14 @@ arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
     # old_param is NOT given using exprs()
     new_param <- enexpr(old_param)
   }
-### END DEPRECATION
 ```
 
 **Phase 3:**  If an argument is removed and is not replaced, an **error** must be generated:
 
 ```
-### BEGIN DEPRECATION
   if (!missing(old_param)) {
     deprecate_stop("x.y.z", "fun_xxx(old_param = )", "fun_xxx(new_param = )")
   }
-### END DEPRECATION
 ```
 
 **Phase 4:**  All mentions of the argument are completely removed from admiral.  
