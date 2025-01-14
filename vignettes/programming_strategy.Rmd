@@ -669,7 +669,7 @@ fun_xxx <- function(dataset, some_param, other_param) {
               i = "See admiral's deprecation guidance:
               https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"
               )
-  fun_xxx(
+  new_fun_xxx(
     dataset = dataset,
     some_param = some_param,
     other_param = other_param
