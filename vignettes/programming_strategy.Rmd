@@ -639,15 +639,15 @@ appear as:
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
   deprecate_inform(
-    when = "x.y.z", 
-    what = "fun_xxx()", 
-    with = "new_fun_xxx()",
-    details = c(
-              x = "This message will turn into a warning {at the beginning of 20XX}.",
-              i = "See admiral's deprecation guidance:
+   when = "x.y.z",
+   what = "fun_xxx()",
+   with = "new_fun_xxx()",
+   details = c(
+     x = "This message will turn into a warning {at the beginning of 20XX}.",
+     i = "See admiral's deprecation guidance:
               https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"
-              )  
-            ) 
+   )
+ )
     dataset = dataset,
     some_param = some_param,
     other_param = other_param
@@ -661,19 +661,18 @@ appear as:
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
   deprecate_warn(
-    when = "x.y.z", 
-    what = "fun_xxx()", 
+    when = "x.y.z",
+    what = "fun_xxx()",
     with = "new_fun_xxx()",
     details = c(
-              x = "This message will turn into a error {at the beginning of 20XX}.",
-              i = "See admiral's deprecation guidance:
+      x = "This message will turn into a error {at the beginning of 20XX}.",
+      i = "See admiral's deprecation guidance:
               https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"
-              )
-  fun_xxx(
-    dataset = dataset,
-    some_param = some_param,
-    other_param = other_param
+    )
   )
+  dataset = dataset,
+  some_param = some_param,
+  other_param = other_param
 }
 ```
 __NB:__ Please adjust phrase `{at the beginning of 20XX}` to relevant timeline.
@@ -684,9 +683,10 @@ appear as:
 ```r
 fun_xxx <- function(dataset, some_param, other_param) {
   deprecate_stop(
-    when = "x.y.z", 
-    what = "fun_xxx()", 
-    with = "new_fun_xxx()",)
+    when = "x.y.z",
+    what = "fun_xxx()",
+    with = "new_fun_xxx()"
+  )
 }
 ```
 
