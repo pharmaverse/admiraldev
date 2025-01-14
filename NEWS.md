@@ -21,7 +21,7 @@ check whether the vector has a specific length. (#473)
 
   - `{admiraldev}` is only compatible with R version >=4.1 (#456)
   
-  - - The following function arguments are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#459)
+  - The following function arguments are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#459)
 
       **Phase 1 (message)**
       
