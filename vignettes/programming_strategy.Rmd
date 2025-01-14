@@ -738,7 +738,7 @@ arguments which are not passed as `exprs()` argument (e.g. `new_var = VAR1` or
 ### END DEPRECATION
 ```
 
-**Phase 4:**  All mentions of argument are completely removed from admiral.  
+**Phase 4:**  All mentions of the argument are completely removed from admiral.  
 
 ## Unit Testing
 
@@ -749,12 +749,10 @@ file [^1] of the function to ensure that a message, warning, or error is issued.
 it is defined in `examples.R`, the unit tests are in
 `tests/testthat/test-examples.R`.
 
-When writing the unit test, check that the error or warning has the right class,
-i.e., `"lifecycle_error_deprecated"` or `"lifecycle_warning_deprecated"`,
-respectively. The unit-test should follow the corresponding format, per the
-[unit test guidance](unit_test_guidance.html#writing-unit-tests-in-admiral).
+The unit-test should follow the corresponding format, per the [unit test
+guidance](unit_test_guidance.html#writing-unit-tests-in-admiral).
 
-### For Deprecated Functions that Issues a Message (Phase 1)
+### For Deprecated Functions that Issue a Message (Phase 1)
 
 * Please put tests for deprecation at the top of test file to make finding the specific test
 easier for next phase of deprecation.
@@ -769,7 +767,8 @@ the deprecation messages in already created tests.
       expect_snapshot({
         ae <- date_source(...)
         ...
-      derive_var_example(...)
+        derive_var_example(...)
+      })
     })
 
     ## Test 2: Test of function argument 1 ----
@@ -779,30 +778,12 @@ the deprecation messages in already created tests.
     })
 ```
 
-### For Deprecated Functions that Issues a Warning (Phase 2)
+### For Deprecated Functions that Issue a Warning (Phase 2)
 
-A unit test like the following must be added.
-```
-## Test #: deprecation warning if function is called ----
-test_that("derive_var_example() Test #: deprecation warning if function is called", {
-  expect_warning(
-    derive_var_example(),
-    class = "lifecycle_warning_deprecated"
-  )
-})
-```
+The snapshot of the deprecation message test must be updated because instead of
+a message a warning is issued now.
 
-In the existing unit tests the call of the deprecated function need to be enclosed by `suppress_warning()`. For example,
-```
-  actual <- suppress_warning(
-    derive_var_example(),
-    regexpr = "was deprecated"
-  )
-```
-The `regexpr` argument must be specified to ensure that only the deprecation
-warning is suppressed.
-
-### For Deprecated Functions that Issues an Error (Phase 3)
+### For Deprecated Functions that Issue an Error (Phase 3)
 
 A unit test like the following must be added.
 ```
@@ -814,6 +795,9 @@ test_that("derive_var_example() Test #: deprecation error if function is called"
   )
 })
 ```
+When writing the unit test, check that the error has the right class, i.e.,
+`"lifecycle_error_deprecated"`.
+
 Other unit tests of the deprecated function must be removed.
 
 # Best Practices and Hints
