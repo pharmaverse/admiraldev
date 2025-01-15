@@ -50,7 +50,6 @@ Samia
 Slama
 Syed
 TAs
-TBD
 TOC
 TTE
 USUBJID
@@ -67,7 +66,6 @@ advs
 anonymized
 behaviour
 cmd
-codebase
 codeowner
 cyclomatic
 datatable
@@ -85,9 +83,9 @@ funder
 hotfix
 hotfixes
 insightsengineering
+lifecycle
 linter
 lintr
-lockfile
 onboarding
 optionality
 pharmaverse
@@ -96,6 +94,7 @@ pre
 proc
 programmatically
 quosures
+regexpr
 repo
 reproducibility
 roxygen

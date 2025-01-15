@@ -19,22 +19,33 @@ check whether the vector has a specific length. (#473)
 
 ## Breaking Changes
 
-- The following functions are entering the next phase of the deprecation process: (#459)
+  - `{admiraldev}` is only compatible with R version >=4.1 (#456)
+  
+  - The following function arguments are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#459)
 
-### Phase 1 (warning)
+      **Phase 1 (message)**
+      
+      No functions or arguments in this Phase
 
-### Phase 2 (error)
+      **Phase 2 (warning)**
+      
+      No functions or arguments in this Phase
 
-### Phase 3 (removed)
-  - The argument `quosures` was removed in the functions `vars2chr(quosures)`, `replace_values_by_names(quosures)`, and `get_source_vars(quosures)`
-  - Removed at v1.0.0 `assert_named_expr()`
-  - Removed at v1.0.0 `assert_has_variables()`
-  - Removed at v1.0.0 `assert_function_param()`
+      **Phase 3 (error)**
+      
+      No functions or arguments in this Phase
+
+      **Phase 4 (removed)**
+      - The argument `quosures` was removed in the functions `vars2chr(quosures)`, `replace_values_by_names(quosures)`, and `get_source_vars(quosures)`
+      - Removed at v1.0.0 `assert_named_expr()`
+      - Removed at v1.0.0 `assert_has_variables()`
+      - Removed at v1.0.0 `assert_function_param()`
 
 ## Documentation
   - Deprecation Strategy updated for the long haul! (#466)
 
 ## Other
+  - `devcontainer` files removed (#480)
 
 # admiraldev 1.1.0
 
