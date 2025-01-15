@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9008</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,7 +139,7 @@ That way your existing R packages are <em>not</em> overwritten.</p>
 <h3 id="package-dependencies">Package Dependencies<a class="anchor" aria-label="anchor" href="#package-dependencies"></a>
 </h3>
 <pre><code>&gt; checking package dependencies ... ERROR
-  Namespace dependency not required: ‘pkg’</code></pre>
+  Namespace dependency not required: 'pkg'</code></pre>
 <p>Add <code>pkg</code> to the <code>Imports</code> or
 <code>Suggests</code> field in the <code>DESCRIPTION</code> file. In
 general, dependencies should be listed in the <code>Imports</code>
@@ -152,7 +152,7 @@ dependencies being installed.</p>
 <h3 id="global-variables">Global Variables<a class="anchor" aria-label="anchor" href="#global-variables"></a>
 </h3>
 <pre><code>❯ checking R code for possible problems ... NOTE
-  function_xyz: no visible binding for global variable ‘some_var’</code></pre>
+  function_xyz: no visible binding for global variable 'some_var'</code></pre>
 <p>Add <code>some_var</code> to the list of “global” variables in
 <code>R/globals.R</code>.</p>
 </div>
@@ -161,7 +161,7 @@ dependencies being installed.</p>
 </h3>
 <pre><code>❯ checking Rd \usage sections ... WARNING
   Undocumented arguments in documentation object 'function_xyz'
-    ‘some_param’</code></pre>
+    'some_param'</code></pre>
 <p>Add an <code>@param some_param</code> section in the header of
 <code>function_xyz()</code> and run <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code>
 afterwards.</p>

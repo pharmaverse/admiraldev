@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9008</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,16 +48,41 @@
 <h2 class="pkg-version" data-toc-text="development version" id="admiraldev-development-version">admiraldev (development version)<a class="anchor" aria-label="anchor" href="#admiraldev-development-version"></a></h2>
 <div class="section level3">
 <h3 id="new-features-development-version">New Features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+</div>
+<div class="section level3">
+<h3 id="updates-of-existing-functions-development-version">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-development-version"></a></h3>
+</div>
+<div class="section level3">
+<h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<ul><li>
+<p>The following function arguments are entering the next phase of the <a href="https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation">deprecation process</a>: (<a href="https://github.com/pharmaverse/admiraldev/issues/2487" class="external-link">#2487</a>) (<a href="https://github.com/pharmaverse/admiraldev/issues/2595" class="external-link">#2595</a>)</p>
+<p><strong>Phase 1 (message)</strong></p>
+<p><strong>Phase 2 (warning)</strong></p>
+<p><strong>Phase 3 (error)</strong></p>
+<p><strong>Phase 4 (removed)</strong></p>
+</li>
+</ul></div>
+<div class="section level3">
+<h3 id="documentation-development-version">Documentation<a class="anchor" aria-label="anchor" href="#documentation-development-version"></a></h3>
+</div>
+<div class="section level3">
+<h3 id="various-development-version">Various<a class="anchor" aria-label="anchor" href="#various-development-version"></a></h3>
+</div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.2.0" id="admiraldev-120">admiraldev 1.2.0<a class="anchor" aria-label="anchor" href="#admiraldev-120"></a></h2>
+<div class="section level3">
+<h3 id="new-features-1-2-0">New Features<a class="anchor" aria-label="anchor" href="#new-features-1-2-0"></a></h3>
 <ul><li>New Function <code><a href="../reference/deprecate_inform.html">deprecate_inform()</a></code> is a wrapper around <code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_soft()</a></code> to allow for more control over messaging. (<a href="https://github.com/pharmaverse/admiraldev/issues/466" class="external-link">#466</a>)</li>
 </ul></div>
 <div class="section level3">
-<h3 id="updates-of-existing-functions-development-version">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-development-version"></a></h3>
+<h3 id="updates-of-existing-functions-1-2-0">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-1-2-0"></a></h3>
 <ul><li><p>Objects passed to <code><a href="../reference/assert_list_element.html">assert_list_element()</a></code> via the <code>...</code> argument can now be used in the glue expression specified for the <code>message_text</code> argument. (<a href="https://github.com/pharmaverse/admiraldev/issues/469" class="external-link">#469</a>)</p></li>
 <li><p>The <code>required_unit</code> argument of <code><a href="../reference/assert_unit.html">assert_unit()</a></code> has been enhanced. It is now possible to specify more than one unit or not specify it at all. In the latter case only the uniqueness of the unit is checked. (<a href="https://github.com/pharmaverse/admiraldev/issues/468" class="external-link">#468</a>)</p></li>
 <li><p>The <code><a href="../reference/assert_numeric_vector.html">assert_numeric_vector()</a></code> function gained an optional <code>length</code> argument to check whether the vector has a specific length. (<a href="https://github.com/pharmaverse/admiraldev/issues/473" class="external-link">#473</a>)</p></li>
 </ul></div>
 <div class="section level3">
-<h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<h3 id="breaking-changes-1-2-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-1-2-0"></a></h3>
 <ul><li><p><a href="https://pharmaverse.github.io/admiraldev/">admiraldev</a> is only compatible with R version &gt;=4.1 (<a href="https://github.com/pharmaverse/admiraldev/issues/456" class="external-link">#456</a>)</p></li>
 <li>
 <p>The following function arguments are entering the next phase of the <a href="https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation">deprecation process</a>: (<a href="https://github.com/pharmaverse/admiraldev/issues/459" class="external-link">#459</a>)</p>
@@ -79,11 +104,11 @@
 </ul></li>
 </ul></div>
 <div class="section level3">
-<h3 id="documentation-development-version">Documentation<a class="anchor" aria-label="anchor" href="#documentation-development-version"></a></h3>
+<h3 id="documentation-1-2-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-1-2-0"></a></h3>
 <ul><li>Deprecation Strategy updated for the long haul! (<a href="https://github.com/pharmaverse/admiraldev/issues/466" class="external-link">#466</a>)</li>
 </ul></div>
 <div class="section level3">
-<h3 id="other-development-version">Other<a class="anchor" aria-label="anchor" href="#other-development-version"></a></h3>
+<h3 id="other-1-2-0">Other<a class="anchor" aria-label="anchor" href="#other-1-2-0"></a></h3>
 <ul><li>
 <code>devcontainer</code> files removed (<a href="https://github.com/pharmaverse/admiraldev/issues/480" class="external-link">#480</a>)</li>
 </ul></div>
