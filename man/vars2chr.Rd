@@ -7,7 +7,7 @@
 vars2chr(expressions)
 }
 \arguments{
-\item{expressions}{A \code{list} of expressions created using \code{\link[=exprs]{exprs()}}}
+\item{expressions}{A \code{list} of expressions created using \code{exprs()}}
 }
 \value{
 A character vector
