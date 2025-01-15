@@ -67,14 +67,14 @@ This will ensure that the exact package versions we use in the workflow are inst
 ## Package Dependencies
 
     > checking package dependencies ... ERROR
-      Namespace dependency not required: ‘pkg’
+      Namespace dependency not required: 'pkg'
 
 Add `pkg` to the `Imports` or `Suggests` field in the `DESCRIPTION` file. In general, dependencies should be listed in the `Imports` field. However, if a package is only used inside vignettes or unit tests it should be listed in `Suggests` because all `{admiral}` functions would work without these "soft" dependencies being installed.
 
 ## Global Variables
 
     ❯ checking R code for possible problems ... NOTE
-      function_xyz: no visible binding for global variable ‘some_var’
+      function_xyz: no visible binding for global variable 'some_var'
 
 Add `some_var` to the list of "global" variables in `R/globals.R`.
 
@@ -82,7 +82,7 @@ Add `some_var` to the list of "global" variables in `R/globals.R`.
 
     ❯ checking Rd \usage sections ... WARNING
       Undocumented arguments in documentation object 'function_xyz'
-        ‘some_param’
+        'some_param'
 
 Add an `@param some_param` section in the header of `function_xyz()` and run `devtools::document()` afterwards.
 

@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 A comprehensive suite of unit tests can act as a safety net for developers. By 
 frequently running the tests, they can assure their recent modifications to the 
-code haven’t broken anything. In other words, unit tests help prevent regressions.
+code haven't broken anything. In other words, unit tests help prevent regressions.
 
 ## Unit Tests Can Contribute to Higher Code Quality
 
@@ -33,8 +33,8 @@ driving the general quality of the code base up.
 
 ## Unit Tests Can Contribute to Better Application Architecture
 
-If you can add unit tests easily to a code base, that’s usually a good sign 
-regarding the quality of the app’s architecture. So, the drive to write testable
+If you can add unit tests easily to a code base, that's usually a good sign 
+regarding the quality of the app's architecture. So, the drive to write testable
 code can be an incentive for better architecture.
 
 ## Detects Code Smells in your Codebase
@@ -47,10 +47,10 @@ a sign of code smells in the code—e.g. functions that are too complex.
 
 ## Tests Should Be Fast
 
-If they’re slow, developers won’t run them as often as they should. That defeats
+If they're slow, developers won't run them as often as they should. That defeats
 the whole purpose of having a suite of unit tests in the first place, which is 
-to boost the developers’ confidence to make changes to the code. The tests can’t
-work as the safety net if they’re not run often.
+to boost the developers' confidence to make changes to the code. The tests can't
+work as the safety net if they're not run often.
 
 ## Tests Should Be Simple
 
@@ -63,9 +63,9 @@ are less likely to introduce bugs when working on it. We can measure the
 cyclomatic complexity of your tests (using, for instance, a linter tool) and do 
 your best to keep it low.
 
-## Test Shouldn’t Duplicate Implementation Logic
+## Test Shouldn't Duplicate Implementation Logic
 
-If the same person wrote both the test and the implementation, it’s possible they
+If the same person wrote both the test and the implementation, it's possible they
 made the same errors in both places. Since the tests mirror the implementation,
 they might still pass, and the implementation could be wrong, but the tests might
 fool you into thinking otherwise. Resist the urge to make your tests fancy, keep
@@ -119,7 +119,7 @@ your function justifies it, e.g. see the test script: https://github.com/pharmav
 
 ## Exported Functions
 
-Don’t forget to add a unit test for each exported function.
+Don't forget to add a unit test for each exported function.
 
 ## Snapshot Testing
 

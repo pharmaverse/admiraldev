@@ -189,7 +189,7 @@ affected.
 
 Footnotes can be useful to add context without adding clutter to the primary subject matter of the vignette being written.
 
-To use footnotes, add a caret and an identifier inside brackets e.g. `([^1])`. The identifiers can be numbers or words, but they can’t contain spaces or tabs.
+To use footnotes, add a caret and an identifier inside brackets e.g. `([^1])`. The identifiers can be numbers or words, but they can't contain spaces or tabs.
 
 The following markdown text will render as follows:
 

@@ -150,7 +150,7 @@ contains_vars <- function(arg) {
 
 #' Turn a List of Expressions into a Character Vector
 #'
-#' @param expressions A `list` of expressions created using [`exprs()`]
+#' @param expressions A `list` of expressions created using `exprs()`
 #'
 #' @return A character vector
 #'
