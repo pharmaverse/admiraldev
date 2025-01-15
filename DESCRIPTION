@@ -33,7 +33,7 @@ URL: https://pharmaverse.github.io/admiraldev/,
     https://github.com/pharmaverse/admiraldev/
 BugReports: https://github.com/pharmaverse/admiraldev/issues
 Depends: 
-    R (>= 4.0)
+    R (>= 4.1)
 Imports:
     cli (>= 3.0.0),
     dplyr (>= 1.0.5),
