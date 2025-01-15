@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9007</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9008</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -1045,24 +1045,24 @@ Unit Tests in {admiral}</a> for details.</p>
 <h2 id="deprecation">Deprecation<a class="anchor" aria-label="anchor" href="#deprecation"></a>
 </h2>
 <p>The below deprecation strategy provides stability to users while
-allowing admiral developers the ability to remove and update the
-codebase in the coming days.</p>
+allowing admiral developers the ability to remove and update the code
+base in the coming days.</p>
 <ul>
 <li><p><strong>Phase 1:</strong> In the release where the identified
 function or argument is to be deprecated, there will be a message issued
 when using the function or argument using
 <code><a href="../reference/deprecate_inform.html">deprecate_inform()</a></code>. This message will appear to the user
-for <em>one year</em>. The message will include the a recommendation on
-which function or argument to change to in their code.</p></li>
-<li><p><strong>Phase 2:</strong> After <em>one year</em> and in the
-closet next release, a warning will be issued when using the function or
-argument using <code>deprecate_warn()</code>. This warning message will
-appear to the user for <em>one year</em>. The message a recommendation
-on which function or argument to change to in their code.</p></li>
-<li><p><strong>Phase 3:</strong> After <em>one year</em> and in the
-closest next release, an error will be thrown when using the function or
-argument using <code>deprecate_stop()</code> and follow similar process
-for Phase 1 and Phase 2.</p></li>
+for at least <em>one year</em>. Templates, vignettes and any internal
+calls should be updated to use the new recommended
+function/argument.</p></li>
+<li><p><strong>Phase 2:</strong> After at least <em>one year</em> and in
+the closet next release, a warning will be issued when using the
+function or argument using <code>deprecate_warn()</code>. This warning
+message will appear for at least <em>one year</em>.</p></li>
+<li><p><strong>Phase 3:</strong> After at least <em>one year</em> and in
+the closest next release, an error will be thrown when using the
+function or argument using <code>deprecate_stop()</code> and follow
+similar process for Phase 1 and Phase 2.</p></li>
 <li><p><strong>Phase 4:</strong> Finally after three years from the time
 of being identified for deprecation, the function or argument will be
 completely removed from <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>.</p></li>
@@ -1080,9 +1080,10 @@ you!</p>
 <p>If a function or argument is removed, the documentation must be
 updated to indicate the function or the argument is now deprecated and
 which new function/argument should be used instead.</p>
-<p>The documentation will be updated at Phase 2:</p>
+<p>The documentation will be updated at Phase 1:</p>
 <ul>
-<li><p>the description level for a function,</p></li>
+<li><p>the description level for a function will have a lifecycle badge
+added,</p></li>
 <li>
 <p>the <code>@keywords</code> and <code>@family</code> roxygen tags
 will be replaced with <code>deprecated</code></p>
@@ -1102,7 +1103,7 @@ will be replaced with <code>deprecated</code></p>
 <ul>
 <li>
 <p>the <code>@param</code> level for a argument.</p>
-<pre><code>@param old_param \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Please use `new_param` instead.</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="sc">@</span>param old_param <span class="st">`</span><span class="at">r lifecycle::badge("deprecated")</span><span class="st">`</span> Please use <span class="st">`</span><span class="at">new_param</span><span class="st">`</span> instead.</span></code></pre></div>
 </li>
 </ul>
 <p>The documentation will be further updated at Phase 3:</p>
@@ -1123,87 +1124,109 @@ when using the deprecated function or argument.</p>
 <div class="section level4">
 <h4 id="function">Function<a class="anchor" aria-label="anchor" href="#function"></a>
 </h4>
-<p><strong>Phase 1:</strong> In the initial release in which a function
-is deprecated the original function body must be replaced with a call to
-<code><a href="../reference/deprecate_inform.html">deprecate_inform()</a></code> and subsequently all arguments should be
-passed on to the new function.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>fun_xxx <span class="ot">&lt;-</span> <span class="cf">function</span>(dataset, some_param, other_param) {</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="fu">deprecate_inform</span>(</span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>    <span class="at">when =</span> <span class="st">"x.y.z"</span>, </span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>    <span class="at">what =</span> <span class="st">"fun_xxx()"</span>, </span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>    <span class="at">with =</span> <span class="st">"new_fun_xxx()"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>    <span class="at">details =</span> <span class="fu">c</span>(</span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>              <span class="at">x =</span> <span class="st">"This message will turn into a warning with release of x.y.z"</span>,</span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>              <span class="at">i =</span> <span class="st">"See admiral's deprecation guidance:</span></span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="st">              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"</span></span>
-<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>              )  </span>
-<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>            ) </span>
-<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a>    dataset <span class="ot">=</span> dataset,</span>
-<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a>    some_param <span class="ot">=</span> some_param,</span>
-<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a>    other_param <span class="ot">=</span> other_param</span>
-<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a>}</span></code></pre></div>
-<p><strong>Phase 2:</strong> In the next year/closest release in which a
-function is deprecated the call to <code><a href="../reference/deprecate_inform.html">deprecate_inform()</a></code> must
-be replaced with a call to <code>deprecate_warn()</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<p><strong>Phase 1:</strong> At the start of this phase the call to
+<code><a href="../reference/deprecate_inform.html">deprecate_inform()</a></code> will appear as:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">deprecate_warn</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx()"</span>, <span class="st">"new_fun_xxx()"</span><span class="op">)</span></span>
-<span>  <span class="fu">fun_xxx</span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/deprecate_inform.html">deprecate_inform</a></span><span class="op">(</span></span>
+<span>    when <span class="op">=</span> <span class="st">"x.y.z"</span>,</span>
+<span>    what <span class="op">=</span> <span class="st">"fun_xxx()"</span>,</span>
+<span>    with <span class="op">=</span> <span class="st">"new_fun_xxx()"</span>,</span>
+<span>    details <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="st">"This message will turn into a warning {at the beginning of 20XX}."</span>,</span>
+<span>      i <span class="op">=</span> <span class="st">"See admiral's deprecation guidance:</span></span>
+<span><span class="st">              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu">new_fun_xxx</span><span class="op">(</span></span>
 <span>    dataset <span class="op">=</span> <span class="va">dataset</span>,</span>
 <span>    some_param <span class="op">=</span> <span class="va">some_param</span>,</span>
 <span>    other_param <span class="op">=</span> <span class="va">other_param</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-<p><strong>Phase 3:</strong> In the following release the function body
-should be changed to just include a call to
-<code>deprecate_stop()</code>.</p>
+<p><strong>NB:</strong> Please adjust phrase
+<code>{at the beginning of 20XX}</code> to relevant timeline.</p>
+<p>The code of the deprecated function should be replaced with a call to
+the new function which should be used instead.</p>
+<p><strong>Phase 2:</strong> At the start of this phase the call to
+<code>deprecate_warn()</code> will appear as:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">deprecate_warn</span><span class="op">(</span></span>
+<span>    when <span class="op">=</span> <span class="st">"x.y.z"</span>,</span>
+<span>    what <span class="op">=</span> <span class="st">"fun_xxx()"</span>,</span>
+<span>    with <span class="op">=</span> <span class="st">"new_fun_xxx()"</span>,</span>
+<span>    details <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="st">"This message will turn into a error {at the beginning of 20XX}."</span>,</span>
+<span>      i <span class="op">=</span> <span class="st">"See admiral's deprecation guidance:</span></span>
+<span><span class="st">              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu">new_fun_xxx</span><span class="op">(</span></span>
+<span>    dataset <span class="op">=</span> <span class="va">dataset</span>,</span>
+<span>    some_param <span class="op">=</span> <span class="va">some_param</span>,</span>
+<span>    other_param <span class="op">=</span> <span class="va">other_param</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p><strong>NB:</strong> Please adjust phrase
+<code>{at the beginning of 20XX}</code> to relevant timeline.</p>
+<p><strong>Phase 3:</strong> At the start of this phase the call to
+<code>deprecate_stop()</code> will appear as:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">deprecate_stop</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx()"</span>, <span class="st">"new_fun_xxx()"</span><span class="op">)</span></span>
+<span>  <span class="fu">deprecate_stop</span><span class="op">(</span></span>
+<span>    when <span class="op">=</span> <span class="st">"x.y.z"</span>,</span>
+<span>    what <span class="op">=</span> <span class="st">"fun_xxx()"</span>,</span>
+<span>    with <span class="op">=</span> <span class="st">"new_fun_xxx()"</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu">new_fun_xxx</span><span class="op">(</span></span>
+<span>    dataset <span class="op">=</span> <span class="va">dataset</span>,</span>
+<span>    some_param <span class="op">=</span> <span class="va">some_param</span>,</span>
+<span>    other_param <span class="op">=</span> <span class="va">other_param</span></span>
+<span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-<p><strong>Phase 4:</strong> Finally, in the next release the function
-should be removed from the package.</p>
+<p><strong>Phase 4:</strong> Function should be removed from the
+package.</p>
 </div>
 <div class="section level4">
 <h4 id="argument">Argument<a class="anchor" aria-label="anchor" href="#argument"></a>
 </h4>
 <p><strong>Phase 1:</strong> If the argument is renamed or replaced, a
 <strong>message</strong> must be issued and the new argument takes the
-value of the old argument until the next release. Note: arguments which
+value of the old argument until the next phase. Note: arguments which
 are not passed as <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code> argument
-(e.g. <code>new_var = VAR1</code> or <code>filter = AVAL &gt;10</code>)
+(e.g. <code>new_var = VAR1</code> or <code>filter = AVAL &gt; 10</code>)
 will need to be quoted.</p>
-<pre><code><span><span class="co">### BEGIN DEPRECATION</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<pre><code><span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu"><a href="../reference/deprecate_inform.html">deprecate_inform</a></span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx(old_param = )"</span>, <span class="st">"fun_xxx(new_param = )"</span><span class="op">)</span></span>
 <span>    <span class="co"># old_param is given using exprs()</span></span>
 <span>    <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="va">old_param</span></span>
 <span>    <span class="co"># old_param is NOT given using exprs()</span></span>
 <span>    <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">enexpr</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="co">### END DEPRECATION</span></span></code></pre>
+<span>  <span class="op">}</span></span></code></pre>
 <p><strong>Phase 2:</strong> If the argument is renamed or replaced, a
 <strong>warning</strong> must be issued and the new argument takes the
-value of the old argument until the next release. Note: arguments which
-are not passed as <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code> argument
-(e.g. <code>new_var = VAR1</code> or <code>filter = AVAL &gt;10</code>)
+value of the old argument until the next phase Note: arguments which are
+not passed as <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code> argument
+(e.g. <code>new_var = VAR1</code> or <code>filter = AVAL &gt; 10</code>)
 will need to be quoted.</p>
-<pre><code><span><span class="co">### BEGIN DEPRECATION</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<pre><code><span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu">deprecate_warn</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx(old_param = )"</span>, <span class="st">"fun_xxx(new_param = )"</span><span class="op">)</span></span>
 <span>    <span class="co"># old_param is given using exprs()</span></span>
 <span>    <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="va">old_param</span></span>
 <span>    <span class="co"># old_param is NOT given using exprs()</span></span>
 <span>    <span class="va">new_param</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">enexpr</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="co">### END DEPRECATION</span></span></code></pre>
+<span>  <span class="op">}</span></span></code></pre>
 <p><strong>Phase 3:</strong> If an argument is removed and is not
 replaced, an <strong>error</strong> must be generated:</p>
-<pre><code><span><span class="co">### BEGIN DEPRECATION</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<pre><code><span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/missing.html" class="external-link">missing</a></span><span class="op">(</span><span class="va">old_param</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu">deprecate_stop</span><span class="op">(</span><span class="st">"x.y.z"</span>, <span class="st">"fun_xxx(old_param = )"</span>, <span class="st">"fun_xxx(new_param = )"</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="co">### END DEPRECATION</span></span></code></pre>
+<span>  <span class="op">}</span></span></code></pre>
+<p><strong>Phase 4:</strong> All mentions of the argument are completely
+removed from admiral.</p>
 </div>
 </div>
 <div class="section level3">
@@ -1214,38 +1237,46 @@ the test file <a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data
 going to be deprecated and it is defined in &lt;code&gt;examples.R&lt;/code&gt;, the
 unit tests are in &lt;code&gt;tests/testthat/test-examples.R&lt;/code&gt;.&lt;/p&gt;"><sup>1</sup></a> of the function to ensure that a message,
 warning, or error is issued.</p>
-<p>When writing the unit test, check that the error or warning has the
-right class, i.e., <code>"lifecycle_error_deprecated"</code> or
-<code>"lifecycle_warning_deprecated"</code>, respectively. The unit-test
-should follow the corresponding format, per the <a href="unit_test_guidance.html#writing-unit-tests-in-admiral">unit test
+<p>The unit-test should follow the corresponding format, per the <a href="unit_test_guidance.html#writing-unit-tests-in-admiral">unit test
 guidance</a>.</p>
 <div class="section level4">
-<h4 id="for-deprecated-functions-that-issues-a-warning-phase-1">For Deprecated Functions that Issues a Warning (Phase 1)<a class="anchor" aria-label="anchor" href="#for-deprecated-functions-that-issues-a-warning-phase-1"></a>
+<h4 id="for-deprecated-functions-that-issue-a-message-phase-1">For Deprecated Functions that Issue a Message (Phase 1)<a class="anchor" aria-label="anchor" href="#for-deprecated-functions-that-issue-a-message-phase-1"></a>
 </h4>
-<p>TBD</p>
-</div>
-<div class="section level4">
-<h4 id="for-deprecated-functions-that-issues-a-warning-phase-2">For Deprecated Functions that Issues a Warning (Phase 2)<a class="anchor" aria-label="anchor" href="#for-deprecated-functions-that-issues-a-warning-phase-2"></a>
-</h4>
-<p>A unit test like the following must be added.</p>
-<pre><code><span><span class="co">## Test #: deprecation warning if function is called ----</span></span>
-<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"derive_var_example() Test #: deprecation warning if function is called"</span>, <span class="op">{</span></span>
-<span>  <span class="fu">expect_warning</span><span class="op">(</span></span>
-<span>    <span class="fu">derive_var_example</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    class <span class="op">=</span> <span class="st">"lifecycle_warning_deprecated"</span></span>
-<span>  <span class="op">)</span></span>
+<ul>
+<li><p>Please put tests for deprecation at the top of test file to make
+finding the specific test easier for next phase of deprecation.</p></li>
+<li><p>Tests that call multiple functions with deprecation messages can
+be wrapped using parentheses and curly brackets,
+e.g. <code>expect_snapshot({})</code>.</p></li>
+<li>
+<p>You can use
+<code>withr::local_options(list(lifecycle_verbosity = "quiet"))</code>
+to suppress the deprecation messages in already created tests.</p>
+<pre><code><span><span class="co">## Test 1: deprecation message if function is called ----</span></span>
+<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"derive_var_example() Test #: deprecation message if function is called"</span>, <span class="op">{</span></span>
+<span>  <span class="fu">expect_snapshot</span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="va">ae</span> <span class="op">&lt;-</span> <span class="fu">date_source</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span>    <span class="va">...</span></span>
+<span>    <span class="fu">derive_var_example</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Test 2: Test of function argument 1 ----</span></span>
+<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"derive_var_example() Test 2: Test of function argument 1"</span>, <span class="op">{</span></span>
+<span>  <span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_options.html" class="external-link">local_options</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>lifecycle_verbosity <span class="op">=</span> <span class="st">"quiet"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">...</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre>
-<p>In the existing unit tests the call of the deprecated function need
-to be enclosed by <code><a href="../reference/suppress_warning.html">suppress_warning()</a></code>. For example,</p>
-<pre><code><span>  <span class="va">actual</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/suppress_warning.html">suppress_warning</a></span><span class="op">(</span></span>
-<span>    <span class="fu">derive_var_example</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>    regexpr <span class="op">=</span> <span class="st">"was deprecated"</span></span>
-<span>  <span class="op">)</span></span></code></pre>
-<p>The <code>regexpr</code> argument must be specified to ensure that
-only the deprecation warning is suppressed.</p>
+</li>
+</ul>
 </div>
 <div class="section level4">
-<h4 id="for-deprecated-functions-that-issues-an-error-phase-3">For Deprecated Functions that Issues an Error (Phase 3)<a class="anchor" aria-label="anchor" href="#for-deprecated-functions-that-issues-an-error-phase-3"></a>
+<h4 id="for-deprecated-functions-that-issue-a-warning-phase-2">For Deprecated Functions that Issue a Warning (Phase 2)<a class="anchor" aria-label="anchor" href="#for-deprecated-functions-that-issue-a-warning-phase-2"></a>
+</h4>
+<p>The snapshot of the deprecation message test must be updated because
+instead of a message a warning is issued now.</p>
+</div>
+<div class="section level4">
+<h4 id="for-deprecated-functions-that-issue-an-error-phase-3">For Deprecated Functions that Issue an Error (Phase 3)<a class="anchor" aria-label="anchor" href="#for-deprecated-functions-that-issue-an-error-phase-3"></a>
 </h4>
 <p>A unit test like the following must be added.</p>
 <pre><code><span><span class="co">## Test #: error if function is called ----</span></span>
@@ -1255,6 +1286,8 @@ only the deprecation warning is suppressed.</p>
 <span>    class <span class="op">=</span> <span class="st">"lifecycle_error_deprecated"</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre>
+<p>When writing the unit test, check that the error has the right class,
+i.e., <code>"lifecycle_error_deprecated"</code>.</p>
 <p>Other unit tests of the deprecated function must be removed.</p>
 </div>
 </div>
@@ -1327,33 +1360,21 @@ the argument name.</p>
 <h2 id="r-and-package-versions-for-development">R and Package Versions for Development<a class="anchor" aria-label="anchor" href="#r-and-package-versions-for-development"></a>
 </h2>
 <ul>
-<li>The choice of R Version is not set in stone. However, a common
-development environment is important to establish when working across
-multiple companies and multiple developers. We currently work in the
-earliest of the three latest R Versions. This need for a common
-development environment also carries over for our choice of package
-versions.<br>
-</li>
+<li>The choice of R Version and Package versions are not set in stone.
+However, a common development environment is important to establish when
+working across multiple companies and multiple developers. We currently
+recommend developers work with the latest R version and latest available
+packages. However, this will deviate over time as developers come and go
+from <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>. We actually see this as a positive,
+i.e. the deviations between developers, as this introduces a bit of
+random stress testing to our code base.</li>
 <li>GitHub allows us through the Actions/Workflows to test
 <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> under several versions of R as well as several
 versions of dependent R packages needed for <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>.
-Currently we test <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> against the three latest R
+Currently we test <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> against the two latest R
 Versions and the closest snapshots of packages to those R versions. You
 can view this workflow and others on our <a href="https://github.com/pharmaverse/admiralci" class="external-link">admiralci GitHub
 Repository</a>.</li>
-<li>This common development allows us to easily re-create bugs and
-provide solutions to each other issues that developers will
-encounter.<br>
-</li>
-<li>Reviewers of Pull Requests when running code will know that their
-environment is identical to the initiator of the Pull Request. This
-ensures faster review times and higher quality Pull Request
-reviews.</li>
-<li>We achieve this common development environment by using a
-<strong>lockfile</strong> created from the <a href="https://rstudio.github.io/renv/" class="external-link"><code>renv</code></a> package.
-New developers will encounter a suggested <code><a href="https://rstudio.github.io/renv/reference/restore.html" class="external-link">renv::restore()</a></code>
-in the console to revert or move forward your R version and package
-versions.</li>
 </ul>
 </div>
 
