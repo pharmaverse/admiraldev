@@ -72,13 +72,11 @@ datatable
 datetime
 datetimes
 dev
-developers'
 devs
 dplyr
 dtc
 exprs
 flexibilities
-functions'
 funder
 hotfix
 hotfixes
@@ -94,7 +92,6 @@ pre
 proc
 programmatically
 quosures
-regexpr
 repo
 reproducibility
 roxygen
