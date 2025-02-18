@@ -7,7 +7,11 @@
 get_source_vars(expressions)
 }
 \arguments{
-\item{expressions}{A list of expressions}
+\item{expressions}{A list of expressions
+
+\describe{
+\item{Default Value}{none}
+}}
 }
 \value{
 A list of expressions

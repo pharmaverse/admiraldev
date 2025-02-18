@@ -7,9 +7,17 @@
 x \%notin\% table
 }
 \arguments{
-\item{x}{The values to be matched}
+\item{x}{The values to be matched
 
-\item{table}{The values to be matched against}
+\describe{
+\item{Default Value}{none}
+}}
+
+\item{table}{The values to be matched against
+
+\describe{
+\item{Default Value}{none}
+}}
 }
 \value{
 A \code{logical} vector

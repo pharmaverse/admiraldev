@@ -7,7 +7,11 @@
 backquote(x)
 }
 \arguments{
-\item{x}{A \code{character} vector}
+\item{x}{A \code{character} vector
+
+\describe{
+\item{Default Value}{none}
+}}
 }
 \value{
 A \code{character} vector

@@ -10,15 +10,27 @@ add_suffix_to_vars(order, vars, suffix)
 \item{order}{List of expressions
 
 \emph{Permitted Values}: list of variables or \verb{desc(<variable>)} function calls
-created by \code{exprs()}, e.g., \code{exprs(ADT, desc(AVAL))}}
+created by \code{exprs()}, e.g., \code{exprs(ADT, desc(AVAL))}
+
+\describe{
+\item{Default Value}{none}
+}}
 
 \item{vars}{Variables to change
 
-\emph{Permitted Values}: list of variables created by \code{exprs()}}
+\emph{Permitted Values}: list of variables created by \code{exprs()}
+
+\describe{
+\item{Default Value}{none}
+}}
 
 \item{suffix}{Suffix
 
-\emph{Permitted Values}: A character scalar}
+\emph{Permitted Values}: A character scalar
+
+\describe{
+\item{Default Value}{none}
+}}
 }
 \value{
 The list of expression where for each element the suffix (\code{suffix}) is

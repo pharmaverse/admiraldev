@@ -14,13 +14,31 @@ assert_same_type(
 )
 }
 \arguments{
-\item{...}{Arguments to be checked}
+\item{...}{Arguments to be checked
 
-\item{.message}{character vector passed to \code{cli_abort(message)} when assertion fails.}
+\describe{
+\item{Default Value}{none}
+}}
 
-\item{.class}{character vector passed to \code{cli_abort(class)} when assertion fails.}
+\item{.message}{character vector passed to \code{cli_abort(message)} when assertion fails.
 
-\item{.call}{environment passed to \code{cli_abort(call)} when assertion fails.}
+\describe{
+\item{Default Value}{\code{c("Arguments {.arg {arg_names}} must be the same type.", i = paste("Argument types are", paste0("{.arg ", arg_names, "} {.cls ",}}
+}}
+
+\item{.class}{character vector passed to \code{cli_abort(class)} when assertion fails.
+
+\describe{
+\item{Default Value}{\code{"assert_same_type"}}
+}}
+
+\item{.call}{environment passed to \code{cli_abort(call)} when assertion fails.
+
+\describe{
+\item{Default Value}{\code{parent.frame()}}
+}}
+
+\item{NA}{NA}
 }
 \value{
 The function throws an error if not all arguments are of the same type.

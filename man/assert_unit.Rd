@@ -18,24 +18,48 @@ assert_unit(
 \arguments{
 \item{dataset}{Dataset to be checked
 
-The variable \code{PARAMCD} and those used in \code{get_unit_expr} are expected.}
+The variable \code{PARAMCD} and those used in \code{get_unit_expr} are expected.
 
-\item{param}{Parameter code of the parameter to check}
+\describe{
+\item{Default Value}{none}
+}}
+
+\item{param}{Parameter code of the parameter to check
+
+\describe{
+\item{Default Value}{none}
+}}
 
 \item{required_unit}{Expected unit(s)
 
 If the argument is set to \code{NULL}, it is checked only whether the unit is
 unique within the parameter.
 
-\emph{Permitted Values}: A character vector or \code{NULL}}
+\emph{Permitted Values}: A character vector or \code{NULL}
 
-\item{get_unit_expr}{Expression used to provide the unit of \code{param}}
+\describe{
+\item{Default Value}{\code{NULL}}
+}}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.}
+\item{get_unit_expr}{Expression used to provide the unit of \code{param}
+
+\describe{
+\item{Default Value}{none}
+}}
+
+\item{arg_name}{string indicating the label/symbol of the object being checked.
+
+\describe{
+\item{Default Value}{\code{rlang::caller_arg(arg)}}
+}}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
 When \code{NULL}, default messaging is used (see examples for default messages).
-\code{"{arg_name}"} can be used in messaging.}
+\code{"{arg_name}"} can be used in messaging.
+
+\describe{
+\item{Default Value}{\code{NULL}}
+}}
 
 \item{class}{Subclass of the condition.}
 

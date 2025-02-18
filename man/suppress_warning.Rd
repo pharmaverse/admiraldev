@@ -7,9 +7,17 @@
 suppress_warning(expr, regexpr)
 }
 \arguments{
-\item{expr}{Expression to be executed}
+\item{expr}{Expression to be executed
 
-\item{regexpr}{Regular expression matching warnings to suppress}
+\describe{
+\item{Default Value}{none}
+}}
+
+\item{regexpr}{Regular expression matching warnings to suppress
+
+\describe{
+\item{Default Value}{none}
+}}
 }
 \value{
 Return value of the expression

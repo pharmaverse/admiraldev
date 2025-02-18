@@ -7,9 +7,17 @@
 warn_if_vars_exist(dataset, vars)
 }
 \arguments{
-\item{dataset}{A \code{data.frame}}
+\item{dataset}{A \code{data.frame}
 
-\item{vars}{\code{character} vector of columns to check for in \code{dataset}}
+\describe{
+\item{Default Value}{none}
+}}
+
+\item{vars}{\code{character} vector of columns to check for in \code{dataset}
+
+\describe{
+\item{Default Value}{none}
+}}
 }
 \value{
 No return value, called for side effects

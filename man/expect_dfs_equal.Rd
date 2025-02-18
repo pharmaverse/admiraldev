@@ -7,14 +7,30 @@
 expect_dfs_equal(base, compare, keys, ...)
 }
 \arguments{
-\item{base}{Input dataset}
+\item{base}{Input dataset
 
-\item{compare}{Comparison dataset}
+\describe{
+\item{Default Value}{none}
+}}
+
+\item{compare}{Comparison dataset
+
+\describe{
+\item{Default Value}{none}
+}}
 
 \item{keys}{\code{character} vector of variables that define a unique row in the
-\code{base} and \code{compare} datasets}
+\code{base} and \code{compare} datasets
 
-\item{...}{Additional arguments passed onto \code{\link[diffdf:diffdf]{diffdf::diffdf()}}}
+\describe{
+\item{Default Value}{none}
+}}
+
+\item{...}{Additional arguments passed onto \code{\link[diffdf:diffdf]{diffdf::diffdf()}}
+
+\describe{
+\item{Default Value}{none}
+}}
 }
 \value{
 An error if \code{base} and \code{compare} do not match or \code{NULL} invisibly if they do

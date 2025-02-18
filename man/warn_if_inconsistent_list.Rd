@@ -7,14 +7,30 @@
 warn_if_inconsistent_list(base, compare, list_name, i = 2)
 }
 \arguments{
-\item{base}{A named list}
+\item{base}{A named list
 
-\item{compare}{A named list}
+\describe{
+\item{Default Value}{none}
+}}
+
+\item{compare}{A named list
+
+\describe{
+\item{Default Value}{none}
+}}
 
 \item{list_name}{A string
-the name of the list}
+the name of the list
 
-\item{i}{the index id to compare the 2 lists}
+\describe{
+\item{Default Value}{none}
+}}
+
+\item{i}{the index id to compare the 2 lists
+
+\describe{
+\item{Default Value}{\code{2}}
+}}
 }
 \value{
 a \code{warning} if the 2 lists have different names or length

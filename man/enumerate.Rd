@@ -7,12 +7,24 @@
 enumerate(x, quote_fun = backquote, conjunction = "and")
 }
 \arguments{
-\item{x}{A vector or list}
+\item{x}{A vector or list
+
+\describe{
+\item{Default Value}{none}
+}}
 
 \item{quote_fun}{Quoting function, defaults to \code{backquote}. If set to \code{NULL},
-the elements are not quoted.}
+the elements are not quoted.
 
-\item{conjunction}{Character to be used in the message, defaults to \code{"and"}.}
+\describe{
+\item{Default Value}{\code{backquote}}
+}}
+
+\item{conjunction}{Character to be used in the message, defaults to \code{"and"}.
+
+\describe{
+\item{Default Value}{\code{"and"}}
+}}
 }
 \value{
 A \code{character} vector

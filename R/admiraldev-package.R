@@ -3,16 +3,17 @@
 #'   full_join group_by if_else mutate n pull rename row_number select slice
 #'   starts_with transmute ungroup n_distinct union distinct summarise coalesce
 #'   bind_cols na_if tibble %>%
-#' @importFrom rlang := abort arg_match as_function as_label as_name as_string
-#'   call2 caller_env call_name current_env .data enexpr enquo env eval_bare
-#'   eval_tidy expr expr_interp expr_label exprs f_lhs f_rhs is_named inform missing_arg
-#'   is_bare_formula is_call is_character is_expression is_formula is_integerish
-#'   is_logical is_missing is_quosure is_symbol is_symbolic new_formula
-#'   parse_expr parse_exprs quo quo_is_missing quo_is_null set_names sym syms
-#'   type_of warn %||%
+#' @importFrom rlang := abort arg_match as_label as_name as_string call2
+#'   caller_env call_name current_env .data enexpr env eval_bare eval_tidy expr
+#'   expr_deparse expr_interp expr_label exprs f_lhs f_rhs global_env is_named
+#'   missing_arg is_bare_formula is_call is_character is_expression is_formula
+#'   is_integerish is_logical is_missing is_symbol new_environment parse_expr
+#'   parse_exprs set_names sym syms type_of warn %||%
 #' @importFrom utils capture.output str
 #' @importFrom purrr map map2 map_chr map_lgl reduce walk keep map_if transpose
 #'             flatten every modify_at modify_if reduce compose
+#' @importFrom roxygen2 rd_section roclet roclet_process roxy_tag roxy_tag_parse
+#'   roxy_tag_rd tag_markdown
 #' @importFrom stringr str_c str_detect str_extract str_glue str_match
 #'             str_remove str_remove_all str_replace str_trim str_to_lower str_subset
 #'             str_to_title str_to_upper
