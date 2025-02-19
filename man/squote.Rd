@@ -10,7 +10,7 @@ squote(x)
 \item{x}{A \code{character} vector
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

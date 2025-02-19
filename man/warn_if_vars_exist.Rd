@@ -10,13 +10,13 @@ warn_if_vars_exist(dataset, vars)
 \item{dataset}{A \code{data.frame}
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{vars}{\code{character} vector of columns to check for in \code{dataset}
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

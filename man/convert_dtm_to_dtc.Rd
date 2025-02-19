@@ -11,7 +11,7 @@ convert_dtm_to_dtc(dtm)
 \item{dtm}{date or date-time
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

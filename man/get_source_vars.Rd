@@ -10,7 +10,7 @@ get_source_vars(expressions)
 \item{expressions}{A list of expressions
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

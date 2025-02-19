@@ -10,7 +10,7 @@ get_duplicates(x)
 \item{x}{An atomic vector
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

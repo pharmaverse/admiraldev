@@ -20,33 +20,32 @@ assert_one_to_one(
 The variables specified for \code{vars1} and \code{vars2} are expected.
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{vars1}{First list of variables
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{vars2}{Second list of variables
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{dataset_name}{string indicating the label/symbol of the object being checked.
-Default is \code{rlang::caller_arg(dataset)}.
 
 \describe{
-\item{Default Value}{\code{rlang::caller_arg(dataset)}}
+\item{Default value}{\code{rlang::caller_arg(dataset)}}
 }}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}. When \code{NULL}, default messaging
 is used (see examples for default messages). \code{"dataset_name"} can be used in messaging.
 
 \describe{
-\item{Default Value}{\code{NULL}}
+\item{Default value}{\code{NULL}}
 }}
 
 \item{class}{Subclass of the condition.}

@@ -10,26 +10,26 @@ warn_if_inconsistent_list(base, compare, list_name, i = 2)
 \item{base}{A named list
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{compare}{A named list
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{list_name}{A string
 the name of the list
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{i}{the index id to compare the 2 lists
 
 \describe{
-\item{Default Value}{\code{2}}
+\item{Default value}{\code{2}}
 }}
 }
 \value{

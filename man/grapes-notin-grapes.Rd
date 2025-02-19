@@ -10,13 +10,13 @@ x \%notin\% table
 \item{x}{The values to be matched
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{table}{The values to be matched against
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

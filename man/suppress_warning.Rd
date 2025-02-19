@@ -10,13 +10,13 @@ suppress_warning(expr, regexpr)
 \item{expr}{Expression to be executed
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{regexpr}{Regular expression matching warnings to suppress
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

@@ -10,10 +10,10 @@
 #'   is_integerish is_logical is_missing is_symbol new_environment parse_expr
 #'   parse_exprs set_names sym syms type_of warn %||%
 #' @importFrom utils capture.output str
-#' @importFrom purrr map map2 map_chr map_lgl reduce walk keep map_if transpose
-#'             flatten every modify_at modify_if reduce compose
+#' @importFrom purrr discard map map2 map_chr map_lgl reduce walk keep map_if
+#'   transpose flatten every modify_at modify_if reduce compose
 #' @importFrom roxygen2 rd_section roclet roclet_process roxy_tag roxy_tag_parse
-#'   roxy_tag_rd tag_markdown
+#'   roxy_tag_rd tag_markdown warn_roxy_tag
 #' @importFrom stringr str_c str_detect str_extract str_glue str_match
 #'             str_remove str_remove_all str_replace str_trim str_to_lower str_subset
 #'             str_to_title str_to_upper

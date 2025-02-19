@@ -10,7 +10,7 @@ arg_name(expr)
 \item{expr}{An expression created inside a function using \code{substitute()}
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

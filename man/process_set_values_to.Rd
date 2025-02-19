@@ -10,7 +10,7 @@ process_set_values_to(dataset, set_values_to = NULL, expected_types = NULL)
 \item{dataset}{Input dataset
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{set_values_to}{Variables to set
@@ -20,18 +20,16 @@ A named list returned by \code{exprs()} defining the variables to be set, e.g.
 must be symbols, character strings, numeric values, expressions, or \code{NA}.
 
 \describe{
-\item{Default Value}{\code{NULL}}
+\item{Default value}{\code{NULL}}
 }}
 
 \item{expected_types}{If the argument is specified, the specified variables are checked whether
 the specified type matches the type of the variables created by
 \code{set_values_to}.
 
-\emph{Permitted Values}: A character vector with values \code{"numeric"} or
-\code{"character"}
-
 \describe{
-\item{Default Value}{\code{NULL}}
+\item{Permitted values}{A character vector with values \code{"numeric"} or \code{"character"}}
+\item{Default value}{\code{NULL}}
 }}
 }
 \value{

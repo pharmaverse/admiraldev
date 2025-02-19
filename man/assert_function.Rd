@@ -20,7 +20,7 @@ assert_function(
 The function to be checked
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{params}{A character vector
@@ -30,7 +30,7 @@ If ellipsis, \code{...}, is included in the function formals of the function in 
 this argument, \code{params} will be ignored, accepting all values of the character vector.
 
 \describe{
-\item{Default Value}{\code{NULL}}
+\item{Default value}{\code{NULL}}
 }}
 
 \item{optional}{Is the checked argument optional?
@@ -38,13 +38,13 @@ this argument, \code{params} will be ignored, accepting all values of the charac
 If set to \code{FALSE} and \code{arg} is \code{NULL} then an error is thrown.
 
 \describe{
-\item{Default Value}{\code{FALSE}}
+\item{Default value}{\code{FALSE}}
 }}
 
 \item{arg_name}{string indicating the label/symbol of the object being checked.
 
 \describe{
-\item{Default Value}{\code{rlang::caller_arg(arg)}}
+\item{Default value}{\code{rlang::caller_arg(arg)}}
 }}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
@@ -52,7 +52,7 @@ When \code{NULL}, default messaging is used (see examples for default messages).
 \code{"{arg_name}"} can be used in messaging.
 
 \describe{
-\item{Default Value}{\code{NULL}}
+\item{Default value}{\code{NULL}}
 }}
 
 \item{class}{Subclass of the condition.}

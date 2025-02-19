@@ -10,7 +10,7 @@ replace_values_by_names(expressions)
 \item{expressions}{A list of expressions
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

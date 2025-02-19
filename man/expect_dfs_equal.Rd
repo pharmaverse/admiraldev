@@ -10,26 +10,29 @@ expect_dfs_equal(base, compare, keys, ...)
 \item{base}{Input dataset
 
 \describe{
-\item{Default Value}{none}
+\item{Permitted values}{A dataset
+
+Which means a data.frame or tibble.}
+\item{Default value}{none}
 }}
 
 \item{compare}{Comparison dataset
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{keys}{\code{character} vector of variables that define a unique row in the
 \code{base} and \code{compare} datasets
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{...}{Additional arguments passed onto \code{\link[diffdf:diffdf]{diffdf::diffdf()}}
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

@@ -17,25 +17,25 @@ assert_same_type(
 \item{...}{Arguments to be checked
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{.message}{character vector passed to \code{cli_abort(message)} when assertion fails.
 
 \describe{
-\item{Default Value}{\code{c("Arguments {.arg {arg_names}} must be the same type.", i = paste("Argument types are", paste0("{.arg ", arg_names, "} {.cls ",}}
+\item{Default value}{\code{c("Arguments {.arg {arg_names}} must be the same type.", i = paste("Argument types are", paste0("{.arg ", arg_names, "} {.cls ",}}
 }}
 
 \item{.class}{character vector passed to \code{cli_abort(class)} when assertion fails.
 
 \describe{
-\item{Default Value}{\code{"assert_same_type"}}
+\item{Default value}{\code{"assert_same_type"}}
 }}
 
 \item{.call}{environment passed to \code{cli_abort(call)} when assertion fails.
 
 \describe{
-\item{Default Value}{\code{parent.frame()}}
+\item{Default value}{\code{parent.frame()}}
 }}
 
 \item{NA}{NA}

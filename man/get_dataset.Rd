@@ -10,7 +10,7 @@ get_dataset(name)
 \item{name}{The name of the dataset to retrieve
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

@@ -16,37 +16,37 @@ left_join(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 \item{x}{\code{data.frame}
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{y}{\code{data.frame}
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{by}{\code{character} vector
 
 \describe{
-\item{Default Value}{\code{NULL}}
+\item{Default value}{\code{NULL}}
 }}
 
 \item{copy}{\code{logical}
 
 \describe{
-\item{Default Value}{\code{FALSE}}
+\item{Default value}{\code{FALSE}}
 }}
 
 \item{...}{Additional arguments
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{suffix}{\code{character} vector
 
 \describe{
-\item{Default Value}{\code{NULL}}
+\item{Default value}{\code{NULL}}
 }}
 }
 \value{

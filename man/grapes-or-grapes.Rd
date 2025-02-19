@@ -10,13 +10,13 @@ lhs \%or\% rhs
 \item{lhs}{Any valid R expression
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{rhs}{Any valid R expression
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

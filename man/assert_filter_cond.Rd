@@ -17,13 +17,13 @@ assert_filter_cond(
 \item{arg}{Quosure - filtering condition.
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
-\item{optional}{Logical - is the argument optional? Defaults to \code{FALSE}.
+\item{optional}{Logical - is the argument optional?
 
 \describe{
-\item{Default Value}{\code{FALSE}}
+\item{Default value}{\code{FALSE}}
 }}
 
 \item{arg_name}{By default the expression specified for \code{arg} is used. If it is
@@ -31,7 +31,7 @@ of the form \verb{enexpr(<argument name>)}, the \code{enexpr()} part is removed.
 if \code{arg = enexpr(filter_add)} is specified, \code{arg_name} defaults to \code{"filter_add"}
 
 \describe{
-\item{Default Value}{\code{gsub("^enexpr\\((.*)\\)$", "\\1", rlang::caller_arg(arg))}}
+\item{Default value}{\code{gsub("^enexpr\\((.*)\\)$", "\\1", rlang::caller_arg(arg))}}
 }}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
@@ -39,7 +39,7 @@ When \code{NULL}, default messaging is used (see examples for default messages).
 \code{"{arg_name}"} can be used in messaging.
 
 \describe{
-\item{Default Value}{\code{NULL}}
+\item{Default value}{\code{NULL}}
 }}
 
 \item{class}{Subclass of the condition.}

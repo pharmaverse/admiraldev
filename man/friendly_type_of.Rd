@@ -10,19 +10,19 @@ friendly_type_of(x, value = TRUE, length = FALSE)
 \item{x}{Any R object.
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{value}{Whether to describe the value of \code{x}.
 
 \describe{
-\item{Default Value}{\code{TRUE}}
+\item{Default value}{\code{TRUE}}
 }}
 
 \item{length}{Whether to mention the length of vectors and lists.
 
 \describe{
-\item{Default Value}{\code{FALSE}}
+\item{Default value}{\code{FALSE}}
 }}
 }
 \value{

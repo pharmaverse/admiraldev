@@ -10,13 +10,13 @@ warn_if_incomplete_dtc(dtc, n)
 \item{dtc}{A \code{character} vector of date-times in ISO 8601 format
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{n}{A non-negative integer
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

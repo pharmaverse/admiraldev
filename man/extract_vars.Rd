@@ -10,13 +10,13 @@ extract_vars(x, side = "lhs")
 \item{x}{An \code{R} object
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{side}{One of \code{"lhs"} (the default) or \code{"rhs"} for formulas
 
 \describe{
-\item{Default Value}{\code{"lhs"}}
+\item{Default value}{\code{"lhs"}}
 }}
 }
 \value{

@@ -10,7 +10,7 @@ remove_tmp_vars(dataset)
 \item{dataset}{The input dataset
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

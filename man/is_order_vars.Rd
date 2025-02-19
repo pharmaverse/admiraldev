@@ -10,7 +10,7 @@ is_order_vars(arg)
 \item{arg}{An R object
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

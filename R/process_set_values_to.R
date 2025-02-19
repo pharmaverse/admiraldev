@@ -18,9 +18,7 @@
 #'   the specified type matches the type of the variables created by
 #'   `set_values_to`.
 #'
-#'   *Permitted Values*: A character vector with values `"numeric"` or
-#'   `"character"`
-#'
+#' @permitted A character vector with values `"numeric"` or `"character"`
 #'
 #' @return The input dataset with the variables specified by `set_values_to`
 #'   added/updated

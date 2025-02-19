@@ -10,7 +10,7 @@ dquote(x)
 \item{x}{A character vector
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

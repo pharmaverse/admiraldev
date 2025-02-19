@@ -84,6 +84,13 @@ transform_param <- function(block, rdx_permitted_values) {
     } else if (tags[[i]]$tag == "permitted") {
       if (!is.na(tags[[i]]$val$ref)) {
         ref_resolved <- rdx_permitted_values[[tags[[i]]$val$ref]]
+        if (is.null(ref_resolved)) {
+          warn_roxy_tag(
+            tags[[i]],
+            message = "The id {.val {tags[[i]]$val$ref}} couldn't be found in {.file man/roxygen/rdx_meta.R}"
+          )
+          ref_resolved <- tags[[i]]$val$ref
+        }
         if (!is.null(ref_resolved)) {
           temp_tag <- tags[[i]]
           temp_tag$raw <- ref_resolved
@@ -129,7 +136,7 @@ get_param_tag <- function(act_param, defaults) {
       paste0("\\item{Permitted values}{", act_param$permitted, "}\n"),
       ""
     ),
-    "\\item{Default Value}{", act_param$default, "}\n}"
+    "\\item{Default value}{", act_param$default, "}\n}"
   )
   tag
 }
@@ -243,7 +250,10 @@ roxy_tag_parse.roxy_tag_code <- function(x) {
 }
 #' @export
 roxy_tag_parse.roxy_tag_permitted <- function(x) {
-  raw_parsed <- str_match(x$raw, "(?:\\[(.*)\\] *)?(.+)?")[, 2:3]
+  raw_parsed <- str_match(
+      str_remove(x$raw, "\\n+$"),
+      "(?:\\[(.*)\\] *)?((?:.|\n)+)?"
+  )[, 2:3]
   x_text <- x
   if (is.na(raw_parsed[[2]])) {
     x_text$val <- raw_parsed[[2]]

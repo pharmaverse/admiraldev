@@ -10,7 +10,7 @@ what_is_it(x)
 \item{x}{Any R object
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

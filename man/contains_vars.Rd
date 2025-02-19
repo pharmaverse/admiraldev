@@ -11,7 +11,7 @@ contains_vars(arg)
 \item{arg}{A function argument to be checked
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

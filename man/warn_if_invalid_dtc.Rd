@@ -10,13 +10,13 @@ warn_if_invalid_dtc(dtc, is_valid = is_valid_dtc(dtc))
 \item{dtc}{a character vector containing the dates
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{is_valid}{a logical vector indicating whether elements in \code{dtc} are valid
 
 \describe{
-\item{Default Value}{\code{is_valid_dtc(dtc)}}
+\item{Default value}{\code{is_valid_dtc(dtc)}}
 }}
 }
 \value{

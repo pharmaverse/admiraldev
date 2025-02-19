@@ -10,7 +10,7 @@ vars2chr(expressions)
 \item{expressions}{A \code{list} of expressions created using \code{exprs()}
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

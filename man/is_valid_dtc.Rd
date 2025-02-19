@@ -10,7 +10,7 @@ is_valid_dtc(arg)
 \item{arg}{A \code{character} vector
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

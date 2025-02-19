@@ -10,7 +10,7 @@ expr_c(...)
 \item{...}{One or more expressions or list of expressions
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

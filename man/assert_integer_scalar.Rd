@@ -18,27 +18,27 @@ assert_integer_scalar(
 \item{arg}{A function argument to be checked
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
-\item{subset}{A subset of integers that \code{arg} should be part of. Should be one
-of \code{"none"} (the default), \code{"positive"}, \code{"non-negative"} or \code{"negative"}.
+\item{subset}{A subset of integers that \code{arg} should be part of.
 
 \describe{
-\item{Default Value}{\code{"none"}}
+\item{Permitted values}{\code{"none"}, \code{"positive"}, \code{"non-negative"}, or \code{"negative"}}
+\item{Default value}{\code{"none"}}
 }}
 
 \item{optional}{Is the checked argument optional? If set to \code{FALSE} and \code{arg}
 is \code{NULL} then an error is thrown
 
 \describe{
-\item{Default Value}{\code{FALSE}}
+\item{Default value}{\code{FALSE}}
 }}
 
 \item{arg_name}{string indicating the label/symbol of the object being checked.
 
 \describe{
-\item{Default Value}{\code{rlang::caller_arg(arg)}}
+\item{Default value}{\code{rlang::caller_arg(arg)}}
 }}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
@@ -46,7 +46,7 @@ When \code{NULL}, default messaging is used (see examples for default messages).
 \code{"{arg_name}"} can be used in messaging.
 
 \describe{
-\item{Default Value}{\code{NULL}}
+\item{Default value}{\code{NULL}}
 }}
 
 \item{class}{Subclass of the condition.}

@@ -18,27 +18,27 @@ assert_date_var(
 \item{dataset}{The dataset where the variable is expected
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{var}{The variable to check
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{dataset_name}{The name of the dataset. If the argument is specified, the
 specified name is displayed in the error message.
 
 \describe{
-\item{Default Value}{\code{rlang::caller_arg(dataset)}}
+\item{Default value}{\code{rlang::caller_arg(dataset)}}
 }}
 
 \item{var_name}{The name of the variable. If the argument is specified, the
 specified name is displayed in the error message.
 
 \describe{
-\item{Default Value}{\code{rlang::caller_arg(var)}}
+\item{Default value}{\code{rlang::caller_arg(var)}}
 }}
 
 \item{message}{(\code{string})\cr
@@ -47,7 +47,7 @@ is used (see examples for default messages). \code{"var_name"} and \code{"datase
 can be used in messaging.
 
 \describe{
-\item{Default Value}{\code{NULL}}
+\item{Default value}{\code{NULL}}
 }}
 
 \item{class}{Subclass of the condition.}

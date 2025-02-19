@@ -10,19 +10,19 @@ replace_symbol_in_expr(expression, target, replace)
 \item{expression}{Expression
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{target}{Target symbol
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{replace}{Replacing symbol
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{

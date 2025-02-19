@@ -10,13 +10,13 @@ get_new_tmp_var(dataset, prefix = "tmp_var")
 \item{dataset}{The input dataset
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 
 \item{prefix}{The prefix of the new temporary variable name to create
 
 \describe{
-\item{Default Value}{\code{"tmp_var"}}
+\item{Default value}{\code{"tmp_var"}}
 }}
 }
 \value{

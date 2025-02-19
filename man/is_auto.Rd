@@ -10,7 +10,7 @@ is_auto(arg)
 \item{arg}{argument to check
 
 \describe{
-\item{Default Value}{none}
+\item{Default value}{none}
 }}
 }
 \value{
