@@ -194,22 +194,25 @@ transform_examplesx <- function(block) {
 
 execute_example <- function(code, env = caller_env()) {
   knitr::knit(
-    text = paste("```{r collapse=TRUE}", code, "```", sep = "\n"),
+    text = paste("```{r, collapse=TRUE, comment='#>'}", code, "```", sep = "\n"),
     quiet = TRUE,
     envir = env
   ) %>%
     str_remove("^\n*``` *r\n*") %>%
     str_remove("\n*```$")
-  # expr_list <- parse(text = code)
-  # result <- NULL
-  # for (i in seq_along(expr_list)) {
-  #   result <- c(result, as.character(attr(expr_list, "srcref")[[i]]))
-  #   return_value <- withVisible(eval(expr_list[[i]], envir = env))
-  #   if (return_value$visible) {
-  #     result <- c(result, paste("#>", capture.output(print(return_value$value))))
-  #   }
-  # }
-  # paste(result, collapse = "\n")
+}
+
+old_execute_example <- function(code, env = caller_env()) {
+  expr_list <- parse(text = code)
+  result <- NULL
+  for (i in seq_along(expr_list)) {
+    result <- c(result, as.character(attr(expr_list, "srcref")[[i]]))
+    return_value <- withVisible(eval(expr_list[[i]], envir = env))
+    if (return_value$visible) {
+      result <- c(result, paste("#>", capture.output(print(return_value$value))))
+    }
+  }
+  paste(result, collapse = "\n")
 }
 
 #' @export
