@@ -27,7 +27,7 @@ test_that("what_is_it Test 3: S3 objects", {
   expect_identical(what_is_it(mtcars), "a data frame")
   expect_identical(what_is_it(factor(letters)), "a factor")
   expect_identical(what_is_it(lm(hp ~ mpg, data = mtcars)), "an object of class 'lm'")
-  expect_identical(what_is_it(quo(4 / 1)), "an object of class 'quosure'")
+  expect_identical(what_is_it(rlang::quo(4 / 1)), "an object of class 'quosure'")
 })
 
 
