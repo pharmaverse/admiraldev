@@ -2,7 +2,7 @@
 % Please edit documentation in R/assertions.R
 \name{assert_same_type}
 \alias{assert_same_type}
-\title{Are All Argument of the Same Type?}
+\title{Are All Arguments of the Same Type?}
 \usage{
 assert_same_type(
   ...,
@@ -23,7 +23,9 @@ assert_same_type(
 \item{.message}{character vector passed to \code{cli_abort(message)} when assertion fails.
 
 \describe{
-\item{Default value}{\code{c("Arguments {.arg {arg_names}} must be the same type.", i = paste("Argument types are", paste0("{.arg ", arg_names, "} {.cls ",}}
+\item{Default value}{\code{c("Arguments {.arg {arg_names}} must be the same type.", i = paste(
+  "Argument types are", paste0("{.arg ", arg_names, "} {.cls ", types, "}",
+    collapse = ", ")))}}
 }}
 
 \item{.class}{character vector passed to \code{cli_abort(class)} when assertion fails.
@@ -37,8 +39,6 @@ assert_same_type(
 \describe{
 \item{Default value}{\code{parent.frame()}}
 }}
-
-\item{NA}{NA}
 }
 \value{
 The function throws an error if not all arguments are of the same type.

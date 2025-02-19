@@ -1920,7 +1920,7 @@ assert_date_vector <- function(arg,
   invisible(arg)
 }
 
-#' Are All Argument of the Same Type?
+#' Are All Arguments of the Same Type?
 #'
 #'
 #' Checks if all arguments are of the same type.

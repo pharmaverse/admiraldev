@@ -127,7 +127,11 @@ get_param_tag <- function(act_param, defaults) {
     if (is_missing(default_value)) {
       default_value <- "none"
     } else {
-      default_value <- paste0("\\code{", expr_deparse(default_value), "}")
+      default_value <- paste0(
+        "\\code{",
+        paste0(expr_deparse(default_value, width = 80), collapse = "\n"),
+        "}"
+      )
     }
     act_param$default <- default_value
   }
