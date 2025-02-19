@@ -87,7 +87,10 @@ transform_param <- function(block, rdx_permitted_values) {
         if (is.null(ref_resolved)) {
           warn_roxy_tag(
             tags[[i]],
-            message = "The id {.val {tags[[i]]$val$ref}} couldn't be found in {.file man/roxygen/rdx_meta.R}"
+            message = paste(
+              "The id {.val {tags[[i]]$val$ref}} couldn't be found in",
+              "{.file man/roxygen/rdx_meta.R}"
+            )
           )
           ref_resolved <- tags[[i]]$val$ref
         }
@@ -251,8 +254,8 @@ roxy_tag_parse.roxy_tag_code <- function(x) {
 #' @export
 roxy_tag_parse.roxy_tag_permitted <- function(x) {
   raw_parsed <- str_match(
-      str_remove(x$raw, "\\n+$"),
-      "(?:\\[(.*)\\] *)?((?:.|\n)+)?"
+    str_remove(x$raw, "\\n+$"),
+    "(?:\\[(.*)\\] *)?((?:.|\n)+)?"
   )[, 2:3]
   x_text <- x
   if (is.na(raw_parsed[[2]])) {

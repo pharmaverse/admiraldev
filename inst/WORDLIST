@@ -44,6 +44,7 @@ Quosures
 README
 RStudio
 Rimler
+Roclet
 Roxygen
 SDTM
 Samia
@@ -94,6 +95,7 @@ programmatically
 quosures
 repo
 reproducibility
+roclet
 roxygen
 styler
 testthat
