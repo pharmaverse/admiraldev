@@ -199,7 +199,8 @@ execute_example <- function(code, env = caller_env()) {
     envir = env
   ) %>%
     str_remove("^\n*``` *r\n*") %>%
-    str_remove("\n*```$")
+    str_remove("\n*```$") %>%
+    str_replace_all("%", "\\\\%")
 }
 
 old_execute_example <- function(code, env = caller_env()) {

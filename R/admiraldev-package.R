@@ -15,8 +15,8 @@
 #' @importFrom roxygen2 rd_section roclet roclet_process roxy_tag roxy_tag_parse
 #'   roxy_tag_rd tag_markdown warn_roxy_tag
 #' @importFrom stringr str_c str_detect str_extract str_glue str_match
-#'             str_remove str_remove_all str_replace str_trim str_to_lower str_subset
-#'             str_to_title str_to_upper
+#'   str_remove str_remove_all str_replace str_replace_all str_trim str_to_lower
+#'   str_subset str_to_title str_to_upper
 #' @importFrom lubridate as_datetime ceiling_date date days duration floor_date is.Date is.instant
 #'             time_length %--% ymd ymd_hms weeks years hours minutes
 #' @importFrom tidyr drop_na nest pivot_longer pivot_wider unnest
