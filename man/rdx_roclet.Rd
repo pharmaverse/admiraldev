@@ -40,6 +40,13 @@ in the examples section. The caption can be followed by an arbitrary number
 of \verb{@info} and \verb{@code} tags.
 \item \verb{@info}: Description of the example.
 \item \verb{@code}: Code of the example.
+
+By default, any warning or error issued by the example code causes the
+building of the documentation to fail. If this is expected, the condition
+can be added to the \code{expected_cnds} option of the \verb{@code} tag. E.g.,
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{@code [expected_cnds = "warning"]
+}\if{html}{\out{</div>}}
 }
 
 To use the roclet call \code{roxygen2::roxygenise(roclets = "admiral::rdx_roclet")} or add to the \code{DESCRIPTION} file:

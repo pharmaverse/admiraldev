@@ -32,6 +32,13 @@
 #' - `@info`: Description of the example.
 #' - `@code`: Code of the example.
 #'
+#'      By default, any warning or error issued by the example code causes the
+#'      building of the documentation to fail. If this is expected, the condition
+#'      can be added to the `expected_cnds` option of the `@code` tag. E.g.,
+#'      ```
+#'      @code [expected_cnds = "warning"]
+#'      ```
+#'
 #' To use the roclet call `roxygen2::roxygenise(roclets =
 #' "admiral::rdx_roclet")` or add to the `DESCRIPTION` file:
 #' ```
@@ -169,7 +176,11 @@ transform_examplesx <- function(block) {
         act_example$contents,
         paste(
           "\\if{html}{\\out{<div class=\"sourceCode r\">}}\\preformatted{",
-          execute_example(tags[[i]]$raw, env = example_env),
+          execute_example(
+            tags[[i]]$val$code,
+            expected_cnds = tags[[i]]$val$options$expected_cnds,
+            env = example_env
+          ),
           "}\\if{html}{\\out{</div>}}",
           sep = ""
         ),
@@ -192,28 +203,82 @@ transform_examplesx <- function(block) {
   block
 }
 
-execute_example <- function(code, env = caller_env()) {
-  knitr::knit(
-    text = paste("```{r, collapse=TRUE, comment='#>'}", code, "```", sep = "\n"),
-    quiet = TRUE,
-    envir = env
-  ) %>%
-    str_remove("^\n*``` *r\n*") %>%
-    str_remove("\n*```$") %>%
-    str_replace_all("%", "\\\\%")
-}
-
-old_execute_example <- function(code, env = caller_env()) {
+execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
   expr_list <- parse(text = code)
   result <- NULL
   for (i in seq_along(expr_list)) {
     result <- c(result, as.character(attr(expr_list, "srcref")[[i]]))
-    return_value <- withVisible(eval(expr_list[[i]], envir = env))
-    if (return_value$visible) {
-      result <- c(result, paste("#>", capture.output(print(return_value$value))))
+    # return_value <- withVisible(eval(expr_list[[i]], envir = env))
+    return_value <- capture_output(
+      !!expr_list[[i]],
+      expected_cnds = expected_cnds,
+      env = env
+    )
+    if (!is.null(return_value)) {
+      result <- c(result, paste("#>", return_value))
     }
   }
   paste(result, collapse = "\n")
+}
+
+#' Capture Output and Messages
+#'
+#' The function captures both output and expected messages from an R expression.
+#' If the expression results in an unexpected message, an error is issued.
+#'
+#' @param expr An R expression to evaluate
+#' @param expected_cnds A character vector of expected conditions
+#'
+#'   If the expression issues a condition of a class that is in this vector, the
+#'   condition is ignored but added to the return value.
+#'
+#'   Otherwise, an error is issued.
+#'
+#' @param env The environment in which to evaluate the expression
+#'
+#' @return A character vector of captured output and messages
+#'
+#' @export
+capture_output <- function(expr, expected_cnds = NULL, env = caller_env()) {
+  # warnings need to be issued immediately, otherwise they are not caught
+  old_options <- options(warn = 1)
+  on.exit(options(warn = old_options[["warn"]]))
+  code <- enexpr(expr)
+  cnds <- list()
+  result <- NULL
+  # execute the expression and capture all messages
+  try(
+    withCallingHandlers(
+      result <- withVisible(eval(code, envir = env)),
+      condition = function(cnd) {
+        cnds <<- c(cnds, list(cnd))
+        cnd_muffle(cnd)
+      }
+    ),
+    silent = TRUE
+  )
+  # check if any of the conditions are unexpected
+  messages <- NULL
+  for (cnd in cnds) {
+    message <- capture.output(try(rlang::cnd_signal(cnd)), type = "message")
+    if (is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds)) {
+      cli_abort(c(
+        "The expression {.code {expr_deparse(code)}} issued an unexpected condition:",
+        cnd$message,
+        "If this is expected, add any of the classes {.val {class(cnd)}} to the argument {.arg expected_cnds}."
+      ))
+    } else {
+      messages <- c(messages, message)
+    }
+  }
+  if (is.null(result)) {
+    messages
+  } else if (result$visible) {
+    result <- capture.output(print(result$value))
+    c(result, messages)
+  } else {
+    messages
+  }
 }
 
 #' @export
@@ -264,8 +329,20 @@ roxy_tag_parse.roxy_tag_info <- function(x) {
 
 #' @export
 roxy_tag_parse.roxy_tag_code <- function(x) {
+  raw_parsed <- str_match(
+    str_remove(x$raw, "\\n+$"),
+    "(?:\\[(.*)\\] *)?((?:.|\n)+)?"
+  )[, 2:3]
+  x$val <- list(
+    options = eval(parse_expr(paste0("list(", raw_parsed[[1]], ")"))),
+    code = raw_parsed[[2]]
+  )
+  if (!("expected_cnds" %in% names(x$val$options))) {
+    x$val$options$expected_cnds <- "message"
+  }
   x
 }
+
 #' @export
 roxy_tag_parse.roxy_tag_permitted <- function(x) {
   raw_parsed <- str_match(
