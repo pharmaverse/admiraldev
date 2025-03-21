@@ -291,7 +291,17 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
   if (is.null(result)) {
     messages
   } else if (result$visible) {
-    result <- capture.output(print(result$value))
+    # print the results and capture output and messages to cover the case that
+    # print methods issue messages like for admiral::duplicates
+    temp_file <- tempfile(fileext = ".txt")
+    con <- file(temp_file, "w")
+    sink(con)
+    sink(con, type = "message")
+    print(result$value)
+    sink()
+    sink(type = "message")
+    close(con)
+    result <- readLines(temp_file)
     c(result, messages)
   } else {
     messages
