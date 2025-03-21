@@ -4,13 +4,19 @@
 \alias{capture_output}
 \title{Capture Output and Messages}
 \usage{
-capture_output(expr, expected_cnds = NULL, env = caller_env())
+capture_output(expr, srcref = NULL, expected_cnds = NULL, env = caller_env())
 }
 \arguments{
 \item{expr}{An R expression to evaluate
 
 \describe{
 \item{Default value}{none}
+}}
+
+\item{srcref}{The source reference of the expression
+
+\describe{
+\item{Default value}{\code{NULL}}
 }}
 
 \item{expected_cnds}{A character vector of expected conditions

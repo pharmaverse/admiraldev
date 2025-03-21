@@ -207,10 +207,12 @@ execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
   expr_list <- parse(text = code)
   result <- NULL
   for (i in seq_along(expr_list)) {
-    result <- c(result, as.character(attr(expr_list, "srcref")[[i]]))
+    srcref <- as.character(attr(expr_list, "srcref")[[i]])
+    result <- c(result, srcref)
     # return_value <- withVisible(eval(expr_list[[i]], envir = env))
     return_value <- capture_output(
       !!expr_list[[i]],
+      srcref = srcref,
       expected_cnds = expected_cnds,
       env = env
     )
@@ -227,6 +229,7 @@ execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
 #' If the expression results in an unexpected message, an error is issued.
 #'
 #' @param expr An R expression to evaluate
+#' @param srcref The source reference of the expression
 #' @param expected_cnds A character vector of expected conditions
 #'
 #'   If the expression issues a condition of a class that is in this vector, the
@@ -239,7 +242,7 @@ execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
 #' @return A character vector of captured output and messages
 #'
 #' @export
-capture_output <- function(expr, expected_cnds = NULL, env = caller_env()) {
+capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = caller_env()) {
   # warnings need to be issued immediately, otherwise they are not caught
   old_options <- options(warn = 1)
   on.exit(options(warn = old_options[["warn"]]))
@@ -247,23 +250,37 @@ capture_output <- function(expr, expected_cnds = NULL, env = caller_env()) {
   cnds <- list()
   result <- NULL
   # execute the expression and capture all messages
+  # conditions can't be muffled as those from cli would be incomplete then
+  # thus they are sunk into a temporary file to avoid that they are displayed
+  temp_file <- tempfile(fileext = ".txt")
+  con <- file(temp_file, "w")
+  sink(con, type = "message")
   try(
     withCallingHandlers(
       result <- withVisible(eval(code, envir = env)),
       condition = function(cnd) {
         cnds <<- c(cnds, list(cnd))
-        cnd_muffle(cnd)
       }
     ),
     silent = TRUE
   )
+  sink(type = "message")
+  close(con)
   # check if any of the conditions are unexpected
   messages <- NULL
   for (cnd in cnds) {
     message <- capture.output(try(rlang::cnd_signal(cnd)), type = "message")
-    if (is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds)) {
+    # ignore empty messages, e.g., from cli
+    if (length(message) == 0) next
+    if (is.null(srcref)) {
+      srcref <- expr_deparse(code)
+    }
+    #if (!inherits(cnd, "cli_message") & !inherits(cnd, "dplyr_regroup") & (is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds))) {
+    if ((is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds))) {
       cli_abort(c(
-        "The expression {.code {expr_deparse(code)}} issued an unexpected condition:",
+        "The expression",
+        paste(">", srcref),
+        "issued an unexpected condition:",
         cnd$message,
         "If this is expected, add any of the classes {.val {class(cnd)}} to the argument {.arg expected_cnds}."
       ))

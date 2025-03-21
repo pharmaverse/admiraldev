@@ -20,7 +20,7 @@ expr_c <- function(...) {
       }
     }
   )
-  inputs <- flatten(inputs)
+  inputs <- list_flatten(inputs)
   stopifnot(all(map_lgl(inputs, is_expression)))
   is_null <- map_lgl(inputs, is.null)
   inputs[!is_null]
