@@ -275,7 +275,7 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
     if (is.null(srcref)) {
       srcref <- expr_deparse(code)
     }
-    #if (!inherits(cnd, "cli_message") & !inherits(cnd, "dplyr_regroup") & (is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds))) {
+    # if (!inherits(cnd, "cli_message") & !inherits(cnd, "dplyr_regroup") & (is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds))) {
     if ((is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds))) {
       cli_abort(c(
         "The expression",
