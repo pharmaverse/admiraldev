@@ -277,7 +277,7 @@ transform_examplesx <- function(block) {
 #'
 #' @examples
 #' admiraldev:::execute_example("1 + 1")
-#' admiraldev:::execute_example("log(-1)")
+#' try(admiraldev:::execute_example("log(-1)"))
 #' admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
 execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
   expr_list <- parse(text = code)
@@ -360,14 +360,16 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
     if (is.null(srcref)) {
       srcref <- expr_deparse(code)
     }
-    # if (!inherits(cnd, "cli_message") & !inherits(cnd, "dplyr_regroup") & (is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds))) {
     if ((is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds))) {
       cli_abort(c(
         "The expression",
         paste(">", srcref),
         "issued an unexpected condition:",
         cnd$message,
-        "If this is expected, add any of the classes {.val {class(cnd)}} to the argument {.arg expected_cnds}."
+        paste(
+          "If this is expected, add any of the classes {.val {class(cnd)}} to",
+          "the argument {.arg expected_cnds}."
+        )
       ))
     } else {
       messages <- c(messages, message)
