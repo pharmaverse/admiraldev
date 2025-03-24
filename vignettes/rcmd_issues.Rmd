@@ -100,5 +100,4 @@ Add an `@param some_param` section in the header of `function_xyz()` and run `de
 
 The name of a parameter has been changed in the function code but not yet in the header. Change `@param old_param_name` to `@param new_param_name` and run `devtools::document()`.
 
-For further reading we recommend the [R-pkg manual r-cmd chapter](https://r-pkgs.org/r-cmd-check.html)
-
+For further reading we recommend the [R-pkg manual r-cmd chapter](https://r-pkgs.org/R-CMD-check.html)

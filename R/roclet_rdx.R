@@ -380,7 +380,6 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
     # print the results and capture output and messages to cover the case that
     # print methods issue messages like for admiral::duplicates
     temp_file <- tempfile(fileext = ".txt")
-    temp_file <- "lala.txt"
     con <- file(temp_file, "w")
     # withr can't be used here because it doesn't support writing to the same
     # connection for both output and messages.
