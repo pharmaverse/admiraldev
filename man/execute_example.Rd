@@ -40,7 +40,7 @@ If the example code issues an unexpected message, an error is issued.
 }
 \examples{
 admiraldev:::execute_example("1 + 1")
-admiraldev:::execute_example("log(-1)")
+try(admiraldev:::execute_example("log(-1)"))
 admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
 }
 \keyword{internal}

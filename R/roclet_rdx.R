@@ -329,8 +329,7 @@ execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
 #' capture_output(log(-1), expected_cnds = "warning")
 capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = caller_env()) {
   # warnings need to be issued immediately, otherwise they are not caught
-  old_options <- options(warn = 1)
-  on.exit(options(warn = old_options[["warn"]]))
+  local_options(warn = 1)
   code <- enexpr(expr)
   cnds <- list()
   result <- NULL
@@ -339,18 +338,18 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
   # thus they are sunk into a temporary file to avoid that they are displayed
   temp_file <- tempfile(fileext = ".txt")
   con <- file(temp_file, "w")
-  sink(con, type = "message")
-  try(
-    withCallingHandlers(
-      result <- withVisible(eval(code, envir = env)),
-      condition = function(cnd) {
-        cnds <<- c(cnds, list(cnd))
-      }
-    ),
-    silent = TRUE
+  with_message_sink(
+    con,
+    try(
+      withCallingHandlers(
+        result <- withVisible(eval(code, envir = env)),
+        condition = function(cnd) {
+          cnds <<- c(cnds, list(cnd))
+        }
+      ),
+      silent = TRUE
+    )
   )
-  sink(type = "message")
-  close(con)
   # check if any of the conditions are unexpected
   messages <- NULL
   for (cnd in cnds) {
@@ -381,12 +380,15 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
     # print the results and capture output and messages to cover the case that
     # print methods issue messages like for admiral::duplicates
     temp_file <- tempfile(fileext = ".txt")
+    temp_file <- "lala.txt"
     con <- file(temp_file, "w")
-    sink(con)
-    sink(con, type = "message")
+    # withr can't be used here because it doesn't support writing to the same
+    # connection for both output and messages.
+    sink(con) # nolint
+    sink(con, type = "message") # nolint
     print(result$value)
-    sink()
-    sink(type = "message")
+    sink() # nolint
+    sink(type = "message") # nolint
     close(con)
     result <- readLines(temp_file)
     c(result, messages)
