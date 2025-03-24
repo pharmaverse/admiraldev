@@ -10,6 +10,7 @@ capture_output(expr, srcref = NULL, expected_cnds = NULL, env = caller_env())
 \item{expr}{An R expression to evaluate
 
 \describe{
+\item{Permitted values}{An unquoted R expression}
 \item{Default value}{none}
 }}
 
@@ -43,3 +44,9 @@ A character vector of captured output and messages
 The function captures both output and expected messages from an R expression.
 If the expression results in an unexpected message, an error is issued.
 }
+\examples{
+capture_output(1 + 1)
+try(capture_output(log(-1)))
+capture_output(log(-1), expected_cnds = "warning")
+}
+\keyword{documentation}

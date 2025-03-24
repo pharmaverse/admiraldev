@@ -79,6 +79,11 @@ reference:
   contents:
   - has_keyword('utils_help')
 
+- title: Documentation Functions
+  desc: Functions for generating documentation
+  contents:
+  - has_keyword('documentation')
+
 - title: Join Functions
   desc: dplyr join function without warning about different attributes
   contents:

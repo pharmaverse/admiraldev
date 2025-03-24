@@ -54,4 +54,4 @@ To use the roclet call \code{roxygen2::roxygenise(roclets = "admiral::rdx_roclet
 \if{html}{\out{<div class="sourceCode">}}\preformatted{Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "admiraldev::rdx_roclet"))
 }\if{html}{\out{</div>}}
 }
-\keyword{internal}
+\keyword{documentation}

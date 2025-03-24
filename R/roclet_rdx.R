@@ -45,11 +45,12 @@
 #' Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "admiraldev::rdx_roclet"))
 #' ```
 #'
-#' @keywords internal
+#' @keywords documentation
 #'
 #' @export
 rdx_roclet <- function() {
   out <- roclet("rdx")
+  # keep the standard roclet_rd class to allow standard processing
   class(out) <- c("roclet_rdx", "roclet_rd", "roclet")
   out
 }
@@ -73,15 +74,34 @@ roclet_process.roclet_rdx <- function(x, blocks, env, base_path) {
   NextMethod()
 }
 
+#' Process `@permitted` and `@default` tags
+#'
+#' This function processes the `@permitted` and `@default` tags and moves them
+#' into the `@param` tag. The default value is taken from the function call if
+#' not specified.
+#'
+#' @param block A block of roxygen tags of one function
+#'
+#' @param rdx_permitted_values A list of permitted values
+#'
+#'   The name of the list item can be referenced in the `@permitted` tag by
+#'   specifying the name in square brackets, e.g., `@permitted [mode]`.
+#'
+#' @returns The block with the transformed tags
+#'
+#' @keywords internal
 transform_param <- function(block, rdx_permitted_values) {
-  tags <- block$tags
-  out_tags <- list()
-  act_param <- list()
+  # extract default values from the function definition
   if (length(block$call) >= 3) {
     defaults <- block$call[[3]][[2]]
   } else {
     defaults <- list()
   }
+  # process tags: @param tags are stored temporarily in act_param until the
+  # contents from the @permitted and @default tags is processed
+  tags <- block$tags
+  out_tags <- list()
+  act_param <- list()
   for (i in seq_along(tags)) {
     if (tags[[i]]$tag == "param") {
       if (length(act_param) > 0) {
@@ -127,6 +147,25 @@ transform_param <- function(block, rdx_permitted_values) {
   block
 }
 
+#' Get the content of the `@param` tag
+#'
+#' This function adds the permitted values and the default value to the
+#' description of the `@param` tag. They are added as a definition list
+#' (`\describe{}`).
+#'
+#' @param act_param The content of the argument description to format
+#'
+#'   A list with three named elements is expected:
+#'
+#'   - `tag`: The `@param` tag
+#'   - `permitted`: The permitted values
+#'   - `default`: The default value
+#'
+#' @param defaults A list of default values from the function call
+#'
+#' @returns The formatted `@param` tag
+#'
+#' @keywords internal
 get_param_tag <- function(act_param, defaults) {
   tag <- act_param$tag
   if (is.null(act_param$default)) {
@@ -155,7 +194,16 @@ get_param_tag <- function(act_param, defaults) {
   tag
 }
 
+#' Transform `@caption`, `@info` and `@code` tags into `@examplex` tags
+#'
+#' @param block A block of roxygen tags of one function
+#'
+#' @returns The block with the transformed tags
+#'
+#' @keywords internal
 transform_examplesx <- function(block) {
+  # process tags: @examplex tags are stored temporarily in act_example until the
+  # contents from the @caption, @info, and @code tags is processed
   tags <- block$tags
   out_tags <- list()
   act_example <- list()
@@ -203,13 +251,40 @@ transform_examplesx <- function(block) {
   block
 }
 
+#' Execute Example Code
+#'
+#' This function executes the example code and captures the output and messages.
+#' If the example code issues an unexpected message, an error is issued.
+#'
+#' @param code The example code
+#'
+#'   The code is expected to be a character vector of R code lines.
+#'
+#' @permitted A character vector
+
+#' @param expected_cnds Expected conditions
+#'
+#' @permitted A character vector
+#'
+#' @param env The environment in which to evaluate the example code
+#'
+#' @permitted An environment
+#'
+#' @returns A character vector of the input code and the output and messages
+#'   created by the code. Output and messages are prefixed by `"#>"`.
+#'
+#' @keywords internal
+#'
+#' @examples
+#' admiraldev:::execute_example("1 + 1")
+#' admiraldev:::execute_example("log(-1)")
+#' admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
 execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
   expr_list <- parse(text = code)
   result <- NULL
   for (i in seq_along(expr_list)) {
     srcref <- as.character(attr(expr_list, "srcref")[[i]])
     result <- c(result, srcref)
-    # return_value <- withVisible(eval(expr_list[[i]], envir = env))
     return_value <- capture_output(
       !!expr_list[[i]],
       srcref = srcref,
@@ -229,6 +304,9 @@ execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
 #' If the expression results in an unexpected message, an error is issued.
 #'
 #' @param expr An R expression to evaluate
+#'
+#' @permitted An unquoted R expression
+#'
 #' @param srcref The source reference of the expression
 #' @param expected_cnds A character vector of expected conditions
 #'
@@ -241,7 +319,14 @@ execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
 #'
 #' @return A character vector of captured output and messages
 #'
+#' @keywords documentation
+#'
 #' @export
+#'
+#' @examples
+#' capture_output(1 + 1)
+#' try(capture_output(log(-1)))
+#' capture_output(log(-1), expected_cnds = "warning")
 capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = caller_env()) {
   # warnings need to be issued immediately, otherwise they are not caught
   old_options <- options(warn = 1)
