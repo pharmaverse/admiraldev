@@ -24,5 +24,5 @@
 #' @importFrom lifecycle deprecate_warn deprecated deprecate_stop deprecate_soft
 #' @importFrom cli cli_abort cli_div
 #' @importFrom glue glue glue_collapse
-#' @importFrom withr local_options with_message_sink
+#' @importFrom withr local_options
 "_PACKAGE"

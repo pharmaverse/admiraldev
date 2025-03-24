@@ -46,7 +46,6 @@ If the expression results in an unexpected message, an error is issued.
 }
 \examples{
 capture_output(1 + 1)
-try(capture_output(log(-1)))
 capture_output(log(-1), expected_cnds = "warning")
 }
 \keyword{documentation}

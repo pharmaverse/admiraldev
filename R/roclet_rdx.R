@@ -277,7 +277,6 @@ transform_examplesx <- function(block) {
 #'
 #' @examples
 #' admiraldev:::execute_example("1 + 1")
-#' try(admiraldev:::execute_example("log(-1)"))
 #' admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
 execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
   expr_list <- parse(text = code)
@@ -325,7 +324,6 @@ execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
 #'
 #' @examples
 #' capture_output(1 + 1)
-#' try(capture_output(log(-1)))
 #' capture_output(log(-1), expected_cnds = "warning")
 capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = caller_env()) {
   # warnings need to be issued immediately, otherwise they are not caught
@@ -338,22 +336,27 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
   # thus they are sunk into a temporary file to avoid that they are displayed
   temp_file <- tempfile(fileext = ".txt")
   con <- file(temp_file, "w")
-  with_message_sink(
-    con,
-    try(
-      withCallingHandlers(
-        result <- withVisible(eval(code, envir = env)),
-        condition = function(cnd) {
-          cnds <<- c(cnds, list(cnd))
-        }
-      ),
-      silent = TRUE
-    )
+  old_con <- sink.number(type = "message")
+  sink(con, type = "message") # nolint
+  try(
+    withCallingHandlers(
+      result <- withVisible(eval(code, envir = env)),
+      condition = function(cnd) {
+        cnds <<- c(cnds, list(cnd))
+      }
+    ),
+    silent = TRUE
   )
+  if (old_con > 2) {
+    sink(getConnection(old_con), type = "message") # nolint
+  } else {
+    sink(type = "message") # nolint
+  }
+  close(con)
   # check if any of the conditions are unexpected
   messages <- NULL
   for (cnd in cnds) {
-    message <- capture.output(try(rlang::cnd_signal(cnd)), type = "message")
+    message <- capture_message(try(rlang::cnd_signal(cnd)))
     # ignore empty messages, e.g., from cli
     if (length(message) == 0) next
     if (is.null(srcref)) {
@@ -384,16 +387,40 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
     # withr can't be used here because it doesn't support writing to the same
     # connection for both output and messages.
     sink(con) # nolint
+    old_con <- sink.number(type = "message")
     sink(con, type = "message") # nolint
     print(result$value)
     sink() # nolint
-    sink(type = "message") # nolint
+    if (old_con > 2) {
+      sink(getConnection(old_con), type = "message") # nolint
+    } else {
+      sink(type = "message") # nolint
+    }
     close(con)
     result <- readLines(temp_file)
     c(result, messages)
   } else {
     messages
   }
+}
+
+#' Captures Messages Preserving the Message Redirection
+#' @param expr An R expression to evaluate
+#' @returns A character vector of captured messages
+#' @keywords internal
+capture_message <- function(expr) {
+  temp_file <- tempfile(fileext = ".txt")
+  con <- file(temp_file, "w")
+  old_con <- sink.number(type = "message")
+  sink(con, type = "message") # nolint
+  eval(expr)
+  if (old_con > 2) {
+    sink(getConnection(old_con), type = "message") # nolint
+  } else {
+    sink(type = "message") # nolint
+  }
+  close(con)
+  readLines(temp_file)
 }
 
 #' @export
