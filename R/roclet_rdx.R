@@ -275,27 +275,83 @@ transform_examplesx <- function(block) {
 #'
 #' @keywords internal
 #'
-#' @examples
+#' @caption Execute Example Code
+#' @code [expected_cnds = "error"]
 #' admiraldev:::execute_example("1 + 1")
+#'
+#' admiraldev:::execute_example("log(-1)")
+#'
 #' admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
 execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
-  expr_list <- parse(text = code)
+  expr_list <- parse_code(code)
   result <- NULL
-  for (i in seq_along(expr_list)) {
-    srcref <- as.character(attr(expr_list, "srcref")[[i]])
+  for (expr in expr_list) {
+    srcref <- expr$srcref
     result <- c(result, srcref)
-    return_value <- capture_output(
-      !!expr_list[[i]],
-      srcref = srcref,
-      expected_cnds = expected_cnds,
-      env = env
-    )
-    if (!is.null(return_value)) {
-      result <- c(result, paste("#>", return_value))
+    if (expr$eval) {
+      return_value <- capture_output(
+        !!expr$expr,
+        srcref = srcref,
+        expected_cnds = expected_cnds,
+        env = env
+      )
+      if (!is.null(return_value)) {
+        result <- c(result, paste("#>", return_value))
+      }
     }
   }
   paste(result, collapse = "\n")
 }
+
+#' Parse Code
+#'
+#' The function parses the code and returns a list of expressions and source
+#' references.
+#'
+#' @param code The code to parse
+#'
+#' @permitted A character vector
+#'
+#' @returns A list of expressions and source references
+#'
+#' Each item of the list is a list with the following elements:
+#' - `expr`: The expression
+#' - `srcref`: The source reference
+#' - `eval`: A logical indicating whether the expression should be evaluated,
+#'   i.e., it is not a comment or an empty line.
+#'
+#' @keywords documentation
+#'
+#' @export
+#'
+#' @examples
+#' parse_code("1+1\n2*2")
+#'
+#' parse_code(c("# sum:", "sum(\n  1, #first\n  2\n)"))
+parse_code <- function(code) {
+  expr_list <- parse(text = code)
+  out <- list()
+  wholesrcref <- as.character(attr(expr_list, "wholeSrcref"))
+  whole_i <- 1
+  for (i in seq_along(expr_list)) {
+    srcref <- as.character(attr(expr_list, "srcref")[[i]])
+    while(wholesrcref[[whole_i]] != srcref[[1]]) {
+      out <- c(
+        out,
+        list(list(expr = NULL, srcref = wholesrcref[[whole_i]], eval = FALSE))
+      )
+      whole_i <- whole_i + 1
+    }
+    out <- c(
+      out,
+      list(list(expr = expr_list[[i]], srcref = srcref, eval = TRUE))
+    )
+    whole_i <- whole_i + length(srcref)
+  }
+  out
+}
+
+admiraldev_environment$capture_output_call_nr <- 0
 
 #' Capture Output and Messages
 #'
@@ -322,14 +378,19 @@ execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
 #'
 #' @export
 #'
-#' @examples
+#' @caption Capture Output and Messages
+#' @code [expected_cnds = "error"]
 #' capture_output(1 + 1)
+#'
+#' capture_output(log(-1))
+#'
 #' capture_output(log(-1), expected_cnds = "warning")
 capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = caller_env()) {
   # warnings need to be issued immediately, otherwise they are not caught
   local_options(warn = 1)
   code <- enexpr(expr)
   cnds <- list()
+  admiraldev_environment$capture_output_call_nr <- admiraldev_environment$capture_output_call_nr + 1
   result <- NULL
   # execute the expression and capture all messages
   # conditions can't be muffled as those from cli would be incomplete then
@@ -342,7 +403,9 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
     withCallingHandlers(
       result <- withVisible(eval(code, envir = env)),
       condition = function(cnd) {
-        cnds <<- c(cnds, list(cnd))
+        cnds <<- c(cnds, list(list(
+          cond = cnd,
+          call_nr = admiraldev_environment$capture_output_call_nr)))
       }
     ),
     silent = TRUE
@@ -355,7 +418,10 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
   close(con)
   # check if any of the conditions are unexpected
   messages <- NULL
-  for (cnd in cnds) {
+  for (cnd_ext in cnds) {
+    # ignore all conditions not belonging to the current call of capture_output()
+    if (cnd_ext$call_nr != admiraldev_environment$capture_output_call_nr) next
+    cnd <- cnd_ext$cond
     message <- capture_message(try(rlang::cnd_signal(cnd)))
     # ignore empty messages, e.g., from cli
     if (length(message) == 0) next
@@ -363,11 +429,13 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
       srcref <- expr_deparse(code)
     }
     if ((is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds))) {
+      admiraldev_environment$capture_output_call_nr <- admiraldev_environment$capture_output_call_nr - 1
       cli_abort(c(
         "The expression",
         paste(">", srcref),
         "issued an unexpected condition:",
         cnd$message,
+        cnd$body,
         paste(
           "If this is expected, add any of the classes {.val {class(cnd)}} to",
           "the argument {.arg expected_cnds}."
@@ -377,6 +445,7 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
       messages <- c(messages, message)
     }
   }
+  admiraldev_environment$capture_output_call_nr <- admiraldev_environment$capture_output_call_nr - 1
   if (is.null(result)) {
     messages
   } else if (result$visible) {
