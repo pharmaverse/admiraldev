@@ -335,7 +335,7 @@ parse_code <- function(code) {
   whole_i <- 1
   for (i in seq_along(expr_list)) {
     srcref <- as.character(attr(expr_list, "srcref")[[i]])
-    while(wholesrcref[[whole_i]] != srcref[[1]]) {
+    while (wholesrcref[[whole_i]] != srcref[[1]]) {
       out <- c(
         out,
         list(list(expr = NULL, srcref = wholesrcref[[whole_i]], eval = FALSE))
@@ -405,7 +405,8 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
       condition = function(cnd) {
         cnds <<- c(cnds, list(list(
           cond = cnd,
-          call_nr = admiraldev_environment$capture_output_call_nr)))
+          call_nr = admiraldev_environment$capture_output_call_nr
+        )))
       }
     ),
     silent = TRUE
@@ -429,7 +430,8 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
       srcref <- expr_deparse(code)
     }
     if ((is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds))) {
-      admiraldev_environment$capture_output_call_nr <- admiraldev_environment$capture_output_call_nr - 1
+      admiraldev_environment$capture_output_call_nr <-
+        admiraldev_environment$capture_output_call_nr - 1
       cli_abort(c(
         "The expression",
         paste(">", srcref),
