@@ -19,6 +19,6 @@
 #' @info This example issues an expected message
 #' @code [expected_cnds = "message"]
 #' message("Hello, world!")
-test_fun <- function(arg_exp, arg_opt = 42, arg_opt2 = "a"){
+test_fun <- function(arg_exp, arg_opt = 42, arg_opt2 = "a") {
   42
 }
