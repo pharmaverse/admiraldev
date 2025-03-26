@@ -387,7 +387,7 @@ admiraldev_environment$capture_output_call_nr <- 0
 #' capture_output(log(-1), expected_cnds = "warning")
 capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = caller_env()) {
   # warnings need to be issued immediately, otherwise they are not caught
-  local_options(warn = 1)
+  local_options(warn = 1, width = 80)
   code <- enexpr(expr)
   cnds <- list()
   admiraldev_environment$capture_output_call_nr <- admiraldev_environment$capture_output_call_nr + 1
