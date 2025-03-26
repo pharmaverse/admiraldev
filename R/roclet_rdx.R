@@ -276,7 +276,7 @@ transform_examplesx <- function(block) {
 #' @keywords internal
 #'
 #' @caption Execute Example Code
-#' @code [expected_cnds = "error"]
+#' @code [expected_cnds = "admiraldev-unexpected_cnd"]
 #' admiraldev:::execute_example("1 + 1")
 #'
 #' admiraldev:::execute_example("log(-1)")
@@ -379,7 +379,7 @@ admiraldev_environment$capture_output_call_nr <- 0
 #' @export
 #'
 #' @caption Capture Output and Messages
-#' @code [expected_cnds = "error"]
+#' @code [expected_cnds = "admiraldev-unexpected_cnd"]
 #' capture_output(1 + 1)
 #'
 #' capture_output(log(-1))
@@ -432,17 +432,20 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
     if ((is.null(expected_cnds) || !any(class(cnd) %in% expected_cnds))) {
       admiraldev_environment$capture_output_call_nr <-
         admiraldev_environment$capture_output_call_nr - 1
-      cli_abort(c(
-        "The expression",
-        paste(">", srcref),
-        "issued an unexpected condition:",
-        cnd$message,
-        cnd$body,
-        paste(
-          "If this is expected, add any of the classes {.val {class(cnd)}} to",
-          "the argument {.arg expected_cnds}."
-        )
-      ))
+      cli_abort(
+        c(
+          "The expression",
+          paste(">", srcref),
+          "issued an unexpected condition:",
+          cnd$message,
+          cnd$body,
+          paste(
+            "If this is expected, add any of the classes {.val {class(cnd)}} to",
+            "the argument {.arg expected_cnds}."
+          )
+        ),
+        class = "admiraldev-unexpected_cnd"
+      )
     } else {
       messages <- c(messages, message)
     }
