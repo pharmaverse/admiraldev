@@ -329,7 +329,7 @@ execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
 #'
 #' parse_code(c("# sum:", "sum(\n  1, #first\n  2\n)"))
 parse_code <- function(code) {
-  expr_list <- parse(text = code)
+  expr_list <- parse(text = code, keep.source = TRUE)
   out <- list()
   wholesrcref <- as.character(attr(expr_list, "wholeSrcref"))
   whole_i <- 1
