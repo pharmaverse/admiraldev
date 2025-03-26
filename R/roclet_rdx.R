@@ -483,11 +483,13 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
 #' @returns A character vector of captured messages
 #' @keywords internal
 capture_message <- function(expr) {
+  # warnings need to be issued immediately, otherwise they are not caught
+  local_options(warn = 1)
   temp_file <- tempfile(fileext = ".txt")
   con <- file(temp_file, "w")
   old_con <- sink.number(type = "message")
   sink(con, type = "message") # nolint
-  eval(expr)
+  try(eval(expr))
   if (old_con > 2) {
     sink(getConnection(old_con), type = "message") # nolint
   } else {
