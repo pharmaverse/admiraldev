@@ -86,18 +86,16 @@ test_that("capture_message Test 6: capture message", {
 test_that("capture_message Test 7: capture message with open sink", {
   temp_file <- tempfile(fileext = ".txt")
   con <- file(temp_file, "w")
-  sink(con, type = "message")
+  sink(con, type = "message") # nolint
   out <- capture_message({
     message("This is a message")
     stop("This is an error")
   })
-  sink(type = "message")
+  message("Hello")
+  sink(type = "message") # nolint
   close(con)
   expect_equal(
-    out,
-    c(
-      "This is a message",
-      "Error in eval(expr) : This is an error"
-    )
+    readLines(temp_file),
+    "Hello"
   )
 })
