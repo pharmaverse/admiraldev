@@ -48,6 +48,34 @@
 #' @keywords documentation
 #'
 #' @export
+#'
+#' @caption Using the custom tags
+#' @info The id `char_scalar` used for the `@permitted` tag is defined in
+#'   `man/roxygen/rdx_meta.R`.
+#' @code
+#' # For this example: define demo_fun() to enable running the examples
+#' # This is NOT necessary when the tags are used in a header of a .R file.
+#' demo_fun <- function(x, number = 1, letter = "a") 42
+#' roxygen2::roc_proc_text(
+#'   rdx_roclet(),
+#'   c(
+#'     "#' A Demo Function",
+#'     "#' @param x An argument",
+#'     "#' @param number A number",
+#'     "#' @permitted A number",
+#'     "#' @param letter A letter",
+#'     "#' @permitted [char_scalar]",
+#'     "#' @default The first letter of the alphabet",
+#'     "#' @examplesx",
+#'     "#' @caption A simple example",
+#'     "#' @info This is a simple example showing the default behaviour.",
+#'     "#' @code demo_fun(1)",
+#'     "#' @caption An example with a different letter",
+#'     "#' @info This example shows that the `letter` argument doesn't",
+#'     "#'   affect the output. ",
+#'     "#' @code demo_fun(1, letter = \"b\")",
+#'     "demo_fun <- function(x, number = 1, letter = \"a\") 42"
+#'   ))
 rdx_roclet <- function() {
   out <- roclet("rdx")
   # keep the standard roclet_rd class to allow standard processing
