@@ -62,9 +62,6 @@ The id \code{char_scalar} used for the \verb{@permitted} tag is defined in
 \code{man/roxygen/rdx_meta.R}.
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{
-# For this example: define demo_fun() to enable running the examples
-# This is NOT necessary when the tags are used in a header of a .R file.
-demo_fun <- function(x, number = 1, letter = "a") 42
 roxygen2::roc_proc_text(
   rdx_roclet(),
   c(
