@@ -80,7 +80,7 @@ rdx_roclet <- function() {
   out
 }
 
-#' Demo function for rdx_roclet() example
+#' Demo function for `rdx_roclet()` example
 #'
 #' @keywords internal
 demo_fun <- function(x, number = 1, letter = "a") 42

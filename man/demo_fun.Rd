@@ -2,11 +2,11 @@
 % Please edit documentation in R/roclet_rdx.R
 \name{demo_fun}
 \alias{demo_fun}
-\title{Demo function for rdx_roclet() example}
+\title{Demo function for \code{rdx_roclet()} example}
 \usage{
 demo_fun(x, number = 1, letter = "a")
 }
 \description{
-Demo function for rdx_roclet() example
+Demo function for \code{rdx_roclet()} example
 }
 \keyword{internal}
