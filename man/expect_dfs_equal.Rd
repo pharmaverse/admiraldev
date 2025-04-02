@@ -10,9 +10,7 @@ expect_dfs_equal(base, compare, keys, ...)
 \item{base}{Input dataset
 
 \describe{
-\item{Permitted values}{A dataset
-
-Which means a data.frame or tibble.}
+\item{Permitted values}{A dataset, i.e., a \code{data.frame} or tibble.}
 \item{Default value}{none}
 }}
 

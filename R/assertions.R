@@ -5,7 +5,7 @@
 #'
 #' @param arg A function argument to be checked
 #' @param required_vars A list of variables created using `exprs()`
-#' @param check_is_grouped Throw an error is `dataset` is grouped?
+#' @param check_is_grouped Throws an error if `dataset` is grouped?
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
 #'

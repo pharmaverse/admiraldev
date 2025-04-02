@@ -53,6 +53,8 @@ To use the roclet call \code{roxygen2::roxygenise(roclets = "admiral::rdx_roclet
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "admiraldev::rdx_roclet"))
 }\if{html}{\out{</div>}}
+
+For more information on roxygen2 roclets see the \href{https://roxygen2.r-lib.org/articles/extending.html}{Extending roxygen2}.
 }
 \keyword{documentation}
 \section{Examples}{
@@ -61,11 +63,17 @@ To use the roclet call \code{roxygen2::roxygenise(roclets = "admiral::rdx_roclet
 The id \code{char_scalar} used for the \verb{@permitted} tag is defined in
 \code{man/roxygen/rdx_meta.R}.
 
+See \code{\link[=demo_fun]{demo_fun()}} for a rendered version of the \code{Rd} code generated in the
+example.
+
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{
 roxygen2::roc_proc_text(
   rdx_roclet(),
   c(
     "#' A Demo Function",
+    "#'",
+    "#' This function is used to demonstrate the custom tags of the `rdx_roclet()`.",
+    "#'",
     "#' @param x An argument",
     "#' @param number A number",
     "#' @permitted A number",
@@ -113,7 +121,7 @@ roxygen2::roc_proc_text(
 #> }}
 #> }
 #> \description{
-#> A Demo Function
+#> This function is used to demonstrate the custom tags of the \code{rdx_roclet()}.
 #> }
 #> \section{Examples}{
 #> \subsection{A simple example}{

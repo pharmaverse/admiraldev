@@ -28,7 +28,7 @@ assert_data_frame(
 \item{Default value}{\code{NULL}}
 }}
 
-\item{check_is_grouped}{Throw an error is \code{dataset} is grouped?
+\item{check_is_grouped}{Throws an error if \code{dataset} is grouped?
 
 \describe{
 \item{Default value}{\code{TRUE}}

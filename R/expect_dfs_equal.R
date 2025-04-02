@@ -5,9 +5,7 @@
 #'
 #' @param base Input dataset
 #'
-#' @permitted A dataset
-#'
-#'   Which means a data.frame or tibble.
+#' @permitted A dataset, i.e., a `data.frame` or tibble.
 #'
 #' @param compare Comparison dataset
 #' @param keys `character` vector of variables that define a unique row in the

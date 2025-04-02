@@ -45,6 +45,9 @@
 #' Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "admiraldev::rdx_roclet"))
 #' ```
 #'
+#' For more information on roxygen2 roclets see the [Extending
+#' roxygen2](https://roxygen2.r-lib.org/articles/extending.html).
+#'
 #' @keywords documentation
 #'
 #' @export
@@ -52,11 +55,17 @@
 #' @caption Using the custom tags
 #' @info The id `char_scalar` used for the `@permitted` tag is defined in
 #'   `man/roxygen/rdx_meta.R`.
+#'
+#'   See [demo_fun()] for a rendered version of the `Rd` code generated in the
+#'   example.
 #' @code
 #' roxygen2::roc_proc_text(
 #'   rdx_roclet(),
 #'   c(
 #'     "#' A Demo Function",
+#'     "#'",
+#'     "#' This function is used to demonstrate the custom tags of the `rdx_roclet()`.",
+#'     "#'",
 #'     "#' @param x An argument",
 #'     "#' @param number A number",
 #'     "#' @permitted A number",
@@ -79,11 +88,6 @@ rdx_roclet <- function() {
   class(out) <- c("roclet_rdx", "roclet_rd", "roclet")
   out
 }
-
-#' Demo function for `rdx_roclet()` example
-#'
-#' @keywords internal
-demo_fun <- function(x, number = 1, letter = "a") 42
 
 #' @export
 roclet_process.roclet_rdx <- function(x, blocks, env, base_path) {
