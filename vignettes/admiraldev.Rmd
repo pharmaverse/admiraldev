@@ -22,7 +22,25 @@ knitr::opts_chunk$set(
 
 Tools are loosely defined as follows:
 
-* Utility Functions used in `{admiral}` and `{admiral}` extension functions for doing custom checks and providing custom messages, warnings and errors.  These custom messages, warnings and errors are succinct, but helpful messaging around what a function expects as inputs. The inputs to admiral functions are many, but generally fit into three categories: datasets, variables and arguments. Most of the functions start with `assert_`, `is_` or `get_`.
+* Utility Functions used in `{admiral}` and `{admiral}` extension packages for
+doing custom checks and providing custom messages, warnings and errors.  These
+custom messages, warnings and errors are succinct, but helpful messaging around
+what a function expects as inputs. The inputs to admiral functions are many, but
+generally fit into three categories: datasets, variables and arguments. Most of
+the functions start with `assert_`, `is_` or `get_`.
+
+* A roclet extending the standard `{roxygen2}` roclet:
+    - The `@permitted` tag is provided to document the permitted values for an
+    argument.
+    - The default value is added automatically to the argument description. It
+    can be overwritten by specifying the `@default` tag.
+    - The `@caption`, `@info`, and `@code` tags can be used to create a better
+    structured example section. They allow to add a caption and TOC entry for
+    each example and a description of the example.
+    
+  See `rdx_roclet()` and [Function Header
+  (Documentation)](programming_strategy.html#function-header-documentation) for
+  more details.
 
 * Utility functions that help with documentation, testing and checking on health of the code base in all admiral packages.
 
