@@ -5,7 +5,7 @@
 - The `rdx_roclet()` extends the standard `{roxygen2}` roclet by the `@permitted`
 and `@default` tags to specify the permitted and default values and the
 `@caption`, `@info`, and `@code` tags for examples with a caption and a
-description.
+description. (#484)
 
 ## Updates of Existing Functions
 
