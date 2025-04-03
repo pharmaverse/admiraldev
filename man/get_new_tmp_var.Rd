@@ -7,9 +7,17 @@
 get_new_tmp_var(dataset, prefix = "tmp_var")
 }
 \arguments{
-\item{dataset}{The input dataset}
+\item{dataset}{The input dataset
 
-\item{prefix}{The prefix of the new temporary variable name to create}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{prefix}{The prefix of the new temporary variable name to create
+
+\describe{
+\item{Default value}{\code{"tmp_var"}}
+}}
 }
 \value{
 The name of a new temporary variable as a symbol

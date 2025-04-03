@@ -7,7 +7,11 @@
 expr_c(...)
 }
 \arguments{
-\item{...}{One or more expressions or list of expressions}
+\item{...}{One or more expressions or list of expressions
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 A list of expressions

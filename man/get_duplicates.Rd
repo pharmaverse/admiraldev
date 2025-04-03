@@ -7,7 +7,11 @@
 get_duplicates(x)
 }
 \arguments{
-\item{x}{An atomic vector}
+\item{x}{An atomic vector
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 A vector of the same type as \code{x} contain duplicate values

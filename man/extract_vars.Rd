@@ -7,9 +7,17 @@
 extract_vars(x, side = "lhs")
 }
 \arguments{
-\item{x}{An \code{R} object}
+\item{x}{An \code{R} object
 
-\item{side}{One of \code{"lhs"} (the default) or \code{"rhs"} for formulas}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{side}{One of \code{"lhs"} (the default) or \code{"rhs"} for formulas
+
+\describe{
+\item{Default value}{\code{"lhs"}}
+}}
 }
 \value{
 A list of expressions

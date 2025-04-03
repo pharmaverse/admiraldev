@@ -7,9 +7,17 @@
 lhs \%or\% rhs
 }
 \arguments{
-\item{lhs}{Any valid R expression}
+\item{lhs}{Any valid R expression
 
-\item{rhs}{Any valid R expression}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{rhs}{Any valid R expression
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 Either the result of evaluating \code{lhs}, \code{rhs} or an error

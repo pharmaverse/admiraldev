@@ -15,20 +15,40 @@ assert_date_var(
 )
 }
 \arguments{
-\item{dataset}{The dataset where the variable is expected}
+\item{dataset}{The dataset where the variable is expected
 
-\item{var}{The variable to check}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{var}{The variable to check
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{dataset_name}{The name of the dataset. If the argument is specified, the
-specified name is displayed in the error message.}
+specified name is displayed in the error message.
+
+\describe{
+\item{Default value}{\code{rlang::caller_arg(dataset)}}
+}}
 
 \item{var_name}{The name of the variable. If the argument is specified, the
-specified name is displayed in the error message.}
+specified name is displayed in the error message.
+
+\describe{
+\item{Default value}{\code{rlang::caller_arg(var)}}
+}}
 
 \item{message}{(\code{string})\cr
 string passed to \code{cli::cli_abort(message)}. When \code{NULL}, default messaging
 is used (see examples for default messages). \code{"var_name"} and \code{"dataset_name"},
-can be used in messaging.}
+can be used in messaging.
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 
 \item{class}{Subclass of the condition.}
 

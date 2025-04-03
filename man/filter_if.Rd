@@ -7,9 +7,17 @@
 filter_if(dataset, filter)
 }
 \arguments{
-\item{dataset}{Input dataset}
+\item{dataset}{Input dataset
 
-\item{filter}{A filter condition. Must be an expression.}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{filter}{A filter condition. Must be an expression.
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 A \code{data.frame} containing all rows in \code{dataset} matching \code{filter} or

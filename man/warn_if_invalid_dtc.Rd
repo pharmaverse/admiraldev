@@ -7,9 +7,17 @@
 warn_if_invalid_dtc(dtc, is_valid = is_valid_dtc(dtc))
 }
 \arguments{
-\item{dtc}{a character vector containing the dates}
+\item{dtc}{a character vector containing the dates
 
-\item{is_valid}{a logical vector indicating whether elements in \code{dtc} are valid}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{is_valid}{a logical vector indicating whether elements in \code{dtc} are valid
+
+\describe{
+\item{Default value}{\code{is_valid_dtc(dtc)}}
+}}
 }
 \value{
 No return value, called for side effects

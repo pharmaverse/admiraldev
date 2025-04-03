@@ -18,28 +18,52 @@ assert_list_element(
 }
 \arguments{
 \item{list}{A list to be checked
-A list of named lists or classes is expected.}
+A list of named lists or classes is expected.
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{element}{The name of an element of the lists/classes
-A character scalar is expected.}
+A character scalar is expected.
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{condition}{Condition to be fulfilled
 The condition is evaluated for each element of the list. The element of the
 lists/classes can be referred to by its name, e.g., \code{censor == 0} to check
-the \code{censor} field of a class.}
+the \code{censor} field of a class.
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{message_text}{Text to be displayed in the error message above
 the listing of values that do not meet the condition.
 The text should describe the condition to be fulfilled,
 e.g., \code{"Error in {arg_name}: the censor values must be zero."}.
 If \code{message} argument is specified, that text will be displayed and \code{message_text}
-is ignored.}
+is ignored.
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{arg_name}{string indicating the label/symbol of the object being checked.
+
+\describe{
+\item{Default value}{\code{rlang::caller_arg(arg)}}
+}}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
 When \code{NULL}, default messaging is used (see examples for default messages).
-\code{"{arg_name}"} can be used in messaging.}
+\code{"{arg_name}"} can be used in messaging.
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 
 \item{class}{Subclass of the condition.}
 
@@ -61,7 +85,11 @@ For more information about error calls, see \ifelse{html}{\link[rlang:topic-erro
 
 If the condition or the message text contains objects apart from the
 element, they have to be passed to the function. See the second example
-below.}
+below.
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 An error if the condition is not met. The input otherwise.

@@ -20,7 +20,7 @@ expr_c <- function(...) {
       }
     }
   )
-  inputs <- flatten(inputs)
+  inputs <- list_flatten(inputs)
   stopifnot(all(map_lgl(inputs, is_expression)))
   is_null <- map_lgl(inputs, is.null)
   inputs[!is_null]
@@ -105,17 +105,16 @@ replace_symbol_in_expr <- function(expression,
 #'
 #' @param order List of expressions
 #'
-#'   *Permitted Values*: list of variables or `desc(<variable>)` function calls
-#'   created by `exprs()`, e.g., `exprs(ADT, desc(AVAL))`
+#' @permitted list of variables or `desc(<variable>)` function calls created by
+#'   `exprs()`, e.g., `exprs(ADT, desc(AVAL))`
 #'
 #' @param vars Variables to change
 #'
-#'   *Permitted Values*: list of variables created by `exprs()`
+#' @permitted [var_list]
 #'
 #' @param suffix Suffix
 #'
-#'   *Permitted Values*: A character scalar
-#'
+#' @permitted [char_scalar]
 #'
 #' @return The list of expression where for each element the suffix (`suffix`) is
 #'   added to every symbol specified for `vars`

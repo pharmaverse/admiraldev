@@ -7,7 +7,11 @@
 remove_tmp_vars(dataset)
 }
 \arguments{
-\item{dataset}{The input dataset}
+\item{dataset}{The input dataset
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 The input dataset with temporary variables removed

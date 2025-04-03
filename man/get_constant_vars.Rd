@@ -7,18 +7,29 @@
 get_constant_vars(dataset, by_vars, ignore_vars = NULL)
 }
 \arguments{
-\item{dataset}{A data frame.}
+\item{dataset}{A data frame.
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{by_vars}{By variables
 The groups defined by the by variables are considered separately. I.e., if
-a variable is constant within each by group, it is returned.}
+a variable is constant within each by group, it is returned.
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{ignore_vars}{Variables to ignore
 The specified variables are not considered, i.e., they are not returned
 even if they are constant (unless they are included in the by variables).
 
-\emph{Permitted Values:} A list of variable names or selector function calls
-like \code{starts_with("EX")}}
+\describe{
+\item{Permitted values}{A list of variable names or selector function calls like
+\code{starts_with("EX")}}
+\item{Default value}{\code{NULL}}
+}}
 }
 \value{
 Variable vector.

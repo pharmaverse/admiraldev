@@ -17,17 +17,36 @@ assert_one_to_one(
 \arguments{
 \item{dataset}{Dataset to be checked
 
-The variables specified for \code{vars1} and \code{vars2} are expected.}
+The variables specified for \code{vars1} and \code{vars2} are expected.
 
-\item{vars1}{First list of variables}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{vars2}{Second list of variables}
+\item{vars1}{First list of variables
+
+\describe{
+\item{Default value}{none}
+}}
+
+\item{vars2}{Second list of variables
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{dataset_name}{string indicating the label/symbol of the object being checked.
-Default is \code{rlang::caller_arg(dataset)}.}
+
+\describe{
+\item{Default value}{\code{rlang::caller_arg(dataset)}}
+}}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}. When \code{NULL}, default messaging
-is used (see examples for default messages). \code{"dataset_name"} can be used in messaging.}
+is used (see examples for default messages). \code{"dataset_name"} can be used in messaging.
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 
 \item{class}{Subclass of the condition.}
 

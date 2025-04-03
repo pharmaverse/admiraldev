@@ -7,7 +7,11 @@
 dquote(x)
 }
 \arguments{
-\item{x}{A character vector}
+\item{x}{A character vector
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 If the input is \code{NULL}, the text \code{"NULL"} is returned. Otherwise, the

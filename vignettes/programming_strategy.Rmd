@@ -321,8 +321,12 @@ This rule is applicable only if both functions are part of `{admiral}`.
 
 ## Function Header (Documentation)
 
-Every function that is exported from the package must have an accompanying header 
-that should be formatted according to the [roxygen2](https://roxygen2.r-lib.org/) convention. 
+Every function that is exported from the package must have an accompanying
+header that should be formatted according to the
+[roxygen2](https://roxygen2.r-lib.org/) convention. We have also implemented a
+custom roclet to enhance our documentation and examples for more complex
+functions - see `rdx_roclet()`, the example function `demo_fun()`, and further
+down for more details.
 
 In addition to the standard roxygen2 tags, the `@family` and `@keywords` tags are also used. 
 
@@ -340,6 +344,8 @@ An example is given below:
 #'
 #'   The columns specified by the `reference_date` and the `source_vars`
 #'   argument are expected.
+#'   
+#' @permitted A dataset
 #'
 #' @param reference_date The start date column, e.g., date of first treatment
 #'
@@ -348,12 +354,16 @@ An example is given below:
 #'   Refer to `derive_var_dt()` to impute and derive a date from a date
 #'   character vector to a date object.
 #'
+#' @permitted An unquoted variable name of the input dataset
+#'
 #' @param source_vars A list of datetime or date variables created using
 #'   `exprs()` from which dates are to be extracted. This can either be a list of
 #'   date(time) variables or named `--DY` variables and corresponding --DT(M)
 #'   variables e.g. `exprs(TRTSDTM, ASTDTM, AENDT)` or `exprs(TRTSDT, ASTDTM,
 #'   AENDT, DEATHDY = DTHDT)`. If the source variable does not end in --DT(M), a
 #'   name for the resulting `--DY` variable must be provided.
+#'   
+#' @permitted [var_list]
 #'
 #' @details The relative day is derived as number of days from the reference
 #'   date to the end date. If it is nonnegative, one is added. I.e., the
@@ -362,7 +372,7 @@ An example is given below:
 #'   from the source variable name by replacing DT (or DTM as appropriate) with
 #'   DY.
 #'
-#' @return The input dataset with `--DY` corresponding to the `--DTM` or `--DT`
+#' @returns The input dataset with `--DY` corresponding to the `--DTM` or `--DT`
 #'   source variable(s) added
 #'
 #' @keywords der_date_time
@@ -395,23 +405,60 @@ An example is given below:
 The following fields are mandatory:
 
 * `@param`: One entry per function argument. 
-The following attributes should be described: expected data type (e.g. `data.frame`, `logical`, `numeric` etc.), permitted values (if applicable), optionality (i.e. is this a required argument). If the expected input is a dataset then the required variables should be clearly stated. Describing the default value becomes difficult to maintain and subject to manual error when it is already declared in the function arguments. The description for permitted values should be written as a separate line italicizing the phrase "Permitted Values", example below: 
-
-```
-#'   *Permitted Values*: example description of permitted values here
-```
-
+The following attributes should be described: expected data type (e.g.
+`data.frame`, `logical`, `numeric` etc.), permitted values (if applicable),
+optionality (i.e. is this a required argument). If the expected input is a
+dataset then the required variables should be clearly stated. Describing the
+default value becomes difficult to maintain and subject to manual error when it
+is already declared in the function arguments. For the description of the
+permitted values the (custom) `@permitted` tag should be used (see
+`rdx_roclet()` for more details).
 * `@details`: A natural-language description of the derivation used inside the function.
 * `@keyword`: One applicable tag to the function - identical to family.
 * `@family`: One applicable tag to the function - identical to keyword.
-* `@return`: A description of the return value of the function. 
+* `@returns`: A description of the return value of the function. 
 Any newly added variable(-s) should be mentioned here.
-* `@examples`: A fully self-contained example of how to use the function. 
-Self-contained means that, if this code is executed in a new R session, it will run without errors. 
-That means any packages need to be loaded with `library()` and any datasets needed either to be created directly inside the example code or loaded using `data()`.
-If a dataset is created in the example, it should be done so using the function `tribble()` (specify `library(dplyr)` before calling this function).
-If other functions are called in the example, please specify `library(pkg_name)` then refer to the respective function `fun()` as opposed to the preferred `pkg_name::fun()` notation as specified in [Unit Test Guidance](unit_test_guidance.html#set-up-the-test-script).
-Make sure to align columns as this ensures quick code readability. 
+* `@examples` or `@caption`, `@info`, `@code`: Fully self-contained examples of
+how to use the function. Self-contained means that, if this code is executed in
+a new R session, it will run without errors. That means any packages need to be
+loaded with `library()` and any datasets needed either to be created directly
+inside the example code or loaded using `pkg_name::dataset_name`, e.g., `adsl <-
+admiral::admiral_adsl`. If a dataset is created in the example, it should be
+done so using the function `tribble()` (specify `library(dplyr)` before calling
+this function). Make sure to align columns as this ensures quick code
+readability. If other functions are called in the example, please specify
+`library(pkg_name)` then refer to the respective function `fun()` as opposed to
+the preferred `pkg_name::fun()` notation as specified in [Unit Test
+Guidance](unit_test_guidance.html#set-up-the-test-script).
+
+    The `@examples` tag should be used for simple functions which require only a
+    few examples and no explanation.
+    
+    For more complex functions, the (custom) `@caption`, `@info`, and `@code`
+    tags should be used. The `@caption` tag should be used to provide a brief
+    description of the example. The `@info` tag should be used to provide a more
+    detailed description of the example. The `@code` tag should be used to
+    provide the code for the example. See `rdx_roclet()` for more details. The
+    examples should be separated in two parts:
+
+    - The first part are examples which demonstrate the functionality of the
+      function. The first example shows the default behavior. Then examples for
+      each optional argument follow. The data in these examples is as concise as
+      possible and may not be ADaM compliant, e.g., `STUDYID` is not included or
+      `AVISITN` is present without `AVISIT`.
+      
+      These examples should answer questions like "what does this function?" or
+      "how does this argument work?".
+    - The second part are examples which demonstrate which ADaM variables or
+      parameters could be derived with the function. The code could be copied to
+      an ADaM script and be used without or with small modifications.
+      
+      Each example includes a "specs-like" description.
+      
+      These examples should answer questions like "how can this
+      variable/parameter be derived".
+    
+    See [`derive_extreme_records.R` in admiral](https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R) for an example.
 
 Copying descriptions should be avoided as it makes the documentation hard to
 maintain. For example if the same argument with the same description is used by
@@ -438,6 +485,9 @@ which backticks. This will render it as code.
 For functions which derive a specific CDISC variable, the title must state the 
 label of the variable without the variable name. The variable should be stated 
 in the description.
+
+To avoid confusion the term "parameter" should be used for CDISC parameters
+only. For function arguments the term "argument" should be used.
 
 ## Categorization of Functions
 

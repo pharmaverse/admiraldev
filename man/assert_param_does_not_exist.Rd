@@ -14,15 +14,31 @@ assert_param_does_not_exist(
 )
 }
 \arguments{
-\item{dataset}{A \code{data.frame}}
+\item{dataset}{A \code{data.frame}
 
-\item{param}{Parameter code to check}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.}
+\item{param}{Parameter code to check
+
+\describe{
+\item{Default value}{none}
+}}
+
+\item{arg_name}{string indicating the label/symbol of the object being checked.
+
+\describe{
+\item{Default value}{\code{rlang::caller_arg(arg)}}
+}}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
 When \code{NULL}, default messaging is used (see examples for default messages).
-\code{"{arg_name}"} can be used in messaging.}
+\code{"{arg_name}"} can be used in messaging.
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 
 \item{class}{Subclass of the condition.}
 

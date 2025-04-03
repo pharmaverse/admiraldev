@@ -9,8 +9,8 @@
 #'   The specified variables are not considered, i.e., they are not returned
 #'   even if they are constant (unless they are included in the by variables).
 #'
-#'   *Permitted Values:* A list of variable names or selector function calls
-#'   like `starts_with("EX")`
+#' @permitted A list of variable names or selector function calls like
+#'   `starts_with("EX")`
 #'
 #' @keywords get
 #' @family get

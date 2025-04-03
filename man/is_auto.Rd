@@ -7,7 +7,11 @@
 is_auto(arg)
 }
 \arguments{
-\item{arg}{argument to check}
+\item{arg}{argument to check
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 \code{TRUE} if the argument equals the auto keyword, i.e., it is an

@@ -3,7 +3,7 @@
 test_that("friendly_type_of Test 1: friendly_type_of() supports objects", {
   withr::local_options(lifecycle_verbosity = "quiet")
   expect_equal(friendly_type_of(mtcars), "a <data.frame> object")
-  expect_equal(friendly_type_of(quo(1)), "a <quosure> object")
+  expect_equal(friendly_type_of(rlang::quo(1)), "a <quosure> object")
 })
 
 ## Test 2: friendly_type_of() supports matrices and arrays ----

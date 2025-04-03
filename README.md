@@ -4,23 +4,23 @@
 
 Utility Functions and Development Tools for the Admiral Package Family
 
-<!-- badges: start -->
+<!-- start badges -->
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/admiraldev)](https://CRAN.R-project.org/package=admiraldev)
 [![Test
 Coverage](https://raw.githubusercontent.com/pharmaverse/admiraldev/badges/main/test-coverage.svg)](https://github.com/pharmaverse/admiraldev/actions/workflows/common.yml)
 
-<!-- badges: end -->
+<!-- end badges -->
 
 ## Purpose
 
-Functions, tools and documentation for developing core `{admiral}` and
-extension package functions. Most functions in `{admiraldev}` are around
-testing inputs going into functions. There are also additional quality
-of life functions/Addins to assist developers of `{admiral}` or
-`{admiral}` extension packages, functions to help with rendering
-documentation, Developer Guides on developing function and using GitHub,
+Functions, tools and documentation for developing core `{admiral}` and extension
+package functions. Most functions in `{admiraldev}` are around testing inputs
+going into functions. There are also additional quality of life functions to
+assist developers of `{admiral}` or `{admiral}` extension packages, functions to
+help with rendering documentation, a custom roclet for a better structured
+documentation, and Developer Guides on developing function and using GitHub,
 GitHub Actions.
 
 **NOTE:** This package is not intended for standalone use but rather as

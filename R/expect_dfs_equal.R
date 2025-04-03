@@ -4,6 +4,9 @@
 #' thought of as an R-equivalent of SAS proc compare and a useful tool for unit testing as well.
 #'
 #' @param base Input dataset
+#'
+#' @permitted A dataset, i.e., a `data.frame` or tibble.
+#'
 #' @param compare Comparison dataset
 #' @param keys `character` vector of variables that define a unique row in the
 #'        `base` and `compare` datasets

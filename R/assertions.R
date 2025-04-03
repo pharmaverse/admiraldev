@@ -5,7 +5,7 @@
 #'
 #' @param arg A function argument to be checked
 #' @param required_vars A list of variables created using `exprs()`
-#' @param check_is_grouped Throw an error is `dataset` is grouped? Defaults to `TRUE`.
+#' @param check_is_grouped Throws an error if `dataset` is grouped?
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
 #'
@@ -480,7 +480,7 @@ assert_expr <- function(arg,
 #' Is an Argument a Filter Condition?
 #'
 #' @param arg Quosure - filtering condition.
-#' @param optional Logical - is the argument optional? Defaults to `FALSE`.
+#' @param optional Logical - is the argument optional?
 #' @param arg_name By default the expression specified for `arg` is used. If it is
 #' of the form `enexpr(<argument name>)`, the `enexpr()` part is removed. For example
 #' if `arg = enexpr(filter_add)` is specified, `arg_name` defaults to `"filter_add"`
@@ -621,8 +621,10 @@ assert_vars <- function(arg,
 #' Checks if an argument is an integer scalar
 #'
 #' @param arg A function argument to be checked
-#' @param subset A subset of integers that `arg` should be part of. Should be one
-#'   of `"none"` (the default), `"positive"`, `"non-negative"` or `"negative"`.
+#' @param subset A subset of integers that `arg` should be part of.
+#'
+#' @permitted `"none"`, `"positive"`, `"non-negative"`, or `"negative"`
+#'
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #'   is `NULL` then an error is thrown
 #' @inheritParams assert_logical_scalar
@@ -1135,7 +1137,7 @@ assert_function <- function(arg,
 #'  If the argument is set to `NULL`, it is checked only whether the unit is
 #'  unique within the parameter.
 #'
-#'  *Permitted Values*: A character vector or `NULL`
+#' @permitted A character vector or `NULL`
 #'
 #' @param get_unit_expr Expression used to provide the unit of `param`
 #'
@@ -1674,7 +1676,7 @@ assert_list_element <- function(list,
 #'   is used (see examples for default messages). `"dataset_name"` can be used in messaging.
 #'
 #' @param dataset_name string indicating the label/symbol of the object being checked.
-#'   Default is `rlang::caller_arg(dataset)`.
+#'
 #' @inheritParams assert_logical_scalar
 #'
 #' @return
@@ -1918,7 +1920,7 @@ assert_date_vector <- function(arg,
   invisible(arg)
 }
 
-#' Are All Argument of the Same Type?
+#' Are All Arguments of the Same Type?
 #'
 #'
 #' Checks if all arguments are of the same type.

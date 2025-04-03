@@ -15,18 +15,38 @@ assert_s3_class(
 )
 }
 \arguments{
-\item{arg}{A function argument to be checked}
+\item{arg}{A function argument to be checked
 
-\item{cls}{The S3 class to check for}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{cls}{The S3 class to check for
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{optional}{Is the checked argument optional? If set to \code{FALSE} and \code{arg}
-is \code{NULL} then an error is thrown}
+is \code{NULL} then an error is thrown
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.}
+\describe{
+\item{Default value}{\code{FALSE}}
+}}
+
+\item{arg_name}{string indicating the label/symbol of the object being checked.
+
+\describe{
+\item{Default value}{\code{rlang::caller_arg(arg)}}
+}}
 
 \item{message}{string passed to \code{cli::cli_abort(message)}.
 When \code{NULL}, default messaging is used (see examples for default messages).
-\code{"{arg_name}"} can be used in messaging.}
+\code{"{arg_name}"} can be used in messaging.
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 
 \item{class}{Subclass of the condition.}
 

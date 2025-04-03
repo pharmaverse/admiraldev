@@ -7,7 +7,11 @@
 what_is_it(x)
 }
 \arguments{
-\item{x}{Any R object}
+\item{x}{Any R object
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 A \code{character} description of the type of \code{x}

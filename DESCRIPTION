@@ -42,9 +42,11 @@ Imports:
     lubridate (>= 1.7.4),
     purrr (>= 0.3.3),
     rlang (>= 0.4.4),
+    roxygen2 (>= 7.0.0),
     stringr (>= 1.4.0),
     tidyr (>= 1.0.2),
-    tidyselect (>= 1.0.0)
+    tidyselect (>= 1.0.0),
+    withr
 Suggests:
     diffdf,
     DT,
@@ -54,13 +56,12 @@ Suggests:
     pkgdown,
     rmarkdown,
     spelling,
-    testthat (>= 3.2.0),
-    withr
+    testthat (>= 3.2.0)
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: false
-Roxygen: list(markdown = TRUE)
+Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "admiraldev::rdx_roclet"))
 RoxygenNote: 7.3.2

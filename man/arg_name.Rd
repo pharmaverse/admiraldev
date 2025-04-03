@@ -7,7 +7,11 @@
 arg_name(expr)
 }
 \arguments{
-\item{expr}{An expression created inside a function using \code{substitute()}}
+\item{expr}{An expression created inside a function using \code{substitute()}
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 \code{character} vector

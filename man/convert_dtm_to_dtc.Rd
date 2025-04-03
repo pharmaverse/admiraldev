@@ -8,7 +8,11 @@
 convert_dtm_to_dtc(dtm)
 }
 \arguments{
-\item{dtm}{date or date-time}
+\item{dtm}{date or date-time
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 \code{character} vector

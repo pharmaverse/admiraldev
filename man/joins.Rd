@@ -13,17 +13,41 @@ inner_join(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 left_join(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 }
 \arguments{
-\item{x}{\code{data.frame}}
+\item{x}{\code{data.frame}
 
-\item{y}{\code{data.frame}}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{by}{\code{character} vector}
+\item{y}{\code{data.frame}
 
-\item{copy}{\code{logical}}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{...}{Additional arguments}
+\item{by}{\code{character} vector
 
-\item{suffix}{\code{character} vector}
+\describe{
+\item{Default value}{\code{NULL}}
+}}
+
+\item{copy}{\code{logical}
+
+\describe{
+\item{Default value}{\code{FALSE}}
+}}
+
+\item{...}{Additional arguments
+
+\describe{
+\item{Default value}{none}
+}}
+
+\item{suffix}{\code{character} vector
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 }
 \value{
 \code{data.frame}

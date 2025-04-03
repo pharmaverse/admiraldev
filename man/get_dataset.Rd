@@ -7,7 +7,11 @@
 get_dataset(name)
 }
 \arguments{
-\item{name}{The name of the dataset to retrieve}
+\item{name}{The name of the dataset to retrieve
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 A \code{data.frame}

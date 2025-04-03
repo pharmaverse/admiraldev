@@ -7,11 +7,23 @@
 friendly_type_of(x, value = TRUE, length = FALSE)
 }
 \arguments{
-\item{x}{Any R object.}
+\item{x}{Any R object.
 
-\item{value}{Whether to describe the value of \code{x}.}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{length}{Whether to mention the length of vectors and lists.}
+\item{value}{Whether to describe the value of \code{x}.
+
+\describe{
+\item{Default value}{\code{TRUE}}
+}}
+
+\item{length}{Whether to mention the length of vectors and lists.
+
+\describe{
+\item{Default value}{\code{FALSE}}
+}}
 }
 \value{
 A string describing the type. Starts with an indefinite

@@ -7,11 +7,23 @@
 replace_symbol_in_expr(expression, target, replace)
 }
 \arguments{
-\item{expression}{Expression}
+\item{expression}{Expression
 
-\item{target}{Target symbol}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{replace}{Replacing symbol}
+\item{target}{Target symbol
+
+\describe{
+\item{Default value}{none}
+}}
+
+\item{replace}{Replacing symbol
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 The expression where every occurrence of the symbol \code{target} is

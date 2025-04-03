@@ -8,7 +8,11 @@ Source Variables from a List of Expressions}
 contains_vars(arg)
 }
 \arguments{
-\item{arg}{A function argument to be checked}
+\item{arg}{A function argument to be checked
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 A \code{TRUE} if variables were valid variable
