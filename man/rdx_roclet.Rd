@@ -66,8 +66,7 @@ The id \code{char_scalar} used for the \verb{@permitted} tag is defined in
 See \code{\link[=demo_fun]{demo_fun()}} for a rendered version of the \code{Rd} code generated in the
 example.
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{
-roxygen2::roc_proc_text(
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{roxygen2::roc_proc_text(
   rdx_roclet(),
   c(
     "#' A Demo Function",

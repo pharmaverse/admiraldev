@@ -325,7 +325,8 @@ Every function that is exported from the package must have an accompanying
 header that should be formatted according to the
 [roxygen2](https://roxygen2.r-lib.org/) convention. We have also implemented a
 custom roclet to enhance our documentation and examples for more complex
-functions - see `rdx_roclet()` and further down for more details.
+functions - see `rdx_roclet()`, the example function `demo_fun()`, and further
+down for more details.
 
 In addition to the standard roxygen2 tags, the `@family` and `@keywords` tags are also used. 
 

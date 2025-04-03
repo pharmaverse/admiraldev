@@ -42,8 +42,7 @@ If the example code issues an unexpected message, an error is issued.
 \section{Examples}{
 \subsection{Execute Example Code}{
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{
-admiraldev:::execute_example("1 + 1")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{admiraldev:::execute_example("1 + 1")
 #> [1] "1 + 1\n#> [1] 2"
 
 admiraldev:::execute_example("log(-1)")

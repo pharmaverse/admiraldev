@@ -48,8 +48,7 @@ If the expression results in an unexpected message, an error is issued.
 \section{Examples}{
 \subsection{Capture Output and Messages}{
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{
-capture_output(1 + 1)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{capture_output(1 + 1)
 #> [1] "[1] 2"
 
 capture_output(log(-1))

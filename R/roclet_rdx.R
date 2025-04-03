@@ -587,7 +587,7 @@ roxy_tag_parse.roxy_tag_code <- function(x) {
   )[, 2:3]
   x$val <- list(
     options = eval(parse_expr(paste0("list(", raw_parsed[[1]], ")"))),
-    code = raw_parsed[[2]]
+    code = str_remove(raw_parsed[[2]], "^\n")
   )
   if (!("expected_cnds" %in% names(x$val$options))) {
     x$val$options$expected_cnds <- "message"
