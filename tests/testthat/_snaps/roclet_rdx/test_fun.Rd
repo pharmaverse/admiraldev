@@ -34,14 +34,12 @@ Test function
 
 This example shows the default behavior of the function.
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{
-1 + 1
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{1 + 1
 #> [1] 2}\if{html}{\out{</div>}}}
 \subsection{Second example}{
 
 This example issues an expected message
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{
-message("Hello, world!")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{message("Hello, world!")
 #> Hello, world!}\if{html}{\out{</div>}}}}
 
