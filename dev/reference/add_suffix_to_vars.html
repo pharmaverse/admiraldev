@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,18 +60,39 @@
 
 <dl><dt id="arg-order">order<a class="anchor" aria-label="anchor" href="#arg-order"></a></dt>
 <dd><p>List of expressions</p>
-<p><em>Permitted Values</em>: list of variables or <code>desc(&lt;variable&gt;)</code> function calls
-created by <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code>, e.g., <code>exprs(ADT, desc(AVAL))</code></p></dd>
+<dl><dt>Permitted values</dt>
+<dd><p>list of variables or <code>desc(&lt;variable&gt;)</code> function calls created by
+<code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code>, e.g., <code>exprs(ADT, desc(AVAL))</code></p></dd>
+
+<dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-vars">vars<a class="anchor" aria-label="anchor" href="#arg-vars"></a></dt>
 <dd><p>Variables to change</p>
-<p><em>Permitted Values</em>: list of variables created by <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code></p></dd>
+<dl><dt>Permitted values</dt>
+<dd><p>list of variables created by <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code>, e.g., <code>exprs(USUBJID, VISIT)</code></p></dd>
+
+<dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-suffix">suffix<a class="anchor" aria-label="anchor" href="#arg-suffix"></a></dt>
 <dd><p>Suffix</p>
-<p><em>Permitted Values</em>: A character scalar</p></dd>
+<dl><dt>Permitted values</dt>
+<dd><p>a character scalar, i.e., a character vector of length one</p></dd>
+
+<dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 </dl></div>
     <div class="section level2">

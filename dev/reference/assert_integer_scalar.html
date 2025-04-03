@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,27 +67,54 @@
 
 
 <dl><dt id="arg-arg">arg<a class="anchor" aria-label="anchor" href="#arg-arg"></a></dt>
-<dd><p>A function argument to be checked</p></dd>
+<dd><p>A function argument to be checked</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-subset">subset<a class="anchor" aria-label="anchor" href="#arg-subset"></a></dt>
-<dd><p>A subset of integers that <code>arg</code> should be part of. Should be one
-of <code>"none"</code> (the default), <code>"positive"</code>, <code>"non-negative"</code> or <code>"negative"</code>.</p></dd>
+<dd><p>A subset of integers that <code>arg</code> should be part of.</p>
+<dl><dt>Permitted values</dt>
+<dd><p><code>"none"</code>, <code>"positive"</code>, <code>"non-negative"</code>, or <code>"negative"</code></p></dd>
+
+<dt>Default value</dt>
+<dd><p><code>"none"</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-optional">optional<a class="anchor" aria-label="anchor" href="#arg-optional"></a></dt>
 <dd><p>Is the checked argument optional? If set to <code>FALSE</code> and <code>arg</code>
-is <code>NULL</code> then an error is thrown</p></dd>
+is <code>NULL</code> then an error is thrown</p>
+<dl><dt>Default value</dt>
+<dd><p><code>FALSE</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-arg-name">arg_name<a class="anchor" aria-label="anchor" href="#arg-arg-name"></a></dt>
-<dd><p>string indicating the label/symbol of the object being checked.</p></dd>
+<dd><p>string indicating the label/symbol of the object being checked.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>rlang::caller_arg(arg)</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-message">message<a class="anchor" aria-label="anchor" href="#arg-message"></a></dt>
 <dd><p>string passed to <code>cli::cli_abort(message)</code>.
 When <code>NULL</code>, default messaging is used (see examples for default messages).
-<code>"{arg_name}"</code> can be used in messaging.</p></dd>
+<code>"{arg_name}"</code> can be used in messaging.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>NULL</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-class">class<a class="anchor" aria-label="anchor" href="#arg-class"></a></dt>

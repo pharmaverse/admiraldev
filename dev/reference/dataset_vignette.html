@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,21 +59,39 @@
 
 
 <dl><dt id="arg-dataset">dataset<a class="anchor" aria-label="anchor" href="#arg-dataset"></a></dt>
-<dd><p>Dataset to output in the vignette</p></dd>
+<dd><p>Dataset to output in the vignette</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-display-vars">display_vars<a class="anchor" aria-label="anchor" href="#arg-display-vars"></a></dt>
 <dd><p>Variables selected to demonstrate the outcome of the derivation</p>
-<p>Permitted Values: list of variables</p>
-<p>Default is NULL</p>
 <p>If <code>display_vars</code> is not NULL, only the selected variables are visible in the vignette while the
-other variables are hidden. They can be made visible by clicking the<code>Choose the columns to display</code> button.</p></dd>
+other variables are hidden. They can be made visible by clicking the<code>Choose the columns to display</code> button.</p>
+<dl><dt>Permitted values</dt>
+<dd><p>list of variables created by <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code>, e.g., <code>exprs(USUBJID, VISIT)</code></p></dd>
+
+<dt>Default value</dt>
+<dd><p><code>NULL</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-filter">filter<a class="anchor" aria-label="anchor" href="#arg-filter"></a></dt>
 <dd><p>Filter condition</p>
 <p>The specified condition is applied to the dataset before it is displayed.</p>
-<p>Permitted Values: a condition</p></dd>
+<dl><dt>Permitted values</dt>
+<dd><p>a condition</p></dd>
+
+<dt>Default value</dt>
+<dd><p><code>NULL</code></p></dd>
+
+
+</dl></dd>
 
 </dl></div>
     <div class="section level2">

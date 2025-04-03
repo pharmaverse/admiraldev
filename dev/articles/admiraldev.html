@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,13 +89,31 @@ consistently robust across all packages and maybe even fun!</p>
 <p>Tools are loosely defined as follows:</p>
 <ul>
 <li><p>Utility Functions used in <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> and
-<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> extension functions for doing custom checks and
+<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> extension packages for doing custom checks and
 providing custom messages, warnings and errors. These custom messages,
 warnings and errors are succinct, but helpful messaging around what a
 function expects as inputs. The inputs to admiral functions are many,
 but generally fit into three categories: datasets, variables and
 arguments. Most of the functions start with <code>assert_</code>,
 <code>is_</code> or <code>get_</code>.</p></li>
+<li>
+<p>A roclet extending the standard <a href="https://roxygen2.r-lib.org/" class="external-link">roxygen2</a>
+roclet:</p>
+<ul>
+<li>The <code>@permitted</code> tag is provided to document the
+permitted values for an argument.</li>
+<li>The default value is added automatically to the argument
+description. It can be overwritten by specifying the
+<code>@default</code> tag.</li>
+<li>The <code>@caption</code>, <code>@info</code>, and
+<code>@code</code> tags can be used to create a better structured
+example section. They allow to add a caption and TOC entry for each
+example and a description of the example.</li>
+</ul>
+<p>See <code><a href="../reference/rdx_roclet.html">rdx_roclet()</a></code>, the example function
+<code><a href="../reference/demo_fun.html">demo_fun()</a></code>, and <a href="programming_strategy.html#function-header-documentation">Function
+Header (Documentation)</a> for more details.</p>
+</li>
 <li><p>Utility functions that help with documentation, testing and
 checking on health of the code base in all admiral packages.</p></li>
 <li><p>Vignettes on working on <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> functions,

@@ -11,7 +11,7 @@ fulfilling the condition are listed."><meta property="og:image" content="https:/
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,19 +76,34 @@ fulfilling the condition are listed.</p>
 
 <dl><dt id="arg-list">list<a class="anchor" aria-label="anchor" href="#arg-list"></a></dt>
 <dd><p>A list to be checked
-A list of named lists or classes is expected.</p></dd>
+A list of named lists or classes is expected.</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-element">element<a class="anchor" aria-label="anchor" href="#arg-element"></a></dt>
 <dd><p>The name of an element of the lists/classes
-A character scalar is expected.</p></dd>
+A character scalar is expected.</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-condition">condition<a class="anchor" aria-label="anchor" href="#arg-condition"></a></dt>
 <dd><p>Condition to be fulfilled
 The condition is evaluated for each element of the list. The element of the
 lists/classes can be referred to by its name, e.g., <code>censor == 0</code> to check
-the <code>censor</code> field of a class.</p></dd>
+the <code>censor</code> field of a class.</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-message-text">message_text<a class="anchor" aria-label="anchor" href="#arg-message-text"></a></dt>
@@ -97,17 +112,32 @@ the listing of values that do not meet the condition.
 The text should describe the condition to be fulfilled,
 e.g., <code>"Error in {arg_name}: the censor values must be zero."</code>.
 If <code>message</code> argument is specified, that text will be displayed and <code>message_text</code>
-is ignored.</p></dd>
+is ignored.</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-arg-name">arg_name<a class="anchor" aria-label="anchor" href="#arg-arg-name"></a></dt>
-<dd><p>string indicating the label/symbol of the object being checked.</p></dd>
+<dd><p>string indicating the label/symbol of the object being checked.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>rlang::caller_arg(arg)</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-message">message<a class="anchor" aria-label="anchor" href="#arg-message"></a></dt>
 <dd><p>string passed to <code>cli::cli_abort(message)</code>.
 When <code>NULL</code>, default messaging is used (see examples for default messages).
-<code>"{arg_name}"</code> can be used in messaging.</p></dd>
+<code>"{arg_name}"</code> can be used in messaging.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>NULL</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-class">class<a class="anchor" aria-label="anchor" href="#arg-class"></a></dt>
@@ -131,7 +161,12 @@ respectively not display any call or hard-code a code to display.</p>
 <dd><p>Objects required to evaluate the condition or the message text</p>
 <p>If the condition or the message text contains objects apart from the
 element, they have to be passed to the function. See the second example
-below.</p></dd>
+below.</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 </dl></div>
     <div class="section level2">

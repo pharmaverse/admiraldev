@@ -11,7 +11,7 @@ the type of the created variables."><meta property="og:image" content="https://p
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,22 +65,38 @@ the type of the created variables.</p>
 
 
 <dl><dt id="arg-dataset">dataset<a class="anchor" aria-label="anchor" href="#arg-dataset"></a></dt>
-<dd><p>Input dataset</p></dd>
+<dd><p>Input dataset</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-set-values-to">set_values_to<a class="anchor" aria-label="anchor" href="#arg-set-values-to"></a></dt>
 <dd><p>Variables to set</p>
 <p>A named list returned by <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code> defining the variables to be set, e.g.
 <code>exprs(PARAMCD = "OS", PARAM = "Overall Survival")</code> is expected. The values
-must be symbols, character strings, numeric values, expressions, or <code>NA</code>.</p></dd>
+must be symbols, character strings, numeric values, expressions, or <code>NA</code>.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>NULL</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-expected-types">expected_types<a class="anchor" aria-label="anchor" href="#arg-expected-types"></a></dt>
 <dd><p>If the argument is specified, the specified variables are checked whether
 the specified type matches the type of the variables created by
 <code>set_values_to</code>.</p>
-<p><em>Permitted Values</em>: A character vector with values <code>"numeric"</code> or
-<code>"character"</code></p></dd>
+<dl><dt>Permitted values</dt>
+<dd><p>A character vector with values <code>"numeric"</code> or <code>"character"</code></p></dd>
+
+<dt>Default value</dt>
+<dd><p><code>NULL</code></p></dd>
+
+
+</dl></dd>
 
 </dl></div>
     <div class="section level2">

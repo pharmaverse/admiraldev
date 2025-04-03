@@ -9,7 +9,7 @@ thought of as an R-equivalent of SAS proc compare and a useful tool for unit tes
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,20 +62,43 @@ thought of as an R-equivalent of SAS proc compare and a useful tool for unit tes
 
 
 <dl><dt id="arg-base">base<a class="anchor" aria-label="anchor" href="#arg-base"></a></dt>
-<dd><p>Input dataset</p></dd>
+<dd><p>Input dataset</p>
+<dl><dt>Permitted values</dt>
+<dd><p>A dataset, i.e., a <code>data.frame</code> or tibble.</p></dd>
+
+<dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-compare">compare<a class="anchor" aria-label="anchor" href="#arg-compare"></a></dt>
-<dd><p>Comparison dataset</p></dd>
+<dd><p>Comparison dataset</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-keys">keys<a class="anchor" aria-label="anchor" href="#arg-keys"></a></dt>
 <dd><p><code>character</code> vector of variables that define a unique row in the
-<code>base</code> and <code>compare</code> datasets</p></dd>
+<code>base</code> and <code>compare</code> datasets</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Additional arguments passed onto <code><a href="https://gowerc.github.io/diffdf/latest-tag/reference/diffdf.html" class="external-link">diffdf::diffdf()</a></code></p></dd>
+<dd><p>Additional arguments passed onto <code><a href="https://gowerc.github.io/diffdf/latest-tag/reference/diffdf.html" class="external-link">diffdf::diffdf()</a></code></p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 </dl></div>
     <div class="section level2">

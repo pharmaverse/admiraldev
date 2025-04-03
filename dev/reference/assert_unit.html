@@ -9,7 +9,7 @@ unit."><meta property="og:image" content="https://pharmaverse.github.io/admirald
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,32 +72,64 @@ unit.</p>
 
 <dl><dt id="arg-dataset">dataset<a class="anchor" aria-label="anchor" href="#arg-dataset"></a></dt>
 <dd><p>Dataset to be checked</p>
-<p>The variable <code>PARAMCD</code> and those used in <code>get_unit_expr</code> are expected.</p></dd>
+<p>The variable <code>PARAMCD</code> and those used in <code>get_unit_expr</code> are expected.</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-param">param<a class="anchor" aria-label="anchor" href="#arg-param"></a></dt>
-<dd><p>Parameter code of the parameter to check</p></dd>
+<dd><p>Parameter code of the parameter to check</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-required-unit">required_unit<a class="anchor" aria-label="anchor" href="#arg-required-unit"></a></dt>
 <dd><p>Expected unit(s)</p>
 <p>If the argument is set to <code>NULL</code>, it is checked only whether the unit is
 unique within the parameter.</p>
-<p><em>Permitted Values</em>: A character vector or <code>NULL</code></p></dd>
+<dl><dt>Permitted values</dt>
+<dd><p>A character vector or <code>NULL</code></p></dd>
+
+<dt>Default value</dt>
+<dd><p><code>NULL</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-get-unit-expr">get_unit_expr<a class="anchor" aria-label="anchor" href="#arg-get-unit-expr"></a></dt>
-<dd><p>Expression used to provide the unit of <code>param</code></p></dd>
+<dd><p>Expression used to provide the unit of <code>param</code></p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-arg-name">arg_name<a class="anchor" aria-label="anchor" href="#arg-arg-name"></a></dt>
-<dd><p>string indicating the label/symbol of the object being checked.</p></dd>
+<dd><p>string indicating the label/symbol of the object being checked.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>rlang::caller_arg(arg)</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-message">message<a class="anchor" aria-label="anchor" href="#arg-message"></a></dt>
 <dd><p>string passed to <code>cli::cli_abort(message)</code>.
 When <code>NULL</code>, default messaging is used (see examples for default messages).
-<code>"{arg_name}"</code> can be used in messaging.</p></dd>
+<code>"{arg_name}"</code> can be used in messaging.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>NULL</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-class">class<a class="anchor" aria-label="anchor" href="#arg-class"></a></dt>

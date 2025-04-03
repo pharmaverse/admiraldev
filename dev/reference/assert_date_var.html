@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,28 +67,53 @@
 
 
 <dl><dt id="arg-dataset">dataset<a class="anchor" aria-label="anchor" href="#arg-dataset"></a></dt>
-<dd><p>The dataset where the variable is expected</p></dd>
+<dd><p>The dataset where the variable is expected</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-var">var<a class="anchor" aria-label="anchor" href="#arg-var"></a></dt>
-<dd><p>The variable to check</p></dd>
+<dd><p>The variable to check</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-dataset-name">dataset_name<a class="anchor" aria-label="anchor" href="#arg-dataset-name"></a></dt>
 <dd><p>The name of the dataset. If the argument is specified, the
-specified name is displayed in the error message.</p></dd>
+specified name is displayed in the error message.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>rlang::caller_arg(dataset)</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-var-name">var_name<a class="anchor" aria-label="anchor" href="#arg-var-name"></a></dt>
 <dd><p>The name of the variable. If the argument is specified, the
-specified name is displayed in the error message.</p></dd>
+specified name is displayed in the error message.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>rlang::caller_arg(var)</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-message">message<a class="anchor" aria-label="anchor" href="#arg-message"></a></dt>
 <dd><p>(<code>string</code>)<br>
 string passed to <code>cli::cli_abort(message)</code>. When <code>NULL</code>, default messaging
 is used (see examples for default messages). <code>"var_name"</code> and <code>"dataset_name"</code>,
-can be used in messaging.</p></dd>
+can be used in messaging.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>NULL</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-class">class<a class="anchor" aria-label="anchor" href="#arg-class"></a></dt>
