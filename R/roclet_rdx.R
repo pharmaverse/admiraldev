@@ -262,7 +262,8 @@ transform_examplesx <- function(block) {
             tags[[i]]$val$code,
             expected_cnds = tags[[i]]$val$options$expected_cnds,
             env = example_env
-          ),
+          ) %>%
+            str_replace_all("\\%", "\\\\%"),
           "}\\if{html}{\\out{</div>}}",
           sep = ""
         ),
