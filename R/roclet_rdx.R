@@ -245,6 +245,9 @@ transform_examplesx <- function(block) {
   for (i in seq_along(tags)) {
     if (tags[[i]]$tag == "caption") {
       if (length(act_example) > 0) {
+        if (!"caption" %in% names(act_example)) {
+          act_example$caption <- NA_character_
+        }
         out_tags <- c(
           out_tags,
           list(roxy_tag("examplex", "generated", val = act_example))
@@ -565,7 +568,12 @@ merge.rd_section_examplex <- function(x, y, ...) {
 format.rd_section_examplex <- function(x, ...) {
   paste0(
     "\\section{Examples}{\n",
-    paste0("\\subsection{", x$value$caption, "}{", x$value$contents, "}", collapse = "\n"),
+    paste0(if_else(
+      is.na(x$value$caption),
+      x$value$contents,
+      paste0("\\subsection{", x$value$caption, "}{", x$value$contents, "}")
+      ),
+      collapse = "\n"),
     "}\n"
   )
 }

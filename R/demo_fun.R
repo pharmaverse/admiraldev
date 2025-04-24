@@ -10,6 +10,7 @@
 #' @default The first letter of the alphabet
 #' @keywords internal
 #' @examplesx
+#' @info This is the introduction.
 #' @caption A simple example
 #' @info This is a simple example showing the default behaviour.
 #' @code demo_fun(1)
