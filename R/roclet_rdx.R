@@ -568,12 +568,14 @@ merge.rd_section_examplex <- function(x, y, ...) {
 format.rd_section_examplex <- function(x, ...) {
   paste0(
     "\\section{Examples}{\n",
-    paste0(if_else(
-      is.na(x$value$caption),
-      x$value$contents,
-      paste0("\\subsection{", x$value$caption, "}{", x$value$contents, "}")
+    paste0(
+      if_else(
+        is.na(x$value$caption),
+        x$value$contents,
+        paste0("\\subsection{", x$value$caption, "}{", x$value$contents, "}")
       ),
-      collapse = "\n"),
+      collapse = "\n"
+    ),
     "}\n"
   )
 }
