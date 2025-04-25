@@ -30,6 +30,9 @@ test_fun(arg_exp, arg_opt = 42, arg_opt2 = "a")
 Test function
 }
 \section{Examples}{
+
+
+This is the introduction.
 \subsection{First example}{
 
 This example shows the default behavior of the function.

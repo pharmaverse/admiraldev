@@ -32,6 +32,9 @@ This function is used to demonstrate the custom tags of the \code{rdx_roclet()}.
 }
 \keyword{internal}
 \section{Examples}{
+
+
+This is the introduction.
 \subsection{A simple example}{
 
 This is a simple example showing the default behaviour.

@@ -11,6 +11,7 @@
 #' @default The first letter of the alphabet
 #'
 #' @examplesx
+#' @info This is the introduction.
 #' @caption First example
 #' @info This example shows the default behavior of the function.
 #' @code
