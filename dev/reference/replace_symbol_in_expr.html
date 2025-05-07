@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9003</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9004</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +60,10 @@
 
 <dl><dt id="arg-expression">expression<a class="anchor" aria-label="anchor" href="#arg-expression"></a></dt>
 <dd><p>Expression</p>
-<dl><dt>Default value</dt>
+<dl><dt>Permitted values</dt>
+<dd><p>a quoted expression, e.g., created by <code><a href="https://rlang.r-lib.org/reference/expr.html" class="external-link">expr()</a></code></p></dd>
+
+<dt>Default value</dt>
 <dd><p>none</p></dd>
 
 
@@ -69,7 +72,10 @@
 
 <dt id="arg-target">target<a class="anchor" aria-label="anchor" href="#arg-target"></a></dt>
 <dd><p>Target symbol</p>
-<dl><dt>Default value</dt>
+<dl><dt>Permitted values</dt>
+<dd><p>an unquoted symbol, e.g., <code>AVAL</code></p></dd>
+
+<dt>Default value</dt>
 <dd><p>none</p></dd>
 
 
@@ -78,7 +84,10 @@
 
 <dt id="arg-replace">replace<a class="anchor" aria-label="anchor" href="#arg-replace"></a></dt>
 <dd><p>Replacing symbol</p>
-<dl><dt>Default value</dt>
+<dl><dt>Permitted values</dt>
+<dd><p>an unquoted symbol, e.g., <code>AVAL</code></p></dd>
+
+<dt>Default value</dt>
 <dd><p>none</p></dd>
 
 
@@ -104,8 +113,7 @@ replaced by <code>replace</code></p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rlang.r-lib.org" class="external-link">rlang</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rlang.r-lib.org" class="external-link">rlang</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">replace_symbol_in_expr</span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html" class="external-link">expr</a></span><span class="op">(</span><span class="va">AVAL</span><span class="op">)</span>, target <span class="op">=</span> <span class="va">AVAL</span>, replace <span class="op">=</span> <span class="va">AVAL.join</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AVAL.join</span>
@@ -113,6 +121,8 @@ replaced by <code>replace</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AVALC</span>
 <span class="r-in"><span><span class="fu">replace_symbol_in_expr</span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html" class="external-link">expr</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">AVAL</span><span class="op">)</span><span class="op">)</span>, target <span class="op">=</span> <span class="va">AVAL</span>, replace <span class="op">=</span> <span class="va">AVAL.join</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> desc(AVAL.join)</span>
+<span class="r-in"><span><span class="fu">replace_symbol_in_expr</span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/expr.html" class="external-link">expr</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html" class="external-link">if_else</a></span><span class="op">(</span><span class="va">AVAL</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="va">AVAL</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span>, <span class="va">AVAL</span>, <span class="va">AVAL.join</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> if_else(AVAL.join &gt; 0, AVAL.join, NA)</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
