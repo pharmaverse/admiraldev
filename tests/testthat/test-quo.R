@@ -114,9 +114,21 @@ test_that("replace_symbol_in_expr Test 9: symbol in expression is replaced", {
   )
 })
 
+## Test 10: works recursive and with NA ----
+test_that("replace_symbol_in_expr Test 10: works recursive and with NA", {
+  expect_equal(
+    expected = expr(if_else(AVAL.join > 0, AVAL.join, NA)),
+    object = replace_symbol_in_expr(
+      expr(if_else(AVAL > 0, AVAL, NA)),
+      target = AVAL,
+      replace = AVAL.join
+    )
+  )
+})
+
 # add_suffix_to_vars ----
-## Test 10: with single variable ----
-test_that("add_suffix_to_vars Test 10: with single variable", {
+## Test 11: with single variable ----
+test_that("add_suffix_to_vars Test 11: with single variable", {
   expect_equal(
     expected = exprs(ADT, desc(AVAL.join), AVALC),
     object = add_suffix_to_vars(
@@ -127,8 +139,8 @@ test_that("add_suffix_to_vars Test 10: with single variable", {
   )
 })
 
-## Test 11: with more than one variable ----
-test_that("add_suffix_to_vars Test 11: with more than one variable", {
+## Test 12: with more than one variable ----
+test_that("add_suffix_to_vars Test 12: with more than one variable", {
   expect_equal(
     expected = exprs(ADT, desc(AVAL.join), AVALC.join),
     object = add_suffix_to_vars(

@@ -10,18 +10,21 @@ replace_symbol_in_expr(expression, target, replace)
 \item{expression}{Expression
 
 \describe{
+\item{Permitted values}{a quoted expression, e.g., created by \code{expr()}}
 \item{Default value}{none}
 }}
 
 \item{target}{Target symbol
 
 \describe{
+\item{Permitted values}{an unquoted symbol, e.g., \code{AVAL}}
 \item{Default value}{none}
 }}
 
 \item{replace}{Replacing symbol
 
 \describe{
+\item{Permitted values}{an unquoted symbol, e.g., \code{AVAL}}
 \item{Default value}{none}
 }}
 }
@@ -33,12 +36,12 @@ replaced by \code{replace}
 Replace symbols in an expression
 }
 \examples{
-
 library(rlang)
 
 replace_symbol_in_expr(expr(AVAL), target = AVAL, replace = AVAL.join)
 replace_symbol_in_expr(expr(AVALC), target = AVAL, replace = AVAL.join)
 replace_symbol_in_expr(expr(desc(AVAL)), target = AVAL, replace = AVAL.join)
+replace_symbol_in_expr(expr(if_else(AVAL > 0, AVAL, NA)), AVAL, AVAL.join)
 }
 \seealso{
 Helpers for working with Quosures: 

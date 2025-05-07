@@ -58,9 +58,15 @@ replace_values_by_names <- function(expressions) {
 #'
 #' @param expression Expression
 #'
+#' @permitted a quoted expression, e.g., created by `expr()`
+#'
 #' @param target Target symbol
 #'
+#' @permitted [symbol]
+#'
 #' @param replace Replacing symbol
+#'
+#' @permitted [symbol]
 #'
 #' @author Stefan Bundfuss
 #'
@@ -73,12 +79,12 @@ replace_values_by_names <- function(expressions) {
 #' @export
 #'
 #' @examples
-#'
 #' library(rlang)
 #'
 #' replace_symbol_in_expr(expr(AVAL), target = AVAL, replace = AVAL.join)
 #' replace_symbol_in_expr(expr(AVALC), target = AVAL, replace = AVAL.join)
 #' replace_symbol_in_expr(expr(desc(AVAL)), target = AVAL, replace = AVAL.join)
+#' replace_symbol_in_expr(expr(if_else(AVAL > 0, AVAL, NA)), AVAL, AVAL.join)
 replace_symbol_in_expr <- function(expression,
                                    target,
                                    replace) {
@@ -91,8 +97,16 @@ replace_symbol_in_expr <- function(expression,
     }
   } else {
     for (i in seq_along(expression)) {
-      if (expression[[i]] == target) {
-        expression[[i]] <- replace
+      if (is.symbol(expression[[i]])) {
+        if (expression[[i]] == target) {
+          expression[[i]] <- replace
+        }
+      } else if (is.recursive(expression[[i]])) {
+        expression[[i]] <- replace_symbol_in_expr(
+          expression[[i]],
+          !!target,
+          !!replace
+        )
       }
     }
   }

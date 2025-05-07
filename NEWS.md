@@ -7,6 +7,9 @@ and `@default` tags to specify the permitted and default values and the
 `@caption`, `@info`, and `@code` tags for examples with a caption and a
 description. (#484)
 
+- `replace_symbol_in_expr()` and `add_suffix_to_vars()` no longer fail if the
+expression contains `NA`. (#490)
+
 ## Updates of Existing Functions
 
 ## Breaking Changes
