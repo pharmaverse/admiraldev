@@ -49,4 +49,4 @@ release of `{admiral}`. You can find the release schedule for
 
 ## Acknowledgments
 
-Along with the authors and contributors, thanks to the following people for their work on the package: Ania Golab, Samia Kabi, Pooja Kumari, Syed Mubasheer, Thomas Neitmann and Ondrej Slama. 
+Along with the authors and contributors, thanks to the following people for their work on the package: Ania Golab, Samia Kabi, Pooja Kumari, Syed Mubasheer, Thomas Neitmann, Ondrej Slama, Kangjie Zhang and Zelos Zhu. 

@@ -33,8 +33,6 @@ Authors:
   \item Gordon Miller
   \item Daniel Sjoberg (\href{https://orcid.org/0000-0003-0862-2018}{ORCID})
   \item Stefan Thoma (\href{https://orcid.org/0000-0002-5553-9252}{ORCID})
-  \item Kangjie Zhang
-  \item Zelos Zhu
 }
 
 Other contributors:
