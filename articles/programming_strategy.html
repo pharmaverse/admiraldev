@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -643,7 +643,10 @@ if both functions are part of <a href="https://pharmaverse.github.io/admiral/" c
 <h3 id="function-header-documentation">Function Header (Documentation)<a class="anchor" aria-label="anchor" href="#function-header-documentation"></a>
 </h3>
 <p>Every function that is exported from the package must have an
-accompanying header that should be formatted according to the <a href="https://roxygen2.r-lib.org/" class="external-link">roxygen2</a> convention.</p>
+accompanying header that should be formatted according to the <a href="https://roxygen2.r-lib.org/" class="external-link">roxygen2</a> convention. We have also
+implemented a custom roclet to enhance our documentation and examples
+for more complex functions - see <code><a href="../reference/rdx_roclet.html">rdx_roclet()</a></code>, the example
+function <code><a href="../reference/demo_fun.html">demo_fun()</a></code>, and further down for more details.</p>
 <p>In addition to the standard roxygen2 tags, the <code>@family</code>
 and <code>@keywords</code> tags are also used.</p>
 <p>The family/keywords are used to categorize the function, which is
@@ -661,6 +664,8 @@ of functions</a>.</p>
 <span><span class="co">#'</span></span>
 <span><span class="co">#'   The columns specified by the `reference_date` and the `source_vars`</span></span>
 <span><span class="co">#'   argument are expected.</span></span>
+<span><span class="co">#'   </span></span>
+<span><span class="co">#' @permitted A dataset</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' @param reference_date The start date column, e.g., date of first treatment</span></span>
 <span><span class="co">#'</span></span>
@@ -669,12 +674,16 @@ of functions</a>.</p>
 <span><span class="co">#'   Refer to `derive_var_dt()` to impute and derive a date from a date</span></span>
 <span><span class="co">#'   character vector to a date object.</span></span>
 <span><span class="co">#'</span></span>
+<span><span class="co">#' @permitted An unquoted variable name of the input dataset</span></span>
+<span><span class="co">#'</span></span>
 <span><span class="co">#' @param source_vars A list of datetime or date variables created using</span></span>
 <span><span class="co">#'   `exprs()` from which dates are to be extracted. This can either be a list of</span></span>
 <span><span class="co">#'   date(time) variables or named `--DY` variables and corresponding --DT(M)</span></span>
 <span><span class="co">#'   variables e.g. `exprs(TRTSDTM, ASTDTM, AENDT)` or `exprs(TRTSDT, ASTDTM,</span></span>
 <span><span class="co">#'   AENDT, DEATHDY = DTHDT)`. If the source variable does not end in --DT(M), a</span></span>
 <span><span class="co">#'   name for the resulting `--DY` variable must be provided.</span></span>
+<span><span class="co">#'   </span></span>
+<span><span class="co">#' @permitted [var_list]</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' @details The relative day is derived as number of days from the reference</span></span>
 <span><span class="co">#'   date to the end date. If it is nonnegative, one is added. I.e., the</span></span>
@@ -683,7 +692,7 @@ of functions</a>.</p>
 <span><span class="co">#'   from the source variable name by replacing DT (or DTM as appropriate) with</span></span>
 <span><span class="co">#'   DY.</span></span>
 <span><span class="co">#'</span></span>
-<span><span class="co">#' @return The input dataset with `--DY` corresponding to the `--DTM` or `--DT`</span></span>
+<span><span class="co">#' @returns The input dataset with `--DY` corresponding to the `--DTM` or `--DT`</span></span>
 <span><span class="co">#'   source variable(s) added</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' @keywords der_date_time</span></span>
@@ -712,47 +721,76 @@ of functions</a>.</p>
 <span><span class="co">#' )</span></span></code></pre></div>
 <p>The following fields are mandatory:</p>
 <ul>
+<li><p><code>@param</code>: One entry per function argument. The
+following attributes should be described: expected data type (e.g.
+<code>data.frame</code>, <code>logical</code>, <code>numeric</code>
+etc.), permitted values (if applicable), optionality (i.e. is this a
+required argument). If the expected input is a dataset then the required
+variables should be clearly stated. Describing the default value becomes
+difficult to maintain and subject to manual error when it is already
+declared in the function arguments. For the description of the permitted
+values the (custom) <code>@permitted</code> tag should be used (see
+<code><a href="../reference/rdx_roclet.html">rdx_roclet()</a></code> for more details).</p></li>
+<li><p><code>@details</code>: A natural-language description of the
+derivation used inside the function.</p></li>
+<li><p><code>@keyword</code>: One applicable tag to the function -
+identical to family.</p></li>
+<li><p><code>@family</code>: One applicable tag to the function -
+identical to keyword.</p></li>
+<li><p><code>@returns</code>: A description of the return value of the
+function. Any newly added variable(-s) should be mentioned
+here.</p></li>
 <li>
-<code>@param</code>: One entry per function argument. The following
-attributes should be described: expected data type
-(e.g. <code>data.frame</code>, <code>logical</code>,
-<code>numeric</code> etc.), permitted values (if applicable),
-optionality (i.e. is this a required argument). If the expected input is
-a dataset then the required variables should be clearly stated.
-Describing the default value becomes difficult to maintain and subject
-to manual error when it is already declared in the function arguments.
-The description for permitted values should be written as a separate
-line italicizing the phrase “Permitted Values”, example below:</li>
-</ul>
-<pre><code><span><span class="co">#'   *Permitted Values*: example description of permitted values here</span></span></code></pre>
+<p><code>@examples</code> or <code>@caption</code>,
+<code>@info</code>, <code>@code</code>: Fully self-contained examples of
+how to use the function. Self-contained means that, if this code is
+executed in a new R session, it will run without errors. That means any
+packages need to be loaded with <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code> and any datasets
+needed either to be created directly inside the example code or loaded
+using <code>pkg_name::dataset_name</code>, e.g.,
+<code>adsl &lt;- admiral::admiral_adsl</code>. If a dataset is created
+in the example, it should be done so using the function
+<code><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble()</a></code> (specify <code><a href="https://dplyr.tidyverse.org" class="external-link">library(dplyr)</a></code> before
+calling this function). Make sure to align columns as this ensures quick
+code readability. If other functions are called in the example, please
+specify <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(pkg_name)</a></code> then refer to the respective
+function <code>fun()</code> as opposed to the preferred
+<code>pkg_name::fun()</code> notation as specified in <a href="unit_test_guidance.html#set-up-the-test-script">Unit Test
+Guidance</a>.</p>
+<p>The <code>@examples</code> tag should be used for simple functions
+which require only a few examples and no explanation.</p>
+<p>For more complex functions, the (custom) <code>@caption</code>,
+<code>@info</code>, and <code>@code</code> tags should be used. The
+<code>@caption</code> tag should be used to provide a brief description
+of the example. The <code>@info</code> tag should be used to provide a
+more detailed description of the example. The <code>@code</code> tag
+should be used to provide the code for the example. See
+<code><a href="../reference/rdx_roclet.html">rdx_roclet()</a></code> for more details. The examples should be
+separated in two parts:</p>
 <ul>
 <li>
-<code>@details</code>: A natural-language description of the
-derivation used inside the function.</li>
+<p>The first part are examples which demonstrate the functionality
+of the function. The first example shows the default behavior. Then
+examples for each optional argument follow. The data in these examples
+is as concise as possible and may not be ADaM compliant, e.g.,
+<code>STUDYID</code> is not included or <code>AVISITN</code> is present
+without <code>AVISIT</code>.</p>
+<p>These examples should answer questions like “what does this
+function?” or “how does this argument work?”.</p>
+</li>
 <li>
-<code>@keyword</code>: One applicable tag to the function -
-identical to family.</li>
-<li>
-<code>@family</code>: One applicable tag to the function - identical
-to keyword.</li>
-<li>
-<code>@return</code>: A description of the return value of the
-function. Any newly added variable(-s) should be mentioned here.</li>
-<li>
-<code>@examples</code>: A fully self-contained example of how to use
-the function. Self-contained means that, if this code is executed in a
-new R session, it will run without errors. That means any packages need
-to be loaded with <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code> and any datasets needed either
-to be created directly inside the example code or loaded using
-<code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code>. If a dataset is created in the example, it should
-be done so using the function <code><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble()</a></code> (specify
-<code><a href="https://dplyr.tidyverse.org" class="external-link">library(dplyr)</a></code> before calling this function). If other
-functions are called in the example, please specify
-<code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(pkg_name)</a></code> then refer to the respective function
-<code>fun()</code> as opposed to the preferred
-<code>pkg_name::fun()</code> notation as specified in <a href="unit_test_guidance.html#set-up-the-test-script">Unit Test
-Guidance</a>. Make sure to align columns as this ensures quick code
-readability.</li>
+<p>The second part are examples which demonstrate which ADaM
+variables or parameters could be derived with the function. The code
+could be copied to an ADaM script and be used without or with small
+modifications.</p>
+<p>Each example includes a “specs-like” description.</p>
+<p>These examples should answer questions like “how can this
+variable/parameter be derived”.</p>
+</li>
+</ul>
+<p>See <a href="https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R" class="external-link"><code>derive_extreme_records.R</code>
+in admiral</a> for an example.</p>
+</li>
 </ul>
 <p>Copying descriptions should be avoided as it makes the documentation
 hard to maintain. For example if the same argument with the same
@@ -778,6 +816,9 @@ enclosed which backticks. This will render it as code.</p>
 <p>For functions which derive a specific CDISC variable, the title must
 state the label of the variable without the variable name. The variable
 should be stated in the description.</p>
+<p>To avoid confusion the term “parameter” should be used for CDISC
+parameters only. For function arguments the term “argument” should be
+used.</p>
 </div>
 <div class="section level3">
 <h3 id="categorization-of-functions">Categorization of Functions<a class="anchor" aria-label="anchor" href="#categorization-of-functions"></a>
@@ -1086,7 +1127,7 @@ added,</p></li>
 <li>
 <p>the <code>@keywords</code> and <code>@family</code> roxygen tags
 will be replaced with <code>deprecated</code></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#' Title of the function</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' @description</span></span>
@@ -1102,7 +1143,7 @@ will be replaced with <code>deprecated</code></p>
 <ul>
 <li>
 <p>the <code>@param</code> level for a argument.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="sc">@</span>param old_param <span class="st">`</span><span class="at">r lifecycle::badge("deprecated")</span><span class="st">`</span> Please use <span class="st">`</span><span class="at">new_param</span><span class="st">`</span> instead.</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="sc">@</span>param old_param <span class="st">`</span><span class="at">r lifecycle::badge("deprecated")</span><span class="st">`</span> Please use <span class="st">`</span><span class="at">new_param</span><span class="st">`</span> instead.</span></code></pre></div>
 </li>
 </ul>
 <p>The documentation will be further updated at Phase 3:</p>
@@ -1125,7 +1166,7 @@ when using the deprecated function or argument.</p>
 </h4>
 <p><strong>Phase 1:</strong> At the start of this phase the call to
 <code><a href="../reference/deprecate_inform.html">deprecate_inform()</a></code> will appear as:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="../reference/deprecate_inform.html">deprecate_inform</a></span><span class="op">(</span></span>
 <span>    when <span class="op">=</span> <span class="st">"x.y.z"</span>,</span>
@@ -1150,7 +1191,7 @@ when using the deprecated function or argument.</p>
 the new function which should be used instead.</p>
 <p><strong>Phase 2:</strong> At the start of this phase the call to
 <code>deprecate_warn()</code> will appear as:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">deprecate_warn</span><span class="op">(</span></span>
 <span>    when <span class="op">=</span> <span class="st">"x.y.z"</span>,</span>
@@ -1173,7 +1214,7 @@ the new function which should be used instead.</p>
 <code>{at the beginning of 20XX}</code> to relevant timeline.</p>
 <p><strong>Phase 3:</strong> At the start of this phase the call to
 <code>deprecate_stop()</code> will appear as:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">deprecate_stop</span><span class="op">(</span></span>
 <span>    when <span class="op">=</span> <span class="st">"x.y.z"</span>,</span>
@@ -1384,7 +1425,7 @@ Repository</a>.</li>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Ben Straub, Stefan Bundfuss, Jeffrey Dickinson, Ross Farrugia, Fanny Gautier, Edoardo Mancini, Sadchla Mascary, Gordon Miller, Daniel Sjoberg, Stefan Thoma, Kangjie Zhang, Zelos Zhu, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
+  <p>Developed by Ben Straub, Stefan Bundfuss, Jeffrey Dickinson, Ross Farrugia, Fanny Gautier, Edoardo Mancini, Sadchla Mascary, Gordon Miller, Daniel Sjoberg, Stefan Thoma, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
 </div>
 
 <div class="pkgdown-footer-right">

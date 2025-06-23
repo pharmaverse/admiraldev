@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,24 +66,44 @@
 
 
 <dl><dt id="arg-arg">arg<a class="anchor" aria-label="anchor" href="#arg-arg"></a></dt>
-<dd><p>A function argument to be checked. Must be a <code>symbol</code>. See examples.</p></dd>
+<dd><p>A function argument to be checked. Must be a <code>symbol</code>. See examples.</p>
+<dl><dt>Default value</dt>
+<dd><p>none</p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-optional">optional<a class="anchor" aria-label="anchor" href="#arg-optional"></a></dt>
 <dd><p>Is the checked argument optional? If set to <code>FALSE</code> and <code>arg</code>
-is <code>NULL</code> then an error is thrown.</p></dd>
+is <code>NULL</code> then an error is thrown.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>FALSE</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-arg-name">arg_name<a class="anchor" aria-label="anchor" href="#arg-arg-name"></a></dt>
 <dd><p>By default the expression specified for <code>arg</code> is used. If it is
 of the form <code>enexpr(&lt;argument name&gt;)</code>, the <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">enexpr()</a></code> part is removed. For example
-if <code>arg = enexpr(filter_add)</code> is specified, <code>arg_name</code> defaults to <code>"filter_add"</code></p></dd>
+if <code>arg = enexpr(filter_add)</code> is specified, <code>arg_name</code> defaults to <code>"filter_add"</code></p>
+<dl><dt>Default value</dt>
+<dd><p><code>gsub("^enexpr\((.*)\)$", "\1", rlang::caller_arg(arg))</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-message">message<a class="anchor" aria-label="anchor" href="#arg-message"></a></dt>
 <dd><p>string passed to <code>cli::cli_abort(message)</code>.
 When <code>NULL</code>, default messaging is used (see examples for default messages).
-<code>"{arg_name}"</code> can be used in messaging.</p></dd>
+<code>"{arg_name}"</code> can be used in messaging.</p>
+<dl><dt>Default value</dt>
+<dd><p><code>NULL</code></p></dd>
+
+
+</dl></dd>
 
 
 <dt id="arg-class">class<a class="anchor" aria-label="anchor" href="#arg-class"></a></dt>
@@ -174,7 +194,7 @@ invisibly otherwise.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Ben Straub, Stefan Bundfuss, Jeffrey Dickinson, Ross Farrugia, Fanny Gautier, Edoardo Mancini, Sadchla Mascary, Gordon Miller, Daniel Sjoberg, Stefan Thoma, Kangjie Zhang, Zelos Zhu, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
+  <p>Developed by Ben Straub, Stefan Bundfuss, Jeffrey Dickinson, Ross Farrugia, Fanny Gautier, Edoardo Mancini, Sadchla Mascary, Gordon Miller, Daniel Sjoberg, Stefan Thoma, F. Hoffmann-La Roche AG, GlaxoSmithKline LLC.</p>
 </div>
 
 <div class="pkgdown-footer-right">
