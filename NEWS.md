@@ -1,4 +1,4 @@
-# admiraldev 1.3.0.9000
+# admiraldev 1.3.0
 
 ## New Features
 
