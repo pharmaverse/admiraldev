@@ -39,7 +39,7 @@ the functions start with `assert_`, `is_` or `get_`.
     each example and a description of the example.
     
   See `rdx_roclet()`, the example function `demo_fun()`, and [Function Header
-  (Documentation)](programming_strategy.html#function-header-documentation) for
+  Documentation](programming_strategy.html#function-header-documentation) for
   more details.
 
 * Utility functions that help with documentation, testing and checking on health of the code base in all admiral packages.

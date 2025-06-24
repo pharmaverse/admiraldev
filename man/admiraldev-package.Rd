@@ -29,7 +29,6 @@ Authors:
   \item Ross Farrugia
   \item Fanny Gautier
   \item Edoardo Mancini (\href{https://orcid.org/0009-0006-4899-8641}{ORCID})
-  \item Sadchla Mascary
   \item Gordon Miller
   \item Daniel Sjoberg (\href{https://orcid.org/0000-0003-0862-2018}{ORCID})
   \item Stefan Thoma (\href{https://orcid.org/0000-0002-5553-9252}{ORCID})
