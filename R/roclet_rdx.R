@@ -266,7 +266,11 @@ transform_examplesx <- function(block) {
             expected_cnds = tags[[i]]$val$options$expected_cnds,
             env = example_env
           ) %>%
-            str_replace_all("\\%", "\\\\%"),
+            str_replace_all("\\%", "\\\\%") %>%
+            # replace/remove unicode characters which cause issues in building
+            # pdf manual resulting in rejection by CRAN
+            str_replace_all("\\u2139", "i") %>% # replace information source character with "i"
+            str_remove_all("\\u200B"), # remove zero-width space
           "}\\if{html}{\\out{</div>}}",
           sep = ""
         ),
