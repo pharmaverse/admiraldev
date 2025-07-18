@@ -19,10 +19,16 @@ development:
 authors:
   before: "We define *authors* as those who are actively maintaining the code base, and *contributors* as those who made a significant contribution in the past."
   footer:
-    roles: [aut, ctb, cre, fnd]
-    text: "Developed by"
+    roles: [aut, ctb]
+    text: "Developed by F. Hoffmann-La Roche AG, GlaxoSmithKline LLC,"
   sidebar:
-    roles: [aut]
+    roles: [aut, fnd]
+  F. Hoffmann-La Roche AG:
+    html: "<a href='https://www.roche.com/'><img src='man/figures/roche_logo.svg' height='34' alt='Roche logo' /></a>"
+    href: https://roche.com/
+  GlaxoSmithKline LLC:
+    html: "<a href='https://www.gsk.com/'><img src='man/figures/gsk_logo.svg' height='20' alt='GSK logo' /></a>"
+    href: https://gsk.com/
 
 reference:
 - title: Assertion Functions
