@@ -431,34 +431,13 @@ readability. If other functions are called in the example, please specify
 the preferred `pkg_name::fun()` notation as specified in [Unit Test
 Guidance](unit_test_guidance.html#set-up-the-test-script).
 
-    The `@examples` tag should be used for simple functions which require only a
-    few examples and no explanation.
-    
-    For more complex functions, the (custom) `@caption`, `@info`, and `@code`
-    tags should be used. The `@caption` tag should be used to provide a brief
-    description of the example. The `@info` tag should be used to provide a more
-    detailed description of the example. The `@code` tag should be used to
-    provide the code for the example. See `rdx_roclet()` for more details. The
-    examples should be separated in two parts:
-
-    - The first part are examples which demonstrate the functionality of the
-      function. The first example shows the default behavior. Then examples for
-      each optional argument follow. The data in these examples is as concise as
-      possible and may not be ADaM compliant, e.g., `STUDYID` is not included or
-      `AVISITN` is present without `AVISIT`.
-      
-      These examples should answer questions like "what does this function?" or
-      "how does this argument work?".
-    - The second part are examples which demonstrate which ADaM variables or
-      parameters could be derived with the function. The code could be copied to
-      an ADaM script and be used without or with small modifications.
-      
-      Each example includes a "specs-like" description.
-      
-      These examples should answer questions like "how can this
-      variable/parameter be derived".
-    
-    See [`derive_extreme_records.R` in admiral](https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R) for an example.
+The `@examples` tag should be used for simple functions which require only a
+few examples and no explanation. For more complex functions, the (custom) 
+`@caption`, `@info`, and `@code` tags should be used. Please see the separate 
+vignette on 
+[Constructing Custom Examples Sections](constructing_custom_examples.html)
+for detailed guidance on how these are constructed, and [`derive_extreme_records.R` in admiral](https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R) 
+for an example of this in action.
 
 Copying descriptions should be avoided as it makes the documentation hard to
 maintain. For example if the same argument with the same description is used by
