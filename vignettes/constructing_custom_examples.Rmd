@@ -20,34 +20,78 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-Intro.
+This vignette serves as a primer to help construct detailed, coherent and consistent 
+Examples Sections in function documentation using the custom `rdx_roclet()` 
+functionality - please see `demo_fun()` for a dummy example and  [`derive_extreme_records.R` in admiral](https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R) 
+for an example of this in action. 
 
-# Section 1
+In practice, the rules and directives shown below cannot always be applied to the 
+letter, because each function and its context are different and may have varying 
+requirements. As such, developers are encouraged to treat these directives 
+heuristically and always apply their judgement when constructing Examples Sections.
 
-The `@caption` tag should be used to provide a brief
-description of the example. The `@info` tag should be used to provide a more
-detailed description of the example. The `@code` tag should be used to
-provide the code for the example. See `rdx_roclet()` for more details. The
-examples should be separated in two parts:
+# How to use the `@caption`, `@info` and `@code` tags together in a "block"
 
-- The first part are examples which demonstrate the functionality of the
-  function. The first example shows the default behavior. Then examples for
-  each optional argument follow. The data in these examples is as concise as
-  possible and may not be ADaM compliant, e.g., `STUDYID` is not included or
-  `AVISITN` is present without `AVISIT`.
-      
-  These examples should answer questions like "what does this function?" or
-  "how does this argument work?".
+The Examples Section should consist of a series of example blocks, usually made up 
+of one call each to `@caption`, `@info` and `@code`. See the example below:
+
+```{r, eval = FALSE}
+#' @examplesx
+#' 
+#' @caption Showcasing the first functionality of `fun()` (`arg1`)
+#' 
+#' @info This is the detailed text for the first example.
+#' 
+#' @code
+#' 
+#' fun(arg1 = TRUE)
+#' 
+#' @caption Showcasing the second functionality of `fun()` (`arg2`)
+#' 
+#' @info This is the detailed text for the first example.
+#' 
+#' @code
+#' 
+#' fun(arg2 = FALSE)
+```
+
+Within each block:
+
+- The `@caption` tag should be used to provide a brief description of the example. 
+This is the text which will show up in the table of contents on the right hand 
+side of the function documentation. If possible and/or relevant, the text should
+specify which argument(s) are being showcased in that example. 
+- The `@info` tag should be used to provide a more detailed description of the
+example. If relevant, it should contain some context behind the example (i.e. 
+__why__ this may be a relevant scenario to consider). 
+- The `@code` tag should be used to provide the code for the example. The code 
+should be as self-contained as possible. The dataset/object being created should
+be printed at the end of the section.
+
+Note that a more complex block may also have multiple `@info` and`@code` 
+sections after the `@caption` if it is particularly involved.
+
+# How to sequence your blocks
+
+Successive example blocks should build in complexity. The first examples should
+showcase the most "minimal" execution of the function, with only the required
+arguments being triggered and the default values discussed. The data in 
+these examples is as concise as possible and may not be ADaM compliant, e.g.,
+`STUDYID` is not included or `AVISITN` is present without `AVISIT`.
+
+Later blocks should then bring in one/a few more arguments at a time as the
+use-case becomes more involved. If possible, they should build on top of 
+earlier blocks (i.e. use the same data but changing the scope of the function
+call to add complexity), but if this is not possible, then new scenarios 
+can be considered.
+
+All example blocks should answer questions like "what does this function do?"
+or "how does this argument work?".
   
-- The second part are examples which demonstrate which ADaM variables or
-  parameters could be derived with the function. The code could be copied to
-  an ADaM script and be used without or with small modifications.
-      
-  Each example includes a "specs-like" description.
-      
-  These examples should answer questions like "how can this
-  variable/parameter be derived".
+# Data sections
 
-# Section 2
-
-Text
+If all examples can be run on the same/similar data, you may wish to (optionally)
+include a "Data setup" block at the start of the Examples Section to create the 
+dummy dataset(s) that can then be used in each block. Please see
+[derive_summary_records()](https://pharmaverse.github.io/admiral/main/reference/derive_summary_records.html#examples)
+as an example.
