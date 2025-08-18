@@ -77,7 +77,7 @@ Successive example blocks should build in complexity. The first examples should
 showcase the most "minimal" execution of the function, with only the required
 arguments being triggered and the default values discussed. The data in 
 these examples is as concise as possible and may not be ADaM compliant, e.g.,
-`STUDYID` is not included or `AVISITN` is present without `AVISIT`.
+`STUDYID` may not be included or `AVISITN` may be present without `AVISIT`.
 
 Later blocks should then bring in one/a few more arguments at a time as the
 use-case becomes more involved. If possible, they should build on top of 
