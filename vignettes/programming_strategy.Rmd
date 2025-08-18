@@ -431,13 +431,13 @@ readability. If other functions are called in the example, please specify
 the preferred `pkg_name::fun()` notation as specified in [Unit Test
 Guidance](unit_test_guidance.html#set-up-the-test-script).
 
-The `@examples` tag should be used for simple functions which require only a
-few examples and no explanation. For more complex functions, the (custom) 
-`@caption`, `@info`, and `@code` tags should be used. Please see the separate 
-vignette on 
-[Constructing Custom Examples Sections](constructing_custom_examples.html)
-for detailed guidance on how these are constructed, and [`derive_extreme_records.R` in admiral](https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R) 
-for an example of this in action.
+    The `@examples` tag should be used for simple functions which require only a
+    few examples and no explanation. For more complex functions, the (custom) 
+    `@caption`, `@info`, and `@code` tags should be used. Please see the separate 
+    vignette on 
+    [Constructing Custom Examples Sections](constructing_custom_examples.html)
+    for detailed guidance on how these are constructed, and [`derive_extreme_records.R` in             admiral](https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R) 
+    for an example of this in action.
 
 Copying descriptions should be avoided as it makes the documentation hard to
 maintain. For example if the same argument with the same description is used by
