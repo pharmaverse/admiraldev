@@ -20,12 +20,12 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-This vignette serves as a primer to help construct detailed, coherent and consistent 
-Examples Sections in function documentation using the custom `rdx_roclet()` 
+This vignette serves as a primer to help construct detailed and consistent 
+Examples Sections in function documentation using the custom `rdx_roclet()` , which lives in the {admiraldev} package
 functionality - please see `demo_fun()` for a dummy example and  [`derive_extreme_records.R` in admiral](https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R) 
 for an example of this in action. 
 
-In practice, the rules and directives shown below cannot always be applied to the 
+In practice, the guidance shown below cannot always be applied to the 
 letter, because each function and its context are different and may have varying 
 requirements. As such, developers are encouraged to treat these directives 
 heuristically and always apply their judgement when constructing Examples Sections.
