@@ -1,11 +1,11 @@
 ---
-title: "Constructing Custom Examples"
+title: "Writing Custom Examples"
 output: 
   rmarkdown::html_vignette:
     toc: true
     toc_depth: 6
 vignette: >
-  %\VignetteIndexEntry{Constructing Custom Examples}
+  %\VignetteIndexEntry{Writing Custom Examples}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,10 +20,13 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-This vignette serves as a primer to help construct detailed and consistent 
-Examples Sections in function documentation using the custom `rdx_roclet()` , which lives in the {admiraldev} package
-functionality - please see `demo_fun()` for a dummy example and  [`derive_extreme_records.R` in admiral](https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R) 
-for an example of this in action. 
+This vignette serves as a primer to help write detailed and consistent 
+Examples Sections in function documentation using the custom `rdx_roclet()` , which lives 
+in the {admiraldev} package functionality - please see `demo_fun()` for a dummy example 
+and  [`derive_extreme_records.R` in admiral](https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R) 
+for an example of this in action. These examples are often beneficial for the more
+complex {admiral} functions to help answer questions like: "what does this function do?"
+or "how does this argument work?".
 
 In practice, the guidance shown below cannot always be applied to the 
 letter, because each function and its context are different and may have varying 
@@ -71,6 +74,13 @@ be printed at the end of the section.
 Note that a more complex block may also have multiple `@info` and`@code` 
 sections after the `@caption` if it is particularly involved.
 
+Here is what a block and table of contents look like (taken from
+`admiral::derive_vars_dt()`):
+
+```{r, echo = FALSE}
+knitr::include_graphics("custom_roclet_example.png")
+```
+
 # How to sequence your blocks
 
 Successive example blocks should build in complexity. The first examples should
@@ -85,8 +95,8 @@ earlier blocks (i.e. use the same data but changing the scope of the function
 call to add complexity), but if this is not possible, then new scenarios 
 can be considered.
 
-All example blocks should answer questions like "what does this function do?"
-or "how does this argument work?".
+As mentioned previously, all example blocks should answer questions like "what 
+does this function do?" or "how does this argument work?".
   
 # Data sections
 
