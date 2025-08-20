@@ -18,8 +18,8 @@
 
 ## Documentation
 
-- Added a new vignette, [Writing Custom Examples](../articles/writing_custom_examples.html) containing directives on how to 
-build the "Examples" sections for functions which use the custom `rdx_roclet()`. (#503)
+- Added a new "Writing Custom Examples" vignette containing directives on how to build the "Examples" sections
+for functions which use the custom `rdx_roclet()`. (#503)
 
 ## Various
 
