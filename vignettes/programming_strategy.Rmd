@@ -435,7 +435,7 @@ Guidance](unit_test_guidance.html#set-up-the-test-script).
     few examples and no explanation. For more complex functions, the (custom) 
     `@caption`, `@info`, and `@code` tags should be used. Please see the separate 
     vignette on 
-    [Constructing Custom Examples Sections](constructing_custom_examples.html)
+    [Writing Custom Examples](writing_custom_examples.html)
     for detailed guidance on how these are constructed, and [`derive_extreme_records.R` in             admiral](https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R) 
     for an example of this in action.
 

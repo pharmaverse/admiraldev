@@ -31,7 +31,7 @@ or "how does this argument work?".
 In practice, the guidance shown below cannot always be applied to the 
 letter, because each function and its context are different and may have varying 
 requirements. As such, developers are encouraged to treat these directives 
-heuristically and always apply their judgement when constructing Examples Sections.
+heuristically and always apply their judgment when constructing Examples Sections.
 
 # How to use the `@caption`, `@info` and `@code` tags together in a "block"
 
@@ -40,21 +40,21 @@ of one call each to `@caption`, `@info` and `@code`. See the example below:
 
 ```{r, eval = FALSE}
 #' @examplesx
-#' 
+#'
 #' @caption Showcasing the first functionality of `fun()` (`arg1`)
-#' 
+#'
 #' @info This is the detailed text for the first example.
-#' 
+#'
 #' @code
-#' 
+#'
 #' fun(arg1 = TRUE)
-#' 
+#'
 #' @caption Showcasing the second functionality of `fun()` (`arg2`)
-#' 
+#'
 #' @info This is the detailed text for the first example.
-#' 
+#'
 #' @code
-#' 
+#'
 #' fun(arg2 = FALSE)
 ```
 
