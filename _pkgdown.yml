@@ -128,6 +128,8 @@ navbar:
       href: articles/programming_strategy.html
     - text: Writing Vignettes
       href: articles/writing_vignettes.html
+    - text: Writing Custom Examples
+      href: articles/writing_custom_examples.html
     - text: Unit Test Guidance
       href: articles/unit_test_guidance.html
     - text: Guidance for git and GitHub Usage

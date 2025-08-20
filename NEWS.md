@@ -18,6 +18,9 @@
 
 ## Documentation
 
+- Added a new "Writing Custom Examples" vignette containing directives on how to build the "Examples" sections
+for functions which use the custom `rdx_roclet()`. (#503)
+
 ## Various
 
 # admiraldev 1.3.1
