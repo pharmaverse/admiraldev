@@ -78,7 +78,7 @@ Here is what a block and table of contents look like (taken from
 `admiral::derive_vars_dt()`):
 
 ```{r, echo = FALSE}
-knitr::include_graphics("custom_roclet_example.png")
+knitr::include_graphics("./custom_roclet_example.png")
 ```
 
 # How to sequence your blocks
@@ -86,7 +86,7 @@ knitr::include_graphics("custom_roclet_example.png")
 Successive example blocks should build in complexity. The first examples should
 showcase the most "minimal" execution of the function, with only the required
 arguments being triggered and the default values discussed. The data in 
-these examples is as concise as possible and may not be ADaM compliant, e.g.,
+these examples should be as concise as possible and may not be ADaM compliant, e.g.,
 `STUDYID` may not be included or `AVISITN` may be present without `AVISIT`.
 
 Later blocks should then bring in one/a few more arguments at a time as the
