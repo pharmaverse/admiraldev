@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9001</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,6 +43,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-developer-guides">
 <li><a class="dropdown-item" href="../articles/programming_strategy.html">Programming Strategy</a></li>
     <li><a class="dropdown-item" href="../articles/writing_vignettes.html">Writing Vignettes</a></li>
+    <li><a class="dropdown-item" href="../articles/writing_custom_examples.html">Writing Custom Examples</a></li>
     <li><a class="dropdown-item" href="../articles/unit_test_guidance.html">Unit Test Guidance</a></li>
     <li><a class="dropdown-item" href="../articles/git_usage.html">Guidance for git and GitHub Usage</a></li>
     <li><a class="dropdown-item" href="../articles/pr_review_guidance.html">Pull Request Review Guidance</a></li>
@@ -759,38 +760,12 @@ function <code>fun()</code> as opposed to the preferred
 <code>pkg_name::fun()</code> notation as specified in <a href="unit_test_guidance.html#set-up-the-test-script">Unit Test
 Guidance</a>.</p>
 <p>The <code>@examples</code> tag should be used for simple functions
-which require only a few examples and no explanation.</p>
-<p>For more complex functions, the (custom) <code>@caption</code>,
-<code>@info</code>, and <code>@code</code> tags should be used. The
-<code>@caption</code> tag should be used to provide a brief description
-of the example. The <code>@info</code> tag should be used to provide a
-more detailed description of the example. The <code>@code</code> tag
-should be used to provide the code for the example. See
-<code><a href="../reference/rdx_roclet.html">rdx_roclet()</a></code> for more details. The examples should be
-separated in two parts:</p>
-<ul>
-<li>
-<p>The first part are examples which demonstrate the functionality
-of the function. The first example shows the default behavior. Then
-examples for each optional argument follow. The data in these examples
-is as concise as possible and may not be ADaM compliant, e.g.,
-<code>STUDYID</code> is not included or <code>AVISITN</code> is present
-without <code>AVISIT</code>.</p>
-<p>These examples should answer questions like “what does this
-function?” or “how does this argument work?”.</p>
-</li>
-<li>
-<p>The second part are examples which demonstrate which ADaM
-variables or parameters could be derived with the function. The code
-could be copied to an ADaM script and be used without or with small
-modifications.</p>
-<p>Each example includes a “specs-like” description.</p>
-<p>These examples should answer questions like “how can this
-variable/parameter be derived”.</p>
-</li>
-</ul>
-<p>See <a href="https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R" class="external-link"><code>derive_extreme_records.R</code>
-in admiral</a> for an example.</p>
+which require only a few examples and no explanation. For more complex
+functions, the (custom) <code>@caption</code>, <code>@info</code>, and
+<code>@code</code> tags should be used. Please see the separate vignette
+on <a href="writing_custom_examples.html">Writing Custom Examples</a>
+for detailed guidance on how these are constructed, and <a href="https://github.com/pharmaverse/admiral/blob/main/R/derive_extreme_records.R" class="external-link"><code>derive_extreme_records.R</code>
+in admiral</a> for an example of this in action.</p>
 </li>
 </ul>
 <p>Copying descriptions should be avoided as it makes the documentation
