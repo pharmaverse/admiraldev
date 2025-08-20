@@ -74,12 +74,7 @@ be printed at the end of the section.
 Note that a more complex block may also have multiple `@info` and`@code` 
 sections after the `@caption` if it is particularly involved.
 
-Here is what a block and table of contents look like (taken from
-`admiral::derive_vars_dt()`):
-
-```{r, echo = FALSE}
-knitr::include_graphics("./custom_roclet_example.png")
-```
+![A custom roclet example with `admiral::derive_vars_dt()`.](custom_roclet_example.png)
 
 # How to sequence your blocks
 
