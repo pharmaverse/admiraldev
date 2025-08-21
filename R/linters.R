@@ -7,7 +7,7 @@
 #' @keywords internal
 date_convention_linter_source <- function(source_file) {
   lines <- source_file$lines
-  pattern <- "#.*(\\*DTC|--DT)"
+  pattern <- "#.*(\\*DTC|--DT)" #nolint
 
   lints <- list()
 
@@ -15,14 +15,14 @@ date_convention_linter_source <- function(source_file) {
     line_text <- lines[i]
 
     if (grepl(pattern, line_text, fixed = FALSE)) {
-      match_pos <- regexpr("\\*DTC|--DT", line_text)
+      match_pos <- regexpr("\\*DTC|--DT", line_text) #nolint
       col_num <- if (match_pos > 0) match_pos else 1
 
       lint <- Lint(
         filename = source_file$filename,
         line_number = i,
         column_number = col_num,
-        message = "Please follow the ADaM IG convention and use '--DTC' and '*DTM'.",
+        message = "Please follow the ADaM IG convention and use '--DTC' and '*DTM'.", #nolint
         line = lines[i]
       )
       lints <- c(lints, list(lint))
