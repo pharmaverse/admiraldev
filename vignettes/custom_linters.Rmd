@@ -1,0 +1,30 @@
+---
+title: "Custom Linters"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 6
+vignette: >
+  %\VignetteIndexEntry{Custom Linters}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+This vignette catalogs the custom linters that are active within the `{admiral}` family of packages,
+and how these are centrally controlled by the `.lintr` file and `linters.R` in `{admiraldev}`.
+These linters help us maintain consistent standards across our codebases. 
+
+# Date conventions `date_convention_linter`
+TBC
+
+# Undesirable functions
+TBC
