@@ -73,7 +73,7 @@ test_that("capture_message Test 6: capture message", {
   expect_equal(
     capture_message({
       message("This is a message")
-      cli_abort("This is an error")
+      stop("This is an error") # nolint
     }),
     c(
       "This is a message",
@@ -89,7 +89,7 @@ test_that("capture_message Test 7: capture message with open sink", {
   sink(con, type = "message") # nolint
   out <- capture_message({
     message("This is a message")
-    cli_abort("This is an error")
+    stop("This is an error") # nolint
   })
   message("Hello")
   sink(type = "message") # nolint

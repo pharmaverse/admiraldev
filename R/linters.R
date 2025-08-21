@@ -1,41 +1,54 @@
+#' Custom linter for *DTC/--DTM
+#'
+#' This linter function checks whether a file contains a comment with "*DTC"
+#' or  anywhere in the file, including inline.
+#'
+#' @param source_file source_file to check
+#' @keywords internal
 date_convention_linter_source <- function(source_file) {
+  lines <- source_file$lines
+  pattern <- "#.*(\\*DTC|--DT)"
 
-  # Return empty list if file cannot be parsed
-  if (is.null(source_file$xml)) {
-    return(list())
+  lints <- list()
+
+  for (i in seq_along(lines)) {
+    line_text <- lines[i]
+
+    if (grepl(pattern, line_text, fixed = FALSE)) {
+      match_pos <- regexpr("\\*DTC|--DT", line_text)
+      col_num <- if (match_pos > 0) match_pos else 1
+
+      lint <- Lint(
+        filename = source_file$filename,
+        line_number = i,
+        column_number = col_num,
+        message = "Please follow the ADaM IG convention and use '--DTC' and '*DTM'.",
+        line = lines[i]
+      )
+      lints <- c(lints, list(lint))
+    }
   }
 
-  # Find all comments and scan for *DTC and/or --DT #nolint
-  comments <- xml_find_all(source_file$xml, ".//COMMENT")
-  pattern <- "\\*DTC|--DT"
-
-  lints <- lapply(comments, function(comment) {
-    comment_text <- xml_text(comment)
-    if (grepl(pattern, comment_text, fixed = FALSE)) {
-      line_num <- as.integer(xml_attr(comment, "line1"))
-      col_num <- as.integer(xml_attr(comment, "col1"))
-      Lint(
-        filename = source_file$filename,
-        line_number = line_num,
-        column_number = col_num,
-        linter = "dtc_comment_linter",
-        message = "Please follow the ADaM IG convention and use '--DTC' and '*DTM'.",
-        line = source_file$lines[line_num]
-      )
-    } else {
-      NULL
-    }
-  })
-
-  Filter(Negate(is.null), lints)
+  lints
 }
 
-# Create the Linter object that lintr can use
+#' Linter object creator for *DTC/--DTM custom linter
+#'
+#' This function creates the `Linter` object corresponding to
+#' `date_convention_linter_source()`.
+#'
+#' @keywords internal
 date_convention_linter <- Linter(
   name = "date_convention_linter_source",
   fun = date_convention_linter_source
 )
 
+#' Linter configurations for `{admiral}` family of packages
+#'
+#' This function lists out the linter configurations for the `{admiral}`
+#' family of packages (including custom linters).
+#'
+#' @keywords internal
 admiral_linters <- function() {
   c(
     # Default linters
