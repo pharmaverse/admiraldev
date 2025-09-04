@@ -130,8 +130,6 @@ navbar:
       href: articles/writing_vignettes.html
     - text: Writing Custom Examples
       href: articles/writing_custom_examples.html
-    - text: Custom Linters
-      href: articles/custom_linters.html
     - text: Unit Test Guidance
       href: articles/unit_test_guidance.html
     - text: Guidance for git and GitHub Usage
