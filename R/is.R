@@ -56,5 +56,7 @@ is_valid_dtc <- function(arg) {
     "(:", twod, "(.(\\d{1,5}))?)?$"
   )
 
+  stop("test")
+
   grepl(pattern, arg) | arg == "" | is.na(arg)
 }
