@@ -18,7 +18,7 @@ admiral_linters <- function() {
       cyclocomp_linter(complexity_limit = 20),
       undesirable_function_linter = undesirable_function_linter(
         fun = c(
-          "default" = default_undesirable_functions,
+          default_undesirable_functions,
           "stop" = "please use cli_abort() from the {cli} package",
           "warning" = "please use cli_warning() from the {cli} package"
         )
