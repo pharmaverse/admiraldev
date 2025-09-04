@@ -4,19 +4,80 @@
 \alias{admiral_linters}
 \title{Linter configurations for \code{{admiral}} family of packages}
 \usage{
-admiral_linters()
+admiral_linters(
+  line_length = line_length_linter(100),
+  object_usage = NULL,
+  cyclocomp = cyclocomp_linter(complexity_limit = 20),
+  indentation = NULL,
+  undesirable_function = undesirable_function_linter(fun =
+    c(default_undesirable_functions, stop =
+    "please use cli_abort() from the {cli} package", warning =
+    "please use cli_warning() from the {cli} package", message =
+    "please use cli_inform() from the {cli} package", ifelse =
+    "please use vectorized if_else() from the {dplyr} package", grepl =
+    "please use str_detect() from the {stringr} package")),
+  ...
+)
+}
+\arguments{
+\item{line_length}{Line length linter
+
+\describe{
+\item{Default value}{\code{line_length_linter(100)}}
+}}
+
+\item{object_usage}{Object usage linter
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
+
+\item{cyclocomp}{Cyclomatic complexity linter
+
+\describe{
+\item{Default value}{\code{cyclocomp_linter(complexity_limit = 20)}}
+}}
+
+\item{indentation}{Indentation linter
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
+
+\item{undesirable_function}{Undesirable function linter
+
+\describe{
+\item{Default value}{\code{undesirable_function_linter(fun = c(default_undesirable_functions, stop = "please use cli_abort() from the {cli} package",
+  warning = "please use cli_warning() from the {cli} package", message = "please use cli_inform() from the {cli} package",
+  ifelse = "please use vectorized if_else() from the {dplyr} package", grepl = "please use str_detect() from the {stringr} package"))}}
+}}
+
+\item{...}{Any additional default linters to specify for use within the package
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \description{
 This function lists out the linter configurations for the \code{{admiral}}
 family of packages.
 }
 \details{
-Configurations of special note:
+Default configurations of special note:
 \itemize{
 \item Enforcing the use of \code{cli::cli_abort()} over \code{stop()}
 \item Enforcing the use of \code{cli::cli_warn()} over \code{warning()}
+\item Enforcing the use of \code{cli::cli_inform()} over \code{message()}
 \item Enforcing the use of  vectorized \code{dplyr::if_else()}  over \code{ifelse()}
 \item Enforcing the use of \code{stringr::str_detect()} over \code{grepl()}
 }
+}
+\examples{
+# The code below should reside in .lintr.R file
+linters <- admiral_linters(
+  line_length = line_length_linter(80),
+  indentation = NULL
+)
+
 }
 \keyword{internal}
