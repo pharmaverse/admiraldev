@@ -15,6 +15,8 @@ Configurations of special note:
 \itemize{
 \item Enforcing the use of \code{cli::cli_abort()} over \code{stop()}
 \item Enforcing the use of \code{cli::cli_warn()} over \code{warning()}
+\item Enforcing the use of  vectorized \code{dplyr::if_else()}  over \code{ifelse()}
+\item Enforcing the use of \code{stringr::str_detect()} over \code{grepl()}
 }
 }
 \keyword{internal}
