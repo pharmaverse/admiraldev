@@ -8,13 +8,13 @@ admiral_linters()
 }
 \description{
 This function lists out the linter configurations for the \code{{admiral}}
-family of packages..
+family of packages.
 }
 \details{
 Configurations of special note:
 \itemize{
-\item Enforcing use of \code{cli::cli_abort()} over \code{stop()}
-\item Enforcing use of \code{cli::cli_warn()} over \code{warning()}
+\item Enforcing the use of \code{cli::cli_abort()} over \code{stop()}
+\item Enforcing the use of \code{cli::cli_warn()} over \code{warning()}
 }
 }
 \keyword{internal}
