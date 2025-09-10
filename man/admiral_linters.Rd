@@ -73,6 +73,8 @@ Default configurations of special note:
 }
 }
 \examples{
+library(admiraldev)
+
 # The code below should reside in .lintr.R file
 linters <- admiral_linters(
   line_length = line_length_linter(80),
