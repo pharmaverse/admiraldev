@@ -22,9 +22,10 @@
 #'
 #' @examples
 #' library(admiraldev)
+#' library(lintr)
 #'
 #' # The code below should reside in .lintr.R file
-#' linters <- admiral_linters(
+#' linters <- admiraldev:::admiral_linters(
 #'   line_length = line_length_linter(80),
 #'   indentation = NULL
 #' )
