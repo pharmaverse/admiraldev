@@ -1981,3 +1981,4 @@ assert_same_type <- function(...,
 
   invisible()
 }
+# lintr: enable_linter undesirable_function_linter

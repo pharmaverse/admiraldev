@@ -465,9 +465,9 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
     # ignore all conditions not belonging to the current call of capture_output()
     if (cnd_ext$call_nr != admiraldev_environment$capture_output_call_nr) next
     cnd <- cnd_ext$cond
-    message <- capture_message(try(rlang::cnd_signal(cnd)))
+    msg <- capture_message(try(rlang::cnd_signal(cnd)))
     # ignore empty messages, e.g., from cli
-    if (length(message) == 0) next
+    if (length(msg) == 0) next
     if (is.null(srcref)) {
       srcref <- expr_deparse(code)
     }
@@ -489,7 +489,7 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
         class = "admiraldev-unexpected_cnd"
       )
     } else {
-      messages <- c(messages, message)
+      messages <- c(messages, msg)
     }
   }
   admiraldev_environment$capture_output_call_nr <- admiraldev_environment$capture_output_call_nr - 1
