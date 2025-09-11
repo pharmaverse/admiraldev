@@ -27,7 +27,7 @@ test_that("capture_output Test 2: output is captured", {
 ## Test 3: error if unexpected condition ----
 test_that("capture_output Test 3: error if unexpected condition", {
   expect_error(
-    capture_output(message("Hallo")), #nolint
+    capture_output(message("Hallo")), # nolint
     class = "admiraldev-unexpected_cnd"
   )
 })
@@ -72,7 +72,7 @@ test_that("parse_code Test 5: preserve comments and empty lines", {
 test_that("capture_message Test 6: capture message", {
   expect_equal(
     capture_message({
-      message("This is a message") #nolint
+      message("This is a message") # nolint
       stop("This is an error") # nolint
     }),
     c(
@@ -84,7 +84,7 @@ test_that("capture_message Test 6: capture message", {
 
 ## Test 7: capture message with open sink ----
 test_that("capture_message Test 7: capture message with open sink", {
-  #nolint start
+  # nolint start
   temp_file <- tempfile(fileext = ".txt")
   con <- file(temp_file, "w")
   sink(con, type = "message")
@@ -99,5 +99,5 @@ test_that("capture_message Test 7: capture message with open sink", {
     readLines(temp_file),
     "Hello"
   )
-  #nolint end
+  # nolint end
 })
