@@ -232,15 +232,18 @@ Arguments which only expect one value or variable name must be a singular versio
 
 ## Source Code Formatting
 
-All source code should be formatted according to the
-[tidyverse](https://style.tidyverse.org/) style guide. The
-[lintr](https://github.com/jimhester/lintr) and
-[styler](https://github.com/r-lib/styler) packages are used to check and enforce
-this. With regards to [lintr](https://github.com/jimhester/lintr), `{admiral}` and all
-related packages should maintain consistent linting standards by ensuring that the 
-`.lintr` configuration file uses the `admiraldev::admiral_linters()`. These contain
+All source code should be formatted according to the [tidyverse](https://style.tidyverse.org/) style guide. The
+[lintr](https://github.com/jimhester/lintr) and [styler](https://github.com/r-lib/styler) packages are used to
+check and enforce this. 
+
+With regards to [lintr](https://github.com/jimhester/lintr), `{admiral}` and all
+related packages should maintain consistent linting standards by ensuring that their 
+`.lintr` configuration files use the `admiral_linters()` function. This contains 
 agreed-upon preferences and conventions such as avoiding the use of `stop()` and
 `warning()` in favor of `cli::abort()` and `cli::warn()`.
+The `admiral_linters()` function is stored under `inst/lintr/linters.R` in `{admiraldev}` 
+(so as not to expose it to users) and can be loaded within the `.lintr` configuration 
+file with `source(system.file("inst/lintr/linters.R", package = "admiraldev")`. 
 
 ## Comments
 

@@ -25,6 +25,4 @@
 #' @importFrom cli cli_abort cli_div
 #' @importFrom glue glue glue_collapse
 #' @importFrom withr local_options
-#' @importFrom lintr Lint Linter linters_with_defaults line_length_linter cyclocomp_linter
-#'   undesirable_function_linter default_undesirable_functions
 "_PACKAGE"
