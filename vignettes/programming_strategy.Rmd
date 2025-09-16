@@ -243,7 +243,7 @@ agreed-upon preferences and conventions such as avoiding the use of `stop()` and
 `warning()` in favor of `cli::abort()` and `cli::warn()`.
 The `admiral_linters()` function is stored under `inst/lintr/linters.R` in `{admiraldev}` 
 (so as not to expose it to users) and can be loaded within the `.lintr` configuration 
-file with `source(system.file("inst/lintr/linters.R", package = "admiraldev")`. 
+file with `source(system.file("lintr/linters.R", package = "admiraldev")`. 
 
 ## Comments
 
