@@ -43,7 +43,7 @@ admiral_linters <- function(
         "ifelse" = "please use vectorized if_else() from the {dplyr} package",
         "grepl" = "please use str_detect() from the {stringr} package"
       ),
-      symbol_is_undesirable = TRUE
+      symbol_is_undesirable = FALSE
     ),
     ...) {
   c(
