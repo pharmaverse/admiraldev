@@ -243,7 +243,36 @@ agreed-upon preferences and conventions such as avoiding the use of `stop()` and
 `warning()` in favor of `cli::abort()` and `cli::warn()`.
 The `admiral_linters()` function is stored under `inst/lintr/linters.R` in `{admiraldev}` 
 (so as not to expose it to users) and can be loaded within the `.lintr.R` configuration 
-file with `source(system.file("lintr/linters.R", package = "admiraldev")`. 
+file with `source(system.file("lintr/linters.R", package = "admiraldev")`. An example
+`.lintr.R` configuration file is shown below:
+
+```{R, eval = F}
+library(lintr)
+
+source(system.file("lintr/linters.R", package = "admiraldev"))
+
+linters <- admiral_linters()
+
+exclusions <- list(
+  "R/data.R" = Inf,
+  "inst" = list(undesirable_function_linter = Inf),
+  "R/assertions.R" = list(undesirable_function_linter = Inf),
+  "vignettes" = list(undesirable_function_linter = Inf)
+)
+```
+
+If there is a good case to be made for altering any of the default configurations,
+this can be done by passing arguments to `admiral_linters()`, for instance:
+
+```{R, eval = F}
+admiral_linters(
+  line_length = line_length_linter(80), # (dropped down to 80 from the default 100)
+  object_name_linter = object_name_linter( # (activated the object name linter)
+    styles = c("snake_case", "symbols", "SNAKE_CASE"),
+    regexes = c("^pl__.*", "^_.*")
+  )
+)
+```
 
 ## Comments
 
