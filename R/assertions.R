@@ -1338,7 +1338,7 @@ assert_param_does_not_exist <- function(dataset,
 #' example_fun(exprs(DTHDOM = "AE", DTHSEQ = AESEQ))
 #'
 #' try(example_fun(exprs("AE", DTSEQ = AESEQ)))
-assert_varval_list <- function(arg, #nolint
+assert_varval_list <- function(arg, # nolint
                                required_elements = NULL,
                                accept_expr = TRUE,
                                accept_var = FALSE,

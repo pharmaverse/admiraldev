@@ -380,7 +380,7 @@ An example is given below:
 #'
 #'   The columns specified by the `reference_date` and the `source_vars`
 #'   argument are expected.
-#'   
+#'
 #' @permitted A dataset
 #'
 #' @param reference_date The start date column, e.g., date of first treatment
@@ -398,7 +398,7 @@ An example is given below:
 #'   variables e.g. `exprs(TRTSDTM, ASTDTM, AENDT)` or `exprs(TRTSDT, ASTDTM,
 #'   AENDT, DEATHDY = DTHDT)`. If the source variable does not end in --DT(M), a
 #'   name for the resulting `--DY` variable must be provided.
-#'   
+#'
 #' @permitted [var_list]
 #'
 #' @details The relative day is derived as number of days from the reference
@@ -662,15 +662,15 @@ The documentation will be updated at Phase 1:
 + the `@keywords` and `@family` roxygen tags will be replaced with `deprecated`
 
   ```{r, eval=FALSE}
-  #' Title of the function
-  #'
-  #' @description
-  #' `r lifecycle::badge("deprecated")`
-  #'
-  #' This function is *deprecated*, please use `new_fun()` instead.
-  #' .
-  #' @family deprecated
-  #' @keywords deprecated
+#' Title of the function
+#'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `new_fun()` instead.
+#' .
+#' @family deprecated
+#' @keywords deprecated
   ``` 
 
 
@@ -679,7 +679,7 @@ Example for documentation at the argument level
 + the `@param` level for a argument.
 
   ```{r, eval = FALSE}
-  @param old_param `r lifecycle::badge("deprecated")` Please use `new_param` instead.
+#' @param old_param `r lifecycle::badge("deprecated")` Please use `new_param` instead.
   ```
 
 The documentation will be further updated at Phase 3:
