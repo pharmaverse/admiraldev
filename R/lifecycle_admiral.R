@@ -43,7 +43,7 @@ deprecate_inform <- function(
       user_env = user_env
     ),
     warning = \(w) {
-      message(conditionMessage(w))
+      message(conditionMessage(w)) # nolint
       tryInvokeRestart("muffleWarning")
     }
   )

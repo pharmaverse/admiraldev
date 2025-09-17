@@ -2,6 +2,10 @@
 
 ## New Features
 
+- Added custom `{admiral}` linter configuration function `admiral_linters()` under `inst/lintr/linters.R` to enable consistent 
+lint programming standards across the admiral family of packages. New configurations include, for instance, enforcing the use 
+of `cli::cli_abort()` over `stop()` and enforcing the use of `cli::cli_warn()` over `warning()`. (#506)
+
 ## Updates of Existing Functions
 
 ## Breaking Changes
@@ -25,7 +29,7 @@ for functions which use the custom `rdx_roclet()`. (#503)
 
 # admiraldev 1.3.1
 
-- Replace unicode characters in .Rd files (#499)
+- Replace unicode characters in .Rd files. (#499)
 
 # admiraldev 1.3.0
 

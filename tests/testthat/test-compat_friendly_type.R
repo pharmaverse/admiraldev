@@ -56,7 +56,7 @@ test_that("friendly_type_of Test 4: friendly_type_of() edge cases", {
   # expect_equal(friendly_type_of(xml2::read_xml("<foo><bar /></foo>")$node), "a pointer") nolint
 
   test_weakref <- rlang::new_weakref(new.env(parent = emptyenv()),
-    finalizer = function(e) suppressMessages(message("finalized"))
+    finalizer = function(e) suppressMessages(message("finalized")) # nolint
   )
   expect_equal(friendly_type_of(test_weakref), "a weak reference")
 

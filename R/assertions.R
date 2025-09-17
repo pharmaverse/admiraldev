@@ -272,7 +272,7 @@ assert_character_vector <- function(arg, values = NULL, named = FALSE,
 
   message <-
     message %||%
-    ifelse(
+    if_else(
       is.null(values),
       "Argument {.arg {arg_name}} must be {.cls character}, but is {.obj_type_friendly {arg}}.",
       "Argument {.arg {arg_name}} must be {.cls character} with values {.val {values}}."
@@ -412,7 +412,7 @@ assert_symbol <- function(arg,
   # set default error message, if not specified
   message <-
     message %||%
-    ifelse(
+    if_else(
       is_missing(arg),
       "Argument {.arg {arg_name}} must be a {.cls symbol}, but is missing.",
       "Argument {.arg {arg_name}} must be a {.cls symbol}, but is {.obj_type_friendly {arg}}."
@@ -1470,7 +1470,7 @@ assert_varval_list <- function(arg, # nolint
 #' example_fun(exprs(DTHDOM = "AE", DTHSEQ = AESEQ))
 #'
 #' try(example_fun(exprs("AE", DTSEQ = AESEQ, !!list("a"), !!list("a"))))
-assert_expr_list <- function(arg, # nolint
+assert_expr_list <- function(arg,
                              required_elements = NULL,
                              named = FALSE,
                              optional = FALSE,
@@ -1981,3 +1981,4 @@ assert_same_type <- function(...,
 
   invisible()
 }
+# lintr: enable_linter undesirable_function_linter

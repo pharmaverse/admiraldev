@@ -177,11 +177,11 @@ stop_input_type <- function(x,
     format_arg <- function(x) sprintf("`%s`", x)
   }
 
-  message <- sprintf(
+  msg <- sprintf(
     "%s must be %s, not %s.",
     format_arg(arg),
     what,
     friendly_type_of(x)
   )
-  rlang::abort(message, ..., call = call)
+  rlang::abort(msg, ..., call = call)
 }
