@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -567,6 +567,43 @@ e.g., <code>exprs(BASEC = "MISSING", BASE = -1)</code>.</td>
 </h3>
 <p>All source code should be formatted according to the <a href="https://style.tidyverse.org/" class="external-link">tidyverse</a> style guide. The <a href="https://github.com/jimhester/lintr" class="external-link">lintr</a> and <a href="https://github.com/r-lib/styler" class="external-link">styler</a> packages are used to
 check and enforce this.</p>
+<p>With regards to <a href="https://github.com/jimhester/lintr" class="external-link">lintr</a>,
+<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> and all related packages should maintain
+consistent linting standards by ensuring that their
+<code>.lintr.R</code> configuration files use the
+<code>admiral_linters()</code> function. This contains agreed-upon
+preferences and conventions such as avoiding the use of
+<code><a href="https://rdrr.io/r/base/stop.html" class="external-link">stop()</a></code> and <code><a href="https://rdrr.io/r/base/warning.html" class="external-link">warning()</a></code> in favor of
+<code>cli::abort()</code> and <code>cli::warn()</code>. The
+<code>admiral_linters()</code> function is stored under
+<code>inst/lintr/linters.R</code> in <a href="https://pharmaverse.github.io/admiraldev/">admiraldev</a> (so as
+not to expose it to users) and can be loaded within the
+<code>.lintr.R</code> configuration file with
+<code>source(system.file("lintr/linters.R", package = "admiraldev")</code>.
+An example <code>.lintr.R</code> configuration file is shown below:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/lintr" class="external-link">lintr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"lintr/linters.R"</span>, package <span class="op">=</span> <span class="st">"admiraldev"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">linters</span> <span class="op">&lt;-</span> <span class="fu">admiral_linters</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">exclusions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  <span class="st">"R/data.R"</span> <span class="op">=</span> <span class="cn">Inf</span>,</span>
+<span>  <span class="st">"inst"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>undesirable_function_linter <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>,</span>
+<span>  <span class="st">"vignettes"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>undesirable_function_linter <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>If there is a good case to be made for altering any of the default
+configurations, this can be done by passing arguments to
+<code>admiral_linters()</code>, for instance:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">admiral_linters</span><span class="op">(</span></span>
+<span>  line_length <span class="op">=</span> <span class="fu"><a href="https://lintr.r-lib.org/reference/line_length_linter.html" class="external-link">line_length_linter</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, <span class="co"># (dropped down to 80 from the default 100)</span></span>
+<span>  object_name_linter <span class="op">=</span> <span class="fu"><a href="https://lintr.r-lib.org/reference/object_name_linter.html" class="external-link">object_name_linter</a></span><span class="op">(</span> <span class="co"># (activated the object name linter)</span></span>
+<span>    styles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"snake_case"</span>, <span class="st">"symbols"</span>, <span class="st">"SNAKE_CASE"</span><span class="op">)</span>,</span>
+<span>    regexes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"^pl__.*"</span>, <span class="st">"^_.*"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="comments">Comments<a class="anchor" aria-label="anchor" href="#comments"></a>
@@ -656,7 +693,7 @@ used both on our website and the internal package help pages. Please see
 section <a href="programming_strategy.html#categorization-of-functions">Categorization
 of functions</a>.</p>
 <p>An example is given below:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#' Derive Relative Day Variables</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' Adds relative day variables (`--DY`) to the dataset, e.g., `ASTDY` and</span></span>
@@ -666,7 +703,7 @@ of functions</a>.</p>
 <span><span class="co">#'</span></span>
 <span><span class="co">#'   The columns specified by the `reference_date` and the `source_vars`</span></span>
 <span><span class="co">#'   argument are expected.</span></span>
-<span><span class="co">#'   </span></span>
+<span><span class="co">#'</span></span>
 <span><span class="co">#' @permitted A dataset</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' @param reference_date The start date column, e.g., date of first treatment</span></span>
@@ -684,7 +721,7 @@ of functions</a>.</p>
 <span><span class="co">#'   variables e.g. `exprs(TRTSDTM, ASTDTM, AENDT)` or `exprs(TRTSDT, ASTDTM,</span></span>
 <span><span class="co">#'   AENDT, DEATHDY = DTHDT)`. If the source variable does not end in --DT(M), a</span></span>
 <span><span class="co">#'   name for the resulting `--DY` variable must be provided.</span></span>
-<span><span class="co">#'   </span></span>
+<span><span class="co">#'</span></span>
 <span><span class="co">#' @permitted [var_list]</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' @details The relative day is derived as number of days from the reference</span></span>
@@ -1103,7 +1140,7 @@ added,</p></li>
 <li>
 <p>the <code>@keywords</code> and <code>@family</code> roxygen tags
 will be replaced with <code>deprecated</code></p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#' Title of the function</span></span>
 <span><span class="co">#'</span></span>
 <span><span class="co">#' @description</span></span>
@@ -1119,7 +1156,8 @@ will be replaced with <code>deprecated</code></p>
 <ul>
 <li>
 <p>the <code>@param</code> level for a argument.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="sc">@</span>param old_param <span class="st">`</span><span class="at">r lifecycle::badge("deprecated")</span><span class="st">`</span> Please use <span class="st">`</span><span class="at">new_param</span><span class="st">`</span> instead.</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#' @param old_param `r lifecycle::badge("deprecated")` Please use `new_param` instead.</span></span></code></pre></div>
 </li>
 </ul>
 <p>The documentation will be further updated at Phase 3:</p>
@@ -1142,7 +1180,7 @@ when using the deprecated function or argument.</p>
 </h4>
 <p><strong>Phase 1:</strong> At the start of this phase the call to
 <code><a href="../reference/deprecate_inform.html">deprecate_inform()</a></code> will appear as:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="../reference/deprecate_inform.html">deprecate_inform</a></span><span class="op">(</span></span>
 <span>    when <span class="op">=</span> <span class="st">"x.y.z"</span>,</span>
@@ -1167,7 +1205,7 @@ when using the deprecated function or argument.</p>
 the new function which should be used instead.</p>
 <p><strong>Phase 2:</strong> At the start of this phase the call to
 <code>deprecate_warn()</code> will appear as:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">deprecate_warn</span><span class="op">(</span></span>
 <span>    when <span class="op">=</span> <span class="st">"x.y.z"</span>,</span>
@@ -1190,7 +1228,7 @@ the new function which should be used instead.</p>
 <code>{at the beginning of 20XX}</code> to relevant timeline.</p>
 <p><strong>Phase 3:</strong> At the start of this phase the call to
 <code>deprecate_stop()</code> will appear as:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fun_xxx</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataset</span>, <span class="va">some_param</span>, <span class="va">other_param</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">deprecate_stop</span><span class="op">(</span></span>
 <span>    when <span class="op">=</span> <span class="st">"x.y.z"</span>,</span>
