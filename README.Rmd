@@ -34,6 +34,7 @@ admiral_homepage <- "https://pharmaverse.github.io/admiral"
 
 Utility Functions and Development Tools for the Admiral Package Family
 
+*Explore all the other packages in the [{admiral} ecosystem](https://pharmaverse.org/e2eclinical/adam/) to learn more about ADaM programming in R.*
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/admiraldev)](https://CRAN.R-project.org/package=admiraldev)

@@ -4,23 +4,27 @@
 
 Utility Functions and Development Tools for the Admiral Package Family
 
-<!-- start badges -->
+*Explore all the other packages in the [{admiral}
+ecosystem](https://pharmaverse.org/e2eclinical/adam/) to learn more
+about ADaM programming in R.*
+
+<!-- badges: start -->
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/admiraldev)](https://CRAN.R-project.org/package=admiraldev)
 [![Test
 Coverage](https://raw.githubusercontent.com/pharmaverse/admiraldev/badges/main/test-coverage.svg)](https://github.com/pharmaverse/admiraldev/actions/workflows/common.yml)
 
-<!-- end badges -->
+<!-- badges: end -->
 
 ## Purpose
 
-Functions, tools and documentation for developing core `{admiral}` and extension
-package functions. Most functions in `{admiraldev}` are around testing inputs
-going into functions. There are also additional quality of life functions to
-assist developers of `{admiral}` or `{admiral}` extension packages, functions to
-help with rendering documentation, a custom roclet for a better structured
-documentation, and Developer Guides on developing function and using GitHub,
+Functions, tools and documentation for developing core `{admiral}` and
+extension package functions. Most functions in `{admiraldev}` are around
+testing inputs going into functions. There are also additional quality
+of life functions/Addins to assist developers of `{admiral}` or
+`{admiral}` extension packages, functions to help with rendering
+documentation, Developer Guides on developing function and using GitHub,
 GitHub Actions.
 
 **NOTE:** This package is not intended for standalone use but rather as
@@ -46,7 +50,3 @@ GitHub use the following code:
 release of `{admiral}`. You can find the release schedule for
 `{admiral}` packages
 [here](https://pharmaverse.github.io/admiral/#release-schedule).
-
-## Acknowledgments
-
-Along with the authors and contributors, thanks to the following people for their work on the package: Ania Golab, Samia Kabi, Pooja Kumari, Syed Mubasheer, Thomas Neitmann, Ondrej Slama, Kangjie Zhang and Zelos Zhu. 
