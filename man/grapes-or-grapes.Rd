@@ -31,7 +31,7 @@ in an error, it catches that error and proceeds with evaluating the expression
 \code{rhs} and returns that result.
 }
 \seealso{
-Developer Utility Functions: 
+Developer Utility Functions:
 \code{\link{\%notin\%}()},
 \code{\link{arg_name}()},
 \code{\link{contains_vars}()},

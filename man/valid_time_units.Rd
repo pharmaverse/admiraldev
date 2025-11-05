@@ -13,7 +13,7 @@ A \code{character} vector of valid time units
 Contains the acceptable character vector of valid time units
 }
 \seealso{
-Developer Utility Functions: 
+Developer Utility Functions:
 \code{\link{\%notin\%}()},
 \code{\link{\%or\%}()},
 \code{\link{arg_name}()},

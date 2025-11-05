@@ -20,7 +20,7 @@ arg_name(expr)
 Extract Argument Name from an Expression
 }
 \seealso{
-Developer Utility Functions: 
+Developer Utility Functions:
 \code{\link{\%notin\%}()},
 \code{\link{\%or\%}()},
 \code{\link{contains_vars}()},

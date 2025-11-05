@@ -27,7 +27,7 @@ just \code{dataset} if \code{filter} is \code{NULL}
 Filters the input dataset if the provided expression is not \code{NULL}
 }
 \seealso{
-Developer Utility Functions: 
+Developer Utility Functions:
 \code{\link{\%notin\%}()},
 \code{\link{\%or\%}()},
 \code{\link{arg_name}()},

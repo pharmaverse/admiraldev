@@ -67,7 +67,7 @@ a symbol or a call, or returns the input invisibly otherwise
 Assert Argument is an Expression
 }
 \seealso{
-Checks for valid input and returns warning or errors messages: 
+Checks for valid input and returns warning or errors messages:
 \code{\link{assert_atomic_vector}()},
 \code{\link{assert_character_scalar}()},
 \code{\link{assert_character_vector}()},
