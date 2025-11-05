@@ -114,11 +114,12 @@ jobs:
       skip-coverage-badges: false
   man-pages:
     name: Man Pages
-    uses: pharmaverse/admiralci/.github/workflows/man-pages.yml@main
+    uses: pharmaverse/admiralci/.github/workflows/man-pages.yml@208_install_package
     if: github.event_name == 'pull_request'
     needs: get_r_version
     with:
       r-version: "${{ needs.get_r_version.outputs.r-version }}"
+      install_package: true
   vbump:
     name: Version Bump 🤜🤛
     if: github.event_name == 'push'
