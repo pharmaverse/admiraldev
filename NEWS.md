@@ -8,6 +8,9 @@ of `cli::cli_abort()` over `stop()` and enforcing the use of `cli::cli_warn()` o
 
 ## Updates of Existing Functions
 
+- The `rdx_roclet()` was updated such that it no longer fails if the
+documentation contains an R6 class. (#512)
+
 ## Breaking Changes
 
 - The following function arguments are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#2487) (#2595)

@@ -9,23 +9,39 @@ test_that("rdx_roclet Test 1: test roclet", {
     )
   )
   temp_file <- tempfile(fileext = ".Rd")
-  writeLines(roxytopic$test_fun.R$format(), temp_file)
+  writeLines(roxytopic$test_fun.Rd$format(), temp_file)
   expect_snapshot_file(temp_file, "test_fun.Rd")
+})
+
+## Test 2: test roclet with R6 class ----
+test_that("rdx_roclet Test 2: test roclet with R6 class", {
+  withr::with_dir(
+    "../..",
+    suppressMessages(
+      roxytopic <- roxygen2::roc_proc_text(
+        rdx_roclet(),
+        readLines("tests/testthat/fixtures/test_class.R")
+      )
+    )
+  )
+  temp_file <- tempfile(fileext = ".Rd")
+  writeLines(roxytopic$TestClass.Rd$format(), temp_file)
+  expect_snapshot_file(temp_file, "test_class.Rd")
 })
 
 # capture_output ----
 # Note: any cases that consider warnings can't be tested because the code
 # behaves differently in the test environment.
-## Test 2: output is captured ----
-test_that("capture_output Test 2: output is captured", {
+## Test 3: output is captured ----
+test_that("capture_output Test 3: output is captured", {
   expect_equal(
     capture_output(1 + 1),
     "[1] 2"
   )
 })
 
-## Test 3: error if unexpected condition ----
-test_that("capture_output Test 3: error if unexpected condition", {
+## Test 4: error if unexpected condition ----
+test_that("capture_output Test 4: error if unexpected condition", {
   expect_error(
     capture_output(message("Hallo")), # nolint
     class = "admiraldev-unexpected_cnd"
@@ -33,8 +49,8 @@ test_that("capture_output Test 3: error if unexpected condition", {
 })
 
 # parse_code ----
-## Test 4: parse code ----
-test_that("parse_code Test 4: parse code", {
+## Test 5: parse code ----
+test_that("parse_code Test 5: parse code", {
   expect_equal(
     parse_code(c("1+1\n2*2", "s <- sum(\n  1,\n  2\n)")),
     list(
@@ -49,8 +65,8 @@ test_that("parse_code Test 4: parse code", {
   )
 })
 
-## Test 5: preserve comments and empty lines ----
-test_that("parse_code Test 5: preserve comments and empty lines", {
+## Test 6: preserve comments and empty lines ----
+test_that("parse_code Test 6: preserve comments and empty lines", {
   expect_equal(
     parse_code(c("# compute sum", "", "s <- sum(\n  1, # first\n  2 #second\n)")),
     list(
@@ -68,8 +84,8 @@ test_that("parse_code Test 5: preserve comments and empty lines", {
 # capture_message ----
 # Note: capturing warnings can't be tested in test_that because the code
 # behaves differently in the test environment.
-## Test 6: capture message ----
-test_that("capture_message Test 6: capture message", {
+## Test 7: capture message ----
+test_that("capture_message Test 7: capture message", {
   expect_equal(
     capture_message({
       message("This is a message") # nolint
@@ -82,8 +98,8 @@ test_that("capture_message Test 6: capture message", {
   )
 })
 
-## Test 7: capture message with open sink ----
-test_that("capture_message Test 7: capture message with open sink", {
+## Test 8: capture message with open sink ----
+test_that("capture_message Test 8: capture message with open sink", {
   # nolint start
   temp_file <- tempfile(fileext = ".txt")
   con <- file(temp_file, "w")

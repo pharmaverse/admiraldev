@@ -125,6 +125,9 @@ roclet_process.roclet_rdx <- function(x, blocks, env, base_path) {
 #'
 #' @keywords internal
 transform_param <- function(block, rdx_permitted_values) {
+  if (length(block$call) >= 3 && block$call[[3]][[1]] == "R6::R6Class") {
+    return(block)
+  }
   # extract default values from the function definition
   if (length(block$call) >= 3) {
     defaults <- block$call[[3]][[2]]
