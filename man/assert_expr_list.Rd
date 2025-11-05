@@ -90,7 +90,7 @@ example_fun(exprs(DTHDOM = "AE", DTHSEQ = AESEQ))
 try(example_fun(exprs("AE", DTSEQ = AESEQ, !!list("a"), !!list("a"))))
 }
 \seealso{
-Checks for valid input and returns warning or errors messages: 
+Checks for valid input and returns warning or errors messages:
 \code{\link{assert_atomic_vector}()},
 \code{\link{assert_character_scalar}()},
 \code{\link{assert_character_vector}()},

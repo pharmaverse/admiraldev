@@ -39,7 +39,7 @@ enumerate(c(1, 2, 3), quote_fun = NULL)
 
 }
 \seealso{
-Helpers for working with Quotes and Quoting: 
+Helpers for working with Quotes and Quoting:
 \code{\link{backquote}()},
 \code{\link{dquote}()},
 \code{\link{squote}()}

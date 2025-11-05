@@ -102,7 +102,7 @@ try(example_fun("Not a dataset"))
 try(example_fun(group_by(dm, USUBJID)))
 }
 \seealso{
-Checks for valid input and returns warning or errors messages: 
+Checks for valid input and returns warning or errors messages:
 \code{\link{assert_atomic_vector}()},
 \code{\link{assert_character_scalar}()},
 \code{\link{assert_character_vector}()},
