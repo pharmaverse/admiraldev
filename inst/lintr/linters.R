@@ -12,7 +12,7 @@
 #'
 #' @details
 #' Default configurations of special note:
-#'   - Enforcing the use of `cli::cli_abort()` over `stop()` and `stopifnot()`
+#'   - Enforcing the use of `cli::cli_abort()` over `stop()`
 #'   - Enforcing the use of `cli::cli_warn()` over `warning()`
 #'   - Enforcing the use of `cli::cli_inform()` over `message()`
 #'   - Enforcing the use of  vectorized `dplyr::if_else()`  over `ifelse()`
@@ -38,7 +38,6 @@ admiral_linters <- function(
       fun = c(
         lintr::default_undesirable_functions,
         "stop" = "please use cli_abort() from the {cli} package",
-        "stopifnot" = "please use cli_abort() from the {cli} package",
         "warning" = "please use cli_warning() from the {cli} package",
         "message" = "please use cli_inform() from the {cli} package",
         "ifelse" = "please use vectorized if_else() from the {dplyr} package",
