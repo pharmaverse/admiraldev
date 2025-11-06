@@ -30,24 +30,25 @@
 #' )
 #'
 admiral_linters <- function(
-    line_length = line_length_linter(100),
-    object_usage = NULL,
-    cyclocomp = cyclocomp_linter(complexity_limit = 20),
-    indentation = NULL,
-    undesirable_function = undesirable_function_linter(
-      fun = c(
-        default_undesirable_functions,
-        "stop" = "please use cli_abort() from the {cli} package",
-        "warning" = "please use cli_warning() from the {cli} package",
-        "message" = "please use cli_inform() from the {cli} package",
-        "ifelse" = "please use vectorized if_else() from the {dplyr} package",
-        "grepl" = "please use str_detect() from the {stringr} package"
-      ),
-      symbol_is_undesirable = FALSE
+  line_length = lintr::line_length_linter(100),
+  object_usage = NULL,
+  cyclocomp = lintr::cyclocomp_linter(complexity_limit = 20),
+  indentation = NULL,
+  undesirable_function = lintr::undesirable_function_linter(
+    fun = c(
+      lintr::default_undesirable_functions,
+      "stop" = "please use cli_abort() from the {cli} package",
+      "warning" = "please use cli_warning() from the {cli} package",
+      "message" = "please use cli_inform() from the {cli} package",
+      "ifelse" = "please use vectorized if_else() from the {dplyr} package",
+      "grepl" = "please use str_detect() from the {stringr} package"
     ),
-    ...) {
+    symbol_is_undesirable = FALSE
+  ),
+  ...
+) {
   c(
-    linters_with_defaults(
+    lintr::linters_with_defaults(
       # Add default linters below
       line_length_linter = line_length,
       object_usage_linter = object_usage,
