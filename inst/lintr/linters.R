@@ -12,7 +12,7 @@
 #'
 #' @details
 #' Default configurations of special note:
-#'   - Enforcing the use of `cli::cli_abort()` over `stop()`
+#'   - Enforcing the use of `cli::cli_abort()` over `stop()` and `stopifnot()`
 #'   - Enforcing the use of `cli::cli_warn()` over `warning()`
 #'   - Enforcing the use of `cli::cli_inform()` over `message()`
 #'   - Enforcing the use of  vectorized `dplyr::if_else()`  over `ifelse()`
@@ -30,14 +30,15 @@
 #' )
 #'
 admiral_linters <- function(
-    line_length = line_length_linter(100),
+    line_length = lintr::line_length_linter(100),
     object_usage = NULL,
-    cyclocomp = cyclocomp_linter(complexity_limit = 20),
+    cyclocomp = lintr::cyclocomp_linter(complexity_limit = 20),
     indentation = NULL,
-    undesirable_function = undesirable_function_linter(
+    undesirable_function = lintr::undesirable_function_linter(
       fun = c(
-        default_undesirable_functions,
+        lintr::default_undesirable_functions,
         "stop" = "please use cli_abort() from the {cli} package",
+        "stopifnot" = "please use cli_abort() from the {cli} package",
         "warning" = "please use cli_warning() from the {cli} package",
         "message" = "please use cli_inform() from the {cli} package",
         "ifelse" = "please use vectorized if_else() from the {dplyr} package",
@@ -47,7 +48,7 @@ admiral_linters <- function(
     ),
     ...) {
   c(
-    linters_with_defaults(
+    lintr::linters_with_defaults(
       # Add default linters below
       line_length_linter = line_length,
       object_usage_linter = object_usage,

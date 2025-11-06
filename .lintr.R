@@ -1,8 +1,12 @@
-library(lintr)
+# source in temporary environment to avoid changing the global environment
+temp_env <- new.env(parent = globalenv())
 
-source("inst/lintr/linters.R")
+source(system.file("lintr/linters.R", package = "admiraldev"), local = temp_env)
 
 linters <- admiral_linters(cyclocomp = cyclocomp_linter(complexity_limit = 21))
+
+# remove temporary environment to avoid lintr warning regarding "unused settings"
+rm(temp_env)
 
 exclusions <- list(
   "R/data.R" = Inf,
