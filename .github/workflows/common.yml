@@ -91,7 +91,7 @@ jobs:
       insert-tweak-page-hook: false
   linter:
     name: Lint
-    uses: pharmaverse/admiralci/.github/workflows/lintr.yml@210_install_package
+    uses: pharmaverse/admiralci/.github/workflows/lintr.yml@main
     if: github.event_name == 'pull_request'
     needs: get_r_version
     with:
@@ -115,7 +115,7 @@ jobs:
       skip-coverage-badges: false
   man-pages:
     name: Man Pages
-    uses: pharmaverse/admiralci/.github/workflows/man-pages.yml@210_install_package
+    uses: pharmaverse/admiralci/.github/workflows/man-pages.yml@main
     if: github.event_name == 'pull_request'
     needs: get_r_version
     with:
