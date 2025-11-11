@@ -38,7 +38,7 @@ Variable vector.
 Get Constant Variables
 }
 \seealso{
-Brings something to you!?!: 
+Brings something to you!?!:
 \code{\link{get_dataset}()},
 \code{\link{get_duplicates}()},
 \code{\link{get_source_vars}()}

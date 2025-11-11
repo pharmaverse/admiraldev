@@ -27,7 +27,7 @@ Returns a \code{logical} vector indicating if there is \emph{no} match of the
 left operand in the right operand.
 }
 \seealso{
-Developer Utility Functions: 
+Developer Utility Functions:
 \code{\link{\%or\%}()},
 \code{\link{arg_name}()},
 \code{\link{contains_vars}()},

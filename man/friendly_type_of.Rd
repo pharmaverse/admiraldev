@@ -39,7 +39,7 @@ to identify what object-type the user passed through an argument instead of
 an expected-type.
 }
 \seealso{
-Developer Utility Functions: 
+Developer Utility Functions:
 \code{\link{\%notin\%}()},
 \code{\link{\%or\%}()},
 \code{\link{arg_name}()},
