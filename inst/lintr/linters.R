@@ -41,7 +41,8 @@ admiral_linters <- function(
       "warning" = "please use cli_warning() from the {cli} package",
       "message" = "please use cli_inform() from the {cli} package",
       "ifelse" = "please use vectorized if_else() from the {dplyr} package",
-      "grepl" = "please use str_detect() from the {stringr} package"
+      "grepl" = "please use str_detect() from the {stringr} package",
+      "stopifnot" = "please consider combination of any() and cli_abort() from the {cli} package"
     ),
     symbol_is_undesirable = FALSE
   ),
