@@ -51,8 +51,9 @@ admiraldev:::execute_example("log(-1)")
 #> > log(-1)
 #> issued an unexpected condition:
 #> NaNs produced
-#> If this is expected, add any of the classes "simpleWarning", "warning", and "condition" to the argument `expected_cnds`.
+#> If this is expected, add any of the classes "simpleWarning", "warning", and
+#> "condition" to the argument `expected_cnds`.
 
 admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
-#> [1] "log(-1)\n#> [1] NaN\n#> Warning in log(-1) : NaNs produced"}\if{html}{\out{</div>}}}}
+#> [1] "log(-1)\n#> [1] NaN\n#> \033G2;\033H2;Warning\033h in log(-1) : NaNs produced\033g"}\if{html}{\out{</div>}}}}
 
