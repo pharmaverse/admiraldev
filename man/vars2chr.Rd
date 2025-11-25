@@ -26,7 +26,7 @@ library(rlang)
 vars2chr(exprs(USUBJID, AVAL))
 }
 \seealso{
-Developer Utility Functions: 
+Developer Utility Functions:
 \code{\link{\%notin\%}()},
 \code{\link{\%or\%}()},
 \code{\link{arg_name}()},

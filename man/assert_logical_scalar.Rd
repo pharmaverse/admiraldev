@@ -79,7 +79,7 @@ try(example_fun(c(TRUE, FALSE, FALSE)))
 try(example_fun(1:10))
 }
 \seealso{
-Checks for valid input and returns warning or errors messages: 
+Checks for valid input and returns warning or errors messages:
 \code{\link{assert_atomic_vector}()},
 \code{\link{assert_character_scalar}()},
 \code{\link{assert_character_vector}()},

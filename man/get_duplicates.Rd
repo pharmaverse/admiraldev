@@ -25,7 +25,7 @@ get_duplicates(1:10)
 get_duplicates(c("a", "a", "b", "c", "d", "d"))
 }
 \seealso{
-Brings something to you!?!: 
+Brings something to you!?!:
 \code{\link{get_constant_vars}()},
 \code{\link{get_dataset}()},
 \code{\link{get_source_vars}()}

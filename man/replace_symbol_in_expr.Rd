@@ -44,7 +44,7 @@ replace_symbol_in_expr(expr(desc(AVAL)), target = AVAL, replace = AVAL.join)
 replace_symbol_in_expr(expr(if_else(AVAL > 0, AVAL, NA)), AVAL, AVAL.join)
 }
 \seealso{
-Helpers for working with Quosures: 
+Helpers for working with Quosures:
 \code{\link{add_suffix_to_vars}()},
 \code{\link{expr_c}()},
 \code{\link{replace_values_by_names}()}
