@@ -91,7 +91,7 @@ process_set_values_to <- function(dataset,
       if (any(unexpected)) {
         cli_abort(
           message =
-            "The following variables have an unexpected type:" |>
+            "The following variables have an unexpected type:" %>%
               c(stats::setNames(
                 paste0(
                   names(actual[unexpected]),
