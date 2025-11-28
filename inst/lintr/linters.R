@@ -56,6 +56,7 @@ admiral_linters <- function(
       cyclocomp_linter = cyclocomp,
       indentation_linter = indentation,
       undesirable_function_linter = undesirable_function,
+      pipe_consistency_linter = pipe_consistency_linter("auto"),
       ...
     )
     # Add custom linters below
