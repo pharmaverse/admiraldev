@@ -5,7 +5,7 @@ test_that("process_set_values_to Test 1: add variables", {
     "1",         20,
     "2",         35
   )
-  expected <- bds %>%
+  expected <- bds |>
     mutate(
       PARAMCD = "BMI",
       PARAM = "Body-Mass-Index",

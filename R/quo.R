@@ -21,7 +21,7 @@ expr_c <- function(...) {
     }
   )
   inputs <- list_flatten(inputs)
-  stopifnot(all(map_lgl(inputs, is_expression)))
+  if (any(!map_lgl(inputs, is_expression))) cli_abort("At least one item is not an expression")
   is_null <- map_lgl(inputs, is.null)
   inputs[!is_null]
 }

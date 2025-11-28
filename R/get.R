@@ -33,17 +33,17 @@ get_constant_vars <- function(dataset, by_vars, ignore_vars = NULL) {
   }
 
   # get unique values within each group by variables
-  unique_count <- dataset %>%
-    group_by(!!!by_vars) %>%
-    summarise(across(!!non_by_vars, n_distinct)) %>%
-    ungroup() %>%
+  unique_count <- dataset |>
+    group_by(!!!by_vars) |>
+    summarise(across(!!non_by_vars, n_distinct)) |>
+    ungroup() |>
     select(!!!syms(non_by_vars))
 
   # determine variables which are constant within each by group
-  constant_vars <- unique_count %>%
-    map_lgl(~ all(.x == 1)) %>%
-    which() %>%
-    names() %>%
+  constant_vars <- unique_count |>
+    map_lgl(~ all(.x == 1)) |>
+    which() |>
+    names() |>
     syms()
 
   exprs(!!!by_vars, !!!constant_vars)

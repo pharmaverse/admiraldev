@@ -28,7 +28,7 @@
 #' @family dev_utility
 #' @export
 convert_dtm_to_dtc <- function(dtm) {
-  stopifnot(lubridate::is.instant(dtm))
+  if (!lubridate::is.instant(dtm)) cli_abort("Input `dtm` must be of class Date or POSIXct/POSIXt")
   format(dtm, "%Y-%m-%dT%H:%M:%S")
 }
 
