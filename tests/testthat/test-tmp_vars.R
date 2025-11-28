@@ -51,8 +51,8 @@ test_that("remove_tmp_vars Test 6: removing temp variables works with the pipe o
   do_something_with_pipe <- function(dataset) {
     tmp_var_1 <- get_new_tmp_var(dm)
     tmp_var_2 <- get_new_tmp_var(dm)
-    dm %>%
-      mutate(!!tmp_var_1 := NA, !!tmp_var_2 := NA) %>%
+    dm |>
+      mutate(!!tmp_var_1 := NA, !!tmp_var_2 := NA) |>
       remove_tmp_vars()
   }
   expect_identical(colnames(dm), colnames(do_something_with_pipe(dm)))
