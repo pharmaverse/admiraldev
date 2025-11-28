@@ -29,8 +29,8 @@ dataset_vignette <- function(dataset, display_vars = NULL, filter = NULL) {
   assert_data_frame(dataset, required_vars = display_vars)
   filter <- assert_filter_cond(enexpr(filter), optional = TRUE)
 
-  out <- dataset %>%
-    filter_if(filter) %>%
+  out <- dataset |>
+    filter_if(filter) |>
     mutate(across(where(is.character), as.factor))
 
   # Create a short markdown table when this function is called outside {pkgdown}
