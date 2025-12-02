@@ -94,7 +94,7 @@ test_that("assert_data_frame Test 5: error if dataframe is grouped", {
     ~STUDYID, ~USUBJID, ~ARMCD,
     "xyz",    "1",      "PLACEBO",
     "xyz",    "2",      "ACTIVE"
-  ) |> group_by(ARMCD)
+  ) %>% group_by(ARMCD)
 
   expect_error(
     example_fun(data),
