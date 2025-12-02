@@ -1218,9 +1218,9 @@ assert_unit <- function(dataset,
       )
     }
   )
-  units <- data_unit |>
-    filter(PARAMCD == param & !is.na(`_unit`)) |>
-    pull(`_unit`) |>
+  units <- data_unit %>%
+    filter(PARAMCD == param & !is.na(`_unit`)) %>%
+    pull(`_unit`) %>%
     unique()
 
   if (length(units) > 1L) {
@@ -1725,9 +1725,9 @@ assert_one_to_one <- function(dataset,
   assert_data_frame(dataset, required_vars = expr_c(vars1, vars2))
 
   uniques <- unique(select(dataset, !!!vars1, !!!vars2))
-  one_to_many <- uniques |>
-    group_by(!!!vars1) |>
-    filter(n() > 1) |>
+  one_to_many <- uniques %>%
+    group_by(!!!vars1) %>%
+    filter(n() > 1) %>%
     arrange(!!!vars1)
 
   if (nrow(one_to_many) > 0) {
@@ -1746,9 +1746,9 @@ assert_one_to_one <- function(dataset,
     )
   }
 
-  many_to_one <- uniques |>
-    group_by(!!!vars2) |>
-    filter(n() > 1) |>
+  many_to_one <- uniques %>%
+    group_by(!!!vars2) %>%
+    filter(n() > 1) %>%
     arrange(!!!vars2)
 
   if (nrow(many_to_one) > 0) {
