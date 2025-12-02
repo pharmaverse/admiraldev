@@ -101,8 +101,8 @@ roclet_process.roclet_rdx <- function(x, blocks, env, base_path) {
   # pre-process blocks to
   # - move @permitted and @default tags into @param tags and add defaults from function call
   # - transform @caption, @info and @code tags into @examplex tags
-  blocks <- blocks |>
-    map(transform_param, rdx_permitted_values = rdx_permitted_values) |>
+  blocks <- blocks %>%
+    map(transform_param, rdx_permitted_values = rdx_permitted_values) %>%
     map(transform_examplesx)
   # call standard processing of rd roclet
   NextMethod()
@@ -165,8 +165,8 @@ transform_param <- function(block, rdx_permitted_values) {
         }
         tags[[i]]$val$ref <- ref_resolved
       }
-      act_param$permitted <- tags[[i]]$val |>
-        discard(is.na) |>
+      act_param$permitted <- tags[[i]]$val %>%
+        discard(is.na) %>%
         paste(collapse = " ")
     } else if (tags[[i]]$tag == "default") {
       act_param$default <- tags[[i]]$val
@@ -268,11 +268,11 @@ transform_examplesx <- function(block) {
             tags[[i]]$val$code,
             expected_cnds = tags[[i]]$val$options$expected_cnds,
             env = example_env
-          ) |>
-            str_replace_all("\\%", "\\\\%") |>
+          ) %>%
+            str_replace_all("\\%", "\\\\%") %>%
             # replace/remove unicode characters which cause issues in building
             # pdf manual resulting in rejection by CRAN
-            str_replace_all("\\u2139", "i") |> # replace information source character with "i"
+            str_replace_all("\\u2139", "i") %>% # replace information source character with "i"
             str_remove_all("\\u200B"), # remove zero-width space
           "}\\if{html}{\\out{</div>}}",
           sep = ""

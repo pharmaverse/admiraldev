@@ -81,7 +81,7 @@ process_set_values_to <- function(dataset,
     }
   )
   if (!is.null(expected_types)) {
-    types <- map_chr(result, typeof) |>
+    types <- map_chr(result, typeof) %>%
       map_chr(function(x) if_else(x %in% c("integer", "double"), "numeric", x))
     vars_to_check <- intersect(names(set_values_to), names(expected_types))
     if (length(vars_to_check) > 0) {
