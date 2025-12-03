@@ -8,6 +8,7 @@
 #' @param cyclocomp Cyclomatic complexity linter
 #' @param indentation Indentation linter
 #' @param undesirable_function Undesirable function linter
+#' @param pipe_consistency Pipe consistency linter
 #' @param ... Any additional default linters to specify for use within the package
 #'
 #' @details
@@ -33,6 +34,7 @@ admiral_linters <- function(
   line_length = lintr::line_length_linter(100),
   object_usage = NULL,
   cyclocomp = lintr::cyclocomp_linter(complexity_limit = 20),
+  pipe_consistency = lintr::pipe_consistency_linter("auto"),
   indentation = NULL,
   undesirable_function = lintr::undesirable_function_linter(
     fun = c(
@@ -54,6 +56,7 @@ admiral_linters <- function(
       line_length_linter = line_length,
       object_usage_linter = object_usage,
       cyclocomp_linter = cyclocomp,
+      pipe_consistency_linter = pipe_consistency,
       indentation_linter = indentation,
       undesirable_function_linter = undesirable_function,
       pipe_consistency_linter = lintr::pipe_consistency_linter("auto"),
