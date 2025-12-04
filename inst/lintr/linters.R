@@ -59,7 +59,6 @@ admiral_linters <- function(
       pipe_consistency_linter = pipe_consistency,
       indentation_linter = indentation,
       undesirable_function_linter = undesirable_function,
-      pipe_consistency_linter = lintr::pipe_consistency_linter("auto"),
       ...
     )
     # Add custom linters below
