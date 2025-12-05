@@ -561,7 +561,9 @@ roxy_tag_rd.roxy_tag_examplex <- function(x, base_path, env) {
 
 #' @export
 merge.rd_section_examplex <- function(x, y, ...) {
-  stopifnot(identical(class(x), class(y)))
+  if (!identical(x$type, y$type)) {
+    cli_abort("Can't merge rd sections of different types: {.val {x$type}} and {.val {y$type}}")
+  }
   rd_section(
     x$type,
     list(

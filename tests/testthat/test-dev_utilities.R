@@ -18,10 +18,9 @@ test_that("convert_dtm_to_dtc Test 2: works if dtm is in correct format", {
 
 ## Test 3: Error is thrown if dtm is not in correct format ----
 test_that("convert_dtm_to_dtc Test 3: Error is thrown if dtm is not in correct format", {
-  expect_error(
+  expect_snapshot(
     convert_dtm_to_dtc("2022-04-05T15:26:14"),
-    "lubridate::is.instant(dtm) is not TRUE",
-    fixed = TRUE
+    error = TRUE
   )
 })
 

@@ -25,13 +25,14 @@
 #'
 #' @export
 deprecate_inform <- function(
-    when,
-    what,
-    with = NULL,
-    details = NULL,
-    id = NULL,
-    env = rlang::caller_env(),
-    user_env = rlang::caller_env(2)) {
+  when,
+  what,
+  with = NULL,
+  details = NULL,
+  id = NULL,
+  env = rlang::caller_env(),
+  user_env = rlang::caller_env(2)
+) {
   tryCatch(
     lifecycle::deprecate_soft(
       when = when,
