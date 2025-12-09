@@ -5,7 +5,8 @@
 #'
 #' @param arg A function argument to be checked
 #' @param required_vars A list of variables created using `exprs()`
-#' @param check_is_grouped Throws an error if `dataset` is grouped?
+#' @param check_is_grouped Throws an error if `dataset` is grouped
+#' @param check_is_rowwise Throws an error if `dataset` is rowwise
 #' @param optional Is the checked argument optional? If set to `FALSE` and `arg`
 #' is `NULL` then an error is thrown
 #'
@@ -44,6 +45,7 @@
 assert_data_frame <- function(arg,
                               required_vars = NULL,
                               check_is_grouped = TRUE,
+                              check_is_rowwise = TRUE,
                               optional = FALSE,
                               arg_name = rlang::caller_arg(arg),
                               message = NULL,
@@ -70,7 +72,22 @@ assert_data_frame <- function(arg,
   if (check_is_grouped && dplyr::is_grouped_df(arg)) {
     cli_abort(
       message = message %||%
-        "Argument {.arg {arg_name}} must not be a grouped dataset, please `ungroup()` it.",
+        paste(
+          "Argument {.arg {arg_name}} must not be a grouped dataset, please `ungroup()` it",
+          "or set `check_is_grouped = FALSE`."
+        ),
+      class = c(class, "assert-admiraldev"),
+      call = call
+    )
+  }
+
+  if (check_is_rowwise && inherits(arg, "rowwise_df")) {
+    cli_abort(
+      message = message %||%
+        paste(
+          "Argument {.arg {arg_name}} must not be a grouped dataset, please `ungroup()` it",
+          "or set `check_is_rowwise = FALSE`."
+        ),
       class = c(class, "assert-admiraldev"),
       call = call
     )

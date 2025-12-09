@@ -53,6 +53,21 @@ admiraldev:::execute_example("log(-1)")
 #> NaNs produced
 #> If this is expected, add any of the classes "simpleWarning", "warning", and
 #> "condition" to the argument `expected_cnds`.
+#> In addition: Warning message:
+#> [38;5;251m── [1mConflicts[22m ───────────────────────────────────────────────────────── admiraldev conflicts
+#> ──
+#> [31m✖[38;5;251m `[32massert_atomic_vector[38;5;251m` masks `[34madmiraldev[38;5;251m::assert_atomic_vector()`.
+#> [31m✖[38;5;251m `[32massert_character_scalar[38;5;251m` masks `[34madmiraldev[38;5;251m::assert_character_scalar()`.
+#> [31m✖[38;5;251m `[32massert_character_vector[38;5;251m` masks `[34madmiraldev[38;5;251m::assert_character_vector()`.
+#>   … and more.
+#> [36mi[38;5;251m [90mDid you accidentally source a file rather than using `load_all()`?[38;5;251m
+#>   [90mRun `rm(list = c("assert_atomic_vector", "assert_character_scalar",[38;5;251m
+#>   [90m"assert_character_vector", "assert_data_frame", "assert_date_var", "assert_date_vector",[38;5;251m
+#>   [90m"assert_expr", "assert_expr_list", "assert_filter_cond", "assert_function",[38;5;251m
+#>   [90m"assert_integer_scalar", "assert_list_element", "assert_list_of", "assert_logical_scalar",[38;5;251m
+#>   [90m"assert_named", "assert_numeric_vector", "assert_one_to_one",[38;5;251m
+#>   [90m"assert_param_does_not_exist", "assert_s3_class", "assert_same_type", "assert_symbol",[38;5;251m
+#>   [90m"assert_unit", "assert_vars", "assert_varval_list"))` to remove the conflicts.[38;5;251m[39m 
 
 admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
 #> [1] "log(-1)\n#> [1] NaN\n#> Warning in log(-1) : NaNs produced"}\if{html}{\out{</div>}}}}
