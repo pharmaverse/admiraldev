@@ -72,10 +72,7 @@ assert_data_frame <- function(arg,
   if (check_is_grouped && dplyr::is_grouped_df(arg)) {
     cli_abort(
       message = message %||%
-        paste(
-          "Argument {.arg {arg_name}} must not be a grouped dataset, please `ungroup()` it",
-          "or set `check_is_grouped = FALSE`."
-        ),
+        "Argument {.arg {arg_name}} must not be a grouped dataset, please `ungroup()` it.",
       class = c(class, "assert-admiraldev"),
       call = call
     )
@@ -84,10 +81,7 @@ assert_data_frame <- function(arg,
   if (check_is_rowwise && inherits(arg, "rowwise_df")) {
     cli_abort(
       message = message %||%
-        paste(
-          "Argument {.arg {arg_name}} must not be a rowwise dataset, please `ungroup()` it",
-          "or set `check_is_rowwise = FALSE`."
-        ),
+        "Argument {.arg {arg_name}} must not be a rowwise dataset, please `ungroup()` it.",
       class = c(class, "assert-admiraldev"),
       call = call
     )
