@@ -28,6 +28,9 @@ documentation contains an R6 class. (#512)
 - Added a new "Writing Custom Examples" vignette containing directives on how to build the "Examples" sections
 for functions which use the custom `rdx_roclet()`. (#503)
 
+- The "Release Strategy" vignette was updated to remove inconsistencies in the "Hot Fix Release section", 
+and to improve its formatting. (#365)
+
 ## Various
 
 # admiraldev 1.3.1
