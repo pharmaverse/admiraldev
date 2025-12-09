@@ -85,7 +85,7 @@ assert_data_frame <- function(arg,
     cli_abort(
       message = message %||%
         paste(
-          "Argument {.arg {arg_name}} must not be a grouped dataset, please `ungroup()` it",
+          "Argument {.arg {arg_name}} must not be a rowwise dataset, please `ungroup()` it",
           "or set `check_is_rowwise = FALSE`."
         ),
       class = c(class, "assert-admiraldev"),

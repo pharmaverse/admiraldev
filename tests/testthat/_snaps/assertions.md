@@ -28,7 +28,7 @@
       example_fun(data)
     Condition
       Error in `example_fun()`:
-      ! Argument `dataset` must not be a grouped dataset, please `ungroup()` it or set `check_is_rowwise = FALSE`.
+      ! Argument `dataset` must not be a rowwise dataset, please `ungroup()` it or set `check_is_rowwise = FALSE`.
 
 # assert_data_frame Test 7: error if an expected variable is missing
 
