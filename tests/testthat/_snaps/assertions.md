@@ -20,7 +20,7 @@
       example_fun(data)
     Condition
       Error in `example_fun()`:
-      ! Argument `dataset` must not be a grouped dataset, please `ungroup()` it.
+      ! Argument `dataset` must not be a grouped dataset, please `dplyr::ungroup()` it.
 
 # assert_data_frame Test 6: error if dataframe is rowwise
 
@@ -28,7 +28,7 @@
       example_fun(data)
     Condition
       Error in `example_fun()`:
-      ! Argument `dataset` must not be a rowwise dataset, please `ungroup()` it.
+      ! Argument `dataset` must not be a rowwise dataset, please `dplyr::ungroup()` it.
 
 # assert_data_frame Test 7: error if an expected variable is missing
 
