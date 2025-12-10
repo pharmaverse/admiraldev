@@ -94,6 +94,10 @@ Attaching package: ‘xxxx’The following objects are masked from
 
 - Variables and datasets name are expected to be uppercase.
 
+- All references to links for websites and/or documents must include the
+  resource’s full title. This is to ensure that resources can be found
+  if links become defunct or broken.
+
 - All the codes must be described, executed and the output result
   displayed once the code is executed. Use:
 

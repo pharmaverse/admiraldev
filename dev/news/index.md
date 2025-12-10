@@ -57,6 +57,11 @@
   [`rdx_roclet()`](https://pharmaverse.github.io/admiraldev/dev/reference/rdx_roclet.md).
   ([\#503](https://github.com/pharmaverse/admiraldev/issues/503))
 
+- Added a note to the “Writing Vignettes” vignette to encourage users to
+  include the full title of all linked resources to ensure that
+  resources can be found if links become defunct or broken.
+  ([\#463](https://github.com/pharmaverse/admiraldev/issues/463))
+
 ### Various
 
 ## admiraldev 1.3.1
