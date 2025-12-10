@@ -101,6 +101,7 @@ quosures
 repo
 reproducibility
 roclet
+rowwise
 roxygen
 styler
 testthat

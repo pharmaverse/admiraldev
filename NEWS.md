@@ -3,13 +3,16 @@
 ## New Features
 
 - Added custom `{admiral}` linter configuration function `admiral_linters()` under `inst/lintr/linters.R` to enable consistent 
-lint programming standards across the admiral family of packages. New configurations include, for instance, enforcing the use 
+lint programming standards across the `{admiral}` family of packages. New configurations include, for instance, enforcing the use 
 of `cli::cli_abort()` over `stop()` and enforcing the use of `cli::cli_warn()` over `warning()`. (#506)
 
 ## Updates of Existing Functions
 
 - The `rdx_roclet()` was updated such that it no longer fails if the
 documentation contains an R6 class. (#512)
+
+- `assert_data_frame()` was enhanced with the addition of a new argument `check_is_rowwise` which checks whether the input dataset is rowwise.
+This is set as `TRUE` by default, so may constitute a breaking change if rowwise datasets were being passed to `assert_data_frame()`. (#475)
 
 ## Breaking Changes
 
