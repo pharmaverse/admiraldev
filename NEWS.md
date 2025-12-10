@@ -31,6 +31,10 @@ This is set as `TRUE` by default, so may constitute a breaking change if rowwise
 - Added a new "Writing Custom Examples" vignette containing directives on how to build the "Examples" sections
 for functions which use the custom `rdx_roclet()`. (#503)
 
+- Added a note to the "Writing Vignettes" vignette to encourage users to include the 
+full title of all linked resources to ensure that resources can be found if links
+become defunct or broken. (#463)
+
 ## Various
 
 # admiraldev 1.3.1
