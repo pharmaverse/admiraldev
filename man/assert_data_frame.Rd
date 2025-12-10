@@ -8,6 +8,7 @@ assert_data_frame(
   arg,
   required_vars = NULL,
   check_is_grouped = TRUE,
+  check_is_rowwise = TRUE,
   optional = FALSE,
   arg_name = rlang::caller_arg(arg),
   message = NULL,
@@ -28,7 +29,13 @@ assert_data_frame(
 \item{Default value}{\code{NULL}}
 }}
 
-\item{check_is_grouped}{Throws an error if \code{dataset} is grouped?
+\item{check_is_grouped}{Throws an error if \code{dataset} is grouped
+
+\describe{
+\item{Default value}{\code{TRUE}}
+}}
+
+\item{check_is_rowwise}{Throws an error if \code{dataset} is rowwise
 
 \describe{
 \item{Default value}{\code{TRUE}}
