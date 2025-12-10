@@ -72,10 +72,8 @@ releases](https://github.com/pharmaverse/admiral/releases) for reference and
 more details). 
 
 
-    This releases onto Github archives the version of code within the `main` branch, attaches   the News/Changelog file, bundles the code into a `tar.gz` file and
-    makes a validation report via the GitHub action `validation` from
-    [insightsengineering/validatoR](https://github.com/insightsengineering/thevalidatoR). It
-    also builds the website for the released version and stores it in a new
+    This releases onto Github, archives the version of code within the `main` branch, bundles the code
+    into a `tar.gz` file, builds the website for the released version and stores it in a new
     `vx.y.z` folder on the `gh-pages` branch.
 
 To start development work ahead of the next planned release, immediately create 
@@ -123,7 +121,6 @@ A hot fix release is done in the following steps:
         * Archives the version of code within the `patch` branch.
         * Attaches the News/Changelog file.
         * Bundles the code into a `tar.gz` file.
-        * Makes a validation report via the GitHub action `validation` from [insightsengineering/validatoR](https://github.com/insightsengineering/thevalidatoR).
         * Builds the website for the released version and stores it in a new `vx.y.z` folder on the `gh-pages` branch.
 
 1. **Merge into `main`:** The hot fixes should then be merged into the `main` branch through an additional Pull Request. Merging the PR will update the version in the `DESCRIPTION` file to a development version.
