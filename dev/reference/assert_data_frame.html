@@ -9,7 +9,7 @@ a set of required variables"><meta property="og:image" content="https://pharmave
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9008</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9009</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,6 +59,7 @@ a set of required variables</p>
 <span>  <span class="va">arg</span>,</span>
 <span>  required_vars <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  check_is_grouped <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  check_is_rowwise <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  optional <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  arg_name <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/caller_arg.html" class="external-link">caller_arg</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span>,</span>
 <span>  message <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -90,7 +91,16 @@ a set of required variables</p>
 
 
 <dt id="arg-check-is-grouped">check_is_grouped<a class="anchor" aria-label="anchor" href="#arg-check-is-grouped"></a></dt>
-<dd><p>Throws an error if <code>dataset</code> is grouped?</p>
+<dd><p>Throws an error if <code>dataset</code> is grouped</p>
+<dl><dt>Default value</dt>
+<dd><p><code>TRUE</code></p></dd>
+
+
+</dl></dd>
+
+
+<dt id="arg-check-is-rowwise">check_is_rowwise<a class="anchor" aria-label="anchor" href="#arg-check-is-rowwise"></a></dt>
+<dd><p>Throws an error if <code>dataset</code> is rowwise</p>
 <dl><dt>Default value</dt>
 <dd><p><code>TRUE</code></p></dd>
 
@@ -204,7 +214,8 @@ the input is returned invisibly.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">dm</span>, <span class="va">USUBJID</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in example_fun(group_by(dm, USUBJID)) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Argument `dataset` must not be a grouped dataset, please `ungroup()` it.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Argument `dataset` must not be a grouped dataset, please</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> `dplyr::ungroup()` it.</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

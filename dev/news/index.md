@@ -7,12 +7,14 @@
 - Added custom [admiral](https://pharmaverse.github.io/admiral/) linter
   configuration function `admiral_linters()` under
   `inst/lintr/linters.R` to enable consistent lint programming standards
-  across the admiral family of packages. New configurations include, for
-  instance, enforcing the use of
-  [`cli::cli_abort()`](https://rdrr.io/pkg/cli/man/cli_abort.html) over
-  [`stop()`](https://rdrr.io/r/base/stop.html) and enforcing the use of
-  [`cli::cli_warn()`](https://rdrr.io/pkg/cli/man/cli_abort.html) over
-  [`warning()`](https://rdrr.io/r/base/warning.html).
+  across the [admiral](https://pharmaverse.github.io/admiral/) family of
+  packages. New configurations include, for instance, enforcing the use
+  of
+  [`cli::cli_abort()`](https://cli.r-lib.org/reference/cli_abort.html)
+  over [`stop()`](https://rdrr.io/r/base/stop.html) and enforcing the
+  use of
+  [`cli::cli_warn()`](https://cli.r-lib.org/reference/cli_abort.html)
+  over [`warning()`](https://rdrr.io/r/base/warning.html).
   ([\#506](https://github.com/pharmaverse/admiraldev/issues/506))
 
 ### Updates of Existing Functions
@@ -22,6 +24,14 @@
   was updated such that it no longer fails if the documentation contains
   an R6 class.
   ([\#512](https://github.com/pharmaverse/admiraldev/issues/512))
+
+- [`assert_data_frame()`](https://pharmaverse.github.io/admiraldev/dev/reference/assert_data_frame.md)
+  was enhanced with the addition of a new argument `check_is_rowwise`
+  which checks whether the input dataset is rowwise. This is set as
+  `TRUE` by default, so may constitute a breaking change if rowwise
+  datasets were being passed to
+  [`assert_data_frame()`](https://pharmaverse.github.io/admiraldev/dev/reference/assert_data_frame.md).
+  ([\#475](https://github.com/pharmaverse/admiraldev/issues/475))
 
 ### Breaking Changes
 
@@ -190,8 +200,8 @@ CRAN release: 2024-06-06
 
 - Error messaging throughout the package have been updated from
   [`rlang::abort()`](https://rlang.r-lib.org/reference/abort.html) to
-  [`cli::cli_abort()`](https://rdrr.io/pkg/cli/man/cli_abort.html). As a
-  part of the update, each of the `assert_*()` functions have new
+  [`cli::cli_abort()`](https://cli.r-lib.org/reference/cli_abort.html).
+  As a part of the update, each of the `assert_*()` functions have new
   arguments `assert_*(message, arg_name, call, class).`
   ([\#367](https://github.com/pharmaverse/admiraldev/issues/367))
 

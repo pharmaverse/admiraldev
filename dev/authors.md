@@ -40,12 +40,12 @@ Source:
 Straub B, Bundfuss S, Dickinson J, Farrugia R, Gautier F, Mancini E,
 Miller G, Sjoberg D, Thoma S (2025). *admiraldev: Utility Functions and
 Development Tools for the Admiral Package Family*. R package version
-1.3.1.9008, <https://pharmaverse.github.io/admiraldev/>.
+1.3.1.9009, <https://pharmaverse.github.io/admiraldev/>.
 
     @Manual{,
       title = {admiraldev: Utility Functions and Development Tools for the Admiral Package Family},
       author = {Ben Straub and Stefan Bundfuss and Jeffrey Dickinson and Ross Farrugia and Fanny Gautier and Edoardo Mancini and Gordon Miller and Daniel Sjoberg and Stefan Thoma},
       year = {2025},
-      note = {R package version 1.3.1.9008},
+      note = {R package version 1.3.1.9009},
       url = {https://pharmaverse.github.io/admiraldev/},
     }

@@ -10,6 +10,7 @@ assert_data_frame(
   arg,
   required_vars = NULL,
   check_is_grouped = TRUE,
+  check_is_rowwise = TRUE,
   optional = FALSE,
   arg_name = rlang::caller_arg(arg),
   message = NULL,
@@ -39,7 +40,15 @@ assert_data_frame(
 
 - check_is_grouped:
 
-  Throws an error if `dataset` is grouped?
+  Throws an error if `dataset` is grouped
+
+  Default value
+
+  :   `TRUE`
+
+- check_is_rowwise:
+
+  Throws an error if `dataset` is rowwise
 
   Default value
 
@@ -152,5 +161,6 @@ try(example_fun("Not a dataset"))
 
 try(example_fun(group_by(dm, USUBJID)))
 #> Error in example_fun(group_by(dm, USUBJID)) : 
-#>   Argument `dataset` must not be a grouped dataset, please `ungroup()` it.
+#>   Argument `dataset` must not be a grouped dataset, please
+#> `dplyr::ungroup()` it.
 ```

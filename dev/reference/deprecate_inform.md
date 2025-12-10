@@ -55,8 +55,8 @@ deprecate_inform(
 
   `details` can either be a single string or a character vector, which
   will be converted to a [bulleted
-  list](https://rdrr.io/pkg/cli/man/cli_bullets.html). By default, info
-  bullets are used. Provide a named vectors to override.
+  list](https://cli.r-lib.org/reference/cli_bullets.html). By default,
+  info bullets are used. Provide a named vectors to override.
 
 - id:
 
