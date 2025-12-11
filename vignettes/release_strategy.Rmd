@@ -38,9 +38,6 @@ these issues. However, as our backlog is minimal every issue should be considere
 a Priority Issue.  If an issue is not a Priority, then it should be sent back to 
 a Discussion Tab and formed into a Priority issue.
 
-We should share in advance with our users a high level summary of expected package
-updates via the community meetings, especially any anticipated breaking changes.
-
 # Package Release Process
 
 In the following the most important steps for a planned release and a hot fix
