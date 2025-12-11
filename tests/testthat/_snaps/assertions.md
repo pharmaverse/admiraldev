@@ -416,7 +416,7 @@
       ! The elements of the list in argument `arg` must be a symbol, character scalar, numeric scalar, an expression, or NA.
       i "DTHSEQ" = `TRUE` is of type <logical>
 
-# assert_varval_list Test 74: error if `accept_expr` is FALSE, `accept_var` is TRUE and value is invalid
+# assert_varval_list Test 74: error if `accept_expr` is FALSE, `accept_var` is          TRUE and value is invalid
 
     Code
       example_fun(exprs(DTHSEQ = TRUE))
