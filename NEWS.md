@@ -37,6 +37,8 @@ become defunct or broken. (#463)
 
 ## Various
 
+- Added various unit tests to improve the test coverage of `{admiraldev}`. (#524)
+
 # admiraldev 1.3.1
 
 - Replace unicode characters in .Rd files. (#499)

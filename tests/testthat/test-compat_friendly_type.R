@@ -79,12 +79,21 @@ test_that("friendly_type_of Test 4: friendly_type_of() edge cases", {
   expect_equal(friendly_type_of(mean), "a function")
 })
 # .rlang_as_friendly_type ----
-## Test 5: .rlang_as_friendly_type() works ----
-test_that(".rlang_as_friendly_type Test 5: .rlang_as_friendly_type() works", {
+## Test 5: .rlang_as_friendly_type() works for S4 and internal types ----
+test_that(".rlang_as_friendly_type Test 5: .rlang_as_friendly_type() works for S4 and internal types", {
   withr::local_options(lifecycle_verbosity = "quiet")
+
   setClass("person", slots = c(name = "character", age = "numeric"))
   john <- new("person", name = "John", age = 18)
   expect_equal(.rlang_as_friendly_type(typeof(john)), "an S4 object")
+
+  expect_equal(.rlang_as_friendly_type("list"), "a list")
+  expect_equal(.rlang_as_friendly_type("externalptr"), "a pointer")
+  expect_equal(.rlang_as_friendly_type("char"), "an internal string")
+  expect_equal(.rlang_as_friendly_type("promise"), "an internal promise")
+  expect_equal(.rlang_as_friendly_type("..."), "an internal dots object")
+  expect_equal(.rlang_as_friendly_type("any"), "an internal `any` object")
+  expect_equal(.rlang_as_friendly_type("custom_type"), "custom_type")
 })
 
 # .rlang_stop_unexpected_typeof ----
