@@ -57,6 +57,10 @@
   [`rdx_roclet()`](https://pharmaverse.github.io/admiraldev/dev/reference/rdx_roclet.md).
   ([\#503](https://github.com/pharmaverse/admiraldev/issues/503))
 
+- The “Release Strategy” vignette was updated to remove inconsistencies
+  in the “Hot Fix Release section”, and to improve its formatting.
+  ([\#365](https://github.com/pharmaverse/admiraldev/issues/365))
+
 - Added a note to the “Writing Vignettes” vignette to encourage users to
   include the full title of all linked resources to ensure that
   resources can be found if links become defunct or broken.
