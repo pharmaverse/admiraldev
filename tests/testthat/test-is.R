@@ -24,3 +24,9 @@ test_that("is_valid_dtc Test 3: returns TRUE if input are valid dtc", {
 test_that("is_valid_dtc Test 4: returns error if input if input are NOT valid dtc ", {
   expect_false(is_valid_dtc("2021-03-T01:20:30"))
 })
+
+# is_auto  ----
+## Test 5: returns error if argument is not 'auto' ----
+test_that("is_auto Test 5: returns error if argument is not 'auto'", {
+  expect_false(is_auto("otua"))
+})

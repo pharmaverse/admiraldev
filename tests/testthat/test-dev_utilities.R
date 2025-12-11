@@ -4,6 +4,10 @@ test_that("arg_name Test 1: arg_name works", {
   withr::local_options(lifecycle_verbosity = "quiet")
   expect_equal(arg_name(sym("a")), "a")
   expect_equal(arg_name(call("enquo", sym("a"))), "a")
+  expect_equal(arg_name(quote(enexpr(my_var))), "my_var")
+  expect_equal(arg_name(quote(rlang::enexpr(my_var))), "my_var")
+  expect_equal(arg_name(quote(mean(my_var))), "my_var")
+  expect_equal(arg_name(quote(mean(identity(my_var)))), "my_var")
   expect_error(arg_name("a"), "Could not extract argument name from")
 })
 
@@ -100,5 +104,20 @@ test_that("extract_vars Test 11: works with calls", {
   expect_equal(
     object = extract_vars(expr({{ fun }}((BASE - AVAL) / BASE * 100, LLQ / 2))),
     expected = unname(exprs(BASE, AVAL, LLQ))
+  )
+})
+
+# %or% ----
+## Test 12: works ----
+test_that("%or% Test 12: works", {
+  input <- dplyr::tribble(
+    ~USUBJID, ~AVAL,
+    "P01",    2,
+  )
+  expect_equal(
+    input,
+    expected = input %>%
+      dplyr::select(-AVAL) %>%
+      dplyr::mutate(AVAL = sqrt("4") %or% 2)
   )
 })
