@@ -305,7 +305,7 @@ test_that("assert_character_scalar Test 14: error if `arg` not in values", {
 test_that("assert_character_scalar Test 15: error if not character", {
   example_fun2 <- function(msg_type) {
     msg_type <- assert_character_scalar(msg_type,
-                                        values = c("warning", "error"), case_sensitive = FALSE
+      values = c("warning", "error"), case_sensitive = FALSE
     )
 
     if (msg_type == "warning") {
@@ -327,7 +327,7 @@ test_that("assert_character_scalar Test 15: error if not character", {
 test_that("assert_character_scalar Test 16: error if input is a vector", {
   example_fun2 <- function(msg_type) {
     msg_type <- assert_character_scalar(msg_type,
-                                        values = c("warning", "error"), case_sensitive = FALSE
+      values = c("warning", "error"), case_sensitive = FALSE
     )
 
     if (msg_type == "warning") {
@@ -1256,7 +1256,8 @@ test_that("assert_varval_list Test 73: error if `accept_expr` is TRUE and value 
 })
 
 ## Test 74: error if `accept_expr` is FALSE, `accept_var` is TRUE and value is invalid ----
-test_that("assert_varval_list Test 74: error if `accept_expr` is FALSE, `accept_var` is TRUE and value is invalid", {
+test_that("assert_varval_list Test 74: error if `accept_expr` is FALSE, `accept_var` is
+          TRUE and value is invalid", {
   example_fun <- function(arg) {
     assert_varval_list(arg, accept_expr = FALSE, accept_var = TRUE)
   }

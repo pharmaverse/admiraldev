@@ -80,7 +80,7 @@ test_that("friendly_type_of Test 4: friendly_type_of() edge cases", {
 })
 # .rlang_as_friendly_type ----
 ## Test 5: .rlang_as_friendly_type() works for S4 and internal types ----
-test_that(".rlang_as_friendly_type Test 5: .rlang_as_friendly_type() works for S4 and internal types", {
+test_that(".rlang_as_friendly_type Test 5: .rlang_as_friendly_type works for S4 & internal types", {
   withr::local_options(lifecycle_verbosity = "quiet")
 
   setClass("person", slots = c(name = "character", age = "numeric"))
