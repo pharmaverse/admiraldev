@@ -68,6 +68,8 @@
 
 ### Various
 
+- Added a new contributor.
+
 ## admiraldev 1.3.1
 
 CRAN release: 2025-06-25
