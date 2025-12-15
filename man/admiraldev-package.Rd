@@ -25,6 +25,7 @@ Useful links:
 Authors:
 \itemize{
   \item Stefan Bundfuss (\href{https://orcid.org/0009-0005-0027-1198}{ORCID})
+  \item Arianna Cascone (\href{https://orcid.org/0000-0001-5948-2831}{ORCID})
   \item Jeffrey Dickinson
   \item Ross Farrugia
   \item Fanny Gautier
