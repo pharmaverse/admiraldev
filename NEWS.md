@@ -40,7 +40,7 @@ become defunct or broken. (#463)
 
 ## Various
 
-- New contributor. 
+- Added a new contributor. 
 
 # admiraldev 1.3.1
 
