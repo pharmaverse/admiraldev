@@ -40,6 +40,8 @@ become defunct or broken. (#463)
 
 ## Various
 
+- New contributor. 
+
 # admiraldev 1.3.1
 
 - Replace unicode characters in .Rd files. (#499)
