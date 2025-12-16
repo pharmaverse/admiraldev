@@ -28,6 +28,10 @@ This is set as `TRUE` by default, so may constitute a breaking change if rowwise
 
 ## Documentation
 
+- Added the "Ask AI" widget to the the bottom right of each page. It enables users to ask questions about `{admiraldev}` and the
+rest of the `{admiral}` ecosystem and receive answers from an LLM. It is trained on the documentation of all `{admiral}` packages
+and provided by [kapa.ai](https://docs.kapa.ai/kapa-for-open-source). (#120)
+
 - Added a new "Writing Custom Examples" vignette containing directives on how to build the "Examples" sections
 for functions which use the custom `rdx_roclet()`. (#503)
 
