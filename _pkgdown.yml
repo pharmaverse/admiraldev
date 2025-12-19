@@ -90,11 +90,6 @@ reference:
   contents:
   - has_keyword('documentation')
 
-- title: Join Functions
-  desc: dplyr join function without warning about different attributes
-  contents:
-  - has_keyword('joins')
-
 - title: Miscellaneous
   desc: Utilities without a theme
   contents:
