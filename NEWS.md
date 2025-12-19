@@ -20,7 +20,7 @@ This is set as `TRUE` by default, so may constitute a breaking change if rowwise
 These functions were originally created to suppress warnings about different attributes on LHS and RHS of joins. 
 With `{dplyr}` >= 1.1.1, this warning is no longer issued, making these wrapper functions redundant. 
 Users should now use the standard `{dplyr}` join functions directly. The minimum required version of `{dplyr}` 
-has been updated from 1.0.5 to 1.1.1.
+has been updated from 1.0.5 to 1.1.1. (#530)
 
 - The following function arguments are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#2487) (#2595)
 
