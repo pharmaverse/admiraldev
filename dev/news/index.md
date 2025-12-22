@@ -35,6 +35,20 @@
 
 ### Breaking Changes
 
+- Removed custom join functions
+  ([`anti_join()`](https://dplyr.tidyverse.org/reference/filter-joins.html),
+  [`inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html),
+  [`left_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html))
+  from [admiraldev](https://pharmaverse.github.io/admiraldev/). These
+  functions were originally created to suppress warnings about different
+  attributes on LHS and RHS of joins. With
+  [dplyr](https://dplyr.tidyverse.org) \>= 1.1.1, this warning is no
+  longer issued, making these wrapper functions redundant. Users should
+  now use the standard [dplyr](https://dplyr.tidyverse.org) join
+  functions directly. The minimum required version of
+  [dplyr](https://dplyr.tidyverse.org) has been updated from 1.0.5 to
+  1.1.1. ([\#530](https://github.com/pharmaverse/admiraldev/issues/530))
+
 - The following function arguments are entering the next phase of the
   [deprecation
   process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation):

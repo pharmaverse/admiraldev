@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9012</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9013</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +58,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
-<ul><li>
+<ul><li><p>Removed custom join functions (<code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">anti_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code>) from <a href="https://pharmaverse.github.io/admiraldev/">admiraldev</a>. These functions were originally created to suppress warnings about different attributes on LHS and RHS of joins. With <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a> &gt;= 1.1.1, this warning is no longer issued, making these wrapper functions redundant. Users should now use the standard <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a> join functions directly. The minimum required version of <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a> has been updated from 1.0.5 to 1.1.1. (<a href="https://github.com/pharmaverse/admiraldev/issues/530" class="external-link">#530</a>)</p></li>
+<li>
 <p>The following function arguments are entering the next phase of the <a href="https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation">deprecation process</a>: (<a href="https://github.com/pharmaverse/admiraldev/issues/2487" class="external-link">#2487</a>) (<a href="https://github.com/pharmaverse/admiraldev/issues/2595" class="external-link">#2595</a>)</p>
 <p><strong>Phase 1 (message)</strong></p>
 <p><strong>Phase 2 (warning)</strong></p>

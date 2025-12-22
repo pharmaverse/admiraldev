@@ -217,15 +217,6 @@ Functions for generating documentation
 - [`rdx_roclet()`](https://pharmaverse.github.io/admiraldev/dev/reference/rdx_roclet.md)
   : Roclet Extending the Standard rd Roclet
 
-## Join Functions
-
-dplyr join function without warning about different attributes
-
-- [`anti_join()`](https://pharmaverse.github.io/admiraldev/dev/reference/joins.md)
-  [`inner_join()`](https://pharmaverse.github.io/admiraldev/dev/reference/joins.md)
-  [`left_join()`](https://pharmaverse.github.io/admiraldev/dev/reference/joins.md)
-  : Join Functions
-
 ## Miscellaneous
 
 Utilities without a theme
