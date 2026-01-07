@@ -20,6 +20,7 @@ template:
       data-consent-screen-accept-button-text="Allow tracking"
       data-consent-screen-reject-button-text="No, thanks"
       data-modal-example-questions="Tell me a little about the {admiraldev} package., What assertion checks are provided by {admiraldev}?"
+      data-modal-search-placeholder="Ask me a question about {admiraldev} or the {admiral} ecosystem..."
       data-modal-z-index="9999"
       ></script>
 repo:
