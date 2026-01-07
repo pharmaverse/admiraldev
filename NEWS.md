@@ -46,7 +46,7 @@ become defunct or broken. (#463)
 
 ## Various
 
-- Added a new contributor. 
+- Added various unit tests to improve the test coverage of `{admiraldev}`. (#524)
 
 # admiraldev 1.3.1
 
