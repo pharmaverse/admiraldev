@@ -65,6 +65,15 @@
 
 ### Documentation
 
+- Added the “Ask AI” widget to the the bottom right of each page. It
+  enables users to ask questions about
+  [admiraldev](https://pharmaverse.github.io/admiraldev/) and the rest
+  of the [admiral](https://pharmaverse.github.io/admiral/) ecosystem and
+  receive answers from an LLM. It is trained on the documentation of all
+  [admiral](https://pharmaverse.github.io/admiral/) packages and
+  provided by [kapa.ai](https://docs.kapa.ai/kapa-for-open-source).
+  ([\#120](https://github.com/pharmaverse/admiraldev/issues/120))
+
 - Added a new “Writing Custom Examples” vignette containing directives
   on how to build the “Examples” sections for functions which use the
   custom
@@ -82,7 +91,9 @@
 
 ### Various
 
-- Added a new contributor.
+- Added various unit tests to improve the test coverage of
+  [admiraldev](https://pharmaverse.github.io/admiraldev/).
+  ([\#524](https://github.com/pharmaverse/admiraldev/issues/524))
 
 ## admiraldev 1.3.1
 
