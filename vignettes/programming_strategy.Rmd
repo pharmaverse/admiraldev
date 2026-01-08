@@ -873,6 +873,28 @@ When writing the unit test, check that the error has the right class, i.e.,
 
 Other unit tests of the deprecated function must be removed.
 
+# Experimental Functions
+
+admiral is stable with its core functions. New functions added to admiral must
+be labelled with the lifecycle badge **experimental**.  
+
+  ```{r, eval=FALSE}
+#' Title of the function
+#'
+#' @description
+#' `r lifecycle::badge("experimental")`
+#'
+  ``` 
+  
+Experimental functions will be given two release before we remove the badge. No
+deprecation messages will be given to the user if breaking changes are implemented
+within the two releases cycle. However, admiral will document the breaking change 
+in the `News.md`. Once the two release cycles is reached, admiral will remove the 
+**experimental** badge and we will proceed with the normal deprecation cycle if needed.
+
+This experimental time period allows for us to test out the function and receive
+feedback but doesn't burden us with a deprecation cycle. 
+  
 # Best Practices and Hints
 
 Please take the following list as recommendation and try to adhere to its rules if possible.
