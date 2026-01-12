@@ -13,7 +13,6 @@ CDISC
 CMD
 Changelog
 Codebase
-Codeowners
 Cyclomatic
 DM
 DTC
@@ -74,7 +73,6 @@ advs
 anonymized
 behaviour
 cmd
-codeowner
 cyclomatic
 datatable
 datetime
