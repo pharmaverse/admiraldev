@@ -24,7 +24,6 @@ messages.
 \seealso{
 Helpers for working with Quotes and Quoting:
 \code{\link{backquote}()},
-\code{\link{enumerate}()},
 \code{\link{squote}()}
 }
 \concept{quote}

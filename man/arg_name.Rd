@@ -17,19 +17,17 @@ arg_name(expr)
 \code{character} vector
 }
 \description{
-Extract Argument Name from an Expression
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+This function is \emph{deprecated}, please use \code{rlang::caller_arg()} instead.
 }
 \seealso{
-Developer Utility Functions:
-\code{\link{\%notin\%}()},
+Other deprecated: 
 \code{\link{\%or\%}()},
-\code{\link{contains_vars}()},
-\code{\link{convert_dtm_to_dtc}()},
-\code{\link{extract_vars}()},
-\code{\link{filter_if}()},
+\code{\link{enumerate}()},
 \code{\link{friendly_type_of}()},
 \code{\link{valid_time_units}()},
-\code{\link{vars2chr}()}
+\code{\link{what_is_it}()}
 }
-\concept{dev_utility}
-\keyword{dev_utility}
+\concept{deprecated}
+\keyword{deprecated}

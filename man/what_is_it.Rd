@@ -17,13 +17,17 @@ what_is_it(x)
 A \code{character} description of the type of \code{x}
 }
 \description{
-Returns a string describing what kind of object the input is.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+This function is \emph{deprecated}, please use \code{cli} functionality instead.
 }
-\examples{
-what_is_it("abc")
-what_is_it(1L)
-what_is_it(1:10)
-what_is_it(mtcars)
+\seealso{
+Other deprecated: 
+\code{\link{\%or\%}()},
+\code{\link{arg_name}()},
+\code{\link{enumerate}()},
+\code{\link{friendly_type_of}()},
+\code{\link{valid_time_units}()}
 }
-\concept{what}
-\keyword{what}
+\concept{deprecated}
+\keyword{deprecated}

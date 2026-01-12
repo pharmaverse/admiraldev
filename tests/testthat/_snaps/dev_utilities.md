@@ -6,3 +6,25 @@
       Error in `convert_dtm_to_dtc()`:
       ! Input `dtm` must be of class Date or POSIXct/POSIXt
 
+# extract_vars Test 13: %or% deprecation message if function is called
+
+    Code
+      input <- dplyr::tribble(~USUBJID, ~AVAL, "P01", 2, )
+      result <- input %>% dplyr::select(-AVAL) %>% dplyr::mutate(AVAL = sqrt("4") %or%
+        2)
+    Message
+      `%or%()` was deprecated in admiraldev 1.4.0.
+      x This message will turn into a warning at the beginning of 2027.
+      i See admiral's deprecation guidance: https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation
+      i Please get in touch if you are using this function!
+
+# valid_time_units Test 15: deprecation message if function is called
+
+    Code
+      result <- valid_time_units()
+    Message
+      `valid_time_units()` was deprecated in admiraldev 1.4.0.
+      x This message will turn into a warning at the beginning of 2027.
+      i See admiral's deprecation guidance: https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation
+      i Please get in touch if you are using this function!
+
