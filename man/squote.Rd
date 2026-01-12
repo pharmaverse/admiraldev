@@ -22,8 +22,7 @@ Wrap a String in Single Quotes
 \seealso{
 Helpers for working with Quotes and Quoting:
 \code{\link{backquote}()},
-\code{\link{dquote}()},
-\code{\link{enumerate}()}
+\code{\link{dquote}()}
 }
 \concept{quote}
 \keyword{quote}

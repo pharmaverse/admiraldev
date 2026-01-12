@@ -54,20 +54,6 @@ arg_name <- function(expr) { # nolint
     what = "admiraldev::arg_name()",
     with = "rlang::caller_arg()"
   )
-
-  if (length(expr) == 1L && is.symbol(expr)) {
-    deparse(expr)
-  } else if (length(expr) == 2L &&
-    (expr[[1L]] == quote(enexpr) || expr[[1L]] == quote(rlang::enexpr)) &&
-    is.symbol(expr[[2L]])) {
-    deparse(expr[[2L]])
-  } else if (is.call(expr) && length(expr) >= 2 && is.symbol(expr[[2]])) {
-    deparse(expr[[2L]])
-  } else if (is.call(expr) && length(expr) >= 2 && is.call(expr[[2]])) {
-    arg_name(expr[[2L]])
-  } else {
-    abort(paste0("Could not extract argument name from `", deparse(expr), "`"))
-  }
 }
 
 #' Extract All Symbols from a List of Expressions

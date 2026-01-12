@@ -104,8 +104,22 @@ test_that("extract_vars Test 11: works with calls", {
 })
 
 # %or% ----
-## Test 12: deprecation message if function is called ----
-test_that("%or% Test 12: deprecation message if function is called", {
+## Test 12: %or% works ----
+test_that("extract_vars Test 12: %or% works", {
+  input <- dplyr::tribble(
+    ~USUBJID, ~AVAL,
+    "P01",    2,
+  )
+  expect_equal(
+    input,
+    expected = input %>%
+      dplyr::select(-AVAL) %>%
+      dplyr::mutate(AVAL = sqrt("4") %or% 2)
+  )
+})
+
+## Test 13: %or% deprecation message if function is called ----
+test_that("extract_vars Test 13: %or% deprecation message if function is called", {
   expect_snapshot({
     input <- dplyr::tribble(
       ~USUBJID, ~AVAL,
@@ -118,8 +132,17 @@ test_that("%or% Test 12: deprecation message if function is called", {
 })
 
 # valid_time_units ----
-## Test 13: deprecation message if function is called ----
-test_that("valid_time_units Test 13: deprecation message if function is called", {
+## Test 14: works as intended ----
+test_that("valid_time_units Test 14: works as intended", {
+  expect_equal(
+    valid_time_units(),
+    c("years", "months", "days", "hours", "minutes", "seconds")
+  )
+})
+
+
+## Test 15: deprecation message if function is called ----
+test_that("valid_time_units Test 15: deprecation message if function is called", {
   expect_snapshot({
     result <- valid_time_units()
   })

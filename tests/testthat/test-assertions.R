@@ -1596,11 +1596,3 @@ test_that("assert_same_type Test 97: error if different type", {
     assert_same_type(true_value, false_value, missing_value)
   )
 })
-
-## Test 98: works as intended ----
-test_that("assert_same_type Test 98: works as intended", {
-  expect_equal(
-    valid_time_units(),
-    c("years", "months", "days", "hours", "minutes", "seconds")
-  )
-})

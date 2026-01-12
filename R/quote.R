@@ -24,19 +24,6 @@ enumerate <- function(x, quote_fun = backquote, conjunction = "and") {
     details = "This function was primarily used in error messaging, and can be
                replaced with 'cli' functionality: `cli::cli_abort('{.val {letters[1:3]}}')`"
   )
-
-  if (is.null(quote_fun)) {
-    quote_fun <- function(x) x
-  }
-  if (length(x) == 1L) {
-    quote_fun(x)
-  } else {
-    paste(
-      paste0(quote_fun(x[-length(x)]), collapse = ", "),
-      conjunction,
-      quote_fun(x[length(x)])
-    )
-  }
 }
 
 #' Wrap a String in Backquotes

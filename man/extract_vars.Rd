@@ -34,13 +34,9 @@ extract_vars(AVAL ~ ARMCD + AGEGR1, side = "rhs")
 \seealso{
 Developer Utility Functions:
 \code{\link{\%notin\%}()},
-\code{\link{\%or\%}()},
-\code{\link{arg_name}()},
 \code{\link{contains_vars}()},
 \code{\link{convert_dtm_to_dtc}()},
 \code{\link{filter_if}()},
-\code{\link{friendly_type_of}()},
-\code{\link{valid_time_units}()},
 \code{\link{vars2chr}()}
 }
 \concept{dev_utility}

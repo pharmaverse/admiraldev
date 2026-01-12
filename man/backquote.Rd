@@ -22,7 +22,6 @@ Wrap a String in Backquotes
 \seealso{
 Helpers for working with Quotes and Quoting:
 \code{\link{dquote}()},
-\code{\link{enumerate}()},
 \code{\link{squote}()}
 }
 \concept{quote}
