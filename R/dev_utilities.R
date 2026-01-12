@@ -34,21 +34,25 @@ convert_dtm_to_dtc <- function(dtm) {
 
 #' Extract Argument Name from an Expression
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `rlang::caller_arg()` instead.
+#'
 #' @param expr An expression created inside a function using `substitute()`
 #'
 #'
 #' @return `character` vector
 #'
-#' @keywords dev_utility
-#' @family dev_utility
+#' @keywords deprecated
+#' @family deprecated
 #'
 #' @export
 arg_name <- function(expr) { # nolint
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_stop(
     when = "1.1.0",
     what = "admiraldev::arg_name()",
-    details = "This function was primarily used in error messaging, and can be
-               replaced with `assert_*(x, arg_name = rlang::caller_arg(x))`"
+    with = "rlang::caller_arg()"
   )
 
   if (length(expr) == 1L && is.symbol(expr)) {
@@ -101,6 +105,11 @@ extract_vars <- function(x, side = "lhs") {
 
 #' Or
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*. Please get in touch if you are using this function!
+#'
 #' @param lhs Any valid R expression
 #' @param rhs Any valid R expression
 #'
@@ -113,13 +122,28 @@ extract_vars <- function(x, side = "lhs") {
 #'
 #' @export
 #'
-#' @keywords dev_utility
-#' @family dev_utility
+#' @keywords deprecated
+#' @family deprecated
 `%or%` <- function(lhs, rhs) {
+  deprecate_inform(
+    when = "1.4.0",
+    what = "admiraldev::`%or%`()",
+    details = c(
+      x = "This message will turn into a warning at the beginning of 2027.",
+      i = "See admiral's deprecation guidance:
+              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation",
+      i = "Please get in touch if you are using this function!"
+    )
+  )
   tryCatch(lhs, error = function(e) rhs)
 }
 
 #' Valid Time Units
+#'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*. Please get in touch if you are using this function!
 #'
 #' Contains the acceptable character vector of valid time units
 #'
@@ -127,9 +151,19 @@ extract_vars <- function(x, side = "lhs") {
 #'
 #' @export
 #'
-#' @keywords dev_utility
-#' @family dev_utility
+#' @keywords deprecated
+#' @family deprecated
 valid_time_units <- function() {
+  deprecate_inform(
+    when = "1.4.0",
+    what = "admiraldev::valid_time_units()",
+    details = c(
+      x = "This message will turn into a warning at the beginning of 2027.",
+      i = "See admiral's deprecation guidance:
+              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation",
+      i = "Please get in touch if you are using this function!"
+    )
+  )
   c("years", "months", "days", "hours", "minutes", "seconds")
 }
 

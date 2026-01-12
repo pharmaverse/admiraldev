@@ -1,14 +1,10 @@
 # arg_name ----
-## Test 1: arg_name works ----
-test_that("arg_name Test 1: arg_name works", {
-  withr::local_options(lifecycle_verbosity = "quiet")
-  expect_equal(arg_name(sym("a")), "a")
-  expect_equal(arg_name(call("enquo", sym("a"))), "a")
-  expect_equal(arg_name(quote(enexpr(my_var))), "my_var")
-  expect_equal(arg_name(quote(rlang::enexpr(my_var))), "my_var")
-  expect_equal(arg_name(quote(mean(my_var))), "my_var")
-  expect_equal(arg_name(quote(mean(identity(my_var)))), "my_var")
-  expect_error(arg_name("a"), "Could not extract argument name from")
+## Test 1: deprecation error if function is called ----
+test_that("arg_name Test 1: deprecation error if function is called", {
+  expect_error(
+    arg_name(sym("a")),
+    class = "lifecycle_error_deprecated"
+  )
 })
 
 # convert_dtm_to_dtc ----
@@ -108,16 +104,23 @@ test_that("extract_vars Test 11: works with calls", {
 })
 
 # %or% ----
-## Test 12: works ----
-test_that("%or% Test 12: works", {
-  input <- dplyr::tribble(
-    ~USUBJID, ~AVAL,
-    "P01",    2,
-  )
-  expect_equal(
-    input,
-    expected = input %>%
+## Test 12: deprecation message if function is called ----
+test_that("%or% Test 12: deprecation message if function is called", {
+  expect_snapshot({
+    input <- dplyr::tribble(
+      ~USUBJID, ~AVAL,
+      "P01",    2,
+    )
+    result <- input %>%
       dplyr::select(-AVAL) %>%
       dplyr::mutate(AVAL = sqrt("4") %or% 2)
-  )
+  })
+})
+
+# valid_time_units ----
+## Test 13: deprecation message if function is called ----
+test_that("valid_time_units Test 13: deprecation message if function is called", {
+  expect_snapshot({
+    result <- valid_time_units()
+  })
 })

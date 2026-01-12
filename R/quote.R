@@ -1,6 +1,9 @@
 #' Enumerate Multiple Elements
 #'
-#' Enumerate multiple elements of a vector or list.
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `cli` functionality instead.
 #'
 #' @param x A vector or list
 #' @param quote_fun Quoting function, defaults to `backquote`. If set to `NULL`,
@@ -10,17 +13,12 @@
 #'
 #' @return A `character` vector
 #'
-#' @keywords quote
-#' @family quote
-#'
-#' @examples
-#' enumerate(c("one", "two", "three"))
-#'
-#' enumerate(c(1, 2, 3), quote_fun = NULL)
+#' @keywords deprecated
+#' @family deprecated
 #'
 #' @export
 enumerate <- function(x, quote_fun = backquote, conjunction = "and") {
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_stop(
     when = "1.1.0",
     what = "admiraldev::enumerate()",
     details = "This function was primarily used in error messaging, and can be

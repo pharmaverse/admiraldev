@@ -1,24 +1,21 @@
 #' What Kind of Object is This?
 #'
-#' Returns a string describing what kind of object the input is.
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `cli` functionality instead.
 #'
 #' @param x Any R object
 #'
 #' @return A `character` description of the type of `x`
 #'
 #'
-#' @keywords what
-#' @family what
+#' @keywords deprecated
+#' @family deprecated
 #'
 #' @export
-#'
-#' @examples
-#' what_is_it("abc")
-#' what_is_it(1L)
-#' what_is_it(1:10)
-#' what_is_it(mtcars)
 what_is_it <- function(x) {
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_stop(
     when = "1.1.0",
     what = "admiraldev::what_is_it()",
     details = "This function was primarily used in error messaging, and can be replaced
