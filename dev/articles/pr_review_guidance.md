@@ -67,22 +67,6 @@ In addition, the PR creator and reviewer should make sure that
 - all files affected by the implemented changes, e.g. vignettes and
   templates, are updated
 
-### Codeowners and PR Guidance
-
-As the creator of a PR, the assignment of a reviewer can be unclear. For
-most PRs, feel free to select a few members of the core development
-team. These individuals scan each repository on a regular basis as well
-and may provide his/her review even if not originally included as a
-selected reviewer.
-
-Sometimes, the development of a function or a vignette falls under a
-specific-topic, e.g. labs or PK/PD. Please ensure you include an
-appropriate reviewer if you are modifying files that rely on
-domain-expertise. We try to maintain an active list for domain-specific
-topics that will automatically tag an appropriate reviewer using our
-`CODEOWNERS` file, located in the `.github` folder. If you are
-interested in being a codeowner, reach out to the development team.
-
 ## So much Red Tape!
 
 The [admiral](https://pharmaverse.github.io/admiral/) development team

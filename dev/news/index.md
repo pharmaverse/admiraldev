@@ -57,11 +57,33 @@
 
   **Phase 1 (message)**
 
+  - `%or%` - Please get in touch if you are using this function!
+  - [`valid_time_units()`](https://pharmaverse.github.io/admiraldev/dev/reference/valid_time_units.md) -
+    Please get in touch if you are using this function!
+
   **Phase 2 (warning)**
+
+  No functions or arguments in this Phase
 
   **Phase 3 (error)**
 
+  - [`arg_name()`](https://pharmaverse.github.io/admiraldev/dev/reference/arg_name.md) -
+    Use
+    [`rlang::caller_arg()`](https://rlang.r-lib.org/reference/caller_arg.html)
+    instead
+  - [`enumerate()`](https://pharmaverse.github.io/admiraldev/dev/reference/enumerate.md) -
+    Use `cli` functionality instead, e.g.,
+    `cli::cli_abort('{.val {letters[1:3]}}')`
+  - [`what_is_it()`](https://pharmaverse.github.io/admiraldev/dev/reference/what_is_it.md) -
+    Use `cli` functionality instead, e.g.,
+    `cli::cli_abort('{.obj_type_friendly {letters}}')`
+  - [`friendly_type_of()`](https://pharmaverse.github.io/admiraldev/dev/reference/friendly_type_of.md) -
+    Use `cli` functionality instead, e.g.,
+    `cli::cli_abort('{.obj_type_friendly {letters}}')`
+
   **Phase 4 (removed)**
+
+  No functions or arguments in this Phase
 
 ### Documentation
 
@@ -88,6 +110,9 @@
   include the full title of all linked resources to ensure that
   resources can be found if links become defunct or broken.
   ([\#463](https://github.com/pharmaverse/admiraldev/issues/463))
+
+- Removed use of CODEOWNERS and discussion in Pull Request Guidance
+  ([\#486](https://github.com/pharmaverse/admiraldev/issues/486))
 
 ### Various
 

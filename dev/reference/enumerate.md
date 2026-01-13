@@ -1,6 +1,8 @@
 # Enumerate Multiple Elements
 
-Enumerate multiple elements of a vector or list.
+**\[deprecated\]**
+
+This function is *deprecated*, please use `cli` functionality instead.
 
 ## Usage
 
@@ -41,20 +43,9 @@ A `character` vector
 
 ## See also
 
-Helpers for working with Quotes and Quoting:
-[`backquote()`](https://pharmaverse.github.io/admiraldev/dev/reference/backquote.md),
-[`dquote()`](https://pharmaverse.github.io/admiraldev/dev/reference/dquote.md),
-[`squote()`](https://pharmaverse.github.io/admiraldev/dev/reference/squote.md)
-
-## Examples
-
-``` r
-enumerate(c("one", "two", "three"))
-#> Warning: `enumerate()` was deprecated in admiraldev 1.1.0.
-#> ℹ This function was primarily used in error messaging, and can be replaced with
-#>   'cli' functionality: `cli::cli_abort('{.val {letters[1:3]}}')`
-#> [1] "`one`, `two` and `three`"
-
-enumerate(c(1, 2, 3), quote_fun = NULL)
-#> [1] "1, 2 and 3"
-```
+Other deprecated:
+[`%or%()`](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-or-grapes.md),
+[`arg_name()`](https://pharmaverse.github.io/admiraldev/dev/reference/arg_name.md),
+[`friendly_type_of()`](https://pharmaverse.github.io/admiraldev/dev/reference/friendly_type_of.md),
+[`valid_time_units()`](https://pharmaverse.github.io/admiraldev/dev/reference/valid_time_units.md),
+[`what_is_it()`](https://pharmaverse.github.io/admiraldev/dev/reference/what_is_it.md)

@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9016</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9017</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -1345,6 +1345,28 @@ i.e., <code>"lifecycle_error_deprecated"</code>.</p>
 <p>Other unit tests of the deprecated function must be removed.</p>
 </div>
 </div>
+</div>
+<div class="section level2">
+<h2 id="experimental-functions">Experimental Functions<a class="anchor" aria-label="anchor" href="#experimental-functions"></a>
+</h2>
+<p>admiral is stable with its core functions. New functions added to
+admiral must be labelled with the lifecycle badge
+<strong>experimental</strong>.</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#' Title of the function</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @description</span></span>
+<span><span class="co">#' `r lifecycle::badge("experimental")`</span></span>
+<span><span class="co">#'</span></span></code></pre></div>
+<p>Experimental functions will be given two release before we remove the
+badge. No deprecation messages will be given to the user if breaking
+changes are implemented within the two releases cycle. However, admiral
+will document the breaking change in the <code>News.md</code>. Once the
+two release cycles is reached, admiral will remove the
+<strong>experimental</strong> badge and we will proceed with the normal
+deprecation cycle if needed.</p>
+<p>This experimental time period allows for us to test out the function
+and receive feedback but doesn’t burden us with a deprecation cycle.</p>
 </div>
 <div class="section level2">
 <h2 id="best-practices-and-hints">Best Practices and Hints<a class="anchor" aria-label="anchor" href="#best-practices-and-hints"></a>

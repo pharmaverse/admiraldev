@@ -26,5 +26,4 @@ A `character` vector
 
 Helpers for working with Quotes and Quoting:
 [`dquote()`](https://pharmaverse.github.io/admiraldev/dev/reference/dquote.md),
-[`enumerate()`](https://pharmaverse.github.io/admiraldev/dev/reference/enumerate.md),
 [`squote()`](https://pharmaverse.github.io/admiraldev/dev/reference/squote.md)

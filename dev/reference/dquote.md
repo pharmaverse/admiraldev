@@ -28,5 +28,4 @@ input in double quotes is returned.
 
 Helpers for working with Quotes and Quoting:
 [`backquote()`](https://pharmaverse.github.io/admiraldev/dev/reference/backquote.md),
-[`enumerate()`](https://pharmaverse.github.io/admiraldev/dev/reference/enumerate.md),
 [`squote()`](https://pharmaverse.github.io/admiraldev/dev/reference/squote.md)

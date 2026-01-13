@@ -87,9 +87,6 @@ Is the object what it says it is
 
 What type of object is this?
 
-- [`what_is_it()`](https://pharmaverse.github.io/admiraldev/dev/reference/what_is_it.md)
-  : What Kind of Object is This?
-
 ## Warning Functions
 
 Custom warnings intended for users
@@ -143,8 +140,6 @@ Helping your quoting needs
   : Wrap a String in Backquotes
 - [`dquote()`](https://pharmaverse.github.io/admiraldev/dev/reference/dquote.md)
   : Wrap a String in Double Quotes
-- [`enumerate()`](https://pharmaverse.github.io/admiraldev/dev/reference/enumerate.md)
-  : Enumerate Multiple Elements
 - [`squote()`](https://pharmaverse.github.io/admiraldev/dev/reference/squote.md)
   : Wrap a String in Single Quotes
 
@@ -170,9 +165,6 @@ Functions for generating documentation
 
 Utilities without a theme
 
-- [`arg_name()`](https://pharmaverse.github.io/admiraldev/dev/reference/arg_name.md)
-  : Extract Argument Name from an Expression
-
 - [`contains_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/contains_vars.md)
   :
 
@@ -192,17 +184,8 @@ Utilities without a theme
 - [`filter_if()`](https://pharmaverse.github.io/admiraldev/dev/reference/filter_if.md)
   : Optional Filter
 
-- [`friendly_type_of()`](https://pharmaverse.github.io/admiraldev/dev/reference/friendly_type_of.md)
-  : Return English-friendly messaging for object-types
-
 - [`` `%notin%` ``](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-notin-grapes.md)
   : Negated Value Matching
-
-- [`` `%or%` ``](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-or-grapes.md)
-  : Or
-
-- [`valid_time_units()`](https://pharmaverse.github.io/admiraldev/dev/reference/valid_time_units.md)
-  : Valid Time Units
 
 - [`vars2chr()`](https://pharmaverse.github.io/admiraldev/dev/reference/vars2chr.md)
   : Turn a List of Expressions into a Character Vector
@@ -234,3 +217,17 @@ message produced as well as in the function’s documentation*
 
 Below, you can find a list of functions in the process of being
 deprecated:
+
+- [`arg_name()`](https://pharmaverse.github.io/admiraldev/dev/reference/arg_name.md)
+  **\[deprecated\]** : Extract Argument Name from an Expression
+- [`enumerate()`](https://pharmaverse.github.io/admiraldev/dev/reference/enumerate.md)
+  **\[deprecated\]** : Enumerate Multiple Elements
+- [`friendly_type_of()`](https://pharmaverse.github.io/admiraldev/dev/reference/friendly_type_of.md)
+  **\[deprecated\]** : Return English-friendly messaging for
+  object-types
+- [`` `%or%` ``](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-or-grapes.md)
+  **\[deprecated\]** : Or
+- [`valid_time_units()`](https://pharmaverse.github.io/admiraldev/dev/reference/valid_time_units.md)
+  **\[deprecated\]** : Valid Time Units
+- [`what_is_it()`](https://pharmaverse.github.io/admiraldev/dev/reference/what_is_it.md)
+  **\[deprecated\]** : What Kind of Object is This?

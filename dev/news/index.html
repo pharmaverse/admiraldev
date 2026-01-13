@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9016</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.1.9017</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,9 +62,26 @@
 <li>
 <p>The following function arguments are entering the next phase of the <a href="https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation">deprecation process</a>: (<a href="https://github.com/pharmaverse/admiraldev/issues/2487" class="external-link">#2487</a>) (<a href="https://github.com/pharmaverse/admiraldev/issues/2595" class="external-link">#2595</a>)</p>
 <p><strong>Phase 1 (message)</strong></p>
-<p><strong>Phase 2 (warning)</strong></p>
+<ul><li>
+<code>%or%</code> - Please get in touch if you are using this function!</li>
+<li>
+<code><a href="../reference/valid_time_units.html">valid_time_units()</a></code> - Please get in touch if you are using this function!</li>
+</ul><p><strong>Phase 2 (warning)</strong></p>
+<p>No functions or arguments in this Phase</p>
 <p><strong>Phase 3 (error)</strong></p>
-<p><strong>Phase 4 (removed)</strong></p>
+<ul><li>
+<code><a href="../reference/arg_name.html">arg_name()</a></code> - Use <code><a href="https://rlang.r-lib.org/reference/caller_arg.html" class="external-link">rlang::caller_arg()</a></code> instead</li>
+<li>
+<code><a href="../reference/enumerate.html">enumerate()</a></code> - Use <code>cli</code> functionality instead, e.g., <code>cli::cli_abort('{.val {letters[1:3]}}')</code>
+</li>
+<li>
+<code><a href="../reference/what_is_it.html">what_is_it()</a></code> - Use <code>cli</code> functionality instead, e.g., <code>cli::cli_abort('{.obj_type_friendly {letters}}')</code>
+</li>
+<li>
+<code><a href="../reference/friendly_type_of.html">friendly_type_of()</a></code> - Use <code>cli</code> functionality instead, e.g., <code>cli::cli_abort('{.obj_type_friendly {letters}}')</code>
+</li>
+</ul><p><strong>Phase 4 (removed)</strong></p>
+<p>No functions or arguments in this Phase</p>
 </li>
 </ul></div>
 <div class="section level3">
@@ -73,6 +90,7 @@
 <li><p>Added a new “Writing Custom Examples” vignette containing directives on how to build the “Examples” sections for functions which use the custom <code><a href="../reference/rdx_roclet.html">rdx_roclet()</a></code>. (<a href="https://github.com/pharmaverse/admiraldev/issues/503" class="external-link">#503</a>)</p></li>
 <li><p>The “Release Strategy” vignette was updated to remove inconsistencies in the “Hot Fix Release section”, and to improve its formatting. (<a href="https://github.com/pharmaverse/admiraldev/issues/365" class="external-link">#365</a>)</p></li>
 <li><p>Added a note to the “Writing Vignettes” vignette to encourage users to include the full title of all linked resources to ensure that resources can be found if links become defunct or broken. (<a href="https://github.com/pharmaverse/admiraldev/issues/463" class="external-link">#463</a>)</p></li>
+<li><p>Removed use of CODEOWNERS and discussion in Pull Request Guidance (<a href="https://github.com/pharmaverse/admiraldev/issues/486" class="external-link">#486</a>)</p></li>
 </ul></div>
 <div class="section level3">
 <h3 id="various-development-version">Various<a class="anchor" aria-label="anchor" href="#various-development-version"></a></h3>

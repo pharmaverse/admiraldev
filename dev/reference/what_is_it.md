@@ -1,6 +1,8 @@
 # What Kind of Object is This?
 
-Returns a string describing what kind of object the input is.
+**\[deprecated\]**
+
+This function is *deprecated*, please use `cli` functionality instead.
 
 ## Usage
 
@@ -22,18 +24,11 @@ what_is_it(x)
 
 A `character` description of the type of `x`
 
-## Examples
+## See also
 
-``` r
-what_is_it("abc")
-#> Warning: `what_is_it()` was deprecated in admiraldev 1.1.0.
-#> ℹ This function was primarily used in error messaging, and can be replaced with
-#>   'cli' functionality: `cli::cli_abort('{.obj_type_friendly {letters}}')`.
-#> [1] "`\"abc\"`"
-what_is_it(1L)
-#> [1] "`1`"
-what_is_it(1:10)
-#> [1] "an integer vector"
-what_is_it(mtcars)
-#> [1] "a data frame"
-```
+Other deprecated:
+[`%or%()`](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-or-grapes.md),
+[`arg_name()`](https://pharmaverse.github.io/admiraldev/dev/reference/arg_name.md),
+[`enumerate()`](https://pharmaverse.github.io/admiraldev/dev/reference/enumerate.md),
+[`friendly_type_of()`](https://pharmaverse.github.io/admiraldev/dev/reference/friendly_type_of.md),
+[`valid_time_units()`](https://pharmaverse.github.io/admiraldev/dev/reference/valid_time_units.md)
