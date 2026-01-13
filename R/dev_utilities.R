@@ -117,7 +117,7 @@ extract_vars <- function(x, side = "lhs") {
     details = c(
       x = "This message will turn into a warning at the beginning of 2027.",
       i = "See admiral's deprecation guidance:
-              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation",
+              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation", # nolint
       i = "Please get in touch if you are using this function!"
     )
   )
@@ -146,7 +146,7 @@ valid_time_units <- function() {
     details = c(
       x = "This message will turn into a warning at the beginning of 2027.",
       i = "See admiral's deprecation guidance:
-              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation",
+              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation", # nolint
       i = "Please get in touch if you are using this function!"
     )
   )
