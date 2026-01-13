@@ -60,6 +60,8 @@ and to improve its formatting. (#365)
 full title of all linked resources to ensure that resources can be found if links
 become defunct or broken. (#463)
 
+- Removed use of CODEOWNERS and discussion in Pull Request Guidance (#486)
+
 ## Various
 
 - Added various unit tests to improve the test coverage of `{admiraldev}`. (#524)
