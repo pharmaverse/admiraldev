@@ -1,0 +1,311 @@
+# admiraldev
+
+Utility Functions and Development Tools for the Admiral Package Family
+
+*Explore all the other packages in the [{admiral}
+ecosystem](https://pharmaverse.org/e2eclinical/adam/) to learn more
+about ADaM programming in R.*
+
+## Purpose
+
+Functions, tools and documentation for developing core
+[admiral](https://pharmaverse.github.io/admiral/) and extension package
+functions. Most functions in
+[admiraldev](https://pharmaverse.github.io/admiraldev/) are around
+testing inputs going into functions. There are also additional quality
+of life functions/Addins to assist developers of
+[admiral](https://pharmaverse.github.io/admiral/) or
+[admiral](https://pharmaverse.github.io/admiral/) extension packages,
+functions to help with rendering documentation, Developer Guides on
+developing function and using GitHub, GitHub Actions.
+
+**NOTE:** This package is not intended for standalone use but rather as
+a central dependency for
+[admiral](https://pharmaverse.github.io/admiral/) and its extension
+packages
+
+## Installation
+
+The package is available from CRAN and can be installed by running
+`install.packages("admiraldev")`.
+
+To install the latest development version of the package directly from
+GitHub use the following code:
+
+``` R
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+
+remotes::install_github("pharmaverse/admiraldev")
+```
+
+## Release Schedule
+
+[admiraldev](https://pharmaverse.github.io/admiraldev/) is to be
+released to CRAN at the same time as an official release of
+[admiral](https://pharmaverse.github.io/admiral/). You can find the
+release schedule for [admiral](https://pharmaverse.github.io/admiral/)
+packages
+[here](https://pharmaverse.github.io/admiral/#release-schedule).
+
+# Package index
+
+## Assertion Functions
+
+Checks the inputs for user-facing functions and provides error, warnings
+and other messaging around expectation of inputs.
+
+- [`assert_atomic_vector()`](https://pharmaverse.github.io/admiraldev/reference/assert_atomic_vector.md)
+  : Is an Argument an Atomic Vector?
+- [`assert_character_scalar()`](https://pharmaverse.github.io/admiraldev/reference/assert_character_scalar.md)
+  : Is an Argument a Character Scalar (String)?
+- [`assert_character_vector()`](https://pharmaverse.github.io/admiraldev/reference/assert_character_vector.md)
+  : Is an Argument a Character Vector?
+- [`assert_data_frame()`](https://pharmaverse.github.io/admiraldev/reference/assert_data_frame.md)
+  : Is an Argument a Data Frame?
+- [`assert_date_var()`](https://pharmaverse.github.io/admiraldev/reference/assert_date_var.md)
+  : Is a Variable in a Dataset a Date or Datetime Variable?
+- [`assert_date_vector()`](https://pharmaverse.github.io/admiraldev/reference/assert_date_vector.md)
+  : Is an object a date or datetime vector?
+- [`assert_expr()`](https://pharmaverse.github.io/admiraldev/reference/assert_expr.md)
+  : Assert Argument is an Expression
+- [`assert_expr_list()`](https://pharmaverse.github.io/admiraldev/reference/assert_expr_list.md)
+  : Is an Argument a List of Expressions?
+- [`assert_filter_cond()`](https://pharmaverse.github.io/admiraldev/reference/assert_filter_cond.md)
+  : Is an Argument a Filter Condition?
+- [`assert_function()`](https://pharmaverse.github.io/admiraldev/reference/assert_function.md)
+  : Is Argument a Function?
+- [`assert_integer_scalar()`](https://pharmaverse.github.io/admiraldev/reference/assert_integer_scalar.md)
+  : Is an Argument an Integer Scalar?
+- [`assert_list_element()`](https://pharmaverse.github.io/admiraldev/reference/assert_list_element.md)
+  : Is an Element of a List of Lists/Classes Fulfilling a Condition?
+- [`assert_list_of()`](https://pharmaverse.github.io/admiraldev/reference/assert_list_of.md)
+  : Is an Argument a List of Objects of a Specific S3 Class or Type?
+- [`assert_logical_scalar()`](https://pharmaverse.github.io/admiraldev/reference/assert_logical_scalar.md)
+  : Is an Argument a Logical Scalar (Boolean)?
+- [`assert_named()`](https://pharmaverse.github.io/admiraldev/reference/assert_named.md)
+  : Assert Argument is a Named List or Vector
+- [`assert_numeric_vector()`](https://pharmaverse.github.io/admiraldev/reference/assert_numeric_vector.md)
+  : Is an Argument a Numeric Vector?
+- [`assert_one_to_one()`](https://pharmaverse.github.io/admiraldev/reference/assert_one_to_one.md)
+  : Is There a One to One Mapping between Variables?
+- [`assert_param_does_not_exist()`](https://pharmaverse.github.io/admiraldev/reference/assert_param_does_not_exist.md)
+  : Asserts That a Parameter Does Not Exist in the Dataset
+- [`assert_s3_class()`](https://pharmaverse.github.io/admiraldev/reference/assert_s3_class.md)
+  : Is an Argument an Object of a Specific S3 Class?
+- [`assert_same_type()`](https://pharmaverse.github.io/admiraldev/reference/assert_same_type.md)
+  : Are All Arguments of the Same Type?
+- [`assert_symbol()`](https://pharmaverse.github.io/admiraldev/reference/assert_symbol.md)
+  : Is an Argument a Symbol?
+- [`assert_unit()`](https://pharmaverse.github.io/admiraldev/reference/assert_unit.md)
+  : Asserts That a Parameter is Provided in the Expected Unit
+- [`assert_vars()`](https://pharmaverse.github.io/admiraldev/reference/assert_vars.md)
+  : Is an Argument a List of Variables?
+- [`assert_varval_list()`](https://pharmaverse.github.io/admiraldev/reference/assert_varval_list.md)
+  : Is an Argument a Variable-Value List?
+
+## Get Functions
+
+Gets information or input from an object
+
+- [`get_constant_vars()`](https://pharmaverse.github.io/admiraldev/reference/get_constant_vars.md)
+  : Get Constant Variables
+
+- [`get_dataset()`](https://pharmaverse.github.io/admiraldev/reference/get_dataset.md)
+  :
+
+  Retrieve a Dataset from the `admiraldev_environment` environment
+
+- [`get_duplicates()`](https://pharmaverse.github.io/admiraldev/reference/get_duplicates.md)
+  : Get Duplicates From a Vector
+
+- [`get_source_vars()`](https://pharmaverse.github.io/admiraldev/reference/get_source_vars.md)
+  : Get Source Variables from a List of Expressions
+
+## Is Functions
+
+Is the object what it says it is
+
+- [`is_auto()`](https://pharmaverse.github.io/admiraldev/reference/is_auto.md)
+  : Checks if the argument equals the auto keyword
+- [`is_order_vars()`](https://pharmaverse.github.io/admiraldev/reference/is_order_vars.md)
+  : Is order vars?
+- [`is_valid_dtc()`](https://pharmaverse.github.io/admiraldev/reference/is_valid_dtc.md)
+  : Is this string a valid DTC
+
+## What Functions
+
+What type of object is this?
+
+## Warning Functions
+
+Custom warnings intended for users
+
+- [`suppress_warning()`](https://pharmaverse.github.io/admiraldev/reference/suppress_warning.md)
+  : Suppress Specific Warnings
+- [`warn_if_incomplete_dtc()`](https://pharmaverse.github.io/admiraldev/reference/warn_if_incomplete_dtc.md)
+  : Warn if incomplete dtc
+- [`warn_if_inconsistent_list()`](https://pharmaverse.github.io/admiraldev/reference/warn_if_inconsistent_list.md)
+  : Warn If Two Lists are Inconsistent
+- [`warn_if_invalid_dtc()`](https://pharmaverse.github.io/admiraldev/reference/warn_if_invalid_dtc.md)
+  : Warn If a Vector Contains Unknown Datetime Format
+- [`warn_if_vars_exist()`](https://pharmaverse.github.io/admiraldev/reference/warn_if_vars_exist.md)
+  : Warn If a Variable Already Exists
+
+## Test Helper Functions
+
+Test Utilities that help with organization and presentation of tests
+
+- [`expect_dfs_equal()`](https://pharmaverse.github.io/admiraldev/reference/expect_dfs_equal.md)
+  : Expectation: Are Two Datasets Equal?
+
+## Temporary Variables
+
+Tools for creating and removing temporary variables within a dataset
+
+- [`get_new_tmp_var()`](https://pharmaverse.github.io/admiraldev/reference/get_new_tmp_var.md)
+  : Get a New Temporary Variable Name for a Dataset
+- [`remove_tmp_vars()`](https://pharmaverse.github.io/admiraldev/reference/remove_tmp_vars.md)
+  : Remove All Temporary Variables Created Within the Current Function
+  Environment
+
+## Quosure Helper Functions
+
+Helping your quosure needs
+
+- [`add_suffix_to_vars()`](https://pharmaverse.github.io/admiraldev/reference/add_suffix_to_vars.md)
+  : Add a Suffix to Variables in a List of Expressions
+- [`expr_c()`](https://pharmaverse.github.io/admiraldev/reference/expr_c.md)
+  : Concatenate One or More Expressions
+- [`replace_symbol_in_expr()`](https://pharmaverse.github.io/admiraldev/reference/replace_symbol_in_expr.md)
+  : Replace Symbols in an Expression
+- [`replace_values_by_names()`](https://pharmaverse.github.io/admiraldev/reference/replace_values_by_names.md)
+  : Replace Expression Value with Name
+
+## Quoting Helper Functions
+
+Helping your quoting needs
+
+- [`backquote()`](https://pharmaverse.github.io/admiraldev/reference/backquote.md)
+  : Wrap a String in Backquotes
+- [`dquote()`](https://pharmaverse.github.io/admiraldev/reference/dquote.md)
+  : Wrap a String in Double Quotes
+- [`squote()`](https://pharmaverse.github.io/admiraldev/reference/squote.md)
+  : Wrap a String in Single Quotes
+
+## Utilities used within Derivation Functions
+
+- [`process_set_values_to()`](https://pharmaverse.github.io/admiraldev/reference/process_set_values_to.md)
+  :
+
+  Process `set_values_to` Argument
+
+## Documentation Functions
+
+Functions for generating documentation
+
+- [`capture_output()`](https://pharmaverse.github.io/admiraldev/reference/capture_output.md)
+  : Capture Output and Messages
+- [`parse_code()`](https://pharmaverse.github.io/admiraldev/reference/parse_code.md)
+  : Parse Code
+- [`rdx_roclet()`](https://pharmaverse.github.io/admiraldev/reference/rdx_roclet.md)
+  : Roclet Extending the Standard rd Roclet
+
+## Miscellaneous
+
+Utilities without a theme
+
+- [`contains_vars()`](https://pharmaverse.github.io/admiraldev/reference/contains_vars.md)
+  :
+
+  check that argument contains valid variable(s) created with `exprs()`
+  or Source Variables from a List of Expressions
+
+- [`convert_dtm_to_dtc()`](https://pharmaverse.github.io/admiraldev/reference/convert_dtm_to_dtc.md)
+  : Helper Function to Convert Date (or Date-time) Objects to Characters
+  of dtc Format (-DTC type of variable)
+
+- [`dataset_vignette()`](https://pharmaverse.github.io/admiraldev/reference/dataset_vignette.md)
+  : Output a Dataset in a Vignette in the admiral Format
+
+- [`extract_vars()`](https://pharmaverse.github.io/admiraldev/reference/extract_vars.md)
+  : Extract All Symbols from a List of Expressions
+
+- [`filter_if()`](https://pharmaverse.github.io/admiraldev/reference/filter_if.md)
+  : Optional Filter
+
+- [`` `%notin%` ``](https://pharmaverse.github.io/admiraldev/reference/grapes-notin-grapes.md)
+  : Negated Value Matching
+
+- [`vars2chr()`](https://pharmaverse.github.io/admiraldev/reference/vars2chr.md)
+  : Turn a List of Expressions into a Character Vector
+
+- [`deprecate_inform()`](https://pharmaverse.github.io/admiraldev/reference/deprecate_inform.md)
+  : Deprecation with Soft Message
+
+## Deprecated
+
+Functions and arguments may need to be removed or replaced over time. In
+such cases, the function or argument will enter a 3 year deprecation
+cycle. The cycle will be tied as close as sensibly possible to a package
+release.
+
+When a function is deprecated:
+
+- In Year 1 there will be a message issued if you use the
+  function/argument, but it will still be available to use.
+- In Year 2 a warning will be produced if you use the function/argument,
+  but it will still be available to use.
+- In Year 3, an error will be produced if you use the function/argument
+  and no longer be able to use.
+- Finally, after 3 years, the function/argument and related
+  documentation and tests will be removed from
+  [admiral](https://pharmaverse.github.io/admiral/).
+
+*Note: Guidance on replacement functionality will be found in the
+message produced as well as in the function’s documentation*
+
+Below, you can find a list of functions in the process of being
+deprecated:
+
+- [`arg_name()`](https://pharmaverse.github.io/admiraldev/reference/arg_name.md)
+  **\[deprecated\]** : Extract Argument Name from an Expression
+- [`enumerate()`](https://pharmaverse.github.io/admiraldev/reference/enumerate.md)
+  **\[deprecated\]** : Enumerate Multiple Elements
+- [`friendly_type_of()`](https://pharmaverse.github.io/admiraldev/reference/friendly_type_of.md)
+  **\[deprecated\]** : Return English-friendly messaging for
+  object-types
+- [`` `%or%` ``](https://pharmaverse.github.io/admiraldev/reference/grapes-or-grapes.md)
+  **\[deprecated\]** : Or
+- [`valid_time_units()`](https://pharmaverse.github.io/admiraldev/reference/valid_time_units.md)
+  **\[deprecated\]** : Valid Time Units
+- [`what_is_it()`](https://pharmaverse.github.io/admiraldev/reference/what_is_it.md)
+  **\[deprecated\]** : What Kind of Object is This?
+
+# Articles
+
+### All vignettes
+
+- [Get
+  Started](https://pharmaverse.github.io/admiraldev/articles/admiraldev.md):
+- [Guidance for git and GitHub
+  Usage](https://pharmaverse.github.io/admiraldev/articles/git_usage.md):
+- [Package
+  Extensions](https://pharmaverse.github.io/admiraldev/articles/package_extensions.md):
+- [Pull Request Review
+  Guidance](https://pharmaverse.github.io/admiraldev/articles/pr_review_guidance.md):
+- [Programming
+  Strategy](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.md):
+- [R CMD
+  Issues](https://pharmaverse.github.io/admiraldev/articles/rcmd_issues.md):
+- [Release
+  Strategy](https://pharmaverse.github.io/admiraldev/articles/release_strategy.md):
+- [Test Data
+  Guidance](https://pharmaverse.github.io/admiraldev/articles/test_data_guidance.md):
+- [Unit Test
+  Guidance](https://pharmaverse.github.io/admiraldev/articles/unit_test_guidance.md):
+- [Writing Custom
+  Examples](https://pharmaverse.github.io/admiraldev/articles/writing_custom_examples.md):
+- [Writing
+  Vignettes](https://pharmaverse.github.io/admiraldev/articles/writing_vignettes.md):

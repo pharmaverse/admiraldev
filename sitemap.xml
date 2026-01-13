@@ -11,6 +11,7 @@
 <url><loc>https://pharmaverse.github.io/admiraldev/articles/release_strategy.html</loc></url>
 <url><loc>https://pharmaverse.github.io/admiraldev/articles/test_data_guidance.html</loc></url>
 <url><loc>https://pharmaverse.github.io/admiraldev/articles/unit_test_guidance.html</loc></url>
+<url><loc>https://pharmaverse.github.io/admiraldev/articles/writing_custom_examples.html</loc></url>
 <url><loc>https://pharmaverse.github.io/admiraldev/articles/writing_vignettes.html</loc></url>
 <url><loc>https://pharmaverse.github.io/admiraldev/authors.html</loc></url>
 <url><loc>https://pharmaverse.github.io/admiraldev/index.html</loc></url>
@@ -70,7 +71,6 @@
 <url><loc>https://pharmaverse.github.io/admiraldev/reference/is_auto.html</loc></url>
 <url><loc>https://pharmaverse.github.io/admiraldev/reference/is_order_vars.html</loc></url>
 <url><loc>https://pharmaverse.github.io/admiraldev/reference/is_valid_dtc.html</loc></url>
-<url><loc>https://pharmaverse.github.io/admiraldev/reference/joins.html</loc></url>
 <url><loc>https://pharmaverse.github.io/admiraldev/reference/parse_code.html</loc></url>
 <url><loc>https://pharmaverse.github.io/admiraldev/reference/process_set_values_to.html</loc></url>
 <url><loc>https://pharmaverse.github.io/admiraldev/reference/rdx_roclet.html</loc></url>
