@@ -10,19 +10,19 @@ valid_time_units()
 A \code{character} vector of valid time units
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+This function is \emph{deprecated}. Please get in touch if you are using this function!
+
 Contains the acceptable character vector of valid time units
 }
 \seealso{
-Developer Utility Functions:
-\code{\link{\%notin\%}()},
+Other deprecated: 
 \code{\link{\%or\%}()},
 \code{\link{arg_name}()},
-\code{\link{contains_vars}()},
-\code{\link{convert_dtm_to_dtc}()},
-\code{\link{extract_vars}()},
-\code{\link{filter_if}()},
+\code{\link{enumerate}()},
 \code{\link{friendly_type_of}()},
-\code{\link{vars2chr}()}
+\code{\link{what_is_it}()}
 }
-\concept{dev_utility}
-\keyword{dev_utility}
+\concept{deprecated}
+\keyword{deprecated}

@@ -28,14 +28,10 @@ vars2chr(exprs(USUBJID, AVAL))
 \seealso{
 Developer Utility Functions:
 \code{\link{\%notin\%}()},
-\code{\link{\%or\%}()},
-\code{\link{arg_name}()},
 \code{\link{contains_vars}()},
 \code{\link{convert_dtm_to_dtc}()},
 \code{\link{extract_vars}()},
-\code{\link{filter_if}()},
-\code{\link{friendly_type_of}()},
-\code{\link{valid_time_units}()}
+\code{\link{filter_if}()}
 }
 \concept{dev_utility}
 \keyword{dev_utility}

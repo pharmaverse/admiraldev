@@ -30,19 +30,17 @@ the elements are not quoted.
 A \code{character} vector
 }
 \description{
-Enumerate multiple elements of a vector or list.
-}
-\examples{
-enumerate(c("one", "two", "three"))
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-enumerate(c(1, 2, 3), quote_fun = NULL)
-
+This function is \emph{deprecated}, please use \code{cli} functionality instead.
 }
 \seealso{
-Helpers for working with Quotes and Quoting:
-\code{\link{backquote}()},
-\code{\link{dquote}()},
-\code{\link{squote}()}
+Other deprecated: 
+\code{\link{\%or\%}()},
+\code{\link{arg_name}()},
+\code{\link{friendly_type_of}()},
+\code{\link{valid_time_units}()},
+\code{\link{what_is_it}()}
 }
-\concept{quote}
-\keyword{quote}
+\concept{deprecated}
+\keyword{deprecated}

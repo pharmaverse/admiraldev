@@ -25,12 +25,24 @@ has been updated from 1.0.5 to 1.1.1. (#530)
 - The following function arguments are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#2487) (#2595)
 
     **Phase 1 (message)**
+    
+    - `%or%` - Please get in touch if you are using this function!
+    - `valid_time_units()` - Please get in touch if you are using this function!
   
     **Phase 2 (warning)**
     
+    No functions or arguments in this Phase
+    
     **Phase 3 (error)**
     
+    - `arg_name()` - Use `rlang::caller_arg()` instead
+    - `enumerate()` - Use `cli` functionality instead, e.g., `cli::cli_abort('{.val {letters[1:3]}}')`
+    - `what_is_it()` - Use `cli` functionality instead, e.g., `cli::cli_abort('{.obj_type_friendly {letters}}')`
+    - `friendly_type_of()` - Use `cli` functionality instead, e.g., `cli::cli_abort('{.obj_type_friendly {letters}}')`
+    
     **Phase 4 (removed)**
+
+    No functions or arguments in this Phase
 
 ## Documentation
 
@@ -47,6 +59,8 @@ and to improve its formatting. (#365)
 - Added a note to the "Writing Vignettes" vignette to encourage users to include the 
 full title of all linked resources to ensure that resources can be found if links
 become defunct or broken. (#463)
+
+- Removed use of CODEOWNERS and discussion in Pull Request Guidance (#486)
 
 ## Various
 

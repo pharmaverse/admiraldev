@@ -30,7 +30,9 @@ A string describing the type. Starts with an indefinite
 article, e.g. "an integer vector".
 }
 \description{
-Return English-friendly messaging for object-types
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+This function is \emph{deprecated}, please use \code{cli} functionality instead.
 }
 \details{
 This helper function aids us in forming user-friendly messages that gets
@@ -39,16 +41,12 @@ to identify what object-type the user passed through an argument instead of
 an expected-type.
 }
 \seealso{
-Developer Utility Functions:
-\code{\link{\%notin\%}()},
+Other deprecated: 
 \code{\link{\%or\%}()},
 \code{\link{arg_name}()},
-\code{\link{contains_vars}()},
-\code{\link{convert_dtm_to_dtc}()},
-\code{\link{extract_vars}()},
-\code{\link{filter_if}()},
+\code{\link{enumerate}()},
 \code{\link{valid_time_units}()},
-\code{\link{vars2chr}()}
+\code{\link{what_is_it}()}
 }
-\concept{dev_utility}
-\keyword{dev_utility}
+\concept{deprecated}
+\keyword{deprecated}
