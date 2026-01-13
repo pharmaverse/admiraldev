@@ -31,6 +31,8 @@ has been updated from 1.0.5 to 1.1.1. (#530)
   
     **Phase 2 (warning)**
     
+    No functions or arguments in this Phase
+    
     **Phase 3 (error)**
     
     - `arg_name()` - Use `rlang::caller_arg()` instead
@@ -39,6 +41,8 @@ has been updated from 1.0.5 to 1.1.1. (#530)
     - `friendly_type_of()` - Use `cli` functionality instead, e.g., `cli::cli_abort('{.obj_type_friendly {letters}}')`
     
     **Phase 4 (removed)**
+
+    No functions or arguments in this Phase
 
 ## Documentation
 
