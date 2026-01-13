@@ -29,33 +29,3 @@ friendly_type_of <- function(x, value = TRUE, length = FALSE) { # nolint
                with 'cli' functionality: `cli::cli_abort('{.obj_type_friendly {letters}}')`."
   )
 }
-
-#' @param x The object type which does not conform to `what`. Its
-#'   `friendly_type_of()` is taken and mentioned in the error message.
-#' @param what The friendly expected type.
-#' @param ... Arguments passed to [abort()].
-#' @inheritParams args_error_context
-#' @noRd
-stop_input_type <- function(x,
-                            what,
-                            ...,
-                            arg = rlang::caller_arg(x),
-                            call = rlang::caller_env()) {
-  # From compat-cli.R
-  format_arg <- rlang::env_get(
-    nm = "format_arg",
-    last = topenv(),
-    default = NULL
-  )
-  if (!is.function(format_arg)) {
-    format_arg <- function(x) sprintf("`%s`", x)
-  }
-
-  msg <- sprintf(
-    "%s must be %s, not %s.",
-    format_arg(arg),
-    what,
-    friendly_type_of(x)
-  )
-  rlang::abort(msg, ..., call = call)
-}
