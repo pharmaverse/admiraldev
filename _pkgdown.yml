@@ -1,11 +1,18 @@
 url: https://pharmaverse.github.io/admiraldev/
 
 template:
+  math-rendering: mathjax
   bootstrap: 5
+  light-switch: true
+  bslib:
+    preset: "flatly"
+    primary: "#2c3e50"
+    navbar-bg: "#2c3e50"
   params:
     bootswatch: flatly
   includes:
-    in_header:
+    css: pkgdown/extra.css
+    in_header: |
       <script
       async
       src="https://widget.kapa.ai/kapa-widget.bundle.js"
@@ -23,6 +30,22 @@ template:
       data-modal-search-placeholder="Ask me a question about {admiraldev} or the {admiral} ecosystem..."
       data-modal-z-index="9999"
       ></script>
+
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Select all navbar links that have an aria-label
+        var navLinks = document.querySelectorAll('.navbar-nav .nav-link[aria-label]');
+
+        navLinks.forEach(function (link) {
+          // Initialize Bootstrap 5 Tooltip
+          link.setAttribute('title', link.getAttribute('aria-label'));
+          new bootstrap.Tooltip(link, {
+            placement: 'bottom', // Tooltip appears below the icon
+            trigger: 'hover'
+          });
+        });
+      });
+      </script>
 repo:
   url:
     home: https://github.com/pharmaverse/admiraldev
@@ -136,30 +159,41 @@ reference:
   - has_keyword("deprecated")
 
 navbar:
- components:
-  reference:
+  structure:
+    left: [getstarted, reference, articles, news]
+    right: [search, slack, newissue, github, lightswitch]
+  components:
+    reference:
       text: Reference
       href: reference/index.html
-  articles:
-    text: Developer Guides
-    menu:
-    - text: Programming Strategy
-      href: articles/programming_strategy.html
-    - text: Writing Vignettes
-      href: articles/writing_vignettes.html
-    - text: Writing Custom Examples
-      href: articles/writing_custom_examples.html
-    - text: Unit Test Guidance
-      href: articles/unit_test_guidance.html
-    - text: Guidance for git and GitHub Usage
-      href: articles/git_usage.html
-    - text: Pull Request Review Guidance
-      href: articles/pr_review_guidance.html
-    - text: R CMD Issues
-      href: articles/rcmd_issues.html
-    - text: Release Strategy
-      href: articles/release_strategy.html
-    - text: Test Data Guidance
-      href: articles/test_data_guidance.html
-    - text: Package Extensions
-      href: articles/package_extensions.html
+    articles:
+      text: Developer Guides
+      menu:
+      - text: Programming Strategy
+        href: articles/programming_strategy.html
+      - text: Writing Vignettes
+        href: articles/writing_vignettes.html
+      - text: Writing Custom Examples
+        href: articles/writing_custom_examples.html
+      - text: Unit Test Guidance
+        href: articles/unit_test_guidance.html
+      - text: Guidance for git and GitHub Usage
+        href: articles/git_usage.html
+      - text: Pull Request Review Guidance
+        href: articles/pr_review_guidance.html
+      - text: R CMD Issues
+        href: articles/rcmd_issues.html
+      - text: Release Strategy
+        href: articles/release_strategy.html
+      - text: Test Data Guidance
+        href: articles/test_data_guidance.html
+      - text: Package Extensions
+        href: articles/package_extensions.html
+    slack:
+      icon: fa-slack
+      href: https://pharmaverse.slack.com/
+      aria-label: Join the pharmaverse Slack!
+    newissue:
+      icon: fa-bug
+      href: https://github.com/pharmaverse/admiraldev/issues/new/choose
+      aria-label: Report an issue
