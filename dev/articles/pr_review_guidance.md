@@ -50,8 +50,7 @@ In addition, the PR creator and reviewer should make sure that
 - meaningful error or warning messages are issued if the input is
   invalid
 
-- documentation is created/updated by running
-  [`devtools::document()`](https://devtools.r-lib.org/reference/document.html)
+- documentation is created/updated by running `devtools::document()`
 
 - functions which are supposed to be exported are listed in the
   `NAMESPACE` file; this requires an `@export` tag in the function
