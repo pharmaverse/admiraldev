@@ -8,6 +8,12 @@
 
 ## Documentation
 
+- The website navigation bar has been updated to: (#539)
+  - Add a night mode option. This can be be toggled using the sun/moon icon in the top right corner of the navigation bar. 
+  - Add a link to the "Get Started" vignette for developers.
+  - Add icon links to report a bug and join the pharmaverse Slack.
+  - Add tooltips for each of the icons.
+  - Increase the maximum height of the drop-down menus to ensure all items are visible without scrolling.
 
 # admiraldev 1.4.0
 
