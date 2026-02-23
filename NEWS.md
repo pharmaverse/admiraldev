@@ -4,6 +4,8 @@
 
 ## Updates of Existing Functions
 
+## Breaking Changes
+
 ## Documentation
 
 - The website navigation bar has been updated to: (#539)
@@ -12,8 +14,6 @@
   - Add icon links to report a bug and join the pharmaverse Slack.
   - Add tooltips for each of the icons.
   - Increase the maximum height of the drop-down menus to ensure all items are visible without scrolling.
-
-## Various
 
 # admiraldev 1.4.0
 
