@@ -516,7 +516,9 @@ capture_output <- function(expr, srcref = NULL, expected_cnds = NULL, env = call
       sink(type = "message") # nolint
     }
     close(con)
-    result <- readLines(temp_file)
+    result <- readLines(temp_file) %>%
+      # remove R and ANSI escape sequences
+      str_remove_all("\\033([A-Z-a-z0-9]+;|[A-Za-z])")
     c(result, messages)
   } else {
     messages
@@ -541,7 +543,9 @@ capture_message <- function(expr) {
     sink(type = "message") # nolint
   }
   close(con)
-  readLines(temp_file)
+  readLines(temp_file) %>%
+    # remove R and ANSI escape sequences
+    str_remove_all("\\033([A-Z-a-z0-9]+;|[A-Za-z])")
 }
 
 #' @export

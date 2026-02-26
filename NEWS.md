@@ -4,6 +4,9 @@
 
 ## Updates of Existing Functions
 
+- `capture_message()` was updated to strip off all control sequences from the
+ message. (#543)
+
 ## Breaking Changes
 
 ## Documentation
