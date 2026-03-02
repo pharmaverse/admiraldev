@@ -6,6 +6,10 @@
 
 ### Updates of Existing Functions
 
+- [`capture_message()`](https://pharmaverse.github.io/admiraldev/dev/reference/capture_message.md)
+  was updated to strip off all control sequences from the message.
+  ([\#543](https://github.com/pharmaverse/admiraldev/issues/543))
+
 ### Breaking Changes
 
 ### Documentation
