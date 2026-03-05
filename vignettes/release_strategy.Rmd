@@ -62,11 +62,11 @@ in R Packages for more details.
 GitHub to "release" the package onto GitHub, select the `main` branch as target,
 and use a tag of the form `vX.Y.Z`, e.g., `v1.1.2` (see past [admiral
 releases](https://github.com/pharmaverse/admiral/releases) for reference and
-[Releasing to Github](release_strategy.html#releasing-to-github) section for
+[Releasing to GitHub](release_strategy.html#releasing-to-github) section for
 more details). 
 
 
-    This releases onto Github, archives the version of code within the `main` branch, bundles the code
+    This releases onto GitHub, archives the version of code within the `main` branch, bundles the code
     into a `tar.gz` file, builds the website for the released version and stores it in a new
     `vx.y.z` folder on the `gh-pages` branch.
 
@@ -110,7 +110,7 @@ A hot fix release is done in the following steps:
 1. **Release to GitHub:**
 
     * Once the package is accepted and available on CRAN, use the release button on GitHub to "release" the package onto GitHub.
-    * Select the `patch` branch as the target, and use a tag of the form `vX.Y.Z`, e.g., `v1.1.2` (see past [admiral releases](https://github.com/pharmaverse/admiral/releases) for reference and [Releasing to Github](release_strategy.html#releasing-to-github) section for more details).
+    * Select the `patch` branch as the target, and use a tag of the form `vX.Y.Z`, e.g., `v1.1.2` (see past [admiral releases](https://github.com/pharmaverse/admiral/releases) for reference and [Releasing to GitHub](release_strategy.html#releasing-to-github) section for more details).
     * This process:
         * Archives the version of code within the `patch` branch.
         * Attaches the News/Changelog file.
@@ -124,7 +124,7 @@ A hot fix release is done in the following steps:
     * Update `NEWS.md` (add a new section `# admiral (development version)`).
     * Create a PR into `main` and merge it.
     
-# Releasing to Github
+# Releasing to GitHub
 Under the [Releases](https://github.com/pharmaverse/admiral/releases) section in the main repo, select `Draft a New Release`. Proceed by creating the appropriate release tag and header, denoted as `vX.X.X` and `admiral X.X.X` respectively, for the release:
 
 ![](https://user-images.githubusercontent.com/43018762/228875673-5b6daa64-1909-47c9-bd61-69b810c2f742.png)
