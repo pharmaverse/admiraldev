@@ -98,7 +98,7 @@ A hot fix release is done in the following steps:
       ```
     * There is no need to use development versions. I.e., the first pull request should set the version in `DESCRIPTION` to the version to be released and a corresponding heading should be added to `NEWS.md`.
 
-1. **Branch Naming:** When naming the branch, follow the [naming conventions](https://www.google.com/search?q=git_usage.html%23implementing-an-issue) guide.
+1. **Branch Naming:** The branch name must be prefixed with the issue number, followed by a short but meaningful description (e.g. `94-derive-var-lstalvdt`). See the [naming conventions](git_usage.html#naming-branches) guide for details.
 
 1. **Bundle and Submit to CRAN:**
 
@@ -110,7 +110,7 @@ A hot fix release is done in the following steps:
 1. **Release to GitHub:**
 
     * Once the package is accepted and available on CRAN, use the release button on GitHub to "release" the package onto GitHub.
-    * Select the `patch` branch as the target, and use a tag of the form `vX.Y.Z`, e.g., `v1.1.2` (see past [admiral releases](https://github.com/pharmaverse/admiral/releases) for reference and [Releasing to Github](https://www.google.com/search?q=release_strategy.html%23releasing-to-github) section for more details).
+    * Select the `patch` branch as the target, and use a tag of the form `vX.Y.Z`, e.g., `v1.1.2` (see past [admiral releases](https://github.com/pharmaverse/admiral/releases) for reference and [Releasing to Github](release_strategy.html#releasing-to-github) section for more details).
     * This process:
         * Archives the version of code within the `patch` branch.
         * Attaches the News/Changelog file.
