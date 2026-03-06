@@ -583,7 +583,7 @@ The table below describes the key directories and files in the repository. Under
 | `man/`                | Auto-generated Rd documentation files. **Do not edit manually.** Run `devtools::document()` to regenerate. |
 | `tests/testthat/`     | Unit test scripts. Each file follows the naming convention `test-<source_file>.R`. |
 | `vignettes/`          | Developer-facing guidance vignettes (and any user-facing articles). |
-| `inst/lintr/`         | Package linting configuration. Exports `admiral_linters()` for use in `.lintr.R`. |
+| `inst/lintr/`         | Linting helpers/configuration used by `.lintr.R` (e.g., sourced via `system.file(...)`). |
 | `inst/templates/`     | ADaM R script templates made available to users. |
 | `NAMESPACE`           | Auto-generated export/import declarations. **Do not edit manually.** Run `devtools::document()`. |
 | `NEWS.md`             | Package changelog. Updated with every user-facing change per PR. |
