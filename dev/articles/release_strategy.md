@@ -57,10 +57,10 @@ A package release is done in the following steps:
     tag of the form `vX.Y.Z`, e.g., `v1.1.2` (see past [admiral
     releases](https://github.com/pharmaverse/admiral/releases) for
     reference and [Releasing to
-    Github](https://pharmaverse.github.io/admiraldev/dev/articles/release_strategy.html#releasing-to-github)
+    GitHub](https://pharmaverse.github.io/admiraldev/dev/articles/release_strategy.html#releasing-to-github)
     section for more details).
 
-    This releases onto Github, archives the version of code within the
+    This releases onto GitHub, archives the version of code within the
     `main` branch, bundles the code into a `tar.gz` file, builds the
     website for the released version and stores it in a new `vx.y.z`
     folder on the `gh-pages` branch.
@@ -107,9 +107,11 @@ A hot fix release is done in the following steps:
       be released and a corresponding heading should be added to
       `NEWS.md`.
 
-3.  **Branch Naming:** When naming the branch, follow the [naming
-    conventions](https://www.google.com/search?q=git_usage.html%23implementing-an-issue)
-    guide.
+3.  **Branch Naming:** The branch name must be prefixed with the issue
+    number, followed by a short but meaningful description
+    (e.g. `94-derive-var-lstalvdt`). See the [naming
+    conventions](https://pharmaverse.github.io/admiraldev/dev/articles/git_usage.html#naming-branches)
+    guide for details.
 
 4.  **Bundle and Submit to CRAN:**
 
@@ -130,7 +132,7 @@ A hot fix release is done in the following steps:
       `vX.Y.Z`, e.g., `v1.1.2` (see past [admiral
       releases](https://github.com/pharmaverse/admiral/releases) for
       reference and [Releasing to
-      Github](https://www.google.com/search?q=release_strategy.html%23releasing-to-github)
+      GitHub](https://pharmaverse.github.io/admiraldev/dev/articles/release_strategy.html#releasing-to-github)
       section for more details).
     - This process:
       - Archives the version of code within the `patch` branch.
@@ -151,7 +153,7 @@ A hot fix release is done in the following steps:
       `# admiral (development version)`).
     - Create a PR into `main` and merge it.
 
-## Releasing to Github
+## Releasing to GitHub
 
 Under the [Releases](https://github.com/pharmaverse/admiral/releases)
 section in the main repo, select `Draft a New Release`. Proceed by

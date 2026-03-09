@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,8 +132,8 @@ more in-depth guidance on using <code>git</code> and GitHub.</p>
 <ul>
 <li><p>The <code>main</code> branch contains the latest development
 version of the package. You can find the released versions <a href="https://GitHub.com/pharmaverse/admiral/releases" class="external-link">here</a></p></li>
-<li><p>The <code>gh-pages</code> branches contains the code used to
-render R package websites - you are looking at right now!</p></li>
+<li><p>The <code>gh-pages</code> branch contains the code used to render
+R package websites - you are looking at it right now!</p></li>
 <li><p>The <code>patch</code> branch is reserved for special hot fixes
 to address bugs and should rarely be used. More info in <a href="release_strategy.html#hot-fix-release">Hot Fix
 Release</a></p></li>
@@ -162,7 +162,7 @@ developers to only work on one issue at a time.</p>
 <p>The name of the branch must be prefixed with the issue number,
 followed by a short but meaningful description. As an example, given an
 issue #94 “Program function to derive <code>LSTALVDT</code>”, the branch
-name would be <code>94_derive_var_lstalvdt</code>.</p>
+name would be <code>94-derive-var-lstalvdt</code>.</p>
 </div>
 <div class="section level4">
 <h4 id="create-a-new-feature-branch-from-the-terminal-from-main">Create a New Feature Branch from the Terminal (from
@@ -204,7 +204,7 @@ commit. You can use <code>git add .</code> to move all files you have
 worked on to the staging area. Next you can commit, which takes a
 snapshot of your staged changes. When committing, prefix the message
 with the issue number and add a meaningful message
-<code>git commit –m '#94 last alive date implementation'</code>.</p>
+<code>git commit -m '#94 last alive date implementation'</code>.</p>
 <p>Lastly, you should push your changes up to GitHub using
 <code>git push origin &lt;branch name&gt;</code></p>
 </div>
@@ -235,7 +235,7 @@ think is valuable in a highly regulated industry like Pharma.</p>
 <ul>
 <li><code>feat: #94 skeleton of function developed</code></li>
 <li><code>chore: #94 styler and lintr update</code></li>
-<li><code>docs: #94 parameters and details sections compelted</code></li>
+<li><code>docs: #94 parameters and details sections completed</code></li>
 </ul>
 </div>
 <div class="section level4">
@@ -244,7 +244,7 @@ think is valuable in a highly regulated industry like Pharma.</p>
 <ul>
 <li><code>#94 skeleton of function developed</code></li>
 <li><code>#94 styler and lintr update</code></li>
-<li><code>#94 parameters and details sections compelted</code></li>
+<li><code>#94 parameters and details sections completed</code></li>
 </ul>
 </div>
 <div class="section level4">
@@ -253,7 +253,7 @@ think is valuable in a highly regulated industry like Pharma.</p>
 <ul>
 <li><code>skeleton of function developed (#94)</code></li>
 <li><code>styler and lintr update (#94)</code></li>
-<li><code>parameters and details sections compelted (#94)</code></li>
+<li><code>parameters and details sections completed (#94)</code></li>
 </ul>
 </div>
 </div>
@@ -262,7 +262,7 @@ think is valuable in a highly regulated industry like Pharma.</p>
 </h3>
 <p>We recommend a thorough read through of the articles, <a href="pr_review_guidance.html">Pull Request Review Guidance</a> and the
 <a href="programming_strategy.html">Programming Strategy</a> for
-in-depth discussions on a doing a proper Pull Request.Pull Request
+in-depth discussions on doing a proper Pull Request. Pull Request
 authors will benefit from shorter review times by closely following the
 guidance provided in those two articles. Below we discuss some simple
 <code>git</code> commands in the terminal and on GitHub for doing a Pull
@@ -280,7 +280,7 @@ Please <strong>pay close attention</strong> to the branch you are
 merging into!</p>
 <p><img src="github_create_pr.png"><!-- --></p>
 <p>The issue must be linked to the pull request in the “Development”
-field of the Pull Request. In most cases, this will linkage will
+field of the Pull Request. In most cases, this linkage will
 automatically close the issue and move to the Done column on our project
 board.</p>
 <p><img src="github_linked_issues_dark.png"><!-- --></p>
@@ -305,9 +305,9 @@ GitHub before the Pull Request is merged</li>
 </ul>
 <p>Once the review is completed, the reviewer will merge the Pull
 Request and the feature branch will automatically be deleted.</p>
-<p>After merging the Pull Request please check that corresponding has
-been moved to the done column on the Project Board. Also, please make
-sure that the issue has closed.</p>
+<p>After merging the Pull Request please check that the corresponding
+issue has been moved to the done column on the Project Board. Also,
+please make sure that the issue has closed.</p>
 <p><img src="github_done.png"><!-- --></p>
 </div>
 <div class="section level4">
@@ -352,7 +352,8 @@ wish to keep. Be sure to remove the
 <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> as well! Once you work through
 the conflicts you will mark as <strong>Resolved and Commit your
 changes</strong>. It is recommended to pull your branch back down to
-RStudio to make sure no untoward effects have happen to your branch.</p>
+RStudio to make sure no untoward effects have happened to your
+branch.</p>
 <p><img src="github_conflicts.png"><!-- --></p>
 </div>
 </div>
@@ -374,7 +375,8 @@ clean directory<br>
 changes<br>
 </li>
 <li>
-<code>git revert</code> is also helpful but why?</li>
+<code>git revert</code> is also helpful for undoing committed
+changes without rewriting history</li>
 </ul>
 <p><strong>Using code from unmerged branches</strong></p>
 <ul>

@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -173,9 +173,9 @@ accepted and available on CRAN, use the release button on GitHub to
 “release” the package onto GitHub, select the <code>main</code> branch
 as target, and use a tag of the form <code>vX.Y.Z</code>, e.g.,
 <code>v1.1.2</code> (see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral
-releases</a> for reference and <a href="release_strategy.html#releasing-to-github">Releasing to Github</a>
+releases</a> for reference and <a href="release_strategy.html#releasing-to-github">Releasing to GitHub</a>
 section for more details).</p>
-<p>This releases onto Github, archives the version of code within the
+<p>This releases onto GitHub, archives the version of code within the
 <code>main</code> branch, bundles the code into a <code>tar.gz</code>
 file, builds the website for the released version and stores it in a new
 <code>vx.y.z</code> folder on the <code>gh-pages</code> branch.</p>
@@ -227,9 +227,10 @@ version to be released and a corresponding heading should be added to
 <code>NEWS.md</code>.</p></li>
 </ul>
 </li>
-<li><p><strong>Branch Naming:</strong> When naming the branch, follow
-the <a href="https://www.google.com/search?q=git_usage.html%23implementing-an-issue" class="external-link">naming
-conventions</a> guide.</p></li>
+<li><p><strong>Branch Naming:</strong> The branch name must be prefixed
+with the issue number, followed by a short but meaningful description
+(e.g. <code>94-derive-var-lstalvdt</code>). See the <a href="git_usage.html#naming-branches">naming conventions</a> guide for
+details.</p></li>
 <li>
 <p><strong>Bundle and Submit to CRAN:</strong></p>
 <ul>
@@ -249,8 +250,8 @@ modifications, repeat steps 1-4 as necessary.</p></li>
 button on GitHub to “release” the package onto GitHub.</li>
 <li>Select the <code>patch</code> branch as the target, and use a tag of
 the form <code>vX.Y.Z</code>, e.g., <code>v1.1.2</code> (see past <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">admiral
-releases</a> for reference and <a href="https://www.google.com/search?q=release_strategy.html%23releasing-to-github" class="external-link">Releasing
-to Github</a> section for more details).</li>
+releases</a> for reference and <a href="release_strategy.html#releasing-to-github">Releasing to GitHub</a>
+section for more details).</li>
 <li>This process:
 <ul>
 <li>Archives the version of code within the <code>patch</code>
@@ -280,7 +281,7 @@ additional Pull Request. Merging the PR will update the version in the
 </div>
 </div>
 <div class="section level2">
-<h2 id="releasing-to-github">Releasing to Github<a class="anchor" aria-label="anchor" href="#releasing-to-github"></a>
+<h2 id="releasing-to-github">Releasing to GitHub<a class="anchor" aria-label="anchor" href="#releasing-to-github"></a>
 </h2>
 <p>Under the <a href="https://github.com/pharmaverse/admiral/releases" class="external-link">Releases</a>
 section in the main repo, select <code>Draft a New Release</code>.

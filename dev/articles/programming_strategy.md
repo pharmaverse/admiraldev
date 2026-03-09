@@ -78,8 +78,8 @@ The following principles are key when designing a new function:
 
 - ***Checks*** - Whenever a function fails, a meaningful error message
   must be provided with a clear reference to the input which caused the
-  failure. A users should not have to dig into detailed code if they
-  only want to apply a function. A meaningful error message supports
+  failure. A user should not have to dig into detailed code if they only
+  want to apply a function. A meaningful error message supports
   usability.
 
 - ***Flexibility*** - Functions should be as flexible as possible as
@@ -299,7 +299,7 @@ stored under `inst/lintr/linters.R` in
 [admiraldev](https://pharmaverse.github.io/admiraldev/) (so as not to
 expose it to users) and can be loaded within the `.lintr.R`
 configuration file with
-`source(system.file("lintr/linters.R", package = "admiraldev")`. An
+`source(system.file("lintr/linters.R", package = "admiraldev"))`. An
 example `.lintr.R` configuration file is shown below:
 
 ``` r
@@ -575,7 +575,7 @@ does not affect the order of the argument description in the rendered
 documentation but makes it easier to maintain the headers.
 
 Variable names, expressions, functions, and any other code must be
-enclosed which backticks. This will render it as code.
+enclosed in backticks. This will render it as code.
 
 For functions which derive a specific CDISC variable, the title must
 state the label of the variable without the variable name. The variable
@@ -599,7 +599,7 @@ families are case-sensitive.
 #### `@keywords`
 
 The keywords allows for the reference page to be easily organized when
-using certain `pgkdown` functions. For example, using the function
+using certain `pkgdown` functions. For example, using the function
 `has_keyword(der_bds_gen)` in the `_pkgdown.yml` file while building the
 website will collect all the BDS General Derivation functions and
 display them in alphabetical order on the Reference Page in a section
@@ -670,6 +670,25 @@ character values as blank. Those are imported into R as empty strings
 strings that originate like this need to be converted to proper R
 missing values `NA`.
 
+## Repository Structure
+
+The table below describes the key directories and files in the
+repository. Understanding this layout helps contributors know where to
+find and where to place code.
+
+| Directory or File | Purpose                                                                                                                           |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+| `R/`              | R source files containing package functions. File names reflect their contents (see [File Structuring](#file-structuring) below). |
+| `man/`            | Auto-generated Rd documentation files. **Do not edit manually.** Run `devtools::document()` to regenerate.                        |
+| `tests/testthat/` | Unit test scripts. Each file follows the naming convention `test-<source_file>.R`.                                                |
+| `vignettes/`      | Developer-facing guidance vignettes (and any user-facing articles).                                                               |
+| `inst/lintr/`     | Linting helpers/configuration used by `.lintr.R` (e.g., sourced via `system.file(...)`).                                          |
+| `inst/templates/` | ADaM R script templates made available to users.                                                                                  |
+| `NAMESPACE`       | Auto-generated export/import declarations. **Do not edit manually.** Run `devtools::document()`.                                  |
+| `NEWS.md`         | Package changelog. Updated with every user-facing change per PR.                                                                  |
+| `DESCRIPTION`     | Package metadata and dependency declarations (`Imports`, `Suggests`).                                                             |
+| `_pkgdown.yml`    | Configuration for the package website built by [pkgdown](https://pkgdown.r-lib.org/).                                             |
+
 ## File Structuring
 
 Organizing functions into files is more of an art than a science. Thus,
@@ -712,7 +731,8 @@ code readability.
 
 Some of these functions become critically important while using admiral
 and should be included as an export. This applies to functions which are
-frequently called within `{admiral }`function calls like
+frequently called within
+[admiral](https://pharmaverse.github.io/admiral/) function calls like
 [`rlang::exprs()`](https://rlang.r-lib.org/reference/defusing-advanced.html),
 [`dplyr::desc()`](https://dplyr.tidyverse.org/reference/desc.html) or
 the pipe operator `dplyr::%>%`. To export these functions, the following
@@ -747,10 +767,10 @@ base in the coming days.
   Templates, vignettes and any internal calls should be updated to use
   the new recommended function/argument.
 
-- **Phase 2:** After at least *one year* and in the closet next release,
-  a warning will be issued when using the function or argument using
-  `deprecate_warn()`. This warning message will appear for at least *one
-  year*.
+- **Phase 2:** After at least *one year* and in the closest next
+  release, a warning will be issued when using the function or argument
+  using `deprecate_warn()`. This warning message will appear for at
+  least *one year*.
 
 - **Phase 3:** After at least *one year* and in the closest next
   release, an error will be thrown when using the function or argument
@@ -1102,6 +1122,90 @@ where “xxx” is the be replaced with the argument name.
   packages to those R versions. You can view this workflow and others on
   our [admiralci GitHub
   Repository](https://github.com/pharmaverse/admiralci).
+
+## Development Commands
+
+The following R commands cover the most common development tasks. All
+commands should be run with the package project open (i.e., from the
+package root directory).
+
+### Install Package Dependencies
+
+``` r
+devtools::install_deps(dependencies = TRUE)
+```
+
+Installs all packages declared in `DESCRIPTION` (both `Imports` and
+`Suggests`).
+
+### Load the Package
+
+``` r
+devtools::load_all()
+```
+
+Simulates installing and loading the package. Use this frequently during
+development to ensure your changes are available in the R session.
+
+### Generate Documentation
+
+``` r
+devtools::document()
+```
+
+Runs [roxygen2](https://roxygen2.r-lib.org/) to rebuild all `man/*.Rd`
+files and regenerate `NAMESPACE`. Must be run after any change to
+roxygen headers.
+
+### Run All Unit Tests
+
+``` r
+devtools::test()
+```
+
+Runs the full [testthat](https://testthat.r-lib.org) test suite. All
+tests must pass before opening a pull request.
+
+### Run Tests for a Single File
+
+``` r
+devtools::test_file("tests/testthat/test-<file>.R")
+```
+
+Useful for rapid iteration while developing or fixing a specific
+function.
+
+### Check Code Style (Linting)
+
+``` r
+lintr::lint_package()
+```
+
+Applies the linting rules defined in `.lintr.R` (which uses
+`admiral_linters()` from
+[admiraldev](https://pharmaverse.github.io/admiraldev/)). The CI
+workflow will fail if linting errors are present.
+
+### Auto-Format Code (Styler)
+
+``` r
+styler::style_pkg()
+```
+
+Reformats source files to comply with the [tidyverse style
+guide](https://style.tidyverse.org/). Run this before committing to
+avoid whitespace-related lintr failures.
+
+### Run R CMD Check
+
+``` r
+devtools::check()
+```
+
+Runs the full `R CMD check` suite locally. The PR CI will fail if check
+produces any errors, warnings, or notes. See the [R CMD
+Issues](https://pharmaverse.github.io/admiraldev/dev/articles/rcmd_issues.md)
+vignette for guidance on resolving common failures.
 
 ------------------------------------------------------------------------
 

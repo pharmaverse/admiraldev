@@ -14,6 +14,8 @@
 
 ### Documentation
 
+- Update vignettes for AI coding `AGENTS.md` files
+  ([\#545](https://github.com/pharmaverse/admiraldev/issues/545))
 - The website navigation bar has been updated to:
   ([\#539](https://github.com/pharmaverse/admiraldev/issues/539))
   - Add a night mode option. This can be be toggled using the sun/moon

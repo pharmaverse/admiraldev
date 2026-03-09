@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -190,7 +190,7 @@ computational functions or data checks. However, also consider not to
 nest too many functions.</p></li>
 <li><p><em><strong>Checks</strong></em> - Whenever a function fails, a
 meaningful error message must be provided with a clear reference to the
-input which caused the failure. A users should not have to dig into
+input which caused the failure. A user should not have to dig into
 detailed code if they only want to apply a function. A meaningful error
 message supports usability.</p></li>
 <li>
@@ -609,7 +609,7 @@ preferences and conventions such as avoiding the use of
 <code>inst/lintr/linters.R</code> in <a href="https://pharmaverse.github.io/admiraldev/">admiraldev</a> (so as
 not to expose it to users) and can be loaded within the
 <code>.lintr.R</code> configuration file with
-<code>source(system.file("lintr/linters.R", package = "admiraldev")</code>.
+<code>source(system.file("lintr/linters.R", package = "admiraldev"))</code>.
 An example <code>.lintr.R</code> configuration file is shown below:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lintr.r-lib.org" class="external-link">lintr</a></span><span class="op">)</span></span>
@@ -855,7 +855,7 @@ after the <code>@param</code>. This does not affect the order of the
 argument description in the rendered documentation but makes it easier
 to maintain the headers.</p>
 <p>Variable names, expressions, functions, and any other code must be
-enclosed which backticks. This will render it as code.</p>
+enclosed in backticks. This will render it as code.</p>
 <p>For functions which derive a specific CDISC variable, the title must
 state the label of the variable without the variable name. The variable
 should be stated in the description.</p>
@@ -880,7 +880,7 @@ case-sensitive.</p>
 <code>@keywords</code><a class="anchor" aria-label="anchor" href="#keywords"></a>
 </h4>
 <p>The keywords allows for the reference page to be easily organized
-when using certain <code>pgkdown</code> functions. For example, using
+when using certain <code>pkgdown</code> functions. For example, using
 the function <code>has_keyword(der_bds_gen)</code> in the
 <code>_pkgdown.yml</code> file while building the website will collect
 all the BDS General Derivation functions and display them in
@@ -1064,6 +1064,77 @@ strings (<code>""</code>) although in nature they are missing values
 converted to proper R missing values <code>NA</code>.</p>
 </div>
 <div class="section level2">
+<h2 id="repository-structure">Repository Structure<a class="anchor" aria-label="anchor" href="#repository-structure"></a>
+</h2>
+<p>The table below describes the key directories and files in the
+repository. Understanding this layout helps contributors know where to
+find and where to place code.</p>
+<table class="table">
+<colgroup>
+<col width="37%">
+<col width="62%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Directory or File</th>
+<th align="left">Purpose</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>R/</code></td>
+<td align="left">R source files containing package functions. File names
+reflect their contents (see <a href="#file-structuring">File
+Structuring</a> below).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>man/</code></td>
+<td align="left">Auto-generated Rd documentation files. <strong>Do not
+edit manually.</strong> Run <code>devtools::document()</code> to
+regenerate.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>tests/testthat/</code></td>
+<td align="left">Unit test scripts. Each file follows the naming
+convention <code>test-&lt;source_file&gt;.R</code>.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>vignettes/</code></td>
+<td align="left">Developer-facing guidance vignettes (and any
+user-facing articles).</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>inst/lintr/</code></td>
+<td align="left">Linting helpers/configuration used by
+<code>.lintr.R</code> (e.g., sourced via
+<code>system.file(...)</code>).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>inst/templates/</code></td>
+<td align="left">ADaM R script templates made available to users.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>NAMESPACE</code></td>
+<td align="left">Auto-generated export/import declarations. <strong>Do
+not edit manually.</strong> Run <code>devtools::document()</code>.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>NEWS.md</code></td>
+<td align="left">Package changelog. Updated with every user-facing
+change per PR.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>DESCRIPTION</code></td>
+<td align="left">Package metadata and dependency declarations
+(<code>Imports</code>, <code>Suggests</code>).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>_pkgdown.yml</code></td>
+<td align="left">Configuration for the package website built by
+<a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level2">
 <h2 id="file-structuring">File Structuring<a class="anchor" aria-label="anchor" href="#file-structuring"></a>
 </h2>
 <p>Organizing functions into files is more of an art than a science.
@@ -1103,7 +1174,7 @@ By using the <code>@importFrom</code> tag, it is easier to track all of
 our dependencies in one place and improves code readability.</p>
 <p>Some of these functions become critically important while using
 admiral and should be included as an export. This applies to functions
-which are frequently called within <code>{admiral }</code>function calls
+which are frequently called within <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> function calls
 like <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">rlang::exprs()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">dplyr::desc()</a></code> or the pipe
 operator <code>dplyr::%&gt;%</code>. To export these functions, the
 following R code should be included in the <code>R/reexports.R</code>
@@ -1139,7 +1210,7 @@ for at least <em>one year</em>. Templates, vignettes and any internal
 calls should be updated to use the new recommended
 function/argument.</p></li>
 <li><p><strong>Phase 2:</strong> After at least <em>one year</em> and in
-the closet next release, a warning will be issued when using the
+the closest next release, a warning will be issued when using the
 function or argument using <code>deprecate_warn()</code>. This warning
 message will appear for at least <em>one year</em>.</p></li>
 <li><p><strong>Phase 3:</strong> After at least <em>one year</em> and in
@@ -1482,6 +1553,81 @@ Versions and the closest snapshots of packages to those R versions. You
 can view this workflow and others on our <a href="https://github.com/pharmaverse/admiralci" class="external-link">admiralci GitHub
 Repository</a>.</li>
 </ul>
+</div>
+<div class="section level2">
+<h2 id="development-commands">Development Commands<a class="anchor" aria-label="anchor" href="#development-commands"></a>
+</h2>
+<p>The following R commands cover the most common development tasks. All
+commands should be run with the package project open (i.e., from the
+package root directory).</p>
+<div class="section level3">
+<h3 id="install-package-dependencies">Install Package Dependencies<a class="anchor" aria-label="anchor" href="#install-package-dependencies"></a>
+</h3>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_deps</span><span class="op">(</span>dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>Installs all packages declared in <code>DESCRIPTION</code> (both
+<code>Imports</code> and <code>Suggests</code>).</p>
+</div>
+<div class="section level3">
+<h3 id="load-the-package">Load the Package<a class="anchor" aria-label="anchor" href="#load-the-package"></a>
+</h3>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">load_all</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Simulates installing and loading the package. Use this frequently
+during development to ensure your changes are available in the R
+session.</p>
+</div>
+<div class="section level3">
+<h3 id="generate-documentation">Generate Documentation<a class="anchor" aria-label="anchor" href="#generate-documentation"></a>
+</h3>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">document</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Runs <a href="https://roxygen2.r-lib.org/" class="external-link">roxygen2</a> to rebuild all <code>man/*.Rd</code>
+files and regenerate <code>NAMESPACE</code>. Must be run after any
+change to roxygen headers.</p>
+</div>
+<div class="section level3">
+<h3 id="run-all-unit-tests">Run All Unit Tests<a class="anchor" aria-label="anchor" href="#run-all-unit-tests"></a>
+</h3>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">test</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Runs the full <a href="https://testthat.r-lib.org" class="external-link">testthat</a> test suite. All tests must pass
+before opening a pull request.</p>
+</div>
+<div class="section level3">
+<h3 id="run-tests-for-a-single-file">Run Tests for a Single File<a class="anchor" aria-label="anchor" href="#run-tests-for-a-single-file"></a>
+</h3>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">test_file</span><span class="op">(</span><span class="st">"tests/testthat/test-&lt;file&gt;.R"</span><span class="op">)</span></span></code></pre></div>
+<p>Useful for rapid iteration while developing or fixing a specific
+function.</p>
+</div>
+<div class="section level3">
+<h3 id="check-code-style-linting">Check Code Style (Linting)<a class="anchor" aria-label="anchor" href="#check-code-style-linting"></a>
+</h3>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint_package</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Applies the linting rules defined in <code>.lintr.R</code> (which
+uses <code>admiral_linters()</code> from <a href="https://pharmaverse.github.io/admiraldev/">admiraldev</a>). The
+CI workflow will fail if linting errors are present.</p>
+</div>
+<div class="section level3">
+<h3 id="auto-format-code-styler">Auto-Format Code (Styler)<a class="anchor" aria-label="anchor" href="#auto-format-code-styler"></a>
+</h3>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">styler</span><span class="fu">::</span><span class="fu">style_pkg</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Reformats source files to comply with the <a href="https://style.tidyverse.org/" class="external-link">tidyverse style guide</a>. Run this
+before committing to avoid whitespace-related lintr failures.</p>
+</div>
+<div class="section level3">
+<h3 id="run-r-cmd-check">Run R CMD Check<a class="anchor" aria-label="anchor" href="#run-r-cmd-check"></a>
+</h3>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">check</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Runs the full <code>R CMD check</code> suite locally. The PR CI will
+fail if check produces any errors, warnings, or notes. See the <a href="rcmd_issues.html">R CMD Issues</a> vignette for guidance on
+resolving common failures.</p>
+</div>
 </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

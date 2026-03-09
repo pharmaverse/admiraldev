@@ -20,8 +20,8 @@ using `git` and GitHub.
   package. You can find the released versions
   [here](https://GitHub.com/pharmaverse/admiral/releases)
 
-- The `gh-pages` branches contains the code used to render R package
-  websites - you are looking at right now!
+- The `gh-pages` branch contains the code used to render R package
+  websites - you are looking at it right now!
 
 - The `patch` branch is reserved for special hot fixes to address bugs
   and should rarely be used. More info in [Hot Fix
@@ -52,7 +52,7 @@ developers to only work on one issue at a time.
 The name of the branch must be prefixed with the issue number, followed
 by a short but meaningful description. As an example, given an issue
 \#94 “Program function to derive `LSTALVDT`”, the branch name would be
-`94_derive_var_lstalvdt`.
+`94-derive-var-lstalvdt`.
 
 #### Create a New Feature Branch from the Terminal (from `main`)
 
@@ -81,7 +81,7 @@ commit. You can use `git add .` to move all files you have worked on to
 the staging area. Next you can commit, which takes a snapshot of your
 staged changes. When committing, prefix the message with the issue
 number and add a meaningful message
-`git commit –m '#94 last alive date implementation'`.
+`git commit -m '#94 last alive date implementation'`.
 
 Lastly, you should push your changes up to GitHub using
 `git push origin <branch name>`
@@ -111,19 +111,19 @@ Below are styles of commit messaging permitted:
 
 - `feat: #94 skeleton of function developed`
 - `chore: #94 styler and lintr update`
-- `docs: #94 parameters and details sections compelted`
+- `docs: #94 parameters and details sections completed`
 
 #### Style 2:
 
 - `#94 skeleton of function developed`
 - `#94 styler and lintr update`
-- `#94 parameters and details sections compelted`
+- `#94 parameters and details sections completed`
 
 #### Style 3:
 
 - `skeleton of function developed (#94)`
 - `styler and lintr update (#94)`
-- `parameters and details sections compelted (#94)`
+- `parameters and details sections completed (#94)`
 
 ### Pull request
 
@@ -132,7 +132,7 @@ Review
 Guidance](https://pharmaverse.github.io/admiraldev/dev/articles/pr_review_guidance.md)
 and the [Programming
 Strategy](https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.md)
-for in-depth discussions on a doing a proper Pull Request.Pull Request
+for in-depth discussions on doing a proper Pull Request. Pull Request
 authors will benefit from shorter review times by closely following the
 guidance provided in those two articles. Below we discuss some simple
 `git` commands in the terminal and on GitHub for doing a Pull Request.
@@ -153,7 +153,7 @@ merging into!
 ![](github_create_pr.png)
 
 The issue must be linked to the pull request in the “Development” field
-of the Pull Request. In most cases, this will linkage will automatically
+of the Pull Request. In most cases, this linkage will automatically
 close the issue and move to the Done column on our project board.
 
 ![](github_linked_issues_dark.png)
@@ -180,9 +180,9 @@ summary.
 Once the review is completed, the reviewer will merge the Pull Request
 and the feature branch will automatically be deleted.
 
-After merging the Pull Request please check that corresponding has been
-moved to the done column on the Project Board. Also, please make sure
-that the issue has closed.
+After merging the Pull Request please check that the corresponding issue
+has been moved to the done column on the Project Board. Also, please
+make sure that the issue has closed.
 
 ![](github_done.png)
 
@@ -225,7 +225,7 @@ you have decided, go into the code and remove the section you no longer
 wish to keep. Be sure to remove the `<<<<<<<`, `=======`, and `>>>>>>>`
 as well! Once you work through the conflicts you will mark as **Resolved
 and Commit your changes**. It is recommended to pull your branch back
-down to RStudio to make sure no untoward effects have happen to your
+down to RStudio to make sure no untoward effects have happened to your
 branch.
 
 ![](github_conflicts.png)
@@ -239,7 +239,8 @@ branch.
 - `git stash` - stash (store) current changes and restore a clean
   directory  
 - `git stash pop` - put back (restore) stashed changes  
-- `git revert` is also helpful but why?
+- `git revert` is also helpful for undoing committed changes without
+  rewriting history
 
 **Using code from unmerged branches**
 

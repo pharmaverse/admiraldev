@@ -111,10 +111,10 @@ compliant Pull Request.
 ### Complete the Pull Request checklist
 
 The check boxes are linked to the `task-list-completed` workflow. You
-need to check off each box in acknowledgment that you have done you due
+need to check off each box in acknowledgment that you have done your due
 diligence in creating a compliant Pull Request. GitHub will refresh the
 Pull Request and trigger `task-list-completed` workflow that you have
-completed the task. The PR can not be merged into `main` until the
+completed the task. The PR cannot be merged into `main` until the
 contributor has checked off each of the check box items.
 
 ![](pr_review_actions.png)

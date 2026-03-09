@@ -202,7 +202,7 @@ using the function
 [`tribble()`](https://tibble.tidyverse.org/reference/tribble.html) from
 the `tibble` package with the following command
 `dplyr::tribble(<data here>)`. Furthermore, if other functions need to
-be called, it should also be done using `pkg_name::fun()`notation. Make
+be called, it should also be done using `pkg_name::fun()` notation. Make
 sure to align columns as well. This ensures quick code readability.
 
 Ensure you give a meaningful explanation of the test in the testthat
