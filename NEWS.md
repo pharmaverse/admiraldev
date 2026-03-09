@@ -11,6 +11,7 @@
 
 ## Documentation
 
+- Update vignettes for AI coding `AGENTS.md` files (#545)
 - The website navigation bar has been updated to: (#539)
   - Add a night mode option. This can be be toggled using the sun/moon icon in the top right corner of the navigation bar. 
   - Add a link to the "Get Started" vignette for developers.
