@@ -577,18 +577,18 @@ All empty strings that originate like this need to be converted to proper R miss
 
 The table below describes the key directories and files in the repository. Understanding this layout helps contributors know where to find and where to place code.
 
-| Directory / File      | Purpose |
-|-----------------------|---------|
-| `R/`                  | R source files containing package functions. File names reflect their contents (see [File Structuring](#file-structuring) below). |
-| `man/`                | Auto-generated Rd documentation files. **Do not edit manually.** Run `devtools::document()` to regenerate. |
-| `tests/testthat/`     | Unit test scripts. Each file follows the naming convention `test-<source_file>.R`. |
-| `vignettes/`          | Developer-facing guidance vignettes (and any user-facing articles). |
-| `inst/lintr/`         | Linting helpers/configuration used by `.lintr.R` (e.g., sourced via `system.file(...)`). |
-| `inst/templates/`     | ADaM R script templates made available to users. |
-| `NAMESPACE`           | Auto-generated export/import declarations. **Do not edit manually.** Run `devtools::document()`. |
-| `NEWS.md`             | Package changelog. Updated with every user-facing change per PR. |
-| `DESCRIPTION`         | Package metadata and dependency declarations (`Imports`, `Suggests`). |
-| `_pkgdown.yml`        | Configuration for the package website built by `{pkgdown}`. |
+| Directory or File | Purpose |
+| :-- | :---- |
+| `R/` | R source files containing package functions. File names reflect their contents (see [File Structuring](#file-structuring) below). |
+| `man/` | Auto-generated Rd documentation files. **Do not edit manually.** Run `devtools::document()` to regenerate. |
+| `tests/testthat/` | Unit test scripts. Each file follows the naming convention `test-<source_file>.R`. |
+| `vignettes/` | Developer-facing guidance vignettes (and any user-facing articles). |
+| `inst/lintr/` | Linting helpers/configuration used by `.lintr.R` (e.g., sourced via `system.file(...)`). |
+| `inst/templates/` | ADaM R script templates made available to users. |
+| `NAMESPACE` | Auto-generated export/import declarations. **Do not edit manually.** Run `devtools::document()`. |
+| `NEWS.md` | Package changelog. Updated with every user-facing change per PR. |
+| `DESCRIPTION` | Package metadata and dependency declarations (`Imports`, `Suggests`). |
+| `_pkgdown.yml` | Configuration for the package website built by `{pkgdown}`. |
 
 # File Structuring
 
