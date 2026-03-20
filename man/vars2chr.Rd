@@ -26,7 +26,7 @@ library(rlang)
 vars2chr(exprs(USUBJID, AVAL))
 }
 \seealso{
-Developer Utility Functions:
+Developer Utility Functions: 
 \code{\link{\%notin\%}()},
 \code{\link{contains_vars}()},
 \code{\link{convert_dtm_to_dtc}()},
