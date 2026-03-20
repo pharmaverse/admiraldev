@@ -21,7 +21,7 @@ expression of a symbol named auto.
 Checks if the argument equals the auto keyword
 }
 \seealso{
-Identifies type of Object with return of TRUE/FALSE: 
+Identifies type of Object with return of TRUE/FALSE:
 \code{\link{is_order_vars}()},
 \code{\link{is_valid_dtc}()}
 }

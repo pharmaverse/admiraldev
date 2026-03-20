@@ -88,7 +88,7 @@ try(example_fun(dm, "USUBJID"))
 try(example_fun(dm, toupper(PARAMCD)))
 }
 \seealso{
-Checks for valid input and returns warning or errors messages: 
+Checks for valid input and returns warning or errors messages:
 \code{\link{assert_atomic_vector}()},
 \code{\link{assert_character_scalar}()},
 \code{\link{assert_character_vector}()},

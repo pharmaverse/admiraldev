@@ -32,7 +32,7 @@ extract_vars(AVAL ~ ARMCD + AGEGR1)
 extract_vars(AVAL ~ ARMCD + AGEGR1, side = "rhs")
 }
 \seealso{
-Developer Utility Functions: 
+Developer Utility Functions:
 \code{\link{\%notin\%}()},
 \code{\link{contains_vars}()},
 \code{\link{convert_dtm_to_dtc}()},

@@ -22,7 +22,7 @@ check that argument contains valid variable(s) created with \code{exprs()} or
 Source Variables from a List of Expressions
 }
 \seealso{
-Developer Utility Functions: 
+Developer Utility Functions:
 \code{\link{\%notin\%}()},
 \code{\link{convert_dtm_to_dtc}()},
 \code{\link{extract_vars}()},

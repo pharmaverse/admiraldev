@@ -97,7 +97,7 @@ example_fun2 <- function(list) {
 try(example_fun2(list(1, 2, 3, d = 4)))
 }
 \seealso{
-Checks for valid input and returns warning or errors messages: 
+Checks for valid input and returns warning or errors messages:
 \code{\link{assert_atomic_vector}()},
 \code{\link{assert_character_scalar}()},
 \code{\link{assert_character_vector}()},

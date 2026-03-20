@@ -96,7 +96,7 @@ example_fun2 <- function(chr) {
 try(example_fun2(c(alpha = "a", "b", gamma = "c")))
 }
 \seealso{
-Checks for valid input and returns warning or errors messages: 
+Checks for valid input and returns warning or errors messages:
 \code{\link{assert_atomic_vector}()},
 \code{\link{assert_character_scalar}()},
 \code{\link{assert_data_frame}()},
