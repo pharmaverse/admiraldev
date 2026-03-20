@@ -1,6 +1,3 @@
-# THIS FILE INCLUDES FUNCTIONS THAT ARE RE-USED THROUGHOUT
-# roxygen2 COMMENTS TO GENERATE DOCUMENTATION TEXT
-
 #' Standard Text for the `dataset` Argument
 #'
 #' This function provides standardized documentation text for the `dataset`

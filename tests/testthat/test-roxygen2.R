@@ -16,7 +16,8 @@ test_that("roxygen_param_dataset Test 2: Input dataset standardized text works",
 })
 
 # roxygen_param_by_vars ----
-test_that("roxygen_param_by_vars Test 1: Text variations", {
+## Test 3: Text variations ----
+test_that("roxygen_param_by_vars Test 3: Text variations", {
   expect_snapshot(
     roxygen_param_by_vars()
   )
@@ -26,7 +27,8 @@ test_that("roxygen_param_by_vars Test 1: Text variations", {
 })
 
 # roxygen_order_na_handling ----
-test_that("roxygen_order_na_handling Test 1: Standardized text works", {
+## Test 4: Standardized text works ----
+test_that("roxygen_order_na_handling Test 4: Standardized text works", {
   expect_equal(
     roxygen_order_na_handling(),
     paste(
@@ -37,7 +39,8 @@ test_that("roxygen_order_na_handling Test 1: Standardized text works", {
 })
 
 # roxygen_save_memory ----
-test_that("roxygen_save_memory Test 1: Standardized text works", {
+## Test 5: Standardized text works ----
+test_that("roxygen_save_memory Test 5: Standardized text works", {
   expect_equal(
     roxygen_save_memory(),
     paste(
