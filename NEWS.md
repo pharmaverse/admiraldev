@@ -18,6 +18,8 @@
   - Add icon links to report a bug and join the pharmaverse Slack.
   - Add tooltips for each of the icons.
   - Increase the maximum height of the drop-down menus to ensure all items are visible without scrolling.
+  
+- Moved over roxygen helper functiosn from admiral to admiraldev (#517)
 
 # admiraldev 1.4.0
 

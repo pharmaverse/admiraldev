@@ -20,8 +20,8 @@
 #' @returns A character string with the standardized documentation text for
 #'   the `dataset` argument
 #'
-#' @keywords roxygen_helper
-#' @family roxygen_helper
+#' @keywords documentation
+#' @family documentation
 #'
 #' @export
 #'
@@ -67,8 +67,8 @@ roxygen_param_dataset <- function(expected_vars = NULL) {
 #' @returns A character string with the standardized documentation text for
 #'   the `by_vars` argument
 #'
-#' @keywords roxygen_helper
-#' @family roxygen_helper
+#' @keywords documentation
+#' @family documentation
 #'
 #' @export
 #'
@@ -104,8 +104,8 @@ roxygen_param_by_vars <- function(rename = FALSE) {
 #' @returns A character string with the standardized documentation text about
 #'   NA handling in sort order
 #'
-#' @keywords roxygen_helper
-#' @family roxygen_helper
+#' @keywords documentation
+#' @family documentation
 #'
 #' @export
 #'
@@ -130,8 +130,8 @@ roxygen_order_na_handling <- function() {
 #'
 #' @returns A character string with the standardized note about memory usage
 #'
-#' @keywords roxygen_helper
-#' @family roxygen_helper
+#' @keywords documentation
+#' @family documentation
 #'
 #' @export
 #'
