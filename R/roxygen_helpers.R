@@ -13,9 +13,7 @@
 #'   A character vector of variable names expected to be present in the
 #'   `dataset` argument.
 #'
-#'   *Permitted values*: A character vector or `NULL`
-#'
-#'   *Default value*: `NULL`
+#' @permitted A character vector or `NULL`
 #'
 #' @returns A character string with the standardized documentation text for
 #'   the `dataset` argument
@@ -60,9 +58,7 @@ roxygen_param_dataset <- function(expected_vars = NULL) {
 #'   If `TRUE`, the text includes information about renaming variables using
 #'   named elements in `by_vars`.
 #'
-#'   *Permitted values*: `TRUE`, `FALSE`
-#'
-#'   *Default value*: `FALSE`
+#' @permitted `TRUE`, `FALSE`
 #'
 #' @returns A character string with the standardized documentation text for
 #'   the `by_vars` argument

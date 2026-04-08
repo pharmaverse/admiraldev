@@ -12,11 +12,8 @@ roxygen_param_dataset(expected_vars = NULL)
 A character vector of variable names expected to be present in the
 \code{dataset} argument.
 
-\emph{Permitted values}: A character vector or \code{NULL}
-
-\emph{Default value}: \code{NULL}
-
 \describe{
+\item{Permitted values}{A character vector or \code{NULL}}
 \item{Default value}{\code{NULL}}
 }}
 }

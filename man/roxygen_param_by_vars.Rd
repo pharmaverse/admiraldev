@@ -12,11 +12,8 @@ roxygen_param_by_vars(rename = FALSE)
 If \code{TRUE}, the text includes information about renaming variables using
 named elements in \code{by_vars}.
 
-\emph{Permitted values}: \code{TRUE}, \code{FALSE}
-
-\emph{Default value}: \code{FALSE}
-
 \describe{
+\item{Permitted values}{\code{TRUE}, \code{FALSE}}
 \item{Default value}{\code{FALSE}}
 }}
 }
