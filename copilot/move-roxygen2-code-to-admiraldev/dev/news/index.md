@@ -4,6 +4,9 @@
 
 ### New Features
 
+- Moved over roxygen helper functions from admiral to admiraldev
+  ([\#517](https://github.com/pharmaverse/admiraldev/issues/517))
+
 ### Updates of Existing Functions
 
 - [`capture_message()`](https:/pharmaverse.github.io/admiraldev/copilot/move-roxygen2-code-to-admiraldev/dev/reference/capture_message.md)
@@ -25,8 +28,6 @@
   - Add tooltips for each of the icons.
   - Increase the maximum height of the drop-down menus to ensure all
     items are visible without scrolling.
-- Moved over roxygen helper functions from admiral to admiraldev
-  ([\#517](https://github.com/pharmaverse/admiraldev/issues/517))
 
 ## admiraldev 1.4.0
 
