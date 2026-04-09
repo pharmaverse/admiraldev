@@ -2,6 +2,8 @@
 
 ## New Features
 
+- Moved over roxygen helper functions from admiral to admiraldev (#517)
+
 ## Updates of Existing Functions
 
 - `capture_message()` was updated to strip off all control sequences from the
@@ -18,6 +20,7 @@
   - Add icon links to report a bug and join the pharmaverse Slack.
   - Add tooltips for each of the icons.
   - Increase the maximum height of the drop-down menus to ensure all items are visible without scrolling.
+  
 
 # admiraldev 1.4.0
 
