@@ -1094,13 +1094,21 @@ file `derive_adeg_params.R` for further details.
 
 The benefits of having a programmatic way to write documentation is that
 if any changes need to be made, *making the modification on the
-corresponding function, in this case, `roxygen_param_dataset()`, scales
-across the codebase, can be tested, and is less prone to user-error such
-as typos or grammar mistakes*.
+corresponding function, in this case,
+[`roxygen_param_dataset()`](https://pharmaverse.github.io/admiraldev/dev/reference/roxygen_param_dataset.md),
+scales across the codebase, can be tested, and is less prone to
+user-error such as typos or grammar mistakes*.
 
-These functions are implemented in `roxygen2.R` and the naming
-convention for each argument will be as follows `roxygen_param_xxx()`,
-where “xxx” is the be replaced with the argument name.
+These functions are implemented in
+[admiraldev](https://pharmaverse.github.io/admiraldev/) (in
+`roxygen2.R`) and the naming convention for each argument will be as
+follows `roxygen_param_xxx()`, where “xxx” is to be replaced with the
+argument name. The available helper functions are
+[`roxygen_param_dataset()`](https://pharmaverse.github.io/admiraldev/dev/reference/roxygen_param_dataset.md),
+[`roxygen_param_by_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/roxygen_param_by_vars.md),
+[`roxygen_order_na_handling()`](https://pharmaverse.github.io/admiraldev/dev/reference/roxygen_order_na_handling.md),
+and
+[`roxygen_save_memory()`](https://pharmaverse.github.io/admiraldev/dev/reference/roxygen_save_memory.md).
 
 ## R and Package Versions for Development
 

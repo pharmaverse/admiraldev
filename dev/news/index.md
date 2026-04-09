@@ -4,6 +4,9 @@
 
 ### New Features
 
+- Moved over roxygen helper functions from admiral to admiraldev
+  ([\#517](https://github.com/pharmaverse/admiraldev/issues/517))
+
 ### Updates of Existing Functions
 
 - [`capture_message()`](https://pharmaverse.github.io/admiraldev/dev/reference/capture_message.md)
