@@ -636,6 +636,23 @@ test_that("assert_vars Test 32: error if some elements of `arg` are not unquoted
   )
 })
 
+## Test 32b: error with hint if elements of `arg` are quoted variable names ----
+test_that("assert_vars Test 32b: error with hint if elements of `arg` are quoted variable names", {
+  example_fun <- function(arg) {
+    assert_vars(arg)
+  }
+
+  expect_error(
+    example_fun(exprs("USUBJID", "PARAMCD")),
+    class = "assert_vars"
+  )
+
+  expect_snapshot(
+    example_fun(exprs("USUBJID", "PARAMCD")),
+    error = TRUE
+  )
+})
+
 # assert_integer_scalar ----
 ## Test 33: no error if `arg` is NULL and optional is TRUE ----
 test_that("assert_integer_scalar Test 33: no error if `arg` is NULL and optional is TRUE", {

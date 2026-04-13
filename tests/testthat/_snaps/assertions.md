@@ -204,6 +204,17 @@
       ! Each element of the list in argument `arg` must be class/type <symbol>.
       i But, element 3 is NULL
 
+# assert_vars Test 32b: error with hint if elements of `arg` are quoted variable names
+
+    Code
+      example_fun(exprs("USUBJID", "PARAMCD"))
+    Condition
+      Error in `example_fun()`:
+      ! Each element of the list in argument `arg` must be class/type <symbol>.
+      i But, element 1 is a string, and element 2 is a string
+      i If a variable was provided as a string, please provide it as a symbol,
+        e.g. use `exprs(AVISIT)` instead of `exprs("AVISIT")`.
+
 # assert_integer_scalar Test 34: error if chosen subset not in subsets
 
     Code
