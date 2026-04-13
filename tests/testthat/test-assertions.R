@@ -644,7 +644,8 @@ test_that("assert_vars Test 32b: error with hint if elements of `arg` are quoted
 
   expect_error(
     example_fun(exprs("USUBJID", "PARAMCD")),
-    class = "assert_vars"
+    class = "assert_vars",
+    regexp = "exprs\\(AVISIT\\)"
   )
 
   expect_snapshot(
