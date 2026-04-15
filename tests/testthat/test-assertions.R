@@ -643,15 +643,10 @@ test_that("assert_vars Test 33: assert_vars Test 32b: error with hint if element
     assert_vars(arg)
   }
 
-  expect_error(
-    example_fun(exprs("USUBJID", "PARAMCD")),
-    class = "assert_vars",
-    regexp = "exprs\\(AVISIT\\)"
-  )
-
   expect_snapshot(
     example_fun(exprs("USUBJID", "PARAMCD")),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
