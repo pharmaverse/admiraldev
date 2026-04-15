@@ -12,6 +12,14 @@
 - [`capture_message()`](https://pharmaverse.github.io/admiraldev/dev/reference/capture_message.md)
   was updated to strip off all control sequences from the message.
   ([\#543](https://github.com/pharmaverse/admiraldev/issues/543))
+- [`assert_list_of()`](https://pharmaverse.github.io/admiraldev/dev/reference/assert_list_of.md)
+  (and
+  [`assert_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/assert_vars.md))
+  was updated with a clearer message to users on how to fix a string
+  versus symbol issue, e.g “If a variable was provided as a string,
+  please provide it as a symbol, e.g. use `exprs(AVISIT)` instead of
+  `exprs("AVISIT")`”
+  ([\#538](https://github.com/pharmaverse/admiraldev/issues/538))
 
 ### Breaking Changes
 

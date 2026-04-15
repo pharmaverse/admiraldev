@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9004</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9005</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,6 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
 <h3 id="updates-of-existing-functions-development-version">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-development-version"></a></h3>
 <ul><li>
 <code><a href="../reference/capture_message.html">capture_message()</a></code> was updated to strip off all control sequences from the message. (<a href="https://github.com/pharmaverse/admiraldev/issues/543" class="external-link">#543</a>)</li>
+<li>
+<code><a href="../reference/assert_list_of.html">assert_list_of()</a></code> (and <code><a href="../reference/assert_vars.html">assert_vars()</a></code>) was updated with a clearer message to users on how to fix a string versus symbol issue, e.g “If a variable was provided as a string, please provide it as a symbol, e.g. use <code>exprs(AVISIT)</code> instead of <code>exprs("AVISIT")</code>” (<a href="https://github.com/pharmaverse/admiraldev/issues/538" class="external-link">#538</a>)</li>
 </ul></div>
 <div class="section level3">
 <h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
