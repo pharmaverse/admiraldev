@@ -204,7 +204,17 @@
       ! Each element of the list in argument `arg` must be class/type <symbol>.
       i But, element 3 is NULL
 
-# assert_integer_scalar Test 34: error if chosen subset not in subsets
+# assert_vars Test 33: error with hint if elements of `arg` are quoted variable names
+
+    Code
+      example_fun(exprs("USUBJID", "PARAMCD"))
+    Condition <assert_vars>
+      Error in `example_fun()`:
+      ! Each element of the list in argument `arg` must be class/type <symbol>.
+      i But, element 1 is a string, and element 2 is a string
+      i If a variable was provided as a string, please provide it as a symbol, e.g. use `exprs(AVISIT)` instead of `exprs("AVISIT")`.
+
+# assert_integer_scalar Test 35: error if chosen subset not in subsets
 
     Code
       example_fun(1)
@@ -212,7 +222,7 @@
       Error in `assert_integer_scalar()`:
       ! Argument `subset` must be equal to one of "positive", "non-negative", "negative", or "none".
 
-# assert_integer_scalar Test 36: error if `arg` is not an integer scalar
+# assert_integer_scalar Test 37: error if `arg` is not an integer scalar
 
     Code
       example_fun(1.5)
@@ -220,7 +230,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be an integer scalar.
 
-# assert_numeric_vector Test 39: error if `arg` is not a numeric vector
+# assert_numeric_vector Test 40: error if `arg` is not a numeric vector
 
     Code
       example_fun(TRUE)
@@ -244,7 +254,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be a numeric vector, but it is a string.
 
-# assert_numeric_vector Test 40: error if length is not as expected
+# assert_numeric_vector Test 41: error if length is not as expected
 
     Code
       assert_numeric_vector(numbers, length = 2)
@@ -252,7 +262,7 @@
       Error:
       ! Argument `numbers` must be a vector of length 2, but has length 3.
 
-# assert_s3_class Test 41: error if `arg` is not an object of a specific class S3
+# assert_s3_class Test 42: error if `arg` is not an object of a specific class S3
 
     Code
       example_fun("test")
@@ -260,7 +270,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be class <factor>, but is a string.
 
-# assert_s3_class Test 43: error if `arg` is NULL and optional is FALSE
+# assert_s3_class Test 44: error if `arg` is NULL and optional is FALSE
 
     Code
       example_fun(NULL)
@@ -268,7 +278,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be class <factor>, but is NULL.
 
-# assert_list_of Test 45: error if `arg` is not a list of specific class S3 objects
+# assert_list_of Test 46: error if `arg` is not a list of specific class S3 objects
 
     Code
       example_fun(list("test"))
@@ -277,7 +287,7 @@
       ! Each element of the list in argument `arg` must be class/type <factor>.
       i But, element 1 is a string
 
-# assert_list_of Test 47: error if `arg` is NULL and optional is FALSE
+# assert_list_of Test 48: error if `arg` is NULL and optional is FALSE
 
     Code
       example_fun(NULL)
@@ -285,7 +295,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be class <list>, but is NULL.
 
-# assert_list_of Test 49: error if `arg` is not a named list (no elements named)
+# assert_list_of Test 50: error if `arg` is not a named list (no elements named)
 
     Code
       mylist <- list(1, 2, 3)
@@ -295,7 +305,7 @@
       ! All elements of `mylist` argument must be named.
       i The indices of the unnamed elements are 1, 2, and 3
 
-# assert_list_of Test 50: error if `arg` is not a named list (some elements named)
+# assert_list_of Test 51: error if `arg` is not a named list (some elements named)
 
     Code
       mylist <- list(1, 2, 3, d = 4)
@@ -305,7 +315,7 @@
       ! All elements of `mylist` argument must be named.
       i The indices of the unnamed elements are 1, 2, and 3
 
-# assert_named Test 53: error if no elements are named
+# assert_named Test 54: error if no elements are named
 
     Code
       arg <- c(1, 2)
@@ -315,7 +325,7 @@
       ! All elements of `arg` argument must be named.
       i The indices of the unnamed elements are 1 and 2
 
-# assert_function Test 54: error if `arg` is not a function
+# assert_function Test 55: error if `arg` is not a function
 
     Code
       example_fun(5)
@@ -323,7 +333,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be a function, but is a number.
 
-# assert_function Test 56: error if `arg` is missing
+# assert_function Test 57: error if `arg` is missing
 
     Code
       example_fun()
@@ -331,7 +341,7 @@
       Error in `example_fun()`:
       ! Argument `arg` cannot be missing.
 
-# assert_function Test 58: error if  `params`  is missing with no default
+# assert_function Test 59: error if  `params`  is missing with no default
 
     Code
       example_fun(sum)
@@ -347,7 +357,7 @@
       Error in `example_fun()`:
       ! "x" and "y" are not arguments of the function specified for `arg`.
 
-# assert_unit Test 64: error if multiple units in the input dataset
+# assert_unit Test 65: error if multiple units in the input dataset
 
     Code
       assert_unit(advs, param = "WEIGHT", get_unit_expr = VSSTRESU)
@@ -355,7 +365,7 @@
       Error:
       ! Multiple units "kg" and "lb" found for "WEIGHT". Please review and update the units.
 
-# assert_unit Test 65: error if unexpected unit in the input dataset
+# assert_unit Test 66: error if unexpected unit in the input dataset
 
     Code
       assert_unit(advs, param = "WEIGHT", required_unit = "lb", get_unit_expr = VSSTRESU)
@@ -363,7 +373,7 @@
       Error:
       ! It is expected that "WEIGHT" has unit of "lb". In the input dataset the unit is "kg".
 
-# assert_unit Test 66: error if get_unit_expr invalid
+# assert_unit Test 67: error if get_unit_expr invalid
 
     Code
       assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSTRESU)
@@ -373,7 +383,7 @@
       See error message below:
       i In argument: `_unit = VSTRESU`. Caused by error: ! object 'VSTRESU' not found
 
-# assert_param_does_not_exist Test 67: error if parameter exists in the input dataset
+# assert_param_does_not_exist Test 68: error if parameter exists in the input dataset
 
     Code
       assert_param_does_not_exist(advs, param = "WEIGHT")
@@ -381,7 +391,7 @@
       Error:
       ! The parameter code "WEIGHT" already exists in dataset `advs`.
 
-# assert_varval_list Test 69: error if `arg` is not a list of expressions
+# assert_varval_list Test 70: error if `arg` is not a list of expressions
 
     Code
       example_fun(c("USUBJID", "PARAMCD", "VISIT"))
@@ -390,7 +400,7 @@
       ! Argument `arg` must be a named list of expressions where each element is a symbol, character scalar, numeric scalar, an expression, or NA, but is a character vector.
       i To create a list of expressions use `exprs()`.
 
-# assert_varval_list Test 70: error if not all elements are variables
+# assert_varval_list Test 71: error if not all elements are variables
 
     Code
       example_fun(exprs(USUBJID, PARAMCD, NULL))
@@ -399,7 +409,7 @@
       ! Argument `arg` must be a list of expressions where each element is a symbol, character scalar, numeric scalar, an expression, or NA, but is a list.
       i To create a list of expressions use `exprs()`.
 
-# assert_varval_list Test 71: error if `required_elements` are missing from `arg`
+# assert_varval_list Test 72: error if `required_elements` are missing from `arg`
 
     Code
       example_fun(exprs(DTHSEQ = AESEQ))
@@ -407,7 +417,7 @@
       Error in `example_fun()`:
       ! The following required elements are missing from argument `arg`: "DTHDOM".
 
-# assert_varval_list Test 73: error if `accept_expr` is TRUE and value is invalid
+# assert_varval_list Test 74: error if `accept_expr` is TRUE and value is invalid
 
     Code
       example_fun(exprs(DTHSEQ = TRUE))
@@ -425,7 +435,7 @@
       ! The elements of the list in argument `arg` must be a symbol, character scalar, numeric scalar, variable names or NA.
       i "DTHSEQ" = `TRUE` is of type <logical>
 
-# assert_varval_list Test 75: error if `accept_expr` is FALSE and value is invalid
+# assert_varval_list Test 76: error if `accept_expr` is FALSE and value is invalid
 
     Code
       example_fun(exprs(DTHSEQ = exprs()))
@@ -434,7 +444,7 @@
       ! The elements of the list in argument `arg` must be a symbol, character scalar, numeric scalar, or NA.
       i "DTHSEQ" = `exprs()` is of type <language>
 
-# assert_list_element Test 84: error if the elements do not fulfill the condition
+# assert_list_element Test 85: error if the elements do not fulfill the condition
 
     Code
       assert_list_element(list(list(var = expr(DTHDT), val = 1), list(var = expr(
@@ -458,7 +468,7 @@
       ! List element "val" must one of 0 and 1 in argument `input`.
       i But, `input[[2]]$val = -1`, and `input[[3]]$val = -2`
 
-# assert_one_to_one Test 85: error if there is a one to many mapping
+# assert_one_to_one Test 86: error if there is a one to many mapping
 
     Code
       assert_one_to_one(dm, exprs(DOMAIN), exprs(USUBJID))
@@ -467,7 +477,7 @@
       ! For some values of "DOMAIN" there is more than one value of "USUBJID"
       i Call `admiral::get_one_to_many_dataset()` to get all one-to-many values.
 
-# assert_date_var Test 88: error if variable is not a date or datetime variable
+# assert_date_var Test 89: error if variable is not a date or datetime variable
 
     Code
       example_fun(dataset = my_data, var = USUBJID)
@@ -475,7 +485,7 @@
       Error in `example_fun()`:
       ! Column "USUBJID" in dataset `dataset` must be a date or datetime, but is a character vector.
 
-# assert_date_vector Test 93: error if `arg` is NULL and optional is FALSE
+# assert_date_vector Test 94: error if `arg` is NULL and optional is FALSE
 
     Code
       example_fun(NULL)
@@ -483,7 +493,7 @@
       Error in `example_fun()`:
       ! Argument `arg` must be a date or datetime, but is NULL.
 
-# assert_atomic_vector Test 94: error if input is not atomic vector
+# assert_atomic_vector Test 95: error if input is not atomic vector
 
     Code
       assert_atomic_vector(x)
@@ -491,7 +501,7 @@
       Error:
       ! Argument `x` must be an atomic vector, but is a list.
 
-# assert_same_type Test 97: error if different type
+# assert_same_type Test 98: error if different type
 
     Code
       assert_same_type(true_value, false_value, missing_value)
