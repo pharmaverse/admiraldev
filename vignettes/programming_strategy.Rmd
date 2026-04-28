@@ -1013,6 +1013,6 @@ Runs the full `R CMD check` suite locally. The PR CI will fail if check produces
 
 admiral has no prohibition on the use of AI from contributors. However, contributors still need to follow all contributor guidelines. To make things a little easier we 
 make use of the [`AGENTS.md`](https://github.com/pharmaverse/admiral/blob/main/AGENTS.md) file to provide guidance to the AI on admiral's particular needs. To gain a better
-understanding of the [`AGENTS.md`](https://github.com/pharmaverse/admiral/blob/main/AGENTS.md) we recommend to read more on this topic [here](https://agents.md).
+understanding of the [`AGENTS.md`](https://github.com/pharmaverse/admiral/blob/main/AGENTS.md) file we recommend to read more on this topic [here](https://agents.md).
 
 
