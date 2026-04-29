@@ -1008,3 +1008,9 @@ devtools::check()
 ```
 
 Runs the full `R CMD check` suite locally. The PR CI will fail if check produces any errors, warnings, or notes. See the [R CMD Issues](rcmd_issues.html) vignette for guidance on resolving common failures.
+
+# Use of AI
+
+`{admiral}` has no prohibition on the use of AI from contributors. However, contributors still need to follow all [contributor guidelines](https://pharmaverse.github.io/admiral/cran-release/CONTRIBUTING.html). The admiral core team has created the  [`AGENTS.md`](https://github.com/pharmaverse/admiral/blob/main/AGENTS.md) file to provide the AI with guidance on admiral's particular needs, as well as the contribution guidelines that should be followed. To gain a better understanding of the [`AGENTS.md`](https://github.com/pharmaverse/admiral/blob/main/AGENTS.md) file we recommend to read more on this topic [here](https://agents.md).
+
+
