@@ -25,6 +25,8 @@
 
 ### Documentation
 
+- Update links in documentation for AI coding `AGENTS.md` files
+  ([\#552](https://github.com/pharmaverse/admiraldev/issues/552))
 - Update vignettes for AI coding `AGENTS.md` files
   ([\#545](https://github.com/pharmaverse/admiraldev/issues/545))
 - The website navigation bar has been updated to:

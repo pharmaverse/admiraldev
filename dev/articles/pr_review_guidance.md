@@ -25,7 +25,7 @@ In addition, the PR creator and reviewer should make sure that
 - the [Programming
   Strategy](https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.md)
   and [Development
-  Process](https://pharmaverse.github.io/admiral/dev/CONTRIBUTING.html)
+  Process](https://pharmaverse.github.io/admiral/cran-release/CONTRIBUTING.html)
   are followed
 
 - the function is ADaM IG compliant
@@ -77,7 +77,7 @@ that compiles information from the Pull Request Review Guidance,
 [Programming
 Strategy](https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.md)
 and [Development
-Process](https://pharmaverse.github.io/admiral/dev/CONTRIBUTING.html)
+Process](https://pharmaverse.github.io/admiral/cran-release/CONTRIBUTING.html)
 vignettes.
 
 The next three sections give a high-level overview of what a contributor

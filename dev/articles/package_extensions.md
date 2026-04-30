@@ -165,7 +165,7 @@ Dummy issue for new developers
 
 12. Start development of your foundational first release 0.1.0. Follow a
     consistent [Development
-    Process](https://pharmaverse.github.io/admiral/dev/CONTRIBUTING.html)
+    Process](https://pharmaverse.github.io/admiral/cran-release/CONTRIBUTING.html)
     to [admiral](https://pharmaverse.github.io/admiral/).
 
 13. Line up testers from your companies and others and set expectations
