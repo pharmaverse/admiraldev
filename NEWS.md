@@ -17,6 +17,7 @@
 
 ## Documentation
 
+- Update links in documentation for AI coding `AGENTS.md` files (#552)
 - Update vignettes for AI coding `AGENTS.md` files (#545)
 - The website navigation bar has been updated to: (#539)
   - Add a night mode option. This can be be toggled using the sun/moon icon in the top right corner of the navigation bar. 
