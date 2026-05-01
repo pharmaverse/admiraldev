@@ -1215,6 +1215,24 @@ produces any errors, warnings, or notes. See the [R CMD
 Issues](https://pharmaverse.github.io/admiraldev/dev/articles/rcmd_issues.md)
 vignette for guidance on resolving common failures.
 
+## Use of AI
+
+[admiral](https://pharmaverse.github.io/admiral/) has no prohibition on
+the use of AI from contributors. However, contributors still need to
+follow all [contributor
+guidelines](https://pharmaverse.github.io/admiral/cran-release/CONTRIBUTING.html)
+as well as ensuring their contributions do not violate copyright,
+regardless of whether AI tools were used in their creation. The admiral
+core team has created the
+[`AGENTS.md`](https://github.com/pharmaverse/admiral/blob/main/AGENTS.md)
+file to provide the AI with guidance on admiral’s particular needs, as
+well as the contribution guidelines that should be followed. The
+AGENTS.md file encodes admiral-specific conventions around coding style,
+testing expectations, and deprecation patterns that general-purpose AI
+tools won’t know by default. To gain a better understanding of the
+[`AGENTS.md`](https://github.com/pharmaverse/admiral/blob/main/AGENTS.md)
+file we recommend to read more on this topic [here](https://agents.md).
+
 ------------------------------------------------------------------------
 
 1.  For example, if `derive_var_example()` is going to be deprecated and
