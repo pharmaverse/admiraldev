@@ -26,7 +26,8 @@
   - Add tooltips for each of the icons.
   - Increase the maximum height of the drop-down menus to ensure all items are visible without scrolling.
 
-- Added a brief section on using AI in the programming strategy. (#547)  
+- Added a brief section on using AI in the programming strategy. (#547)
+- The function name prefixes in the programming strategy have been updated. (#472)
 
 # admiraldev 1.4.0
 
