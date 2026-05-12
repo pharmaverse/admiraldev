@@ -9,16 +9,14 @@ Authors@R: c(
            comment = c(ORCID = "0009-0005-0027-1198")),
     person("Arianna", "Cascone", role = "aut",
            comment = c(ORCID = "0000-0001-5948-2831")),
+    person("Kristin", "Dahnert", role = "aut"),
     person("Jeffrey", "Dickinson", role = "aut"),
     person("Ross", "Farrugia", role = "aut"),
     person("Fanny", "Gautier", role = "aut"),
     person("Edoardo", "Mancini", role = "aut",
            comment = c(ORCID = "0009-0006-4899-8641")),
     person("Gordon", "Miller", role = "aut"),
-    person("Daniel", "Sjoberg", role = "aut",
-           comment = c(ORCID = "0000-0003-0862-2018")),
-    person("Stefan", "Thoma", role = "aut",
-           comment = c(ORCID = "0000-0002-5553-9252")),
+    person("Lina", "Patil", role = "aut"),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd")),
     person("GlaxoSmithKline LLC", role = c("cph", "fnd"))
   )
@@ -64,4 +62,5 @@ Language: en-US
 LazyData: false
 Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace",
     "admiraldev::rdx_roclet"))
+Config/roxygen2/version: 8.0.0
 RoxygenNote: 7.3.3
