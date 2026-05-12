@@ -24,7 +24,7 @@ A Test R6 Class
 \if{html}{\out{<a id="method-TestClass-initialize"></a>}}
 \if{latex}{\out{\hypertarget{method-TestClass-initialize}{}}}
 \subsection{\code{TestClass$new()}}{
-  Initialize a new \code{TestClass} object
+  Initialize a new `TestClass` object
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
     \preformatted{TestClass$new(field)}
