@@ -25,9 +25,9 @@ replace_values_by_names(exprs(AVAL, ADT = convert_dtc_to_dt(EXSTDTC)))
 }
 \seealso{
 Helpers for working with Quosures:
-\code{\link{add_suffix_to_vars}()},
-\code{\link{expr_c}()},
-\code{\link{replace_symbol_in_expr}()}
+\code{\link[=add_suffix_to_vars]{add_suffix_to_vars()}},
+\code{\link[=expr_c]{expr_c()}},
+\code{\link[=replace_symbol_in_expr]{replace_symbol_in_expr()}}
 }
 \concept{quo}
 \keyword{quo}

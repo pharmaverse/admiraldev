@@ -21,8 +21,8 @@ Is this string a valid DTC
 }
 \seealso{
 Identifies type of Object with return of TRUE/FALSE:
-\code{\link{is_auto}()},
-\code{\link{is_order_vars}()}
+\code{\link[=is_auto]{is_auto()}},
+\code{\link[=is_order_vars]{is_order_vars()}}
 }
 \concept{is}
 \keyword{is}

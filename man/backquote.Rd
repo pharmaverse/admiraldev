@@ -21,8 +21,8 @@ Wrap a String in Backquotes
 }
 \seealso{
 Helpers for working with Quotes and Quoting:
-\code{\link{dquote}()},
-\code{\link{squote}()}
+\code{\link[=dquote]{dquote()}},
+\code{\link[=squote]{squote()}}
 }
 \concept{quote}
 \keyword{quote}
