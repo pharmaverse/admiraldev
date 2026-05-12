@@ -44,5 +44,6 @@ This example shows the default behavior of the function.
 This example issues an expected message
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{message("Hello, world!")
-#> Hello, world!}\if{html}{\out{</div>}}}}
+#> Hello, world!
+#> }\if{html}{\out{</div>}}}}
 

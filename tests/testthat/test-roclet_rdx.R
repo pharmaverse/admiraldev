@@ -106,21 +106,19 @@ test_that("capture_message Test 8: capture message with open sink", {
 
   temp_file <- tempfile(fileext = ".txt")
   con <- file(temp_file, "w")
-  on.exit(close(con), add = TRUE)
 
-  out <- withr::with_sink(
-    connection = con,
-    type = "message",
-    code = capture_message({
-      cli::cli_inform("This is a message")
-      cli::cli_abort("This is an error")
-    })
-  )
+  sink(con, type = "message")
+  on.exit({
+    sink(type = "message")
+    close(con)
+  }, add = TRUE)
+
+  out <- capture_message({
+    cli::cli_inform("This is a message")
+    cli::cli_abort("This is an error")
+  })
 
   cli::cli_inform("Hello")
 
-  expect_equal(
-    readLines(temp_file),
-    "Hello"
-  )
+  expect_equal(readLines(temp_file), "Hello")
 })
