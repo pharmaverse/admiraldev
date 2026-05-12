@@ -98,27 +98,22 @@ test_that("capture_message Test 7: capture message", {
   )
 })
 
+## Test 8: capture message with open sink ----
 test_that("capture_message Test 8: capture message with open sink", {
-  withr::local_options(
-    cli.ansi = FALSE,
-    crayon.enabled = FALSE
-  )
-
+  # nolint start
   temp_file <- tempfile(fileext = ".txt")
   con <- file(temp_file, "w")
-
   sink(con, type = "message")
-  on.exit({
-    sink(type = "message")
-    close(con)
-  }, add = TRUE)
-
   out <- capture_message({
-    cli::cli_inform("This is a message")
-    cli::cli_abort("This is an error")
+    message("This is a message")
+    stop("This is an error")
   })
-
-  cli::cli_inform("Hello")
-
-  expect_equal(readLines(temp_file), "Hello")
+  message("Hello")
+  sink(type = "message")
+  close(con)
+  expect_equal(
+    readLines(temp_file),
+    "Hello"
+  )
+  # nolint end
 })
