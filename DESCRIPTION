@@ -41,7 +41,7 @@ Imports:
     lubridate (>= 1.7.4),
     purrr (>= 0.3.3),
     rlang (>= 0.4.4),
-    roxygen2 (>= 7.0.0),
+    roxygen2 (>= 8.0.0),
     stringr (>= 1.4.0),
     tidyr (>= 1.0.2),
     tidyselect (>= 1.1.0),
@@ -62,6 +62,6 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: false
-Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace",
-    "admiraldev::rdx_roclet"))
-RoxygenNote: 7.3.3
+Config/roxygen2/markdown: TRUE
+Config/roxygen2/roclets: collate, namespace, admiraldev::rdx_roclet
+Config/roxygen2/version: 8.0.0

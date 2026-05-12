@@ -21,8 +21,8 @@ Wrap a String in Single Quotes
 }
 \seealso{
 Helpers for working with Quotes and Quoting:
-\code{\link{backquote}()},
-\code{\link{dquote}()}
+\code{\link[=backquote]{backquote()}},
+\code{\link[=dquote]{dquote()}}
 }
 \concept{quote}
 \keyword{quote}

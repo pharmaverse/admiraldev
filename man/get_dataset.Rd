@@ -41,9 +41,9 @@ Currently we only support two datasets inside our \code{admiraldev_environment} 
 }
 \seealso{
 Brings something to you!?!:
-\code{\link{get_constant_vars}()},
-\code{\link{get_duplicates}()},
-\code{\link{get_source_vars}()}
+\code{\link[=get_constant_vars]{get_constant_vars()}},
+\code{\link[=get_duplicates]{get_duplicates()}},
+\code{\link[=get_source_vars]{get_source_vars()}}
 }
 \concept{get}
 \keyword{get}

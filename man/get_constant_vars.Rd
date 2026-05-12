@@ -39,9 +39,9 @@ Get Constant Variables
 }
 \seealso{
 Brings something to you!?!:
-\code{\link{get_dataset}()},
-\code{\link{get_duplicates}()},
-\code{\link{get_source_vars}()}
+\code{\link[=get_dataset]{get_dataset()}},
+\code{\link[=get_duplicates]{get_duplicates()}},
+\code{\link[=get_source_vars]{get_source_vars()}}
 }
 \concept{get}
 \keyword{get}
