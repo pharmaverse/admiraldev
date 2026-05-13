@@ -26,7 +26,7 @@ convert_dtm_to_dtc(dtm)
 ## See also
 
 Developer Utility Functions:
-[`%notin%()`](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-notin-grapes.md),
+[`%notin%`](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-notin-grapes.md),
 [`contains_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/contains_vars.md),
 [`extract_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/extract_vars.md),
 [`filter_if()`](https://pharmaverse.github.io/admiraldev/dev/reference/filter_if.md),

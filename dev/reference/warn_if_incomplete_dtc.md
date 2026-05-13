@@ -32,7 +32,7 @@ A warning if `dtc` contains any partial dates
 
 ## See also
 
-Function that provide users with custom warnings
+Function that provide users with custom warnings:
 [`suppress_warning()`](https://pharmaverse.github.io/admiraldev/dev/reference/suppress_warning.md),
 [`warn_if_inconsistent_list()`](https://pharmaverse.github.io/admiraldev/dev/reference/warn_if_inconsistent_list.md),
 [`warn_if_invalid_dtc()`](https://pharmaverse.github.io/admiraldev/dev/reference/warn_if_invalid_dtc.md),

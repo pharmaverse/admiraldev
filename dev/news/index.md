@@ -25,6 +25,8 @@
 
 ### Documentation
 
+- Update to [roxygen2](https://roxygen2.r-lib.org/) 8.0.0.
+  ([\#557](https://github.com/pharmaverse/admiraldev/issues/557))
 - Update links in documentation for AI coding `AGENTS.md` files
   ([\#552](https://github.com/pharmaverse/admiraldev/issues/552))
 - Update vignettes for AI coding `AGENTS.md` files

@@ -27,7 +27,7 @@ A `TRUE` if variables were valid variable
 ## See also
 
 Developer Utility Functions:
-[`%notin%()`](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-notin-grapes.md),
+[`%notin%`](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-notin-grapes.md),
 [`convert_dtm_to_dtc()`](https://pharmaverse.github.io/admiraldev/dev/reference/convert_dtm_to_dtc.md),
 [`extract_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/extract_vars.md),
 [`filter_if()`](https://pharmaverse.github.io/admiraldev/dev/reference/filter_if.md),

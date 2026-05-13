@@ -33,7 +33,7 @@ A list of expressions
 ## See also
 
 Developer Utility Functions:
-[`%notin%()`](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-notin-grapes.md),
+[`%notin%`](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-notin-grapes.md),
 [`contains_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/contains_vars.md),
 [`convert_dtm_to_dtc()`](https://pharmaverse.github.io/admiraldev/dev/reference/convert_dtm_to_dtc.md),
 [`filter_if()`](https://pharmaverse.github.io/admiraldev/dev/reference/filter_if.md),

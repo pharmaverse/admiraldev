@@ -37,7 +37,7 @@ expression are suppressed.
 
 ## See also
 
-Function that provide users with custom warnings
+Function that provide users with custom warnings:
 [`warn_if_incomplete_dtc()`](https://pharmaverse.github.io/admiraldev/dev/reference/warn_if_incomplete_dtc.md),
 [`warn_if_inconsistent_list()`](https://pharmaverse.github.io/admiraldev/dev/reference/warn_if_inconsistent_list.md),
 [`warn_if_invalid_dtc()`](https://pharmaverse.github.io/admiraldev/dev/reference/warn_if_invalid_dtc.md),

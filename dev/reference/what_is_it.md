@@ -27,7 +27,7 @@ A `character` description of the type of `x`
 ## See also
 
 Other deprecated:
-[`%or%()`](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-or-grapes.md),
+[`%or%`](https://pharmaverse.github.io/admiraldev/dev/reference/grapes-or-grapes.md),
 [`arg_name()`](https://pharmaverse.github.io/admiraldev/dev/reference/arg_name.md),
 [`enumerate()`](https://pharmaverse.github.io/admiraldev/dev/reference/enumerate.md),
 [`friendly_type_of()`](https://pharmaverse.github.io/admiraldev/dev/reference/friendly_type_of.md),
