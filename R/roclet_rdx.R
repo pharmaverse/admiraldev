@@ -543,9 +543,10 @@ capture_message <- function(expr) {
     sink(type = "message") # nolint
   }
   close(con)
-  readLines(temp_file) %>%
+  readLines(temp_file, warn = FALSE) %>%
     # remove R and ANSI escape sequences
-    str_remove_all("\\033([A-Z-a-z0-9]+;|[A-Za-z])")
+    str_remove_all("\\033([A-Z-a-z0-9]+;|[A-Za-z])") %>%
+    discard(~ .x == "") # remove empty messages, e.g., from cli
 }
 
 #' @export
