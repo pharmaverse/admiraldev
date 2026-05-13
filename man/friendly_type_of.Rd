@@ -41,12 +41,12 @@ to identify what object-type the user passed through an argument instead of
 an expected-type.
 }
 \seealso{
-Other deprecated: 
-\code{\link{\%or\%}()},
-\code{\link{arg_name}()},
-\code{\link{enumerate}()},
-\code{\link{valid_time_units}()},
-\code{\link{what_is_it}()}
+Other deprecated:
+\code{\link{\%or\%}},
+\code{\link[=arg_name]{arg_name()}},
+\code{\link[=enumerate]{enumerate()}},
+\code{\link[=valid_time_units]{valid_time_units()}},
+\code{\link[=what_is_it]{what_is_it()}}
 }
 \concept{deprecated}
 \keyword{deprecated}

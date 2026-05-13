@@ -22,12 +22,12 @@ A \code{character} description of the type of \code{x}
 This function is \emph{deprecated}, please use \code{cli} functionality instead.
 }
 \seealso{
-Other deprecated: 
-\code{\link{\%or\%}()},
-\code{\link{arg_name}()},
-\code{\link{enumerate}()},
-\code{\link{friendly_type_of}()},
-\code{\link{valid_time_units}()}
+Other deprecated:
+\code{\link{\%or\%}},
+\code{\link[=arg_name]{arg_name()}},
+\code{\link[=enumerate]{enumerate()}},
+\code{\link[=friendly_type_of]{friendly_type_of()}},
+\code{\link[=valid_time_units]{valid_time_units()}}
 }
 \concept{deprecated}
 \keyword{deprecated}
