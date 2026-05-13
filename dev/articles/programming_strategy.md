@@ -149,20 +149,21 @@ The following principles are key when designing a new function:
 
 ### Function Names
 
-- Function names should start with a verb and use snake case,
-  e.g. `derive_var_base()`.
+Function names should start with a verb and use snake case, e.g.,
+`derive_var_base()`.
 
-| Function name prefix                      | Description                                                                                         |
-|-------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| `assert_` / `warn_` / `is_`               | Functions that check other functions’ inputs                                                        |
-| `derive_`                                 | Functions that take a dataset as input and return a new dataset with additional rows and/or columns |
-| `derive_var_` (e.g. `derive_var_trtdurd`) | Functions which add a single variable                                                               |
-| `derive_vars_` (e.g. `derive_vars_dt`)    | Functions which add multiple variables                                                              |
-| `derive_param_` (e.g. `derive_param_os`)  | Functions which add a single parameter                                                              |
-| `compute_` / `calculate_` / …             | Functions that take vectors as input and return a vector                                            |
-| `create_` / `consolidate_`                | Functions that create datasets without keeping the original observations                            |
-| `get_`                                    | Usually utility functions that return very specific objects that get passed through other functions |
-| `filter_`                                 | Functions that filter observations based on conditions associated with common clinical trial syntax |
+| Function name prefix                                | Description                                                                                         |
+|-----------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `assert_` / `warn_` / `is_`                         | Functions that check other functions’ inputs                                                        |
+| `derive_`                                           | Functions that take a dataset as input and return a new dataset with additional rows and/or columns |
+| `derive_var_` (e.g. `derive_var_trtdurd`)           | Functions which add a single variable                                                               |
+| `derive_vars_` (e.g. `derive_vars_dt`)              | Functions which add multiple variables                                                              |
+| `derive_param_` (e.g. `derive_param_os`)            | Functions which add a single parameter                                                              |
+| `derive_*_records` (e.g., `derive_summary_records`) | Functions that add records to the input dataset                                                     |
+| `compute_` / `convert_` / `impute_` / `transform_`  | Functions that take vectors as input and return a vector                                            |
+| `create_` / `consolidate_`                          | Functions that create datasets without keeping the original observations                            |
+| `get_`                                              | Usually utility functions that return very specific objects that get passed through other functions |
+| `filter_`                                           | Functions that filter observations based on conditions associated with common clinical trial syntax |
 
 | Function Name Suffix                        | Description                                                                                          |
 |---------------------------------------------|------------------------------------------------------------------------------------------------------|
@@ -170,9 +171,9 @@ The following principles are key when designing a new function:
 | `_date` / `_time` / `_dt` / `_dtc` / `_dtm` | Functions associated with dates, times, datetimes, and their character equivalents.                  |
 | `_source`                                   | Functions that create source datasets that usually will be passed through other `derive_` functions. |
 
-| Other Common Function Name Terms      | Description                                                                                                                        |
-|---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| `_merged_` / `_joined_` / `_extreme_` | Functions that follow the [generic function user-guide](https://pharmaverse.github.io/admiral/cran-release/articles/generic.html). |
+| Other Common Function Name Terms      | Description                                                                                                                       |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `_merged_` / `_joined_` / `_extreme_` | Functions that follow the [generic function user-guide](https://pharmaverse.github.io/admiral/cran-release/articles/generic.html) |
 
 Please note that the appropriate *var*/*vars* prefix should be used for
 all cases in which the function creates any variable(s), regardless of

@@ -42,6 +42,9 @@
     items are visible without scrolling.
 - Added a brief section on using AI in the programming strategy.
   ([\#547](https://github.com/pharmaverse/admiraldev/issues/547))
+- The function name prefixes in the programming strategy have been
+  updated.
+  ([\#472](https://github.com/pharmaverse/admiraldev/issues/472))
 
 ## admiraldev 1.4.0
 
