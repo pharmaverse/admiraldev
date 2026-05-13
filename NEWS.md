@@ -17,6 +17,7 @@
 
 ## Documentation
 
+- Update to `{roxygen2}` 8.0.0. (#557)
 - Update links in documentation for AI coding `AGENTS.md` files (#552)
 - Update vignettes for AI coding `AGENTS.md` files (#545)
 - The website navigation bar has been updated to: (#539)

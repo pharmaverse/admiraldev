@@ -23,8 +23,8 @@ messages.
 }
 \seealso{
 Helpers for working with Quotes and Quoting:
-\code{\link{backquote}()},
-\code{\link{squote}()}
+\code{\link[=backquote]{backquote()}},
+\code{\link[=squote]{squote()}}
 }
 \concept{quote}
 \keyword{quote}

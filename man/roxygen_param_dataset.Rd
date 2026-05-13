@@ -37,10 +37,10 @@ roxygen_param_dataset()
 roxygen_param_dataset(expected_vars = c("by_vars"))
 }
 \seealso{
-Other documentation: 
-\code{\link{roxygen_order_na_handling}()},
-\code{\link{roxygen_param_by_vars}()},
-\code{\link{roxygen_save_memory}()}
+Other documentation:
+\code{\link[=roxygen_order_na_handling]{roxygen_order_na_handling()}},
+\code{\link[=roxygen_param_by_vars]{roxygen_param_by_vars()}},
+\code{\link[=roxygen_save_memory]{roxygen_save_memory()}}
 }
 \concept{documentation}
 \keyword{documentation}

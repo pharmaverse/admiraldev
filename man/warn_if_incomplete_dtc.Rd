@@ -26,11 +26,11 @@ A warning if \code{dtc} contains any partial dates
 Warn if incomplete dtc
 }
 \seealso{
-Function that provide users with custom warnings
-\code{\link{suppress_warning}()},
-\code{\link{warn_if_inconsistent_list}()},
-\code{\link{warn_if_invalid_dtc}()},
-\code{\link{warn_if_vars_exist}()}
+Function that provide users with custom warnings:
+\code{\link[=suppress_warning]{suppress_warning()}},
+\code{\link[=warn_if_inconsistent_list]{warn_if_inconsistent_list()}},
+\code{\link[=warn_if_invalid_dtc]{warn_if_invalid_dtc()}},
+\code{\link[=warn_if_vars_exist]{warn_if_vars_exist()}}
 }
 \concept{warnings}
 \keyword{warnings}
