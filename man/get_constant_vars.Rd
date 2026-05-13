@@ -7,29 +7,15 @@
 get_constant_vars(dataset, by_vars, ignore_vars = NULL)
 }
 \arguments{
-\item{dataset}{A data frame.
-
-\describe{
-\item{Default value}{none}
-}}
+\item{dataset}{A data frame.}
 
 \item{by_vars}{By variables
 The groups defined by the by variables are considered separately. I.e., if
-a variable is constant within each by group, it is returned.
-
-\describe{
-\item{Default value}{none}
-}}
+a variable is constant within each by group, it is returned.}
 
 \item{ignore_vars}{Variables to ignore
 The specified variables are not considered, i.e., they are not returned
-even if they are constant (unless they are included in the by variables).
-
-\describe{
-\item{Permitted values}{A list of variable names or selector function calls like
-\code{starts_with("EX")}}
-\item{Default value}{\code{NULL}}
-}}
+even if they are constant (unless they are included in the by variables).}
 }
 \value{
 Variable vector.
@@ -39,9 +25,9 @@ Get Constant Variables
 }
 \seealso{
 Brings something to you!?!:
-\code{\link[=get_dataset]{get_dataset()}},
-\code{\link[=get_duplicates]{get_duplicates()}},
-\code{\link[=get_source_vars]{get_source_vars()}}
+\code{\link{get_dataset}()},
+\code{\link{get_duplicates}()},
+\code{\link{get_source_vars}()}
 }
 \concept{get}
 \keyword{get}

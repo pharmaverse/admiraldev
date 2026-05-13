@@ -15,40 +15,20 @@ assert_numeric_vector(
 )
 }
 \arguments{
-\item{arg}{A function argument to be checked
-
-\describe{
-\item{Default value}{none}
-}}
+\item{arg}{A function argument to be checked}
 
 \item{length}{Expected length
 
-If the argument is not specified or set to \code{NULL}, any length is accepted.
+  If the argument is not specified or set to `NULL`, any length is accepted.}
 
-\describe{
-\item{Default value}{\code{NULL}}
-}}
+\item{optional}{Is the checked argument optional? If set to `FALSE` and `arg`
+is `NULL` then an error is thrown}
 
-\item{optional}{Is the checked argument optional? If set to \code{FALSE} and \code{arg}
-is \code{NULL} then an error is thrown
+\item{arg_name}{string indicating the label/symbol of the object being checked.}
 
-\describe{
-\item{Default value}{\code{FALSE}}
-}}
-
-\item{arg_name}{string indicating the label/symbol of the object being checked.
-
-\describe{
-\item{Default value}{\code{rlang::caller_arg(arg)}}
-}}
-
-\item{message}{string passed to \code{cli::cli_abort(message)}.
-When \code{NULL}, default messaging is used (see examples for default messages).
-\code{"{arg_name}"} can be used in messaging.
-
-\describe{
-\item{Default value}{\code{NULL}}
-}}
+\item{message}{string passed to `cli::cli_abort(message)`.
+When `NULL`, default messaging is used (see examples for default messages).
+`"{arg_name}"` can be used in messaging.}
 
 \item{class}{Subclass of the condition.}
 
@@ -67,7 +47,7 @@ respectively not display any call or hard-code a code to display.
 For more information about error calls, see \ifelse{html}{\link[rlang:topic-error-call]{Including function calls in error messages}}{\link[rlang:topic-error-call]{Including function calls in error messages}}.}
 }
 \value{
-The function throws an error if \code{arg} is not a numeric vector.
+The function throws an error if `arg` is not a numeric vector.
 Otherwise, the input is returned invisibly.
 }
 \description{
@@ -90,28 +70,28 @@ try(example_fun(1:10))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages:
-\code{\link[=assert_atomic_vector]{assert_atomic_vector()}},
-\code{\link[=assert_character_scalar]{assert_character_scalar()}},
-\code{\link[=assert_character_vector]{assert_character_vector()}},
-\code{\link[=assert_data_frame]{assert_data_frame()}},
-\code{\link[=assert_date_vector]{assert_date_vector()}},
-\code{\link[=assert_expr]{assert_expr()}},
-\code{\link[=assert_expr_list]{assert_expr_list()}},
-\code{\link[=assert_filter_cond]{assert_filter_cond()}},
-\code{\link[=assert_function]{assert_function()}},
-\code{\link[=assert_integer_scalar]{assert_integer_scalar()}},
-\code{\link[=assert_list_element]{assert_list_element()}},
-\code{\link[=assert_list_of]{assert_list_of()}},
-\code{\link[=assert_logical_scalar]{assert_logical_scalar()}},
-\code{\link[=assert_named]{assert_named()}},
-\code{\link[=assert_one_to_one]{assert_one_to_one()}},
-\code{\link[=assert_param_does_not_exist]{assert_param_does_not_exist()}},
-\code{\link[=assert_s3_class]{assert_s3_class()}},
-\code{\link[=assert_same_type]{assert_same_type()}},
-\code{\link[=assert_symbol]{assert_symbol()}},
-\code{\link[=assert_unit]{assert_unit()}},
-\code{\link[=assert_vars]{assert_vars()}},
-\code{\link[=assert_varval_list]{assert_varval_list()}}
+\code{\link{assert_atomic_vector}()},
+\code{\link{assert_character_scalar}()},
+\code{\link{assert_character_vector}()},
+\code{\link{assert_data_frame}()},
+\code{\link{assert_date_vector}()},
+\code{\link{assert_expr}()},
+\code{\link{assert_expr_list}()},
+\code{\link{assert_filter_cond}()},
+\code{\link{assert_function}()},
+\code{\link{assert_integer_scalar}()},
+\code{\link{assert_list_element}()},
+\code{\link{assert_list_of}()},
+\code{\link{assert_logical_scalar}()},
+\code{\link{assert_named}()},
+\code{\link{assert_one_to_one}()},
+\code{\link{assert_param_does_not_exist}()},
+\code{\link{assert_s3_class}()},
+\code{\link{assert_same_type}()},
+\code{\link{assert_symbol}()},
+\code{\link{assert_unit}()},
+\code{\link{assert_vars}()},
+\code{\link{assert_varval_list}()}
 }
 \concept{assertion}
 \keyword{assertion}

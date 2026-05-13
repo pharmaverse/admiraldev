@@ -7,23 +7,19 @@
 is_auto(arg)
 }
 \arguments{
-\item{arg}{argument to check
-
-\describe{
-\item{Default value}{none}
-}}
+\item{arg}{argument to check}
 }
 \value{
-\code{TRUE} if the argument equals the auto keyword, i.e., it is an
-expression of a symbol named auto.
+`TRUE` if the argument equals the auto keyword, i.e., it is an
+  expression of a symbol named auto.
 }
 \description{
 Checks if the argument equals the auto keyword
 }
 \seealso{
 Identifies type of Object with return of TRUE/FALSE:
-\code{\link[=is_order_vars]{is_order_vars()}},
-\code{\link[=is_valid_dtc]{is_valid_dtc()}}
+\code{\link{is_order_vars}()},
+\code{\link{is_valid_dtc}()}
 }
 \concept{is}
 \keyword{is}

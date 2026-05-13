@@ -7,38 +7,30 @@
 lhs \%or\% rhs
 }
 \arguments{
-\item{lhs}{Any valid R expression
+\item{lhs}{Any valid R expression}
 
-\describe{
-\item{Default value}{none}
-}}
-
-\item{rhs}{Any valid R expression
-
-\describe{
-\item{Default value}{none}
-}}
+\item{rhs}{Any valid R expression}
 }
 \value{
-Either the result of evaluating \code{lhs}, \code{rhs} or an error
+Either the result of evaluating `lhs`, `rhs` or an error
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+`r lifecycle::badge("deprecated")`
 
-This function is \emph{deprecated}. Please get in touch if you are using this function!
+This function is *deprecated*. Please get in touch if you are using this function!
 }
 \details{
-The function evaluates the expression \code{lhs} and if this expression results
+The function evaluates the expression `lhs` and if this expression results
 in an error, it catches that error and proceeds with evaluating the expression
-\code{rhs} and returns that result.
+`rhs` and returns that result.
 }
 \seealso{
-Other deprecated:
-\code{\link[=arg_name]{arg_name()}},
-\code{\link[=enumerate]{enumerate()}},
-\code{\link[=friendly_type_of]{friendly_type_of()}},
-\code{\link[=valid_time_units]{valid_time_units()}},
-\code{\link[=what_is_it]{what_is_it()}}
+Other deprecated: 
+\code{\link{arg_name}()},
+\code{\link{enumerate}()},
+\code{\link{friendly_type_of}()},
+\code{\link{valid_time_units}()},
+\code{\link{what_is_it}()}
 }
 \concept{deprecated}
 \keyword{deprecated}

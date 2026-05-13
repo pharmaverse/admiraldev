@@ -23,10 +23,10 @@ grammar mistakes.
 roxygen_save_memory()
 }
 \seealso{
-Other documentation:
-\code{\link[=roxygen_order_na_handling]{roxygen_order_na_handling()}},
-\code{\link[=roxygen_param_by_vars]{roxygen_param_by_vars()}},
-\code{\link[=roxygen_param_dataset]{roxygen_param_dataset()}}
+Other documentation: 
+\code{\link{roxygen_order_na_handling}()},
+\code{\link{roxygen_param_by_vars}()},
+\code{\link{roxygen_param_dataset}()}
 }
 \concept{documentation}
 \keyword{documentation}

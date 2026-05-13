@@ -7,17 +7,9 @@
 get_new_tmp_var(dataset, prefix = "tmp_var")
 }
 \arguments{
-\item{dataset}{The input dataset
+\item{dataset}{The input dataset}
 
-\describe{
-\item{Default value}{none}
-}}
-
-\item{prefix}{The prefix of the new temporary variable name to create
-
-\describe{
-\item{Default value}{\code{"tmp_var"}}
-}}
+\item{prefix}{The prefix of the new temporary variable name to create}
 }
 \value{
 The name of a new temporary variable as a symbol
@@ -27,10 +19,10 @@ Get a New Temporary Variable Name for a Dataset
 }
 \details{
 The function returns a new unique temporary variable name to be used inside
-\code{dataset}. The temporary variable names have the structure \code{prefix_n} where
-\code{n} is an integer, e.g. \code{tmp_var_1}. If there is already a variable inside
-\code{datset} with a given \code{prefix} then the suffix is increased by 1, e.g. if
-\code{tmp_var_1} already exists then \code{get_new_tmp_var()} will return \code{tmp_var_2}.
+`dataset`. The temporary variable names have the structure `prefix_n` where
+`n` is an integer, e.g. `tmp_var_1`. If there is already a variable inside
+`datset` with a given `prefix` then the suffix is increased by 1, e.g. if
+`tmp_var_1` already exists then `get_new_tmp_var()` will return `tmp_var_2`.
 }
 \examples{
 library(dplyr, warn.conflicts = FALSE)
@@ -44,6 +36,6 @@ tmp_var <- get_new_tmp_var(dm)
 mutate(dm, !!tmp_var := NA)
 }
 \seealso{
-\code{\link[=remove_tmp_vars]{remove_tmp_vars()}}
+[remove_tmp_vars()]
 }
 \keyword{tmp_vars}

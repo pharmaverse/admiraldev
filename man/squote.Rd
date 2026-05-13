@@ -7,22 +7,18 @@
 squote(x)
 }
 \arguments{
-\item{x}{A \code{character} vector
-
-\describe{
-\item{Default value}{none}
-}}
+\item{x}{A `character` vector}
 }
 \value{
-A \code{character} vector
+A `character` vector
 }
 \description{
 Wrap a String in Single Quotes
 }
 \seealso{
 Helpers for working with Quotes and Quoting:
-\code{\link[=backquote]{backquote()}},
-\code{\link[=dquote]{dquote()}}
+\code{\link{backquote}()},
+\code{\link{dquote}()}
 }
 \concept{quote}
 \keyword{quote}

@@ -14,31 +14,13 @@ assert_same_type(
 )
 }
 \arguments{
-\item{...}{Arguments to be checked
+\item{...}{Arguments to be checked}
 
-\describe{
-\item{Default value}{none}
-}}
+\item{.message}{character vector passed to `cli_abort(message)` when assertion fails.}
 
-\item{.message}{character vector passed to \code{cli_abort(message)} when assertion fails.
+\item{.class}{character vector passed to `cli_abort(class)` when assertion fails.}
 
-\describe{
-\item{Default value}{\code{c("Arguments {.arg {arg_names}} must be the same type.", i = paste(
-  "Argument types are", paste0("{.arg ", arg_names, "} {.cls ", types, "}",
-    collapse = ", ")))}}
-}}
-
-\item{.class}{character vector passed to \code{cli_abort(class)} when assertion fails.
-
-\describe{
-\item{Default value}{\code{"assert_same_type"}}
-}}
-
-\item{.call}{environment passed to \code{cli_abort(call)} when assertion fails.
-
-\describe{
-\item{Default value}{\code{parent.frame()}}
-}}
+\item{.call}{environment passed to `cli_abort(call)` when assertion fails.}
 }
 \value{
 The function throws an error if not all arguments are of the same type.
@@ -65,28 +47,28 @@ try(example_fun(
 }
 \seealso{
 Checks for valid input and returns warning or errors messages:
-\code{\link[=assert_atomic_vector]{assert_atomic_vector()}},
-\code{\link[=assert_character_scalar]{assert_character_scalar()}},
-\code{\link[=assert_character_vector]{assert_character_vector()}},
-\code{\link[=assert_data_frame]{assert_data_frame()}},
-\code{\link[=assert_date_vector]{assert_date_vector()}},
-\code{\link[=assert_expr]{assert_expr()}},
-\code{\link[=assert_expr_list]{assert_expr_list()}},
-\code{\link[=assert_filter_cond]{assert_filter_cond()}},
-\code{\link[=assert_function]{assert_function()}},
-\code{\link[=assert_integer_scalar]{assert_integer_scalar()}},
-\code{\link[=assert_list_element]{assert_list_element()}},
-\code{\link[=assert_list_of]{assert_list_of()}},
-\code{\link[=assert_logical_scalar]{assert_logical_scalar()}},
-\code{\link[=assert_named]{assert_named()}},
-\code{\link[=assert_numeric_vector]{assert_numeric_vector()}},
-\code{\link[=assert_one_to_one]{assert_one_to_one()}},
-\code{\link[=assert_param_does_not_exist]{assert_param_does_not_exist()}},
-\code{\link[=assert_s3_class]{assert_s3_class()}},
-\code{\link[=assert_symbol]{assert_symbol()}},
-\code{\link[=assert_unit]{assert_unit()}},
-\code{\link[=assert_vars]{assert_vars()}},
-\code{\link[=assert_varval_list]{assert_varval_list()}}
+\code{\link{assert_atomic_vector}()},
+\code{\link{assert_character_scalar}()},
+\code{\link{assert_character_vector}()},
+\code{\link{assert_data_frame}()},
+\code{\link{assert_date_vector}()},
+\code{\link{assert_expr}()},
+\code{\link{assert_expr_list}()},
+\code{\link{assert_filter_cond}()},
+\code{\link{assert_function}()},
+\code{\link{assert_integer_scalar}()},
+\code{\link{assert_list_element}()},
+\code{\link{assert_list_of}()},
+\code{\link{assert_logical_scalar}()},
+\code{\link{assert_named}()},
+\code{\link{assert_numeric_vector}()},
+\code{\link{assert_one_to_one}()},
+\code{\link{assert_param_does_not_exist}()},
+\code{\link{assert_s3_class}()},
+\code{\link{assert_symbol}()},
+\code{\link{assert_unit}()},
+\code{\link{assert_vars}()},
+\code{\link{assert_varval_list}()}
 }
 \concept{assertion}
 \keyword{assertion}

@@ -7,30 +7,17 @@
 dataset_vignette(dataset, display_vars = NULL, filter = NULL)
 }
 \arguments{
-\item{dataset}{Dataset to output in the vignette
-
-\describe{
-\item{Default value}{none}
-}}
+\item{dataset}{Dataset to output in the vignette}
 
 \item{display_vars}{Variables selected to demonstrate the outcome of the derivation
 
-If \code{display_vars} is not NULL, only the selected variables are visible in the vignette while the
-other variables are hidden. They can be made visible by clicking the\verb{Choose the columns to display} button.
-
-\describe{
-\item{Permitted values}{list of variables created by \code{exprs()}, e.g., \code{exprs(USUBJID, VISIT)}}
-\item{Default value}{\code{NULL}}
-}}
+If `display_vars` is not NULL, only the selected variables are visible in the vignette while the
+other variables are hidden. They can be made visible by clicking the`Choose the columns to
+ display` button.}
 
 \item{filter}{Filter condition
 
-The specified condition is applied to the dataset before it is displayed.
-
-\describe{
-\item{Permitted values}{a condition}
-\item{Default value}{\code{NULL}}
-}}
+The specified condition is applied to the dataset before it is displayed.}
 }
 \value{
 A HTML table

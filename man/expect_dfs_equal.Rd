@@ -7,37 +7,20 @@
 expect_dfs_equal(base, compare, keys, ...)
 }
 \arguments{
-\item{base}{Input dataset
+\item{base}{Input dataset}
 
-\describe{
-\item{Permitted values}{A dataset, i.e., a \code{data.frame} or tibble.}
-\item{Default value}{none}
-}}
+\item{compare}{Comparison dataset}
 
-\item{compare}{Comparison dataset
+\item{keys}{`character` vector of variables that define a unique row in the
+`base` and `compare` datasets}
 
-\describe{
-\item{Default value}{none}
-}}
-
-\item{keys}{\code{character} vector of variables that define a unique row in the
-\code{base} and \code{compare} datasets
-
-\describe{
-\item{Default value}{none}
-}}
-
-\item{...}{Additional arguments passed onto \code{\link[diffdf:diffdf]{diffdf::diffdf()}}
-
-\describe{
-\item{Default value}{none}
-}}
+\item{...}{Additional arguments passed onto [diffdf::diffdf()]}
 }
 \value{
-An error if \code{base} and \code{compare} do not match or \code{NULL} invisibly if they do
+An error if `base` and `compare` do not match or `NULL` invisibly if they do
 }
 \description{
-Uses \code{\link[diffdf:diffdf]{diffdf::diffdf()}} to compares 2 datasets for any differences. This function can be
+Uses [diffdf::diffdf()] to compares 2 datasets for any differences. This function can be
 thought of as an R-equivalent of SAS proc compare and a useful tool for unit testing as well.
 }
 \examples{

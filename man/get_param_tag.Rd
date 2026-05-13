@@ -2,36 +2,27 @@
 % Please edit documentation in R/roclet_rdx.R
 \name{get_param_tag}
 \alias{get_param_tag}
-\title{Get the content of the \verb{@param} tag}
+\title{Get the content of the `@param` tag}
 \usage{
 get_param_tag(act_param, defaults)
 }
 \arguments{
 \item{act_param}{The content of the argument description to format
 
-A list with three named elements is expected:
-\itemize{
-\item \code{tag}: The \verb{@param} tag
-\item \code{permitted}: The permitted values
-\item \code{default}: The default value
-}
+  A list with three named elements is expected:
 
-\describe{
-\item{Default value}{none}
-}}
+  - `tag`: The `@param` tag
+  - `permitted`: The permitted values
+  - `default`: The default value}
 
-\item{defaults}{A list of default values from the function call
-
-\describe{
-\item{Default value}{none}
-}}
+\item{defaults}{A list of default values from the function call}
 }
 \value{
-The formatted \verb{@param} tag
+The formatted `@param` tag
 }
 \description{
 This function adds the permitted values and the default value to the
-description of the \verb{@param} tag. They are added as a definition list
-(\verb{\\describe\{\}}).
+description of the `@param` tag. They are added as a definition list
+(`\describe{}`).
 }
 \keyword{internal}

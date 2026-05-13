@@ -7,17 +7,9 @@
 extract_vars(x, side = "lhs")
 }
 \arguments{
-\item{x}{An \code{R} object
+\item{x}{An `R` object}
 
-\describe{
-\item{Default value}{none}
-}}
-
-\item{side}{One of \code{"lhs"} (the default) or \code{"rhs"} for formulas
-
-\describe{
-\item{Default value}{\code{"lhs"}}
-}}
+\item{side}{One of `"lhs"` (the default) or `"rhs"` for formulas}
 }
 \value{
 A list of expressions
@@ -33,11 +25,11 @@ extract_vars(AVAL ~ ARMCD + AGEGR1, side = "rhs")
 }
 \seealso{
 Developer Utility Functions:
-\code{\link{\%notin\%}},
-\code{\link[=contains_vars]{contains_vars()}},
-\code{\link[=convert_dtm_to_dtc]{convert_dtm_to_dtc()}},
-\code{\link[=filter_if]{filter_if()}},
-\code{\link[=vars2chr]{vars2chr()}}
+\code{\link{\%notin\%}()},
+\code{\link{contains_vars}()},
+\code{\link{convert_dtm_to_dtc}()},
+\code{\link{filter_if}()},
+\code{\link{vars2chr}()}
 }
 \concept{dev_utility}
 \keyword{dev_utility}

@@ -18,52 +18,28 @@ assert_list_element(
 }
 \arguments{
 \item{list}{A list to be checked
-A list of named lists or classes is expected.
-
-\describe{
-\item{Default value}{none}
-}}
+A list of named lists or classes is expected.}
 
 \item{element}{The name of an element of the lists/classes
-A character scalar is expected.
-
-\describe{
-\item{Default value}{none}
-}}
+A character scalar is expected.}
 
 \item{condition}{Condition to be fulfilled
 The condition is evaluated for each element of the list. The element of the
-lists/classes can be referred to by its name, e.g., \code{censor == 0} to check
-the \code{censor} field of a class.
-
-\describe{
-\item{Default value}{none}
-}}
+lists/classes can be referred to by its name, e.g., `censor == 0` to check
+the `censor` field of a class.}
 
 \item{message_text}{Text to be displayed in the error message above
 the listing of values that do not meet the condition.
 The text should describe the condition to be fulfilled,
-e.g., \code{"Error in {arg_name}: the censor values must be zero."}.
-If \code{message} argument is specified, that text will be displayed and \code{message_text}
-is ignored.
+e.g., `"Error in {arg_name}: the censor values must be zero."`.
+If `message` argument is specified, that text will be displayed and `message_text`
+is ignored.}
 
-\describe{
-\item{Default value}{none}
-}}
+\item{arg_name}{string indicating the label/symbol of the object being checked.}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.
-
-\describe{
-\item{Default value}{\code{rlang::caller_arg(arg)}}
-}}
-
-\item{message}{string passed to \code{cli::cli_abort(message)}.
-When \code{NULL}, default messaging is used (see examples for default messages).
-\code{"{arg_name}"} can be used in messaging.
-
-\describe{
-\item{Default value}{\code{NULL}}
-}}
+\item{message}{string passed to `cli::cli_abort(message)`.
+When `NULL`, default messaging is used (see examples for default messages).
+`"{arg_name}"` can be used in messaging.}
 
 \item{class}{Subclass of the condition.}
 
@@ -83,13 +59,9 @@ For more information about error calls, see \ifelse{html}{\link[rlang:topic-erro
 
 \item{...}{Objects required to evaluate the condition or the message text
 
-If the condition or the message text contains objects apart from the
-element, they have to be passed to the function. See the second example
-below.
-
-\describe{
-\item{Default value}{none}
-}}
+  If the condition or the message text contains objects apart from the
+  element, they have to be passed to the function. See the second example
+  below.}
 }
 \value{
 An error if the condition is not met. The input otherwise.
@@ -134,28 +106,28 @@ try(assert_list_element(
 }
 \seealso{
 Checks for valid input and returns warning or errors messages:
-\code{\link[=assert_atomic_vector]{assert_atomic_vector()}},
-\code{\link[=assert_character_scalar]{assert_character_scalar()}},
-\code{\link[=assert_character_vector]{assert_character_vector()}},
-\code{\link[=assert_data_frame]{assert_data_frame()}},
-\code{\link[=assert_date_vector]{assert_date_vector()}},
-\code{\link[=assert_expr]{assert_expr()}},
-\code{\link[=assert_expr_list]{assert_expr_list()}},
-\code{\link[=assert_filter_cond]{assert_filter_cond()}},
-\code{\link[=assert_function]{assert_function()}},
-\code{\link[=assert_integer_scalar]{assert_integer_scalar()}},
-\code{\link[=assert_list_of]{assert_list_of()}},
-\code{\link[=assert_logical_scalar]{assert_logical_scalar()}},
-\code{\link[=assert_named]{assert_named()}},
-\code{\link[=assert_numeric_vector]{assert_numeric_vector()}},
-\code{\link[=assert_one_to_one]{assert_one_to_one()}},
-\code{\link[=assert_param_does_not_exist]{assert_param_does_not_exist()}},
-\code{\link[=assert_s3_class]{assert_s3_class()}},
-\code{\link[=assert_same_type]{assert_same_type()}},
-\code{\link[=assert_symbol]{assert_symbol()}},
-\code{\link[=assert_unit]{assert_unit()}},
-\code{\link[=assert_vars]{assert_vars()}},
-\code{\link[=assert_varval_list]{assert_varval_list()}}
+\code{\link{assert_atomic_vector}()},
+\code{\link{assert_character_scalar}()},
+\code{\link{assert_character_vector}()},
+\code{\link{assert_data_frame}()},
+\code{\link{assert_date_vector}()},
+\code{\link{assert_expr}()},
+\code{\link{assert_expr_list}()},
+\code{\link{assert_filter_cond}()},
+\code{\link{assert_function}()},
+\code{\link{assert_integer_scalar}()},
+\code{\link{assert_list_of}()},
+\code{\link{assert_logical_scalar}()},
+\code{\link{assert_named}()},
+\code{\link{assert_numeric_vector}()},
+\code{\link{assert_one_to_one}()},
+\code{\link{assert_param_does_not_exist}()},
+\code{\link{assert_s3_class}()},
+\code{\link{assert_same_type}()},
+\code{\link{assert_symbol}()},
+\code{\link{assert_unit}()},
+\code{\link{assert_vars}()},
+\code{\link{assert_varval_list}()}
 }
 \concept{assertion}
 \keyword{assertion}

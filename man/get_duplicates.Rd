@@ -7,14 +7,10 @@
 get_duplicates(x)
 }
 \arguments{
-\item{x}{An atomic vector
-
-\describe{
-\item{Default value}{none}
-}}
+\item{x}{An atomic vector}
 }
 \value{
-A vector of the same type as \code{x} contain duplicate values
+A vector of the same type as `x` contain duplicate values
 }
 \description{
 Get Duplicates From a Vector
@@ -26,9 +22,9 @@ get_duplicates(c("a", "a", "b", "c", "d", "d"))
 }
 \seealso{
 Brings something to you!?!:
-\code{\link[=get_constant_vars]{get_constant_vars()}},
-\code{\link[=get_dataset]{get_dataset()}},
-\code{\link[=get_source_vars]{get_source_vars()}}
+\code{\link{get_constant_vars}()},
+\code{\link{get_dataset}()},
+\code{\link{get_source_vars}()}
 }
 \concept{get}
 \keyword{get}

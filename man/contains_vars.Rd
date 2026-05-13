@@ -2,32 +2,28 @@
 % Please edit documentation in R/dev_utilities.R
 \name{contains_vars}
 \alias{contains_vars}
-\title{check that argument contains valid variable(s) created with \code{exprs()} or
+\title{check that argument contains valid variable(s) created with `exprs()` or
 Source Variables from a List of Expressions}
 \usage{
 contains_vars(arg)
 }
 \arguments{
-\item{arg}{A function argument to be checked
-
-\describe{
-\item{Default value}{none}
-}}
+\item{arg}{A function argument to be checked}
 }
 \value{
-A \code{TRUE} if variables were valid variable
+A `TRUE` if variables were valid variable
 }
 \description{
-check that argument contains valid variable(s) created with \code{exprs()} or
+check that argument contains valid variable(s) created with `exprs()` or
 Source Variables from a List of Expressions
 }
 \seealso{
 Developer Utility Functions:
-\code{\link{\%notin\%}},
-\code{\link[=convert_dtm_to_dtc]{convert_dtm_to_dtc()}},
-\code{\link[=extract_vars]{extract_vars()}},
-\code{\link[=filter_if]{filter_if()}},
-\code{\link[=vars2chr]{vars2chr()}}
+\code{\link{\%notin\%}()},
+\code{\link{convert_dtm_to_dtc}()},
+\code{\link{extract_vars}()},
+\code{\link{filter_if}()},
+\code{\link{vars2chr}()}
 }
 \concept{dev_utility}
 \keyword{dev_utility}

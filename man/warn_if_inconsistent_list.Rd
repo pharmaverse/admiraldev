@@ -7,33 +7,17 @@
 warn_if_inconsistent_list(base, compare, list_name, i = 2)
 }
 \arguments{
-\item{base}{A named list
+\item{base}{A named list}
 
-\describe{
-\item{Default value}{none}
-}}
-
-\item{compare}{A named list
-
-\describe{
-\item{Default value}{none}
-}}
+\item{compare}{A named list}
 
 \item{list_name}{A string
-the name of the list
+the name of the list}
 
-\describe{
-\item{Default value}{none}
-}}
-
-\item{i}{the index id to compare the 2 lists
-
-\describe{
-\item{Default value}{\code{2}}
-}}
+\item{i}{the index id to compare the 2 lists}
 }
 \value{
-a \code{warning} if the 2 lists have different names or length
+a `warning` if the 2 lists have different names or length
 }
 \description{
 Checks if two list inputs have the same names and same number of elements and
@@ -57,11 +41,11 @@ warn_if_inconsistent_list(
 )
 }
 \seealso{
-Function that provide users with custom warnings:
-\code{\link[=suppress_warning]{suppress_warning()}},
-\code{\link[=warn_if_incomplete_dtc]{warn_if_incomplete_dtc()}},
-\code{\link[=warn_if_invalid_dtc]{warn_if_invalid_dtc()}},
-\code{\link[=warn_if_vars_exist]{warn_if_vars_exist()}}
+Function that provide users with custom warnings
+\code{\link{suppress_warning}()},
+\code{\link{warn_if_incomplete_dtc}()},
+\code{\link{warn_if_invalid_dtc}()},
+\code{\link{warn_if_vars_exist}()}
 }
 \concept{warnings}
 \keyword{warnings}

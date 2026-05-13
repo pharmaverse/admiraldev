@@ -7,11 +7,7 @@
 capture_message(expr)
 }
 \arguments{
-\item{expr}{An R expression to evaluate
-
-\describe{
-\item{Default value}{none}
-}}
+\item{expr}{An R expression to evaluate}
 }
 \value{
 A character vector of captured messages

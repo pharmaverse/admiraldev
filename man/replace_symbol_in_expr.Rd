@@ -7,30 +7,15 @@
 replace_symbol_in_expr(expression, target, replace)
 }
 \arguments{
-\item{expression}{Expression
+\item{expression}{Expression}
 
-\describe{
-\item{Permitted values}{a quoted expression, e.g., created by \code{expr()}}
-\item{Default value}{none}
-}}
+\item{target}{Target symbol}
 
-\item{target}{Target symbol
-
-\describe{
-\item{Permitted values}{an unquoted symbol, e.g., \code{AVAL}}
-\item{Default value}{none}
-}}
-
-\item{replace}{Replacing symbol
-
-\describe{
-\item{Permitted values}{an unquoted symbol, e.g., \code{AVAL}}
-\item{Default value}{none}
-}}
+\item{replace}{Replacing symbol}
 }
 \value{
-The expression where every occurrence of the symbol \code{target} is
-replaced by \code{replace}
+The expression where every occurrence of the symbol `target` is
+  replaced by `replace`
 }
 \description{
 Replace symbols in an expression
@@ -45,9 +30,9 @@ replace_symbol_in_expr(expr(if_else(AVAL > 0, AVAL, NA)), AVAL, AVAL.join)
 }
 \seealso{
 Helpers for working with Quosures:
-\code{\link[=add_suffix_to_vars]{add_suffix_to_vars()}},
-\code{\link[=expr_c]{expr_c()}},
-\code{\link[=replace_values_by_names]{replace_values_by_names()}}
+\code{\link{add_suffix_to_vars}()},
+\code{\link{expr_c}()},
+\code{\link{replace_values_by_names}()}
 }
 \author{
 Stefan Bundfuss

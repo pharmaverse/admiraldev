@@ -15,40 +15,20 @@ assert_date_var(
 )
 }
 \arguments{
-\item{dataset}{The dataset where the variable is expected
+\item{dataset}{The dataset where the variable is expected}
 
-\describe{
-\item{Default value}{none}
-}}
-
-\item{var}{The variable to check
-
-\describe{
-\item{Default value}{none}
-}}
+\item{var}{The variable to check}
 
 \item{dataset_name}{The name of the dataset. If the argument is specified, the
-specified name is displayed in the error message.
-
-\describe{
-\item{Default value}{\code{rlang::caller_arg(dataset)}}
-}}
+specified name is displayed in the error message.}
 
 \item{var_name}{The name of the variable. If the argument is specified, the
-specified name is displayed in the error message.
+specified name is displayed in the error message.}
 
-\describe{
-\item{Default value}{\code{rlang::caller_arg(var)}}
-}}
-
-\item{message}{(\code{string})\cr
-string passed to \code{cli::cli_abort(message)}. When \code{NULL}, default messaging
-is used (see examples for default messages). \code{"var_name"} and \code{"dataset_name"},
-can be used in messaging.
-
-\describe{
-\item{Default value}{\code{NULL}}
-}}
+\item{message}{(`string`)\cr
+string passed to `cli::cli_abort(message)`. When `NULL`, default messaging
+is used (see examples for default messages). `"var_name"` and `"dataset_name"`,
+can be used in messaging.}
 
 \item{class}{Subclass of the condition.}
 
@@ -67,8 +47,8 @@ respectively not display any call or hard-code a code to display.
 For more information about error calls, see \ifelse{html}{\link[rlang:topic-error-call]{Including function calls in error messages}}{\link[rlang:topic-error-call]{Including function calls in error messages}}.}
 }
 \value{
-The function throws an error if \code{var} is not a date or datetime variable in
-\code{dataset} and returns the input invisibly otherwise.
+The function throws an error if `var` is not a date or datetime variable in
+`dataset` and returns the input invisibly otherwise.
 }
 \description{
 Checks if a variable in a dataset is a date or datetime variable

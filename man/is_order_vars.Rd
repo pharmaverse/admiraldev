@@ -7,22 +7,18 @@
 is_order_vars(arg)
 }
 \arguments{
-\item{arg}{An R object
-
-\describe{
-\item{Default value}{none}
-}}
+\item{arg}{An R object}
 }
 \value{
-\code{FALSE} if the argument is not a list of order vars
+`FALSE` if the argument is not a list of order vars
 }
 \description{
-Check if inputs are created using \code{exprs()} or calls involving \code{desc()}
+Check if inputs are created using `exprs()` or calls involving `desc()`
 }
 \seealso{
 Identifies type of Object with return of TRUE/FALSE:
-\code{\link[=is_auto]{is_auto()}},
-\code{\link[=is_valid_dtc]{is_valid_dtc()}}
+\code{\link{is_auto}()},
+\code{\link{is_valid_dtc}()}
 }
 \concept{is}
 \keyword{is}
