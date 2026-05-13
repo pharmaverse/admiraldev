@@ -112,7 +112,7 @@ test_that("capture_message Test 8: capture message with open sink", {
   sink(type = "message")
   close(con)
   expect_equal(
-    readLines(temp_file),
+    readLines(temp_file, warn = FALSE),
     "Hello"
   )
   # nolint end
