@@ -45,12 +45,12 @@ Source:
 Straub B, Bundfuss S, Cascone A, Dahnert K, Dickinson J, Farrugia R,
 Gautier F, Mancini E, Miller G, Patil L (2026). *admiraldev: Utility
 Functions and Development Tools for the Admiral Package Family*. R
-package version 1.4.0.9008, <https://pharmaverse.github.io/admiraldev/>.
+package version 1.4.0.9010, <https://pharmaverse.github.io/admiraldev/>.
 
     @Manual{,
       title = {admiraldev: Utility Functions and Development Tools for the Admiral Package Family},
       author = {Ben Straub and Stefan Bundfuss and Arianna Cascone and Kristin Dahnert and Jeffrey Dickinson and Ross Farrugia and Fanny Gautier and Edoardo Mancini and Gordon Miller and Lina Patil},
       year = {2026},
-      note = {R package version 1.4.0.9008},
+      note = {R package version 1.4.0.9010},
       url = {https://pharmaverse.github.io/admiraldev/},
     }

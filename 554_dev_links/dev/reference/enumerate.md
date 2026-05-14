@@ -44,7 +44,7 @@ A `character` vector
 ## See also
 
 Other deprecated:
-[`%or%()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/grapes-or-grapes.md),
+[`%or%`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/grapes-or-grapes.md),
 [`arg_name()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/arg_name.md),
 [`friendly_type_of()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/friendly_type_of.md),
 [`valid_time_units()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/valid_time_units.md),

@@ -22,6 +22,8 @@ Useful links:
 
 Authors:
 
+- Ben Straub <ben.x.straub@gsk.com>
+
 - Stefan Bundfuss ([ORCID](https://orcid.org/0009-0005-0027-1198))
 
 - Arianna Cascone ([ORCID](https://orcid.org/0000-0001-5948-2831))

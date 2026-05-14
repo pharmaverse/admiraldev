@@ -30,7 +30,7 @@ arg_name(expr)
 ## See also
 
 Other deprecated:
-[`%or%()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/grapes-or-grapes.md),
+[`%or%`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/grapes-or-grapes.md),
 [`enumerate()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/enumerate.md),
 [`friendly_type_of()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/friendly_type_of.md),
 [`valid_time_units()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/valid_time_units.md),

@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9008</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.0.9010</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -274,10 +274,8 @@ proceed to modify the body and roxygen documentation of
 <div class="section level3">
 <h3 id="function-names">Function Names<a class="anchor" aria-label="anchor" href="#function-names"></a>
 </h3>
-<ul>
-<li>Function names should start with a verb and use snake case,
-e.g. <code>derive_var_base()</code>.</li>
-</ul>
+<p>Function names should start with a verb and use snake case, e.g.,
+<code>derive_var_base()</code>.</p>
 <table class="table">
 <colgroup>
 <col width="31%">
@@ -316,22 +314,30 @@ additional rows and/or columns</td>
 </tr>
 <tr class="even">
 <td>
-<code>compute_</code> / <code>calculate_</code> / …</td>
-<td>Functions that take vectors as input and return a vector</td>
+<code>derive_*_records</code> (e.g.,
+<code>derive_summary_records</code>)</td>
+<td>Functions that add records to the input dataset</td>
 </tr>
 <tr class="odd">
+<td>
+<code>compute_</code> / <code>convert_</code> / <code>impute_</code>
+/ <code>transform_</code>
+</td>
+<td>Functions that take vectors as input and return a vector</td>
+</tr>
+<tr class="even">
 <td>
 <code>create_</code> / <code>consolidate_</code>
 </td>
 <td>Functions that create datasets without keeping the original
 observations</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>get_</code></td>
 <td>Usually utility functions that return very specific objects that get
 passed through other functions</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>filter_</code></td>
 <td>Functions that filter observations based on conditions associated
 with common clinical trial syntax</td>
@@ -383,7 +389,8 @@ through other <code>derive_</code> functions.</td>
 <code>_extreme_</code>
 </td>
 <td>Functions that follow the <a href="https://pharmaverse.github.io/admiral/cran-release/articles/generic.html" class="external-link">generic
-function user-guide</a>.</td>
+function user-guide</a>
+</td>
 </tr></tbody>
 </table>
 <p>Please note that the appropriate <em>var</em>/<em>vars</em> prefix

@@ -49,7 +49,7 @@ a `warning` if the 2 lists have different names or length
 
 ## See also
 
-Function that provide users with custom warnings
+Function that provide users with custom warnings:
 [`suppress_warning()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/suppress_warning.md),
 [`warn_if_incomplete_dtc()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/warn_if_incomplete_dtc.md),
 [`warn_if_invalid_dtc()`](https:/pharmaverse.github.io/admiraldev/554_dev_links/dev/reference/warn_if_invalid_dtc.md),
