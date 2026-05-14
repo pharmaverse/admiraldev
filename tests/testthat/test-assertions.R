@@ -13,13 +13,10 @@ test_that("assert_filter_cond Test 1: `assert_filter_cond` works as expected", {
   )
 
   fc <- expr("string")
-  expect_error(
-    assert_filter_cond(arg = fc),
-    class = "assert_filter_cond"
-  )
   expect_snapshot(
     assert_filter_cond(arg = fc),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 
   vals <- c("A", "B")
@@ -36,13 +33,10 @@ test_that("assert_data_frame Test 2: error if not a dataframe", {
   example_fun <- function(dataset) {
     assert_data_frame(dataset, required_vars = exprs(STUDYID, USUBJID))
   }
-  expect_error(
-    example_fun(c(1, 2, 3)),
-    class = "assert_data_frame"
-  )
   expect_snapshot(
     example_fun(c(1, 2, 3)),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -96,14 +90,10 @@ test_that("assert_data_frame Test 5: error if dataframe is grouped", {
     "xyz",    "2",      "ACTIVE"
   ) %>% group_by(ARMCD)
 
-  expect_error(
-    example_fun(data),
-    class = "assert_data_frame"
-  )
-
   expect_snapshot(
     example_fun(data),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -119,14 +109,10 @@ test_that("assert_data_frame Test 6: error if dataframe is rowwise", {
     "xyz",    "2",      "ACTIVE"
   ) %>% dplyr::rowwise()
 
-  expect_error(
-    example_fun(data),
-    class = "assert_data_frame"
-  )
-
   expect_snapshot(
     example_fun(data),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -141,14 +127,10 @@ test_that("assert_data_frame Test 7: error if an expected variable is missing", 
     "xyz",    "PLACEBO",
     "xyz",    "ACTIVE"
   )
-  expect_error(
-    example_fun(data),
-    class = "assert_data_frame"
-  )
-
   expect_snapshot(
     example_fun(data),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -163,14 +145,10 @@ test_that("assert_data_frame Test 8: error if expected variables are missing", {
     "PLACEBO",
     "ACTIVE"
   )
-  expect_error(
-    example_fun(data),
-    class = "assert_data_frame"
-  )
-
   expect_snapshot(
     example_fun(data),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -279,11 +257,7 @@ test_that("assert_character_scalar Test 14: error if `arg` not in values", {
     )
   }
 
-  expect_error(
-    check_unit("month"),
-    class = "assert_character_scalar"
-  )
-  expect_snapshot(check_unit("month"), error = TRUE)
+  expect_snapshot(check_unit("month"), error = TRUE, cnd_class = TRUE)
 
 
   check_unit2 <- function(duration_unit) {
@@ -294,11 +268,7 @@ test_that("assert_character_scalar Test 14: error if `arg` not in values", {
     )
   }
 
-  expect_error(
-    check_unit2("month"),
-    class = "assert_character_scalar"
-  )
-  expect_snapshot(check_unit2("month"), error = TRUE)
+  expect_snapshot(check_unit2("month"), error = TRUE, cnd_class = TRUE)
 })
 
 ## Test 15: error if not character ----
@@ -312,14 +282,10 @@ test_that("assert_character_scalar Test 15: error if not character", {
       print("A warning was requested.")
     }
   }
-  expect_error(
-    example_fun2(2),
-    class = "assert_character_scalar"
-  )
-
   expect_snapshot(
     example_fun2(2),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -334,14 +300,10 @@ test_that("assert_character_scalar Test 16: error if input is a vector", {
       print("A warning was requested.")
     }
   }
-  expect_error(
-    example_fun2(c("admiral", "admiralonco")),
-    class = "assert_character_scalar"
-  )
-
   expect_snapshot(
     example_fun2(c("admiral", "admiralonco")),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -350,13 +312,9 @@ test_that("assert_character_scalar Test 16: error if input is a vector", {
 test_that("assert_character_vector Test 17: error if `arg` not a character vector", {
   arg <- c(1, 2, 3)
 
-  expect_error(
-    assert_character_vector(arg),
-    class = "assert_character_vector"
-  )
-
   expect_snapshot(
     error = TRUE,
+    cnd_class = TRUE,
     assert_character_vector(arg)
   )
 })
@@ -367,13 +325,10 @@ test_that("assert_character_vector Test 18: error if `arg` is not in values", {
     assert_character_vector(character, values = c("test", "oak"))
   }
 
-  expect_error(
-    example_fun(character = c("oak", "mint")),
-    class = "assert_character_vector"
-  )
   expect_snapshot(
     example_fun(character = c("oak", "mint")),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -383,13 +338,10 @@ test_that("assert_character_vector Test 19: arg_name correctly displayed in name
     assert_character_vector(character, values = c("test", "oak"), named = TRUE)
   }
 
-  expect_error(
-    example_fun(character = c(tree = "oak", "test")),
-    class = "assert_character_vector"
-  )
   expect_snapshot(
     example_fun(character = c(tree = "oak", "test")),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -413,9 +365,9 @@ test_that("assert_logical_scalar Test 21: error if `arg` is not TRUE or FALSE", 
   arg <- c()
   expect_error(example_fun(NA), class = "assert_logical_scalar")
   expect_error(example_fun(arg), class = "assert_logical_scalar")
-  expect_error(example_fun("test"), class = "assert_logical_scalar")
   expect_snapshot(
     error = TRUE,
+    cnd_class = TRUE,
     example_fun("test")
   )
 })
@@ -448,11 +400,7 @@ test_that("assert_symbol Test 23: `assert_symbol` throws an error if `arg` is mi
     assert_symbol(arg)
   }
 
-  expect_error(
-    example_fun(f()),
-    class = "assert_symbol"
-  )
-  expect_snapshot(example_fun(f()), error = TRUE)
+  expect_snapshot(example_fun(f()), error = TRUE, cnd_class = TRUE)
 })
 
 ## Test 24: `assert_symbol` throws an error if `arg` is not a symbol ----
@@ -465,11 +413,7 @@ test_that("assert_symbol Test 24: `assert_symbol` throws an error if `arg` is no
     assert_symbol(arg)
   }
 
-  expect_error(
-    example_fun(f(NULL)),
-    class = "assert_symbol"
-  )
-  expect_snapshot(example_fun(f(NULL)), error = TRUE)
+  expect_snapshot(example_fun(f(NULL)), error = TRUE, cnd_class = TRUE)
 })
 
 ## Test 25: `assert_symbol` does not throw an error if `arg` is a symbol ----
@@ -518,14 +462,10 @@ test_that("assert_expr Test 27: no error if optional is TRUE and `arg` is NULL",
 
 ## Test 28: `assert_expr` throws an error if `arg` is missing ----
 test_that("assert_expr Test 28: `assert_expr` throws an error if `arg` is missing", {
-  expect_error(
-    assert_expr(),
-    class = "assert_expr"
-  )
-
   expect_snapshot(
     assert_expr(),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 
   example_fun <- function(data) {
@@ -533,26 +473,20 @@ test_that("assert_expr Test 28: `assert_expr` throws an error if `arg` is missin
   }
   expect_snapshot(
     example_fun(),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
 ## Test 29: `assert_expr` throws an error if `arg` is not an expression ----
 test_that("assert_expr Test 29: `assert_expr` throws an error if `arg` is not an expression", {
-  expect_error(
-    {
-      var <- c(1, 2)
-      assert_expr(var)
-    },
-    class = "assert_expr"
-  )
-
   expect_snapshot(
     {
       var <- c(1, 2)
       assert_expr(var)
     },
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -568,54 +502,34 @@ test_that("assert_vars Test 30: no error if expected input", {
 
 ## Test 31: error if unexpected input ----
 test_that("assert_vars Test 31: error if unexpected input", {
-  expect_error(
-    assert_vars(AVAL + 1),
-    class = "assert_vars"
-  )
-
   expect_snapshot(
     assert_vars(AVAL + 1),
-    error = TRUE
-  )
-
-  expect_error(
-    assert_vars(rlang::quos(USUBJID, PARAMCD)),
-    class = "assert_vars"
+    error = TRUE,
+    cnd_class = TRUE
   )
 
   expect_snapshot(
     assert_vars(rlang::quos(USUBJID, PARAMCD)),
-    error = TRUE
-  )
-
-  expect_error(
-    assert_vars(c("USUBJID", "PARAMCD", "VISIT")),
-    class = "assert_vars"
+    error = TRUE,
+    cnd_class = TRUE
   )
 
   expect_snapshot(
     assert_vars(c("USUBJID", "PARAMCD", "VISIT")),
-    error = TRUE
-  )
-
-  expect_error(
-    assert_vars(exprs(USUBJID, AVAL + 2)),
-    class = "assert_vars"
+    error = TRUE,
+    cnd_class = TRUE
   )
 
   expect_snapshot(
     assert_vars(exprs(USUBJID, AVAL + 2)),
-    error = TRUE
-  )
-
-  expect_error(
-    assert_vars(exprs(APERSDT = APxxSDT, APxxEDT), expect_names = TRUE),
-    class = "assert_vars"
+    error = TRUE,
+    cnd_class = TRUE
   )
 
   expect_snapshot(
     assert_vars(exprs(APERSDT = APxxSDT, APxxEDT), expect_names = TRUE),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -625,14 +539,10 @@ test_that("assert_vars Test 32: error if some elements of `arg` are not unquoted
     assert_vars(arg)
   }
 
-  expect_error(
-    example_fun(exprs(USUBJID, PARAMCD, NULL)),
-    class = "assert_vars"
-  )
-
   expect_snapshot(
     example_fun(exprs(USUBJID, PARAMCD, NULL)),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -667,14 +577,10 @@ test_that("assert_integer_scalar Test 35: error if chosen subset not in subsets"
     assert_integer_scalar(arg, subset = "infinity")
   }
 
-  expect_error(
-    example_fun(1),
-    class = "assert_character_scalar"
-  )
-
   expect_snapshot(
     example_fun(1),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -709,14 +615,11 @@ test_that("assert_integer_scalar Test 37: error if `arg` is not an integer scala
     example_fun(Inf),
     class = "assert_integer_scalar"
   )
-  expect_error(
-    example_fun(1.5),
-    class = "assert_integer_scalar"
-  )
 
   expect_snapshot(
     example_fun(1.5),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -748,31 +651,22 @@ test_that("assert_numeric_vector Test 40: error if `arg` is not a numeric vector
 
   arg <- c()
 
-  expect_error(
-    example_fun(TRUE),
-    class = "assert_numeric_vector"
-  )
   expect_snapshot(
     example_fun(TRUE),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 
-  expect_error(
-    example_fun(arg),
-    class = "assert_numeric_vector"
-  )
   expect_snapshot(
     example_fun(arg),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 
-  expect_error(
-    example_fun("1.5"),
-    class = "assert_numeric_vector"
-  )
   expect_snapshot(
     example_fun("1.5"),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -784,7 +678,8 @@ test_that("assert_numeric_vector Test 41: error if length is not as expected", {
       numbers,
       length = 2
     ),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -795,13 +690,10 @@ test_that("assert_s3_class Test 42: error if `arg` is not an object of a specifi
     assert_s3_class(arg, "factor")
   }
 
-  expect_error(
-    example_fun("test"),
-    class = "assert_s3_class"
-  )
   expect_snapshot(
     example_fun("test"),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -822,11 +714,7 @@ test_that("assert_s3_class Test 44: error if `arg` is NULL and optional is FALSE
     assert_s3_class(arg, cls = "factor", optional = FALSE)
   }
 
-  expect_error(
-    example_fun(NULL),
-    class = "assert_s3_class"
-  )
-  expect_snapshot(example_fun(NULL), error = TRUE)
+  expect_snapshot(example_fun(NULL), error = TRUE, cnd_class = TRUE)
 })
 
 ## Test 45: no error if `arg` is an object of a specific class S3 ----
@@ -845,13 +733,10 @@ test_that("assert_list_of Test 46: error if `arg` is not a list of specific clas
     assert_list_of(arg, "factor")
   }
 
-  expect_error(
-    example_fun(list("test")),
-    class = "assert_list_of"
-  )
   expect_snapshot(
     example_fun(list("test")),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -872,11 +757,7 @@ test_that("assert_list_of Test 48: error if `arg` is NULL and optional is FALSE"
     assert_list_of(arg, cls = "factor", optional = FALSE)
   }
 
-  expect_error(
-    example_fun(NULL),
-    class = "assert_list_of"
-  )
-  expect_snapshot(example_fun(NULL), error = TRUE)
+  expect_snapshot(example_fun(NULL), error = TRUE, cnd_class = TRUE)
 })
 
 ## Test 49: no error if `arg` is a list of specific class S3 objects ----
@@ -894,37 +775,25 @@ test_that("assert_list_of Test 49: no error if `arg` is a list of specific class
 
 ## Test 50: error if `arg` is not a named list (no elements named) ----
 test_that("assert_list_of Test 50: error if `arg` is not a named list (no elements named)", {
-  expect_error(
-    {
-      mylist <- list(1, 2, 3)
-      assert_list_of(mylist, cls = "numeric", named = TRUE)
-    },
-    class = "assert_list_of"
-  )
   expect_snapshot(
     {
       mylist <- list(1, 2, 3)
       assert_list_of(mylist, cls = "numeric", named = TRUE)
     },
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
 ## Test 51: error if `arg` is not a named list (some elements named) ----
 test_that("assert_list_of Test 51: error if `arg` is not a named list (some elements named)", {
-  expect_error(
-    {
-      mylist <- list(1, 2, 3, d = 4)
-      assert_list_of(mylist, cls = "numeric", named = TRUE)
-    },
-    class = "assert_list_of"
-  )
   expect_snapshot(
     {
       mylist <- list(1, 2, 3, d = 4)
       assert_list_of(mylist, cls = "numeric", named = TRUE)
     },
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -943,20 +812,13 @@ test_that("assert_named Test 53: no error if arg is NULL and optional = TRUE", {
 
 ## Test 54: error if no elements are named ----
 test_that("assert_named Test 54: error if no elements are named", {
-  expect_error(
-    {
-      arg <- c(1, 2)
-      assert_named(arg)
-    },
-    class = "assert_named"
-  )
-
   expect_snapshot(
     {
       arg <- c(1, 2)
       assert_named(arg)
     },
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -967,10 +829,10 @@ test_that("assert_function Test 55: error if `arg` is not a function", {
     assert_function(arg)
   }
 
-  expect_error(example_fun(5), class = "assert_function")
   expect_snapshot(
     example_fun(5),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
   expect_error(example_fun(), class = "assert_function")
 })
@@ -992,10 +854,10 @@ test_that("assert_function Test 57: error if `arg` is missing", {
     assert_function(optional = FALSE)
   }
 
-  expect_error(example_fun(), class = "assert_function")
   expect_snapshot(
     example_fun(),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1014,26 +876,20 @@ test_that("assert_function Test 59: error if  `params`  is missing with no defau
     assert_function(arg, params = c("x"))
   }
 
-  expect_error(
-    example_fun(sum),
-    class = "assert_function"
-  )
   expect_snapshot(
     example_fun(sum),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 
   example_fun <- function(arg) {
     assert_function(arg, params = c("x", "y"))
   }
 
-  expect_error(
-    example_fun(sum),
-    class = "assert_function"
-  )
   expect_snapshot(
     example_fun(sum),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1113,13 +969,10 @@ test_that("assert_unit Test 65: error if multiple units in the input dataset", {
     "P02",    "WEIGHT",      85.7, "lb",      "WEIGHT",  85.7
   )
 
-  expect_error(
-    assert_unit(advs, param = "WEIGHT", get_unit_expr = VSSTRESU),
-    class = "assert_unit"
-  )
   expect_snapshot(
     assert_unit(advs, param = "WEIGHT", get_unit_expr = VSSTRESU),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1131,13 +984,10 @@ test_that("assert_unit Test 66: error if unexpected unit in the input dataset", 
     "P02",    "WEIGHT",      85.7, "kg",      "WEIGHT",  85.7
   )
 
-  expect_error(
-    assert_unit(advs, param = "WEIGHT", required_unit = "lb", get_unit_expr = VSSTRESU),
-    class = "assert_unit"
-  )
   expect_snapshot(
     assert_unit(advs, param = "WEIGHT", required_unit = "lb", get_unit_expr = VSSTRESU),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1149,13 +999,10 @@ test_that("assert_unit Test 67: error if get_unit_expr invalid", {
     "P02",    "WEIGHT",      85.7, "kg",      "WEIGHT",  85.7
   )
 
-  expect_error(
-    assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSTRESU),
-    class = "assert_unit"
-  )
   expect_snapshot(
     assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSTRESU),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1168,14 +1015,10 @@ test_that("assert_param_does_not_exist Test 68: error if parameter exists in the
     "P02",    "WEIGHT",      85.7, "kg",      "WEIGHT",  85.7
   )
 
-  expect_error(
-    assert_param_does_not_exist(advs, param = "WEIGHT"),
-    class = "assert_param_does_not_exist"
-  )
-
   expect_snapshot(
     assert_param_does_not_exist(advs, param = "WEIGHT"),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1199,13 +1042,10 @@ test_that("assert_varval_list Test 70: error if `arg` is not a list of expressio
     assert_varval_list(arg, accept_var = FALSE)
   }
 
-  expect_error(
-    example_fun(c("USUBJID", "PARAMCD", "VISIT")),
-    class = "assert_varval_list"
-  )
   expect_snapshot(
     example_fun(c("USUBJID", "PARAMCD", "VISIT")),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1215,13 +1055,10 @@ test_that("assert_varval_list Test 71: error if not all elements are variables",
     assert_varval_list(arg, accept_var = TRUE)
   }
 
-  expect_error(
-    example_fun(exprs(USUBJID, PARAMCD, NULL)),
-    class = "assert_varval_list"
-  )
   expect_snapshot(
     example_fun(exprs(USUBJID, PARAMCD, NULL)),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1231,13 +1068,10 @@ test_that("assert_varval_list Test 72: error if `required_elements` are missing 
     assert_varval_list(arg, required_elements = "DTHDOM")
   }
 
-  expect_error(
-    example_fun(exprs(DTHSEQ = AESEQ)),
-    class = "assert_varval_list"
-  )
   expect_snapshot(
     example_fun(exprs(DTHSEQ = AESEQ)),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1258,13 +1092,10 @@ test_that("assert_varval_list Test 74: error if `accept_expr` is TRUE and value 
     assert_varval_list(arg, accept_expr = TRUE)
   }
 
-  expect_error(
-    example_fun(exprs(DTHSEQ = TRUE)),
-    class = "assert_varval_list"
-  )
   expect_snapshot(
     example_fun(exprs(DTHSEQ = TRUE)),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1275,13 +1106,10 @@ test_that("assert_varval_list Test 74: error if `accept_expr` is FALSE, `accept_
     assert_varval_list(arg, accept_expr = FALSE, accept_var = TRUE)
   }
 
-  expect_error(
-    example_fun(exprs(DTHSEQ = TRUE)),
-    class = "assert_varval_list"
-  )
   expect_snapshot(
     example_fun(exprs(DTHSEQ = TRUE)),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1291,13 +1119,10 @@ test_that("assert_varval_list Test 76: error if `accept_expr` is FALSE and value
     assert_varval_list(arg, accept_expr = FALSE)
   }
 
-  expect_error(
-    example_fun(exprs(DTHSEQ = exprs())),
-    class = "assert_varval_list"
-  )
   expect_snapshot(
     example_fun(exprs(DTHSEQ = exprs())),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1395,11 +1220,13 @@ test_that("assert_list_element Test 85: error if the elements do not fulfill the
       message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}.",
       arg_name = "input"
     ),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 
   expect_snapshot(
     error = TRUE,
+    cnd_class = TRUE,
     assert_list_element(
       list(
         list(var = expr(DTHDT), val = 1),
@@ -1429,14 +1256,9 @@ test_that("assert_one_to_one Test 86: error if there is a one to many mapping", 
     "DM",    "01-701-1024",
   )
 
-  expect_error(
-    assert_one_to_one(dm, exprs(DOMAIN), exprs(USUBJID)),
-    class = "assert_one_to_one"
-  )
-  admiraldev_environment$one_to_many <- NULL
-
   expect_snapshot(
     error = TRUE,
+    cnd_class = TRUE,
     assert_one_to_one(dm, exprs(DOMAIN), exprs(USUBJID))
   )
   admiraldev_environment$one_to_many <- NULL
@@ -1489,14 +1311,9 @@ test_that("assert_date_var Test 89: error if variable is not a date or datetime 
     "2",      ymd("")
   )
 
-  expect_error(
-    example_fun(
-      dataset = my_data,
-      var = USUBJID
-    )
-  )
   expect_snapshot(
     error = TRUE,
+    cnd_class = TRUE,
     example_fun(
       dataset = my_data,
       var = USUBJID
@@ -1552,13 +1369,10 @@ test_that("assert_date_vector Test 94: error if `arg` is NULL and optional is FA
     assert_date_vector(arg, optional = FALSE)
   }
 
-  expect_error(
-    example_fun(NULL),
-    class = "assert_date_vector"
-  )
   expect_snapshot(
     example_fun(NULL),
-    error = TRUE
+    error = TRUE,
+    cnd_class = TRUE
   )
 })
 
@@ -1567,9 +1381,9 @@ test_that("assert_date_vector Test 94: error if `arg` is NULL and optional is FA
 ## Test 95: error if input is not atomic vector ----
 test_that("assert_atomic_vector Test 95: error if input is not atomic vector", {
   x <- list("a", "a", "b", "c", "d", "d", 1, 1, 4)
-  expect_error(assert_atomic_vector(x), class = "assert_atomic_vector")
   expect_snapshot(
     error = TRUE,
+    cnd_class = TRUE,
     assert_atomic_vector(x)
   )
 })
@@ -1599,13 +1413,9 @@ test_that("assert_same_type Test 98: error if different type", {
   false_value <- "N"
   missing_value <- 0
 
-  # perform a class match of the error message
-  expect_error(
-    assert_same_type(true_value, false_value, missing_value),
-    class = "assert_same_type"
-  )
   expect_snapshot(
     error = TRUE,
+    cnd_class = TRUE,
     assert_same_type(true_value, false_value, missing_value)
   )
 })

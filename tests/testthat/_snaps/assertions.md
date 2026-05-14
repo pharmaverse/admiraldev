@@ -2,7 +2,7 @@
 
     Code
       assert_filter_cond(arg = fc)
-    Condition
+    Condition <assert_filter_cond>
       Error:
       ! Argument `fc` must be a filter condition, but is a string
 
@@ -10,7 +10,7 @@
 
     Code
       example_fun(c(1, 2, 3))
-    Condition
+    Condition <assert_data_frame>
       Error in `example_fun()`:
       ! Argument `dataset` must be class <data.frame>, but is a double vector.
 
@@ -18,7 +18,7 @@
 
     Code
       example_fun(data)
-    Condition
+    Condition <assert_data_frame>
       Error in `example_fun()`:
       ! Argument `dataset` must not be a grouped dataset, please `dplyr::ungroup()` it.
 
@@ -26,7 +26,7 @@
 
     Code
       example_fun(data)
-    Condition
+    Condition <assert_data_frame>
       Error in `example_fun()`:
       ! Argument `dataset` must not be a rowwise dataset, please `dplyr::ungroup()` it.
 
@@ -34,7 +34,7 @@
 
     Code
       example_fun(data)
-    Condition
+    Condition <assert_data_frame>
       Error in `example_fun()`:
       ! Required variable `USUBJID` is missing in `dataset`
 
@@ -42,7 +42,7 @@
 
     Code
       example_fun(data)
-    Condition
+    Condition <assert_data_frame>
       Error in `example_fun()`:
       ! Required variables `STUDYID` and `USUBJID` are missing in `dataset`
 
@@ -50,7 +50,7 @@
 
     Code
       check_unit("month")
-    Condition
+    Condition <assert_character_scalar>
       Error in `check_unit()`:
       ! Argument `duration_unit` must be equal to one of "years", "months", "weeks", "days", "hours", "minutes", or "seconds".
 
@@ -58,7 +58,7 @@
 
     Code
       check_unit2("month")
-    Condition
+    Condition <assert_character_scalar>
       Error in `check_unit2()`:
       ! Argument `duration_unit` must be equal to one of "YEARS", "MONTHS", "WEEKS", "DAYS", "HOURS", "MINUTES", or "SECONDS".
 
@@ -66,7 +66,7 @@
 
     Code
       example_fun2(2)
-    Condition
+    Condition <assert_character_scalar>
       Error in `example_fun2()`:
       ! Argument `msg_type` must be a scalar of class <character>, but is a number.
 
@@ -74,7 +74,7 @@
 
     Code
       example_fun2(c("admiral", "admiralonco"))
-    Condition
+    Condition <assert_character_scalar>
       Error in `example_fun2()`:
       ! Argument `msg_type` must be a scalar of class <character>, but is length 2
 
@@ -82,7 +82,7 @@
 
     Code
       assert_character_vector(arg)
-    Condition
+    Condition <assert_character_vector>
       Error:
       ! Argument `arg` must be <character>, but is a double vector.
 
@@ -90,7 +90,7 @@
 
     Code
       example_fun(character = c("oak", "mint"))
-    Condition
+    Condition <assert_character_vector>
       Error in `example_fun()`:
       ! Argument `character` must be <character> with values "test" and "oak".
 
@@ -98,7 +98,7 @@
 
     Code
       example_fun(character = c(tree = "oak", "test"))
-    Condition
+    Condition <assert_character_vector>
       Error in `example_fun()`:
       ! All elements of `character` argument must be named.
       i The indices of the unnamed elements are 2
@@ -107,7 +107,7 @@
 
     Code
       example_fun("test")
-    Condition
+    Condition <assert_logical_scalar>
       Error in `example_fun()`:
       ! Argument `arg` must be either TRUE or FALSE, but is a string.
 
@@ -115,7 +115,7 @@
 
     Code
       example_fun(f())
-    Condition
+    Condition <assert_symbol>
       Error in `example_fun()`:
       ! Argument `arg` must be a <symbol>, but is missing.
 
@@ -123,7 +123,7 @@
 
     Code
       example_fun(f(NULL))
-    Condition
+    Condition <assert_symbol>
       Error in `example_fun()`:
       ! Argument `arg` must be a <symbol>, but is NULL.
 
@@ -131,7 +131,7 @@
 
     Code
       assert_expr()
-    Condition
+    Condition <assert_expr>
       Error:
       ! Argument `arg` cannot be missing.
 
@@ -139,7 +139,7 @@
 
     Code
       example_fun()
-    Condition
+    Condition <assert_expr>
       Error in `example_fun()`:
       ! Argument `data` cannot be missing.
 
@@ -148,7 +148,7 @@
     Code
       var <- c(1, 2)
       assert_expr(var)
-    Condition
+    Condition <assert_expr>
       Error:
       ! Argument `var` must be an expression, but is a double vector
 
@@ -156,7 +156,7 @@
 
     Code
       assert_vars(AVAL + 1)
-    Condition
+    Condition <assert_vars>
       Error:
       ! Argument `AVAL + 1` must be a list of <symbol>, e.g., `exprs(USUBJID, VISIT)`.
 
@@ -164,7 +164,7 @@
 
     Code
       assert_vars(rlang::quos(USUBJID, PARAMCD))
-    Condition
+    Condition <assert_vars>
       Error:
       ! Each element of the list in argument `rlang::quos(USUBJID, PARAMCD)` must be class/type <symbol>.
       i But, element 1 is a <quosure> object, and element 2 is a <quosure> object
@@ -173,7 +173,7 @@
 
     Code
       assert_vars(c("USUBJID", "PARAMCD", "VISIT"))
-    Condition
+    Condition <assert_vars>
       Error:
       ! Argument `c("USUBJID", "PARAMCD", "VISIT")` must be class <list>, but is a character vector.
 
@@ -181,7 +181,7 @@
 
     Code
       assert_vars(exprs(USUBJID, AVAL + 2))
-    Condition
+    Condition <assert_vars>
       Error:
       ! Each element of the list in argument `exprs(USUBJID, AVAL + 2)` must be class/type <symbol>.
       i But, element 2 is a call
@@ -190,7 +190,7 @@
 
     Code
       assert_vars(exprs(APERSDT = APxxSDT, APxxEDT), expect_names = TRUE)
-    Condition
+    Condition <assert_vars>
       Error:
       ! All elements of `exprs(APERSDT = APxxSDT, APxxEDT)` argument must be named.
       i The indices of the unnamed elements are 2
@@ -199,7 +199,7 @@
 
     Code
       example_fun(exprs(USUBJID, PARAMCD, NULL))
-    Condition
+    Condition <assert_vars>
       Error in `example_fun()`:
       ! Each element of the list in argument `arg` must be class/type <symbol>.
       i But, element 3 is NULL
@@ -218,7 +218,7 @@
 
     Code
       example_fun(1)
-    Condition
+    Condition <assert_character_scalar>
       Error in `assert_integer_scalar()`:
       ! Argument `subset` must be equal to one of "positive", "non-negative", "negative", or "none".
 
@@ -226,7 +226,7 @@
 
     Code
       example_fun(1.5)
-    Condition
+    Condition <assert_integer_scalar>
       Error in `example_fun()`:
       ! Argument `arg` must be an integer scalar.
 
@@ -234,7 +234,7 @@
 
     Code
       example_fun(TRUE)
-    Condition
+    Condition <assert_numeric_vector>
       Error in `example_fun()`:
       ! Argument `arg` must be a numeric vector, but it is `TRUE`.
 
@@ -242,7 +242,7 @@
 
     Code
       example_fun(arg)
-    Condition
+    Condition <assert_numeric_vector>
       Error in `example_fun()`:
       ! Argument `arg` must be a numeric vector, but it is NULL.
 
@@ -250,7 +250,7 @@
 
     Code
       example_fun("1.5")
-    Condition
+    Condition <assert_numeric_vector>
       Error in `example_fun()`:
       ! Argument `arg` must be a numeric vector, but it is a string.
 
@@ -258,7 +258,7 @@
 
     Code
       assert_numeric_vector(numbers, length = 2)
-    Condition
+    Condition <assert_numeric_vector>
       Error:
       ! Argument `numbers` must be a vector of length 2, but has length 3.
 
@@ -266,7 +266,7 @@
 
     Code
       example_fun("test")
-    Condition
+    Condition <assert_s3_class>
       Error in `example_fun()`:
       ! Argument `arg` must be class <factor>, but is a string.
 
@@ -274,7 +274,7 @@
 
     Code
       example_fun(NULL)
-    Condition
+    Condition <assert_s3_class>
       Error in `example_fun()`:
       ! Argument `arg` must be class <factor>, but is NULL.
 
@@ -282,7 +282,7 @@
 
     Code
       example_fun(list("test"))
-    Condition
+    Condition <assert_list_of>
       Error in `example_fun()`:
       ! Each element of the list in argument `arg` must be class/type <factor>.
       i But, element 1 is a string
@@ -291,7 +291,7 @@
 
     Code
       example_fun(NULL)
-    Condition
+    Condition <assert_list_of>
       Error in `example_fun()`:
       ! Argument `arg` must be class <list>, but is NULL.
 
@@ -300,7 +300,7 @@
     Code
       mylist <- list(1, 2, 3)
       assert_list_of(mylist, cls = "numeric", named = TRUE)
-    Condition
+    Condition <assert_list_of>
       Error:
       ! All elements of `mylist` argument must be named.
       i The indices of the unnamed elements are 1, 2, and 3
@@ -310,7 +310,7 @@
     Code
       mylist <- list(1, 2, 3, d = 4)
       assert_list_of(mylist, cls = "numeric", named = TRUE)
-    Condition
+    Condition <assert_list_of>
       Error:
       ! All elements of `mylist` argument must be named.
       i The indices of the unnamed elements are 1, 2, and 3
@@ -320,7 +320,7 @@
     Code
       arg <- c(1, 2)
       assert_named(arg)
-    Condition
+    Condition <assert_named>
       Error:
       ! All elements of `arg` argument must be named.
       i The indices of the unnamed elements are 1 and 2
@@ -329,7 +329,7 @@
 
     Code
       example_fun(5)
-    Condition
+    Condition <assert_function>
       Error in `example_fun()`:
       ! Argument `arg` must be a function, but is a number.
 
@@ -337,7 +337,7 @@
 
     Code
       example_fun()
-    Condition
+    Condition <assert_function>
       Error in `example_fun()`:
       ! Argument `arg` cannot be missing.
 
@@ -345,7 +345,7 @@
 
     Code
       example_fun(sum)
-    Condition
+    Condition <assert_function>
       Error in `example_fun()`:
       ! "x" is not an argument of the function specified for `arg`.
 
@@ -353,7 +353,7 @@
 
     Code
       example_fun(sum)
-    Condition
+    Condition <assert_function>
       Error in `example_fun()`:
       ! "x" and "y" are not arguments of the function specified for `arg`.
 
@@ -361,7 +361,7 @@
 
     Code
       assert_unit(advs, param = "WEIGHT", get_unit_expr = VSSTRESU)
-    Condition
+    Condition <assert_unit>
       Error:
       ! Multiple units "kg" and "lb" found for "WEIGHT". Please review and update the units.
 
@@ -369,7 +369,7 @@
 
     Code
       assert_unit(advs, param = "WEIGHT", required_unit = "lb", get_unit_expr = VSSTRESU)
-    Condition
+    Condition <assert_unit>
       Error:
       ! It is expected that "WEIGHT" has unit of "lb". In the input dataset the unit is "kg".
 
@@ -377,7 +377,7 @@
 
     Code
       assert_unit(advs, param = "WEIGHT", required_unit = "kg", get_unit_expr = VSTRESU)
-    Condition
+    Condition <assert_unit>
       Error in `assert_unit()`:
       ! Extracting units using expression `VSTRESU` specified for `get_unit_expr` failed!
       See error message below:
@@ -387,7 +387,7 @@
 
     Code
       assert_param_does_not_exist(advs, param = "WEIGHT")
-    Condition
+    Condition <assert_param_does_not_exist>
       Error:
       ! The parameter code "WEIGHT" already exists in dataset `advs`.
 
@@ -395,7 +395,7 @@
 
     Code
       example_fun(c("USUBJID", "PARAMCD", "VISIT"))
-    Condition
+    Condition <assert_varval_list>
       Error in `example_fun()`:
       ! Argument `arg` must be a named list of expressions where each element is a symbol, character scalar, numeric scalar, an expression, or NA, but is a character vector.
       i To create a list of expressions use `exprs()`.
@@ -404,7 +404,7 @@
 
     Code
       example_fun(exprs(USUBJID, PARAMCD, NULL))
-    Condition
+    Condition <assert_varval_list>
       Error in `example_fun()`:
       ! Argument `arg` must be a list of expressions where each element is a symbol, character scalar, numeric scalar, an expression, or NA, but is a list.
       i To create a list of expressions use `exprs()`.
@@ -413,7 +413,7 @@
 
     Code
       example_fun(exprs(DTHSEQ = AESEQ))
-    Condition
+    Condition <assert_varval_list>
       Error in `example_fun()`:
       ! The following required elements are missing from argument `arg`: "DTHDOM".
 
@@ -421,7 +421,7 @@
 
     Code
       example_fun(exprs(DTHSEQ = TRUE))
-    Condition
+    Condition <assert_varval_list>
       Error in `example_fun()`:
       ! The elements of the list in argument `arg` must be a symbol, character scalar, numeric scalar, an expression, or NA.
       i "DTHSEQ" = `TRUE` is of type <logical>
@@ -430,7 +430,7 @@
 
     Code
       example_fun(exprs(DTHSEQ = TRUE))
-    Condition
+    Condition <assert_varval_list>
       Error in `example_fun()`:
       ! The elements of the list in argument `arg` must be a symbol, character scalar, numeric scalar, variable names or NA.
       i "DTHSEQ" = `TRUE` is of type <logical>
@@ -439,7 +439,7 @@
 
     Code
       example_fun(exprs(DTHSEQ = exprs()))
-    Condition
+    Condition <assert_varval_list>
       Error in `example_fun()`:
       ! The elements of the list in argument `arg` must be a symbol, character scalar, numeric scalar, or NA.
       i "DTHSEQ" = `exprs()` is of type <language>
@@ -450,7 +450,7 @@
       assert_list_element(list(list(var = expr(DTHDT), val = 1), list(var = expr(
         EOSDT), val = -1)), element = "val", condition = val >= 0, message_text = "List element {.val val} must be `>=0` in argument {.arg {arg_name}}.",
       arg_name = "input")
-    Condition
+    Condition <assert_list_element>
       Error:
       ! List element "val" must be `>=0` in argument `input`.
       i But, `input[[2]]$val = -1`
@@ -463,7 +463,7 @@
       condition = val %in% valid_vals, valid_vals = c(0, 1), message_text = paste(
         "List element {.val val} must one of {.val {valid_vals}} in argument",
         "{.arg {arg_name}}."), arg_name = "input")
-    Condition
+    Condition <assert_list_element>
       Error:
       ! List element "val" must one of 0 and 1 in argument `input`.
       i But, `input[[2]]$val = -1`, and `input[[3]]$val = -2`
@@ -472,7 +472,7 @@
 
     Code
       assert_one_to_one(dm, exprs(DOMAIN), exprs(USUBJID))
-    Condition
+    Condition <assert_one_to_one>
       Error:
       ! For some values of "DOMAIN" there is more than one value of "USUBJID"
       i Call `admiral::get_one_to_many_dataset()` to get all one-to-many values.
@@ -481,7 +481,7 @@
 
     Code
       example_fun(dataset = my_data, var = USUBJID)
-    Condition
+    Condition <assert_date_var>
       Error in `example_fun()`:
       ! Column "USUBJID" in dataset `dataset` must be a date or datetime, but is a character vector.
 
@@ -489,7 +489,7 @@
 
     Code
       example_fun(NULL)
-    Condition
+    Condition <assert_date_vector>
       Error in `example_fun()`:
       ! Argument `arg` must be a date or datetime, but is NULL.
 
@@ -497,7 +497,7 @@
 
     Code
       assert_atomic_vector(x)
-    Condition
+    Condition <assert_atomic_vector>
       Error:
       ! Argument `x` must be an atomic vector, but is a list.
 
@@ -505,7 +505,7 @@
 
     Code
       assert_same_type(true_value, false_value, missing_value)
-    Condition
+    Condition <assert_same_type>
       Error:
       ! Arguments `true_value`, `false_value`, and `missing_value` must be the same type.
       i Argument types are `true_value` <character>, `false_value` <character>, `missing_value` <double>
