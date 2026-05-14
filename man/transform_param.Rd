@@ -2,24 +2,32 @@
 % Please edit documentation in R/roclet_rdx.R
 \name{transform_param}
 \alias{transform_param}
-\title{Process `@permitted` and `@default` tags}
+\title{Process \verb{@permitted} and \verb{@default} tags}
 \usage{
 transform_param(block, rdx_permitted_values)
 }
 \arguments{
-\item{block}{A block of roxygen tags of one function}
+\item{block}{A block of roxygen tags of one function
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{rdx_permitted_values}{A list of permitted values
 
-  The name of the list item can be referenced in the `@permitted` tag by
-  specifying the name in square brackets, e.g., `@permitted [mode]`.}
+The name of the list item can be referenced in the \verb{@permitted} tag by
+specifying the name in square brackets, e.g., \verb{@permitted [mode]}.
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 The block with the transformed tags
 }
 \description{
-This function processes the `@permitted` and `@default` tags and moves them
-into the `@param` tag. The default value is taken from the function call if
+This function processes the \verb{@permitted} and \verb{@default} tags and moves them
+into the \verb{@param} tag. The default value is taken from the function call if
 not specified.
 }
 \keyword{internal}

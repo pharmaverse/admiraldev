@@ -7,7 +7,11 @@
 expr_c(...)
 }
 \arguments{
-\item{...}{One or more expressions or list of expressions}
+\item{...}{One or more expressions or list of expressions
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 A list of expressions
@@ -17,9 +21,9 @@ Concatenate One or More Expressions
 }
 \seealso{
 Helpers for working with Quosures:
-\code{\link{add_suffix_to_vars}()},
-\code{\link{replace_symbol_in_expr}()},
-\code{\link{replace_values_by_names}()}
+\code{\link[=add_suffix_to_vars]{add_suffix_to_vars()}},
+\code{\link[=replace_symbol_in_expr]{replace_symbol_in_expr()}},
+\code{\link[=replace_values_by_names]{replace_values_by_names()}}
 }
 \concept{quo}
 \keyword{quo}

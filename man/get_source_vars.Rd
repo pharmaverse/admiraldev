@@ -7,7 +7,11 @@
 get_source_vars(expressions)
 }
 \arguments{
-\item{expressions}{A list of expressions}
+\item{expressions}{A list of expressions
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 A list of expressions
@@ -17,9 +21,9 @@ Get Source Variables from a List of Expressions
 }
 \seealso{
 Brings something to you!?!:
-\code{\link{get_constant_vars}()},
-\code{\link{get_dataset}()},
-\code{\link{get_duplicates}()}
+\code{\link[=get_constant_vars]{get_constant_vars()}},
+\code{\link[=get_dataset]{get_dataset()}},
+\code{\link[=get_duplicates]{get_duplicates()}}
 }
 \concept{get}
 \keyword{get}

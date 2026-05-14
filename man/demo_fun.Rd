@@ -7,13 +7,45 @@
 demo_fun(x, number = 1, letter = "a")
 }
 \arguments{
-\item{x}{An argument}
+\item{x}{An argument
 
-\item{number}{A number}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{letter}{A letter}
+\item{number}{A number
+
+\describe{
+\item{Permitted values}{A number}
+\item{Default value}{\code{1}}
+}}
+
+\item{letter}{A letter
+
+\describe{
+\item{Permitted values}{a character scalar, i.e., a character vector of length one}
+\item{Default value}{The first letter of the alphabet}
+}}
 }
 \description{
-This function is used to demonstrate the custom tags of the `rdx_roclet()`.
+This function is used to demonstrate the custom tags of the \code{rdx_roclet()}.
 }
 \keyword{internal}
+\section{Examples}{
+
+
+This is the introduction.
+\subsection{A simple example}{
+
+This is a simple example showing the default behaviour.
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{demo_fun(1)
+#> [1] 42}\if{html}{\out{</div>}}}
+\subsection{An example with a different letter}{
+
+This example shows that the \code{letter} argument doesn't
+affect the output.
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{demo_fun(1, letter = "b")
+#> [1] 42}\if{html}{\out{</div>}}}}
+

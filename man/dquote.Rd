@@ -7,11 +7,15 @@
 dquote(x)
 }
 \arguments{
-\item{x}{A character vector}
+\item{x}{A character vector
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
-If the input is `NULL`, the text `"NULL"` is returned. Otherwise, the
-  input in double quotes is returned.
+If the input is \code{NULL}, the text \code{"NULL"} is returned. Otherwise, the
+input in double quotes is returned.
 }
 \description{
 Wrap a string in double quotes, e.g., for displaying character values in
@@ -19,8 +23,8 @@ messages.
 }
 \seealso{
 Helpers for working with Quotes and Quoting:
-\code{\link{backquote}()},
-\code{\link{squote}()}
+\code{\link[=backquote]{backquote()}},
+\code{\link[=squote]{squote()}}
 }
 \concept{quote}
 \keyword{quote}

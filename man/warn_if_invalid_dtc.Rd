@@ -7,9 +7,17 @@
 warn_if_invalid_dtc(dtc, is_valid = is_valid_dtc(dtc))
 }
 \arguments{
-\item{dtc}{a character vector containing the dates}
+\item{dtc}{a character vector containing the dates
 
-\item{is_valid}{a logical vector indicating whether elements in `dtc` are valid}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{is_valid}{a logical vector indicating whether elements in \code{dtc} are valid
+
+\describe{
+\item{Default value}{\code{is_valid_dtc(dtc)}}
+}}
 }
 \value{
 No return value, called for side effects
@@ -27,11 +35,11 @@ warn_if_invalid_dtc(dtc = "2021-04-06")
 warn_if_invalid_dtc(dtc = "2021-04-06T-:30:30")
 }
 \seealso{
-Function that provide users with custom warnings
-\code{\link{suppress_warning}()},
-\code{\link{warn_if_incomplete_dtc}()},
-\code{\link{warn_if_inconsistent_list}()},
-\code{\link{warn_if_vars_exist}()}
+Function that provide users with custom warnings:
+\code{\link[=suppress_warning]{suppress_warning()}},
+\code{\link[=warn_if_incomplete_dtc]{warn_if_incomplete_dtc()}},
+\code{\link[=warn_if_inconsistent_list]{warn_if_inconsistent_list()}},
+\code{\link[=warn_if_vars_exist]{warn_if_vars_exist()}}
 }
 \concept{warnings}
 \keyword{warnings}

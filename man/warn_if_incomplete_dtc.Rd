@@ -7,22 +7,30 @@
 warn_if_incomplete_dtc(dtc, n)
 }
 \arguments{
-\item{dtc}{A `character` vector of date-times in ISO 8601 format}
+\item{dtc}{A \code{character} vector of date-times in ISO 8601 format
 
-\item{n}{A non-negative integer}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{n}{A non-negative integer
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
-A warning if `dtc` contains any partial dates
+A warning if \code{dtc} contains any partial dates
 }
 \description{
 Warn if incomplete dtc
 }
 \seealso{
-Function that provide users with custom warnings
-\code{\link{suppress_warning}()},
-\code{\link{warn_if_inconsistent_list}()},
-\code{\link{warn_if_invalid_dtc}()},
-\code{\link{warn_if_vars_exist}()}
+Function that provide users with custom warnings:
+\code{\link[=suppress_warning]{suppress_warning()}},
+\code{\link[=warn_if_inconsistent_list]{warn_if_inconsistent_list()}},
+\code{\link[=warn_if_invalid_dtc]{warn_if_invalid_dtc()}},
+\code{\link[=warn_if_vars_exist]{warn_if_vars_exist()}}
 }
 \concept{warnings}
 \keyword{warnings}

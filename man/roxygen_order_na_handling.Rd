@@ -8,11 +8,11 @@ roxygen_order_na_handling()
 }
 \value{
 A character string with the standardized documentation text about
-  NA handling in sort order
+NA handling in sort order
 }
 \description{
 This function provides standardized documentation text about the handling
-of `NA` values in sorting variables.
+of \code{NA} values in sorting variables.
 }
 \details{
 The benefits of having a programmatic way to write documentation is that if
@@ -24,10 +24,10 @@ grammar mistakes.
 roxygen_order_na_handling()
 }
 \seealso{
-Other documentation: 
-\code{\link{roxygen_param_by_vars}()},
-\code{\link{roxygen_param_dataset}()},
-\code{\link{roxygen_save_memory}()}
+Other documentation:
+\code{\link[=roxygen_param_by_vars]{roxygen_param_by_vars()}},
+\code{\link[=roxygen_param_dataset]{roxygen_param_dataset()}},
+\code{\link[=roxygen_save_memory]{roxygen_save_memory()}}
 }
 \concept{documentation}
 \keyword{documentation}

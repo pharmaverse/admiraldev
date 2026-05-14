@@ -7,24 +7,32 @@
 filter_if(dataset, filter)
 }
 \arguments{
-\item{dataset}{Input dataset}
+\item{dataset}{Input dataset
 
-\item{filter}{A filter condition. Must be an expression.}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{filter}{A filter condition. Must be an expression.
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
-A `data.frame` containing all rows in `dataset` matching `filter` or
-just `dataset` if `filter` is `NULL`
+A \code{data.frame} containing all rows in \code{dataset} matching \code{filter} or
+just \code{dataset} if \code{filter} is \code{NULL}
 }
 \description{
-Filters the input dataset if the provided expression is not `NULL`
+Filters the input dataset if the provided expression is not \code{NULL}
 }
 \seealso{
 Developer Utility Functions:
-\code{\link{\%notin\%}()},
-\code{\link{contains_vars}()},
-\code{\link{convert_dtm_to_dtc}()},
-\code{\link{extract_vars}()},
-\code{\link{vars2chr}()}
+\code{\link{\%notin\%}},
+\code{\link[=contains_vars]{contains_vars()}},
+\code{\link[=convert_dtm_to_dtc]{convert_dtm_to_dtc()}},
+\code{\link[=extract_vars]{extract_vars()}},
+\code{\link[=vars2chr]{vars2chr()}}
 }
 \concept{dev_utility}
 \keyword{dev_utility}

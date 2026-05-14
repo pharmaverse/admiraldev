@@ -57,10 +57,10 @@ helper, in which case you should forward \code{env = caller_env()} and
 \code{user_env = caller_env(2)}.}
 }
 \value{
-`NULL`, invisibly.
+\code{NULL}, invisibly.
 }
 \description{
-Wrapper around `lifecycle::deprecate_soft()` that messages users about
+Wrapper around \code{lifecycle::deprecate_soft()} that messages users about
 deprecated features and functions instead of warning.
 }
 \examples{

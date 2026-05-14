@@ -7,24 +7,32 @@
 x \%notin\% table
 }
 \arguments{
-\item{x}{The values to be matched}
+\item{x}{The values to be matched
 
-\item{table}{The values to be matched against}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{table}{The values to be matched against
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
-A `logical` vector
+A \code{logical} vector
 }
 \description{
-Returns a `logical` vector indicating if there is *no* match of the
+Returns a \code{logical} vector indicating if there is \emph{no} match of the
 left operand in the right operand.
 }
 \seealso{
 Developer Utility Functions:
-\code{\link{contains_vars}()},
-\code{\link{convert_dtm_to_dtc}()},
-\code{\link{extract_vars}()},
-\code{\link{filter_if}()},
-\code{\link{vars2chr}()}
+\code{\link[=contains_vars]{contains_vars()}},
+\code{\link[=convert_dtm_to_dtc]{convert_dtm_to_dtc()}},
+\code{\link[=extract_vars]{extract_vars()}},
+\code{\link[=filter_if]{filter_if()}},
+\code{\link[=vars2chr]{vars2chr()}}
 }
 \concept{dev_utility}
 \keyword{dev_utility}

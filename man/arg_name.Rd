@@ -7,23 +7,27 @@
 arg_name(expr)
 }
 \arguments{
-\item{expr}{An expression created inside a function using `substitute()`}
+\item{expr}{An expression created inside a function using \code{substitute()}
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
-`character` vector
+\code{character} vector
 }
 \description{
-`r lifecycle::badge("deprecated")`
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-This function is *deprecated*, please use `rlang::caller_arg()` instead.
+This function is \emph{deprecated}, please use \code{rlang::caller_arg()} instead.
 }
 \seealso{
-Other deprecated: 
-\code{\link{\%or\%}()},
-\code{\link{enumerate}()},
-\code{\link{friendly_type_of}()},
-\code{\link{valid_time_units}()},
-\code{\link{what_is_it}()}
+Other deprecated:
+\code{\link{\%or\%}},
+\code{\link[=enumerate]{enumerate()}},
+\code{\link[=friendly_type_of]{friendly_type_of()}},
+\code{\link[=valid_time_units]{valid_time_units()}},
+\code{\link[=what_is_it]{what_is_it()}}
 }
 \concept{deprecated}
 \keyword{deprecated}

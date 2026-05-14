@@ -7,18 +7,22 @@
 is_valid_dtc(arg)
 }
 \arguments{
-\item{arg}{A `character` vector}
+\item{arg}{A \code{character} vector
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
-`TRUE` if the argument is a valid `--DTC` string, `FALSE` otherwise
+\code{TRUE} if the argument is a valid \code{--DTC} string, \code{FALSE} otherwise
 }
 \description{
 Is this string a valid DTC
 }
 \seealso{
 Identifies type of Object with return of TRUE/FALSE:
-\code{\link{is_auto}()},
-\code{\link{is_order_vars}()}
+\code{\link[=is_auto]{is_auto()}},
+\code{\link[=is_order_vars]{is_order_vars()}}
 }
 \concept{is}
 \keyword{is}

@@ -2,29 +2,42 @@
 % Please edit documentation in R/process_set_values_to.R
 \name{process_set_values_to}
 \alias{process_set_values_to}
-\title{Process `set_values_to` Argument}
+\title{Process \code{set_values_to} Argument}
 \usage{
 process_set_values_to(dataset, set_values_to = NULL, expected_types = NULL)
 }
 \arguments{
-\item{dataset}{Input dataset}
+\item{dataset}{Input dataset
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{set_values_to}{Variables to set
 
-  A named list returned by `exprs()` defining the variables to be set, e.g.
-  `exprs(PARAMCD = "OS", PARAM = "Overall Survival")` is expected. The values
-  must be symbols, character strings, numeric values, expressions, or `NA`.}
+A named list returned by \code{exprs()} defining the variables to be set, e.g.
+\code{exprs(PARAMCD = "OS", PARAM = "Overall Survival")} is expected. The values
+must be symbols, character strings, numeric values, expressions, or \code{NA}.
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 
 \item{expected_types}{If the argument is specified, the specified variables are checked whether
 the specified type matches the type of the variables created by
-`set_values_to`.}
+\code{set_values_to}.
+
+\describe{
+\item{Permitted values}{A character vector with values \code{"numeric"} or \code{"character"}}
+\item{Default value}{\code{NULL}}
+}}
 }
 \value{
-The input dataset with the variables specified by `set_values_to`
-  added/updated
+The input dataset with the variables specified by \code{set_values_to}
+added/updated
 }
 \description{
-The function creates the variables specified by the `set_values_to` argument,
+The function creates the variables specified by the \code{set_values_to} argument,
 catches errors, provides user friendly error messages, and optionally checks
 the type of the created variables.
 }

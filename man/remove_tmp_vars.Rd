@@ -7,7 +7,11 @@
 remove_tmp_vars(dataset)
 }
 \arguments{
-\item{dataset}{The input dataset}
+\item{dataset}{The input dataset
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 The input dataset with temporary variables removed
@@ -41,6 +45,6 @@ do_something <- function(dataset) {
 do_something(dm)
 }
 \seealso{
-[get_new_tmp_var()]
+\code{\link[=get_new_tmp_var]{get_new_tmp_var()}}
 }
 \keyword{tmp_vars}

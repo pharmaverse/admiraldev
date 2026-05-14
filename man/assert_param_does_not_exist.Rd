@@ -14,15 +14,31 @@ assert_param_does_not_exist(
 )
 }
 \arguments{
-\item{dataset}{A `data.frame`}
+\item{dataset}{A \code{data.frame}
 
-\item{param}{Parameter code to check}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.}
+\item{param}{Parameter code to check
 
-\item{message}{string passed to `cli::cli_abort(message)`.
-When `NULL`, default messaging is used (see examples for default messages).
-`"{arg_name}"` can be used in messaging.}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{arg_name}{string indicating the label/symbol of the object being checked.
+
+\describe{
+\item{Default value}{\code{rlang::caller_arg(arg)}}
+}}
+
+\item{message}{string passed to \code{cli::cli_abort(message)}.
+When \code{NULL}, default messaging is used (see examples for default messages).
+\code{"{arg_name}"} can be used in messaging.
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 
 \item{class}{Subclass of the condition.}
 
@@ -45,7 +61,7 @@ The function throws an error if the parameter exists in the input
 dataset. Otherwise, the dataset is returned invisibly.
 }
 \description{
-Checks if a parameter (`PARAMCD`) does not exist in a dataset.
+Checks if a parameter (\code{PARAMCD}) does not exist in a dataset.
 }
 \examples{
 library(dplyr)
@@ -60,28 +76,28 @@ try(assert_param_does_not_exist(advs, param = "WEIGHT"))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages:
-\code{\link{assert_atomic_vector}()},
-\code{\link{assert_character_scalar}()},
-\code{\link{assert_character_vector}()},
-\code{\link{assert_data_frame}()},
-\code{\link{assert_date_vector}()},
-\code{\link{assert_expr}()},
-\code{\link{assert_expr_list}()},
-\code{\link{assert_filter_cond}()},
-\code{\link{assert_function}()},
-\code{\link{assert_integer_scalar}()},
-\code{\link{assert_list_element}()},
-\code{\link{assert_list_of}()},
-\code{\link{assert_logical_scalar}()},
-\code{\link{assert_named}()},
-\code{\link{assert_numeric_vector}()},
-\code{\link{assert_one_to_one}()},
-\code{\link{assert_s3_class}()},
-\code{\link{assert_same_type}()},
-\code{\link{assert_symbol}()},
-\code{\link{assert_unit}()},
-\code{\link{assert_vars}()},
-\code{\link{assert_varval_list}()}
+\code{\link[=assert_atomic_vector]{assert_atomic_vector()}},
+\code{\link[=assert_character_scalar]{assert_character_scalar()}},
+\code{\link[=assert_character_vector]{assert_character_vector()}},
+\code{\link[=assert_data_frame]{assert_data_frame()}},
+\code{\link[=assert_date_vector]{assert_date_vector()}},
+\code{\link[=assert_expr]{assert_expr()}},
+\code{\link[=assert_expr_list]{assert_expr_list()}},
+\code{\link[=assert_filter_cond]{assert_filter_cond()}},
+\code{\link[=assert_function]{assert_function()}},
+\code{\link[=assert_integer_scalar]{assert_integer_scalar()}},
+\code{\link[=assert_list_element]{assert_list_element()}},
+\code{\link[=assert_list_of]{assert_list_of()}},
+\code{\link[=assert_logical_scalar]{assert_logical_scalar()}},
+\code{\link[=assert_named]{assert_named()}},
+\code{\link[=assert_numeric_vector]{assert_numeric_vector()}},
+\code{\link[=assert_one_to_one]{assert_one_to_one()}},
+\code{\link[=assert_s3_class]{assert_s3_class()}},
+\code{\link[=assert_same_type]{assert_same_type()}},
+\code{\link[=assert_symbol]{assert_symbol()}},
+\code{\link[=assert_unit]{assert_unit()}},
+\code{\link[=assert_vars]{assert_vars()}},
+\code{\link[=assert_varval_list]{assert_varval_list()}}
 }
 \concept{assertion}
 \keyword{assertion}

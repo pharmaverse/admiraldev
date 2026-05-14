@@ -7,28 +7,40 @@
 enumerate(x, quote_fun = backquote, conjunction = "and")
 }
 \arguments{
-\item{x}{A vector or list}
+\item{x}{A vector or list
 
-\item{quote_fun}{Quoting function, defaults to `backquote`. If set to `NULL`,
-the elements are not quoted.}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{conjunction}{Character to be used in the message, defaults to `"and"`.}
+\item{quote_fun}{Quoting function, defaults to \code{backquote}. If set to \code{NULL},
+the elements are not quoted.
+
+\describe{
+\item{Default value}{\code{backquote}}
+}}
+
+\item{conjunction}{Character to be used in the message, defaults to \code{"and"}.
+
+\describe{
+\item{Default value}{\code{"and"}}
+}}
 }
 \value{
-A `character` vector
+A \code{character} vector
 }
 \description{
-`r lifecycle::badge("deprecated")`
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-This function is *deprecated*, please use `cli` functionality instead.
+This function is \emph{deprecated}, please use \code{cli} functionality instead.
 }
 \seealso{
-Other deprecated: 
-\code{\link{\%or\%}()},
-\code{\link{arg_name}()},
-\code{\link{friendly_type_of}()},
-\code{\link{valid_time_units}()},
-\code{\link{what_is_it}()}
+Other deprecated:
+\code{\link{\%or\%}},
+\code{\link[=arg_name]{arg_name()}},
+\code{\link[=friendly_type_of]{friendly_type_of()}},
+\code{\link[=valid_time_units]{valid_time_units()}},
+\code{\link[=what_is_it]{what_is_it()}}
 }
 \concept{deprecated}
 \keyword{deprecated}

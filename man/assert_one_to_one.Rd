@@ -17,16 +17,36 @@ assert_one_to_one(
 \arguments{
 \item{dataset}{Dataset to be checked
 
-  The variables specified for `vars1` and `vars2` are expected.}
+The variables specified for \code{vars1} and \code{vars2} are expected.
 
-\item{vars1}{First list of variables}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{vars2}{Second list of variables}
+\item{vars1}{First list of variables
 
-\item{dataset_name}{string indicating the label/symbol of the object being checked.}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{message}{string passed to `cli::cli_abort(message)`. When `NULL`, default messaging
-is used (see examples for default messages). `"dataset_name"` can be used in messaging.}
+\item{vars2}{Second list of variables
+
+\describe{
+\item{Default value}{none}
+}}
+
+\item{dataset_name}{string indicating the label/symbol of the object being checked.
+
+\describe{
+\item{Default value}{\code{rlang::caller_arg(dataset)}}
+}}
+
+\item{message}{string passed to \code{cli::cli_abort(message)}. When \code{NULL}, default messaging
+is used (see examples for default messages). \code{"dataset_name"} can be used in messaging.
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 
 \item{class}{Subclass of the condition.}
 
@@ -80,28 +100,28 @@ try(
 }
 \seealso{
 Checks for valid input and returns warning or errors messages:
-\code{\link{assert_atomic_vector}()},
-\code{\link{assert_character_scalar}()},
-\code{\link{assert_character_vector}()},
-\code{\link{assert_data_frame}()},
-\code{\link{assert_date_vector}()},
-\code{\link{assert_expr}()},
-\code{\link{assert_expr_list}()},
-\code{\link{assert_filter_cond}()},
-\code{\link{assert_function}()},
-\code{\link{assert_integer_scalar}()},
-\code{\link{assert_list_element}()},
-\code{\link{assert_list_of}()},
-\code{\link{assert_logical_scalar}()},
-\code{\link{assert_named}()},
-\code{\link{assert_numeric_vector}()},
-\code{\link{assert_param_does_not_exist}()},
-\code{\link{assert_s3_class}()},
-\code{\link{assert_same_type}()},
-\code{\link{assert_symbol}()},
-\code{\link{assert_unit}()},
-\code{\link{assert_vars}()},
-\code{\link{assert_varval_list}()}
+\code{\link[=assert_atomic_vector]{assert_atomic_vector()}},
+\code{\link[=assert_character_scalar]{assert_character_scalar()}},
+\code{\link[=assert_character_vector]{assert_character_vector()}},
+\code{\link[=assert_data_frame]{assert_data_frame()}},
+\code{\link[=assert_date_vector]{assert_date_vector()}},
+\code{\link[=assert_expr]{assert_expr()}},
+\code{\link[=assert_expr_list]{assert_expr_list()}},
+\code{\link[=assert_filter_cond]{assert_filter_cond()}},
+\code{\link[=assert_function]{assert_function()}},
+\code{\link[=assert_integer_scalar]{assert_integer_scalar()}},
+\code{\link[=assert_list_element]{assert_list_element()}},
+\code{\link[=assert_list_of]{assert_list_of()}},
+\code{\link[=assert_logical_scalar]{assert_logical_scalar()}},
+\code{\link[=assert_named]{assert_named()}},
+\code{\link[=assert_numeric_vector]{assert_numeric_vector()}},
+\code{\link[=assert_param_does_not_exist]{assert_param_does_not_exist()}},
+\code{\link[=assert_s3_class]{assert_s3_class()}},
+\code{\link[=assert_same_type]{assert_same_type()}},
+\code{\link[=assert_symbol]{assert_symbol()}},
+\code{\link[=assert_unit]{assert_unit()}},
+\code{\link[=assert_vars]{assert_vars()}},
+\code{\link[=assert_varval_list]{assert_varval_list()}}
 }
 \concept{assertion}
 \keyword{assertion}

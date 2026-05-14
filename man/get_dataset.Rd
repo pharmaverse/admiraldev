@@ -2,18 +2,22 @@
 % Please edit documentation in R/get.R
 \name{get_dataset}
 \alias{get_dataset}
-\title{Retrieve a Dataset from the `admiraldev_environment` environment}
+\title{Retrieve a Dataset from the \code{admiraldev_environment} environment}
 \usage{
 get_dataset(name)
 }
 \arguments{
-\item{name}{The name of the dataset to retrieve}
+\item{name}{The name of the dataset to retrieve
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
-A `data.frame`
+A \code{data.frame}
 }
 \description{
-Retrieve a Dataset from the `admiraldev_environment` environment
+Retrieve a Dataset from the \code{admiraldev_environment} environment
 }
 \details{
 Sometimes, developers may want to provide information to users which does not fit into a
@@ -25,19 +29,21 @@ To achieve this, R has a data structure known as an 'environment'. These environ
 are created at build time, but can be populated with values after the package has been loaded
 and update those values over the course of an R session.
 
-As so, the establishment of `admiraldev_environment` allows us to create dynamic data/objects
-based on user-inputs that need modification. The purpose of `get_dataset` is to
-retrieve the datasets contained inside `admiraldev_environment`.
+As so, the establishment of \code{admiraldev_environment} allows us to create dynamic data/objects
+based on user-inputs that need modification. The purpose of \code{get_dataset} is to
+retrieve the datasets contained inside \code{admiraldev_environment}.
 
-Currently we only support two datasets inside our `admiraldev_environment` object:
- - `one_to_many`
- - `many_to_one`
+Currently we only support two datasets inside our \code{admiraldev_environment} object:
+\itemize{
+\item \code{one_to_many}
+\item \code{many_to_one}
+}
 }
 \seealso{
 Brings something to you!?!:
-\code{\link{get_constant_vars}()},
-\code{\link{get_duplicates}()},
-\code{\link{get_source_vars}()}
+\code{\link[=get_constant_vars]{get_constant_vars()}},
+\code{\link[=get_duplicates]{get_duplicates()}},
+\code{\link[=get_source_vars]{get_source_vars()}}
 }
 \concept{get}
 \keyword{get}

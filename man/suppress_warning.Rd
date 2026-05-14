@@ -7,9 +7,17 @@
 suppress_warning(expr, regexpr)
 }
 \arguments{
-\item{expr}{Expression to be executed}
+\item{expr}{Expression to be executed
 
-\item{regexpr}{Regular expression matching warnings to suppress}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{regexpr}{Regular expression matching warnings to suppress
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 Return value of the expression
@@ -22,11 +30,11 @@ All warnings which are issued by the expression and match the regular expression
 are suppressed.
 }
 \seealso{
-Function that provide users with custom warnings
-\code{\link{warn_if_incomplete_dtc}()},
-\code{\link{warn_if_inconsistent_list}()},
-\code{\link{warn_if_invalid_dtc}()},
-\code{\link{warn_if_vars_exist}()}
+Function that provide users with custom warnings:
+\code{\link[=warn_if_incomplete_dtc]{warn_if_incomplete_dtc()}},
+\code{\link[=warn_if_inconsistent_list]{warn_if_inconsistent_list()}},
+\code{\link[=warn_if_invalid_dtc]{warn_if_invalid_dtc()}},
+\code{\link[=warn_if_vars_exist]{warn_if_vars_exist()}}
 }
 \concept{warnings}
 \keyword{warnings}

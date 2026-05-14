@@ -14,17 +14,33 @@ assert_filter_cond(
 )
 }
 \arguments{
-\item{arg}{Quosure - filtering condition.}
+\item{arg}{Quosure - filtering condition.
 
-\item{optional}{Logical - is the argument optional?}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{arg_name}{By default the expression specified for `arg` is used. If it is
-of the form `enexpr(<argument name>)`, the `enexpr()` part is removed. For example
-if `arg = enexpr(filter_add)` is specified, `arg_name` defaults to `"filter_add"`}
+\item{optional}{Logical - is the argument optional?
 
-\item{message}{string passed to `cli::cli_abort(message)`.
-When `NULL`, default messaging is used (see examples for default messages).
-`"{arg_name}"` can be used in messaging.}
+\describe{
+\item{Default value}{\code{FALSE}}
+}}
+
+\item{arg_name}{By default the expression specified for \code{arg} is used. If it is
+of the form \verb{enexpr(<argument name>)}, the \code{enexpr()} part is removed. For example
+if \code{arg = enexpr(filter_add)} is specified, \code{arg_name} defaults to \code{"filter_add"}
+
+\describe{
+\item{Default value}{\code{gsub("^enexpr\\((.*)\\)$", "\\1", rlang::caller_arg(arg))}}
+}}
+
+\item{message}{string passed to \code{cli::cli_abort(message)}.
+When \code{NULL}, default messaging is used (see examples for default messages).
+\code{"{arg_name}"} can be used in messaging.
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 
 \item{class}{Subclass of the condition.}
 
@@ -43,15 +59,15 @@ respectively not display any call or hard-code a code to display.
 For more information about error calls, see \ifelse{html}{\link[rlang:topic-error-call]{Including function calls in error messages}}{\link[rlang:topic-error-call]{Including function calls in error messages}}.}
 }
 \value{
-Performs necessary checks and returns `arg` if all pass.
+Performs necessary checks and returns \code{arg} if all pass.
 Otherwise throws an informative error.
 }
 \description{
 Is an Argument a Filter Condition?
 }
 \details{
-Check if `arg` is a suitable filtering condition to be used in
-functions like `subset` or `dplyr::filter`.
+Check if \code{arg} is a suitable filtering condition to be used in
+functions like \code{subset} or \code{dplyr::filter}.
 }
 \examples{
 library(dplyr, warn.conflicts = FALSE)
@@ -74,28 +90,28 @@ try(assert_filter_cond(mtcars))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages:
-\code{\link{assert_atomic_vector}()},
-\code{\link{assert_character_scalar}()},
-\code{\link{assert_character_vector}()},
-\code{\link{assert_data_frame}()},
-\code{\link{assert_date_vector}()},
-\code{\link{assert_expr}()},
-\code{\link{assert_expr_list}()},
-\code{\link{assert_function}()},
-\code{\link{assert_integer_scalar}()},
-\code{\link{assert_list_element}()},
-\code{\link{assert_list_of}()},
-\code{\link{assert_logical_scalar}()},
-\code{\link{assert_named}()},
-\code{\link{assert_numeric_vector}()},
-\code{\link{assert_one_to_one}()},
-\code{\link{assert_param_does_not_exist}()},
-\code{\link{assert_s3_class}()},
-\code{\link{assert_same_type}()},
-\code{\link{assert_symbol}()},
-\code{\link{assert_unit}()},
-\code{\link{assert_vars}()},
-\code{\link{assert_varval_list}()}
+\code{\link[=assert_atomic_vector]{assert_atomic_vector()}},
+\code{\link[=assert_character_scalar]{assert_character_scalar()}},
+\code{\link[=assert_character_vector]{assert_character_vector()}},
+\code{\link[=assert_data_frame]{assert_data_frame()}},
+\code{\link[=assert_date_vector]{assert_date_vector()}},
+\code{\link[=assert_expr]{assert_expr()}},
+\code{\link[=assert_expr_list]{assert_expr_list()}},
+\code{\link[=assert_function]{assert_function()}},
+\code{\link[=assert_integer_scalar]{assert_integer_scalar()}},
+\code{\link[=assert_list_element]{assert_list_element()}},
+\code{\link[=assert_list_of]{assert_list_of()}},
+\code{\link[=assert_logical_scalar]{assert_logical_scalar()}},
+\code{\link[=assert_named]{assert_named()}},
+\code{\link[=assert_numeric_vector]{assert_numeric_vector()}},
+\code{\link[=assert_one_to_one]{assert_one_to_one()}},
+\code{\link[=assert_param_does_not_exist]{assert_param_does_not_exist()}},
+\code{\link[=assert_s3_class]{assert_s3_class()}},
+\code{\link[=assert_same_type]{assert_same_type()}},
+\code{\link[=assert_symbol]{assert_symbol()}},
+\code{\link[=assert_unit]{assert_unit()}},
+\code{\link[=assert_vars]{assert_vars()}},
+\code{\link[=assert_varval_list]{assert_varval_list()}}
 }
 \concept{assertion}
 \keyword{assertion}

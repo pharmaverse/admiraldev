@@ -2,17 +2,21 @@
 % Please edit documentation in R/roclet_rdx.R
 \name{transform_examplesx}
 \alias{transform_examplesx}
-\title{Transform `@caption`, `@info` and `@code` tags into `@examplex` tags}
+\title{Transform \verb{@caption}, \verb{@info} and \verb{@code} tags into \verb{@examplex} tags}
 \usage{
 transform_examplesx(block)
 }
 \arguments{
-\item{block}{A block of roxygen tags of one function}
+\item{block}{A block of roxygen tags of one function
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 The block with the transformed tags
 }
 \description{
-Transform `@caption`, `@info` and `@code` tags into `@examplex` tags
+Transform \verb{@caption}, \verb{@info} and \verb{@code} tags into \verb{@examplex} tags
 }
 \keyword{internal}

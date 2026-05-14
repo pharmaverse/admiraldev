@@ -7,23 +7,27 @@
 what_is_it(x)
 }
 \arguments{
-\item{x}{Any R object}
+\item{x}{Any R object
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
-A `character` description of the type of `x`
+A \code{character} description of the type of \code{x}
 }
 \description{
-`r lifecycle::badge("deprecated")`
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-This function is *deprecated*, please use `cli` functionality instead.
+This function is \emph{deprecated}, please use \code{cli} functionality instead.
 }
 \seealso{
-Other deprecated: 
-\code{\link{\%or\%}()},
-\code{\link{arg_name}()},
-\code{\link{enumerate}()},
-\code{\link{friendly_type_of}()},
-\code{\link{valid_time_units}()}
+Other deprecated:
+\code{\link{\%or\%}},
+\code{\link[=arg_name]{arg_name()}},
+\code{\link[=enumerate]{enumerate()}},
+\code{\link[=friendly_type_of]{friendly_type_of()}},
+\code{\link[=valid_time_units]{valid_time_units()}}
 }
 \concept{deprecated}
 \keyword{deprecated}

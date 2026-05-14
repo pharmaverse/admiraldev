@@ -7,15 +7,31 @@
 add_suffix_to_vars(order, vars, suffix)
 }
 \arguments{
-\item{order}{List of expressions}
+\item{order}{List of expressions
 
-\item{vars}{Variables to change}
+\describe{
+\item{Permitted values}{list of variables or \verb{desc(<variable>)} function calls created by
+\code{exprs()}, e.g., \code{exprs(ADT, desc(AVAL))}}
+\item{Default value}{none}
+}}
 
-\item{suffix}{Suffix}
+\item{vars}{Variables to change
+
+\describe{
+\item{Permitted values}{list of variables created by \code{exprs()}, e.g., \code{exprs(USUBJID, VISIT)}}
+\item{Default value}{none}
+}}
+
+\item{suffix}{Suffix
+
+\describe{
+\item{Permitted values}{a character scalar, i.e., a character vector of length one}
+\item{Default value}{none}
+}}
 }
 \value{
-The list of expression where for each element the suffix (`suffix`) is
-  added to every symbol specified for `vars`
+The list of expression where for each element the suffix (\code{suffix}) is
+added to every symbol specified for \code{vars}
 }
 \description{
 Add a suffix to variables in a list of expressions
@@ -28,9 +44,9 @@ add_suffix_to_vars(exprs(ADT, desc(AVAL), AVALC), vars = exprs(AVAL), suffix = "
 }
 \seealso{
 Helpers for working with Quosures:
-\code{\link{expr_c}()},
-\code{\link{replace_symbol_in_expr}()},
-\code{\link{replace_values_by_names}()}
+\code{\link[=expr_c]{expr_c()}},
+\code{\link[=replace_symbol_in_expr]{replace_symbol_in_expr()}},
+\code{\link[=replace_values_by_names]{replace_values_by_names()}}
 }
 \concept{quo}
 \keyword{quo}

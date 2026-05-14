@@ -7,7 +7,11 @@
 vars2chr(expressions)
 }
 \arguments{
-\item{expressions}{A `list` of expressions created using `exprs()`}
+\item{expressions}{A \code{list} of expressions created using \code{exprs()}
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
 A character vector
@@ -23,11 +27,11 @@ vars2chr(exprs(USUBJID, AVAL))
 }
 \seealso{
 Developer Utility Functions:
-\code{\link{\%notin\%}()},
-\code{\link{contains_vars}()},
-\code{\link{convert_dtm_to_dtc}()},
-\code{\link{extract_vars}()},
-\code{\link{filter_if}()}
+\code{\link{\%notin\%}},
+\code{\link[=contains_vars]{contains_vars()}},
+\code{\link[=convert_dtm_to_dtc]{convert_dtm_to_dtc()}},
+\code{\link[=extract_vars]{extract_vars()}},
+\code{\link[=filter_if]{filter_if()}}
 }
 \concept{dev_utility}
 \keyword{dev_utility}

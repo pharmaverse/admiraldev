@@ -7,18 +7,22 @@
 backquote(x)
 }
 \arguments{
-\item{x}{A `character` vector}
+\item{x}{A \code{character} vector
+
+\describe{
+\item{Default value}{none}
+}}
 }
 \value{
-A `character` vector
+A \code{character} vector
 }
 \description{
 Wrap a String in Backquotes
 }
 \seealso{
 Helpers for working with Quotes and Quoting:
-\code{\link{dquote}()},
-\code{\link{squote}()}
+\code{\link[=dquote]{dquote()}},
+\code{\link[=squote]{squote()}}
 }
 \concept{quote}
 \keyword{quote}

@@ -18,22 +18,47 @@ assert_unit(
 \arguments{
 \item{dataset}{Dataset to be checked
 
-  The variable `PARAMCD` and those used in `get_unit_expr` are expected.}
+The variable \code{PARAMCD} and those used in \code{get_unit_expr} are expected.
 
-\item{param}{Parameter code of the parameter to check}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{param}{Parameter code of the parameter to check
+
+\describe{
+\item{Default value}{none}
+}}
 
 \item{required_unit}{Expected unit(s)
 
- If the argument is set to `NULL`, it is checked only whether the unit is
- unique within the parameter.}
+If the argument is set to \code{NULL}, it is checked only whether the unit is
+unique within the parameter.
 
-\item{get_unit_expr}{Expression used to provide the unit of `param`}
+\describe{
+\item{Permitted values}{A character vector or \code{NULL}}
+\item{Default value}{\code{NULL}}
+}}
 
-\item{arg_name}{string indicating the label/symbol of the object being checked.}
+\item{get_unit_expr}{Expression used to provide the unit of \code{param}
 
-\item{message}{string passed to `cli::cli_abort(message)`.
-When `NULL`, default messaging is used (see examples for default messages).
-`"{arg_name}"` can be used in messaging.}
+\describe{
+\item{Default value}{none}
+}}
+
+\item{arg_name}{string indicating the label/symbol of the object being checked.
+
+\describe{
+\item{Default value}{\code{rlang::caller_arg(arg)}}
+}}
+
+\item{message}{string passed to \code{cli::cli_abort(message)}.
+When \code{NULL}, default messaging is used (see examples for default messages).
+\code{"{arg_name}"} can be used in messaging.
+
+\describe{
+\item{Default value}{\code{NULL}}
+}}
 
 \item{class}{Subclass of the condition.}
 
@@ -53,14 +78,16 @@ For more information about error calls, see \ifelse{html}{\link[rlang:topic-erro
 }
 \value{
 The function throws an error
-- if there is more than one non-missing unit in the dataset or
-- if the unit variable differs from the expected unit for any observation of
- the parameter in the input dataset.
+\itemize{
+\item if there is more than one non-missing unit in the dataset or
+\item if the unit variable differs from the expected unit for any observation of
+the parameter in the input dataset.
+}
 
 Otherwise, the dataset is returned invisibly.
 }
 \description{
-Checks if a parameter (`PARAMCD`) in a dataset is provided in the expected
+Checks if a parameter (\code{PARAMCD}) in a dataset is provided in the expected
 unit.
 }
 \examples{
@@ -96,28 +123,28 @@ try(
 }
 \seealso{
 Checks for valid input and returns warning or errors messages:
-\code{\link{assert_atomic_vector}()},
-\code{\link{assert_character_scalar}()},
-\code{\link{assert_character_vector}()},
-\code{\link{assert_data_frame}()},
-\code{\link{assert_date_vector}()},
-\code{\link{assert_expr}()},
-\code{\link{assert_expr_list}()},
-\code{\link{assert_filter_cond}()},
-\code{\link{assert_function}()},
-\code{\link{assert_integer_scalar}()},
-\code{\link{assert_list_element}()},
-\code{\link{assert_list_of}()},
-\code{\link{assert_logical_scalar}()},
-\code{\link{assert_named}()},
-\code{\link{assert_numeric_vector}()},
-\code{\link{assert_one_to_one}()},
-\code{\link{assert_param_does_not_exist}()},
-\code{\link{assert_s3_class}()},
-\code{\link{assert_same_type}()},
-\code{\link{assert_symbol}()},
-\code{\link{assert_vars}()},
-\code{\link{assert_varval_list}()}
+\code{\link[=assert_atomic_vector]{assert_atomic_vector()}},
+\code{\link[=assert_character_scalar]{assert_character_scalar()}},
+\code{\link[=assert_character_vector]{assert_character_vector()}},
+\code{\link[=assert_data_frame]{assert_data_frame()}},
+\code{\link[=assert_date_vector]{assert_date_vector()}},
+\code{\link[=assert_expr]{assert_expr()}},
+\code{\link[=assert_expr_list]{assert_expr_list()}},
+\code{\link[=assert_filter_cond]{assert_filter_cond()}},
+\code{\link[=assert_function]{assert_function()}},
+\code{\link[=assert_integer_scalar]{assert_integer_scalar()}},
+\code{\link[=assert_list_element]{assert_list_element()}},
+\code{\link[=assert_list_of]{assert_list_of()}},
+\code{\link[=assert_logical_scalar]{assert_logical_scalar()}},
+\code{\link[=assert_named]{assert_named()}},
+\code{\link[=assert_numeric_vector]{assert_numeric_vector()}},
+\code{\link[=assert_one_to_one]{assert_one_to_one()}},
+\code{\link[=assert_param_does_not_exist]{assert_param_does_not_exist()}},
+\code{\link[=assert_s3_class]{assert_s3_class()}},
+\code{\link[=assert_same_type]{assert_same_type()}},
+\code{\link[=assert_symbol]{assert_symbol()}},
+\code{\link[=assert_vars]{assert_vars()}},
+\code{\link[=assert_varval_list]{assert_varval_list()}}
 }
 \concept{assertion}
 \keyword{assertion}

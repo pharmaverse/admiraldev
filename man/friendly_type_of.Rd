@@ -7,34 +7,46 @@
 friendly_type_of(x, value = TRUE, length = FALSE)
 }
 \arguments{
-\item{x}{Any R object.}
+\item{x}{Any R object.
 
-\item{value}{Whether to describe the value of `x`.}
+\describe{
+\item{Default value}{none}
+}}
 
-\item{length}{Whether to mention the length of vectors and lists.}
+\item{value}{Whether to describe the value of \code{x}.
+
+\describe{
+\item{Default value}{\code{TRUE}}
+}}
+
+\item{length}{Whether to mention the length of vectors and lists.
+
+\describe{
+\item{Default value}{\code{FALSE}}
+}}
 }
 \value{
 A string describing the type. Starts with an indefinite
-  article, e.g. "an integer vector".
+article, e.g. "an integer vector".
 }
 \description{
-`r lifecycle::badge("deprecated")`
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-This function is *deprecated*, please use `cli` functionality instead.
+This function is \emph{deprecated}, please use \code{cli} functionality instead.
 }
 \details{
 This helper function aids us in forming user-friendly messages that gets
-called through `what_is_it()`, which is often used in the assertion functions
+called through \code{what_is_it()}, which is often used in the assertion functions
 to identify what object-type the user passed through an argument instead of
 an expected-type.
 }
 \seealso{
-Other deprecated: 
-\code{\link{\%or\%}()},
-\code{\link{arg_name}()},
-\code{\link{enumerate}()},
-\code{\link{valid_time_units}()},
-\code{\link{what_is_it}()}
+Other deprecated:
+\code{\link{\%or\%}},
+\code{\link[=arg_name]{arg_name()}},
+\code{\link[=enumerate]{enumerate()}},
+\code{\link[=valid_time_units]{valid_time_units()}},
+\code{\link[=what_is_it]{what_is_it()}}
 }
 \concept{deprecated}
 \keyword{deprecated}

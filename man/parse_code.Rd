@@ -7,16 +7,23 @@
 parse_code(code)
 }
 \arguments{
-\item{code}{The code to parse}
+\item{code}{The code to parse
+
+\describe{
+\item{Permitted values}{A character vector}
+\item{Default value}{none}
+}}
 }
 \value{
 A list of expressions and source references
 
 Each item of the list is a list with the following elements:
-- `expr`: The expression
-- `srcref`: The source reference
-- `eval`: A logical indicating whether the expression should be evaluated,
-  i.e., it is not a comment or an empty line.
+\itemize{
+\item \code{expr}: The expression
+\item \code{srcref}: The source reference
+\item \code{eval}: A logical indicating whether the expression should be evaluated,
+i.e., it is not a comment or an empty line.
+}
 }
 \description{
 The function parses the code and returns a list of expressions and source

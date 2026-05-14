@@ -2,23 +2,28 @@
 % Please edit documentation in R/roxygen_helpers.R
 \name{roxygen_param_by_vars}
 \alias{roxygen_param_by_vars}
-\title{Standard Text for the `by_vars` Argument}
+\title{Standard Text for the \code{by_vars} Argument}
 \usage{
 roxygen_param_by_vars(rename = FALSE)
 }
 \arguments{
 \item{rename}{Should the renaming feature be documented?
 
-  If `TRUE`, the text includes information about renaming variables using
-  named elements in `by_vars`.}
+If \code{TRUE}, the text includes information about renaming variables using
+named elements in \code{by_vars}.
+
+\describe{
+\item{Permitted values}{\code{TRUE}, \code{FALSE}}
+\item{Default value}{\code{FALSE}}
+}}
 }
 \value{
 A character string with the standardized documentation text for
-  the `by_vars` argument
+the \code{by_vars} argument
 }
 \description{
-This function provides standardized documentation text for the `by_vars`
-argument used in `{admiral}` functions.
+This function provides standardized documentation text for the \code{by_vars}
+argument used in \code{{admiral}} functions.
 }
 \details{
 The benefits of having a programmatic way to write documentation is that if
@@ -32,10 +37,10 @@ roxygen_param_by_vars()
 roxygen_param_by_vars(rename = TRUE)
 }
 \seealso{
-Other documentation: 
-\code{\link{roxygen_order_na_handling}()},
-\code{\link{roxygen_param_dataset}()},
-\code{\link{roxygen_save_memory}()}
+Other documentation:
+\code{\link[=roxygen_order_na_handling]{roxygen_order_na_handling()}},
+\code{\link[=roxygen_param_dataset]{roxygen_param_dataset()}},
+\code{\link[=roxygen_save_memory]{roxygen_save_memory()}}
 }
 \concept{documentation}
 \keyword{documentation}
