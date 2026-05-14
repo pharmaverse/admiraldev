@@ -57,11 +57,11 @@ warn_if_inconsistent_list(
 )
 }
 \seealso{
-Function that provide users with custom warnings
-\code{\link{suppress_warning}()},
-\code{\link{warn_if_incomplete_dtc}()},
-\code{\link{warn_if_invalid_dtc}()},
-\code{\link{warn_if_vars_exist}()}
+Function that provide users with custom warnings:
+\code{\link[=suppress_warning]{suppress_warning()}},
+\code{\link[=warn_if_incomplete_dtc]{warn_if_incomplete_dtc()}},
+\code{\link[=warn_if_invalid_dtc]{warn_if_invalid_dtc()}},
+\code{\link[=warn_if_vars_exist]{warn_if_vars_exist()}}
 }
 \concept{warnings}
 \keyword{warnings}
