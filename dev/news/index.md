@@ -46,6 +46,11 @@
   updated.
   ([\#472](https://github.com/pharmaverse/admiraldev/issues/472))
 
+### Various
+
+- Updated existing assertion unit tests.
+  ([\#550](https://github.com/pharmaverse/admiraldev/issues/550))
+
 ## admiraldev 1.4.0
 
 CRAN release: 2026-01-14
