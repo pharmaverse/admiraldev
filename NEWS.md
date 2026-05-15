@@ -30,6 +30,9 @@
 - Added a brief section on using AI in the programming strategy. (#547)
 - The function name prefixes in the programming strategy have been updated. (#472)
 
+## Various
+- Updated existing assertion unit tests. (#550)
+
 # admiraldev 1.4.0
 
 ## New Features
