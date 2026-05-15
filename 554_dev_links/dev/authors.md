@@ -11,7 +11,7 @@ past.
 - **[Stefan Bundfuss](https://github.com/bundfussr)**. Author.
   [](https://orcid.org/0009-0005-0027-1198)
 
-- **[Arianna Cascone](https://github.com/adcascone)**. Author.
+- **[Arianna Cascone](https://arianna-cascone.quarto.pub/)**. Author.
   [](https://orcid.org/0000-0001-5948-2831)
 
 - **[Kristin Dahnert](https://github.com/Kcdahn)**. Author.
