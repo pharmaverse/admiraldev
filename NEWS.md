@@ -29,6 +29,8 @@
 
 - Added a brief section on using AI in the programming strategy. (#547)
 - The function name prefixes in the programming strategy have been updated. (#472)
+- Aligned the definition of "Experimental functions" in the programming strategy with the definition 
+in the [admiral reference page](https://pharmaverse.github.io/admiral/cran-release/reference/#experimental). (#561)
 
 ## Various
 - Updated existing assertion unit tests. (#550)
