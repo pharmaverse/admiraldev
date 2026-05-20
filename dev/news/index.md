@@ -45,6 +45,10 @@
 - The function name prefixes in the programming strategy have been
   updated.
   ([\#472](https://github.com/pharmaverse/admiraldev/issues/472))
+- Aligned the definition of “Experimental functions” in the programming
+  strategy with the definition in the [admiral reference
+  page](https://pharmaverse.github.io/admiral/cran-release/reference/#experimental).
+  ([\#561](https://github.com/pharmaverse/admiraldev/issues/561))
 
 ### Various
 
