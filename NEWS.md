@@ -1,4 +1,8 @@
-# admiraldev 1.4.0.9000
+# admiraldev 1.4.1
+
+* Maintainer switched from Ben Straub to Edoardo Mancini
+
+# admiraldev 1.4.0
 
 ## New Features
 

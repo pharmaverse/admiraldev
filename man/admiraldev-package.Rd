@@ -24,7 +24,6 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Ben Straub
   \item Stefan Bundfuss (\href{https://orcid.org/0009-0005-0027-1198}{ORCID})
   \item Arianna Cascone (\href{https://orcid.org/0000-0001-5948-2831}{ORCID})
   \item Jeffrey Dickinson
@@ -32,6 +31,7 @@ Authors:
   \item Fanny Gautier
   \item Gordon Miller
   \item Daniel Sjoberg (\href{https://orcid.org/0000-0003-0862-2018}{ORCID})
+  \item Ben Straub
   \item Stefan Thoma (\href{https://orcid.org/0000-0002-5553-9252}{ORCID})
 }
 

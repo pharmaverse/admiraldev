@@ -6,7 +6,6 @@ Version: 1.4.1
 Authors@R: c(
     person("Edoardo", "Mancini", "edoardo.mancini@roche.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0006-4899-8641")),
-    person("Ben", "Straub", role = "aut"),
     person("Stefan", "Bundfuss", role = "aut",
            comment = c(ORCID = "0009-0005-0027-1198")),
     person("Arianna", "Cascone", role = "aut",
@@ -17,6 +16,7 @@ Authors@R: c(
     person("Gordon", "Miller", role = "aut"),
     person("Daniel", "Sjoberg", role = "aut",
            comment = c(ORCID = "0000-0003-0862-2018")),
+    person("Ben", "Straub", role = "aut"),
     person("Stefan", "Thoma", role = "aut",
            comment = c(ORCID = "0000-0002-5553-9252")),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd")),
