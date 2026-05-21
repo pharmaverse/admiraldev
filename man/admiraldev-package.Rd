@@ -20,16 +20,16 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Ben Straub \email{ben.x.straub@gsk.com}
+\strong{Maintainer}: Edoardo edoardo.mancini@roche.com Mancini (\href{https://orcid.org/0009-0006-4899-8641}{ORCID})
 
 Authors:
 \itemize{
+  \item Ben Straub
   \item Stefan Bundfuss (\href{https://orcid.org/0009-0005-0027-1198}{ORCID})
   \item Arianna Cascone (\href{https://orcid.org/0000-0001-5948-2831}{ORCID})
   \item Jeffrey Dickinson
   \item Ross Farrugia
   \item Fanny Gautier
-  \item Edoardo Mancini (\href{https://orcid.org/0009-0006-4899-8641}{ORCID})
   \item Gordon Miller
   \item Daniel Sjoberg (\href{https://orcid.org/0000-0003-0862-2018}{ORCID})
   \item Stefan Thoma (\href{https://orcid.org/0000-0002-5553-9252}{ORCID})
