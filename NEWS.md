@@ -1,3 +1,40 @@
+# admiraldev (development version)
+
+## New Features
+
+- Moved over roxygen helper functions from admiral to admiraldev (#517)
+
+## Updates of Existing Functions
+
+- `capture_message()` was updated to strip off all control sequences from the
+ message. (#543)
+- `assert_list_of()` (and `assert_vars()`) was updated with a clearer message to users on how to fix
+  a string versus symbol issue, e.g "If a variable was provided as a string, 
+  please provide it as a symbol, e.g. use `exprs(AVISIT)` instead of 
+  `exprs("AVISIT")`" (#538)
+
+## Breaking Changes
+
+## Documentation
+
+- Update to `{roxygen2}` 8.0.0. (#557)
+- Update links in documentation for AI coding `AGENTS.md` files (#552)
+- Update vignettes for AI coding `AGENTS.md` files (#545)
+- The website navigation bar has been updated to: (#539)
+  - Add a night mode option. This can be be toggled using the sun/moon icon in the top right corner of the navigation bar. 
+  - Add a link to the "Get Started" vignette for developers.
+  - Add icon links to report a bug and join the pharmaverse Slack.
+  - Add tooltips for each of the icons.
+  - Increase the maximum height of the drop-down menus to ensure all items are visible without scrolling.
+
+- Added a brief section on using AI in the programming strategy. (#547)
+- The function name prefixes in the programming strategy have been updated. (#472)
+- Aligned the definition of "Experimental functions" in the programming strategy with the definition 
+in the [admiral reference page](https://pharmaverse.github.io/admiral/cran-release/reference/#experimental). (#561)
+
+## Various
+- Updated existing assertion unit tests. (#550)
+
 # admiraldev 1.4.1
 
 * Maintainer switched from Ben Straub to Edoardo Mancini

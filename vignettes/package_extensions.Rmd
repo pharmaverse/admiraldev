@@ -100,7 +100,7 @@ _Note: The ordering numbers below are suggested but don't all need to strictly b
 
 1. Plan any future further enhancements and make issues. When your team feels ready you can open up to development contributions for these from the wider community - see [this page](https://pharmaverse.github.io/admiral/). Please use the <span class="github-button firstissue">good first issue</span> (ideal for new starters) & <span class="github-button helpwanted">help wanted</span> (ideal for more experienced contributors) issue labels.
 
-**Note**: the core `{admiral}` team will carry out periodic reviews of of the extension package contents to ensure nothing is duplicated and  ensure standards and best practices are followed. The frequency of these reviews is to be agreed upon by the technical leads of the core and extension packages. 
+**Note**: the core `{admiral}` team will carry out periodic reviews of the extension package contents to ensure nothing is duplicated and ensure standards and best practices are followed. The frequency of these reviews is to be agreed upon by the technical leads of the core and extension packages. 
 
 ## Lessons Learned
 

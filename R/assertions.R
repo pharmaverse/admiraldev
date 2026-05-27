@@ -967,6 +967,18 @@ assert_list_of <- function(arg, cls,
          must be class/type {.cls {cls}}.",
         i = paste("But,", info_msg)
       )
+      # Add a hint when expecting symbols but character strings were provided,
+      # as this is a common mistake when using exprs() with quoted variable names
+      if (cls == "symbol" && any(map_lgl(arg[!is_class], is.character))) {
+        message <- c(
+          message,
+          i = paste0(
+            "If a variable was provided as a string, please provide it as a ",
+            "symbol, e.g. use {.code exprs(AVISIT)} instead of ",
+            "{.code exprs(\"AVISIT\")}."
+          )
+        )
+      }
     }
 
     cli_abort(

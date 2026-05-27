@@ -33,12 +33,12 @@ in an error, it catches that error and proceeds with evaluating the expression
 \code{rhs} and returns that result.
 }
 \seealso{
-Other deprecated: 
-\code{\link{arg_name}()},
-\code{\link{enumerate}()},
-\code{\link{friendly_type_of}()},
-\code{\link{valid_time_units}()},
-\code{\link{what_is_it}()}
+Other deprecated:
+\code{\link[=arg_name]{arg_name()}},
+\code{\link[=enumerate]{enumerate()}},
+\code{\link[=friendly_type_of]{friendly_type_of()}},
+\code{\link[=valid_time_units]{valid_time_units()}},
+\code{\link[=what_is_it]{what_is_it()}}
 }
 \concept{deprecated}
 \keyword{deprecated}

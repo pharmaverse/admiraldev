@@ -17,12 +17,12 @@ This function is \emph{deprecated}. Please get in touch if you are using this fu
 Contains the acceptable character vector of valid time units
 }
 \seealso{
-Other deprecated: 
-\code{\link{\%or\%}()},
-\code{\link{arg_name}()},
-\code{\link{enumerate}()},
-\code{\link{friendly_type_of}()},
-\code{\link{what_is_it}()}
+Other deprecated:
+\code{\link{\%or\%}},
+\code{\link[=arg_name]{arg_name()}},
+\code{\link[=enumerate]{enumerate()}},
+\code{\link[=friendly_type_of]{friendly_type_of()}},
+\code{\link[=what_is_it]{what_is_it()}}
 }
 \concept{deprecated}
 \keyword{deprecated}

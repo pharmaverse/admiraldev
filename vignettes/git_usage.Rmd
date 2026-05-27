@@ -25,7 +25,7 @@ This article will give you an overview of how the `{admiral}` project is utilizi
 # Branches
 
 -	The `main` branch contains the latest development version of the package. You can find the released versions [here](https://GitHub.com/pharmaverse/admiral/releases) 
-- The `gh-pages` branches contains the code used to render R package websites - you are looking at right now!
+- The `gh-pages` branch contains the code used to render R package websites - you are looking at it right now!
 - The `patch` branch is reserved for special hot fixes to address bugs and should rarely be used. More info in [Hot Fix Release](release_strategy.html#hot-fix-release)
 - The `main`, `gh-pages`, `patch` branches are under protection. If you try and push changes to these branches you will get an error unless you are an administrator. 
 
@@ -41,7 +41,7 @@ Each feature branch must be related to an issue. We encourage new developers to 
 
 ### Naming Branches
 
-The name of the branch must be prefixed with the issue number, followed by a short but meaningful description. As an example, given an issue #94 "Program function to derive `LSTALVDT`", the branch name would be `94_derive_var_lstalvdt`.
+The name of the branch must be prefixed with the issue number, followed by a short but meaningful description. As an example, given an issue #94 "Program function to derive `LSTALVDT`", the branch name would be `94-derive-var-lstalvdt`.
 
 ### Create a New Feature Branch from the Terminal (from `main`)
 
@@ -65,7 +65,7 @@ knitr::include_graphics("github_feature_branch.png", dpi = 144)
 
 ### Commits from the Terminal in RStudio
 
-To start the commit process, you will need to tell `git` to move your changes to the staging area.  Use `git add <your_file>` to move all changes of `<your_file>` in the staging area to wait for the next commit. You can use `git add .` to move all files you have worked on to the staging area.  Next you can commit, which takes a snapshot of your staged changes.  When committing, prefix the message with the issue number and add a meaningful message `git commit –m '#94 last alive date implementation'`. 
+To start the commit process, you will need to tell `git` to move your changes to the staging area.  Use `git add <your_file>` to move all changes of `<your_file>` in the staging area to wait for the next commit. You can use `git add .` to move all files you have worked on to the staging area.  Next you can commit, which takes a snapshot of your staged changes.  When committing, prefix the message with the issue number and add a meaningful message `git commit -m '#94 last alive date implementation'`. 
 
 Lastly, you should push your changes up to GitHub using `git push origin <branch name>`
 
@@ -87,24 +87,24 @@ Below are styles of commit messaging permitted:
 
 * `feat: #94 skeleton of function developed`
 * `chore: #94 styler and lintr update`
-* `docs: #94 parameters and details sections compelted`
+* `docs: #94 parameters and details sections completed`
 
 ### Style 2:
 
 * `#94 skeleton of function developed`
 * `#94 styler and lintr update`
-* `#94 parameters and details sections compelted`
+* `#94 parameters and details sections completed`
 
 ### Style 3:
 
 * `skeleton of function developed (#94)`
 * `styler and lintr update (#94)`
-* `parameters and details sections compelted (#94)`
+* `parameters and details sections completed (#94)`
 
 
 ## Pull request
 
-We recommend a thorough read through of the articles, [Pull Request Review Guidance](pr_review_guidance.html) and the [Programming Strategy](programming_strategy.html) for in-depth discussions on a doing a proper Pull Request.Pull Request authors will benefit from shorter review times by closely following the guidance provided in those two articles. Below we discuss some simple `git` commands in the terminal and on GitHub for doing a Pull Request. We recommend doing the Pull Request in GitHub only and not through the terminal.  
+We recommend a thorough read through of the articles, [Pull Request Review Guidance](pr_review_guidance.html) and the [Programming Strategy](programming_strategy.html) for in-depth discussions on doing a proper Pull Request. Pull Request authors will benefit from shorter review times by closely following the guidance provided in those two articles. Below we discuss some simple `git` commands in the terminal and on GitHub for doing a Pull Request. We recommend doing the Pull Request in GitHub only and not through the terminal.  
 
 Once all changes are committed, push the updated branch to GitHub:  
 `git push -u origin <branch_name>`  
@@ -117,7 +117,7 @@ knitr::include_graphics("github_create_pr.png", dpi = 144)
 ```
 
 The issue must be linked to the pull request in the "Development" field of the
-Pull Request. In most cases, this will linkage will automatically close the issue and move to the Done column on our project board.
+Pull Request. In most cases, this linkage will automatically close the issue and move to the Done column on our project board.
 
 ```{r, echo = FALSE}
 knitr::include_graphics("github_linked_issues_dark.png", dpi = 144)
@@ -138,7 +138,7 @@ before the Pull Request is merged
 Once the review is completed, the reviewer will merge the Pull Request and the
 feature branch will automatically be deleted.
 
-After merging the Pull Request please check that corresponding has been moved to the done column on the Project Board. Also, please make sure that the issue has closed.
+After merging the Pull Request please check that the corresponding issue has been moved to the done column on the Project Board. Also, please make sure that the issue has closed.
 
 
 ```{r, echo = FALSE}
@@ -168,7 +168,7 @@ git push
 
 ### Solving Merge Conflicts in GitHub
 
-For simple merge conflicts, developers can make use of the GitHub interface to solve them. GitHub will show the number of conflicts between the two branches. In the below image, GitHub has found 3 conflicts, but we only display the first one.  Just like in the terminal, GitHub will make use of the `<<<<<<<`, `=======`, and `>>>>>>>` to highlight the conflicting sections.  You will need to make the decision on whether to keep the code from the base or the feature branch.  Once you have decided, go into the code and remove the section you no longer wish to keep.  Be sure to remove the `<<<<<<<`, `=======`, and `>>>>>>>` as well!  Once you work through the conflicts you will mark as **Resolved and Commit your changes**.  It is recommended to pull your branch back down to RStudio to make sure no untoward effects have happen to your branch. 
+For simple merge conflicts, developers can make use of the GitHub interface to solve them. GitHub will show the number of conflicts between the two branches. In the below image, GitHub has found 3 conflicts, but we only display the first one.  Just like in the terminal, GitHub will make use of the `<<<<<<<`, `=======`, and `>>>>>>>` to highlight the conflicting sections.  You will need to make the decision on whether to keep the code from the base or the feature branch.  Once you have decided, go into the code and remove the section you no longer wish to keep.  Be sure to remove the `<<<<<<<`, `=======`, and `>>>>>>>` as well!  Once you work through the conflicts you will mark as **Resolved and Commit your changes**.  It is recommended to pull your branch back down to RStudio to make sure no untoward effects have happened to your branch. 
 
 ```{r, echo = FALSE}
 knitr::include_graphics("github_conflicts.png", dpi = 144)
@@ -181,7 +181,7 @@ knitr::include_graphics("github_conflicts.png", dpi = 144)
 -	The stashing commands are useful when one wants to go back to clean directory 
 -	`git stash` - stash (store) current changes and restore a clean directory  
 -	`git stash pop` - put back (restore) stashed changes  
-- `git revert` is also helpful but why?
+- `git revert` is also helpful for undoing committed changes without rewriting history
 
 **Using code from unmerged branches**  
 

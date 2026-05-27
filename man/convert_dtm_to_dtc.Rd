@@ -23,11 +23,11 @@ Helper Function to Convert Date (or Date-time) Objects to Characters of dtc Form
 }
 \seealso{
 Developer Utility Functions:
-\code{\link{\%notin\%}()},
-\code{\link{contains_vars}()},
-\code{\link{extract_vars}()},
-\code{\link{filter_if}()},
-\code{\link{vars2chr}()}
+\code{\link{\%notin\%}},
+\code{\link[=contains_vars]{contains_vars()}},
+\code{\link[=extract_vars]{extract_vars()}},
+\code{\link[=filter_if]{filter_if()}},
+\code{\link[=vars2chr]{vars2chr()}}
 }
 \concept{dev_utility}
 \keyword{dev_utility}
