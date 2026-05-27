@@ -55,6 +55,12 @@
 - Updated existing assertion unit tests.
   ([\#550](https://github.com/pharmaverse/admiraldev/issues/550))
 
+## admiraldev 1.4.1
+
+CRAN release: 2026-05-27
+
+- Maintainer switched from Ben Straub to Edoardo Mancini
+
 ## admiraldev 1.4.0
 
 CRAN release: 2026-01-14
