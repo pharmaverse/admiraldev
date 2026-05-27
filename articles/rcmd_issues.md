@@ -83,9 +83,7 @@ Add `some_var` to the list of “global” variables in `R/globals.R`.
         'some_param'
 
 Add an `@param some_param` section in the header of `function_xyz()` and
-run
-[`devtools::document()`](https://devtools.r-lib.org/reference/document.html)
-afterwards.
+run `devtools::document()` afterwards.
 
 ### Outdated Documentation
 
@@ -101,8 +99,7 @@ afterwards.
 
 The name of a parameter has been changed in the function code but not
 yet in the header. Change `@param old_param_name` to
-`@param new_param_name` and run
-[`devtools::document()`](https://devtools.r-lib.org/reference/document.html).
+`@param new_param_name` and run `devtools::document()`.
 
 For further reading we recommend the [R-pkg manual r-cmd
 chapter](https://r-pkgs.org/R-CMD-check.html)

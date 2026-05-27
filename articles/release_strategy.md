@@ -25,9 +25,8 @@ Tab and formed into a Priority issue.
 
 In the following the most important steps for a planned release and a
 hot fix release are described. Depending on the package it may be
-helpful to use
-[`usethis::use_release_issue()`](https://usethis.r-lib.org/reference/use_release_issue.html)
-with a package-specific `release_bullets()` function.
+helpful to use `usethis::use_release_issue()` with a package-specific
+`release_bullets()` function.
 
 ### Planned Release
 
@@ -36,11 +35,9 @@ A package release is done in the following steps:
 1.  **Create the release version:**
 
     - Create a new feature branch from `main`.
-    - Call
-      [`usethis::use_version()`](https://usethis.r-lib.org/reference/use_version.html)
-      to update the `Versions:` field in the `DESCRIPTION` file and
-      update `NEWS.md` (replace “(development version)” with the version
-      to be released)
+    - Call `usethis::use_version()` to update the `Versions:` field in
+      the `DESCRIPTION` file and update `NEWS.md` (replace “(development
+      version)” with the version to be released)
     - Create a PR into `main` and merge it. The title of the PR must
       contain “\[skip vbump\]”. Otherwise, the vbump workflow sets the
       version to a development version and CRAN will reject the
@@ -72,11 +69,9 @@ To start development work ahead of the next planned release, immediately
 create the next development version:
 
 1.  Create a new feature branch from `main`.
-2.  Call
-    [`usethis::use_dev_version()`](https://usethis.r-lib.org/reference/use_version.html)
-    to update `NEWS.md` (adds a new section
-    `# admiral (development version)`) and update the version in the
-    `DESCRIPTION` file to a development version.
+2.  Call `usethis::use_dev_version()` to update `NEWS.md` (adds a new
+    section `# admiral (development version)`) and update the version in
+    the `DESCRIPTION` file to a development version.
 3.  Create a PR into `main` and merge it.
 
 ### Hot Fix Release

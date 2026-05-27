@@ -18,7 +18,8 @@ Useful links:
 
 ## Author
 
-**Maintainer**: Ben Straub <ben.x.straub@gsk.com>
+**Maintainer**: Edoardo Mancini <edoardo.mancini@roche.com>
+([ORCID](https://orcid.org/0009-0006-4899-8641))
 
 Authors:
 
@@ -32,11 +33,11 @@ Authors:
 
 - Fanny Gautier
 
-- Edoardo Mancini ([ORCID](https://orcid.org/0009-0006-4899-8641))
-
 - Gordon Miller
 
 - Daniel Sjoberg ([ORCID](https://orcid.org/0000-0003-0862-2018))
+
+- Ben Straub
 
 - Stefan Thoma ([ORCID](https://orcid.org/0000-0002-5553-9252))
 

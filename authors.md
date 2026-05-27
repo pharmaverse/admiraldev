@@ -6,7 +6,8 @@ We define *authors* as those who are actively maintaining the code base,
 and *contributors* as those who made a significant contribution in the
 past.
 
-- **Ben Straub**. Author, maintainer.
+- **Edoardo Mancini**. Author, maintainer.
+  [](https://orcid.org/0009-0006-4899-8641)
 
 - **Stefan Bundfuss**. Author. [](https://orcid.org/0009-0005-0027-1198)
 
@@ -18,11 +19,11 @@ past.
 
 - **Fanny Gautier**. Author.
 
-- **Edoardo Mancini**. Author. [](https://orcid.org/0009-0006-4899-8641)
-
 - **Gordon Miller**. Author.
 
 - **Daniel Sjoberg**. Author. [](https://orcid.org/0000-0003-0862-2018)
+
+- **Ben Straub**. Author.
 
 - **Stefan Thoma**. Author. [](https://orcid.org/0000-0002-5553-9252)
 
@@ -39,15 +40,15 @@ past.
 Source:
 [`DESCRIPTION`](https://github.com/pharmaverse/admiraldev/blob/main/DESCRIPTION)
 
-Straub B, Bundfuss S, Cascone A, Dickinson J, Farrugia R, Gautier F,
-Mancini E, Miller G, Sjoberg D, Thoma S (2026). *admiraldev: Utility
+Mancini E, Bundfuss S, Cascone A, Dickinson J, Farrugia R, Gautier F,
+Miller G, Sjoberg D, Straub B, Thoma S (2026). *admiraldev: Utility
 Functions and Development Tools for the Admiral Package Family*. R
-package version 1.4.0, <https://pharmaverse.github.io/admiraldev/>.
+package version 1.4.1, <https://pharmaverse.github.io/admiraldev/>.
 
     @Manual{,
       title = {admiraldev: Utility Functions and Development Tools for the Admiral Package Family},
-      author = {Ben Straub and Stefan Bundfuss and Arianna Cascone and Jeffrey Dickinson and Ross Farrugia and Fanny Gautier and Edoardo Mancini and Gordon Miller and Daniel Sjoberg and Stefan Thoma},
+      author = {Edoardo Mancini and Stefan Bundfuss and Arianna Cascone and Jeffrey Dickinson and Ross Farrugia and Fanny Gautier and Gordon Miller and Daniel Sjoberg and Ben Straub and Stefan Thoma},
       year = {2026},
-      note = {R package version 1.4.0},
+      note = {R package version 1.4.1},
       url = {https://pharmaverse.github.io/admiraldev/},
     }
