@@ -1,6 +1,6 @@
-# Is this string a valid DTC
+# Is this string a valid DTC?
 
-Is this string a valid DTC
+Is this string a valid DTC?
 
 ## Usage
 
@@ -24,6 +24,10 @@ is_valid_dtc(arg, valid_full_date = FALSE, valid_full_datetime = FALSE)
   it is exactly of the form `"yyyy-mm-dd"` and can be parsed by
   [`ymd()`](https://lubridate.tidyverse.org/reference/ymd.html)).
 
+  Permitted values
+
+  :   `TRUE`, `FALSE`
+
   Default value
 
   :   `FALSE`
@@ -34,6 +38,10 @@ is_valid_dtc(arg, valid_full_date = FALSE, valid_full_datetime = FALSE)
   (i.e. it is exactly of the form `"yyyy-mm-ddThh:mm:ss"` and can be
   parsed by
   [`ymd_hms()`](https://lubridate.tidyverse.org/reference/ymd_hms.html)).
+
+  Permitted values
+
+  :   `TRUE`, `FALSE`
 
   Default value
 
