@@ -71,7 +71,7 @@ is_valid_dtc("2020-02-31")
 is_valid_dtc("2020-02-28T25:00:00")
 #> [1] TRUE
 
-# Format is valid, date/datetimes are not real and this is not checked
+# Format is valid, date/datetimes are not real and this is checked
 is_valid_dtc("2020-02-31", check_dtc = TRUE)
 #> [1] FALSE
 is_valid_dtc("2020-02-28T25:00:00", check_dtc = TRUE)
