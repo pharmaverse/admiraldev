@@ -4,27 +4,19 @@
 \alias{is_valid_dtc}
 \title{Is this string a valid DTC?}
 \usage{
-is_valid_dtc(arg, valid_full_date = FALSE, valid_full_datetime = FALSE)
+is_valid_dtc(arg, check_dtc = FALSE)
 }
 \arguments{
-\item{arg}{A \code{character} vector
+\item{arg}{The string to check.
 
 \describe{
+\item{Permitted values}{a character scalar, i.e., a character vector of length one}
 \item{Default value}{none}
 }}
 
-\item{valid_full_date}{If \code{TRUE}, the function will check if the string is a
-full date (i.e. it is exactly of the form \code{"yyyy-mm-dd"} and can be parsed by
-\code{ymd()}).
-
-\describe{
-\item{Permitted values}{\code{TRUE}, \code{FALSE}}
-\item{Default value}{\code{FALSE}}
-}}
-
-\item{valid_full_datetime}{If \code{TRUE}, the function will check if the string is a
-full datetime (i.e. it is exactly of the form \code{"yyyy-mm-ddThh:mm:ss"} and can be
-parsed by \code{ymd_hms()}).
+\item{check_dtc}{If \code{TRUE}, the function will check if the string is a real,
+date or datetime (e.g. "2020-02-31" is not real). Note that \code{NA} is a valid
+datetime.
 
 \describe{
 \item{Permitted values}{\code{TRUE}, \code{FALSE}}
@@ -38,10 +30,10 @@ parsed by \code{ymd_hms()}).
 Is this string a valid DTC?
 }
 \details{
-If both \code{check_full_date} and \code{check_full_time} are set to \code{FALSE}, the
-function will only check if the string is a valid DTC string, which can also be a
-partial date (e.g. \code{"2024"} or \code{"2024-05"}) or a partial datetime (e.g.
-\code{"2024-05-01T12"}).
+If \code{check_dtc} is \code{FALSE}, the function only checks if the format of the
+string is valid, i.e. it will not check if the actual date/datetime is real, so
+calls such as \verb{is_valid_dtc("2020-13", check_dtc = FALSE))} and
+\code{is_valid_dtc("2020-12-01T25:00:00", check_dtc = FALSE)} will return\code{TRUE}.
 }
 \seealso{
 Identifies type of Object with return of TRUE/FALSE:

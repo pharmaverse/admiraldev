@@ -38,32 +38,28 @@ is_order_vars <- function(arg) {
 
 #' Is this string a valid DTC?
 #'
-#' @param arg A `character` vector
+#' @param arg The string to check.
 #'
-#' @param valid_full_date If `TRUE`, the function will check if the string is a
-#'    full date (i.e. it is exactly of the form `"yyyy-mm-dd"` and can be parsed by
-#'    `ymd()`).
+#' @permitted [char_scalar]
 #'
-#' @permitted [boolean]
-#'
-#' @param valid_full_datetime If `TRUE`, the function will check if the string is a
-#' full datetime (i.e. it is exactly of the form `"yyyy-mm-ddThh:mm:ss"` and can be
-#' parsed by `ymd_hms()`).
+#' @param check_dtc If `TRUE`, the function will check if the string is a real,
+#' date or datetime (e.g. "2020-02-31" is not real). Note that `NA` is a valid
+#' datetime.
 #'
 #' @permitted [boolean]
 #'
 #' @return `TRUE` if the argument is a valid `--DTC` string, `FALSE` otherwise
 #'
-#' @details If both `check_full_date` and `check_full_time` are set to `FALSE`, the
-#' function will only check if the string is a valid DTC string, which can also be a
-#' partial date (e.g. `"2024"` or `"2024-05"`) or a partial datetime (e.g.
-#' `"2024-05-01T12"`).
+#' @details If `check_dtc` is `FALSE`, the function only checks if the format of the
+#' string is valid, i.e. it will not check if the actual date/datetime is real, so
+#' calls such as `is_valid_dtc("2020-13", check_dtc = FALSE))` and
+#' `is_valid_dtc("2020-12-01T25:00:00", check_dtc = FALSE)` will return`TRUE`.
 #'
 #' @export
 #' @keywords is
 #' @family is
 #'
-is_valid_dtc <- function(arg, valid_full_date = FALSE, valid_full_datetime = FALSE) {
+is_valid_dtc <- function(arg, check_dtc = FALSE) {
   twod <- "(\\d{2}|-)"
   pattern <- paste0(
     "^(\\d{4}|-)?",
@@ -76,22 +72,17 @@ is_valid_dtc <- function(arg, valid_full_date = FALSE, valid_full_datetime = FAL
 
   is_valid_format <- str_detect(arg, pattern) | arg == "" | is.na(arg)
 
-  if (valid_full_date) {
-    # ymd() will return NA is arg is not a full date
-    arg_ymd <- suppress_warning(ymd(arg), "failed to parse")
-    is_full_date <- !is.na(arg_ymd) & !is.na(arg)
-    is_valid_format & is_full_date
+  if (check_dtc & !is.na(arg)) {
+    parsed_datetime <- parse_date_time(
+      arg,
+      orders = c("YmdHMS", "Ymd", "YmdHM", "Y", "Ym", "YmdH"),
+      quiet = TRUE
+    )
+    # Check if successfully parsed OR if it is an intentionally missing value
+    is_parseable <- !is.na(parsed_datetime)
   } else {
-    is_full_date <- TRUE
+    is_parseable <- TRUE
   }
 
-  if (valid_full_datetime) {
-    # ymd() will return NA is arg is not a full datetime
-    arg_ymd_hms <- suppress_warning(ymd_hms(arg), "failed to parse")
-    is_full_datetime <- !is.na(arg_ymd_hms) & !is.na(arg)
-  } else {
-    is_full_datetime <- TRUE
-  }
-
-  is_valid_format & is_full_date & is_full_datetime
+  is_valid_format & is_parseable
 }

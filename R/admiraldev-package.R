@@ -34,6 +34,7 @@
 #' @importFrom lubridate as_datetime ceiling_date date days duration
 #' @importFrom lubridate floor_date is.Date is.instant time_length %--%
 #' @importFrom lubridate ymd ymd_hms weeks years hours minutes
+#' @importFrom lubridate parse_date_time
 #'
 #' @importFrom tidyr drop_na nest pivot_longer pivot_wider unnest
 #'

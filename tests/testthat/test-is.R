@@ -25,19 +25,15 @@ test_that("is_valid_dtc Test 4: returns error if input are NOT valid dtc ", {
   expect_false(is_valid_dtc("2021-03-T01:20:30"))
 })
 
-## Test 5: returns error if input date or datetmie is not valid"  ----
-test_that("is_valid_dtc Test 5: returns error if input date or datetime is not valid", {
-  expect_false(is_valid_dtc("2021-02-31", valid_full_date = TRUE))
-  expect_false(is_valid_dtc("2021-02-28T25:00:00", valid_full_datetime = TRUE))
-})
-
-## Test 6: returns error if input is a valid datetime but full date is being checked ----
-test_that("is_valid_dtc Test 6: returns error if input is a valid datetime but full date is being checked", { # nolint
-  expect_false(is_valid_dtc("2021-02-28T00:00:61", valid_full_date = TRUE))
+## Test 5: returns error if input date or datetime is not real date  ----
+test_that("is_valid_dtc Test 5: returns error if input date or datetime is not real date", {
+  expect_false(is_valid_dtc("2021-02-31", check_dtc = TRUE))
+  expect_false(is_valid_dtc("2021-02-29", check_dtc = TRUE)) # not a leap year!
+  expect_false(is_valid_dtc("2021-02-28T25:00:00", check_dtc = TRUE))
 })
 
 # is_auto  ----
-## Test 7: returns error if argument is not 'auto' ----
-test_that("is_auto Test 7: returns error if argument is not 'auto'", {
+## Test 6: returns error if argument is not 'auto' ----
+test_that("is_auto Test 6: returns error if argument is not 'auto'", {
   expect_false(is_auto("otua"))
 })
