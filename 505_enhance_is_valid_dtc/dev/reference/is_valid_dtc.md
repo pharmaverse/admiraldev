@@ -24,7 +24,7 @@ is_valid_dtc(arg, check_dtc = FALSE)
 
 - check_dtc:
 
-  If `TRUE`, the function will check if the string is a real, date or
+  If `TRUE`, the function will check if the string is a real date or
   datetime (e.g. "2020-02-31" is not real). Note that `NA` is a valid
   datetime.
 
@@ -44,7 +44,7 @@ is_valid_dtc(arg, check_dtc = FALSE)
 
 If `check_dtc` is `FALSE`, the function only checks if the format of the
 string is valid, i.e. it will not check if the actual date/datetime is
-real, so calls such as `is_valid_dtc("2020-13", check_dtc = FALSE))` and
+real, so calls such as `is_valid_dtc("2020-13", check_dtc = FALSE)` and
 `is_valid_dtc("2020-12-01T25:00:00", check_dtc = FALSE)` will
 return`TRUE`.
 
@@ -53,3 +53,27 @@ return`TRUE`.
 Identifies type of Object with return of TRUE/FALSE:
 [`is_auto()`](https:/pharmaverse.github.io/admiraldev/505_enhance_is_valid_dtc/dev/reference/is_auto.md),
 [`is_order_vars()`](https:/pharmaverse.github.io/admiraldev/505_enhance_is_valid_dtc/dev/reference/is_order_vars.md)
+
+## Examples
+
+``` r
+## Format is valid, date/datetimes are real
+is_valid_dtc("2020-02")
+#> [1] TRUE
+is_valid_dtc("2020-02-28")
+#> [1] TRUE
+is_valid_dtc("2020-02-28T14:43")
+#> [1] TRUE
+
+# Format is valid, date/datetimes are not real but this is not checked
+is_valid_dtc("2020-02-31")
+#> [1] TRUE
+is_valid_dtc("2020-02-28T25:00:00")
+#> [1] TRUE
+
+# Format is valid, date/datetimes are not real and this is not checked
+is_valid_dtc("2020-02-31", check_dtc = TRUE)
+#> [1] FALSE
+is_valid_dtc("2020-02-28T25:00:00", check_dtc = TRUE)
+#> [1] FALSE
+```

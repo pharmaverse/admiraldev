@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <dt id="arg-check-dtc">check_dtc<a class="anchor" aria-label="anchor" href="#arg-check-dtc"></a></dt>
-<dd><p>If <code>TRUE</code>, the function will check if the string is a real,
+<dd><p>If <code>TRUE</code>, the function will check if the string is a real
 date or datetime (e.g. "2020-02-31" is not real). Note that <code>NA</code> is a valid
 datetime.</p>
 <dl><dt>Permitted values</dt>
@@ -120,7 +120,7 @@ datetime.</p>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>If <code>check_dtc</code> is <code>FALSE</code>, the function only checks if the format of the
 string is valid, i.e. it will not check if the actual date/datetime is real, so
-calls such as <code>is_valid_dtc("2020-13", check_dtc = FALSE))</code> and
+calls such as <code>is_valid_dtc("2020-13", check_dtc = FALSE)</code> and
 <code>is_valid_dtc("2020-12-01T25:00:00", check_dtc = FALSE)</code> will return<code>TRUE</code>.</p>
     </div>
     <div class="section level2">
@@ -130,6 +130,31 @@ calls such as <code>is_valid_dtc("2020-13", check_dtc = FALSE))</code> and
 <code><a href="is_order_vars.html">is_order_vars()</a></code></p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Format is valid, date/datetimes are real</span></span></span>
+<span class="r-in"><span><span class="fu">is_valid_dtc</span><span class="op">(</span><span class="st">"2020-02"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span><span class="fu">is_valid_dtc</span><span class="op">(</span><span class="st">"2020-02-28"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span><span class="fu">is_valid_dtc</span><span class="op">(</span><span class="st">"2020-02-28T14:43"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Format is valid, date/datetimes are not real but this is not checked</span></span></span>
+<span class="r-in"><span><span class="fu">is_valid_dtc</span><span class="op">(</span><span class="st">"2020-02-31"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span><span class="fu">is_valid_dtc</span><span class="op">(</span><span class="st">"2020-02-28T25:00:00"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Format is valid, date/datetimes are not real and this is not checked</span></span></span>
+<span class="r-in"><span><span class="fu">is_valid_dtc</span><span class="op">(</span><span class="st">"2020-02-31"</span>, check_dtc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span><span class="fu">is_valid_dtc</span><span class="op">(</span><span class="st">"2020-02-28T25:00:00"</span>, check_dtc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
