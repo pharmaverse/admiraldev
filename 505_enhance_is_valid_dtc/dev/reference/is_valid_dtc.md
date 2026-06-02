@@ -5,39 +5,28 @@ Is this string a valid DTC?
 ## Usage
 
 ``` r
-is_valid_dtc(arg, valid_full_date = FALSE, valid_full_datetime = FALSE)
+is_valid_dtc(arg, check_dtc = FALSE)
 ```
 
 ## Arguments
 
 - arg:
 
-  A `character` vector
+  The string to check.
+
+  Permitted values
+
+  :   a character scalar, i.e., a character vector of length one
 
   Default value
 
   :   none
 
-- valid_full_date:
+- check_dtc:
 
-  If `TRUE`, the function will check if the string is a full date (i.e.
-  it is exactly of the form `"yyyy-mm-dd"` and can be parsed by
-  [`ymd()`](https://lubridate.tidyverse.org/reference/ymd.html)).
-
-  Permitted values
-
-  :   `TRUE`, `FALSE`
-
-  Default value
-
-  :   `FALSE`
-
-- valid_full_datetime:
-
-  If `TRUE`, the function will check if the string is a full datetime
-  (i.e. it is exactly of the form `"yyyy-mm-ddThh:mm:ss"` and can be
-  parsed by
-  [`ymd_hms()`](https://lubridate.tidyverse.org/reference/ymd_hms.html)).
+  If `TRUE`, the function will check if the string is a real, date or
+  datetime (e.g. "2020-02-31" is not real). Note that `NA` is a valid
+  datetime.
 
   Permitted values
 
@@ -53,10 +42,11 @@ is_valid_dtc(arg, valid_full_date = FALSE, valid_full_datetime = FALSE)
 
 ## Details
 
-If both `check_full_date` and `check_full_time` are set to `FALSE`, the
-function will only check if the string is a valid DTC string, which can
-also be a partial date (e.g. `"2024"` or `"2024-05"`) or a partial
-datetime (e.g. `"2024-05-01T12"`).
+If `check_dtc` is `FALSE`, the function only checks if the format of the
+string is valid, i.e. it will not check if the actual date/datetime is
+real, so calls such as `is_valid_dtc("2020-13", check_dtc = FALSE))` and
+`is_valid_dtc("2020-12-01T25:00:00", check_dtc = FALSE)` will
+return`TRUE`.
 
 ## See also
 

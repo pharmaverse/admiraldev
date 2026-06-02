@@ -10,11 +10,8 @@
 ### Updates of Existing Functions
 
 - [`is_valid_dtc()`](https:/pharmaverse.github.io/admiraldev/505_enhance_is_valid_dtc/dev/reference/is_valid_dtc.md)
-  was enhanced with arguments `valid_full_date` and
-  `valid_full_datetime` to allow users to check whether the
-  date/datetime is valid, i.e. parseable by
-  [`ymd()`](https://lubridate.tidyverse.org/reference/ymd.html) or
-  [`ymd_hms()`](https://lubridate.tidyverse.org/reference/ymd_hms.html).
+  was enhanced with the arguments `check_dtc` to allow users to check
+  whether the input date/datetime is a real date/datetime\`.
   ([\#505](https://github.com/pharmaverse/admiraldev/issues/505))
 - [`capture_message()`](https:/pharmaverse.github.io/admiraldev/505_enhance_is_valid_dtc/dev/reference/capture_message.md)
   was updated to strip off all control sequences from the message.
