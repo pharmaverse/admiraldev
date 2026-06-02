@@ -32,7 +32,7 @@ test_that("is_valid_dtc Test 5: returns error if input date or datetime is not v
 })
 
 ## Test 6: returns error if input is a valid datetime but full date is being checked ----
-test_that("is_valid_dtc Test 6: returns error if input is a valid datetime but full date is being checked", {
+test_that("is_valid_dtc Test 6: returns error if input is a valid datetime but full date is being checked", { # nolint
   expect_false(is_valid_dtc("2021-02-28T00:00:61", valid_full_date = TRUE))
 })
 

@@ -72,23 +72,22 @@ is_valid_dtc <- function(arg, valid_full_date = FALSE, valid_full_datetime = FAL
 
   is_valid_format <- str_detect(arg, pattern) | arg == "" | is.na(arg)
 
-  if(valid_full_date){
+  if (valid_full_date) {
     # ymd() will return NA is arg is not a full date
     arg_ymd <- suppress_warning(ymd(arg), "failed to parse")
     is_full_date <- !is.na(arg_ymd) & !is.na(arg)
     is_valid_format & is_full_date
-  }else{
+  } else {
     is_full_date <- TRUE
   }
 
-  if(valid_full_datetime){
+  if (valid_full_datetime) {
     # ymd() will return NA is arg is not a full datetime
     arg_ymd_hms <- suppress_warning(ymd_hms(arg), "failed to parse")
     is_full_datetime <- !is.na(arg_ymd_hms) & !is.na(arg)
-  }else{
+  } else {
     is_full_datetime <- TRUE
   }
 
   is_valid_format & is_full_date & is_full_datetime
-
 }
