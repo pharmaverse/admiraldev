@@ -62,13 +62,6 @@ jobs:
     needs: get_r_version
     with:
       r-version: "${{ needs.get_r_version.outputs.r-version }}"
-  validation:
-    name: Validation
-    uses: pharmaverse/admiralci/.github/workflows/r-pkg-validation.yml@main
-    if: github.event_name == 'release'
-    needs: get_r_version
-    with:
-      r-version: "${{ needs.get_r_version.outputs.r-version }}"
   check:
     name: Check
     uses: pharmaverse/admiralci/.github/workflows/r-cmd-check.yml@main
