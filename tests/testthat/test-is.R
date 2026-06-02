@@ -19,14 +19,13 @@ test_that("is_valid_dtc Test 3: returns TRUE if input are valid dtc", {
   expect_true(is_valid_dtc("2021-03-09T01:20:30"))
 })
 
-# is_valid_dtc ----
 ## Test 4: returns error if input are NOT valid dtc  ----
-test_that("is_valid_dtc Test 4: returns error if input are NOT valid dtc ", {
+test_that("is_valid_dtc Test 4: returns FALSE if input are NOT valid dtc ", {
   expect_false(is_valid_dtc("2021-03-T01:20:30"))
 })
 
 ## Test 5: returns error if input date or datetime is not real date  ----
-test_that("is_valid_dtc Test 5: returns error if input date or datetime is not real date", {
+test_that("is_valid_dtc Test 5: returns FALSE if input date or datetime is not real date", {
   expect_false(is_valid_dtc("2021-02-31", check_dtc = TRUE))
   expect_false(is_valid_dtc("2021-02-29", check_dtc = TRUE)) # not a leap year!
   expect_false(is_valid_dtc("2021-02-28T25:00:00", check_dtc = TRUE))

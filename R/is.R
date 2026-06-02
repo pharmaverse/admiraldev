@@ -52,7 +52,7 @@ is_order_vars <- function(arg) {
 #'
 #' @details If `check_dtc` is `FALSE`, the function only checks if the format of the
 #' string is valid, i.e. it will not check if the actual date/datetime is real, so
-#' calls such as `is_valid_dtc("2020-13", check_dtc = FALSE))` and
+#' calls such as `is_valid_dtc("2020-13", check_dtc = FALSE)` and
 #' `is_valid_dtc("2020-12-01T25:00:00", check_dtc = FALSE)` will return`TRUE`.
 #'
 #' @export

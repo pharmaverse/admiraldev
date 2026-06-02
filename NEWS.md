@@ -7,7 +7,7 @@
 ## Updates of Existing Functions
 
 - `is_valid_dtc()` was enhanced with the arguments `check_dtc` to allow users
-to check whether the input date/datetime is a real date/datetime`. (#505)
+to check whether the input date/datetime is a real date/datetime. (#505)
 - `capture_message()` was updated to strip off all control sequences from the
  message. (#543)
 - `assert_list_of()` (and `assert_vars()`) was updated with a clearer message to users on how to fix
