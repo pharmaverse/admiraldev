@@ -72,14 +72,14 @@ is_valid_dtc <- function(arg, check_dtc = FALSE) {
 
   is_valid_format <- str_detect(arg, pattern) | arg == "" | is.na(arg)
 
-  if (check_dtc & !is.na(arg)) {
+  if (check_dtc) {
     parsed_datetime <- parse_date_time(
       arg,
       orders = c("YmdHMS", "Ymd", "YmdHM", "Y", "Ym", "YmdH"),
       quiet = TRUE
     )
     # Check if successfully parsed OR if it is an intentionally missing value
-    is_parseable <- !is.na(parsed_datetime)
+    is_parseable <- !is.na(parsed_datetime) | is.na(arg)
   } else {
     is_parseable <- TRUE
   }
