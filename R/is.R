@@ -36,7 +36,7 @@ is_order_vars <- function(arg) {
     all(map_lgl(arg, ~ is.symbol(.x) || is_desc_call(.x)))
 }
 
-#' Is this string a valid DTC
+#' Is this string a valid DTC?
 #'
 #' @param arg A `character` vector
 #'
@@ -44,9 +44,13 @@ is_order_vars <- function(arg) {
 #'    full date (i.e. it is exactly of the form `"yyyy-mm-dd"` and can be parsed by
 #'    `ymd()`).
 #'
+#' @permitted [boolean]
+#'
 #' @param valid_full_datetime If `TRUE`, the function will check if the string is a
 #' full datetime (i.e. it is exactly of the form `"yyyy-mm-ddThh:mm:ss"` and can be
 #' parsed by `ymd_hms()`).
+#'
+#' @permitted [boolean]
 #'
 #' @return `TRUE` if the argument is a valid `--DTC` string, `FALSE` otherwise
 #'

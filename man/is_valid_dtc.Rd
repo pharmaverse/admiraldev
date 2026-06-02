@@ -2,7 +2,7 @@
 % Please edit documentation in R/is.R
 \name{is_valid_dtc}
 \alias{is_valid_dtc}
-\title{Is this string a valid DTC}
+\title{Is this string a valid DTC?}
 \usage{
 is_valid_dtc(arg, valid_full_date = FALSE, valid_full_datetime = FALSE)
 }
@@ -18,6 +18,7 @@ full date (i.e. it is exactly of the form \code{"yyyy-mm-dd"} and can be parsed 
 \code{ymd()}).
 
 \describe{
+\item{Permitted values}{\code{TRUE}, \code{FALSE}}
 \item{Default value}{\code{FALSE}}
 }}
 
@@ -26,6 +27,7 @@ full datetime (i.e. it is exactly of the form \code{"yyyy-mm-ddThh:mm:ss"} and c
 parsed by \code{ymd_hms()}).
 
 \describe{
+\item{Permitted values}{\code{TRUE}, \code{FALSE}}
 \item{Default value}{\code{FALSE}}
 }}
 }
@@ -33,7 +35,7 @@ parsed by \code{ymd_hms()}).
 \code{TRUE} if the argument is a valid \code{--DTC} string, \code{FALSE} otherwise
 }
 \description{
-Is this string a valid DTC
+Is this string a valid DTC?
 }
 \details{
 If both \code{check_full_date} and \code{check_full_time} are set to \code{FALSE}, the
