@@ -6,6 +6,8 @@
 
 ## Updates of Existing Functions
 
+- `is_valid_dtc()` was enhanced with arguments `valid_full_date` and `valid_full_datetime` to allow users
+to check whether the date/datetime is valid, i.e. parseable by `ymd()` or `ymd_hms()`. (#505)
 - `capture_message()` was updated to strip off all control sequences from the
  message. (#543)
 - `assert_list_of()` (and `assert_vars()`) was updated with a clearer message to users on how to fix
@@ -34,6 +36,10 @@ in the [admiral reference page](https://pharmaverse.github.io/admiral/cran-relea
 
 ## Various
 - Updated existing assertion unit tests. (#550)
+
+# admiraldev 1.4.1
+
+* Maintainer switched from Ben Straub to Edoardo Mancini
 
 # admiraldev 1.4.0
 

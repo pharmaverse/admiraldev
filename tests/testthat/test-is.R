@@ -20,13 +20,24 @@ test_that("is_valid_dtc Test 3: returns TRUE if input are valid dtc", {
 })
 
 # is_valid_dtc ----
-## Test 4: returns error if input if input are NOT valid dtc  ----
-test_that("is_valid_dtc Test 4: returns error if input if input are NOT valid dtc ", {
+## Test 4: returns error if input are NOT valid dtc  ----
+test_that("is_valid_dtc Test 4: returns error if input are NOT valid dtc ", {
   expect_false(is_valid_dtc("2021-03-T01:20:30"))
 })
 
+## Test 5: returns error if input date or datetmie is not valid"  ----
+test_that("is_valid_dtc Test 5: returns error if input date or datetime is not valid", {
+  expect_false(is_valid_dtc("2021-02-31", valid_full_date = TRUE))
+  expect_false(is_valid_dtc("2021-02-28T25:00:00", valid_full_datetime = TRUE))
+})
+
+## Test 6: returns error if input is a valid datetime but full date is being checked ----
+test_that("is_valid_dtc Test 6: returns error if input is a valid datetime but full date is being checked", {
+  expect_false(is_valid_dtc("2021-02-28T00:00:61", valid_full_date = TRUE))
+})
+
 # is_auto  ----
-## Test 5: returns error if argument is not 'auto' ----
-test_that("is_auto Test 5: returns error if argument is not 'auto'", {
+## Test 7: returns error if argument is not 'auto' ----
+test_that("is_auto Test 7: returns error if argument is not 'auto'", {
   expect_false(is_auto("otua"))
 })
