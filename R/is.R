@@ -42,7 +42,7 @@ is_order_vars <- function(arg) {
 #'
 #' @permitted [char_scalar]
 #'
-#' @param check_dtc If `TRUE`, the function will check if the string is a real,
+#' @param check_dtc If `TRUE`, the function will check if the string is a real
 #' date or datetime (e.g. "2020-02-31" is not real). Note that `NA` is a valid
 #' datetime.
 #'
@@ -58,6 +58,21 @@ is_order_vars <- function(arg) {
 #' @export
 #' @keywords is
 #' @family is
+#'
+#' @examples
+#'
+#' ## Format is valid, date/datetimes are real
+#' is_valid_dtc("2020-02")
+#' is_valid_dtc("2020-02-28")
+#' is_valid_dtc("2020-02-28T14:43")
+#'
+#' # Format is valid, date/datetimes are not real but this is not checked
+#' is_valid_dtc("2020-02-31")
+#' is_valid_dtc("2020-02-28T25:00:00")
+#'
+#' # Format is valid, date/datetimes are not real and this is not checked
+#' is_valid_dtc("2020-02-31", check_dtc = TRUE)
+#' is_valid_dtc("2020-02-28T25:00:00", check_dtc = TRUE)
 #'
 is_valid_dtc <- function(arg, check_dtc = FALSE) {
   twod <- "(\\d{2}|-)"
