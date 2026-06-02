@@ -53,14 +53,6 @@ admiraldev:::execute_example("log(-1)")
 #> NaNs produced
 #> If this is expected, add any of the classes "simpleWarning", "warning", and
 #> "condition" to the argument `expected_cnds`.
-#> In addition: Warning message:
-#> [38;5;251m── [1mConflicts[22m ──────────────────────────────────────────────────────────────── admiraldev conflicts
-#> ──
-#> [31m✖[38;5;251m `[32mis_auto[38;5;251m` masks `[34madmiraldev[38;5;251m::is_auto()`.
-#> [31m✖[38;5;251m `[32mis_order_vars[38;5;251m` masks `[34madmiraldev[38;5;251m::is_order_vars()`.
-#> [31m✖[38;5;251m `[32mis_valid_dtc[38;5;251m` masks `[34madmiraldev[38;5;251m::is_valid_dtc()`.
-#> [36mi[38;5;251m [90mDid you accidentally source a file rather than using `load_all()`?[38;5;251m
-#>   [90mRun `rm(list = c("is_auto", "is_order_vars", "is_valid_dtc"))` to remove the conflicts.[38;5;251m[39m 
 
 admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
 #> [1] "log(-1)\n#> [1] NaN\n#> Warning in log(-1) : NaNs produced"}\if{html}{\out{</div>}}}}
