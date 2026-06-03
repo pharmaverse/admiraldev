@@ -9,6 +9,10 @@
 
 ### Updates of Existing Functions
 
+- [`is_valid_dtc()`](https://pharmaverse.github.io/admiraldev/dev/reference/is_valid_dtc.md)
+  was enhanced with the argument `check_dtc` to allow users to check
+  whether the input date/datetime is a real date/datetime.
+  ([\#505](https://github.com/pharmaverse/admiraldev/issues/505))
 - [`capture_message()`](https://pharmaverse.github.io/admiraldev/dev/reference/capture_message.md)
   was updated to strip off all control sequences from the message.
   ([\#543](https://github.com/pharmaverse/admiraldev/issues/543))

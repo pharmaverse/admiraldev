@@ -81,7 +81,7 @@ Is the object what it says it is
 - [`is_order_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/is_order_vars.md)
   : Is order vars?
 - [`is_valid_dtc()`](https://pharmaverse.github.io/admiraldev/dev/reference/is_valid_dtc.md)
-  : Is this string a valid DTC
+  : Is this string a valid DTC?
 
 ## What Functions
 
