@@ -2,22 +2,54 @@
 % Please edit documentation in R/is.R
 \name{is_valid_dtc}
 \alias{is_valid_dtc}
-\title{Is this string a valid DTC}
+\title{Is this string a valid DTC?}
 \usage{
-is_valid_dtc(arg)
+is_valid_dtc(arg, check_dtc = FALSE)
 }
 \arguments{
-\item{arg}{A \code{character} vector
+\item{arg}{The string to check.
 
 \describe{
+\item{Permitted values}{a character scalar, i.e., a character vector of length one}
 \item{Default value}{none}
+}}
+
+\item{check_dtc}{If \code{TRUE}, the function will check if the string is a real
+date or datetime (e.g. "2020-02-31" is not real). Note that \code{NA} is a valid
+datetime.
+
+\describe{
+\item{Permitted values}{\code{TRUE}, \code{FALSE}}
+\item{Default value}{\code{FALSE}}
 }}
 }
 \value{
 \code{TRUE} if the argument is a valid \code{--DTC} string, \code{FALSE} otherwise
 }
 \description{
-Is this string a valid DTC
+Is this string a valid DTC?
+}
+\details{
+If \code{check_dtc} is \code{FALSE}, the function only checks if the format of the
+string is valid, i.e. it will not check if the actual date/datetime is real, so
+calls such as \code{is_valid_dtc("2020-13", check_dtc = FALSE)} and
+\code{is_valid_dtc("2020-12-01T25:00:00", check_dtc = FALSE)} will return\code{TRUE}.
+}
+\examples{
+
+## Format is valid, date/datetimes are real
+is_valid_dtc("2020-02")
+is_valid_dtc("2020-02-28")
+is_valid_dtc("2020-02-28T14:43")
+
+# Format is valid, date/datetimes are not real but this is not checked
+is_valid_dtc("2020-02-31")
+is_valid_dtc("2020-02-28T25:00:00")
+
+# Format is valid, date/datetimes are not real and this is checked
+is_valid_dtc("2020-02-31", check_dtc = TRUE)
+is_valid_dtc("2020-02-28T25:00:00", check_dtc = TRUE)
+
 }
 \seealso{
 Identifies type of Object with return of TRUE/FALSE:

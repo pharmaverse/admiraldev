@@ -36,16 +36,45 @@ is_order_vars <- function(arg) {
     all(map_lgl(arg, ~ is.symbol(.x) || is_desc_call(.x)))
 }
 
-#' Is this string a valid DTC
+#' Is this string a valid DTC?
 #'
-#' @param arg A `character` vector
+#' @param arg The string to check.
+#'
+#' @permitted [char_scalar]
+#'
+#' @param check_dtc If `TRUE`, the function will check if the string is a real
+#' date or datetime (e.g. "2020-02-31" is not real). Note that `NA` is a valid
+#' datetime.
+#'
+#' @permitted [boolean]
 #'
 #' @return `TRUE` if the argument is a valid `--DTC` string, `FALSE` otherwise
+#'
+#' @details If `check_dtc` is `FALSE`, the function only checks if the format of the
+#' string is valid, i.e. it will not check if the actual date/datetime is real, so
+#' calls such as `is_valid_dtc("2020-13", check_dtc = FALSE)` and
+#' `is_valid_dtc("2020-12-01T25:00:00", check_dtc = FALSE)` will return`TRUE`.
+#'
 #' @export
 #' @keywords is
 #' @family is
 #'
-is_valid_dtc <- function(arg) {
+#' @examples
+#'
+#' ## Format is valid, date/datetimes are real
+#' is_valid_dtc("2020-02")
+#' is_valid_dtc("2020-02-28")
+#' is_valid_dtc("2020-02-28T14:43")
+#'
+#' # Format is valid, date/datetimes are not real but this is not checked
+#' is_valid_dtc("2020-02-31")
+#' is_valid_dtc("2020-02-28T25:00:00")
+#'
+#' # Format is valid, date/datetimes are not real and this is checked
+#' is_valid_dtc("2020-02-31", check_dtc = TRUE)
+#' is_valid_dtc("2020-02-28T25:00:00", check_dtc = TRUE)
+#'
+is_valid_dtc <- function(arg, check_dtc = FALSE) {
   twod <- "(\\d{2}|-)"
   pattern <- paste0(
     "^(\\d{4}|-)?",
@@ -56,5 +85,19 @@ is_valid_dtc <- function(arg) {
     "(:", twod, "(.(\\d{1,5}))?)?$"
   )
 
-  str_detect(arg, pattern) | arg == "" | is.na(arg)
+  is_valid_format <- str_detect(arg, pattern) | arg == "" | is.na(arg)
+
+  if (check_dtc) {
+    parsed_datetime <- parse_date_time(
+      arg,
+      orders = c("YmdHMS", "Ymd", "YmdHM", "Y", "Ym", "YmdH"),
+      quiet = TRUE
+    )
+    # Check if successfully parsed OR if it is an intentionally missing value
+    is_parseable <- !is.na(parsed_datetime) | is.na(arg)
+  } else {
+    is_parseable <- TRUE
+  }
+
+  is_valid_format & is_parseable
 }
