@@ -1,3 +1,15 @@
+# admiraldev (development version)
+
+## New Features
+
+## Updates of Existing Functions
+
+## Breaking Changes
+
+## Documentation
+
+## Various
+
 # admiraldev 1.5.0
 
 ## New Features
@@ -16,8 +28,6 @@ to check whether the input date/datetime is a real date/datetime. (#505)
   a string versus symbol issue, e.g "If a variable was provided as a string, 
   please provide it as a symbol, e.g. use `exprs(AVISIT)` instead of 
   `exprs("AVISIT")`". (#538)
-
-## Breaking Changes
 
 ## Documentation
 
@@ -47,7 +57,7 @@ in the [admiral reference page](https://pharmaverse.github.io/admiral/cran-relea
 
 # admiraldev 1.4.1
 
-* Maintainer switched from Ben Straub to Edoardo Mancini
+* Maintainer switched from Ben Straub to Edoardo Mancini.
 
 # admiraldev 1.4.0
 
