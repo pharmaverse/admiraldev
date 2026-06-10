@@ -4,7 +4,21 @@
 
 ### New Features
 
-- Moved over roxygen helper functions from admiral to admiraldev
+### Updates of Existing Functions
+
+### Breaking Changes
+
+### Documentation
+
+### Various
+
+## admiraldev 1.5.0
+
+### New Features
+
+- Moved over roxygen helper functions from
+  [admiral](https://pharmaverse.github.io/admiral/) to
+  [admiraldev](https://pharmaverse.github.io/admiraldev/).
   ([\#517](https://github.com/pharmaverse/admiraldev/issues/517))
 
 ### Updates of Existing Functions
@@ -13,30 +27,34 @@
   was enhanced with the argument `check_dtc` to allow users to check
   whether the input date/datetime is a real date/datetime.
   ([\#505](https://github.com/pharmaverse/admiraldev/issues/505))
+
 - [`capture_message()`](https://pharmaverse.github.io/admiraldev/dev/reference/capture_message.md)
   was updated to strip off all control sequences from the message.
   ([\#543](https://github.com/pharmaverse/admiraldev/issues/543))
+
 - [`assert_list_of()`](https://pharmaverse.github.io/admiraldev/dev/reference/assert_list_of.md)
-  (and
-  [`assert_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/assert_vars.md))
-  was updated with a clearer message to users on how to fix a string
+  and
+  [`assert_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/assert_vars.md)
+  were updated with a clearer message to users on how to fix a string
   versus symbol issue, e.g “If a variable was provided as a string,
   please provide it as a symbol, e.g. use `exprs(AVISIT)` instead of
-  `exprs("AVISIT")`”
+  `exprs("AVISIT")`”.
   ([\#538](https://github.com/pharmaverse/admiraldev/issues/538))
-
-### Breaking Changes
 
 ### Documentation
 
 - Update to [roxygen2](https://roxygen2.r-lib.org/) 8.0.0.
   ([\#557](https://github.com/pharmaverse/admiraldev/issues/557))
-- Update links in documentation for AI coding `AGENTS.md` files
+
+- Update links in documentation for AI coding `AGENTS.md` files.
   ([\#552](https://github.com/pharmaverse/admiraldev/issues/552))
-- Update vignettes for AI coding `AGENTS.md` files
+
+- Update vignettes for AI coding `AGENTS.md` files.
   ([\#545](https://github.com/pharmaverse/admiraldev/issues/545))
+
 - The website navigation bar has been updated to:
   ([\#539](https://github.com/pharmaverse/admiraldev/issues/539))
+
   - Add a night mode option. This can be be toggled using the sun/moon
     icon in the top right corner of the navigation bar.
   - Add a link to the “Get Started” vignette for developers.
@@ -44,11 +62,13 @@
   - Add tooltips for each of the icons.
   - Increase the maximum height of the drop-down menus to ensure all
     items are visible without scrolling.
+
 - Added a brief section on using AI in the programming strategy.
   ([\#547](https://github.com/pharmaverse/admiraldev/issues/547))
-- The function name prefixes in the programming strategy have been
-  updated.
+
+- Updated the function name prefixes in the programming strategy.
   ([\#472](https://github.com/pharmaverse/admiraldev/issues/472))
+
 - Aligned the definition of “Experimental functions” in the programming
   strategy with the definition in the [admiral reference
   page](https://pharmaverse.github.io/admiral/cran-release/reference/#experimental).
@@ -63,7 +83,7 @@
 
 CRAN release: 2026-05-27
 
-- Maintainer switched from Ben Straub to Edoardo Mancini
+- Maintainer switched from Ben Straub to Edoardo Mancini.
 
 ## admiraldev 1.4.0
 

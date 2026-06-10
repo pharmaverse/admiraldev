@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.5.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,44 +76,57 @@ document.addEventListener("DOMContentLoaded", function () {
 <h2 class="pkg-version" data-toc-text="development version" id="admiraldev-development-version">admiraldev (development version)<a class="anchor" aria-label="anchor" href="#admiraldev-development-version"></a></h2>
 <div class="section level3">
 <h3 id="new-features-development-version">New Features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
-<ul><li>Moved over roxygen helper functions from admiral to admiraldev (<a href="https://github.com/pharmaverse/admiraldev/issues/517" class="external-link">#517</a>)</li>
-</ul></div>
+</div>
 <div class="section level3">
 <h3 id="updates-of-existing-functions-development-version">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-development-version"></a></h3>
-<ul><li>
-<code><a href="../reference/is_valid_dtc.html">is_valid_dtc()</a></code> was enhanced with the argument <code>check_dtc</code> to allow users to check whether the input date/datetime is a real date/datetime. (<a href="https://github.com/pharmaverse/admiraldev/issues/505" class="external-link">#505</a>)</li>
-<li>
-<code><a href="../reference/capture_message.html">capture_message()</a></code> was updated to strip off all control sequences from the message. (<a href="https://github.com/pharmaverse/admiraldev/issues/543" class="external-link">#543</a>)</li>
-<li>
-<code><a href="../reference/assert_list_of.html">assert_list_of()</a></code> (and <code><a href="../reference/assert_vars.html">assert_vars()</a></code>) was updated with a clearer message to users on how to fix a string versus symbol issue, e.g “If a variable was provided as a string, please provide it as a symbol, e.g. use <code>exprs(AVISIT)</code> instead of <code>exprs("AVISIT")</code>” (<a href="https://github.com/pharmaverse/admiraldev/issues/538" class="external-link">#538</a>)</li>
-</ul></div>
+</div>
 <div class="section level3">
 <h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
 </div>
 <div class="section level3">
 <h3 id="documentation-development-version">Documentation<a class="anchor" aria-label="anchor" href="#documentation-development-version"></a></h3>
-<ul><li>Update to <a href="https://roxygen2.r-lib.org/" class="external-link">roxygen2</a> 8.0.0. (<a href="https://github.com/pharmaverse/admiraldev/issues/557" class="external-link">#557</a>)</li>
-<li>Update links in documentation for AI coding <code>AGENTS.md</code> files (<a href="https://github.com/pharmaverse/admiraldev/issues/552" class="external-link">#552</a>)</li>
-<li>Update vignettes for AI coding <code>AGENTS.md</code> files (<a href="https://github.com/pharmaverse/admiraldev/issues/545" class="external-link">#545</a>)</li>
-<li>The website navigation bar has been updated to: (<a href="https://github.com/pharmaverse/admiraldev/issues/539" class="external-link">#539</a>)
+</div>
+<div class="section level3">
+<h3 id="various-development-version">Various<a class="anchor" aria-label="anchor" href="#various-development-version"></a></h3>
+</div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.5.0" id="admiraldev-150">admiraldev 1.5.0<a class="anchor" aria-label="anchor" href="#admiraldev-150"></a></h2>
+<div class="section level3">
+<h3 id="new-features-1-5-0">New Features<a class="anchor" aria-label="anchor" href="#new-features-1-5-0"></a></h3>
+<ul><li>Moved over roxygen helper functions from <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> to <a href="https://pharmaverse.github.io/admiraldev/">admiraldev</a>. (<a href="https://github.com/pharmaverse/admiraldev/issues/517" class="external-link">#517</a>)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="updates-of-existing-functions-1-5-0">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-1-5-0"></a></h3>
+<ul><li><p><code><a href="../reference/is_valid_dtc.html">is_valid_dtc()</a></code> was enhanced with the argument <code>check_dtc</code> to allow users to check whether the input date/datetime is a real date/datetime. (<a href="https://github.com/pharmaverse/admiraldev/issues/505" class="external-link">#505</a>)</p></li>
+<li><p><code><a href="../reference/capture_message.html">capture_message()</a></code> was updated to strip off all control sequences from the message. (<a href="https://github.com/pharmaverse/admiraldev/issues/543" class="external-link">#543</a>)</p></li>
+<li><p><code><a href="../reference/assert_list_of.html">assert_list_of()</a></code> and <code><a href="../reference/assert_vars.html">assert_vars()</a></code> were updated with a clearer message to users on how to fix a string versus symbol issue, e.g “If a variable was provided as a string, please provide it as a symbol, e.g. use <code>exprs(AVISIT)</code> instead of <code>exprs("AVISIT")</code>”. (<a href="https://github.com/pharmaverse/admiraldev/issues/538" class="external-link">#538</a>)</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="documentation-1-5-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-1-5-0"></a></h3>
+<ul><li><p>Update to <a href="https://roxygen2.r-lib.org/" class="external-link">roxygen2</a> 8.0.0. (<a href="https://github.com/pharmaverse/admiraldev/issues/557" class="external-link">#557</a>)</p></li>
+<li><p>Update links in documentation for AI coding <code>AGENTS.md</code> files. (<a href="https://github.com/pharmaverse/admiraldev/issues/552" class="external-link">#552</a>)</p></li>
+<li><p>Update vignettes for AI coding <code>AGENTS.md</code> files. (<a href="https://github.com/pharmaverse/admiraldev/issues/545" class="external-link">#545</a>)</p></li>
+<li>
+<p>The website navigation bar has been updated to: (<a href="https://github.com/pharmaverse/admiraldev/issues/539" class="external-link">#539</a>)</p>
 <ul><li>Add a night mode option. This can be be toggled using the sun/moon icon in the top right corner of the navigation bar.</li>
 <li>Add a link to the “Get Started” vignette for developers.</li>
 <li>Add icon links to report a bug and join the pharmaverse Slack.</li>
 <li>Add tooltips for each of the icons.</li>
 <li>Increase the maximum height of the drop-down menus to ensure all items are visible without scrolling.</li>
 </ul></li>
-<li>Added a brief section on using AI in the programming strategy. (<a href="https://github.com/pharmaverse/admiraldev/issues/547" class="external-link">#547</a>)</li>
-<li>The function name prefixes in the programming strategy have been updated. (<a href="https://github.com/pharmaverse/admiraldev/issues/472" class="external-link">#472</a>)</li>
-<li>Aligned the definition of “Experimental functions” in the programming strategy with the definition in the <a href="https://pharmaverse.github.io/admiral/cran-release/reference/#experimental" class="external-link">admiral reference page</a>. (<a href="https://github.com/pharmaverse/admiraldev/issues/561" class="external-link">#561</a>)</li>
+<li><p>Added a brief section on using AI in the programming strategy. (<a href="https://github.com/pharmaverse/admiraldev/issues/547" class="external-link">#547</a>)</p></li>
+<li><p>Updated the function name prefixes in the programming strategy. (<a href="https://github.com/pharmaverse/admiraldev/issues/472" class="external-link">#472</a>)</p></li>
+<li><p>Aligned the definition of “Experimental functions” in the programming strategy with the definition in the <a href="https://pharmaverse.github.io/admiral/cran-release/reference/#experimental" class="external-link">admiral reference page</a>. (<a href="https://github.com/pharmaverse/admiraldev/issues/561" class="external-link">#561</a>)</p></li>
 </ul></div>
 <div class="section level3">
-<h3 id="various-development-version">Various<a class="anchor" aria-label="anchor" href="#various-development-version"></a></h3>
+<h3 id="various-1-5-0">Various<a class="anchor" aria-label="anchor" href="#various-1-5-0"></a></h3>
 <ul><li>Updated existing assertion unit tests. (<a href="https://github.com/pharmaverse/admiraldev/issues/550" class="external-link">#550</a>)</li>
 </ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.4.1" id="admiraldev-141">admiraldev 1.4.1<a class="anchor" aria-label="anchor" href="#admiraldev-141"></a></h2><p class="text-muted">CRAN release: 2026-05-27</p>
-<ul><li>Maintainer switched from Ben Straub to Edoardo Mancini</li>
+<ul><li>Maintainer switched from Ben Straub to Edoardo Mancini.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.4.0" id="admiraldev-140">admiraldev 1.4.0<a class="anchor" aria-label="anchor" href="#admiraldev-140"></a></h2><p class="text-muted">CRAN release: 2026-01-14</p>
@@ -478,7 +491,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by F. Hoffmann-La Roche AG, GlaxoSmithKline LLC, <a href="https://manciniedoardo.github.io/" class="external-link">Edoardo Mancini</a>, <a href="https://github.com/bundfussr" class="external-link">Stefan Bundfuss</a>, <a href="https://arianna-cascone.quarto.pub/" class="external-link">Arianna Cascone</a>, <a href="https://github.com/Kcdahn" class="external-link">Kristin Dahnert</a>, <a href="https://github.com/jeffreyad" class="external-link">Jeffrey Dickinson</a>, <a href="https://github.com/rossfarrugia" class="external-link">Ross Farrugia</a>, <a href="https://github.com/Fanny-Gautier" class="external-link">Fanny Gautier</a>, <a href="https://github.com/millerg23" class="external-link">Gordon Miller</a>, <a href="https://github.com/Lina2689" class="external-link">Lina Patil</a>, <a href="https://github.com/bms63" class="external-link">Ben Straub</a>.</p>
+  <p>Developed by F. Hoffmann-La Roche AG, GlaxoSmithKline LLC, <a href="https://manciniedoardo.github.io/" class="external-link">Edoardo Mancini</a>, <a href="https://github.com/bundfussr" class="external-link">Stefan Bundfuss</a>, <a href="https://arianna-cascone.quarto.pub/" class="external-link">Arianna Cascone</a>, <a href="https://github.com/Kcdahn" class="external-link">Kristin Dahnert</a>, <a href="https://github.com/jeffreyad" class="external-link">Jeffrey Dickinson</a>, <a href="https://github.com/rossfarrugia" class="external-link">Ross Farrugia</a>, <a href="https://github.com/Fanny-Gautier" class="external-link">Fanny Gautier</a>, <a href="https://github.com/LiamHobby" class="external-link">Liam Hobby</a>, <a href="https://github.com/millerg23" class="external-link">Gordon Miller</a>, <a href="https://github.com/Lina2689" class="external-link">Lina Patil</a>, <a href="https://github.com/bms63" class="external-link">Ben Straub</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
