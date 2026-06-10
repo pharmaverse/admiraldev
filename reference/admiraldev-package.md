@@ -23,23 +23,28 @@ Useful links:
 
 Authors:
 
+- Edoardo Mancini <edoardo.mancini@roche.com>
+  ([ORCID](https://orcid.org/0009-0006-4899-8641))
+
 - Stefan Bundfuss ([ORCID](https://orcid.org/0009-0005-0027-1198))
 
 - Arianna Cascone ([ORCID](https://orcid.org/0000-0001-5948-2831))
+
+- Kristin Dahnert
 
 - Jeffrey Dickinson
 
 - Ross Farrugia
 
-- Fanny Gautier
+- Fanny Gautier ([ORCID](https://orcid.org/0009-0004-3581-0131))
+
+- Liam Hobby <liam.f.hobby@gsk.com>
 
 - Gordon Miller
 
-- Daniel Sjoberg ([ORCID](https://orcid.org/0000-0003-0862-2018))
+- Lina Patil
 
 - Ben Straub
-
-- Stefan Thoma ([ORCID](https://orcid.org/0000-0002-5553-9252))
 
 Other contributors:
 

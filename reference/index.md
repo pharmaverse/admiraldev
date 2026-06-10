@@ -81,7 +81,7 @@ Is the object what it says it is
 - [`is_order_vars()`](https://pharmaverse.github.io/admiraldev/reference/is_order_vars.md)
   : Is order vars?
 - [`is_valid_dtc()`](https://pharmaverse.github.io/admiraldev/reference/is_valid_dtc.md)
-  : Is this string a valid DTC
+  : Is this string a valid DTC?
 
 ## What Functions
 
@@ -156,10 +156,28 @@ Functions for generating documentation
 
 - [`capture_output()`](https://pharmaverse.github.io/admiraldev/reference/capture_output.md)
   : Capture Output and Messages
+
 - [`parse_code()`](https://pharmaverse.github.io/admiraldev/reference/parse_code.md)
   : Parse Code
+
 - [`rdx_roclet()`](https://pharmaverse.github.io/admiraldev/reference/rdx_roclet.md)
   : Roclet Extending the Standard rd Roclet
+
+- [`roxygen_order_na_handling()`](https://pharmaverse.github.io/admiraldev/reference/roxygen_order_na_handling.md)
+  : Standard Text for NA Handling in Sorting Variables
+
+- [`roxygen_param_by_vars()`](https://pharmaverse.github.io/admiraldev/reference/roxygen_param_by_vars.md)
+  :
+
+  Standard Text for the `by_vars` Argument
+
+- [`roxygen_param_dataset()`](https://pharmaverse.github.io/admiraldev/reference/roxygen_param_dataset.md)
+  :
+
+  Standard Text for the `dataset` Argument
+
+- [`roxygen_save_memory()`](https://pharmaverse.github.io/admiraldev/reference/roxygen_save_memory.md)
+  : Standard Note for Memory-Intensive Functions
 
 ## Miscellaneous
 

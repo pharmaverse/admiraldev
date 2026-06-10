@@ -26,7 +26,7 @@ A character vector
 ## See also
 
 Developer Utility Functions:
-[`%notin%()`](https://pharmaverse.github.io/admiraldev/reference/grapes-notin-grapes.md),
+[`%notin%`](https://pharmaverse.github.io/admiraldev/reference/grapes-notin-grapes.md),
 [`contains_vars()`](https://pharmaverse.github.io/admiraldev/reference/contains_vars.md),
 [`convert_dtm_to_dtc()`](https://pharmaverse.github.io/admiraldev/reference/convert_dtm_to_dtc.md),
 [`extract_vars()`](https://pharmaverse.github.io/admiraldev/reference/extract_vars.md),

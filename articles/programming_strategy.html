@@ -11,22 +11,43 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
+  window.MathJax = {
+    chtml: {
+      fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
+    }
+  };
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Programming Strategy">
-<script async src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="2c7249cc-f1dc-4a63-8674-6ecbcb34d95c" data-project-name="admiral" data-project-color="#2c3e50" data-project-logo="https://pharmaverse.github.io/admiraldev/logo.png" data-consent-required="true" data-user-analytics-cookie-enabled="true" data-consent-screen-title="Help us improve our AI assistant" data-consent-screen-disclaimer="By clicking 'Allow tracking', you consent to anonymous user tracking which helps us improve our service. We don't collect any personally identifiable information." data-consent-screen-accept-button-text="Allow tracking" data-consent-screen-reject-button-text="No, thanks" data-modal-example-questions="Tell me a little about the {admiraldev} package., What assertion checks are provided by {admiraldev}?" data-modal-search-placeholder="Ask me a question about {admiraldev} or the {admiral} ecosystem..." data-modal-z-index="9999"></script>
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<meta property="og:title" content="Programming Strategy">
+<script async src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="2c7249cc-f1dc-4a63-8674-6ecbcb34d95c" data-project-name="admiral" data-project-color="#2c3e50" data-project-logo="https://pharmaverse.github.io/admiraldev/logo.png" data-consent-required="true" data-user-analytics-cookie-enabled="true" data-consent-screen-title="Help us improve our AI assistant" data-consent-screen-disclaimer="By clicking 'Allow tracking', you consent to anonymous user tracking which helps us improve our service. We don't collect any personally identifiable information." data-consent-screen-accept-button-text="Allow tracking" data-consent-screen-reject-button-text="No, thanks" data-modal-example-questions="Tell me a little about the {admiraldev} package., What assertion checks are provided by {admiraldev}?" data-modal-search-placeholder="Ask me a question about {admiraldev} or the {admiral} ecosystem..." data-modal-z-index="9999"></script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all navbar links that have an aria-label
+  var navLinks = document.querySelectorAll('.navbar-nav .nav-link[aria-label]');
+
+  navLinks.forEach(function (link) {
+    // Initialize Bootstrap 5 Tooltip
+    link.setAttribute('title', link.getAttribute('aria-label'));
+    new bootstrap.Tooltip(link, {
+      placement: 'bottom', // Tooltip appears below the icon
+      trigger: 'hover'
+    });
+  });
+});
+</script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +56,6 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../articles/admiraldev.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-developer-guides" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Developer Guides</button>
@@ -58,7 +78,17 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://pharmaverse.slack.com/" aria-label="Join the pharmaverse Slack!"><span class="fa fa-slack"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/pharmaverse/admiraldev/issues/new/choose" aria-label="Report an issue"><span class="fa fa-bug"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/pharmaverse/admiraldev" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -104,7 +134,8 @@ flow code.</li>
 <li>Each function has a specific purpose that supports the ADaM Dataset
 programming workflow. It could be an <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> function or
 a company specific function.</li>
-<li>Admiral functions can be re-used for company specific
+<li>
+<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> functions can be re-used for company specific
 functions.</li>
 <li>Each function belongs to one category defined in
 keywords/family.</li>
@@ -140,8 +171,9 @@ AEs).</p>
 the corresponding imputation flag) then a single function would provide
 both variables.</p>
 <p>If something needed for ADaM could be achieved simply via an existing
-tidyverse function, then we do not wrap this into an admiral function,
-as that would add an unnecessary extra layer for users.</p>
+tidyverse function, then we do not wrap this into an
+<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> function, as that would add an unnecessary extra
+layer for users.</p>
 <p>The following principles are key when designing a new function:</p>
 <ul>
 <li><p><em><strong>Modularity</strong></em> - All code follows a modular
@@ -159,7 +191,7 @@ computational functions or data checks. However, also consider not to
 nest too many functions.</p></li>
 <li><p><em><strong>Checks</strong></em> - Whenever a function fails, a
 meaningful error message must be provided with a clear reference to the
-input which caused the failure. A users should not have to dig into
+input which caused the failure. A user should not have to dig into
 detailed code if they only want to apply a function. A meaningful error
 message supports usability.</p></li>
 <li>
@@ -219,7 +251,7 @@ creating or modifying global objects, printing, writing files, …</li>
 <h3 id="admiral-options">Admiral Options<a class="anchor" aria-label="anchor" href="#admiral-options"></a>
 </h3>
 <ul>
-<li>An exception is made for admiral options, see
+<li>An exception is made for <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> options, see
 <code>get_admiral_option()</code> and
 <code>set_admiral_options()</code>, where we have certain pre-defined
 defaults with added flexibility to allow for user-defined defaults on
@@ -233,8 +265,8 @@ arguments multiple times in a script, which may be called across many
 admiral functions.</li>
 <li>If this additional flexibility needs to be added for another
 <em>commonly used</em> function argument e.g. <code>future_input</code>
-to be set as <code>exprs(...)</code> it can be added as an admiral
-option. In the function formals define
+to be set as <code>exprs(...)</code> it can be added as an
+<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> option. In the function formals define
 <code>future_input = get_admiral_option("future_input")</code> then
 proceed to modify the body and roxygen documentation of
 <code>set_admiral_options()</code>.</li>
@@ -243,10 +275,8 @@ proceed to modify the body and roxygen documentation of
 <div class="section level3">
 <h3 id="function-names">Function Names<a class="anchor" aria-label="anchor" href="#function-names"></a>
 </h3>
-<ul>
-<li>Function names should start with a verb and use snake case,
-e.g. <code>derive_var_base()</code>.</li>
-</ul>
+<p>Function names should start with a verb and use snake case, e.g.,
+<code>derive_var_base()</code>.</p>
 <table class="table">
 <colgroup>
 <col width="31%">
@@ -285,22 +315,30 @@ additional rows and/or columns</td>
 </tr>
 <tr class="even">
 <td>
-<code>compute_</code> / <code>calculate_</code> / …</td>
-<td>Functions that take vectors as input and return a vector</td>
+<code>derive_*_records</code> (e.g.,
+<code>derive_summary_records</code>)</td>
+<td>Functions that add records to the input dataset</td>
 </tr>
 <tr class="odd">
+<td>
+<code>compute_</code> / <code>convert_</code> / <code>impute_</code>
+/ <code>transform_</code>
+</td>
+<td>Functions that take vectors as input and return a vector</td>
+</tr>
+<tr class="even">
 <td>
 <code>create_</code> / <code>consolidate_</code>
 </td>
 <td>Functions that create datasets without keeping the original
 observations</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>get_</code></td>
 <td>Usually utility functions that return very specific objects that get
 passed through other functions</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>filter_</code></td>
 <td>Functions that filter observations based on conditions associated
 with common clinical trial syntax</td>
@@ -351,8 +389,9 @@ through other <code>derive_</code> functions.</td>
 <code>_merged_</code> / <code>_joined_</code> /
 <code>_extreme_</code>
 </td>
-<td>Functions that follow the <a href="https://pharmaverse.github.io/admiral/articles/generic.html" class="external-link">generic
-function user-guide</a>.</td>
+<td>Functions that follow the <a href="https://pharmaverse.github.io/admiral/cran-release/articles/generic.html" class="external-link">generic
+function user-guide</a>
+</td>
 </tr></tbody>
 </table>
 <p>Please note that the appropriate <em>var</em>/<em>vars</em> prefix
@@ -578,7 +617,7 @@ preferences and conventions such as avoiding the use of
 <code>inst/lintr/linters.R</code> in <a href="https://pharmaverse.github.io/admiraldev/">admiraldev</a> (so as
 not to expose it to users) and can be loaded within the
 <code>.lintr.R</code> configuration file with
-<code>source(system.file("lintr/linters.R", package = "admiraldev")</code>.
+<code>source(system.file("lintr/linters.R", package = "admiraldev"))</code>.
 An example <code>.lintr.R</code> configuration file is shown below:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lintr.r-lib.org" class="external-link">lintr</a></span><span class="op">)</span></span>
@@ -666,7 +705,7 @@ These custom assertion functions should either return an error in case
 of an invalid input or return nothing.</p>
 <p>For the most common types of input arguments like a single variable,
 a list of variables, a dataset, … functions for checking are available
-(see <a href="../reference/index.html#section-assertions">assertions</a>).</p>
+(see <a href="https://pharmaverse.github.io/admiraldev/dev/reference/index.html#assertion-functions">assertions</a>).</p>
 <p>Arguments which expect keywords should handle them in a
 case-insensitive manner, e.g., both
 <code>date_imputation = "FIRST"</code> and
@@ -824,7 +863,7 @@ after the <code>@param</code>. This does not affect the order of the
 argument description in the rendered documentation but makes it easier
 to maintain the headers.</p>
 <p>Variable names, expressions, functions, and any other code must be
-enclosed which backticks. This will render it as code.</p>
+enclosed in backticks. This will render it as code.</p>
 <p>For functions which derive a specific CDISC variable, the title must
 state the label of the variable without the variable name. The variable
 should be stated in the description.</p>
@@ -849,7 +888,7 @@ case-sensitive.</p>
 <code>@keywords</code><a class="anchor" aria-label="anchor" href="#keywords"></a>
 </h4>
 <p>The keywords allows for the reference page to be easily organized
-when using certain <code>pgkdown</code> functions. For example, using
+when using certain <code>pkgdown</code> functions. For example, using
 the function <code>has_keyword(der_bds_gen)</code> in the
 <code>_pkgdown.yml</code> file while building the website will collect
 all the BDS General Derivation functions and display them in
@@ -865,10 +904,11 @@ BDS-Specific.</p>
 example, a user looking at <code>derive_vars_dy()</code> function
 documentation might be interested in other Date/Time functions. Using
 the <code>@family</code> tag <code>der_date_time</code> will display all
-the Date/Time functions available in admiral to the user in the
-<strong>See Also</strong> section of <code>derive_vars_dy()</code>
-function documentation. Please take a look at the function documentation
-for <code>derive_vars_dy()</code> to see the family tag in action.</p>
+the Date/Time functions available in <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> to the user
+in the <strong>See Also</strong> section of
+<code>derive_vars_dy()</code> function documentation. Please take a look
+at the function documentation for <code>derive_vars_dy()</code> to see
+the family tag in action.</p>
 <p>Below are the list of available keyword/family tags to be used in
 <code>admiral</code> functions. If you think an additional
 keyword/family tag should be added, then please add an issue in GitHub
@@ -897,7 +937,8 @@ for discussion.</p>
 </tr>
 <tr class="even">
 <td><code>datasets</code></td>
-<td>Example datasets used within admiral</td>
+<td>Example datasets used within <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>
+</td>
 </tr>
 <tr class="odd">
 <td><code>der_gen</code></td>
@@ -939,8 +980,8 @@ ADaMs</td>
 </tr>
 <tr class="even">
 <td><code>deprecated</code></td>
-<td>Function which will be removed from admiral after next release. See
-<a href="#deprecation">Deprecation Guidance</a>.</td>
+<td>Function which will be removed from <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> after
+next release. See <a href="#deprecation">Deprecation Guidance</a>.</td>
 </tr>
 <tr class="odd">
 <td><code>metadata</code></td>
@@ -985,7 +1026,8 @@ e.g. grading criteria or dose frequencies</td>
 </tr>
 <tr class="odd">
 <td><code>internal</code></td>
-<td>Internal functions only available to admiral developers</td>
+<td>Internal functions only available to <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>
+developers</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1016,9 +1058,10 @@ e.g. grading criteria or dose frequencies</td>
 </table>
 <p><strong>NOTE:</strong> It is strongly encouraged that each
 <code>@keyword</code> and <code>@family</code> are to be identical. This
-eases the burden of development and maintenance for admiral functions.
-If you need to use multiple keywords or families, please reach out to
-the core development team for discussion.</p>
+eases the burden of development and maintenance for
+<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> functions. If you need to use multiple keywords
+or families, please reach out to the core development team for
+discussion.</p>
 </div>
 </div>
 </div>
@@ -1031,6 +1074,77 @@ missing character values as blank. Those are imported into R as empty
 strings (<code>""</code>) although in nature they are missing values
 (<code>NA</code>). All empty strings that originate like this need to be
 converted to proper R missing values <code>NA</code>.</p>
+</div>
+<div class="section level2">
+<h2 id="repository-structure">Repository Structure<a class="anchor" aria-label="anchor" href="#repository-structure"></a>
+</h2>
+<p>The table below describes the key directories and files in the
+repository. Understanding this layout helps contributors know where to
+find and where to place code.</p>
+<table class="table">
+<colgroup>
+<col width="37%">
+<col width="62%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Directory or File</th>
+<th align="left">Purpose</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>R/</code></td>
+<td align="left">R source files containing package functions. File names
+reflect their contents (see <a href="#file-structuring">File
+Structuring</a> below).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>man/</code></td>
+<td align="left">Auto-generated Rd documentation files. <strong>Do not
+edit manually.</strong> Run <code>devtools::document()</code> to
+regenerate.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>tests/testthat/</code></td>
+<td align="left">Unit test scripts. Each file follows the naming
+convention <code>test-&lt;source_file&gt;.R</code>.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>vignettes/</code></td>
+<td align="left">Developer-facing guidance vignettes (and any
+user-facing articles).</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>inst/lintr/</code></td>
+<td align="left">Linting helpers/configuration used by
+<code>.lintr.R</code> (e.g., sourced via
+<code>system.file(...)</code>).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>inst/templates/</code></td>
+<td align="left">ADaM R script templates made available to users.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>NAMESPACE</code></td>
+<td align="left">Auto-generated export/import declarations. <strong>Do
+not edit manually.</strong> Run <code>devtools::document()</code>.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>NEWS.md</code></td>
+<td align="left">Package changelog. Updated with every user-facing
+change per PR.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>DESCRIPTION</code></td>
+<td align="left">Package metadata and dependency declarations
+(<code>Imports</code>, <code>Suggests</code>).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>_pkgdown.yml</code></td>
+<td align="left">Configuration for the package website built by
+<a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section level2">
 <h2 id="file-structuring">File Structuring<a class="anchor" aria-label="anchor" href="#file-structuring"></a>
@@ -1071,12 +1185,13 @@ included in that file: <code>#' @importFrom dplyr if_else mutate</code>.
 By using the <code>@importFrom</code> tag, it is easier to track all of
 our dependencies in one place and improves code readability.</p>
 <p>Some of these functions become critically important while using
-admiral and should be included as an export. This applies to functions
-which are frequently called within <code>{admiral }</code>function calls
-like <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">rlang::exprs()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">dplyr::desc()</a></code> or the pipe
-operator <code>dplyr::%&gt;%</code>. To export these functions, the
-following R code should be included in the <code>R/reexports.R</code>
-file using the format:</p>
+<a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> and should be included as an export. This applies
+to functions which are frequently called within <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>
+function calls like <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">rlang::exprs()</a></code>,
+<code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">dplyr::desc()</a></code> or the pipe operator
+<code>dplyr::%&gt;%</code>. To export these functions, the following R
+code should be included in the <code>R/reexports.R</code> file using the
+format:</p>
 <pre><code><span><span class="co">#' @export</span></span>
 <span><span class="fu">pkg_name</span><span class="fu">::</span><span class="va">fun</span></span></code></pre>
 </div>
@@ -1097,8 +1212,8 @@ Unit Tests in {admiral}</a> for details.</p>
 <h2 id="deprecation">Deprecation<a class="anchor" aria-label="anchor" href="#deprecation"></a>
 </h2>
 <p>The below deprecation strategy provides stability to users while
-allowing admiral developers the ability to remove and update the code
-base in the coming days.</p>
+allowing <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> developers the ability to remove and
+update the code base in the coming days.</p>
 <ul>
 <li><p><strong>Phase 1:</strong> In the release where the identified
 function or argument is to be deprecated, there will be a message issued
@@ -1108,7 +1223,7 @@ for at least <em>one year</em>. Templates, vignettes and any internal
 calls should be updated to use the new recommended
 function/argument.</p></li>
 <li><p><strong>Phase 2:</strong> After at least <em>one year</em> and in
-the closet next release, a warning will be issued when using the
+the closest next release, a warning will be issued when using the
 function or argument using <code>deprecate_warn()</code>. This warning
 message will appear for at least <em>one year</em>.</p></li>
 <li><p><strong>Phase 3:</strong> After at least <em>one year</em> and in
@@ -1348,22 +1463,13 @@ i.e., <code>"lifecycle_error_deprecated"</code>.</p>
 <div class="section level2">
 <h2 id="experimental-functions">Experimental Functions<a class="anchor" aria-label="anchor" href="#experimental-functions"></a>
 </h2>
-<p>admiral is stable with its core functions. New functions added to
-admiral must be labelled with the lifecycle badge
-<strong>experimental</strong>.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#' Title of the function</span></span>
-<span><span class="co">#'</span></span>
-<span><span class="co">#' @description</span></span>
-<span><span class="co">#' `r lifecycle::badge("experimental")`</span></span>
-<span><span class="co">#'</span></span></code></pre></div>
-<p>Experimental functions will be given two release before we remove the
-badge. No deprecation messages will be given to the user if breaking
-changes are implemented within the two releases cycle. However, admiral
-will document the breaking change in the <code>News.md</code>. Once the
-two release cycles is reached, admiral will remove the
-<strong>experimental</strong> badge and we will proceed with the normal
-deprecation cycle if needed.</p>
+<p><a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> is stable with its core functions. In the rare
+case that new functions are added, the dev team may choose to label them
+with the “Experimental” lifecycle badge. While a function has this
+badge, no deprecation messages will be given to the user if a change is
+introduced, although these will be documented in the “Changelog”.
+Experimental functions will have the “Experimental” badge removed once
+the dev team feels the function is stable.</p>
 <p>This experimental time period allows for us to test out the function
 and receive feedback but doesn’t burden us with a deprecation cycle.</p>
 </div>
@@ -1385,20 +1491,20 @@ appropriate.</li>
 <h3 id="how-quoting-is-used">How Quoting is used<a class="anchor" aria-label="anchor" href="#how-quoting-is-used"></a>
 </h3>
 <ul>
-<li>Some admiral arguments require selecting one particular option like
-<code>mode</code>, e.g. <code>mode = "last"</code>. Use quotation marks
-to capture these. The expected assertion function corresponding to these
-arguments is
+<li>Some <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> arguments require selecting one
+particular option like <code>mode</code>,
+e.g. <code>mode = "last"</code>. Use quotation marks to capture these.
+The expected assertion function corresponding to these arguments is
 <code>assert_character_scalar()/assert_character_vector()</code>.</li>
-<li>Many admiral arguments require capturing an expression, typically
-encased in a <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code> statement, which are to be evaluated
-<em>later</em> inside the function body, see arguments like
-<code>new_vars</code>,
+<li>Many <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> arguments require capturing an
+expression, typically encased in a <code><a href="https://rlang.r-lib.org/reference/defusing-advanced.html" class="external-link">exprs()</a></code> statement, which
+are to be evaluated <em>later</em> inside the function body, see
+arguments like <code>new_vars</code>,
 e.g. <code>new_vars = exprs(TRTSDTM = EXSTDTM)</code>. Oftentimes, the
 assertion function corresponding to these are
 <code>assert_expr()/assert_expr_list()</code>. These arguments are
 unquoted by using <code>!!!</code>.</li>
-<li>Some admiral arguments like <code>new_var</code> or
+<li>Some <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> arguments like <code>new_var</code> or
 <code>filter</code> which expect a <em>single</em> variable or
 expression are not quoted in the call. In the function body, it has to
 be quoted by using <code>enexpr().</code> Usually this is combined with
@@ -1422,13 +1528,17 @@ further details.</p>
 <p>The benefits of having a programmatic way to write documentation is
 that if any changes need to be made, <em>making the modification on the
 corresponding function, in this case,
-<code>roxygen_param_dataset()</code>, scales across the codebase, can be
+<code><a href="../reference/roxygen_param_dataset.html">roxygen_param_dataset()</a></code>, scales across the codebase, can be
 tested, and is less prone to user-error such as typos or grammar
 mistakes</em>.</p>
-<p>These functions are implemented in <code>roxygen2.R</code> and the
-naming convention for each argument will be as follows
-<code>roxygen_param_xxx()</code>, where “xxx” is the be replaced with
-the argument name.</p>
+<p>These functions are implemented in <a href="https://pharmaverse.github.io/admiraldev/">admiraldev</a> (in
+<code>roxygen2.R</code>) and the naming convention for each argument
+will be as follows <code>roxygen_param_xxx()</code>, where “xxx” is to
+be replaced with the argument name. The available helper functions are
+<code><a href="../reference/roxygen_param_dataset.html">roxygen_param_dataset()</a></code>,
+<code><a href="../reference/roxygen_param_by_vars.html">roxygen_param_by_vars()</a></code>,
+<code><a href="../reference/roxygen_order_na_handling.html">roxygen_order_na_handling()</a></code>, and
+<code><a href="../reference/roxygen_save_memory.html">roxygen_save_memory()</a></code>.</p>
 </div>
 </div>
 <div class="section level2">
@@ -1452,6 +1562,96 @@ can view this workflow and others on our <a href="https://github.com/pharmaverse
 Repository</a>.</li>
 </ul>
 </div>
+<div class="section level2">
+<h2 id="development-commands">Development Commands<a class="anchor" aria-label="anchor" href="#development-commands"></a>
+</h2>
+<p>The following R commands cover the most common development tasks. All
+commands should be run with the package project open (i.e., from the
+package root directory).</p>
+<div class="section level3">
+<h3 id="install-package-dependencies">Install Package Dependencies<a class="anchor" aria-label="anchor" href="#install-package-dependencies"></a>
+</h3>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_deps</span><span class="op">(</span>dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>Installs all packages declared in <code>DESCRIPTION</code> (both
+<code>Imports</code> and <code>Suggests</code>).</p>
+</div>
+<div class="section level3">
+<h3 id="load-the-package">Load the Package<a class="anchor" aria-label="anchor" href="#load-the-package"></a>
+</h3>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">load_all</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Simulates installing and loading the package. Use this frequently
+during development to ensure your changes are available in the R
+session.</p>
+</div>
+<div class="section level3">
+<h3 id="generate-documentation">Generate Documentation<a class="anchor" aria-label="anchor" href="#generate-documentation"></a>
+</h3>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">document</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Runs <a href="https://roxygen2.r-lib.org/" class="external-link">roxygen2</a> to rebuild all <code>man/*.Rd</code>
+files and regenerate <code>NAMESPACE</code>. Must be run after any
+change to roxygen headers.</p>
+</div>
+<div class="section level3">
+<h3 id="run-all-unit-tests">Run All Unit Tests<a class="anchor" aria-label="anchor" href="#run-all-unit-tests"></a>
+</h3>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">test</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Runs the full <a href="https://testthat.r-lib.org" class="external-link">testthat</a> test suite. All tests must pass
+before opening a pull request.</p>
+</div>
+<div class="section level3">
+<h3 id="run-tests-for-a-single-file">Run Tests for a Single File<a class="anchor" aria-label="anchor" href="#run-tests-for-a-single-file"></a>
+</h3>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">test_file</span><span class="op">(</span><span class="st">"tests/testthat/test-&lt;file&gt;.R"</span><span class="op">)</span></span></code></pre></div>
+<p>Useful for rapid iteration while developing or fixing a specific
+function.</p>
+</div>
+<div class="section level3">
+<h3 id="check-code-style-linting">Check Code Style (Linting)<a class="anchor" aria-label="anchor" href="#check-code-style-linting"></a>
+</h3>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint_package</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Applies the linting rules defined in <code>.lintr.R</code> (which
+uses <code>admiral_linters()</code> from <a href="https://pharmaverse.github.io/admiraldev/">admiraldev</a>). The
+CI workflow will fail if linting errors are present.</p>
+</div>
+<div class="section level3">
+<h3 id="auto-format-code-styler">Auto-Format Code (Styler)<a class="anchor" aria-label="anchor" href="#auto-format-code-styler"></a>
+</h3>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">styler</span><span class="fu">::</span><span class="fu">style_pkg</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Reformats source files to comply with the <a href="https://style.tidyverse.org/" class="external-link">tidyverse style guide</a>. Run this
+before committing to avoid whitespace-related lintr failures.</p>
+</div>
+<div class="section level3">
+<h3 id="run-r-cmd-check">Run R CMD Check<a class="anchor" aria-label="anchor" href="#run-r-cmd-check"></a>
+</h3>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">check</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Runs the full <code>R CMD check</code> suite locally. The PR CI will
+fail if check produces any errors, warnings, or notes. See the <a href="rcmd_issues.html">R CMD Issues</a> vignette for guidance on
+resolving common failures.</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="use-of-ai">Use of AI<a class="anchor" aria-label="anchor" href="#use-of-ai"></a>
+</h2>
+<p><a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> has no prohibition on the use of AI from
+contributors. However, contributors still need to follow all <a href="https://pharmaverse.github.io/admiral/cran-release/CONTRIBUTING.html" class="external-link">contributor
+guidelines</a> as well as ensuring their contributions do not violate
+copyright, regardless of whether AI tools were used in their creation.
+The <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a> core team has created the <a href="https://github.com/pharmaverse/admiral/blob/main/AGENTS.md" class="external-link"><code>AGENTS.md</code></a>
+file to provide the AI with guidance on admiral’s particular needs, as
+well as the contribution guidelines that should be followed. The
+AGENTS.md file encodes admiral-specific conventions around coding style,
+testing expectations, and deprecation patterns that general-purpose AI
+tools won’t know by default. To gain a better understanding of the <a href="https://github.com/pharmaverse/admiral/blob/main/AGENTS.md" class="external-link"><code>AGENTS.md</code></a>
+file we recommend to read more on this topic <a href="https://agents.md" class="external-link">here</a>.</p>
+</div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -1460,7 +1660,7 @@ Repository</a>.</li>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by F. Hoffmann-La Roche AG, GlaxoSmithKline LLC, Edoardo Mancini, Stefan Bundfuss, Arianna Cascone, Jeffrey Dickinson, Ross Farrugia, Fanny Gautier, Gordon Miller, Daniel Sjoberg, Ben Straub, Stefan Thoma.</p>
+  <p>Developed by F. Hoffmann-La Roche AG, GlaxoSmithKline LLC, <a href="https://manciniedoardo.github.io/" class="external-link">Edoardo Mancini</a>, <a href="https://github.com/bundfussr" class="external-link">Stefan Bundfuss</a>, <a href="https://arianna-cascone.quarto.pub/" class="external-link">Arianna Cascone</a>, <a href="https://github.com/Kcdahn" class="external-link">Kristin Dahnert</a>, <a href="https://github.com/jeffreyad" class="external-link">Jeffrey Dickinson</a>, <a href="https://github.com/rossfarrugia" class="external-link">Ross Farrugia</a>, <a href="https://github.com/Fanny-Gautier" class="external-link">Fanny Gautier</a>, <a href="https://github.com/LiamHobby" class="external-link">Liam Hobby</a>, <a href="https://github.com/millerg23" class="external-link">Gordon Miller</a>, <a href="https://github.com/Lina2689" class="external-link">Lina Patil</a>, <a href="https://github.com/bms63" class="external-link">Ben Straub</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

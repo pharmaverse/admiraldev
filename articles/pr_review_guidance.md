@@ -25,7 +25,7 @@ In addition, the PR creator and reviewer should make sure that
 - the [Programming
   Strategy](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.md)
   and [Development
-  Process](https://pharmaverse.github.io/admiral/dev/CONTRIBUTING.html)
+  Process](https://pharmaverse.github.io/admiral/cran-release/CONTRIBUTING.html)
   are followed
 
 - the function is ADaM IG compliant
@@ -77,7 +77,7 @@ that compiles information from the Pull Request Review Guidance,
 [Programming
 Strategy](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.md)
 and [Development
-Process](https://pharmaverse.github.io/admiral/dev/CONTRIBUTING.html)
+Process](https://pharmaverse.github.io/admiral/cran-release/CONTRIBUTING.html)
 vignettes.
 
 The next three sections give a high-level overview of what a contributor
@@ -111,10 +111,10 @@ compliant Pull Request.
 ### Complete the Pull Request checklist
 
 The check boxes are linked to the `task-list-completed` workflow. You
-need to check off each box in acknowledgment that you have done you due
+need to check off each box in acknowledgment that you have done your due
 diligence in creating a compliant Pull Request. GitHub will refresh the
 Pull Request and trigger `task-list-completed` workflow that you have
-completed the task. The PR can not be merged into `main` until the
+completed the task. The PR cannot be merged into `main` until the
 contributor has checked off each of the check box items.
 
 ![](pr_review_actions.png)

@@ -38,7 +38,7 @@ the example below:
 #'
 #' @caption Showcasing the second functionality of `fun()` (`arg2`)
 #'
-#' @info This is the detailed text for the first example.
+#' @info This is the detailed text for the second example.
 #'
 #' @code
 #'
@@ -59,8 +59,8 @@ Within each block:
   The code should be as self-contained as possible. The dataset/object
   being created should be printed at the end of the section.
 
-Note that a more complex block may also have multiple `@info` and`@code`
-sections after the `@caption` if it is particularly involved.
+Note that a more complex block may also have multiple `@info` and
+`@code` sections after the `@caption` if it is particularly involved.
 
 ![Here is what a block and table of contents look like (taken from
 admiral::derive_vars_dt().](custom_roclet_example.png)

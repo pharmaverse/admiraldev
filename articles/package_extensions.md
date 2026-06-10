@@ -210,10 +210,10 @@ Dummy issue for new developers
     experienced contributors) issue labels.
 
 **Note**: the core [admiral](https://pharmaverse.github.io/admiral/)
-team will carry out periodic reviews of of the extension package
-contents to ensure nothing is duplicated and ensure standards and best
-practices are followed. The frequency of these reviews is to be agreed
-upon by the technical leads of the core and extension packages.
+team will carry out periodic reviews of the extension package contents
+to ensure nothing is duplicated and ensure standards and best practices
+are followed. The frequency of these reviews is to be agreed upon by the
+technical leads of the core and extension packages.
 
 ## Lessons Learned
 

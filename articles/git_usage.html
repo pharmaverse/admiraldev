@@ -11,22 +11,43 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
+  window.MathJax = {
+    chtml: {
+      fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
+    }
+  };
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Guidance for git and GitHub Usage">
-<script async src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="2c7249cc-f1dc-4a63-8674-6ecbcb34d95c" data-project-name="admiral" data-project-color="#2c3e50" data-project-logo="https://pharmaverse.github.io/admiraldev/logo.png" data-consent-required="true" data-user-analytics-cookie-enabled="true" data-consent-screen-title="Help us improve our AI assistant" data-consent-screen-disclaimer="By clicking 'Allow tracking', you consent to anonymous user tracking which helps us improve our service. We don't collect any personally identifiable information." data-consent-screen-accept-button-text="Allow tracking" data-consent-screen-reject-button-text="No, thanks" data-modal-example-questions="Tell me a little about the {admiraldev} package., What assertion checks are provided by {admiraldev}?" data-modal-search-placeholder="Ask me a question about {admiraldev} or the {admiral} ecosystem..." data-modal-z-index="9999"></script>
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<meta property="og:title" content="Guidance for git and GitHub Usage">
+<script async src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="2c7249cc-f1dc-4a63-8674-6ecbcb34d95c" data-project-name="admiral" data-project-color="#2c3e50" data-project-logo="https://pharmaverse.github.io/admiraldev/logo.png" data-consent-required="true" data-user-analytics-cookie-enabled="true" data-consent-screen-title="Help us improve our AI assistant" data-consent-screen-disclaimer="By clicking 'Allow tracking', you consent to anonymous user tracking which helps us improve our service. We don't collect any personally identifiable information." data-consent-screen-accept-button-text="Allow tracking" data-consent-screen-reject-button-text="No, thanks" data-modal-example-questions="Tell me a little about the {admiraldev} package., What assertion checks are provided by {admiraldev}?" data-modal-search-placeholder="Ask me a question about {admiraldev} or the {admiral} ecosystem..." data-modal-z-index="9999"></script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all navbar links that have an aria-label
+  var navLinks = document.querySelectorAll('.navbar-nav .nav-link[aria-label]');
+
+  navLinks.forEach(function (link) {
+    // Initialize Bootstrap 5 Tooltip
+    link.setAttribute('title', link.getAttribute('aria-label'));
+    new bootstrap.Tooltip(link, {
+      placement: 'bottom', // Tooltip appears below the icon
+      trigger: 'hover'
+    });
+  });
+});
+</script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +56,6 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../articles/admiraldev.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-developer-guides" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Developer Guides</button>
@@ -58,7 +78,17 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://pharmaverse.slack.com/" aria-label="Join the pharmaverse Slack!"><span class="fa fa-slack"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/pharmaverse/admiraldev/issues/new/choose" aria-label="Report an issue"><span class="fa fa-bug"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/pharmaverse/admiraldev" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -101,8 +131,8 @@ more in-depth guidance on using <code>git</code> and GitHub.</p>
 <ul>
 <li><p>The <code>main</code> branch contains the latest development
 version of the package. You can find the released versions <a href="https://GitHub.com/pharmaverse/admiral/releases" class="external-link">here</a></p></li>
-<li><p>The <code>gh-pages</code> branches contains the code used to
-render R package websites - you are looking at right now!</p></li>
+<li><p>The <code>gh-pages</code> branch contains the code used to render
+R package websites - you are looking at it right now!</p></li>
 <li><p>The <code>patch</code> branch is reserved for special hot fixes
 to address bugs and should rarely be used. More info in <a href="release_strategy.html#hot-fix-release">Hot Fix
 Release</a></p></li>
@@ -131,7 +161,7 @@ developers to only work on one issue at a time.</p>
 <p>The name of the branch must be prefixed with the issue number,
 followed by a short but meaningful description. As an example, given an
 issue #94 “Program function to derive <code>LSTALVDT</code>”, the branch
-name would be <code>94_derive_var_lstalvdt</code>.</p>
+name would be <code>94-derive-var-lstalvdt</code>.</p>
 </div>
 <div class="section level4">
 <h4 id="create-a-new-feature-branch-from-the-terminal-from-main">Create a New Feature Branch from the Terminal (from
@@ -173,7 +203,7 @@ commit. You can use <code>git add .</code> to move all files you have
 worked on to the staging area. Next you can commit, which takes a
 snapshot of your staged changes. When committing, prefix the message
 with the issue number and add a meaningful message
-<code>git commit –m '#94 last alive date implementation'</code>.</p>
+<code>git commit -m '#94 last alive date implementation'</code>.</p>
 <p>Lastly, you should push your changes up to GitHub using
 <code>git push origin &lt;branch name&gt;</code></p>
 </div>
@@ -204,7 +234,7 @@ think is valuable in a highly regulated industry like Pharma.</p>
 <ul>
 <li><code>feat: #94 skeleton of function developed</code></li>
 <li><code>chore: #94 styler and lintr update</code></li>
-<li><code>docs: #94 parameters and details sections compelted</code></li>
+<li><code>docs: #94 parameters and details sections completed</code></li>
 </ul>
 </div>
 <div class="section level4">
@@ -213,7 +243,7 @@ think is valuable in a highly regulated industry like Pharma.</p>
 <ul>
 <li><code>#94 skeleton of function developed</code></li>
 <li><code>#94 styler and lintr update</code></li>
-<li><code>#94 parameters and details sections compelted</code></li>
+<li><code>#94 parameters and details sections completed</code></li>
 </ul>
 </div>
 <div class="section level4">
@@ -222,7 +252,7 @@ think is valuable in a highly regulated industry like Pharma.</p>
 <ul>
 <li><code>skeleton of function developed (#94)</code></li>
 <li><code>styler and lintr update (#94)</code></li>
-<li><code>parameters and details sections compelted (#94)</code></li>
+<li><code>parameters and details sections completed (#94)</code></li>
 </ul>
 </div>
 </div>
@@ -231,7 +261,7 @@ think is valuable in a highly regulated industry like Pharma.</p>
 </h3>
 <p>We recommend a thorough read through of the articles, <a href="pr_review_guidance.html">Pull Request Review Guidance</a> and the
 <a href="programming_strategy.html">Programming Strategy</a> for
-in-depth discussions on a doing a proper Pull Request.Pull Request
+in-depth discussions on doing a proper Pull Request. Pull Request
 authors will benefit from shorter review times by closely following the
 guidance provided in those two articles. Below we discuss some simple
 <code>git</code> commands in the terminal and on GitHub for doing a Pull
@@ -249,7 +279,7 @@ Please <strong>pay close attention</strong> to the branch you are
 merging into!</p>
 <p><img src="github_create_pr.png"><!-- --></p>
 <p>The issue must be linked to the pull request in the “Development”
-field of the Pull Request. In most cases, this will linkage will
+field of the Pull Request. In most cases, this linkage will
 automatically close the issue and move to the Done column on our project
 board.</p>
 <p><img src="github_linked_issues_dark.png"><!-- --></p>
@@ -274,9 +304,9 @@ GitHub before the Pull Request is merged</li>
 </ul>
 <p>Once the review is completed, the reviewer will merge the Pull
 Request and the feature branch will automatically be deleted.</p>
-<p>After merging the Pull Request please check that corresponding has
-been moved to the done column on the Project Board. Also, please make
-sure that the issue has closed.</p>
+<p>After merging the Pull Request please check that the corresponding
+issue has been moved to the done column on the Project Board. Also,
+please make sure that the issue has closed.</p>
 <p><img src="github_done.png"><!-- --></p>
 </div>
 <div class="section level4">
@@ -321,7 +351,8 @@ wish to keep. Be sure to remove the
 <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> as well! Once you work through
 the conflicts you will mark as <strong>Resolved and Commit your
 changes</strong>. It is recommended to pull your branch back down to
-RStudio to make sure no untoward effects have happen to your branch.</p>
+RStudio to make sure no untoward effects have happened to your
+branch.</p>
 <p><img src="github_conflicts.png"><!-- --></p>
 </div>
 </div>
@@ -343,7 +374,8 @@ clean directory<br>
 changes<br>
 </li>
 <li>
-<code>git revert</code> is also helpful but why?</li>
+<code>git revert</code> is also helpful for undoing committed
+changes without rewriting history</li>
 </ul>
 <p><strong>Using code from unmerged branches</strong></p>
 <ul>
@@ -379,7 +411,7 @@ useR</a></li>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by F. Hoffmann-La Roche AG, GlaxoSmithKline LLC, Edoardo Mancini, Stefan Bundfuss, Arianna Cascone, Jeffrey Dickinson, Ross Farrugia, Fanny Gautier, Gordon Miller, Daniel Sjoberg, Ben Straub, Stefan Thoma.</p>
+  <p>Developed by F. Hoffmann-La Roche AG, GlaxoSmithKline LLC, <a href="https://manciniedoardo.github.io/" class="external-link">Edoardo Mancini</a>, <a href="https://github.com/bundfussr" class="external-link">Stefan Bundfuss</a>, <a href="https://arianna-cascone.quarto.pub/" class="external-link">Arianna Cascone</a>, <a href="https://github.com/Kcdahn" class="external-link">Kristin Dahnert</a>, <a href="https://github.com/jeffreyad" class="external-link">Jeffrey Dickinson</a>, <a href="https://github.com/rossfarrugia" class="external-link">Ross Farrugia</a>, <a href="https://github.com/Fanny-Gautier" class="external-link">Fanny Gautier</a>, <a href="https://github.com/LiamHobby" class="external-link">Liam Hobby</a>, <a href="https://github.com/millerg23" class="external-link">Gordon Miller</a>, <a href="https://github.com/Lina2689" class="external-link">Lina Patil</a>, <a href="https://github.com/bms63" class="external-link">Ben Straub</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

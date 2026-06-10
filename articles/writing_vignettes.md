@@ -208,9 +208,9 @@ For vignettes describing an ADaM workflow,
   to the SDTM dataset before the first derivation. These `ADSL`
   variables have to be added to the by-variables for derivations which
   add observations. This ensures that the `ADSL` variables are populated
-  `for` the new observations. A `adsl_vars` variable should be created
-  at the beginning of the script and added to the `by_vars` parameter
-  for derivations which add observations.
+  for the new observations. A `adsl_vars` variable should be created at
+  the beginning of the script and added to the `by_vars` parameter for
+  derivations which add observations.
 
   `ADSL` variables which should be in the final dataset but are not
   required for any derivation are merged to the dataset after the last
