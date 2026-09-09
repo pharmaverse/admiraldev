@@ -93,7 +93,7 @@ arguments/flexibilities of your function code. Then plan which scenarios you wil
 test. These can either involve generating different input test cases or feeding 
 them into different calls of your function.
 
-## Test coverage
+## Test Coverage
 
 Unit tests should cover the functionality of the function.
 If another function `g()` is called within a function `f()`, the unit tests of `f()` should not test the functionality of `g()`. 
@@ -133,6 +133,75 @@ Some challenges include:
 For these situations, testthat provides an alternative mechanism: snapshot tests.
 Snapshot tests record results in a separate human readable file and records the results, including output, messages, warnings, and errors.
 Review the [{testthat} snapshot vignette](https://testthat.r-lib.org/articles/snapshotting.html) for details.
+
+## Testing Errors and Warnings
+
+A unit test that checks a function throws an error or issues a warning must
+always verify that the *expected* condition is raised, not just that *some*
+error or warning happens. Otherwise the test will still pass even if the
+function starts throwing a completely different, unintended error, or if the
+specific warning it is supposed to test for is accidentally removed while an
+unrelated warning is still triggered elsewhere in the function.
+
+Never call `expect_error()`/`expect_warning()` without also identifying the
+condition being tested. Use one of the following instead:
+
+- The `class` argument of `expect_error()`/`expect_warning()`, when the
+  underlying condition has a class (as is the case for all `assert_*()`
+  helpers and for conditions raised with `cli::cli_abort()`/`cli::cli_warn()`).
+- `expect_snapshot(..., error = TRUE, cnd_class = TRUE)` (drop `error = TRUE`
+  when testing a warning), which records the condition class together with
+  the full message text in a snapshot file. This is the preferred approach in
+  `{admiral}`, as it also locks in the user-facing message text: any
+  unintentional change to the wording will cause the snapshot test to fail
+  and be reviewed.
+
+### Good Example
+
+Taken from
+[`test-assertions.R`](https://github.com/pharmaverse/admiraldev/blob/main/tests/testthat/test-assertions.R):
+
+```r
+## Test 21: error if `arg` is not TRUE or FALSE ----
+test_that("assert_logical_scalar Test 21: error if `arg` is not TRUE or FALSE", {
+  example_fun <- function(arg) {
+    assert_logical_scalar(arg)
+  }
+  arg <- c()
+  expect_error(example_fun(NA), class = "assert_logical_scalar")
+  expect_error(example_fun(arg), class = "assert_logical_scalar")
+  expect_snapshot(
+    error = TRUE,
+    cnd_class = TRUE,
+    example_fun("test")
+  )
+})
+```
+
+Both `expect_error()` calls confirm the condition class `"assert_logical_scalar"`
+is raised, and `expect_snapshot()` additionally locks in the exact message
+text. If `assert_logical_scalar()` were changed to throw an unrelated error,
+or stopped throwing an error at all, these tests would correctly fail.
+
+### Bad Example
+
+```r
+## Test 21: error if `arg` is not TRUE or FALSE ----
+test_that("assert_logical_scalar Test 21: error if `arg` is not TRUE or FALSE", {
+  example_fun <- function(arg) {
+    assert_logical_scalar(arg)
+  }
+  expect_error(example_fun(NA))
+  expect_error(example_fun("test"))
+})
+```
+
+This test would still pass even if `assert_logical_scalar()` were broken and
+threw an unrelated error (e.g. `"could not find function \"assert_logical_scalar\""`),
+because `expect_error()` without `class`, a message, or a regular expression
+accepts *any* error. The same applies to `expect_warning()`:
+`expect_warning(my_fun())` on its own only confirms that *some* warning was
+raised, not that it is the one the test is meant to verify.
 
 ## Set up the Test Script
 
@@ -213,7 +282,7 @@ knitr::include_graphics("./unit_test_toc.png")
 
 ## Addin `pharmaverse4devs::format_test_that_file()`
 
-To ease the burden on developers for writing and adding tests we have developed an Addin for formatting test_that test files according to admiral programming standards. The Addin will add and update comments as well as number or re-numbers the tests. To access the Addin, be sure to install the {pharmaverse4devs} from Github. 
+To ease the burden on developers for writing and adding tests we have developed an Addin for formatting test_that test files according to `{admiral}` programming standards. The Addin will add and update comments as well as number or re-numbers the tests. To access the Addin, be sure to install `{pharmaverse4devs}` from Github. 
 
 To install the latest development version of the package directly from
 GitHub use the following code:
@@ -317,7 +386,7 @@ devtools::test_file()
 
 ## Automation of Unit Tests
 
-When a user actions a pull request in {admiral} GitHub repo, the unit tests are 
+When a user actions a pull request in the `{admiral}` GitHub repo, the unit tests are 
 automatically run and pull request will be denied if any unit tests fail.
 
 ## Flow Chart

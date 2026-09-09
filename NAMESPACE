@@ -79,149 +79,173 @@ export(warn_if_inconsistent_list)
 export(warn_if_invalid_dtc)
 export(warn_if_vars_exist)
 export(what_is_it)
-importFrom(cli,ansi_collapse)
-importFrom(cli,cli_abort)
-importFrom(cli,cli_div)
-importFrom(dplyr,"%>%")
-importFrom(dplyr,across)
-importFrom(dplyr,arrange)
-importFrom(dplyr,bind_cols)
-importFrom(dplyr,bind_rows)
-importFrom(dplyr,case_when)
-importFrom(dplyr,coalesce)
-importFrom(dplyr,desc)
-importFrom(dplyr,distinct)
-importFrom(dplyr,ends_with)
-importFrom(dplyr,filter)
-importFrom(dplyr,full_join)
-importFrom(dplyr,group_by)
-importFrom(dplyr,if_else)
-importFrom(dplyr,mutate)
-importFrom(dplyr,n)
-importFrom(dplyr,n_distinct)
-importFrom(dplyr,na_if)
-importFrom(dplyr,pull)
-importFrom(dplyr,rename)
-importFrom(dplyr,row_number)
-importFrom(dplyr,select)
-importFrom(dplyr,slice)
-importFrom(dplyr,starts_with)
-importFrom(dplyr,summarise)
-importFrom(dplyr,tibble)
-importFrom(dplyr,transmute)
-importFrom(dplyr,ungroup)
-importFrom(dplyr,union)
-importFrom(glue,glue)
-importFrom(glue,glue_collapse)
-importFrom(lifecycle,deprecate_soft)
-importFrom(lifecycle,deprecate_stop)
-importFrom(lifecycle,deprecate_warn)
-importFrom(lifecycle,deprecated)
-importFrom(lubridate,"%--%")
-importFrom(lubridate,as_datetime)
-importFrom(lubridate,ceiling_date)
-importFrom(lubridate,date)
-importFrom(lubridate,days)
-importFrom(lubridate,duration)
-importFrom(lubridate,floor_date)
-importFrom(lubridate,hours)
-importFrom(lubridate,is.Date)
-importFrom(lubridate,is.instant)
-importFrom(lubridate,minutes)
-importFrom(lubridate,parse_date_time)
-importFrom(lubridate,time_length)
-importFrom(lubridate,weeks)
-importFrom(lubridate,years)
-importFrom(lubridate,ymd)
-importFrom(lubridate,ymd_hms)
-importFrom(purrr,compose)
-importFrom(purrr,discard)
-importFrom(purrr,every)
-importFrom(purrr,keep)
-importFrom(purrr,list_flatten)
-importFrom(purrr,map)
-importFrom(purrr,map2)
-importFrom(purrr,map_chr)
-importFrom(purrr,map_if)
-importFrom(purrr,map_lgl)
-importFrom(purrr,modify_at)
-importFrom(purrr,modify_if)
-importFrom(purrr,reduce)
-importFrom(purrr,transpose)
-importFrom(purrr,walk)
-importFrom(rlang,"%||%")
-importFrom(rlang,":=")
-importFrom(rlang,.data)
-importFrom(rlang,abort)
-importFrom(rlang,arg_match)
-importFrom(rlang,as_label)
-importFrom(rlang,as_name)
-importFrom(rlang,as_string)
-importFrom(rlang,call2)
-importFrom(rlang,call_name)
-importFrom(rlang,caller_env)
-importFrom(rlang,current_env)
-importFrom(rlang,enexpr)
-importFrom(rlang,env)
-importFrom(rlang,eval_bare)
-importFrom(rlang,eval_tidy)
-importFrom(rlang,expr)
-importFrom(rlang,expr_deparse)
-importFrom(rlang,expr_interp)
-importFrom(rlang,expr_label)
-importFrom(rlang,exprs)
-importFrom(rlang,f_lhs)
-importFrom(rlang,f_rhs)
-importFrom(rlang,global_env)
-importFrom(rlang,is_bare_formula)
-importFrom(rlang,is_call)
-importFrom(rlang,is_character)
-importFrom(rlang,is_expression)
-importFrom(rlang,is_formula)
-importFrom(rlang,is_integerish)
-importFrom(rlang,is_logical)
-importFrom(rlang,is_missing)
-importFrom(rlang,is_named)
-importFrom(rlang,is_symbol)
-importFrom(rlang,missing_arg)
-importFrom(rlang,new_environment)
-importFrom(rlang,parse_expr)
-importFrom(rlang,parse_exprs)
-importFrom(rlang,set_names)
-importFrom(rlang,sym)
-importFrom(rlang,syms)
-importFrom(rlang,type_of)
-importFrom(rlang,warn)
-importFrom(roxygen2,rd_section)
-importFrom(roxygen2,roclet)
-importFrom(roxygen2,roclet_process)
-importFrom(roxygen2,roxy_tag)
-importFrom(roxygen2,roxy_tag_parse)
-importFrom(roxygen2,roxy_tag_rd)
-importFrom(roxygen2,tag_markdown)
-importFrom(roxygen2,warn_roxy_tag)
-importFrom(stringr,str_c)
-importFrom(stringr,str_detect)
-importFrom(stringr,str_extract)
-importFrom(stringr,str_glue)
-importFrom(stringr,str_match)
-importFrom(stringr,str_remove)
-importFrom(stringr,str_remove_all)
-importFrom(stringr,str_replace)
-importFrom(stringr,str_replace_all)
-importFrom(stringr,str_subset)
-importFrom(stringr,str_to_lower)
-importFrom(stringr,str_to_title)
-importFrom(stringr,str_to_upper)
-importFrom(stringr,str_trim)
-importFrom(tidyr,drop_na)
-importFrom(tidyr,nest)
-importFrom(tidyr,pivot_longer)
-importFrom(tidyr,pivot_wider)
-importFrom(tidyr,unnest)
-importFrom(tidyselect,all_of)
-importFrom(tidyselect,contains)
-importFrom(tidyselect,vars_select)
-importFrom(utils,capture.output)
-importFrom(utils,str)
+importFrom(cli,
+  ansi_collapse,
+  cli_abort,
+  cli_div
+)
+importFrom(dplyr,
+  "%>%",
+  across,
+  arrange,
+  bind_cols,
+  bind_rows,
+  case_when,
+  coalesce,
+  desc,
+  distinct,
+  ends_with,
+  filter,
+  full_join,
+  group_by,
+  if_else,
+  mutate,
+  n,
+  n_distinct,
+  na_if,
+  pull,
+  rename,
+  row_number,
+  select,
+  slice,
+  starts_with,
+  summarise,
+  tibble,
+  transmute,
+  ungroup,
+  union
+)
+importFrom(glue,
+  glue,
+  glue_collapse
+)
+importFrom(lifecycle,
+  deprecate_soft,
+  deprecate_stop,
+  deprecate_warn,
+  deprecated
+)
+importFrom(lubridate,
+  "%--%",
+  as_datetime,
+  ceiling_date,
+  date,
+  days,
+  duration,
+  floor_date,
+  hours,
+  is.Date,
+  is.instant,
+  minutes,
+  parse_date_time,
+  time_length,
+  weeks,
+  years,
+  ymd,
+  ymd_hms
+)
+importFrom(purrr,
+  compose,
+  discard,
+  every,
+  keep,
+  list_flatten,
+  map,
+  map2,
+  map_chr,
+  map_if,
+  map_lgl,
+  modify_at,
+  modify_if,
+  reduce,
+  transpose,
+  walk
+)
+importFrom(rlang,
+  "%||%",
+  ":=",
+  .data,
+  abort,
+  arg_match,
+  as_label,
+  as_name,
+  as_string,
+  call2,
+  call_name,
+  caller_env,
+  current_env,
+  enexpr,
+  env,
+  eval_bare,
+  eval_tidy,
+  expr,
+  expr_deparse,
+  expr_interp,
+  expr_label,
+  exprs,
+  f_lhs,
+  f_rhs,
+  global_env,
+  is_bare_formula,
+  is_call,
+  is_character,
+  is_expression,
+  is_formula,
+  is_integerish,
+  is_logical,
+  is_missing,
+  is_named,
+  is_symbol,
+  missing_arg,
+  new_environment,
+  parse_expr,
+  parse_exprs,
+  set_names,
+  sym,
+  syms,
+  type_of,
+  warn
+)
+importFrom(roxygen2,
+  rd_section,
+  roclet,
+  roclet_process,
+  roxy_tag,
+  roxy_tag_parse,
+  roxy_tag_rd,
+  tag_markdown,
+  warn_roxy_tag
+)
+importFrom(stringr,
+  str_c,
+  str_detect,
+  str_extract,
+  str_glue,
+  str_match,
+  str_remove,
+  str_remove_all,
+  str_replace,
+  str_replace_all,
+  str_subset,
+  str_to_lower,
+  str_to_title,
+  str_to_upper,
+  str_trim
+)
+importFrom(tidyr,
+  drop_na,
+  nest,
+  pivot_longer,
+  pivot_wider,
+  unnest
+)
+importFrom(tidyselect,
+  all_of,
+  contains,
+  vars_select
+)
+importFrom(utils,
+  capture.output,
+  str
+)
 importFrom(withr,local_options)
