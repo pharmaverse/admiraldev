@@ -17,6 +17,9 @@
   [`testthat::expect_error()`](https://testthat.r-lib.org/reference/expect_error.html)/[`testthat::expect_warning()`](https://testthat.r-lib.org/reference/expect_error.html).
   ([\#479](https://github.com/pharmaverse/admiraldev/issues/479))
 
+- Updated to [roxygen2](https://roxygen2.r-lib.org/) 8.1.0.
+  ([\#573](https://github.com/pharmaverse/admiraldev/issues/573))
+
 ### Various
 
 ## admiraldev 1.5.0
@@ -52,13 +55,13 @@ CRAN release: 2026-06-10
 
 ### Documentation
 
-- Update to [roxygen2](https://roxygen2.r-lib.org/) 8.0.0.
+- Updated to [roxygen2](https://roxygen2.r-lib.org/) 8.0.0.
   ([\#557](https://github.com/pharmaverse/admiraldev/issues/557))
 
-- Update links in documentation for AI coding `AGENTS.md` files.
+- Updated links in documentation for AI coding `AGENTS.md` files.
   ([\#552](https://github.com/pharmaverse/admiraldev/issues/552))
 
-- Update vignettes for AI coding `AGENTS.md` files.
+- Updated vignettes for AI coding `AGENTS.md` files.
   ([\#545](https://github.com/pharmaverse/admiraldev/issues/545))
 
 - The website navigation bar has been updated to:
