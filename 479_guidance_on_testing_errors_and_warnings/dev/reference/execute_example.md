@@ -70,6 +70,9 @@ by the code. Output and messages are prefixed by `"#>"`.
     #> NaNs produced
     #> If this is expected, add any of the classes "simpleWarning", "warning", and
     #> "condition" to the argument `expected_cnds`.
+    #> In addition: Warning messages:
+    #> 1: Aliases documented in multiple Rd files: 'demo_fun' (demo_fun.Rd, rdx_roclet.Rd)
+    #> 2: Aliases documented in multiple Rd files: 'demo_fun' (demo_fun.Rd, rdx_roclet.Rd)
 
     admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
     #> [1] "log(-1)\n#> [1] NaN\n#> Warning in log(-1) : NaNs produced"
