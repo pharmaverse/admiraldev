@@ -46,7 +46,7 @@ If the example code issues an unexpected message, an error is issued.
 #> [1] "1 + 1\n#> [1] 2"
 
 admiraldev:::execute_example("log(-1)")
-#> Error in capture_output(!!expr$expr, srcref = srcref, expected_cnds = expected_cnds,  :
+#> Error in capture_output(!!expr$expr, srcref = srcref, expected_cnds = expected_cnds,  : 
 #>   The expression
 #> > log(-1)
 #> issued an unexpected condition:
@@ -54,8 +54,8 @@ admiraldev:::execute_example("log(-1)")
 #> If this is expected, add any of the classes "simpleWarning", "warning", and
 #> "condition" to the argument `expected_cnds`.
 #> In addition: Warning messages:
-#> 1: Aliases documented in multiple Rd files: 'demo_fun' (demo_fun.Rd, rdx_roclet.Rd)
-#> 2: Aliases documented in multiple Rd files: 'demo_fun' (demo_fun.Rd, rdx_roclet.Rd)
+#> 1: Aliases documented in multiple Rd files: 'demo_fun' (demo_fun.Rd, rdx_roclet.Rd) 
+#> 2: Aliases documented in multiple Rd files: 'demo_fun' (demo_fun.Rd, rdx_roclet.Rd) 
 
 admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
 #> [1] "log(-1)\n#> [1] NaN\n#> Warning in log(-1) : NaNs produced"}\if{html}{\out{</div>}}}}
