@@ -10,7 +10,7 @@
 
 - The "Unit Test Guidance" vignette was updated to include a section about how to
 properly test errors and warnings using `testthat::expect_snapshot()` or the
-`class` argument of `expect_error()`/`expect_warning()`. (#479)
+`class` argument of `testthat::expect_error()`/`testthat::expect_warning()`. (#479)
 
 ## Various
 
