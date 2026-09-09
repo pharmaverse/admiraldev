@@ -13,7 +13,8 @@
 - The “Unit Test Guidance” vignette was updated to include a section
   about how to properly test errors and warnings using
   [`testthat::expect_snapshot()`](https://testthat.r-lib.org/reference/expect_snapshot.html)
-  or the `class` argument of `expect_error()`/`expect_warning()`.
+  or the `class` argument of
+  [`testthat::expect_error()`](https://testthat.r-lib.org/reference/expect_error.html)/[`testthat::expect_warning()`](https://testthat.r-lib.org/reference/expect_error.html).
   ([\#479](https://github.com/pharmaverse/admiraldev/issues/479))
 
 ### Various
