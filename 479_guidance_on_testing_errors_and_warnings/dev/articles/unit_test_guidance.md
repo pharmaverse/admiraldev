@@ -146,7 +146,7 @@ elsewhere in the function.
 
 Never call `expect_error()`/`expect_warning()` without also identifying
 the condition being tested. Depending on where the error/warning message
-is defined, use onr the of the following two options instead:
+is defined, use one the of the following two options instead:
 
 - **If it is defined in the tested function**: Use the `class` argument
   of `expect_error()`/`expect_warning()`, when the underlying condition
