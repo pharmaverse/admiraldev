@@ -278,64 +278,78 @@ completely different, unintended error, or if the specific warning it is
 supposed to test for is accidentally removed while an unrelated warning
 is still triggered elsewhere in the function.</p>
 <p>Never call <code>expect_error()</code>/<code>expect_warning()</code>
-without also identifying the condition being tested. Use one of the
-following instead:</p>
+without also identifying the condition being tested. Depending on where
+the error/warning message is defined, use onr the of the following two
+options instead:</p>
 <ul>
-<li>The <code>class</code> argument of
+<li>
+<strong>If it is defined in the tested function</strong>: Use the
+<code>class</code> argument of
 <code>expect_error()</code>/<code>expect_warning()</code>, when the
 underlying condition has a class (as is the case for all
 <code>assert_*()</code> helpers and for conditions raised with
 <code><a href="https://cli.r-lib.org/reference/cli_abort.html" class="external-link">cli::cli_abort()</a></code>/<code><a href="https://cli.r-lib.org/reference/cli_abort.html" class="external-link">cli::cli_warn()</a></code>).</li>
 <li>
-<code>expect_snapshot(..., error = TRUE, cnd_class = TRUE)</code>
-(drop <code>error = TRUE</code> when testing a warning), which records
-the condition class together with the full message text in a snapshot
-file. This is the preferred approach in <a href="https://pharmaverse.github.io/admiral/" class="external-link">admiral</a>, as it
-also locks in the user-facing message text: any unintentional change to
-the wording will cause the snapshot test to fail and be reviewed.</li>
+<strong>Otherwise</strong>: Use
+<code>expect_snapshot(..., error = TRUE, cnd_class = TRUE)</code> (drop
+<code>error = TRUE</code> when testing a warning), which records the
+condition class together with the full message text in a snapshot
+file.</li>
 </ul>
+<p>This ensures that the message is checked but avoids that many tests
+need to be updated when the message changes.</p>
 <div class="section level4">
 <h4 id="good-example">Good Example<a class="anchor" aria-label="anchor" href="#good-example"></a>
 </h4>
-<p>Taken from <a href="https://github.com/pharmaverse/admiraldev/blob/main/tests/testthat/test-assertions.R" class="external-link"><code>test-assertions.R</code></a>:</p>
+<p>Consider a function <code>myfun1()</code> which errors if:</p>
+<ul>
+<li>The input argument is not a character scalar</li>
+<li>The length of the input argument is greater than 32 characters.</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## Test 21: error if `arg` is not TRUE or FALSE ----</span></span>
-<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"assert_logical_scalar Test 21: error if `arg` is not TRUE or FALSE"</span>, <span class="op">{</span></span>
-<span>  <span class="va">example_fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">arg</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="fu"><a href="../reference/assert_logical_scalar.html">assert_logical_scalar</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">myfun1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">arg</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="../reference/assert_character_scalar.html">assert_character_scalar</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">32</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">cli_abort</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>      <span class="st">"The value of {.arg arg} is expected to be at most 32 characters."</span>,</span>
+<span>      i <span class="op">=</span> <span class="st">"Its length is {.val {length(arg)}}."</span></span>
+<span>    <span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
-<span>  <span class="va">arg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="fu">expect_error</span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span>, class <span class="op">=</span> <span class="st">"assert_logical_scalar"</span><span class="op">)</span></span>
-<span>  <span class="fu">expect_error</span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="va">arg</span><span class="op">)</span>, class <span class="op">=</span> <span class="st">"assert_logical_scalar"</span><span class="op">)</span></span>
-<span>  <span class="fu">expect_snapshot</span><span class="op">(</span></span>
-<span>    error <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>    cnd_class <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>    <span class="fu">example_fun</span><span class="op">(</span><span class="st">"test"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
-<p>Both <code>expect_error()</code> calls confirm the condition class
-<code>"assert_logical_scalar"</code> is raised, and
-<code>expect_snapshot()</code> additionally locks in the exact message
-text. If <code><a href="../reference/assert_logical_scalar.html">assert_logical_scalar()</a></code> were changed to throw an
-unrelated error, or stopped throwing an error at all, these tests would
-correctly fail.</p>
+<span><span class="op">}</span></span></code></pre></div>
+<p>We can unit test the argument validation as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"myfun1 validates its arguments"</span>, {</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="fu">expect_error</span>(<span class="fu">myfun1</span>(<span class="dv">123</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="fu">expect_snapshot</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>    <span class="fu">myfun1</span>(long_string),</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    <span class="at">error =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  )</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>}</span></code></pre></div>
+<p>where the first validation is tested with <code>expect_error()</code>
+since the error is thrown by <code><a href="../reference/assert_character_scalar.html">assert_character_scalar()</a></code>, and
+the second validation with <code>expect_snapshot()</code> since the
+error is thrown directly by <code>myfun1()</code>. Note that with
+<code>expect_snapshot()</code> we are also locking in the exact message
+text of the error.</p>
 </div>
 <div class="section level4">
 <h4 id="bad-example">Bad Example<a class="anchor" aria-label="anchor" href="#bad-example"></a>
 </h4>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## Test 21: error if `arg` is not TRUE or FALSE ----</span></span>
-<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"assert_logical_scalar Test 21: error if `arg` is not TRUE or FALSE"</span>, <span class="op">{</span></span>
-<span>  <span class="va">example_fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">arg</span><span class="op">)</span> <span class="op">{</span></span>
+<p>Consider a function <code>myfun2()</code> which errors is the input
+is not a logical scalar:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="va">myfun2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">arg</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu"><a href="../reference/assert_logical_scalar.html">assert_logical_scalar</a></span><span class="op">(</span><span class="va">arg</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
+<span>  <span class="op">}</span></span></code></pre></div>
+<p>Now consider the following test:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">test_that</span><span class="op">(</span><span class="st">"myfun2 errors"</span>, <span class="op">{</span></span>
 <span>  <span class="fu">expect_error</span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="fu">expect_error</span><span class="op">(</span><span class="fu">example_fun</span><span class="op">(</span><span class="st">"test"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
 <p>This test would still pass even if
 <code><a href="../reference/assert_logical_scalar.html">assert_logical_scalar()</a></code> were broken and threw an unrelated
 error
-(e.g. <code>"could not find function \"assert_logical_scalar\""</code>),
+(e.g. <code>could not find function \"assert_logical_scalar\"</code>),
 because <code>expect_error()</code> without <code>class</code>, a
 message, or a regular expression accepts <em>any</em> error. The same
 applies to <code>expect_warning()</code>:
@@ -427,7 +441,7 @@ Addin, be sure to install <code>{pharmaverse4devs}</code> from
 Github.</p>
 <p>To install the latest development version of the package directly
 from GitHub use the following code:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>    <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"remotes"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>      <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span>    <span class="op">}</span></span>

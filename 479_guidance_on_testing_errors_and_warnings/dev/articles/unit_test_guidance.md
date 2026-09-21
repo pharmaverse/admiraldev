@@ -145,57 +145,75 @@ accidentally removed while an unrelated warning is still triggered
 elsewhere in the function.
 
 Never call `expect_error()`/`expect_warning()` without also identifying
-the condition being tested. Use one of the following instead:
+the condition being tested. Depending on where the error/warning message
+is defined, use onr the of the following two options instead:
 
-- The `class` argument of `expect_error()`/`expect_warning()`, when the
-  underlying condition has a class (as is the case for all `assert_*()`
-  helpers and for conditions raised with
+- **If it is defined in the tested function**: Use the `class` argument
+  of `expect_error()`/`expect_warning()`, when the underlying condition
+  has a class (as is the case for all `assert_*()` helpers and for
+  conditions raised with
   [`cli::cli_abort()`](https://cli.r-lib.org/reference/cli_abort.html)/[`cli::cli_warn()`](https://cli.r-lib.org/reference/cli_abort.html)).
-- `expect_snapshot(..., error = TRUE, cnd_class = TRUE)` (drop
+- **Otherwise**: Use
+  `expect_snapshot(..., error = TRUE, cnd_class = TRUE)` (drop
   `error = TRUE` when testing a warning), which records the condition
-  class together with the full message text in a snapshot file. This is
-  the preferred approach in
-  [admiral](https://pharmaverse.github.io/admiral/), as it also locks in
-  the user-facing message text: any unintentional change to the wording
-  will cause the snapshot test to fail and be reviewed.
+  class together with the full message text in a snapshot file.
+
+This ensures that the message is checked but avoids that many tests need
+to be updated when the message changes.
 
 #### Good Example
 
-Taken from
-[`test-assertions.R`](https://github.com/pharmaverse/admiraldev/blob/main/tests/testthat/test-assertions.R):
+Consider a function `myfun1()` which errors if:
+
+- The input argument is not a character scalar
+- The length of the input argument is greater than 32 characters.
 
 ``` r
-## Test 21: error if `arg` is not TRUE or FALSE ----
-test_that("assert_logical_scalar Test 21: error if `arg` is not TRUE or FALSE", {
-  example_fun <- function(arg) {
-    assert_logical_scalar(arg)
+myfun1 <- function(arg) {
+  assert_character_scalar(arg)
+  if (nchar(arg) > 32) {
+    cli_abort(c(
+      "The value of {.arg arg} is expected to be at most 32 characters.",
+      i = "Its length is {.val {length(arg)}}."
+    ))
   }
-  arg <- c()
-  expect_error(example_fun(NA), class = "assert_logical_scalar")
-  expect_error(example_fun(arg), class = "assert_logical_scalar")
-  expect_snapshot(
-    error = TRUE,
-    cnd_class = TRUE,
-    example_fun("test")
-  )
-})
+}
 ```
 
-Both `expect_error()` calls confirm the condition class
-`"assert_logical_scalar"` is raised, and `expect_snapshot()`
-additionally locks in the exact message text. If
-[`assert_logical_scalar()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/assert_logical_scalar.md)
-were changed to throw an unrelated error, or stopped throwing an error
-at all, these tests would correctly fail.
+We can unit test the argument validation as follows:
+
+``` r
+test_that("myfun1 validates its arguments", {
+  expect_error(myfun1(123))
+  expect_snapshot(
+    myfun1(long_string),
+    error = TRUE
+  )
+}
+```
+
+where the first validation is tested with `expect_error()` since the
+error is thrown by
+[`assert_character_scalar()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/assert_character_scalar.md),
+and the second validation with `expect_snapshot()` since the error is
+thrown directly by `myfun1()`. Note that with `expect_snapshot()` we are
+also locking in the exact message text of the error.
 
 #### Bad Example
 
+Consider a function `myfun2()` which errors is the input is not a
+logical scalar:
+
 ``` r
-## Test 21: error if `arg` is not TRUE or FALSE ----
-test_that("assert_logical_scalar Test 21: error if `arg` is not TRUE or FALSE", {
-  example_fun <- function(arg) {
+  myfun2 <- function(arg) {
     assert_logical_scalar(arg)
   }
+```
+
+Now consider the following test:
+
+``` r
+test_that("myfun2 errors", {
   expect_error(example_fun(NA))
   expect_error(example_fun("test"))
 })
@@ -204,7 +222,7 @@ test_that("assert_logical_scalar Test 21: error if `arg` is not TRUE or FALSE", 
 This test would still pass even if
 [`assert_logical_scalar()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/assert_logical_scalar.md)
 were broken and threw an unrelated error
-(e.g. `"could not find function \"assert_logical_scalar\""`), because
+(e.g. `could not find function \"assert_logical_scalar\"`), because
 `expect_error()` without `class`, a message, or a regular expression
 accepts *any* error. The same applies to `expect_warning()`:
 `expect_warning(my_fun())` on its own only confirms that *some* warning
