@@ -8,6 +8,10 @@
 
 ## Documentation
 
+- The `{admiral}` manifesto was moved from the `{admiral}` package README to
+`{admiraldev}`. It is accessible through the "Developer Guides" section of the
+navigation bar. (#575)
+
 ## Various
 
 # admiraldev 1.5.0
