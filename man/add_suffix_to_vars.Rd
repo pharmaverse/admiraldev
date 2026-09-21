@@ -44,7 +44,6 @@ add_suffix_to_vars(exprs(ADT, desc(AVAL), AVALC), vars = exprs(AVAL), suffix = "
 }
 \seealso{
 Helpers for working with Quosures:
-\code{\link[=expr_c]{expr_c()}},
 \code{\link[=replace_symbol_in_expr]{replace_symbol_in_expr()}},
 \code{\link[=replace_values_by_names]{replace_values_by_names()}}
 }

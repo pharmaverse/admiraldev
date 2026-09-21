@@ -6,6 +6,12 @@
 
 ## Breaking Changes
 
+- The following functions are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#574)
+
+    **Phase 1 (message)**
+
+    - `expr_c()` - Please use `c()` instead.
+
 ## Documentation
 
 ## Various
