@@ -23,6 +23,7 @@ typos or grammar mistakes.
 ## See also
 
 Other documentation:
+[`roxygen_float_comparison()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/roxygen_float_comparison.md),
 [`roxygen_order_na_handling()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/roxygen_order_na_handling.md),
 [`roxygen_param_by_vars()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/roxygen_param_by_vars.md),
 [`roxygen_param_dataset()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/roxygen_param_dataset.md)

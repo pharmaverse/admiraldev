@@ -4,6 +4,12 @@
 
 ### New Features
 
+- New roxygen helper
+  [`roxygen_float_comparison()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/roxygen_float_comparison.md)
+  providing standardized text about comparing floating point numbers in
+  conditions.
+  ([\#578](https://github.com/pharmaverse/admiraldev/issues/578))
+
 ### Updates of Existing Functions
 
 ### Breaking Changes

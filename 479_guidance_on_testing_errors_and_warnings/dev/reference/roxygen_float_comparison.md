@@ -33,5 +33,5 @@ Other documentation:
 
 ``` r
 roxygen_float_comparison()
-#> Error in roxygen_float_comparison(): could not find function "roxygen_float_comparison"
+#> [1] "Comparing derived numeric variables to fixed values, e.g., `PCHG <= -90`, may give unexpected results due to floating point representation. For details and solutions see the \"Floating Point Comparisons\" section in `vignette(\"concepts_conventions\")`."
 ```
