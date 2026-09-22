@@ -4,6 +4,12 @@
 
 ### New Features
 
+- New roxygen helper
+  [`roxygen_float_comparison()`](https://pharmaverse.github.io/admiraldev/dev/reference/roxygen_float_comparison.md)
+  providing standardized text about comparing floating point numbers in
+  conditions.
+  ([\#578](https://github.com/pharmaverse/admiraldev/issues/578))
+
 ### Updates of Existing Functions
 
 ### Breaking Changes
@@ -13,6 +19,8 @@
 ### Various
 
 ## admiraldev 1.5.0
+
+CRAN release: 2026-06-10
 
 ### New Features
 

@@ -163,6 +163,9 @@ Functions for generating documentation
 - [`rdx_roclet()`](https://pharmaverse.github.io/admiraldev/dev/reference/rdx_roclet.md)
   : Roclet Extending the Standard rd Roclet
 
+- [`roxygen_float_comparison()`](https://pharmaverse.github.io/admiraldev/dev/reference/roxygen_float_comparison.md)
+  : Standard Text for Floating Point Comparisons in Conditions
+
 - [`roxygen_order_na_handling()`](https://pharmaverse.github.io/admiraldev/dev/reference/roxygen_order_na_handling.md)
   : Standard Text for NA Handling in Sorting Variables
 
