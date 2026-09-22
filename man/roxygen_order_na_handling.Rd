@@ -25,6 +25,7 @@ roxygen_order_na_handling()
 }
 \seealso{
 Other documentation:
+\code{\link[=roxygen_float_comparison]{roxygen_float_comparison()}},
 \code{\link[=roxygen_param_by_vars]{roxygen_param_by_vars()}},
 \code{\link[=roxygen_param_dataset]{roxygen_param_dataset()}},
 \code{\link[=roxygen_save_memory]{roxygen_save_memory()}}

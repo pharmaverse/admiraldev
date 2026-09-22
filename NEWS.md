@@ -2,6 +2,9 @@
 
 ## New Features
 
+- New roxygen helper `roxygen_float_comparison()` providing standardized text about
+comparing floating point numbers in conditions. (#578)
+
 ## Updates of Existing Functions
 
 ## Breaking Changes

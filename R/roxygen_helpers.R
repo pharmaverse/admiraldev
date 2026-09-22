@@ -114,6 +114,35 @@ roxygen_order_na_handling <- function() {
   )
 }
 
+#' Standard Text for Floating Point Comparisons in Conditions
+#'
+#' This function provides standardized documentation text about comparing
+#' floating point numbers in conditions, e.g., `PCHG <= -90`.
+#'
+#' The benefits of having a programmatic way to write documentation is that if
+#' any changes need to be made, modifying this function scales across the
+#' codebase, can be tested, and is less prone to user-error such as typos or
+#' grammar mistakes.
+#'
+#' @returns A character string with the standardized documentation text about
+#'   floating point comparisons in conditions
+#'
+#' @keywords documentation
+#' @family documentation
+#'
+#' @export
+#'
+#' @examples
+#' roxygen_float_comparison()
+roxygen_float_comparison <- function() {
+  paste(
+    "Comparing derived numeric variables to fixed values, e.g., `PCHG <= -90`,",
+    "may give unexpected results due to floating point representation. For",
+    "details and solutions see the \"Floating Point Comparisons\" section in",
+    "`vignette(\"concepts_conventions\")`."
+  )
+}
+
 #' Standard Note for Memory-Intensive Functions
 #'
 #' This function provides a standardized note about memory consumption for
