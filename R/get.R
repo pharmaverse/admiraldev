@@ -84,7 +84,7 @@ get_duplicates <- function(x) {
 get_source_vars <- function(expressions) {
   assert_varval_list(expressions, optional = TRUE)
 
-  source_vars <- expr_c(expressions)[lapply(expr_c(expressions), is.symbol) == TRUE]
+  source_vars <- expressions[map_lgl(expressions, is.symbol)]
 
   if (length(source_vars) == 0) {
     NULL

@@ -1,14 +1,30 @@
 #' Concatenate One or More Expressions
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is *deprecated*, please use `c()` instead.
+#'
 #' @param ... One or more expressions or list of expressions
 #'
 #' @return A list of expressions
 #'
-#' @keywords quo
-#' @family quo
+#' @keywords deprecated
+#' @family deprecated
 #'
 #' @export
 expr_c <- function(...) {
+  deprecate_inform(
+    when = "1.6.0",
+    what = "expr_c()",
+    with = "c()",
+    details = c(
+      x = "This message will turn into a warning at the beginning of 2028.",
+      i = "See admiral's deprecation guidance:
+              https://pharmaverse.github.io/admiraldev/dev/articles/programming_strategy.html#deprecation" # nolint
+    )
+  )
+
   # Transform single expression into list of expression
   inputs <- map(
     list(...),

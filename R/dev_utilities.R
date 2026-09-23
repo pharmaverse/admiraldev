@@ -77,7 +77,7 @@ extract_vars <- function(x, side = "lhs") {
   if (is.null(x)) {
     NULL
   } else if (is.list(x)) {
-    do.call(expr_c, map(x, extract_vars, side))
+    do.call(c, map(x, extract_vars, side))
   } else if (is_expression(x) && !is_formula(x)) {
     syms(all.vars(x))
   } else if (is_formula(x)) {

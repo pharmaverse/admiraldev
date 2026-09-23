@@ -9,6 +9,12 @@ comparing floating point numbers in conditions. (#578)
 
 ## Breaking Changes
 
+- The following functions are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#574)
+
+    **Phase 1 (message)**
+
+    - `expr_c()` - Please use `c()` instead.
+
 ## Documentation
 
 - The `{admiral}` manifesto was moved from the `{admiral}` package README to
