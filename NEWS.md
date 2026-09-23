@@ -17,6 +17,10 @@ properly test errors and warnings using `testthat::expect_snapshot()` or the
 
 - Updated to `{roxygen2}` 8.1.0. (#573)
 
+- The `{admiral}` manifesto was moved from the `{admiral}` package README to
+`{admiraldev}`. It is accessible through the "Developer Guides" section of the
+navigation bar. (#575)
+
 ## Various
 
 # admiraldev 1.5.0
