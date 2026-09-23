@@ -284,18 +284,17 @@ the error/warning message is defined, use one the of the following two
 options instead:</p>
 <ul>
 <li>
-<strong>If it is defined in the tested function</strong>: Use the
-<code>class</code> argument of
-<code>expect_error()</code>/<code>expect_warning()</code>, when the
-underlying condition has a class (as is the case for all
-<code>assert_*()</code> helpers and for conditions raised with
-<code><a href="https://cli.r-lib.org/reference/cli_abort.html" class="external-link">cli::cli_abort()</a></code>/<code><a href="https://cli.r-lib.org/reference/cli_abort.html" class="external-link">cli::cli_warn()</a></code>).</li>
-<li>
-<strong>Otherwise</strong>: Use
+<strong>If it is defined in the tested function</strong>: Use
 <code>expect_snapshot(..., error = TRUE, cnd_class = TRUE)</code> (drop
 <code>error = TRUE</code> when testing a warning), which records the
 condition class together with the full message text in a snapshot
 file.</li>
+<li>
+<strong>Otherwise</strong>: Use the <code>class</code> argument of
+<code>expect_error()</code>/<code>expect_warning()</code>, when the
+underlying condition has a class (as is the case for all
+<code>assert_*()</code> helpers and for conditions raised with
+<code><a href="https://cli.r-lib.org/reference/cli_abort.html" class="external-link">cli::cli_abort()</a></code>/<code><a href="https://cli.r-lib.org/reference/cli_abort.html" class="external-link">cli::cli_warn()</a></code>).</li>
 </ul>
 <p>This ensures that the message is checked but avoids that many tests
 need to be updated when the message changes.</p>

@@ -148,15 +148,15 @@ Never call `expect_error()`/`expect_warning()` without also identifying
 the condition being tested. Depending on where the error/warning message
 is defined, use one the of the following two options instead:
 
-- **If it is defined in the tested function**: Use the `class` argument
-  of `expect_error()`/`expect_warning()`, when the underlying condition
-  has a class (as is the case for all `assert_*()` helpers and for
-  conditions raised with
-  [`cli::cli_abort()`](https://cli.r-lib.org/reference/cli_abort.html)/[`cli::cli_warn()`](https://cli.r-lib.org/reference/cli_abort.html)).
-- **Otherwise**: Use
+- **If it is defined in the tested function**: Use
   `expect_snapshot(..., error = TRUE, cnd_class = TRUE)` (drop
   `error = TRUE` when testing a warning), which records the condition
   class together with the full message text in a snapshot file.
+- **Otherwise**: Use the `class` argument of
+  `expect_error()`/`expect_warning()`, when the underlying condition has
+  a class (as is the case for all `assert_*()` helpers and for
+  conditions raised with
+  [`cli::cli_abort()`](https://cli.r-lib.org/reference/cli_abort.html)/[`cli::cli_warn()`](https://cli.r-lib.org/reference/cli_abort.html)).
 
 This ensures that the message is checked but avoids that many tests need
 to be updated when the message changes.

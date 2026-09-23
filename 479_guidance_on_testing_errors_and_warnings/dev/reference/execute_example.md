@@ -59,11 +59,17 @@ by the code. Output and messages are prefixed by `"#>"`.
 
 ### Execute Example Code
 
-    suppressWarnings(admiraldev:::execute_example("1 + 1"))
+    admiraldev:::execute_example("1 + 1")
     #> [1] "1 + 1\n#> [1] 2"
 
-    suppressWarnings(admiraldev:::execute_example("log(-1)"))
-    #> [1] "log(-1)\n#> [1] NaN"
+    admiraldev:::execute_example("log(-1)")
+    #> Error in capture_output(!!expr$expr, srcref = srcref, expected_cnds = expected_cnds,  :
+    #>   The expression
+    #> > log(-1)
+    #> issued an unexpected condition:
+    #> NaNs produced
+    #> If this is expected, add any of the classes "simpleWarning", "warning", and
+    #> "condition" to the argument `expected_cnds`.
 
-    suppressWarnings(admiraldev:::execute_example("log(-1)", expected_cnds = "warning"))
-    #> [1] "log(-1)\n#> [1] NaN"
+    admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
+    #> [1] "log(-1)\n#> [1] NaN\n#> Warning in log(-1) : NaNs produced"
