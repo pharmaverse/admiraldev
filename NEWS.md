@@ -11,6 +11,12 @@ comparing floating point numbers in conditions. (#578)
 
 ## Documentation
 
+- The "Unit Test Guidance" vignette was updated to include a section about how to
+properly test errors and warnings using `testthat::expect_snapshot()` or the
+`class` argument of `testthat::expect_error()`/`testthat::expect_warning()`. (#479)
+
+- Updated to `{roxygen2}` 8.1.0. (#573)
+
 - The `{admiral}` manifesto was moved from the `{admiral}` package README to
 `{admiraldev}`. It is accessible through the "Developer Guides" section of the
 navigation bar. (#575)
@@ -38,11 +44,11 @@ to check whether the input date/datetime is a real date/datetime. (#505)
 
 ## Documentation
 
-- Update to `{roxygen2}` 8.0.0. (#557)
+- Updated to `{roxygen2}` 8.0.0. (#557)
 
-- Update links in documentation for AI coding `AGENTS.md` files. (#552)
+- Updated links in documentation for AI coding `AGENTS.md` files. (#552)
 
-- Update vignettes for AI coding `AGENTS.md` files. (#545)
+- Updated vignettes for AI coding `AGENTS.md` files. (#545)
 
 - The website navigation bar has been updated to: (#539)
   - Add a night mode option. This can be be toggled using the sun/moon icon in the top right corner of the navigation bar. 
