@@ -58,9 +58,6 @@ capture_output(log(-1))
 #> NaNs produced
 #> If this is expected, add any of the classes "simpleWarning", "warning", and
 #> "condition" to the argument `expected_cnds`.
-#> In addition: Warning messages:
-#> 1: Aliases documented in multiple Rd files: 'demo_fun' (demo_fun.Rd, rdx_roclet.Rd) 
-#> 2: Aliases documented in multiple Rd files: 'demo_fun' (demo_fun.Rd, rdx_roclet.Rd) 
 
 capture_output(log(-1), expected_cnds = "warning")
 #> [1] "[1] NaN"                            "Warning in log(-1) : NaNs produced"}\if{html}{\out{</div>}}}}

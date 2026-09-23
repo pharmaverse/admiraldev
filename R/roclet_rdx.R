@@ -322,11 +322,11 @@ transform_examplesx <- function(block) {
 #'
 #' @caption Execute Example Code
 #' @code [expected_cnds = "admiraldev-unexpected_cnd"]
-#' suppressWarnings(admiraldev:::execute_example("1 + 1"))
+#' admiraldev:::execute_example("1 + 1")
 #'
-#' suppressWarnings(admiraldev:::execute_example("log(-1)"))
+#' admiraldev:::execute_example("log(-1)")
 #'
-#' suppressWarnings(admiraldev:::execute_example("log(-1)", expected_cnds = "warning"))
+#' admiraldev:::execute_example("log(-1)", expected_cnds = "warning")
 execute_example <- function(code, expected_cnds = NULL, env = caller_env()) {
   expr_list <- parse_code(code)
   result <- NULL
