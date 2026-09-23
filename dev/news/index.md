@@ -16,6 +16,13 @@
 
 ### Documentation
 
+- The [admiral](https://pharmaverse.github.io/admiral/) manifesto was
+  moved from the [admiral](https://pharmaverse.github.io/admiral/)
+  package README to
+  [admiraldev](https://pharmaverse.github.io/admiraldev/). It is
+  accessible through the “Developer Guides” section of the navigation
+  bar. ([\#575](https://github.com/pharmaverse/admiraldev/issues/575))
+
 ### Various
 
 ## admiraldev 1.5.0

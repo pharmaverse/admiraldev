@@ -6,6 +6,7 @@
   Started](https://pharmaverse.github.io/admiraldev/dev/articles/admiraldev.md):
 - [Guidance for git and GitHub
   Usage](https://pharmaverse.github.io/admiraldev/dev/articles/git_usage.md):
+- [Manifesto](https://pharmaverse.github.io/admiraldev/dev/articles/manifesto.md):
 - [Package
   Extensions](https://pharmaverse.github.io/admiraldev/dev/articles/package_extensions.md):
 - [Pull Request Review
