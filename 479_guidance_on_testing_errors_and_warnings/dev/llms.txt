@@ -312,6 +312,7 @@ deprecated:
   Started](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/articles/admiraldev.md):
 - [Guidance for git and GitHub
   Usage](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/articles/git_usage.md):
+- [Manifesto](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/articles/manifesto.md):
 - [Package
   Extensions](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/articles/package_extensions.md):
 - [Pull Request Review

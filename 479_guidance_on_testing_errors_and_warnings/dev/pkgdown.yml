@@ -4,6 +4,7 @@ pkgdown_sha: ~
 articles:
   admiraldev: admiraldev.html
   git_usage: git_usage.html
+  manifesto: manifesto.html
   package_extensions: package_extensions.html
   pr_review_guidance: pr_review_guidance.html
   programming_strategy: programming_strategy.html
@@ -13,7 +14,7 @@ articles:
   unit_test_guidance: unit_test_guidance.html
   writing_custom_examples: writing_custom_examples.html
   writing_vignettes: writing_vignettes.html
-last_built: 2026-09-22T14:55Z
+last_built: 2026-09-23T08:10Z
 urls:
   reference: https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/reference
   article: https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/articles
