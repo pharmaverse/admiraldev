@@ -191,6 +191,8 @@ navbar:
     articles:
       text: Developer Guides
       menu:
+      - text: Manifesto
+        href: articles/manifesto.html
       - text: Programming Strategy
         href: articles/programming_strategy.html
       - text: Writing Vignettes

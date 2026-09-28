@@ -52,3 +52,17 @@ test_that("roxygen_save_memory Test 5: Standardized text works", {
     )
   )
 })
+
+# roxygen_float_comparison ----
+## Test 6: Standardized text works ----
+test_that("roxygen_float_comparison Test 6: Standardized text works", {
+  expect_equal(
+    roxygen_float_comparison(),
+    paste(
+      "Comparing derived numeric variables to fixed values, e.g., `PCHG <= -90`,",
+      "may give unexpected results due to floating point representation. For",
+      "details and solutions see the \"Floating Point Comparisons\" section in",
+      "`vignette(\"concepts_conventions\")`."
+    )
+  )
+})

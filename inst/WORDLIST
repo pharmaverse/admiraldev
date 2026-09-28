@@ -17,6 +17,7 @@ Cyclomatic
 DM
 DTC
 Datetime
+Findability
 GSK
 Github
 GlaxoSmithKline
@@ -62,6 +63,7 @@ changelog
 cmd
 codebase
 codeowner
+constructible
 cyclomatic
 datatable
 datetime
@@ -71,6 +73,7 @@ devs
 dplyr
 dtc
 exprs
+findable
 flexibilities
 funder
 hotfixes

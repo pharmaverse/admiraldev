@@ -2,6 +2,9 @@
 
 ## New Features
 
+- New roxygen helper `roxygen_float_comparison()` providing standardized text about
+comparing floating point numbers in conditions. (#578)
+
 ## Updates of Existing Functions
 
 ## Breaking Changes
@@ -13,6 +16,10 @@
     - `expr_c()` - Please use `c()` instead.
 
 ## Documentation
+
+- The `{admiral}` manifesto was moved from the `{admiral}` package README to
+`{admiraldev}`. It is accessible through the "Developer Guides" section of the
+navigation bar. (#575)
 
 ## Various
 
