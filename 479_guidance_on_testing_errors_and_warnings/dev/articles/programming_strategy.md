@@ -290,7 +290,7 @@ expressions, etc.) must be a plural version of the word(s), e.g.,
 
 All source code should be formatted according to the
 [tidyverse](https://style.tidyverse.org/) style guide. The
-[lintr](https://github.com/jimhester/lintr) and
+[lintr](https://github.com/r-lib/lintr) and
 [styler](https://github.com/r-lib/styler) packages are used to check and
 enforce this.
 

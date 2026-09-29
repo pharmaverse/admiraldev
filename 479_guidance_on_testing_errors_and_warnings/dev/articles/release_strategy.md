@@ -170,8 +170,8 @@ into the release notes section:
 Then in the upload box where it says, “Attach binaries by dropping them
 here or selecting them” upload the appropriate `admiral_X.X.X.tar.gz`
 file available for download at the [CRAN
-website](https://cran.r-project.org/web/packages/admiral/index.html).
-Click `Publish Release` and you’re all done!
+website](https://CRAN.R-project.org/package=admiral). Click
+`Publish Release` and you’re all done!
 
 **NB:** Occasionally, you might need to delete the tag when something is
 done in error. Deleting a tag can not be done on GitHub and must be done
