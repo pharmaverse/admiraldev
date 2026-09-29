@@ -15,7 +15,6 @@ comparing floating point numbers in conditions. (#578)
 properly test errors and warnings using `testthat::expect_snapshot()` or the
 `class` argument of `testthat::expect_error()`/`testthat::expect_warning()`. (#479)
 
-- Updated to `{roxygen2}` 8.1.0. (#573)
 
 - The `{admiral}` manifesto was moved from the `{admiral}` package README to
 `{admiraldev}`. It is accessible through the "Developer Guides" section of the
