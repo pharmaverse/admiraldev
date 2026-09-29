@@ -23,9 +23,6 @@
   [`testthat::expect_error()`](https://testthat.r-lib.org/reference/expect_error.html)/[`testthat::expect_warning()`](https://testthat.r-lib.org/reference/expect_error.html).
   ([\#479](https://github.com/pharmaverse/admiraldev/issues/479))
 
-- Updated to [roxygen2](https://roxygen2.r-lib.org/) 8.1.0.
-  ([\#573](https://github.com/pharmaverse/admiraldev/issues/573))
-
 - The [admiral](https://pharmaverse.github.io/admiral/) manifesto was
   moved from the [admiral](https://pharmaverse.github.io/admiral/)
   package README to
