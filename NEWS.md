@@ -23,6 +23,13 @@ navigation bar. (#575)
 
 ## Various
 
+<details>
+<summary>Developer Notes</summary>
+
+- Updated to `{roxygen2}` 8.1.0. (#573)
+
+</details>
+
 # admiraldev 1.5.0
 
 ## New Features
@@ -43,8 +50,6 @@ to check whether the input date/datetime is a real date/datetime. (#505)
   `exprs("AVISIT")`". (#538)
 
 ## Documentation
-
-- Updated to `{roxygen2}` 8.0.0. (#557)
 
 - Updated links in documentation for AI coding `AGENTS.md` files. (#552)
 
@@ -67,6 +72,13 @@ in the [admiral reference page](https://pharmaverse.github.io/admiral/cran-relea
 ## Various
 
 - Updated existing assertion unit tests. (#550)
+
+<details>
+<summary>Developer Notes</summary>
+
+- Updated to `{roxygen2}` 8.0.0. (#557)
+
+</details>
 
 # admiraldev 1.4.1
 
