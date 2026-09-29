@@ -318,7 +318,7 @@ need to be updated when the message changes.</p>
 <span><span class="op">}</span></span></code></pre></div>
 <p>We can unit test the argument validation as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"myfun1 validates its arguments"</span>, {</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="fu">expect_error</span>(<span class="fu">myfun1</span>(<span class="dv">123</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="fu">expect_error</span>(<span class="fu">myfun1</span>(<span class="dv">123</span>), <span class="at">class =</span> <span class="st">"assert_character_scalar"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="fu">expect_snapshot</span>(</span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>    <span class="fu">myfun1</span>(long_string),</span>
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    <span class="at">error =</span> <span class="cn">TRUE</span></span>
@@ -349,7 +349,7 @@ is not a logical scalar:</p>
 <p>This test would still pass even if
 <code><a href="../reference/assert_logical_scalar.html">assert_logical_scalar()</a></code> were broken and threw an unrelated
 error
-(e.g. <code>could not find function \"assert_logical_scalar\"</code>),
+(e.g. <code>could not find function "assert_logical_scalar"</code>),
 because <code>expect_error()</code> without <code>class</code>, a
 message, or a regular expression accepts <em>any</em> error. The same
 applies to <code>expect_warning()</code>:

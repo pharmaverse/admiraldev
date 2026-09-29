@@ -184,7 +184,7 @@ We can unit test the argument validation as follows:
 
 ``` r
 test_that("myfun1 validates its arguments", {
-  expect_error(myfun1(123))
+  expect_error(myfun1(123), class = "assert_character_scalar")
   expect_snapshot(
     myfun1(long_string),
     error = TRUE
@@ -222,7 +222,7 @@ test_that("myfun2 errors", {
 This test would still pass even if
 [`assert_logical_scalar()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/assert_logical_scalar.md)
 were broken and threw an unrelated error
-(e.g. `could not find function \"assert_logical_scalar\"`), because
+(e.g. `could not find function "assert_logical_scalar"`), because
 `expect_error()` without `class`, a message, or a regular expression
 accepts *any* error. The same applies to `expect_warning()`:
 `expect_warning(my_fun())` on its own only confirms that *some* warning

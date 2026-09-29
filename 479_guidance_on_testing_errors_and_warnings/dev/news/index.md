@@ -35,6 +35,11 @@
 
 ### Various
 
+Developer Notes
+
+- Updated to [roxygen2](https://roxygen2.r-lib.org/) 8.1.0.
+  ([\#573](https://github.com/pharmaverse/admiraldev/issues/573))
+
 ## admiraldev 1.5.0
 
 CRAN release: 2026-06-10
@@ -68,9 +73,6 @@ CRAN release: 2026-06-10
 
 ### Documentation
 
-- Updated to [roxygen2](https://roxygen2.r-lib.org/) 8.0.0.
-  ([\#557](https://github.com/pharmaverse/admiraldev/issues/557))
-
 - Updated links in documentation for AI coding `AGENTS.md` files.
   ([\#552](https://github.com/pharmaverse/admiraldev/issues/552))
 
@@ -103,6 +105,11 @@ CRAN release: 2026-06-10
 
 - Updated existing assertion unit tests.
   ([\#550](https://github.com/pharmaverse/admiraldev/issues/550))
+
+Developer Notes
+
+- Updated to [roxygen2](https://roxygen2.r-lib.org/) 8.0.0.
+  ([\#557](https://github.com/pharmaverse/admiraldev/issues/557))
 
 ## admiraldev 1.4.1
 
