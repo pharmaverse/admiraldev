@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.5.0.9003</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.5.0.9004</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,7 +84,13 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 <div class="section level3">
 <h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
-</div>
+<ul><li>
+<p>The following functions are entering the next phase of the <a href="https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation" class="external-link">deprecation process</a>: (<a href="https://github.com/pharmaverse/admiraldev/issues/574" class="external-link">#574</a>)</p>
+<p><strong>Phase 1 (message)</strong></p>
+<ul><li>
+<code><a href="../reference/expr_c.html">expr_c()</a></code> - Please use <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> instead.</li>
+</ul></li>
+</ul></div>
 <div class="section level3">
 <h3 id="documentation-development-version">Documentation<a class="anchor" aria-label="anchor" href="#documentation-development-version"></a></h3>
 <ul><li><p>The “Unit Test Guidance” vignette was updated to include a section about how to properly test errors and warnings using <code><a href="https://testthat.r-lib.org/reference/expect_snapshot.html" class="external-link">testthat::expect_snapshot()</a></code> or the <code>class</code> argument of <code><a href="https://testthat.r-lib.org/reference/expect_error.html" class="external-link">testthat::expect_error()</a></code>/<code><a href="https://testthat.r-lib.org/reference/expect_error.html" class="external-link">testthat::expect_warning()</a></code>. (<a href="https://github.com/pharmaverse/admiraldev/issues/479" class="external-link">#479</a>)</p></li>

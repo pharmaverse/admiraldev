@@ -44,6 +44,7 @@ the expression `rhs` and returns that result.
 Other deprecated:
 [`arg_name()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/arg_name.md),
 [`enumerate()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/enumerate.md),
+[`expr_c()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/expr_c.md),
 [`friendly_type_of()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/friendly_type_of.md),
 [`valid_time_units()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/valid_time_units.md),
 [`what_is_it()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/what_is_it.md)

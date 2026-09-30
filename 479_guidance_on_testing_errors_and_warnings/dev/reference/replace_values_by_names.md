@@ -26,7 +26,6 @@ A list of expressions
 
 Helpers for working with Quosures:
 [`add_suffix_to_vars()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/add_suffix_to_vars.md),
-[`expr_c()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/expr_c.md),
 [`replace_symbol_in_expr()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/replace_symbol_in_expr.md)
 
 ## Examples

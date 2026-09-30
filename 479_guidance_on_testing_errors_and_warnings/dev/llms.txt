@@ -176,8 +176,6 @@ Helping your quosure needs
 
 - [`add_suffix_to_vars()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/add_suffix_to_vars.md)
   : Add a Suffix to Variables in a List of Expressions
-- [`expr_c()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/expr_c.md)
-  : Concatenate One or More Expressions
 - [`replace_symbol_in_expr()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/replace_symbol_in_expr.md)
   : Replace Symbols in an Expression
 - [`replace_values_by_names()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/replace_values_by_names.md)
@@ -294,6 +292,8 @@ deprecated:
   **\[deprecated\]** : Extract Argument Name from an Expression
 - [`enumerate()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/enumerate.md)
   **\[deprecated\]** : Enumerate Multiple Elements
+- [`expr_c()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/expr_c.md)
+  **\[deprecated\]** : Concatenate One or More Expressions
 - [`friendly_type_of()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/friendly_type_of.md)
   **\[deprecated\]** : Return English-friendly messaging for
   object-types

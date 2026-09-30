@@ -1,6 +1,9 @@
 # Concatenate One or More Expressions
 
-Concatenate One or More Expressions
+**\[deprecated\]**
+
+This function is *deprecated*, please use
+[`c()`](https://rdrr.io/r/base/c.html) instead.
 
 ## Usage
 
@@ -24,7 +27,10 @@ A list of expressions
 
 ## See also
 
-Helpers for working with Quosures:
-[`add_suffix_to_vars()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/add_suffix_to_vars.md),
-[`replace_symbol_in_expr()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/replace_symbol_in_expr.md),
-[`replace_values_by_names()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/replace_values_by_names.md)
+Other deprecated:
+[`%or%`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/grapes-or-grapes.md),
+[`arg_name()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/arg_name.md),
+[`enumerate()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/enumerate.md),
+[`friendly_type_of()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/friendly_type_of.md),
+[`valid_time_units()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/valid_time_units.md),
+[`what_is_it()`](https:/pharmaverse.github.io/admiraldev/479_guidance_on_testing_errors_and_warnings/dev/reference/what_is_it.md)
