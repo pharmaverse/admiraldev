@@ -195,7 +195,7 @@ the exact message text of the error.
 
 ### Bad Example
 
-Consider a function `myfun2()` which errors is the input is not a 
+Consider a function `myfun2()` which errors if the input is not a 
 logical scalar:
 
 ```r
