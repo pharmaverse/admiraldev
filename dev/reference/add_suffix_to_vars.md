@@ -58,7 +58,6 @@ added to every symbol specified for `vars`
 ## See also
 
 Helpers for working with Quosures:
-[`expr_c()`](https://pharmaverse.github.io/admiraldev/dev/reference/expr_c.md),
 [`replace_symbol_in_expr()`](https://pharmaverse.github.io/admiraldev/dev/reference/replace_symbol_in_expr.md),
 [`replace_values_by_names()`](https://pharmaverse.github.io/admiraldev/dev/reference/replace_values_by_names.md)
 

@@ -14,6 +14,16 @@
 
 ### Breaking Changes
 
+- The following functions are entering the next phase of the
+  [deprecation
+  process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation):
+  ([\#574](https://github.com/pharmaverse/admiraldev/issues/574))
+
+  **Phase 1 (message)**
+
+  - [`expr_c()`](https://pharmaverse.github.io/admiraldev/dev/reference/expr_c.md) -
+    Please use [`c()`](https://rdrr.io/r/base/c.html) instead.
+
 ### Documentation
 
 - The [admiral](https://pharmaverse.github.io/admiral/) manifesto was

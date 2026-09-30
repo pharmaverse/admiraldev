@@ -56,7 +56,6 @@ by `replace`
 
 Helpers for working with Quosures:
 [`add_suffix_to_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/add_suffix_to_vars.md),
-[`expr_c()`](https://pharmaverse.github.io/admiraldev/dev/reference/expr_c.md),
 [`replace_values_by_names()`](https://pharmaverse.github.io/admiraldev/dev/reference/replace_values_by_names.md)
 
 ## Author
