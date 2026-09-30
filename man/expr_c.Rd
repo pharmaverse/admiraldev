@@ -17,13 +17,18 @@ expr_c(...)
 A list of expressions
 }
 \description{
-Concatenate One or More Expressions
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+This function is \emph{deprecated}, please use \code{c()} instead.
 }
 \seealso{
-Helpers for working with Quosures:
-\code{\link[=add_suffix_to_vars]{add_suffix_to_vars()}},
-\code{\link[=replace_symbol_in_expr]{replace_symbol_in_expr()}},
-\code{\link[=replace_values_by_names]{replace_values_by_names()}}
+Other deprecated:
+\code{\link{\%or\%}},
+\code{\link[=arg_name]{arg_name()}},
+\code{\link[=enumerate]{enumerate()}},
+\code{\link[=friendly_type_of]{friendly_type_of()}},
+\code{\link[=valid_time_units]{valid_time_units()}},
+\code{\link[=what_is_it]{what_is_it()}}
 }
-\concept{quo}
-\keyword{quo}
+\concept{deprecated}
+\keyword{deprecated}

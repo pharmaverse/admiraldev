@@ -1745,7 +1745,7 @@ assert_one_to_one <- function(dataset,
                               call = parent.frame()) {
   assert_vars(vars1)
   assert_vars(vars2)
-  assert_data_frame(dataset, required_vars = expr_c(vars1, vars2))
+  assert_data_frame(dataset, required_vars = c(vars1, vars2))
 
   uniques <- unique(select(dataset, !!!vars1, !!!vars2))
   one_to_many <- uniques %>%

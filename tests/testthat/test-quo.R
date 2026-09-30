@@ -1,6 +1,14 @@
 # expr_c ----
-## Test 1: concatenating and indexing expressions ----
-test_that("expr_c Test 1: concatenating and indexing expressions", {
+## Test 1: deprecation message if function is called ----
+test_that("expr_c Test 1: deprecation message if function is called", {
+  expect_snapshot({
+    result <- expr_c(expr(USUBJID), expr(STUDYID))
+  })
+})
+
+## Test 2: concatenating and indexing expressions ----
+test_that("expr_c Test 2: concatenating and indexing expressions", {
+  withr::local_options(list(lifecycle_verbosity = "quiet"))
   x <- expr(USUBJID)
   y <- expr(STUDYID)
 
@@ -14,32 +22,35 @@ test_that("expr_c Test 1: concatenating and indexing expressions", {
   )
 })
 
-## Test 2: concatenating named list of expressions ----
-test_that("expr_c Test 2: concatenating named list of expressions", {
+## Test 3: concatenating named list of expressions ----
+test_that("expr_c Test 3: concatenating named list of expressions", {
+  withr::local_options(list(lifecycle_verbosity = "quiet"))
   expect_equal(
     expected = exprs(PARAMCD = "DOSE", PARAMN = 1),
     object = expr_c(exprs(PARAMCD = "DOSE", PARAMN = 1, NULL))
   )
 })
 
-## Test 3: concatenating list and single expression ----
-test_that("expr_c Test 3: concatenating list and single expression", {
+## Test 4: concatenating list and single expression ----
+test_that("expr_c Test 4: concatenating list and single expression", {
+  withr::local_options(list(lifecycle_verbosity = "quiet"))
   expect_equal(
     expected = exprs(PARAMCD, PARAM, AVAL),
     object = expr_c(exprs(PARAMCD, PARAM), expr(AVAL))
   )
 })
 
-## Test 4: returns error if non-expressions are input ----
-test_that("expr_c Test 4: returns error if non-expressions are input", {
+## Test 5: returns error if non-expressions are input ----
+test_that("expr_c Test 5: returns error if non-expressions are input", {
+  withr::local_options(list(lifecycle_verbosity = "quiet"))
   expect_error(
     object = expr_c(expr(USUBJID), mean)
   )
 })
 
 # replace_values_by_names ----
-## Test 5: names of expressions replace value ----
-test_that("replace_values_by_names Test 5: names of expressions replace value", {
+## Test 6: names of expressions replace value ----
+test_that("replace_values_by_names Test 6: names of expressions replace value", {
   z <- exprs(USUBJID, STUDYID)
 
   z_noname <- replace_values_by_names(z)
@@ -66,8 +77,8 @@ test_that("replace_values_by_names Test 5: names of expressions replace value", 
   )
 })
 
-## Test 6: names of argument is NULL ----
-test_that("replace_values_by_names Test 6: names of argument is NULL", {
+## Test 7: names of argument is NULL ----
+test_that("replace_values_by_names Test 7: names of argument is NULL", {
   z <- exprs(USUBJID, STUDYID)
   names(z) <- NULL
 
@@ -78,8 +89,8 @@ test_that("replace_values_by_names Test 6: names of argument is NULL", {
 })
 
 # replace_symbol_in_expr ----
-## Test 7: symbol is replaced ----
-test_that("replace_symbol_in_expr Test 7: symbol is replaced", {
+## Test 8: symbol is replaced ----
+test_that("replace_symbol_in_expr Test 8: symbol is replaced", {
   expect_equal(
     expected = expr(AVAL.join),
     object = replace_symbol_in_expr(
@@ -90,8 +101,8 @@ test_that("replace_symbol_in_expr Test 7: symbol is replaced", {
   )
 })
 
-## Test 8: partial match is not replaced ----
-test_that("replace_symbol_in_expr Test 8: partial match is not replaced", {
+## Test 9: partial match is not replaced ----
+test_that("replace_symbol_in_expr Test 9: partial match is not replaced", {
   expect_equal(
     expected = expr(AVALC),
     object = replace_symbol_in_expr(
@@ -102,8 +113,8 @@ test_that("replace_symbol_in_expr Test 8: partial match is not replaced", {
   )
 })
 
-## Test 9: symbol in expression is replaced ----
-test_that("replace_symbol_in_expr Test 9: symbol in expression is replaced", {
+## Test 10: symbol in expression is replaced ----
+test_that("replace_symbol_in_expr Test 10: symbol in expression is replaced", {
   expect_equal(
     expected = expr(desc(AVAL.join)),
     object = replace_symbol_in_expr(
@@ -114,8 +125,8 @@ test_that("replace_symbol_in_expr Test 9: symbol in expression is replaced", {
   )
 })
 
-## Test 10: works recursive and with NA ----
-test_that("replace_symbol_in_expr Test 10: works recursive and with NA", {
+## Test 11: works recursive and with NA ----
+test_that("replace_symbol_in_expr Test 11: works recursive and with NA", {
   expect_equal(
     expected = expr(if_else(AVAL.join > 0, AVAL.join, NA)),
     object = replace_symbol_in_expr(
@@ -127,8 +138,8 @@ test_that("replace_symbol_in_expr Test 10: works recursive and with NA", {
 })
 
 # add_suffix_to_vars ----
-## Test 11: with single variable ----
-test_that("add_suffix_to_vars Test 11: with single variable", {
+## Test 12: with single variable ----
+test_that("add_suffix_to_vars Test 12: with single variable", {
   expect_equal(
     expected = exprs(ADT, desc(AVAL.join), AVALC),
     object = add_suffix_to_vars(
@@ -139,8 +150,8 @@ test_that("add_suffix_to_vars Test 11: with single variable", {
   )
 })
 
-## Test 12: with more than one variable ----
-test_that("add_suffix_to_vars Test 12: with more than one variable", {
+## Test 13: with more than one variable ----
+test_that("add_suffix_to_vars Test 13: with more than one variable", {
   expect_equal(
     expected = exprs(ADT, desc(AVAL.join), AVALC.join),
     object = add_suffix_to_vars(
