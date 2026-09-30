@@ -25,6 +25,7 @@ This function is \emph{deprecated}, please use \code{rlang::caller_arg()} instea
 Other deprecated:
 \code{\link{\%or\%}},
 \code{\link[=enumerate]{enumerate()}},
+\code{\link[=expr_c]{expr_c()}},
 \code{\link[=friendly_type_of]{friendly_type_of()}},
 \code{\link[=valid_time_units]{valid_time_units()}},
 \code{\link[=what_is_it]{what_is_it()}}

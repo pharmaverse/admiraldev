@@ -50,7 +50,7 @@ test_that("assert_data_frame Test 3: assert_data_frame extract_vars() works as i
   )
 
   example_fun <- function(dataset, order) {
-    assert_data_frame(dataset, required_vars = expr_c(
+    assert_data_frame(dataset, required_vars = c(
       exprs(STUDYID, USUBJID),
       extract_vars(order)
     ))
@@ -69,7 +69,7 @@ test_that("assert_data_frame Test 4: assert_data_frame works if extract_vars() h
   )
 
   example_fun <- function(dataset, order = NULL) {
-    assert_data_frame(dataset, required_vars = expr_c(
+    assert_data_frame(dataset, required_vars = c(
       exprs(STUDYID, USUBJID),
       extract_vars(order)
     ))
