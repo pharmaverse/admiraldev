@@ -7,6 +7,9 @@ comparing floating point numbers in conditions. (#578)
 
 ## Updates of Existing Functions
 
+- The error message of `assert_vars()` now includes a hint to use `chr2vars()`
+if a character vector is passed. (#581)
+
 ## Breaking Changes
 
 - The following functions are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#574)

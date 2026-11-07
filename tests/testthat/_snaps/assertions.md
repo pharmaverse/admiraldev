@@ -175,7 +175,8 @@
       assert_vars(c("USUBJID", "PARAMCD", "VISIT"))
     Condition <assert_vars>
       Error:
-      ! Argument `c("USUBJID", "PARAMCD", "VISIT")` must be class <list>, but is a character vector.
+      ! Argument `c("USUBJID", "PARAMCD", "VISIT")` must be a list of <symbol> created by `exprs()`, but is a character vector.
+      i Use `admiral::chr2vars()` to convert a character vector, e.g. `chr2vars(c("USUBJID", "VISIT"))`.
 
 ---
 
