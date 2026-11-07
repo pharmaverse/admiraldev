@@ -269,6 +269,9 @@ transform_examplesx <- function(block) {
             expected_cnds = tags[[i]]$val$options$expected_cnds,
             env = example_env
           ) %>%
+            # escape backslashes so that Rd code in the output (e.g., `\alias{}`)
+            # is not interpreted as Rd markup
+            str_replace_all("\\\\", "\\\\\\\\") %>%
             str_replace_all("\\%", "\\\\%") %>%
             # replace/remove unicode characters which cause issues in building
             # pdf manual resulting in rejection by CRAN
