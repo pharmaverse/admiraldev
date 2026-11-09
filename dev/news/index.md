@@ -12,6 +12,12 @@
 
 ### Updates of Existing Functions
 
+- The error message of
+  [`assert_vars()`](https://pharmaverse.github.io/admiraldev/dev/reference/assert_vars.md)
+  now includes a hint to use `chr2vars()` if a character vector is
+  passed.
+  ([\#581](https://github.com/pharmaverse/admiraldev/issues/581))
+
 - [`rdx_roclet()`](https://pharmaverse.github.io/admiraldev/dev/reference/rdx_roclet.md)
   now escapes backslashes in the output of `@code` examples. This
   prevents Rd code in the output (e.g., `\alias{}`) from being picked up

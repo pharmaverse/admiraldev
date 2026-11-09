@@ -137,7 +137,10 @@ try(example_fun(quos(USUBJID, PARAMCD)))
 
 try(example_fun(c("USUBJID", "PARAMCD", "VISIT")))
 #> Error in example_fun(c("USUBJID", "PARAMCD", "VISIT")) : 
-#>   Argument `by_vars` must be class <list>, but is a character vector.
+#>   Argument `by_vars` must be a list of <symbol> created by `exprs()`, but
+#> is a character vector.
+#> ℹ Use `admiral::chr2vars()` to convert a character vector, e.g.
+#>   `chr2vars(c("USUBJID", "VISIT"))`.
 
 try(example_fun(exprs(USUBJID, toupper(PARAMCD), desc(AVAL))))
 #> Error in example_fun(exprs(USUBJID, toupper(PARAMCD), desc(AVAL))) : 
