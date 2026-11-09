@@ -7,6 +7,10 @@ comparing floating point numbers in conditions. (#578)
 
 ## Updates of Existing Functions
 
+- `rdx_roclet()` now escapes backslashes in the output of `@code` examples. This
+prevents Rd code in the output (e.g., `\alias{}`) from being picked up as Rd
+markup, which caused "Aliases documented in multiple Rd files" warnings. (#583)
+
 ## Breaking Changes
 
 - The following functions are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#574)
