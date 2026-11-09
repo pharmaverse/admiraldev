@@ -12,6 +12,13 @@
 
 ### Updates of Existing Functions
 
+- [`rdx_roclet()`](https://pharmaverse.github.io/admiraldev/dev/reference/rdx_roclet.md)
+  now escapes backslashes in the output of `@code` examples. This
+  prevents Rd code in the output (e.g., `\alias{}`) from being picked up
+  as Rd markup, which caused “Aliases documented in multiple Rd files”
+  warnings.
+  ([\#583](https://github.com/pharmaverse/admiraldev/issues/583))
+
 ### Breaking Changes
 
 - The following functions are entering the next phase of the

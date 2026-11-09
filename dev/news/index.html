@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <a class="navbar-brand me-2" href="../index.html">admiraldev</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.5.0.9004</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.5.0.9005</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
 </ul></div>
 <div class="section level3">
 <h3 id="updates-of-existing-functions-development-version">Updates of Existing Functions<a class="anchor" aria-label="anchor" href="#updates-of-existing-functions-development-version"></a></h3>
-</div>
+<ul><li>
+<code><a href="../reference/rdx_roclet.html">rdx_roclet()</a></code> now escapes backslashes in the output of <code>@code</code> examples. This prevents Rd code in the output (e.g., <code>\alias{}</code>) from being picked up as Rd markup, which caused “Aliases documented in multiple Rd files” warnings. (<a href="https://github.com/pharmaverse/admiraldev/issues/583" class="external-link">#583</a>)</li>
+</ul></div>
 <div class="section level3">
 <h3 id="breaking-changes-development-version">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
 <ul><li>
