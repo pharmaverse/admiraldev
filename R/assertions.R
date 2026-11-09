@@ -615,6 +615,24 @@ assert_vars <- function(arg,
     )
   }
 
+  if (is.character(arg)) {
+    cli_abort(
+      message = message %||%
+        c(
+          paste(
+            "Argument {.arg {arg_name}} must be a list of {.cls symbol} created by {.fun exprs},",
+            "but is {.obj_type_friendly {arg}}."
+          ),
+          i = paste(
+            "Use {.fun admiral::chr2vars} to convert a character vector, e.g.",
+            "{.code chr2vars(c(\"USUBJID\", \"VISIT\"))}."
+          )
+        ),
+      class = c(class, "assert-admiraldev"),
+      call = call
+    )
+  }
+
   assert_list_of(
     arg,
     "symbol",

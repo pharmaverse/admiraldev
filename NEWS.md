@@ -7,6 +7,9 @@ comparing floating point numbers in conditions. (#578)
 
 ## Updates of Existing Functions
 
+- The error message of `assert_vars()` now includes a hint to use `chr2vars()`
+if a character vector is passed. (#581)
+
 - `rdx_roclet()` now escapes backslashes in the output of `@code` examples. This
 prevents Rd code in the output (e.g., `\alias{}`) from being picked up as Rd
 markup, which caused "Aliases documented in multiple Rd files" warnings. (#583)
